@@ -20,7 +20,7 @@ You meet the problem in **week 3** — add three records, quit, run it again, th
 
 | Week | Topic | The payoff moment | Folder | Status |
 |------|-------|-------------------|--------|--------|
-| 1 | Toolchain: SDK, VS Code, `dotnet new console`, your first program; `git init` → first push to GitHub. The Python bridge opens. | The compiler refuses to run a program that Python would have happily crashed on at line 40 | `week-⁠01/` | 🚧&nbsp;Planned |
+| 1 | Toolchain: SDK, VS Code, `dotnet new console`, your first program; `git init` → first push to GitHub. The Python bridge opens. | The compiler refuses to run a program that Python would have happily crashed on at line 40 | [`week-⁠01/`](week-01/) | ✅&nbsp;Ready |
 | 2 | Types and the compiler (static typing, felt not preached), methods, control flow. Git hygiene: `.gitignore`, commit messages, README | `git status` right after your first build: forty files you never wrote | `week-⁠02/` | 🚧&nbsp;Planned |
 | 3 | Collections: `List<T>`, `foreach`, `Dictionary<K,V>` — and **Spectre.Console**, your first NuGet package | Your list becomes a real table in one line of code. Then you quit, run it again, and it's empty | `week-⁠03/` | 🚧&nbsp;Planned |
 | 4 | OOP I: classes, properties, constructors. **Semester project starts** — your own topic. Branch → pull request → merge | Your own topic, and the first pull request you merge into your own `main` | `week-⁠04/` | 🚧&nbsp;Planned |
