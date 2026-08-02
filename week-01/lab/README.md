@@ -6,11 +6,18 @@ It's 11:58 PM and you're the overnight desk at **KDXR 88.1, "The Owl."** The sig
 
 ## Setup
 
-**1. Update your clone of the course repo:**
+**1. Update your clone of the course repo** — the one you cloned during [setup](../setup-guide.md):
 
 ```bash
-cd dotnet-db-dev && git pull
+cd dotnet-db-dev
+git pull
 ```
+
+> [!NOTE]
+> **`cd: no such file or directory`?** You haven't cloned it yet. One command, from your home folder, and then run the two above:
+> ```bash
+> git clone https://github.com/jgrissom/dotnet-db-dev.git
+> ```
 
 **2. Copy the `week-01/lab/starter` folder out to wherever you keep your projects, and rename the copy** — `KDXRLab` works. (Copy it *out*; never work inside the clone, or next week's `git pull` will fight your edits.)
 
@@ -111,7 +118,7 @@ The Owl runs midnight to 6:00 AM. Given the time as an hour and a minute, return
 Two steps: turn the time you were given into **minutes past midnight**, then subtract that from **360**, which is what 6:00 AM is worth.
 
 > [!TIP]
-> If you're off by exactly 60 somewhere, check the order of operations — the hour has to be multiplied by 60 *before* the minutes are added. Brackets make it obvious: `(hour * 60) + minute`.
+> If your answer is off by a multiple of 59, that's the order of operations — the hour has to be multiplied by 60 *before* the minutes are added. Brackets make it obvious: `(hour * 60) + minute`.
 
 ### Task 4 in full
 

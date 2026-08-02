@@ -55,7 +55,11 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] Circulate. **Do not demo anything during this segment** — the room is at fourteen different stages and a demo strands whoever is behind
 - [ ] 🎯 **The `dotnet --version` fix, said loudly once so you say it once:** *"if the terminal says 'command not found', it was open while you installed. Close it completely and open a new one. That's nine out of ten of them"*
 - [ ] Watch for the slow one: the C# extension download on class wifi. Anyone stuck there can still do everything in §3–§6 from the terminal
-- [ ] **✓ CHECKPOINT:** every machine prints a `10.` from `dotnet --version` before the break
+- [ ] ⚠️ **The last item in §5 of the guide is the one that gets skipped, because it isn't an install and it isn't on the slide — everybody clones the course repo.** Tonight's lab and this week's homework both *begin* by copying something out of it, so a room that skipped it loses ten minutes at 3:00:
+  ```bash
+  git clone https://github.com/jgrissom/dotnet-db-dev.git
+  ```
+- [ ] **✓ CHECKPOINT:** every machine prints a `10.` from `dotnet --version` **and** has a `dotnet-db-dev` folder, before the break
 
 ## 3 · A folder becomes a program *(slides 6–8)*
 

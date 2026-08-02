@@ -79,8 +79,9 @@ public class BroadcastChecks
 
         Assert.True(Broadcast.MinutesUntilSunrise(5, 59) == 1,
             "One minute before six should leave 1 minute, and MinutesUntilSunrise(5, 59) "
-            + $"returned {Broadcast.MinutesUntilSunrise(5, 59)}. If you're off by exactly 60 "
-            + "somewhere, check whether the hours got multiplied before the minutes were added.");
+            + $"returned {Broadcast.MinutesUntilSunrise(5, 59)}. If you're off by a multiple of "
+            + "59, the minutes got added before the hour was multiplied — brackets fix it: "
+            + "(hour * 60) + minute.");
     }
 
     [Fact] // Task 4: the integer-division trap — a Python habit misfiring

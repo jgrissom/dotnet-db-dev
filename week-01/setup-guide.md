@@ -92,7 +92,7 @@ It prints your name back. If it prints nothing, it didn't take — check for a t
 
 ---
 
-## 5. A GitHub account, and your coursework repo
+## 5. GitHub: an account, your coursework repo, and the course repo
 
 **Sign up (or sign in):** [github.com](https://github.com/)
 
@@ -113,11 +113,32 @@ It prints your name back. If it prints nothing, it didn't take — check for a t
 
 **✓ Check.** Settings → Collaborators lists `jgrissom` as **Pending Invite** or **Collaborator**. Either is fine — pending just means I haven't clicked accept yet.
 
+### Then clone the course repo
+
+That was *your* repo. This is **mine** — everything I hand you all term arrives in it: tonight's lab, the checks that grade your homework, the notes. You clone it once, now, and `git pull` it at the start of every week.
+
+Do this somewhere sensible that is **not** inside your `dotnet-db-coursework` folder — your home folder is fine:
+
+```bash
+git clone https://github.com/jgrissom/dotnet-db-dev.git
+```
+
+⚠️ **You never edit anything in this folder and you never work inside it.** Each week you copy that week's starter *out* of it and work on the copy. Work inside the clone and next week's `git pull` fights your own edits.
+
+**✓ Check:**
+
+```bash
+cd dotnet-db-dev
+ls
+```
+
+You should see `week-01`, `README.md` and a `scripts` folder.
+
 ---
 
 ## You're done
 
-Five green checks and you have a working toolchain: a compiler, an editor that understands C#, and somewhere to put your work.
+Five green checks and you have a working toolchain: a compiler, an editor that understands C#, somewhere to put your work — and the course repo, which is where everything I give you shows up.
 
 **Nothing here is graded.** The homework is, and it starts by using every one of these.
 

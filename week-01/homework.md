@@ -34,7 +34,7 @@ cd week-01
 dotnet new console -o Week01
 ```
 
-**2. Copy the checks project in from your clone of the course repo** — the whole folder, into `week-01/` beside `Week01`:
+**2. Copy the checks project in from your clone of the course repo** — the same clone you took the lab starter out of. (Haven't got it? `git clone https://github.com/jgrissom/dotnet-db-dev.git`.) Copy the whole folder into `week-01/`, beside `Week01`:
 
 ```
 dotnet-db-dev/week-01/homework-checks/Week01.HomeworkChecks     ← copy this folder

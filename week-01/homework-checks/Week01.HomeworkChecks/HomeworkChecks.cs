@@ -122,9 +122,11 @@ public class HomeworkChecks
             $"At {signOffHour - 1}:30 your station has half an hour left, so "
             + $"MinutesUntilSignOff({signOffHour - 1}, 30) should be 30 — it returned "
             + $"{halfHourLeft}.\n"
-            + (halfHourLeft == signOffHour * 60 - (signOffHour - 1)
-                ? "Being off by a multiple of 59 usually means the minutes got added before the "
-                  + "hours were multiplied. Brackets fix it: (hour * 60) + minute."
+            // (hour + minute) * 60 lands on this exact number whatever the sign-off
+            // hour is: the 30 that was wanted, less 59 for each of the 30 minutes.
+            + (halfHourLeft == 30 - 59 * 30
+                ? "Being off by a multiple of 59 means the minutes got added before the hours "
+                  + "were multiplied. Brackets fix it: (hour * 60) + minute."
                 : "Check the order: multiply the hour by 60 FIRST, then add the minutes, then "
                   + "subtract the lot from your sign-off time."));
 
