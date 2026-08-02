@@ -1,0 +1,40 @@
+{
+  "week": 1,
+  "total": 20,
+  "_comment": "One source of truth for week 1's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first.",
+
+  "checks": {
+    "Check1_TheStationHasALegalCallSign": {
+      "points": 2,
+      "label": "Your call sign is four capital letters starting with K or W"
+    },
+    "Check2_TheStationHasAHome": {
+      "points": 2,
+      "label": "Your station broadcasts from somewhere real enough to name"
+    },
+    "Check3_TheSignOnIdentifiesTheStation": {
+      "points": 4,
+      "label": "SignOn() says the call sign and the city — built from your own methods"
+    },
+    "Check4_TheClockCountsDownToSignOff": {
+      "points": 4,
+      "label": "MinutesUntilSignOff() counts down to YOUR sign-off hour, correctly"
+    }
+  },
+
+  "repo": {
+    "repoReachable": {
+      "points": 3,
+      "label": "Private coursework repo exists and I can clone it (collaborator accepted)"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing"
+    },
+    "commits": {
+      "points": 3,
+      "minimum": 3,
+      "label": "3+ commits 👀 (meaningful messages are a judgement call)"
+    }
+  }
+}
