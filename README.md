@@ -63,7 +63,7 @@ Your semester project is neither — it's yours.
 
 1. **Prep (before class):** read `lesson-plan.md` for the timed agenda, then skim `lecture-notes.md` — the expanded, speakable version of the slides, with asides and a troubleshooting appendix.
 2. **In class:** present the slides — `slides.md` in VS Code with the **Marp for VS Code** extension, the exported `slides.html` in any browser (`F` for fullscreen, arrow keys — works offline), or the hosted Pages site. Keep the demo cue sheet on a laptop or tablet.
-3. **After class:** `homework.md` is the assignment. Lab answer keys, graders and comprehension questions live in the **private** curriculum repo — never in this one.
+3. **After class:** `homework.md` is the assignment. Lab answer keys, graders and comprehension questions live in the private [dotnet-db-dev-answer-keys](https://github.com/jgrissom/dotnet-db-dev-answer-keys) repo — never in this one.
 4. **Short semester?** Week 15 is the designated flex week — drop it in a 15-week run and week 16's presentations become week 15. Nothing later depends on it, nothing graded lives in it, and no promise made in an earlier week is collected in it.
 
 ## Weekly Package

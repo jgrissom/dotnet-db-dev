@@ -21,7 +21,7 @@ const SKIP_DIRS = new Set(["node_modules", "bin", "obj", ".git", ".playwright-mc
 // b) reachable in a browser and to curl (200), but Node's fetch can't complete
 //    the request — verified by hand, so a red line here is just noise
 const EXTERNAL_ALLOWLIST = new Set([
-  "https://github.com/jgrissom/dotnet-db-curriculum",       // (a) private repo
+  "https://github.com/jgrissom/dotnet-db-dev-answer-keys",  // (a) private repo
   "https://code.visualstudio.com/",                          // (b) curl 200, fetch hangs
 ]);
 
