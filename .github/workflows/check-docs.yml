@@ -1,0 +1,56 @@
+name: Check docs
+
+on:
+  push:
+    branches: [main]
+    paths: ["**/*.md", "scripts/check-links.js", "scripts/check-tables.js", "scripts/check-cues.js"]
+  schedule:
+    - cron: "0 12 * * 1"   # Mondays: full check including external URLs
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save github-slugger
+      - name: Internal links + anchors (every push)
+        run: node scripts/check-links.js .
+      - name: Week README tables — columns 1–2 must not wrap
+        run: node scripts/check-tables.js .
+      - name: Demo cues line up with the slide decks
+        run: node scripts/check-cues.js .
+      - name: External URLs (scheduled/manual runs only)
+        if: github.event_name != 'push'
+        run: node scripts/check-links.js . --external
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      # Every lab starter must build, and its checks project must RUN — a starter
+      # that doesn't compile wastes the first ten minutes of a lab for everybody.
+      # Failures here are expected (the starter is meant to be red); a build
+      # error or a crashed run is not. Console apps hang forever on a blocked
+      # ReadLine, so stdin is closed and every run is capped.
+      - name: Build and run every lab starter's checks
+        run: |
+          fail=0
+          for proj in week-*/lab/starter/*.Checks/*.csproj; do
+            [ -e "$proj" ] || continue
+            dir=$(dirname "$(dirname "$proj")")
+            echo "── $proj"
+            if ! dotnet build "$proj" -warnaserror -nologo; then fail=1; continue; fi
+            timeout 300 dotnet test "$proj" --no-build --nologo < /dev/null
+            code=$?
+            # 0 = all green, 1 = tests failed (fine — starters are red on purpose).
+            # Anything else is a crash, a hang, or a build/runner problem.
+            if [ $code -gt 1 ]; then echo "::error::$proj exited $code (crash, hang or runner error)"; fail=1; fi
+          done
+          exit $fail
