@@ -16,9 +16,13 @@ const GithubSlugger = (() => { const m = require("github-slugger"); return m.def
 const root = path.resolve(process.argv[2] || ".");
 const checkExternal = process.argv.includes("--external");
 const SKIP_DIRS = new Set(["node_modules", "bin", "obj", ".git", ".playwright-mcp", "wwwroot"]);
-// URLs that 404 for the unauthenticated world on purpose (private repos etc.)
+// URLs the checker can't verify but which are fine. Two reasons only:
+// a) 404s for the unauthenticated world on purpose (private repos)
+// b) reachable in a browser and to curl (200), but Node's fetch can't complete
+//    the request — verified by hand, so a red line here is just noise
 const EXTERNAL_ALLOWLIST = new Set([
-  "https://github.com/jgrissom/dotnet-db-curriculum",
+  "https://github.com/jgrissom/dotnet-db-curriculum",       // (a) private repo
+  "https://code.visualstudio.com/",                          // (b) curl 200, fetch hangs
 ]);
 
 function mdFiles(dir) {
