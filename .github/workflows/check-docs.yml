@@ -3,7 +3,14 @@ name: Check docs
 on:
   push:
     branches: [main]
-    paths: ["**/*.md", "scripts/check-links.js", "scripts/check-tables.js", "scripts/check-cues.js"]
+    # The workflow's own file is in this list on purpose: without it, a change
+    # to the checks below can't re-run them, and a fix looks unverified because
+    # nothing fires. Lab starters are here for the same reason.
+    paths:
+      - "**/*.md"
+      - "scripts/check-*.js"
+      - "week-*/lab/starter/**"
+      - ".github/workflows/check-docs.yml"
   schedule:
     - cron: "0 12 * * 1"   # Mondays: full check including external URLs
   workflow_dispatch:
