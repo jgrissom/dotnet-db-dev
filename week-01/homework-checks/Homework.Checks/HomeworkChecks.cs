@@ -3,7 +3,7 @@
 //  I run against your repo; I don't have a second, secret set.
 //
 //  Run them from your week-01 folder, the one holding both project folders:
-//      dotnet test App.HomeworkChecks
+//      dotnet test Homework.Checks
 //
 //  Notice what they never do: they never assume what your station is called,
 //  what city it's in, or when it signs off. They ask YOUR code what its own
@@ -13,7 +13,7 @@
 // ═══════════════════════════════════════════════════════════════════
 using System.Text.RegularExpressions;
 
-namespace App.HomeworkChecks;
+namespace Homework.Checks;
 
 public class HomeworkChecks
 {

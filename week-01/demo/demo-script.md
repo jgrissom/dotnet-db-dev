@@ -252,11 +252,12 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ## 8 · Hand off to the lab *(slide 20)*
 
 - [ ] 🎞️ **GO TO SLIDE 20** — *Lab: KDXR signs on*. Leave it up for the whole lab; it's the task list and it carries the clock
-- [ ] Show **what done looks like** — the answer key **running on your machine**: `week-01/lab/solution`, then `dotnet test KDXR.Checks` printing **5 / 5**, and `dotnet run --project KDXR` showing the sign-on. ~60 seconds, a target not a walkthrough. **Nothing is deployed in this course — this is just localhost, and it always will be**
+- [ ] Show **what done looks like** — the answer key **running on your machine**: `week-01/lab/solution`, then `dotnet test Lab.Checks` printing **5 / 5**, and `dotnet run --project Lab` showing the sign-on. ~60 seconds, a target not a walkthrough. **Nothing is deployed in this course — this is just localhost, and it always will be**
 - [ ] 🎯 **Frame it honestly, because the C# is well within them:** *"the code tonight is not hard for you. What's new is the loop — run the checks, read what they say, fix one thing, run again. That loop is the whole course"*
-- [ ] Setup on screen, said once: **`git pull` → copy `week-01/lab/starter` out of the clone and rename it → open the folder holding *both* project folders → `dotnet test KDXR.Checks`** → **1 / 5**
-- [ ] ⚠️ **The folder split, because it trips everybody all term:** `dotnet test KDXR.Checks` runs from the folder holding **both** projects; `dotnet run --project KDXR` from the same place. Never from inside `KDXR.Checks`
-- [ ] ⚠️ **"Copy it OUT of the clone."** Working inside the clone means next week's `git pull` fights their edits
+- [ ] Setup on screen, said once: **`git pull` → copy the two folders in `week-01/lab/starter` into their own `week-01` → open `week-01` in VS Code → `dotnet test Lab.Checks`** → **1 / 5**
+- [ ] 🎯 **Tie it back to the shape they watched an hour ago:** *"same folder you just saw me build Haldane in. You open `week-01`, you stay there, and you name the project. `Lab` and `Lab.Checks` go in beside each other — and tonight's homework adds `Homework` and `Homework.Checks` to the same folder"*
+- [ ] ⚠️ **The folder split, because it trips everybody all term:** `dotnet test Lab.Checks` and `dotnet run --project Lab` both run from **`week-01`**. Never from inside `Lab` or `Lab.Checks`, and **never `cd`**
+- [ ] ⚠️ **"Copy it OUT of the clone, into your own repo."** Working inside the clone means next week's `git pull` fights their edits — and their lab belongs in their `week-01` with everything else from tonight
 - [ ] Say the target and mean it: **all five green tonight.** *"Check 1 is green before you touch anything — that's the station you were handed"*
 - [ ] 🎯 **Point them at the failure messages:** *"these are not 'assertion failed'. They tell you what's wrong and what to do about it. Read them — especially check 4's, which is the bug you watched me make forty minutes ago"*
 - [ ] 💡 **Finished early?** The *Done early?* list in the lab README is real work. Point at the "break something deliberately" item

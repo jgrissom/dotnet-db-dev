@@ -14,19 +14,19 @@
 // ═══════════════════════════════════════════════════════════════════
 using System.Reflection;
 
-namespace App.HomeworkChecks;
+namespace Homework.Checks;
 
 internal static class StudentCode
 {
-    // Your project's assembly, found by the name the homework fixed: App.
-    private static Assembly Project => Assembly.Load("App");
+    // Your project's assembly, found by the name the homework fixed: Homework.
+    private static Assembly Project => Assembly.Load("Homework");
 
     internal static Type RequireStation()
     {
         var type = Project.GetTypes().FirstOrDefault(t => t.Name == "Station");
 
         Assert.True(type != null,
-            "I can't find a class called Station in your App project.\n"
+            "I can't find a class called Station in your Homework project.\n"
             + "The homework asks for a file called Station.cs holding a class called Station, "
             + "with your station's details in it:\n"
             + "    public static class Station\n"
@@ -97,7 +97,7 @@ internal static class StudentCode
             throw new Xunit.Sdk.XunitException(
                 $"Station.{method.Name}(...) threw {e.InnerException.GetType().Name} instead of "
                 + $"returning a value:\n    {e.InnerException.Message}\n"
-                + "Run your program with `dotnet run --project App` and you should see the "
+                + "Run your program with `dotnet run --project Homework` and you should see the "
                 + "same crash. Fix it there first, then come back to the checks.");
         }
     }

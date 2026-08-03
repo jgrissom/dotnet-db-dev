@@ -28,7 +28,7 @@ Setup night — but for a room that already took a C# course, setup is a *verifi
 - **Rehearse the whole demo once (≈20 min)** — it also warms the NuGet cache, so the live `dotnet new console` is instant instead of a thirty-second stare
 - Post the setup guide ahead of time and ask people to run the four ✓-checks before they arrive — most will pass all four and the segment collapses to git
 - **Your own `git config --global user.name`** set to something you're happy projecting
-- Your finished lab answer key with `dotnet test KDXR.Checks` at **5/5**, for the 60-second *what done looks like*
+- Your finished lab answer key with `dotnet test Lab.Checks` at **5/5**, for the 60-second *what done looks like*
 - Editor font **and** terminal sized for the back row — tonight is when people find out whether they can read the screen at all
 - ⚠️ **Do not hand out the SQL Server credentials.** They're not needed until week 10 and they'll be lost by then
 

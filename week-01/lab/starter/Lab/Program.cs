@@ -4,7 +4,7 @@
 // change anything in this file tonight — but read it, because every line in
 // here is something you'll be writing yourself by next week.
 //
-// Run it with:   dotnet run --project KDXR
+// Run it with:   dotnet run --project Lab
 // Right now most of it lies, because Broadcast.cs isn't finished. That's the lab.
 
 Console.WriteLine("+------------------------------------------+");

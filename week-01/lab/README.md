@@ -22,34 +22,37 @@ git pull
 > git clone https://github.com/jgrissom/dotnet-db-dev.git
 > ```
 
-**2. Copy the `week-01/lab/starter` folder out to wherever you keep your projects, and rename the copy** — `KDXRLab` works. (Copy it *out*; never work inside the clone, or next week's `git pull` will fight your edits.)
+**2. Copy the two folders inside `week-01/lab/starter` into your own `week-01` folder** — the one in your `dotnet-db-coursework` repo. (Copy them *out* of the clone; never work inside it, or next week's `git pull` will fight your edits.)
 
 ```
-KDXRLab/              ← the folder you copied and renamed
-├─ KDXR/             ← the station — ALL your work happens in here
-└─ KDXR.Checks/      ← the checks — read-only, never edit
+dotnet-db-coursework/
+└─ week-01/           ← open THIS in VS Code
+   ├─ Lab/            ← the station — ALL your work happens in here
+   └─ Lab.Checks/     ← the checks — read-only, never edit
 ```
 
-**3. Open `KDXRLab` in VS Code** — the folder that *contains* both project folders.
+Your lab work lives in your repo alongside everything else from this week. It isn't graded — but it's the worked example your homework is built on, so you want it where you can find it.
+
+**3. Open `week-01` in VS Code** — the folder that *contains* both project folders, exactly like the demo.
 
 **4. In the VS Code terminal, from that same folder:**
 
 ```bash
-dotnet test KDXR.Checks
+dotnet test Lab.Checks
 ```
 
 **1 / 5 passing.** Check 1 is the station you were handed, already on the air. The other four are tonight.
 
 > [!CAUTION]
-> **The folder split trips everybody, all term.** `dotnet test KDXR.Checks` and `dotnet run --project KDXR` both run from the folder holding **both** project folders — the one you opened in VS Code. Not from inside `KDXR`, and never from inside `KDXR.Checks`.
+> **The folder split trips everybody, all term.** `dotnet test Lab.Checks` and `dotnet run --project Lab` both run from `week-01` — the folder you opened in VS Code, the one holding **both** project folders. Not from inside `Lab`, and never from inside `Lab.Checks`. **You never `cd` anywhere.**
 
 ## Where tonight's work happens
 
 | File | What you do to it |
 |---|---|
-| `KDXR/Broadcast.cs` | **everything.** Four methods to fill in |
-| `KDXR/Program.cs` | read it, don't change it — it's what a human sees |
-| `KDXR.Checks/` | **never edit.** It's how you know you're done |
+| `Lab/Broadcast.cs` | **everything.** Four methods to fill in |
+| `Lab/Program.cs` | read it, don't change it — it's what a human sees |
+| `Lab.Checks/` | **never edit.** It's how you know you're done |
 
 > [!NOTE]
 > **Notice what the checks never look at: your output.** They call your methods and inspect what comes back. That's why `Broadcast.cs` exists separately from `Program.cs` — and it's the shape [every homework this term asks for](../lecture-notes.md#where-your-code-has-to-live). Put a method in `Program.cs` instead and nothing can reach it, `public` or not.
@@ -71,12 +74,12 @@ dotnet test KDXR.Checks
 **Run the station:**
 
 ```bash
-dotnet run --project KDXR
+dotnet run --project Lab
 ```
 
 It asks who's on duty, then prints a sign-on that's blank, a countdown that says 0, and a number of hours that's also 0. Everything it's lying about is one of tonight's four methods.
 
-**Then open `KDXR/Broadcast.cs` and read it.** Nothing in the signatures will surprise you — [they're the same words you've been writing](../lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean):
+**Then open `Lab/Broadcast.cs` and read it.** Nothing in the signatures will surprise you — [they're the same words you've been writing](../lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean):
 
 ```csharp
 public static string SignOn(string djName)
@@ -169,12 +172,12 @@ return hour >= 22 || hour < 6;
 
 Check the two boundaries when you're done: **6 is not overnight, and 22 is.** Off-by-one at a boundary is the way this one usually fails.
 
-`dotnet test KDXR.Checks`: **5 / 5.** The Owl is on the air. 🦉
+`dotnet test Lab.Checks`: **5 / 5.** The Owl is on the air. 🦉
 
 ## Rules
 
 > [!IMPORTANT]
-> - **Never edit `KDXR.Checks`** — it's how you know you're done, and next week it's how I know too.
+> - **Never edit `Lab.Checks`** — it's how you know you're done, and next week it's how I know too.
 > - Don't rename `Broadcast`, or its methods. The checks find them by name.
 > - `Program.cs` is fine as it is. If you want to play with it, finish the checks first.
 
@@ -188,7 +191,7 @@ Check the two boundaries when you're done: **6 is not overnight, and 22 is.** Of
 - **Check 4 says you returned 5** — [whole ÷ whole = whole](../lecture-notes.md#whole-numbers-and-real-numbers). Put `.0` on one side.
 - **Check 5 is never true** — you have `&&` where you need `||`.
 - **`MSB1003: Specify which project or solution file to use`** — you're in the wrong folder. Go up to the one holding *both* project folders.
-- **`dotnet test` says it can't find `KDXR.Checks`** — same cause, same fix.
+- **`dotnet test` says it can't find `Lab.Checks`** — same cause, same fix.
 - The [troubleshooting appendix](../lecture-notes.md#appendix-troubleshooting) covers the rest.
 
 ## 🚀 Done early?

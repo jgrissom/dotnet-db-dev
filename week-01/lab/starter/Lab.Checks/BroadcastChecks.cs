@@ -1,10 +1,10 @@
 // ═══════════════════════════════════════════════════════════════════
 //  READ-ONLY — these checks are how you know the lab is done. They are not
 //  your grade, and they are not collected. Your job is turning ❌ into ✅ by
-//  editing KDXR/Broadcast.cs — never this file.
+//  editing Lab/Broadcast.cs — never this file.
 //
 //  Run them from the folder that holds BOTH project folders:
-//      dotnet test KDXR.Checks
+//      dotnet test Lab.Checks
 //
 //  Notice what they do NOT look at: nothing in here reads what your program
 //  prints. They call your methods and check what comes back. That's the whole
@@ -14,7 +14,7 @@
 //  In week 7 you find out this file is not magic, and you write one yourself.
 // ═══════════════════════════════════════════════════════════════════
 
-namespace KDXR.Checks;
+namespace Lab.Checks;
 
 public class BroadcastChecks
 {
@@ -22,10 +22,10 @@ public class BroadcastChecks
     public void Check1_TheStationIsOnTheAir()
     {
         Assert.True(Broadcast.CallSign() == "KDXR",
-            "Broadcast.CallSign() should return \"KDXR\", and it's the one method that was "
+            "Broadcast.CallSign() should return \"Lab\", and it's the one method that was "
             + "written for you — so if this check is red, something else in the project got "
             + $"changed by accident. (It returned: \"{Broadcast.CallSign()}\")\n"
-            + "Undo whatever you last did in KDXR/Broadcast.cs and this goes green again.");
+            + "Undo whatever you last did in Lab/Broadcast.cs and this goes green again.");
     }
 
     [Fact] // Task 2: a method that takes something in and gives something back
@@ -51,7 +51,7 @@ public class BroadcastChecks
             "SignOn(\"Marisol\") doesn't mention the station:\n"
             + $"    {marisol}\n"
             + "It should contain the call sign, and you get that by CALLING the method that "
-            + "already knows it — CallSign() — rather than typing \"KDXR\" again. Two places "
+            + "already knows it — CallSign() — rather than typing \"Lab\" again. Two places "
             + "that both know the station's name is one place too many.");
 
         // A second name, because a line that only works for Marisol isn't a method.

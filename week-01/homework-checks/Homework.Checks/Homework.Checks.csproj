@@ -17,8 +17,11 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <!-- Your project, by its folder name. This is why the homework tells you to
+       call it exactly Homework — if it's called something else, nothing here can
+       find it, and the grader hits the same wall I do. -->
   <ItemGroup>
-    <ProjectReference Include="..\KDXR\KDXR.csproj" />
+    <ProjectReference Include="..\Homework\Homework.csproj" />
   </ItemGroup>
 
 </Project>

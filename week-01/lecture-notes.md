@@ -38,7 +38,7 @@ Python runs a file: `python thing.py`. C# runs a **project** — a folder with a
 
 **One way of working, used in the demo, the lab and the homework alike:**
 
-1. **VS Code → File → Open Folder** — open the folder that *holds* your projects. In the demo that's `week-01`; in the lab it's `KDXRLab`.
+1. **VS Code → File → Open Folder** — open the folder that *holds* your projects. In the demo that's `week-01`; in the lab it's `week-01` too.
 2. Open the integrated terminal (`` Ctrl+` ``). It's already standing in that folder, so there is never anything to `cd`.
 3. Make the project **inside** it with `-o` ("output"), which creates the folder and names the project after it:
 
@@ -70,22 +70,32 @@ A project folder owns **every `.cs` file underneath it**. So you can't put one p
 
 Which means a folder holding two projects **can't be a project itself**. It's just a container:
 
+By the end of tonight your `week-01` holds four of them:
+
 ```
-week-01/                    ← container. Not a project. Nothing to build here.
-├─ App/                     ← project — your code
-└─ App.HomeworkChecks/      ← project — the checks, referencing ../App
+week-01/               ← container. Not a project. Nothing builds here.
+├─ Lab/                ← project — tonight's lab
+├─ Lab.Checks/         ← project — its checks, referencing ../Lab
+├─ Homework/           ← project — your own station
+└─ Homework.Checks/    ← project — its checks, referencing ../Homework
 ```
 
-That's why the homework has you make `week-01` first, then `App` **inside** it, then drop the checks folder in **beside** `App`. And it's why:
+**Open `week-01` and stay there.** Every command names the project it means:
 
 ```bash
-dotnet test App.HomeworkChecks
-dotnet run --project App
+dotnet test Lab.Checks
+dotnet run  --project Lab
+
+dotnet test Homework.Checks
+dotnet run  --project Homework
 ```
 
-both run from **`week-01`** — the container — and never from inside either project folder. Standing in the wrong folder is the single most common way to get `MSB1003: Specify which project or solution file to use`.
+Standing in the wrong folder is the single most common way to get `MSB1003: Specify which project or solution file to use`. If you see it, you're inside one of the four instead of in `week-01`.
 
-The lab has exactly the same shape, with different names: `KDXR/` and `KDXR.Checks/` inside a folder that holds both.
+⚠️ **The checks folder goes *beside* the project it tests, never inside it** — `Lab.Checks` next to `Lab`, not within it. Put one inside the other and *your* program stops compiling, complaining about files you never wrote.
+
+> [!NOTE]
+> **The lab and the homework are independent.** A half-finished lab can't affect your homework result and vice versa — they're separate projects, and `dotnet test Homework.Checks` only ever builds `Homework`.
 
 > [!NOTE]
 > **There's no `.sln` anywhere in this course, and you don't need one.** A solution file is a list of projects; it wouldn't change any of the above. You point `dotnet` at the project you mean, which is one less thing to keep in sync.

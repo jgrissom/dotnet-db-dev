@@ -344,7 +344,7 @@ Week 4 adds a second, **public** repo. That one's yours.
 Four methods in `Broadcast.cs`.
 
 ```bash
-dotnet test KDXR.Checks
+dotnet test Lab.Checks
 ```
 
 **1 / 5 green** out of the box.
