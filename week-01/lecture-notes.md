@@ -36,11 +36,19 @@ And one thing that isn't new but is worth twenty minutes anyway: **the compiler 
 
 Python runs a file: `python thing.py`. C# runs a **project** — a folder with a `.csproj` in it that says what to build.
 
+**The way it's done in the demo**, and the way to do it when you're starting something new:
+
+1. **VS Code → File → Open Folder**, then *New Folder* — call it `Haldane` — and open it.
+2. Open the integrated terminal (`` Ctrl+` ``). It's already sitting in that folder.
+3. Run:
+
 ```bash
-dotnet new console -o Haldane
+dotnet new console
 ```
 
-That makes a folder called `Haldane` containing:
+**You never say what to call the project — it takes the name from the folder you're in.** That's why you end up with `Haldane.csproj` and not something generic, and it's the clearest way to see that *the folder is the project*.
+
+That leaves you with:
 
 | | |
 |---|---|
@@ -54,7 +62,21 @@ Run it from inside that folder:
 dotnet run
 ```
 
-Or from outside, which is what you'll do all term because your project sits next to a checks project:
+### When the project has to go *inside* a folder you already have
+
+⚠️ **The homework needs this form, and the demo doesn't show it.** Your coursework repo has a `week-01` folder, and the project has to sit *inside* it as `Week01` — so you can't just open `week-01` and run `dotnet new console`, or the project would be called `week-01`.
+
+`-o` ("output") makes the folder for you and names the project after it:
+
+```bash
+dotnet new console -o Week01
+```
+
+Run from inside `week-01`, that gives you `week-01/Week01/Week01.csproj` — which is exactly the layout the homework asks for.
+
+**Two forms, one rule:** the project is named after the folder it ends up in. `dotnet new console` uses the folder you're standing in; `-o Name` makes a new one first.
+
+Once a project sits next to another project — which is the case all term, because your work sits beside a checks project — run it by pointing at it:
 
 ```bash
 dotnet run --project Haldane

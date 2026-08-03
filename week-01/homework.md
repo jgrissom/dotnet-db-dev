@@ -34,6 +34,9 @@ cd week-01
 dotnet new console -o Week01
 ```
 
+> [!NOTE]
+> **This isn't quite what you watched in the demo, and the difference matters.** There I opened a folder and ran a bare `dotnet new console`, which names the project after the folder you're standing in. Here the project has to sit *inside* `week-01` and be called `Week01` — so [`-o Week01` makes that folder and names it](lecture-notes.md#when-the-project-has-to-go-inside-a-folder-you-already-have). Run it from `week-01`, not from inside `Week01`.
+
 **2. Copy the checks project in from your clone of the course repo** — the same clone you took the lab starter out of. (Haven't got it? `git clone https://github.com/jgrissom/dotnet-db-dev.git`.) Copy the whole folder into `week-01/`, beside `Week01`:
 
 ```

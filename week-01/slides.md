@@ -94,14 +94,16 @@ Missing one? We install it now. **Everyone** does GitHub.
 
 ## Two commands
 
+**Open Folder** → new folder `Haldane` → then in the terminal:
+
 ```bash
-dotnet new console -o Haldane
+dotnet new console
 dotnet run
 ```
 
 <br>
 
-C# runs a **project** — a folder that knows how to build itself.
+The folder you opened **is** the project — and it names it.
 
 Not a file. That's why there's a `.csproj`.
 

@@ -26,10 +26,11 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ## 0 · Before class
 
 - [ ] **Copy `week-01/demo-starter/Haldane` out of the private repo** somewhere you can look at it — that's the **finished** state. ⚠️ **Do not open it in class.** Tonight's first beat is an empty folder becoming a program, and having it pre-made throws that away
-- [ ] Make a scratch folder to build in, and **delete any `Haldane` folder left over from rehearsal**:
+- [ ] ⚠️ **Delete any `Haldane` folder left over from rehearsal** — §3 starts by *creating* it through **Open Folder**, and a folder that already exists kills the beat:
   ```bash
-  cd ~/scratch && rm -rf Haldane
+  rm -rf ~/scratch/Haldane
   ```
+- [ ] **Have VS Code's Open Folder dialog land somewhere sane** — open `~/scratch` once beforehand so the picker starts there and you aren't navigating your home directory on the projector
 - [ ] **Rehearse the whole thing once (≈20 min)** — it also warms the NuGet cache, so the first `dotnet new` in front of the room is instant rather than a thirty-second stare
 - [ ] Terminal sized for the back row. **Editor font up too** — tonight is the night people are checking whether they can read the screen at all
 - [ ] Teaching profile in VS Code; close every other folder and tab
@@ -78,13 +79,16 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ### Two commands
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *Two commands* · then swipe away and actually do it, in an **empty folder**, so they watch the folder appear:
+- [ ] 🎞️ **GO TO SLIDE 6** — *Two commands* · then swipe away and actually do it, **on screen, in this order** — the folder is made first and the project is grown inside it:
+- [ ] **VS Code → File → Open Folder →** *New Folder* → name it `Haldane` → **Open**. An empty explorer pane, and say so: *"nothing. That's the starting point"*
+- [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), which is already sitting in that folder — no `cd` needed, and point that out:
   ```bash
-  dotnet new console -o Haldane
-  cd Haldane
+  dotnet new console
   dotnet run
   ```
+- [ ] 🎯 **The detail worth naming, because it explains the `.csproj`:** *"I never told it what to call the project. It took the name from the folder — that's `Haldane.csproj`. The folder **is** the project"*
 - [ ] Name the difference while it's concrete — **this is the new part of the beat, not `Hello, World!`**: *"Python runs a file. C# runs a **project** — a folder that knows how to build itself. If your last course was full Visual Studio, this is File → New Project with the wizard taken away"*
+- [ ] 💡 **If someone asks about `-o`:** *"`dotnet new console -o Name` makes the folder for you instead. You'll want that for the homework, where the project has to sit inside a `week-01` folder — it's in the notes"* 🔗 **and it genuinely is the homework's form, so don't wave it away**
 
 ### What it made
 
