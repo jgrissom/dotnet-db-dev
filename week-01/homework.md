@@ -117,6 +117,22 @@ Console.WriteLine($"{Station.MinutesUntilSignOff(2, 30)} minutes until sign-off.
 
 ## Part 3 — Push it (graded)
 
+⚠️ **All of this runs from `dotnet-db-coursework`, not from `week-01`** — [git lives at the top folder, one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). `cd ..` if you're still in `week-01`.
+
+**First time only** — if you haven't connected this folder to GitHub yet:
+
+```bash
+git init
+git add .
+git commit -m "Week 1: setup"
+git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git
+git push -u origin main
+```
+
+Use the `git remote add` line **GitHub itself shows you** on the repo page — it has your username in it.
+
+**Every time after that:**
+
 ```bash
 git add .
 git commit -m "Week 1: KRAB signs on"
@@ -157,7 +173,8 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 - **Check 4 is off by a multiple of 59** — the minutes got added before the hour was multiplied. `(hour * 60) + minute`.
 - **`error CS0117`/"does not contain a definition for"** — a method name doesn't match what you're calling.
 - **`MSB1003: Specify which project or solution file to use`** — run `dotnet test` from `week-01/`, not from inside either project folder.
-- **`fatal: not a git repository`** — you're not inside your `dotnet-db-coursework` folder.
+- **`fatal: not a git repository`** — you're not inside your `dotnet-db-coursework` folder. `cd ..` out of `week-01`.
+- **`git status` shows nothing, or a repo you didn't expect** — you ran `git init` in the wrong folder. It belongs at `dotnet-db-coursework`, **once ever**. If you ran it inside `week-01` or inside a project, delete the stray `.git` folder that got made there and run it again at the top.
 - **`git push` says "Authentication failed"** — GitHub wants a token, not your password. Easiest fix is to install [GitHub CLI](https://cli.github.com/) and run `gh auth login`; come find me if it fights you.
 - The [troubleshooting appendix](lecture-notes.md#appendix-troubleshooting) covers the rest.
 

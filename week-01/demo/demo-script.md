@@ -68,11 +68,12 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] **Circulate. Do not present during this segment** — the room is at a dozen different stages and a demo strands whoever is behind
 - [ ] 🎯 **The two failures worth calling out once, loudly:** *"if the terminal says 'command not found', it was open while you installed — close it completely and open a new one. And if `dotnet --version` says 8 or 9, that's last term's SDK. Install 10 anyway; they live side by side"*
 - [ ] ⚠️ **`git config --global user.name` is the check most of them fail**, because an intro course rarely sets it up. That's expected and it's not a problem — it's two commands
-- [ ] ⚠️ **The last item in §5 of the guide is the one that gets skipped, because it isn't an install and the fast finishers stop reading — everybody clones the course repo.** Tonight's lab and this week's homework both *begin* by copying something out of it, so a room that skipped it loses ten minutes at 2:50:
+- [ ] ⚠️ **§5 of the guide is the part that gets skipped, because it isn't an install and the fast finishers stop reading.** It has **two** endings and the lab needs both — **a `dotnet-db-coursework` folder of their own** (empty, made with Open Folder → New Folder) **and** a clone of the course repo:
   ```bash
   git clone https://github.com/jgrissom/dotnet-db-dev.git
   ```
-- [ ] **✓ CHECKPOINT:** every machine prints a `10.` from `dotnet --version`, prints a name from `git config`, **and** has a `dotnet-db-dev` folder, before the break
+- [ ] 🎯 **Say why there are two folders, once, clearly** — it prevents the commonest confusion of the night: *"`dotnet-db-coursework` is yours and starts empty. `dotnet-db-dev` is mine and you only ever copy things **out** of it. Never work inside mine"*
+- [ ] **✓ CHECKPOINT:** every machine prints a `10.` from `dotnet --version`, prints a name from `git config`, **and has both folders** — `dotnet-db-coursework` (theirs, empty) beside `dotnet-db-dev` (the clone) — before the break. ⚠️ **A missing coursework folder does not hurt until 2:50 and then costs ten minutes**
 - [ ] 💡 **Verified and idle by 0:25?** Take the break early and give the minutes to §7. **Do not pad the recap segments** — that's the one way to lose this room
 
 ## 3 · What the project actually is *(slides 6–8)*

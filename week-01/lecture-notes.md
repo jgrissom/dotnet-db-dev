@@ -326,7 +326,20 @@ That "nothing at all" is `null`, and C# is unusually careful about it. **Week 5 
 
 **Assume this is new.** An intro programming course usually doesn't cover git, and from week 2 your repo hygiene is worth points every single week.
 
-Four commands, and you'll type them every week until they're muscle memory. From inside your project folder:
+⚠️ **Run these from `dotnet-db-coursework` — the folder at the very top, not `week-01` and not a project folder.** One repo holds your whole semester:
+
+```
+dotnet-db-coursework/     ← git lives HERE. Run every git command from here.
+└─ week-01/               ← you run dotnet commands from here
+   ├─ Lab/
+   ├─ Lab.Checks/
+   ├─ Homework/
+   └─ Homework.Checks/
+```
+
+That's the one place the two habits differ: **`dotnet` commands run from `week-01`, `git` commands run from the folder above it.** Getting them the wrong way round is the most common mistake of the first week.
+
+Four commands, and you'll type them every week until they're muscle memory:
 
 ```bash
 git init
@@ -334,7 +347,7 @@ git add .
 git commit -m "Week 1: station sign-on"
 ```
 
-- **`git init`** — start tracking this folder. Once, ever, per repo.
+- **`git init`** — start tracking this folder. **Once, ever** — at `dotnet-db-coursework`, never again. If you run it inside `week-01` or inside a project you get a second, broken repo in the wrong place.
 - **`git add .`** — stage everything that changed. The `.` means "this folder and everything under it".
 - **`git commit -m "..."`** — save a snapshot, with a message saying what you did.
 

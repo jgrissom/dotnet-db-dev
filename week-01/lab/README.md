@@ -22,20 +22,25 @@ git pull
 > git clone https://github.com/jgrissom/dotnet-db-dev.git
 > ```
 
-**2. Copy the two folders inside `week-01/lab/starter` into your own `week-01` folder** — the one in your `dotnet-db-coursework` repo. (Copy them *out* of the clone; never work inside it, or next week's `git pull` will fight your edits.)
+**2. Make a `week-01` folder inside your `dotnet-db-coursework` folder** — the empty one you made during [setup](../setup-guide.md#then-make-the-folder-that-repo-will-hold). Exactly the move you watched in the demo:
+
+**VS Code → File → Open Folder → `dotnet-db-coursework` → *New Folder* → name it `week-01` → Open.**
+
+> [!NOTE]
+> **No `dotnet-db-coursework` folder?** Make it now — File → Open Folder → *New Folder* → `dotnet-db-coursework` — then make `week-01` inside it. You'll add one folder like this every week for the rest of the term.
+
+**3. Copy the two folders inside `week-01/lab/starter` into your `week-01`.** (Copy them *out* of the clone; never work inside it, or next week's `git pull` will fight your edits.)
 
 ```
 dotnet-db-coursework/
-└─ week-01/           ← open THIS in VS Code
+└─ week-01/           ← keep THIS open in VS Code
    ├─ Lab/            ← the station — ALL your work happens in here
    └─ Lab.Checks/     ← the checks — read-only, never edit
 ```
 
 Your lab work lives in your repo alongside everything else from this week. It isn't graded — but it's the worked example your homework is built on, so you want it where you can find it.
 
-**3. Open `week-01` in VS Code** — the folder that *contains* both project folders, exactly like the demo.
-
-**4. In the VS Code terminal, from that same folder:**
+**4. With `week-01` still open**, use the VS Code terminal (`` Ctrl+` ``) — it's already standing in that folder, exactly like the demo:
 
 ```bash
 dotnet test Lab.Checks

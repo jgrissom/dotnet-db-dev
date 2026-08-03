@@ -23,7 +23,7 @@ You want, in order: a version starting with **`10.`**, any git version, and **yo
 | **All four passed** | Skip straight to [5. GitHub](#5-github-an-account-your-coursework-repo-and-the-course-repo) — **nobody gets to skip that one** |
 
 > [!IMPORTANT]
-> **Section 5 is not an install and it is the one that gets skipped.** Everybody does it, including the people who passed all four checks above: a private repo, me added as a collaborator, and a clone of the course repo. Tonight's lab *begins* by copying a folder out of that clone.
+> **Section 5 is not an install and it is the one that gets skipped.** Everybody does it, including the people who passed all four checks above: a private repo, me added as a collaborator, **a `dotnet-db-coursework` folder on your machine**, and a clone of the course repo. Tonight's lab *begins* by copying a folder out of that clone into that folder — so skipping either one leaves you stuck at 2:50.
 
 > [!TIP]
 > **On a lab PC that resets when it reboots:** sections 1–3 are usually already there and survive. Your **git identity** and your **GitHub login** may not. Nothing here takes more than a minute to redo, and week 2 shows you the drill.
@@ -143,6 +143,19 @@ It prints your name back. If it prints nothing, it didn't take — check for a t
 
 **✓ Check.** Settings → Collaborators lists `jgrissom` as **Pending Invite** or **Collaborator**. Either is fine — pending just means I haven't clicked accept yet.
 
+### Then make the folder that repo will hold
+
+The repo you just made is **empty and on GitHub**. Your actual work happens in a folder on your own machine, and you push it up later tonight. Make that folder now, with the same name:
+
+**VS Code → File → Open Folder → *New Folder* → name it `dotnet-db-coursework` → Open.**
+
+⚠️ **Put it somewhere sensible and permanent** — your home folder, or wherever you keep projects. **Not on the Desktop, not in Downloads, and not inside any other folder from this course.** You will add a folder to it every week for the rest of the semester.
+
+**✓ Check.** VS Code's title bar says `dotnet-db-coursework` and the Explorer panel on the left is empty. That empty panel is correct — you'll fill it in tonight's lab.
+
+> [!NOTE]
+> **You don't run any `git` commands on it yet.** Connecting this folder to the repo on GitHub is the last thing we do in class tonight, and it's four commands. For now it's just a folder.
+
 ### Then clone the course repo
 
 That was *your* repo. This is **mine** — everything I hand you all term arrives in it: tonight's lab, the checks that grade your homework, the notes. You clone it once, now, and `git pull` it at the start of every week.
@@ -168,7 +181,14 @@ You should see `week-01`, `README.md` and a `scripts` folder.
 
 ## You're done
 
-A compiler, an editor that understands C#, somewhere to put your work — and the course repo, which is where everything I give you shows up.
+You should now have **two folders** on your machine, side by side, and they do opposite jobs:
+
+```
+dotnet-db-coursework/    ← YOURS. Empty for now. Everything you write goes here.
+dotnet-db-dev/           ← MINE. You only ever copy things OUT of it.
+```
+
+Plus a compiler, an editor that understands C#, and a private repo on GitHub waiting for that first folder.
 
 **Nothing here is graded.** The homework is, and it starts by using every one of these.
 
