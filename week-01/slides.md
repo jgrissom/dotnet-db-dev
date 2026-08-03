@@ -94,7 +94,7 @@ Missing one? We install it now. **Everyone** does GitHub.
 
 ## Two commands
 
-**Open Folder** → new folder `week-01` → then in the terminal:
+**Open Folder** → `dotnet-db-coursework` → new folder `week-01`:
 
 ```bash
 dotnet new console -o Haldane
@@ -313,7 +313,9 @@ git push
 
 <br>
 
-Every week, until your fingers know them.
+**`dotnet` runs from `week-01`.**
+
+**`git` runs from the folder above it.** One repo, all term.
 
 ---
 

@@ -26,11 +26,12 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ## 0 · Before class
 
 - [ ] **Copy `week-01/demo-starter/Haldane` out of the private repo** somewhere you can look at it — that's the **finished** state. ⚠️ **Do not open it in class.** Tonight's first beat is an empty folder becoming a program, and having it pre-made throws that away
-- [ ] ⚠️ **Delete any rehearsal folder** — §3 starts by *creating* `week-01` through **Open Folder**, and a folder that already exists kills the beat:
+- [ ] ⚠️ **Reset to exactly what the room will have after §2** — an empty `dotnet-db-coursework` and nothing else. §3 *creates* `week-01` inside it on screen, and a leftover folder kills that beat:
   ```bash
-  rm -rf ~/scratch/week-01
+  rm -rf ~/scratch/dotnet-db-coursework && mkdir -p ~/scratch/dotnet-db-coursework
   ```
-- [ ] **Have VS Code's Open Folder dialog land somewhere sane** — open `~/scratch` once beforehand so the picker starts there and you aren't navigating your home directory on the projector
+- [ ] 🎯 **This is deliberate: your folders match theirs exactly, all night.** They make `dotnet-db-coursework` in §2, you already have it; §3 puts `week-01` inside it; §7 does `git init` at the top. **Nothing you do on screen is a "demo shortcut" they have to mentally translate**
+- [ ] **Have VS Code's Open Folder dialog land somewhere sane** — open `~/scratch/dotnet-db-coursework` once beforehand so the picker starts there and you aren't navigating your home directory on the projector
 - [ ] **Rehearse the whole thing once (≈20 min)** — it also warms the NuGet cache, so the first `dotnet new` in front of the room is instant rather than a thirty-second stare
 - [ ] Terminal sized for the back row. **Editor font up too** — tonight is the night people are checking whether they can read the screen at all
 - [ ] Teaching profile in VS Code; close every other folder and tab
@@ -81,8 +82,9 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ### Two commands
 
 - [ ] 🎞️ **GO TO SLIDE 6** — *Two commands* · then swipe away and actually do it, **on screen, in this order**:
-- [ ] **VS Code → File → Open Folder →** *New Folder* → name it `week-01` → **Open**. An empty explorer pane, and say so: *"nothing. That's the starting point"*
-- [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), which is already standing in `week-01` — **no `cd`, tonight or ever**, and point that out:
+- [ ] **VS Code → File → Open Folder → `dotnet-db-coursework`** *(the empty folder they made in §2)* **→ *New Folder* → name it `week-01` → Open.** An empty explorer pane, and say so: *"nothing. That's the starting point"*
+- [ ] 🎯 **Say what you just did, because it is exactly their lab setup in an hour:** *"one folder per week, inside the one repo folder that holds your whole semester. In a fortnight there's a `week-02` next to it"*
+- [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), which is already standing in `week-01` — **no `cd` for anything `dotnet`**, and point that out:
   ```bash
   dotnet new console -o Haldane
   dotnet run --project Haldane
@@ -229,14 +231,19 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 > **Twenty-five minutes, and it needs them. Assume nobody has used git.** It's graded every week from here.
 
-- [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. Then run the first three **in `week-01`** — the folder you have open, not inside `Haldane` — **reading each one aloud as you go**, what it does rather than what it is:
+- [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. ⚠️ **First, `cd ..` — out loud and on screen.** This is the one place tonight the folder changes, and it is worth ten deliberate seconds:
+  ```bash
+  cd ..
+  ```
+- [ ] 🎯 **Say why, because it is the rule they will get wrong:** *"every `dotnet` command tonight ran from `week-01`. **Every `git` command runs from the folder above it.** One repo holds your whole semester — `week-01`, then `week-02`, then fourteen more — so git goes at the top, once, and never again"*
+- [ ] Then the first three, **reading each one aloud as you go** — what it does rather than what it is:
   ```bash
   git init
   git add .
   git commit -m "Week 1: Haldane duty console"
   ```
 - [ ] 🎯 **`git status` between each one**, and actually look at it: *"this is the command you'll run more than any other, and it always tells you what git thinks is going on"*
-- [ ] ⚠️ **Name the one way yours differs from theirs, before someone notices and gets confused:** *"I'm making the repo right here at `week-01` because it's a demo. Yours goes one level up — a folder called `dotnet-db-coursework` with `week-01` inside it, then `week-02` beside that in a fortnight. Same commands, same shape, one level up"*
+- [ ] 💡 **`git status` after `git add .` is the beat that sells it** — it lists `week-01/Haldane/...` with the folder in front. *"That's why git is up here. It can see the whole term from this one spot"*
 - [ ] ⚠️ **Do not fix what `git add .` just swept up.** `bin/` and `obj/` are now staged and that is *correct for tonight*. If someone spots it — and in this room someone might, having heard of `.gitignore` — give them the credit and hold the line: *"good eye. That's next week's first ten minutes, and it's better as a mess you made than a rule I gave you"*
 - [ ] **Commit messages, said once and meant:** *"three commits minimum, and they should tell a story. `week 1 setup`, `station class`, `countdown working`. Not `a`, `b`, `asdf`. I read these and they're worth points"*
 - [ ] 🎞️ **GO TO SLIDE 19** — *Your repo for the whole term* · make the repo on GitHub **live, on screen**: private, no README, name it `dotnet-db-coursework`
