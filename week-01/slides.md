@@ -94,18 +94,18 @@ Missing one? We install it now. **Everyone** does GitHub.
 
 ## Two commands
 
-**Open Folder** → new folder `Haldane` → then in the terminal:
+**Open Folder** → new folder `week-01` → then in the terminal:
 
 ```bash
-dotnet new console
-dotnet run
+dotnet new console -o Haldane
+dotnet run --project Haldane
 ```
 
 <br>
 
-The folder you opened **is** the project — and it names it.
+Stay in the folder you opened. **Name the project.**
 
-Not a file. That's why there's a `.csproj`.
+Same shape in the lab, and in tonight's homework.
 
 ---
 

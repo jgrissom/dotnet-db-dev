@@ -36,19 +36,17 @@ And one thing that isn't new but is worth twenty minutes anyway: **the compiler 
 
 Python runs a file: `python thing.py`. C# runs a **project** — a folder with a `.csproj` in it that says what to build.
 
-**The way it's done in the demo**, and the way to do it when you're starting something new:
+**One way of working, used in the demo, the lab and the homework alike:**
 
-1. **VS Code → File → Open Folder**, then *New Folder* — call it `Haldane` — and open it.
-2. Open the integrated terminal (`` Ctrl+` ``). It's already sitting in that folder.
-3. Run:
+1. **VS Code → File → Open Folder** — open the folder that *holds* your projects. In the demo that's `week-01`; in the lab it's `KDXRLab`.
+2. Open the integrated terminal (`` Ctrl+` ``). It's already standing in that folder, so there is never anything to `cd`.
+3. Make the project **inside** it with `-o` ("output"), which creates the folder and names the project after it:
 
 ```bash
-dotnet new console
+dotnet new console -o Haldane
 ```
 
-**You never say what to call the project — it takes the name from the folder you're in.** That's why you end up with `Haldane.csproj` and not something generic, and it's the clearest way to see that *the folder is the project*.
-
-That leaves you with:
+That leaves you with `Haldane/`, containing:
 
 | | |
 |---|---|
@@ -56,31 +54,41 @@ That leaves you with:
 | `Haldane.csproj` | the project file: what version of .NET, what packages |
 | `obj/`, `bin/` | build machinery and the compiled program. **You never edit these**, and from week 2 you'll stop committing them |
 
-Run it from inside that folder:
-
-```bash
-dotnet run
-```
-
-### When the project has to go *inside* a folder you already have
-
-⚠️ **The homework needs this form, and the demo doesn't show it.** Your coursework repo has a `week-01` folder, and the project has to sit *inside* it as `Week01` — so you can't just open `week-01` and run `dotnet new console`, or the project would be called `week-01`.
-
-`-o` ("output") makes the folder for you and names the project after it:
-
-```bash
-dotnet new console -o Week01
-```
-
-Run from inside `week-01`, that gives you `week-01/Week01/Week01.csproj` — which is exactly the layout the homework asks for.
-
-**Two forms, one rule:** the project is named after the folder it ends up in. `dotnet new console` uses the folder you're standing in; `-o Name` makes a new one first.
-
-Once a project sits next to another project — which is the case all term, because your work sits beside a checks project — run it by pointing at it:
+And you run it **without moving** — from the same folder you opened, naming the project:
 
 ```bash
 dotnet run --project Haldane
 ```
+
+⚠️ **Stay in the folder you opened.** Every `dotnet` command this term is run from there and names its target. That one habit removes the most common error of the whole course.
+
+### A folder is either a project or a container — never both
+
+⚠️ **This one rule explains every folder layout you'll see this term**, including the one that trips people up in the lab.
+
+A project folder owns **every `.cs` file underneath it**. So you can't put one project inside another — the outer project tries to compile the inner one's files, and *your* program stops building with errors pointing at code you didn't write.
+
+Which means a folder holding two projects **can't be a project itself**. It's just a container:
+
+```
+week-01/                    ← container. Not a project. Nothing to build here.
+├─ App/                     ← project — your code
+└─ App.HomeworkChecks/      ← project — the checks, referencing ../App
+```
+
+That's why the homework has you make `week-01` first, then `App` **inside** it, then drop the checks folder in **beside** `App`. And it's why:
+
+```bash
+dotnet test App.HomeworkChecks
+dotnet run --project App
+```
+
+both run from **`week-01`** — the container — and never from inside either project folder. Standing in the wrong folder is the single most common way to get `MSB1003: Specify which project or solution file to use`.
+
+The lab has exactly the same shape, with different names: `KDXR/` and `KDXR.Checks/` inside a folder that holds both.
+
+> [!NOTE]
+> **There's no `.sln` anywhere in this course, and you don't need one.** A solution file is a list of projects; it wouldn't change any of the above. You point `dotnet` at the project you mean, which is one less thing to keep in sync.
 
 > [!NOTE]
 > **If your last course used full Visual Studio**, this is the same thing without the IDE doing it for you. `dotnet new` is *File → New Project*, `dotnet run` is the green triangle, and the `.csproj` is the thing the Solution Explorer was showing you. There's no `.sln` in this course and you won't miss it.

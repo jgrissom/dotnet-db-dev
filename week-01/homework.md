@@ -26,21 +26,20 @@ Pick a call sign, a city and a sign-off time. It can be a real town or an invent
 
 ### Set it up
 
-**1. In your `dotnet-db-coursework` folder, make a `week-01` folder, and make the project inside it:**
+**1. In your `dotnet-db-coursework` folder, make a `week-01` folder and open it in VS Code** — File → Open Folder → `week-01`. **This is the folder you stay in for everything below**, exactly like the demo and exactly like tonight's lab.
+
+**2. In the VS Code terminal** (`` Ctrl+` ``, already standing in `week-01` — [nothing to `cd`](lecture-notes.md#the-project-not-the-file)):
 
 ```bash
-mkdir week-01
-cd week-01
-dotnet new console -o Week01
+dotnet new console -o App
 ```
 
-> [!NOTE]
-> **This isn't quite what you watched in the demo, and the difference matters.** There I opened a folder and ran a bare `dotnet new console`, which names the project after the folder you're standing in. Here the project has to sit *inside* `week-01` and be called `Week01` — so [`-o Week01` makes that folder and names it](lecture-notes.md#when-the-project-has-to-go-inside-a-folder-you-already-have). Run it from `week-01`, not from inside `Week01`.
+`-o` makes the folder and names the project after it, so you get `App/App.csproj`. Same command you watched build Haldane, different name.
 
-**2. Copy the checks project in from your clone of the course repo** — the same clone you took the lab starter out of. (Haven't got it? `git clone https://github.com/jgrissom/dotnet-db-dev.git`.) Copy the whole folder into `week-01/`, beside `Week01`:
+**3. Copy the checks project in from your clone of the course repo** — the same clone you took the lab starter out of. (Haven't got it? `git clone https://github.com/jgrissom/dotnet-db-dev.git`.) Copy the whole folder into `week-01/`, **beside** `App` — not inside it:
 
 ```
-dotnet-db-dev/week-01/homework-checks/Week01.HomeworkChecks     ← copy this folder
+dotnet-db-dev/week-01/homework-checks/App.HomeworkChecks     ← copy this folder
 ```
 
 You should end up with exactly this:
@@ -48,16 +47,18 @@ You should end up with exactly this:
 ```
 dotnet-db-coursework/
 └─ week-01/
-   ├─ Week01/                    ← your program
-   └─ Week01.HomeworkChecks/     ← the checks, unchanged
+   ├─ App/                    ← your program
+   └─ App.HomeworkChecks/     ← the checks, unchanged
 ```
 
 > [!CAUTION]
-> **Those two folder names are not suggestions.** The checks find your project by the name `Week01`, and I run the same checks against your repo. Rename either folder and nothing can find your work — which looks exactly like not doing it.
+> **Those two folder names are not suggestions.** The checks find your project by the name `App`, and I run the same checks against your repo. Rename either folder and nothing can find your work — which looks exactly like not doing it.
+>
+> **And `App.HomeworkChecks` goes *beside* `App`, never inside it.** A project folder can't contain another project — your own program stops compiling, with errors pointing at files you didn't write.
 
 ### Write it
 
-**3. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `Week01/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. This is the whole file, with my station's answers in it; yours will say something else:
+**4. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `App/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. This is the whole file, with my station's answers in it; yours will say something else:
 
 ```csharp
 public static class Station
@@ -102,7 +103,7 @@ What each one has to do:
 > [!WARNING]
 > **`MinutesUntilSignOff` has to work out its answer from `SignOffHour()`.** If you type the number in and the two disagree, the check says so by name. A program that contradicts itself is worse than one that's simply wrong.
 
-**4. `Week01/Program.cs` prints the sign-on** and a countdown. Small on purpose — everything worth checking lives in `Station.cs`:
+**5. `App/Program.cs` prints the sign-on** and a countdown. Small on purpose — everything worth checking lives in `Station.cs`:
 
 ```csharp
 Console.WriteLine(Station.SignOn());
@@ -135,7 +136,7 @@ git push
 From your `week-01` folder — the one holding both project folders:
 
 ```bash
-dotnet test Week01.HomeworkChecks
+dotnet test App.HomeworkChecks
 ```
 
 ```
@@ -147,7 +148,7 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 
 ## 🆘 Stuck?
 
-- **The checks say they can't find `Station`** — it needs to be `public`, spelled `Station` exactly, in `Week01/Station.cs`. ⚠️ **A class written at the bottom of `Program.cs` is invisible to them, `public` or not** — [it has to be its own file](lecture-notes.md#where-your-code-has-to-live).
+- **The checks say they can't find `Station`** — it needs to be `public`, spelled `Station` exactly, in `App/Station.cs`. ⚠️ **A class written at the bottom of `Program.cs` is invisible to them, `public` or not** — [it has to be its own file](lecture-notes.md#where-your-code-has-to-live).
 - **`error CS0161: not all code paths return a value`** — you left `MinutesUntilSignOff` without a `return`, or its only `return` is inside an `if`.
 - **"Station has no public static method called SignOn"** but you wrote one — check the capital letters (`signOn` and `SignOn` are different names), and that it says `static`.
 - **Check 4 says your countdown disagrees with your sign-off hour** — you typed a number instead of working it out from `SignOffHour()`.
@@ -176,6 +177,6 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 
 Week 2 is **the mistakes the compiler can't catch for you** — input that lies, `null`, and the warnings you've been scrolling past — and **cleaning up what git swept up tonight**.
 
-- **Go and look at your repo on GitHub.** Click into `week-01/Week01/`. Count the folders you didn't write, and open one file inside `obj/`. You don't need to understand it — just get a sense of how much of what you pushed isn't yours. Bring the number.
+- **Go and look at your repo on GitHub.** Click into `week-01/App/`. Count the folders you didn't write, and open one file inside `obj/`. You don't need to understand it — just get a sense of how much of what you pushed isn't yours. Bring the number.
 - Then answer this for yourself, and write it down: **why would a compiler need a folder of its own working files, and why would anyone want those in a repo?** (One of those questions has a good answer. The other doesn't.)
 - Have a look at [the C# error code list](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/) — not to read it, just to see that it exists and that every error you hit has a page. Find `CS0029` and see what it says.

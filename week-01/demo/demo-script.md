@@ -26,9 +26,9 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ## 0 · Before class
 
 - [ ] **Copy `week-01/demo-starter/Haldane` out of the private repo** somewhere you can look at it — that's the **finished** state. ⚠️ **Do not open it in class.** Tonight's first beat is an empty folder becoming a program, and having it pre-made throws that away
-- [ ] ⚠️ **Delete any `Haldane` folder left over from rehearsal** — §3 starts by *creating* it through **Open Folder**, and a folder that already exists kills the beat:
+- [ ] ⚠️ **Delete any rehearsal folder** — §3 starts by *creating* `week-01` through **Open Folder**, and a folder that already exists kills the beat:
   ```bash
-  rm -rf ~/scratch/Haldane
+  rm -rf ~/scratch/week-01
   ```
 - [ ] **Have VS Code's Open Folder dialog land somewhere sane** — open `~/scratch` once beforehand so the picker starts there and you aren't navigating your home directory on the projector
 - [ ] **Rehearse the whole thing once (≈20 min)** — it also warms the NuGet cache, so the first `dotnet new` in front of the room is instant rather than a thirty-second stare
@@ -79,16 +79,16 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ### Two commands
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *Two commands* · then swipe away and actually do it, **on screen, in this order** — the folder is made first and the project is grown inside it:
-- [ ] **VS Code → File → Open Folder →** *New Folder* → name it `Haldane` → **Open**. An empty explorer pane, and say so: *"nothing. That's the starting point"*
-- [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), which is already sitting in that folder — no `cd` needed, and point that out:
+- [ ] 🎞️ **GO TO SLIDE 6** — *Two commands* · then swipe away and actually do it, **on screen, in this order**:
+- [ ] **VS Code → File → Open Folder →** *New Folder* → name it `week-01` → **Open**. An empty explorer pane, and say so: *"nothing. That's the starting point"*
+- [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), which is already standing in `week-01` — **no `cd`, tonight or ever**, and point that out:
   ```bash
-  dotnet new console
-  dotnet run
+  dotnet new console -o Haldane
+  dotnet run --project Haldane
   ```
-- [ ] 🎯 **The detail worth naming, because it explains the `.csproj`:** *"I never told it what to call the project. It took the name from the folder — that's `Haldane.csproj`. The folder **is** the project"*
+- [ ] 🎯 **This is the beat that pays off all term, so say it deliberately:** *"look at where I'm standing. I opened `week-01` and I never left it. `-o` made the project folder, and I name the project when I run it. **The folder you open holds projects — it isn't one.** That exact shape is your lab in an hour and your homework tonight"*
 - [ ] Name the difference while it's concrete — **this is the new part of the beat, not `Hello, World!`**: *"Python runs a file. C# runs a **project** — a folder that knows how to build itself. If your last course was full Visual Studio, this is File → New Project with the wizard taken away"*
-- [ ] 💡 **If someone asks about `-o`:** *"`dotnet new console -o Name` makes the folder for you instead. You'll want that for the homework, where the project has to sit inside a `week-01` folder — it's in the notes"* 🔗 **and it genuinely is the homework's form, so don't wave it away**
+- [ ] 💡 **If someone asks why not just `cd` in:** *"because in an hour your checks project sits next to your code, and `dotnet test` has to run from the folder holding both. Learn the habit now while there's only one project in here"* 🔗 **it is the error they will hit in the lab**
 
 ### What it made
 
@@ -107,7 +107,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine("========================================");
   Console.WriteLine();
   ```
-- [ ] `dotnet run`. **Set the fiction here** — this is the only world-building beat and it takes fifteen seconds: *"Haldane is a research station. Twelve people, five hundred kilometres from anybody, and one console. There is no browser out here. This terminal is the entire interface to the building — and if it's wrong about who's outside, somebody is outside"*
+- [ ] `dotnet run --project Haldane`. **Set the fiction here** — this is the only world-building beat and it takes fifteen seconds: *"Haldane is a research station. Twelve people, five hundred kilometres from anybody, and one console. There is no browser out here. This terminal is the entire interface to the building — and if it's wrong about who's outside, somebody is outside"*
 
 ## 4 · The status board *(slides 9–11)*
 
@@ -139,7 +139,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine($"Blizzard:    {blizzardWarning}");
   ```
 - [ ] 🎞️ **GO TO SLIDE 11** — *Putting values into text* · one useful line beyond the recap: *"anything in the braces gets **evaluated** — that can be a whole expression, including a method call. You'll want that in about ten minutes"*
-- [ ] `dotnet run` — the board fills in
+- [ ] `dotnet run --project Haldane` — the board fills in
 
 ## 5 · What the compiler cannot catch *(slides 12–14)*
 
@@ -151,13 +151,13 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```csharp
   int personnelOnStation = "twelve";
   ```
-- [ ] `dotnet run`. 🎞️ **GO TO SLIDE 12** — *The build failed* · *"nobody is surprised. Fine. But be precise about what just happened: it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
+- [ ] `dotnet run --project Haldane`. 🎞️ **GO TO SLIDE 12** — *The build failed* · *"nobody is surprised. Fine. But be precise about what just happened: it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
 
 ### Reading an error
 
 - [ ] 🎞️ **GO TO SLIDE 13** — *Reading an error*. Back to the terminal and take the message apart on screen: **file · line and character · what's wrong**
 - [ ] 🎯 *"`CS0029`. Every C# error has a code and it's searchable. Paste the code and the message into a search box and you get the actual documentation. Most of you have been reading the squiggle and guessing. Read the code instead"*
-- [ ] Fix it back to `12`, `dotnet run`, banner returns
+- [ ] Fix it back to `12`, `dotnet run --project Haldane`, banner returns
 
 ### The limit
 
@@ -170,7 +170,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine($"Generator fuel: {hoursOfFuel} hours remaining.");
   ```
 - [ ] **Predict, hands up:** *"4300 litres, 800 an hour. What prints?"* — the room will say five point something
-- [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** `dotnet run` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
+- [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** `dotnet run --project Haldane` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
 - [ ] ⚠️ **Don't rescue it too fast.** If nobody speaks within twenty seconds, ask *"is that right?"* — never *"that's wrong"*
 - [ ] **Ask before explaining:** *"why?"* — someone usually gets there, and a few will have been bitten by it before. **Let that person say it.** Then: *"both sides are whole numbers, so C# did whole-number division and threw the remainder away. Then it stored `5` in a double, as 5.0. **The decimal point was gone before `double` ever got involved**"*
 - [ ] 💡 **The follow-up that separates knowing-the-fix from understanding it:** *"so would casting the answer to double save you?"* — no. `(double)(4300 / 800)` is 5.0. **The fix has to happen before the division, not after**
@@ -178,7 +178,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```csharp
   double burnPerHour = 800;
   ```
-- [ ] `dotnet run` → **5.375**. 🎯 **The sentence the course hangs off:** *"here is the promise that word at the front actually makes. **The compiler checks that your types line up. It does not check that your program is right.** Those are wildly different promises, and everything that lives in the gap is yours to catch. That gap is why week 7 exists, and why every lab you do has a file full of checks in it"*
+- [ ] `dotnet run --project Haldane` → **5.375**. 🎯 **The sentence the course hangs off:** *"here is the promise that word at the front actually makes. **The compiler checks that your types line up. It does not check that your program is right.** Those are wildly different promises, and everything that lives in the gap is yours to catch. That gap is why week 7 exists, and why every lab you do has a file full of checks in it"*
 - [ ] 🔗 *"You will meet this exact bug in the lab tonight, in check 4. Now you know what it looks like"*
 - [ ] **✓ CHECKPOINT:** somebody can say why `4300 / 800` gave 5, **and** why casting the result doesn't fix it
 
@@ -214,7 +214,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine($"That's {Conditions.Fahrenheit(temperatureC)} F.");
   Console.WriteLine($"Safe to go out: {Conditions.IsSafeToGoOut(temperatureC, blizzardWarning)}");
   ```
-- [ ] `dotnet run` → `-42.7 F` and `Safe to go out: False`
+- [ ] `dotnet run --project Haldane` → `-42.7 F` and `Safe to go out: False`
 
 ### Two files, two jobs
 
@@ -228,13 +228,14 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 > **Twenty-five minutes, and it needs them. Assume nobody has used git.** It's graded every week from here.
 
-- [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. Then run the first three on Haldane, **reading each one aloud as you go** — what it does, not just what it is:
+- [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. Then run the first three **in `week-01`** — the folder you have open, not inside `Haldane` — **reading each one aloud as you go**, what it does rather than what it is:
   ```bash
   git init
   git add .
   git commit -m "Week 1: Haldane duty console"
   ```
 - [ ] 🎯 **`git status` between each one**, and actually look at it: *"this is the command you'll run more than any other, and it always tells you what git thinks is going on"*
+- [ ] ⚠️ **Name the one way yours differs from theirs, before someone notices and gets confused:** *"I'm making the repo right here at `week-01` because it's a demo. Yours goes one level up — a folder called `dotnet-db-coursework` with `week-01` inside it, then `week-02` beside that in a fortnight. Same commands, same shape, one level up"*
 - [ ] ⚠️ **Do not fix what `git add .` just swept up.** `bin/` and `obj/` are now staged and that is *correct for tonight*. If someone spots it — and in this room someone might, having heard of `.gitignore` — give them the credit and hold the line: *"good eye. That's next week's first ten minutes, and it's better as a mess you made than a rule I gave you"*
 - [ ] **Commit messages, said once and meant:** *"three commits minimum, and they should tell a story. `week 1 setup`, `station class`, `countdown working`. Not `a`, `b`, `asdf`. I read these and they're worth points"*
 - [ ] 🎞️ **GO TO SLIDE 19** — *Your repo for the whole term* · make the repo on GitHub **live, on screen**: private, no README, name it `dotnet-db-coursework`
