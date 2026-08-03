@@ -1,22 +1,45 @@
 # Week 1 — Setup Guide
 
-Five installs. Each one ends with a **✓ Check** that either prints something or doesn't — do the check before moving on, because install problems are much cheaper to find one at a time.
+**Most of this is probably already on your machine from your C# course.** So this is a *verification* guide first and an install guide second: run the four checks below, and only read the section for anything that fails.
+
+## Start here — the four checks
+
+Open a terminal (**PowerShell** on Windows, **Terminal** on macOS) and run these:
+
+```bash
+dotnet --version
+git --version
+git config --global user.name
+```
+
+You want, in order: a version starting with **`10.`**, any git version, and **your own name**. Then open **VS Code** and confirm the **C#** extension by Microsoft is installed.
+
+| Result | Go to |
+|---|---|
+| `dotnet` missing, or a version below `10.` | [1. The .NET 10 SDK](#1-the-net-10-sdk) |
+| VS Code not installed | [2. Visual Studio Code](#2-visual-studio-code) |
+| No **C#** extension | [3. The C# extension](#3-the-c-extension) |
+| `git` missing, or `user.name` prints nothing | [4. Git, and telling it who you are](#4-git-and-telling-it-who-you-are) |
+| **All four passed** | Skip straight to [5. GitHub](#5-github-an-account-your-coursework-repo-and-the-course-repo) — **nobody gets to skip that one** |
 
 > [!IMPORTANT]
-> **On a lab PC that resets when it reboots:** installs 1–3 are usually already there and survive. Installs 4 and 5 (your git identity, your GitHub login) may not. Nothing here takes more than a minute to redo, and week 2 shows you the drill.
+> **Section 5 is not an install and it is the one that gets skipped.** Everybody does it, including the people who passed all four checks above: a private repo, me added as a collaborator, and a clone of the course repo. Tonight's lab *begins* by copying a folder out of that clone.
+
+> [!TIP]
+> **On a lab PC that resets when it reboots:** sections 1–3 are usually already there and survive. Your **git identity** and your **GitHub login** may not. Nothing here takes more than a minute to redo, and week 2 shows you the drill.
 
 ---
 
 ## 1. The .NET 10 SDK
 
-The SDK is the compiler, the runtime, and the `dotnet` command all in one download. **SDK, not "Runtime"** — the runtime only *runs* programs, and you're here to write them.
+The SDK is the compiler, the runtime, and the `dotnet` command in one download. **SDK, not "Runtime"** — the runtime only *runs* programs, and you're here to write them.
 
 **Download:** [dotnet.microsoft.com/download/dotnet/10.0](https://dotnet.microsoft.com/download/dotnet/10.0) → **SDK 10.0.x** → the installer for your machine.
 
 - **Windows:** `x64` unless you know your machine is ARM.
 - **macOS:** `Arm64` for M1/M2/M3/M4, `x64` for an older Intel Mac.
 
-**✓ Check.** Open a **new** terminal — PowerShell on Windows, Terminal on macOS — and run:
+**✓ Check.** Open a **new** terminal and run:
 
 ```bash
 dotnet --version
@@ -28,8 +51,11 @@ You want something starting with `10.`:
 10.0.102
 ```
 
+> [!NOTE]
+> **Already have .NET 8 or 9 from your last course?** Install 10 anyway — SDKs sit side by side and nothing you wrote before breaks. If `dotnet --version` still reports the old one afterwards, restart the machine.
+
 > [!WARNING]
-> **`command not found` / `'dotnet' is not recognized`?** Nine times in ten the terminal was already open when you installed, and it's still using the old list of programs. **Close it completely and open a new one.** If it still fails after that, restart the machine before trying anything cleverer.
+> **`command not found` / `'dotnet' is not recognized`?** Nine times in ten the terminal was already open when you installed, and it's still using the old list of programs. **Close it completely and open a new one.** If it still fails after that, restart before trying anything cleverer.
 
 ---
 
@@ -37,7 +63,7 @@ You want something starting with `10.`:
 
 **Download:** [code.visualstudio.com](https://code.visualstudio.com/)
 
-⚠️ **Visual Studio Code is not Visual Studio.** They're different programs from the same company with nearly the same name. We use **Code** — the small, fast one.
+⚠️ **Visual Studio Code is not Visual Studio.** Different programs, same company, nearly the same name. We use **Code** — the small, fast one. If your last course used full Visual Studio, this will feel lighter and you drive it from the terminal.
 
 - **Windows:** during install, tick **"Add to PATH"**. It's on by default; don't untick it.
 - **macOS:** drag it to Applications, then open it once so macOS stops asking whether you're sure.
@@ -58,6 +84,8 @@ Open VS Code → the **Extensions** icon in the left bar (four squares) → sear
 ---
 
 ## 4. Git, and telling it who you are
+
+**This is the one most people are missing**, and it's the tool you'll use every week for the rest of the course.
 
 **Windows:** [git-scm.com/download/win](https://git-scm.com/download/win) — accept every default.
 **macOS:** you may already have it. Try the check below first; if macOS offers to install "command line developer tools", say yes.
@@ -93,6 +121,8 @@ It prints your name back. If it prints nothing, it didn't take — check for a t
 ---
 
 ## 5. GitHub: an account, your coursework repo, and the course repo
+
+**Everybody does this section**, however many of the checks above you passed.
 
 **Sign up (or sign in):** [github.com](https://github.com/)
 
@@ -138,13 +168,14 @@ You should see `week-01`, `README.md` and a `scripts` folder.
 
 ## You're done
 
-Five green checks and you have a working toolchain: a compiler, an editor that understands C#, somewhere to put your work — and the course repo, which is where everything I give you shows up.
+A compiler, an editor that understands C#, somewhere to put your work — and the course repo, which is where everything I give you shows up.
 
 **Nothing here is graded.** The homework is, and it starts by using every one of these.
 
 ## 🆘 If something wouldn't install
 
-- **`dotnet --version` prints a 8.x or 9.x number** — an older SDK is installed and it's being found first. Install 10 anyway; both can coexist. If it still reports the old one, restart.
+- **`dotnet --version` prints an 8.x or 9.x number** — an older SDK from a previous course is being found first. Install 10 anyway; both can coexist. If it still reports the old one, restart.
 - **VS Code says "The .NET Core SDK cannot be located"** — VS Code was open during the SDK install. Quit it entirely (not just the window) and reopen.
 - **The C# extension sits on "Downloading"** forever — usually campus wifi. Try again on a different network, or come find me before class.
+- **`git config --global user.name` prints nothing after you set it** — the `--global` flag was mistyped, or you set it in a terminal that has since closed without the command actually running. Run it again and re-check.
 - **You can't install anything** because the machine is locked down — tell me. Everything in this course runs on the lab machines, and there's a plan for that; you just need to not spend an evening fighting it alone.

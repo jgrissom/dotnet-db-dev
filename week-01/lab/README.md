@@ -2,7 +2,10 @@
 
 It's 11:58 PM and you're the overnight desk at **KDXR 88.1, "The Owl."** The sign-on sequence runs off this terminal, the way it has since 1987, and four of its five pieces are missing.
 
-**Time:** ~40 minutes in class — **in-class target: checks 1–4 green.** Check 5 is small, and it's fine if it goes home with you.
+**Time:** ~50 minutes in class — **in-class target: all five green.**
+
+> [!NOTE]
+> **The C# here is not the hard part, and you'll know that within five minutes.** What's new is the loop: run the checks, read what they say, change one thing, run them again. That loop is how every week of this course works, and it's what you're actually practising tonight.
 
 ## Setup
 
@@ -49,7 +52,7 @@ dotnet test KDXR.Checks
 | `KDXR.Checks/` | **never edit.** It's how you know you're done |
 
 > [!NOTE]
-> **Notice what the checks never look at: your output.** They call your methods and inspect what comes back. That's why `Broadcast.cs` exists separately from `Program.cs` — and it's the shape [every homework this term asks for](../lecture-notes.md#the-class-is-a-box-to-put-methods-in).
+> **Notice what the checks never look at: your output.** They call your methods and inspect what comes back. That's why `Broadcast.cs` exists separately from `Program.cs` — and it's the shape [every homework this term asks for](../lecture-notes.md#where-your-code-has-to-live). Put a method in `Program.cs` instead and nothing can reach it, `public` or not.
 
 ## The tasks
 
@@ -73,15 +76,15 @@ dotnet run --project KDXR
 
 It asks who's on duty, then prints a sign-on that's blank, a countdown that says 0, and a number of hours that's also 0. Everything it's lying about is one of tonight's four methods.
 
-**Then open `KDXR/Broadcast.cs` and read it.** Every method is [a `def` with the types written down](../lecture-notes.md#a-method-is-a-def-with-the-types-written-down):
+**Then open `KDXR/Broadcast.cs` and read it.** Nothing in the signatures will surprise you — [they're the same words you've been writing](../lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean):
 
 ```csharp
 public static string SignOn(string djName)
 ```
 
-...means *"give me a `string` called `djName`, and I'll give you back a `string`."* The word in front of the name is what comes **out**.
-
 `CallSign()` is done for you. It's the one to copy the shape from.
+
+⚠️ **What's worth noticing before you start:** all of tonight's work happens in `Broadcast.cs` and none of it in `Program.cs`. That isn't a filing preference — it's the only reason the checks can see your work at all.
 
 ### Task 2 in full
 
@@ -98,7 +101,7 @@ public static string SignOn(string djName)
 
 Two things worth noticing, because both come back all term:
 
-- **The `$` before the quote** is what makes `{djName}` become the name instead of printing literally. It's [Python's f-string with the letter moved](../lecture-notes.md#putting-values-into-text).
+- **The `$` before the quote** is what makes `{djName}` become the name instead of printing literally — and [anything in the braces gets *evaluated*](../lecture-notes.md#putting-values-into-text), which is how `CallSign()` gets in there.
 - **`CallSign()` is *called*, not retyped.** Two places that both know the station's name is one place too many — and the check tests this indirectly by asking for a second DJ's sign-on.
 
 The words between the braces are yours. Make it sound like 3 AM.
@@ -158,15 +161,13 @@ The overnight block runs **22:00 through 05:59**. Return `true` when the hour yo
 6, 9, 12, 17, 21     →  false
 ```
 
-The block **wraps past midnight**, which makes this more interesting than it looks. An hour counts if it's late enough **or** early enough:
+The block **wraps past midnight**, which makes this more interesting than it looks — an hour counts if it's late enough **or** early enough. Write it yourself before you look:
 
 ```csharp
 return hour >= 22 || hour < 6;
 ```
 
-⚠️ **`||` means "or", and `&&` means "and".** It has to be `||` here — no single hour is ever both `>= 22` and `< 6`, so `&&` could never be true for anything.
-
-Check the two boundaries when you're done: **6 is not overnight, and 22 is.**
+Check the two boundaries when you're done: **6 is not overnight, and 22 is.** Off-by-one at a boundary is the way this one usually fails.
 
 `dotnet test KDXR.Checks`: **5 / 5.** The Owl is on the air. 🦉
 
@@ -192,7 +193,10 @@ Check the two boundaries when you're done: **6 is not overnight, and 22 is.**
 
 ## 🚀 Done early?
 
-- **Make the sign-on know what time it is.** Feed `SignOn` an hour as well as a name, and have it say something different before 3 AM than after. (`if` works exactly like Python's, with braces instead of a colon.)
+You will be. These are real, and the first one is the most useful thing you can do tonight.
+
+- ⭐ **Prove the split to yourself.** Cut `HoursOnAir` out of `Broadcast.cs`, paste it at the bottom of `Program.cs`, mark it `public static`, and run the checks. Watch check 4 stop being able to find it *at all* — `public` doesn't help, and neither does anything else. Then put it back. That's five minutes and it's the idea the whole course rests on.
+- **Break check 4 the silent way.** Change `60.0` back to `60`, run, and read the failure message — not the number, the message. It's telling you the same thing the generator fuel told you in the demo, and it's the shape of every failure message you'll get this term.
+- **Make the sign-on know what time it is.** Feed `SignOn` an hour as well as a name, and have it say something different before 3 AM than after.
+- **Print the sunrise countdown as hours and minutes** instead of a lump of minutes. `/` and `%` together will do it. ⚠️ Watch the `/` — you now know exactly what it does to whole numbers.
 - **Add a method of your own** — `Broadcast.NextTrackIn(int minutes)`, or a station ident that changes with the hour. Nothing checks it. That's rather the point.
-- **Break something deliberately and read the error.** Assign a `string` to an `int`. Delete a semicolon. Return the wrong type. You'll see all three for real this term, and they're cheaper to meet now, on purpose, than at 11 PM on a Sunday.
-- **Print the sunrise countdown as hours and minutes** instead of a lump of minutes. `/` and `%` together will do it — and `%` is one of the few operators that behaves exactly like Python's.

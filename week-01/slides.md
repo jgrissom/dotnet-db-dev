@@ -51,42 +51,42 @@ You'll feel the first one in **week 3**.
 
 ## Tonight
 
-1. A working toolchain — five installs
-2. A folder becomes a running program
-3. **Variables have types**, and a compiler that means it
+1. Toolchain check — four commands
+2. What `dotnet new console` actually made
+3. **Where your code has to live**
 4. Your work, on GitHub
 
 ---
 
-<!-- _footer: '🖥️ Demo §1 · you already know this' -->
+<!-- _footer: '🖥️ Demo §1 · you already write C#' -->
 
-## You already know how to program
+## You already write C#
 
-This course never teaches you what a loop is.
-
-<br>
-
-It teaches you **what C# does differently** — and why.
+So this is **not** a second tour of the syntax.
 
 <br>
 
-Python is the bridge. We use it constantly.
+It's the part your last course didn't have room for:
+
+code a **machine can test**, git, collections, a database.
 
 ---
 
-<!-- _footer: '🖥️ Demo §2 · five installs' -->
+<!-- _footer: '🖥️ Demo §2 · toolchain check' -->
 
-## Five installs
+## Toolchain check
 
-1. **.NET 10 SDK** — the compiler
-2. **VS Code** — the editor *(not Visual Studio)*
-3. **C# extension** — by Microsoft *(not Dev Kit)*
-4. **Git**, and your name in it
-5. **GitHub**, and a **private** repo
+```bash
+dotnet --version     # want 10.x
+git --version
+git config --global user.name
+```
+
+Plus the **C#** extension in VS Code.
 
 <br>
 
-Each one ends with a ✓ that prints something.
+Missing one? We install it now. **Everyone** does GitHub.
 
 ---
 
@@ -101,9 +101,9 @@ dotnet run
 
 <br>
 
-Python runs a **file**. C# runs a **project** —
+C# runs a **project** — a folder that knows how to build itself.
 
-a folder that knows how to build itself.
+Not a file. That's why there's a `.csproj`.
 
 ---
 
@@ -123,13 +123,9 @@ a folder that knows how to build itself.
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · printing' -->
+<!-- _footer: '🖥️ Demo §3 · where Main went' -->
 
-## Printing
-
-```python
-print("Haldane Station")
-```
+## Where did Main go?
 
 ```csharp
 Console.WriteLine("Haldane Station");
@@ -137,27 +133,29 @@ Console.WriteLine("Haldane Station");
 
 <br>
 
-A **semicolon** ends a statement. Indentation means **nothing**.
+That's the **whole file**. Statements run top to bottom.
+
+<br>
+
+`static void Main` still works. This is the short spelling.
 
 ---
 
-<!-- _footer: '🖥️ Demo §4 · the status board' -->
+<!-- _footer: '🖥️ Demo §4 · a declared type' -->
 
 ## Variables have types
 
-```python
-personnel = 12
-personnel = "twelve"      # Python: fine
-```
-
 ```csharp
 int personnelOnStation = 12;
+
 personnelOnStation = "twelve";   // not today
 ```
 
 <br>
 
-You say what it holds. That's what it holds.
+That word at the front isn't decoration.
+
+It's a **promise the compiler will hold you to.**
 
 ---
 
@@ -170,17 +168,13 @@ You say what it holds. That's what it holds.
 | `int` | a whole number — `12` |
 | `double` | has a decimal part — `-41.5` |
 | `string` | text — `"Haldane"` |
-| `bool` | `true` / `false` — **lowercase** |
+| `bool` | `true` / `false` |
 
 ---
 
-<!-- _footer: '🖥️ Demo §4 · f-strings, moved' -->
+<!-- _footer: '🖥️ Demo §4 · putting values into text' -->
 
 ## Putting values into text
-
-```python
-print(f"On station: {personnel}")
-```
 
 ```csharp
 Console.WriteLine($"On station: {personnelOnStation}");
@@ -188,26 +182,26 @@ Console.WriteLine($"On station: {personnelOnStation}");
 
 <br>
 
-Same idea. **The letter moved.**
+Anything in `{ }` gets evaluated — including a method call.
+
+<br>
+
+Lose the `$` and your output looks like your source.
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · the refusal' -->
+<!-- _footer: '🖥️ Demo §5 · the warm-up' -->
 
 ## The build failed
 
 ```
-error CS0029: Cannot implicitly
-convert type 'string' to 'int'
-
-The build failed.
+Program.cs(13,26): error CS0029:
+Cannot implicitly convert 'string' to 'int'
 ```
 
 <br>
 
-Your program didn't run.
-
-Not *ran and crashed* — **didn't run.**
+You've seen this. **Now read it properly.**
 
 ---
 
@@ -229,7 +223,7 @@ Program.cs(13,26): error CS0029: ...
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · the compiler’s limit' -->
+<!-- _footer: '🖥️ Demo §5 · the limit' -->
 
 ## What the compiler cannot catch
 
@@ -242,47 +236,47 @@ double hours = fuelLitres / burnPerHour;   // 5
 
 <br>
 
-The answer is **5.375**. No error. No warning.
+The answer is **5.375**. No error. No warning. Nothing.
 
-**whole ÷ whole = whole**
+**It checks your types. Not your program.**
 
 ---
 
 <!-- _footer: '🖥️ Demo §6 · a method' -->
 
-## A method is a def with types
-
-```python
-def sign_on(dj_name):
-    return f"KDXR - {dj_name}"
-```
+## The words in front of a method
 
 ```csharp
 public static string SignOn(string djName)
-{
-    return $"KDXR - {djName}";
-}
-```
-
----
-
-<!-- _footer: '🖥️ Demo §6 · the class' -->
-
-## The class is a box to put methods in
-
-```csharp
-public static class Broadcast
-{
-    public static string CallSign()
-    {
-        return "KDXR";
-    }
-}
 ```
 
 <br>
 
-`class` is **week 4**. `static` is **week 5**. Tonight: the shape.
+`public` — the checks can reach it
+
+`static` — no object needed first
+
+`string` — **what comes back**
+
+---
+
+<!-- _footer: '🖥️ Demo §6 · two words owed' -->
+
+## What nobody told you yet
+
+**`public` / `private`** — why a class hides anything.
+
+→ **week 4**
+
+<br>
+
+**`static`** — what it is actually doing.
+
+→ **week 5**
+
+<br>
+
+Tonight: it's the shape you type.
 
 ---
 
@@ -296,11 +290,11 @@ public static class Broadcast
 
 <br>
 
-The checks can only call the second one.
+Nothing can call into `Program.cs`. Not the checks. Not you.
 
 <br>
 
-So can you, in **week 7**, when you write your own.
+If your habit is "everything in `Main`" — that's tonight.
 
 ---
 
@@ -353,7 +347,7 @@ dotnet test KDXR.Checks
 
 **1 / 5 green** out of the box.
 
-**⏱️ 40 minutes · target tonight: 1–4 green.**
+**⏱️ 50 minutes · target tonight: 1–5 green.**
 
 ---
 
@@ -361,11 +355,11 @@ dotnet test KDXR.Checks
 
 ## Tonight, in one picture
 
-**Types** — you say what a thing is.
+**The compiler** checks your types — **not your program.**
 
-**The compiler** — reads it all before any of it runs.
+**Your logic** lives where a test can reach it.
 
-**And it still can't catch everything.**
+**Your work** is on GitHub.
 
 <br>
 

@@ -3,10 +3,12 @@
 Console applications in **C# on .NET 10**, from first program to a real database: the language, objects, collections, unit testing, file I/O, LINQ, and **Entity Framework Core** against **SQL Server** — with **git and GitHub** as a graded outcome, not plumbing.
 
 **Format:** 16 weeks · 1 meeting/week · 3 hours 45 minutes per session
-**Prerequisite:** an introductory programming course **in Python**
+**Prerequisite:** introductory programming in **Python** and in **C#**
 
 > [!NOTE]
-> **You already know how to program. You do not know C#.** This course leans on that constantly: `list` → `List<T>`, `dict` → `Dictionary<K,V>`, comprehensions → LINQ, `__init__` → constructors, `None` → `null`, `pip` → NuGet, indentation → braces. Every new idea starts from the Python-shaped thing you already have — and names the place that intuition breaks.
+> **You already know how to program, and you've already written C#.** So this isn't a second tour of the syntax. It's the part your intro course didn't have room for: **code shaped so a machine can test it**, git as a weekly habit rather than plumbing, collections, LINQ, and a real database underneath the whole thing.
+>
+> Everything familiar gets about a minute of recap and then goes somewhere new — what `static` is actually costing you, why logic buried in `Main` can't be tested or graded by anyone, and the handful of places a **Python** reflex still quietly hands you a wrong answer.
 
 ## The spine
 
@@ -20,11 +22,11 @@ You meet the problem in **week 3** — add three records, quit, run it again, th
 
 | Week | Topic | The payoff moment | Folder | Status |
 |------|-------|-------------------|--------|--------|
-| 1 | Toolchain: SDK, VS Code, `dotnet new console`, your first program; `git init` → first push to GitHub. The Python bridge opens. | The compiler refuses to run a program that Python would have happily crashed on at line 40 | [`week-⁠01/`](week-01/) | ✅&nbsp;Ready |
-| 2 | Types and the compiler (static typing, felt not preached), methods, control flow. Git hygiene: `.gitignore`, commit messages, README | `git status` right after your first build: forty files you never wrote | `week-⁠02/` | 🚧&nbsp;Planned |
+| 1 | Toolchain check, what `dotnet new console` really made, and **where your logic has to live so a test can reach it**; `git init` → first push to GitHub | `4300 / 800` prints `5`. No error, no warning, nothing — and that gap is why this course has tests in it | [`week-⁠01/`](week-01/) | ✅&nbsp;Ready |
+| 2 | The mistakes the compiler *can't* catch: parsing input that lies, `null`, and reading a warning you'd have ignored. Git hygiene: `.gitignore`, commit messages, README | `git status` right after your first build: forty files you never wrote | `week-⁠02/` | 🚧&nbsp;Planned |
 | 3 | Collections: `List<T>`, `foreach`, `Dictionary<K,V>` — and **Spectre.Console**, your first NuGet package | Your list becomes a real table in one line of code. Then you quit, run it again, and it's empty | `week-⁠03/` | 🚧&nbsp;Planned |
-| 4 | OOP I: classes, properties, constructors. **Semester project starts** — your own topic. Branch → pull request → merge | Your own topic, and the first pull request you merge into your own `main` | `week-⁠04/` | 🚧&nbsp;Planned |
-| 5 | OOP II: encapsulation, static vs. instance, composition — and **the debugger's earned slot** | Step into a constructor and watch an object get built, field by field | `week-⁠05/` | 🚧&nbsp;Planned |
+| 4 | OOP with a reason: `private`, properties, and what a class full of public fields was quietly costing you. **Semester project starts** — your own topic. Branch → pull request → merge | Your own topic, and the first pull request you merge into your own `main` | `week-⁠04/` | 🚧&nbsp;Planned |
+| 5 | OOP II: `static` vs. instance — what that keyword was actually doing all along — encapsulation, composition, and **the debugger's earned slot** | Step into a constructor and watch an object get built, field by field | `week-⁠05/` | 🚧&nbsp;Planned |
 | 6 | Interfaces and polymorphism — taught through something you use, not shapes-and-animals | One `foreach` plays a song, a station ID, an ad and a weather bed. Four types, one loop | `week-⁠06/` | 🚧&nbsp;Planned |
 | 7 | **Unit testing with xUnit** — and the course's own checks stop being magic | You open the file that has been grading you since week 1, read it, and then write one | `week-⁠07/` | 🚧&nbsp;Planned |
 | 8 | File I/O: text, CSV, JSON serialization — your list survives a restart for the first time | Open the save file in a text editor. Then corrupt it by hand and run the program | `week-⁠08/` | 🚧&nbsp;Planned |
@@ -101,6 +103,8 @@ Because there's no deployed URL here, **I have to run your code** — which is w
 - **Weeks 4–16:** that repo *plus* your **public** semester-project repo — your own topic, your own name on it, something you can show someone afterwards.
 
 ## Toolchain
+
+**Most of this is already on your machine from your C# course.** Week 1 starts by *verifying* it rather than installing it — five commands that each print something. Anything genuinely missing gets installed in class, and nobody leaves without it.
 
 - .NET 10 SDK
 - VS Code with the **C#** extension (projects are created and run with the `dotnet` CLI; no C# Dev Kit)

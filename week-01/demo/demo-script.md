@@ -15,7 +15,13 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 > Lost your place? **The nearest 🎞️ above you is the slide that should be showing** — and every slide's footer names the section and beat of this sheet it belongs to.
 
 > [!IMPORTANT]
-> **Tonight has two deliberate breaks and neither gets announced.** §5 assigns a string to an `int` and the program **refuses to run at all** — that's the week's payoff, and slide 12 comes *after* the terminal shows it, not before. Then §5's second break divides two whole numbers and gets a wrong answer with **no error and no warning at all**, which is the sentence the whole course hangs off: the compiler catches what it can, and it cannot catch everything.
+> **This room has already taken a C# course, and the whole night is paced against that.**
+>
+> **Familiar beats move fast.** §3 and §4 are recap — if you find yourself explaining what a `string` is, you have taken eight minutes from git.
+>
+> **Two beats carry the evening, and both are new to them.** §5's *second* break divides two whole numbers, gets a wrong answer, and shows **no error and no warning at all** — that's the payoff and it gets twenty minutes. Then §6's split: **logic inside `Program.cs` cannot be called, tested or graded by anyone.** Most of the room has spent a semester putting everything in `Main`.
+>
+> ⚠️ **§5's first break is a warm-up, not a reveal.** They have seen a build fail. Play it as "now read it properly", inside four minutes, and move on.
 
 ## 0 · Before class
 
@@ -24,12 +30,12 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```bash
   cd ~/scratch && rm -rf Haldane
   ```
-- [ ] **Rehearse the whole thing once (≈25 min)** — it also warms the NuGet cache, so the first `dotnet new` in front of the room is instant rather than a thirty-second stare
+- [ ] **Rehearse the whole thing once (≈20 min)** — it also warms the NuGet cache, so the first `dotnet new` in front of the room is instant rather than a thirty-second stare
 - [ ] Terminal sized for the back row. **Editor font up too** — tonight is the night people are checking whether they can read the screen at all
 - [ ] Teaching profile in VS Code; close every other folder and tab
-- [ ] Have the [setup guide](../setup-guide.md) open on the projector-adjacent tab, or printed — §2 is fourteen people at different stages
+- [ ] Have the [setup guide](../setup-guide.md) open on a projector-adjacent tab, or printed. **It is self-serve by design** — your job in §2 is to circulate, not to present
 - [ ] ⚠️ **Check your own `git config --global user.name`** is the teaching identity and not something you'd rather not project
-- [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."*** Tonight especially, because the temptation to follow along is highest when the material is easy
+- [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."*** Tonight especially, because the temptation to follow along is highest when the material is familiar
 
 ## 1 · Welcome *(slides 2–4)*
 
@@ -40,28 +46,35 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ### Tonight
 
-- [ ] 🎞️ **GO TO SLIDE 3** — *Tonight*. Four things, and be honest that the first is the boring one: *"about an hour of installing. It's the least interesting night of the term and the one that makes the other fifteen possible"*
+- [ ] 🎞️ **GO TO SLIDE 3** — *Tonight*. Four things, and be honest about the shape: *"the first twenty minutes are a toolchain check, most of you will pass it in five, and then we get to the part that's actually new"*
 
-### You already know this
+### You already write C#
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *You already know how to program* · 🎯 *"I am never going to teach you what a loop is. You know. What you don't know is what C# does differently, and that's the whole course. Every single week I'm going to say 'you know this from Python' and then tell you where that stops being true"*
-- [ ] Ask for hands: *"who's written Python in the last six months?"* — sets the room's expectation that the bridge is real and used constantly
+- [ ] 🎞️ **GO TO SLIDE 4** — *You already write C#* · 🎯 **the frame for the whole term, and it buys you permission to move fast:** *"you have all written C#. I am not going to teach you what a loop is, or a method, or a class. This course is the part your last one didn't have room for — code that a machine can test, git, collections, and a real database underneath it"*
+- [ ] Ask for hands: *"who put every single method inside `Main` last semester?"* — expect most of the room, and expect laughter. 🔗 **That's §6, and naming it now makes the later beat land**
+- [ ] 💡 Be straight about the overlap rather than hiding it: *"some of tonight you'll have seen. I'll go fast through those bits. Two things you almost certainly haven't seen, and they're both after the second break"*
 
-## 2 · Setup *(slide 5)*
+## 2 · Toolchain check *(slide 5)*
 
-- [ ] 🎞️ **GO TO SLIDE 5** — *Five installs*. Leave it up; it's the checklist for the whole segment
-- [ ] Point people at [`setup-guide.md`](../setup-guide.md) and say the rule: **each install ends with a ✓ that prints something, and you do the ✓ before moving on**
-- [ ] ⚠️ **Name the two name-collisions before they cost anyone ten minutes:** VS **Code** is not Visual **Studio**; the **C#** extension is not **C# Dev Kit**
-- [ ] Circulate. **Do not demo anything during this segment** — the room is at fourteen different stages and a demo strands whoever is behind
-- [ ] 🎯 **The `dotnet --version` fix, said loudly once so you say it once:** *"if the terminal says 'command not found', it was open while you installed. Close it completely and open a new one. That's nine out of ten of them"*
-- [ ] Watch for the slow one: the C# extension download on class wifi. Anyone stuck there can still do everything in §3–§6 from the terminal
-- [ ] ⚠️ **The last item in §5 of the guide is the one that gets skipped, because it isn't an install and it isn't on the slide — everybody clones the course repo.** Tonight's lab and this week's homework both *begin* by copying something out of it, so a room that skipped it loses ten minutes at 3:00:
+- [ ] 🎞️ **GO TO SLIDE 5** — *Toolchain check*. Leave it up; it's the checklist for the whole segment
+- [ ] Point people at [`setup-guide.md`](../setup-guide.md) and say the rule: **run the four checks at the top, and only read a section if its check failed**
+  ```bash
+  dotnet --version
+  git --version
+  git config --global user.name
+  ```
+- [ ] ⚠️ **Name the two name-collisions before they cost anyone ten minutes:** VS **Code** is not Visual **Studio**; the **C#** extension is not **C# Dev Kit**. Anyone who came through full Visual Studio last term needs both said out loud
+- [ ] **Circulate. Do not present during this segment** — the room is at a dozen different stages and a demo strands whoever is behind
+- [ ] 🎯 **The two failures worth calling out once, loudly:** *"if the terminal says 'command not found', it was open while you installed — close it completely and open a new one. And if `dotnet --version` says 8 or 9, that's last term's SDK. Install 10 anyway; they live side by side"*
+- [ ] ⚠️ **`git config --global user.name` is the check most of them fail**, because an intro course rarely sets it up. That's expected and it's not a problem — it's two commands
+- [ ] ⚠️ **The last item in §5 of the guide is the one that gets skipped, because it isn't an install and the fast finishers stop reading — everybody clones the course repo.** Tonight's lab and this week's homework both *begin* by copying something out of it, so a room that skipped it loses ten minutes at 2:50:
   ```bash
   git clone https://github.com/jgrissom/dotnet-db-dev.git
   ```
-- [ ] **✓ CHECKPOINT:** every machine prints a `10.` from `dotnet --version` **and** has a `dotnet-db-dev` folder, before the break
+- [ ] **✓ CHECKPOINT:** every machine prints a `10.` from `dotnet --version`, prints a name from `git config`, **and** has a `dotnet-db-dev` folder, before the break
+- [ ] 💡 **Verified and idle by 0:25?** Take the break early and give the minutes to §7. **Do not pad the recap segments** — that's the one way to lose this room
 
-## 3 · A folder becomes a program *(slides 6–8)*
+## 3 · What the project actually is *(slides 6–8)*
 
 ### Two commands
 
@@ -71,18 +84,18 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   cd Haldane
   dotnet run
   ```
-- [ ] 🎯 **Let `Hello, World!` land.** *"That's a compiler, a runtime and a project system, and it took four seconds. Nothing you install for the rest of this course is as big as what you just installed"*
-- [ ] Name the difference while it's concrete: *"Python runs a file. C# runs a **project** — a folder that knows how to build itself. That's why there's a folder here and not just a .cs"*
+- [ ] Name the difference while it's concrete — **this is the new part of the beat, not `Hello, World!`**: *"Python runs a file. C# runs a **project** — a folder that knows how to build itself. If your last course was full Visual Studio, this is File → New Project with the wizard taken away"*
 
 ### What it made
 
-- [ ] 🎞️ **GO TO SLIDE 7** — *What dotnet new made*. Then open the folder in VS Code and tour it, slowly, because this is the first time most of them have seen it:
-- [ ] `Program.cs` — *"one line of actual code"* · `Haldane.csproj` — open it, *"eight lines of XML that say which .NET and which packages. You'll add to this in week 3"*
+- [ ] 🎞️ **GO TO SLIDE 7** — *What dotnet new made*. Then open the folder in VS Code and tour it — briskly:
+- [ ] `Haldane.csproj` — **open it**, because most of them have never looked inside one: *"eight lines of XML that say which .NET and which packages. You'll add a line to this in week 3, and it's the whole reason there's no `.sln` in this course"*
 - [ ] `bin/` and `obj/` — 🎯 *"you didn't write any of this and you never edit it. Remember these two names. Next week they cause the first real mess of the term"* ⚠️ **plant it, don't explain it** — week 2's opening beat is `git status` showing forty files
 
-### Printing
+### Where Main went
 
-- [ ] 🎞️ **GO TO SLIDE 8** — *Printing*. Then in `Program.cs`, delete the template line and **type** the banner — first instance, so type it, don't paste:
+- [ ] 🎞️ **GO TO SLIDE 8** — *Where did Main go?* · worth a real thirty seconds if their course used `static void Main`: *"a file called `Program.cs` can just have statements in it. Both spellings still work — this one is shorter and it's what the starters use"*
+- [ ] Then in `Program.cs`, delete the template line and **type** the banner — first instance, so type it, don't paste:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");
@@ -91,58 +104,58 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine();
   ```
 - [ ] `dotnet run`. **Set the fiction here** — this is the only world-building beat and it takes fifteen seconds: *"Haldane is a research station. Twelve people, five hundred kilometres from anybody, and one console. There is no browser out here. This terminal is the entire interface to the building — and if it's wrong about who's outside, somebody is outside"*
-- [ ] 💡 **Deliberately forget one semicolon** while typing, let the squiggle appear, fix it. *"That's the editor being the compiler's early-warning system. We'll meet the compiler properly in about twenty minutes"*
 
 ## 4 · The status board *(slides 9–11)*
 
-### Variables have types
+> **This whole section is recap and it has fifteen minutes. Type, run, land one sentence per slide, move.**
 
-- [ ] **Type these four lines** — they're the heart of the night:
+### A declared type
+
+- [ ] **Type these four lines** — fast, no commentary while typing:
   ```csharp
   string stationName = "Haldane";
   int personnelOnStation = 12;
   double temperatureC = -41.5;
   bool blizzardWarning = true;
   ```
-- [ ] 🎞️ **GO TO SLIDE 9** — *Variables have types* · 🎯 the sentence that matters: *"in Python a name holds whatever you last put in it. In C# you say what kind of thing it holds, up front, and that is what it holds forever. That word at the front is not decoration — it's a promise you're making to the compiler, and it's going to hold you to it"*
+- [ ] 🎞️ **GO TO SLIDE 9** — *Variables have types* · 🎯 **one sentence, and it's the only one worth slowing down for:** *"you have all typed this. What that word at the front actually is, is a promise — and the compiler is going to hold you to it for the whole life of the variable. Hold that thought for twenty minutes, because tonight is about exactly how far that promise goes"*
 
 ### The four types
 
-- [ ] 🎞️ **GO TO SLIDE 10** — *The four types* · quick tour. ⚠️ **`true` and `false` are lowercase** — Python capitalises them, and everyone gets this wrong exactly once
-- [ ] 💡 If anyone asks about `var`: *"it means 'work it out from the value'. It is **not** Python — the variable still has one type forever, you just didn't type it. Week 3, when the type names get long"*
+- [ ] 🎞️ **GO TO SLIDE 10** — *The four types* · quick tour, no more than twenty seconds. **Do not teach these**
+- [ ] 💡 If anyone asks about `var`: *"it means 'work it out from the value'. The variable still has one type forever, you just didn't type it. Week 3, when the type names get long"*
 
 ### Putting values into text
 
-- [ ] **Type the status board** — and the `$` is the beat:
+- [ ] **Type the status board:**
   ```csharp
   Console.WriteLine($"Station:     {stationName}");
   Console.WriteLine($"On station:  {personnelOnStation}");
   Console.WriteLine($"Outside:     {temperatureC} C");
   Console.WriteLine($"Blizzard:    {blizzardWarning}");
   ```
-- [ ] 🎞️ **GO TO SLIDE 11** — *Putting values into text* · *"Python's f-string. Same idea, the letter moved to a dollar sign. That's the entire difference"*
+- [ ] 🎞️ **GO TO SLIDE 11** — *Putting values into text* · one useful line beyond the recap: *"anything in the braces gets **evaluated** — that can be a whole expression, including a method call. You'll want that in about ten minutes"*
 - [ ] `dotnet run` — the board fills in
-- [ ] 💡 **Deliberately drop the `$` on one line first** if the room is quick — they see `{stationName}` print literally and diagnose it themselves in about two seconds. Worth it: it's the most common typo of week 1
 
-## 5 · The compiler refuses *(slides 12–14)*
+## 5 · What the compiler cannot catch *(slides 12–14)*
 
-### The break
+### The warm-up
 
-- [ ] ⚠️ **Break 1 — do not announce it, and do not go to a slide first.** Change the personnel line so it says what a Python programmer might reasonably type:
+> ⚠️ **Four minutes, and do not oversell it.** They have all seen a build fail. The job here is to make them *read* the message, and to set up the contrast with what follows.
+
+- [ ] Change the personnel line, without ceremony:
   ```csharp
   int personnelOnStation = "twelve";
   ```
-- [ ] **Predict first, hands up:** *"in Python this runs fine and I find out later. What does C# do?"* Take answers — most rooms guess "it crashes"
-- [ ] `dotnet run`. 🎯 **Sit in the output.** Read it aloud, then the line: *"look at what did **not** happen. It didn't print the banner. It didn't print the station name. Your program **did not run** — not 'ran and then crashed', **didn't run**. Python would have given you four lines of output and then fallen over"*
-- [ ] 🎞️ **GO TO SLIDE 12** — *The build failed* · now the slide, after the reveal. *"There is a step between writing it and running it, and it just refused"*
+- [ ] `dotnet run`. 🎞️ **GO TO SLIDE 12** — *The build failed* · *"nobody is surprised. Fine. But be precise about what just happened: it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
 
 ### Reading an error
 
 - [ ] 🎞️ **GO TO SLIDE 13** — *Reading an error*. Back to the terminal and take the message apart on screen: **file · line and character · what's wrong**
-- [ ] 🎯 *"`CS0029`. Every C# error has a code, and it's searchable. Paste the code and the message into a search box and you get the actual documentation. That's not a workaround — that's how this language is documented"*
-- [ ] Fix it back to `12`, `dotnet run`, banner returns. *"The compiler is the first person to read your code, and it reads it very carefully"*
+- [ ] 🎯 *"`CS0029`. Every C# error has a code and it's searchable. Paste the code and the message into a search box and you get the actual documentation. Most of you have been reading the squiggle and guessing. Read the code instead"*
+- [ ] Fix it back to `12`, `dotnet run`, banner returns
 
-### What it cannot catch
+### The limit
 
 - [ ] **Type the generator block** — and type `int` on the second line, on purpose:
   ```csharp
@@ -152,23 +165,25 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   double hoursOfFuel = fuelLitres / burnPerHour;
   Console.WriteLine($"Generator fuel: {hoursOfFuel} hours remaining.");
   ```
-- [ ] **Predict:** *"4300 litres, 800 an hour. What prints?"* — the room will say five point something
-- [ ] ⚠️ **Break 2.** `dotnet run` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** The compiler had no opinion about this at all"*
-- [ ] **Ask before explaining:** *"why?"* — someone usually gets there. Then: *"both sides are whole numbers, so C# did whole-number division and threw the remainder away. Then it stored `5` in a double, as 5.0. **The decimal point was gone before `double` ever got involved**"*
+- [ ] **Predict, hands up:** *"4300 litres, 800 an hour. What prints?"* — the room will say five point something
+- [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** `dotnet run` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
+- [ ] ⚠️ **Don't rescue it too fast.** If nobody speaks within twenty seconds, ask *"is that right?"* — never *"that's wrong"*
+- [ ] **Ask before explaining:** *"why?"* — someone usually gets there, and a few will have been bitten by it before. **Let that person say it.** Then: *"both sides are whole numbers, so C# did whole-number division and threw the remainder away. Then it stored `5` in a double, as 5.0. **The decimal point was gone before `double` ever got involved**"*
+- [ ] 💡 **The follow-up that separates knowing-the-fix from understanding it:** *"so would casting the answer to double save you?"* — no. `(double)(4300 / 800)` is 5.0. **The fix has to happen before the division, not after**
 - [ ] 🎞️ **GO TO SLIDE 14** — *What the compiler cannot catch* · **fix it live, and it's one word** — `int` becomes `double` on the `burnPerHour` line:
   ```csharp
   double burnPerHour = 800;
   ```
-- [ ] `dotnet run` → **5.375**. 🎯 **The sentence the course hangs off:** *"the compiler catches what it can, and it cannot catch everything. That gap right there is why week 7 exists, and why every lab you do has a file full of checks in it"*
+- [ ] `dotnet run` → **5.375**. 🎯 **The sentence the course hangs off:** *"here is the promise that word at the front actually makes. **The compiler checks that your types line up. It does not check that your program is right.** Those are wildly different promises, and everything that lives in the gap is yours to catch. That gap is why week 7 exists, and why every lab you do has a file full of checks in it"*
 - [ ] 🔗 *"You will meet this exact bug in the lab tonight, in check 4. Now you know what it looks like"*
-- [ ] **✓ CHECKPOINT:** somebody can say why `4300 / 800` gave 5
+- [ ] **✓ CHECKPOINT:** somebody can say why `4300 / 800` gave 5, **and** why casting the result doesn't fix it
 
 ## 6 · The part that has to be right *(slides 15–17)*
 
 ### A method
 
-- [ ] 🎞️ **GO TO SLIDE 15** — *A method is a def with types* · read the Python and the C# side by side off the slide
-- [ ] Make a **new file**, `Conditions.cs`, and type it — narrating the four words in order (`public`, `static`, return type, name):
+- [ ] 🎞️ **GO TO SLIDE 15** — *The words in front of a method* · read it off the slide. **Recap — sixty seconds**
+- [ ] Make a **new file**, `Conditions.cs`, and type it:
   ```csharp
   public static class Conditions
   {
@@ -178,12 +193,11 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
       }
   }
   ```
-- [ ] 🎯 **Point at the return type:** *"the word in front of the name is what comes **out**. The words in the brackets are what goes **in**. A def, with the types written down"*
-- [ ] 💡 Someone may ask why `* 9 / 5` doesn't lose its remainder like the fuel did — good question, answer it: *"because `celsius` is already a double, so the whole line is double arithmetic. The trap needs **both** sides to be whole numbers"*
+- [ ] 💡 Someone may ask why `* 9 / 5` doesn't lose its remainder like the fuel did — **good question, and it's the checkpoint from §5 being applied**: *"because `celsius` is already a double, so the whole line is double arithmetic. The trap needs **both** sides to be whole numbers"*
 
-### The class
+### Two words owed
 
-- [ ] 🎞️ **GO TO SLIDE 16** — *The class is a box to put methods in* · ⚠️ **bound the magic explicitly, don't hand-wave it:** *"`class` is week 4. `static` is week 5. Both get taught properly — I'm not going to pretend I explained them tonight. What you need this week is that C# has nowhere to put a method except inside one of these, so this is the shape you type"*
+- [ ] 🎞️ **GO TO SLIDE 16** — *What nobody told you yet* · ⚠️ **do not say "you're not expected to understand this" — they've written classes and it would be condescending.** Say the true version: *"you have all typed `public static class`. What I'd bet nobody told you is **why** — why a class hides anything at all, which is week 4, and what `static` is actually doing, which is week 5. If you've been adding `static` because the red squiggle asked you to, week 5 is the week that stops"*
 - [ ] Add the second method, and let them see one method call another:
   ```csharp
       public static bool IsSafeToGoOut(double celsius, bool blizzard)
@@ -191,28 +205,34 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
           return celsius > -50 && !blizzard;
       }
   ```
-- [ ] In `Program.cs`, call them — **the class name, a dot, the method**:
+- [ ] In `Program.cs`, call them — the class name, a dot, the method:
   ```csharp
   Console.WriteLine($"That's {Conditions.Fahrenheit(temperatureC)} F.");
   Console.WriteLine($"Safe to go out: {Conditions.IsSafeToGoOut(temperatureC, blizzardWarning)}");
   ```
-- [ ] `dotnet run` → `-42.7 F` and `Safe to go out: False`. 🎯 *"and there's a `bool` coming back out of a method. The answer to a yes-or-no question has a type too"*
+- [ ] `dotnet run` → `-42.7 F` and `Safe to go out: False`
 
 ### Two files, two jobs
 
-- [ ] 🎞️ **GO TO SLIDE 17** — *Two files, two jobs* · 🎯 **this is the beat that makes the rest of the course possible, so give it its thirty seconds:** *"`Program.cs` is what a human sees. `Conditions.cs` is what has to be **right**. That split is not tidiness — the checks in your lab tonight can call `Conditions.Fahrenheit` directly and ask what came back. They cannot call anything buried in `Program.cs`. Nothing can"*
+- [ ] 🎞️ **GO TO SLIDE 17** — *Two files, two jobs* · 🎯 **this is the second of tonight's two real beats. Give it its full three minutes and do not let it sound like tidiness:** *"`Program.cs` is what a human sees. `Conditions.cs` is what has to be **right**. The checks in your lab tonight call `Conditions.Fahrenheit` directly and ask what came back. They cannot call anything inside `Program.cs`. **Nothing can.** Not the checks, not me, not you"*
+- [ ] 🎯 **Collect the show of hands from §1 and make it the lesson:** *"most of you put everything in `Main` last semester. That worked, and it will never work again — not because I say so, but because a thing nobody can call is a thing nobody can test and nobody can grade"*
+- [ ] 💡 **Prove it rather than asserting it, if the clock allows (30 seconds):** move `Fahrenheit` to the bottom of `Program.cs`, mark it `public`, and show the call failing to resolve. *"Public doesn't help. It has to be in a class, in its own file"*
 - [ ] 🔗 **Plant week 7 without spending it:** *"there's a file in tonight's lab that grades you. In week 7 you find out it isn't magic, and you write one"*
-- [ ] **✓ CHECKPOINT:** the room can say which file the checks can see
+- [ ] **✓ CHECKPOINT:** the room can say which file the checks can see, and why
 
 ## 7 · Onto GitHub *(slides 18–19)*
 
-- [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. Then run the first three on Haldane, reading each one as you go:
+> **Twenty-five minutes, and it needs them. Assume nobody has used git.** It's graded every week from here.
+
+- [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. Then run the first three on Haldane, **reading each one aloud as you go** — what it does, not just what it is:
   ```bash
   git init
   git add .
   git commit -m "Week 1: Haldane duty console"
   ```
-- [ ] ⚠️ **Do not fix what `git add .` just swept up.** `bin/` and `obj/` are now staged and that is *correct for tonight*. If someone spots it and objects, give them the credit and hold the line: *"good eye. That's next week's first ten minutes, and it's better as a mess you made than a rule I gave you"*
+- [ ] 🎯 **`git status` between each one**, and actually look at it: *"this is the command you'll run more than any other, and it always tells you what git thinks is going on"*
+- [ ] ⚠️ **Do not fix what `git add .` just swept up.** `bin/` and `obj/` are now staged and that is *correct for tonight*. If someone spots it — and in this room someone might, having heard of `.gitignore` — give them the credit and hold the line: *"good eye. That's next week's first ten minutes, and it's better as a mess you made than a rule I gave you"*
+- [ ] **Commit messages, said once and meant:** *"three commits minimum, and they should tell a story. `week 1 setup`, `station class`, `countdown working`. Not `a`, `b`, `asdf`. I read these and they're worth points"*
 - [ ] 🎞️ **GO TO SLIDE 19** — *Your repo for the whole term* · make the repo on GitHub **live, on screen**: private, no README, name it `dotnet-db-coursework`
 - [ ] ⚠️ **Say the private part twice, with the reason:** *"weeks 1 through 3 are the same exercises for all of you. A public repo is a copy-sharing surface, and I'd rather not have to care"*
 - [ ] **Add a collaborator on screen** — Settings → Collaborators → Add people. 🎯 *"this is worth three points and it's how I read your work. Skip it and your homework is indistinguishable from no homework"*
@@ -222,20 +242,23 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   git push -u origin main
   ```
 - [ ] Reload the GitHub page — the files are there. 🔗 *"Week 4 you make a **second** repo, public, with your own project in it. That one has your name on it and you'll want it to look good"*
+- [ ] **✓ CHECKPOINT:** ask whether anyone's `push` was rejected or asked for a password — sort those now, not at 10pm on Sunday
 
 ## 8 · Hand off to the lab *(slide 20)*
 
 - [ ] 🎞️ **GO TO SLIDE 20** — *Lab: KDXR signs on*. Leave it up for the whole lab; it's the task list and it carries the clock
 - [ ] Show **what done looks like** — the answer key **running on your machine**: `week-01/lab/solution`, then `dotnet test KDXR.Checks` printing **5 / 5**, and `dotnet run --project KDXR` showing the sign-on. ~60 seconds, a target not a walkthrough. **Nothing is deployed in this course — this is just localhost, and it always will be**
+- [ ] 🎯 **Frame it honestly, because the C# is well within them:** *"the code tonight is not hard for you. What's new is the loop — run the checks, read what they say, fix one thing, run again. That loop is the whole course"*
 - [ ] Setup on screen, said once: **`git pull` → copy `week-01/lab/starter` out of the clone and rename it → open the folder holding *both* project folders → `dotnet test KDXR.Checks`** → **1 / 5**
 - [ ] ⚠️ **The folder split, because it trips everybody all term:** `dotnet test KDXR.Checks` runs from the folder holding **both** projects; `dotnet run --project KDXR` from the same place. Never from inside `KDXR.Checks`
 - [ ] ⚠️ **"Copy it OUT of the clone."** Working inside the clone means next week's `git pull` fights their edits
-- [ ] Say the target and mean it: **checks 1–4 in class; check 5 is fine as homework.** *"Check 1 is green before you touch anything — that's the station you were handed"*
-- [ ] 🎯 **Point them at the failure messages:** *"these are not 'assertion failed'. They tell you what's wrong and what to do about it. Read them — especially check 4's, which is the bug you watched me make twenty minutes ago"*
+- [ ] Say the target and mean it: **all five green tonight.** *"Check 1 is green before you touch anything — that's the station you were handed"*
+- [ ] 🎯 **Point them at the failure messages:** *"these are not 'assertion failed'. They tell you what's wrong and what to do about it. Read them — especially check 4's, which is the bug you watched me make forty minutes ago"*
+- [ ] 💡 **Finished early?** The *Done early?* list in the lab README is real work. Point at the "break something deliberately" item
 
 ## 9 · Wrap-up, after the lab *(slide 21)*
 
-- [ ] 🎞️ **GO TO SLIDE 21** — *Tonight, in one picture*. Three beats: **types** · **a compiler that reads it all first** · **and it still can't catch everything**
-- [ ] Homework: **their own radio station** — call sign, city, sign-off hour, four methods in a `Station` class, pushed to the private repo they made tonight. *"Same shape as the lab. Different station, and the station is yours"*
+- [ ] 🎞️ **GO TO SLIDE 21** — *Tonight, in one picture*. Three beats: **the compiler checks types, not programs** · **your logic lives where a test can reach it** · **your work is on GitHub**
+- [ ] Homework: **their own radio station** — call sign, city, sign-off hour, five methods in a `Station` class, pushed to the private repo they made tonight. *"Same shape as the lab. Different station, and the station is yours"*
 - [ ] ⚠️ Repeat the two that cost points silently: **add me as a collaborator**, and **the class goes in its own file, marked `public`**
 - [ ] 🔗 **Week 2:** *"we start by looking at what `git add .` swept up tonight, and it's about forty files none of you wrote"*

@@ -13,7 +13,7 @@ dotnet test KDXR.Checks
 ```
 
 > [!IMPORTANT]
-> This isn't submitted and it isn't worth points. It's the guided version of exactly what Part 2 asks you to do alone — same four shapes, different station. Doing it first is what turns Part 2 into an hour.
+> **You should have got all five of these in class.** If you didn't, finish them first — it isn't submitted and it isn't worth points, but it's the guided version of exactly what Part 2 asks you to do alone. Same shapes, different station. Doing it first is what turns Part 2 into an hour.
 
 ## Part 2 — Your own station (graded)
 
@@ -54,7 +54,7 @@ dotnet-db-coursework/
 
 ### Write it
 
-**3. [A `Station` class in its own file](lecture-notes.md#the-class-is-a-box-to-put-methods-in)** — `Week01/Station.cs`, `public`, holding five methods. This is the whole file, with my station's answers in it; yours will say something else:
+**3. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `Week01/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. This is the whole file, with my station's answers in it; yours will say something else:
 
 ```csharp
 public static class Station
@@ -93,7 +93,7 @@ What each one has to do:
 | `CallSign()` | `string` | **four capital letters, starting with K or W** — that's the real US convention, and the check enforces it |
 | `City()` | `string` | wherever your station broadcasts from |
 | `SignOffHour()` | `int` | when it shuts down, **1 to 12** |
-| `SignOn()` | `string` | must contain **your call sign and your city** — [built by calling your own methods](lecture-notes.md#a-method-is-a-def-with-the-types-written-down), not by retyping them |
+| `SignOn()` | `string` | must contain **your call sign and your city** — [built by calling your own methods](lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean), not by retyping them |
 | `MinutesUntilSignOff(int hour, int minute)` | `int` | minutes from the given time until **your** sign-off hour |
 
 > [!WARNING]
@@ -144,7 +144,7 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 
 ## 🆘 Stuck?
 
-- **The checks say they can't find `Station`** — it needs to be `public`, spelled `Station` exactly, in `Week01/Station.cs`. ⚠️ **A class written at the bottom of `Program.cs` is invisible to them** — [it has to be its own file](lecture-notes.md#the-class-is-a-box-to-put-methods-in).
+- **The checks say they can't find `Station`** — it needs to be `public`, spelled `Station` exactly, in `Week01/Station.cs`. ⚠️ **A class written at the bottom of `Program.cs` is invisible to them, `public` or not** — [it has to be its own file](lecture-notes.md#where-your-code-has-to-live).
 - **`error CS0161: not all code paths return a value`** — you left `MinutesUntilSignOff` without a `return`, or its only `return` is inside an `if`.
 - **"Station has no public static method called SignOn"** but you wrote one — check the capital letters (`signOn` and `SignOn` are different names), and that it says `static`.
 - **Check 4 says your countdown disagrees with your sign-off hour** — you typed a number instead of working it out from `SignOffHour()`.
@@ -167,11 +167,11 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 | The program builds and runs without crashing | 2 | your repo |
 | 3+ commits 👀 | 3 | your repo |
 
-*Reminder: the explain-it standard applies — I ask a couple of people in person each week. The ones I'll reach for this week: "why does `SignOn` call `CallSign()` instead of just writing the letters again?", "what happens if you divide 330 by 60 in C#?", and "which of your two files can the checks actually see, and why?"*
+*Reminder: the explain-it standard applies — I ask a couple of people in person each week. The ones I'll reach for this week: "why does `SignOn` call `CallSign()` instead of just writing the letters again?", "330 divided by 60 gave you 5 — would casting the answer to `double` have fixed it?", and "which of your two files can the checks actually see, and why?"*
 
 ## 📖 Reading for next week (~15 min)
 
-Week 2 is **the compiler as a working partner**, and **cleaning up what git swept up tonight**.
+Week 2 is **the mistakes the compiler can't catch for you** — input that lies, `null`, and the warnings you've been scrolling past — and **cleaning up what git swept up tonight**.
 
 - **Go and look at your repo on GitHub.** Click into `week-01/Week01/`. Count the folders you didn't write, and open one file inside `obj/`. You don't need to understand it — just get a sense of how much of what you pushed isn't yours. Bring the number.
 - Then answer this for yourself, and write it down: **why would a compiler need a folder of its own working files, and why would anyone want those in a repo?** (One of those questions has a good answer. The other doesn't.)
