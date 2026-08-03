@@ -132,14 +132,14 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
 <h2 id="tonight">Tonight</h2>
 <ol>
-<li>A working toolchain — five installs</li>
-<li>A folder becomes a running program</li>
-<li><strong>Variables have types</strong>, and a compiler that means it</li>
+<li>Toolchain check — four commands</li>
+<li>What <code>dotnet new console</code> actually made</li>
+<li><strong>Where your code has to live</strong></li>
 <li>Your work, on GitHub</li>
 </ol>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §1 · tonight</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §1 · you already know this" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §1 · you already write C#" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -156,7 +156,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="4" style="--class:invert;--paginate:true;--footer:🖥️ Demo §1 · you already know this;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="4" style="--class:invert;--paginate:true;--footer:🖥️ Demo §1 · you already write C#;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -174,15 +174,14 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
-<h2 id="you-already-know-how-to-program">You already know how to program</h2>
-<p>This course never teaches you what a loop is.</p>
+<h2 id="you-already-write-c">You already write C#</h2>
+<p>So this is <strong>not</strong> a second tour of the syntax.</p>
 <br />
-<p>It teaches you <strong>what C# does differently</strong> — and why.</p>
-<br />
-<p>Python is the bridge. We use it constantly.</p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §1 · you already know this</footer>
+<p>It's the part your last course didn't have room for:</p>
+<p>code a <strong>machine can test</strong>, git, collections, a database.</p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §1 · you already write C#</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §2 · five installs" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §2 · toolchain check" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -199,7 +198,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="5" style="--class:invert;--paginate:true;--footer:🖥️ Demo §2 · five installs;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="5" style="--class:invert;--paginate:true;--footer:🖥️ Demo §2 · toolchain check;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -217,17 +216,15 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
-<h2 id="five-installs">Five installs</h2>
-<ol>
-<li><strong>.NET 10 SDK</strong> — the compiler</li>
-<li><strong>VS Code</strong> — the editor <em>(not Visual Studio)</em></li>
-<li><strong>C# extension</strong> — by Microsoft <em>(not Dev Kit)</em></li>
-<li><strong>Git</strong>, and your name in it</li>
-<li><strong>GitHub</strong>, and a <strong>private</strong> repo</li>
-</ol>
+<h2 id="toolchain-check">Toolchain check</h2>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">dotnet --version     <span class="hljs-comment"># want 10.x</span>
+git --version
+git config --global user.name
+</code></pre>
+<p>Plus the <strong>C#</strong> extension in VS Code.</p>
 <br />
-<p>Each one ends with a ✓ that prints something.</p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §2 · five installs</footer>
+<p>Missing one? We install it now. <strong>Everyone</strong> does GitHub.</p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §2 · toolchain check</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §3 · two commands" data-theme="gaia" data-style="section pre {
   background: #151b23;
@@ -269,8 +266,8 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 dotnet run
 </code></pre>
 <br />
-<p>Python runs a <strong>file</strong>. C# runs a <strong>project</strong> —</p>
-<p>a folder that knows how to build itself.</p>
+<p>C# runs a <strong>project</strong> — a folder that knows how to build itself.</p>
+<p>Not a file. That's why there's a <code>.csproj</code>.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §3 · two commands</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §3 · what it made" data-theme="gaia" data-style="section pre {
@@ -335,7 +332,7 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 <p><strong>Week 2:</strong> you stop committing those last two.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §3 · what it made</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §3 · printing" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §3 · where Main went" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -352,7 +349,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="8" style="--class:invert;--paginate:true;--footer:🖥️ Demo §3 · printing;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="8" style="--class:invert;--paginate:true;--footer:🖥️ Demo §3 · where Main went;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -370,16 +367,16 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
-<h2 id="printing">Printing</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Haldane Station&quot;</span>)
-</code></pre>
+<h2 id="where-did-main-go">Where did Main go?</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp">Console.WriteLine(<span class="hljs-string">&quot;Haldane Station&quot;</span>);
 </code></pre>
 <br />
-<p>A <strong>semicolon</strong> ends a statement. Indentation means <strong>nothing</strong>.</p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §3 · printing</footer>
+<p>That's the <strong>whole file</strong>. Statements run top to bottom.</p>
+<br />
+<p><code>static void Main</code> still works. This is the short spelling.</p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §3 · where Main went</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §4 · the status board" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §4 · a declared type" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -396,7 +393,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="9" style="--class:invert;--paginate:true;--footer:🖥️ Demo §4 · the status board;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="9" style="--class:invert;--paginate:true;--footer:🖥️ Demo §4 · a declared type;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -415,15 +412,14 @@ section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
 <h2 id="variables-have-types">Variables have types</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python">personnel = <span class="hljs-number">12</span>
-personnel = <span class="hljs-string">&quot;twelve&quot;</span>      <span class="hljs-comment"># Python: fine</span>
-</code></pre>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp"><span class="hljs-built_in">int</span> personnelOnStation = <span class="hljs-number">12</span>;
+
 personnelOnStation = <span class="hljs-string">&quot;twelve&quot;</span>;   <span class="hljs-comment">// not today</span>
 </code></pre>
 <br />
-<p>You say what it holds. That's what it holds.</p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §4 · the status board</footer>
+<p>That word at the front isn't decoration.</p>
+<p>It's a <strong>promise the compiler will hold you to.</strong></p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §4 · a declared type</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §4 · the four types" data-theme="gaia" data-style="section pre {
   background: #151b23;
@@ -483,13 +479,13 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 </tr>
 <tr>
 <td><code>bool</code></td>
-<td><code>true</code> / <code>false</code> — <strong>lowercase</strong></td>
+<td><code>true</code> / <code>false</code></td>
 </tr>
 </tbody>
 </table>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §4 · the four types</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §4 · f-strings, moved" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §4 · putting values into text" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -506,7 +502,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="11" style="--class:invert;--paginate:true;--footer:🖥️ Demo §4 · f-strings, moved;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="11" style="--class:invert;--paginate:true;--footer:🖥️ Demo §4 · putting values into text;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -525,15 +521,15 @@ section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
 <h2 id="putting-values-into-text">Putting values into text</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;On station: <span class="hljs-subst">{personnel}</span>&quot;</span>)
-</code></pre>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp">Console.WriteLine(<span class="hljs-string">$&quot;On station: <span class="hljs-subst">{personnelOnStation}</span>&quot;</span>);
 </code></pre>
 <br />
-<p>Same idea. <strong>The letter moved.</strong></p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §4 · f-strings, moved</footer>
+<p>Anything in <code>{ }</code> gets evaluated — including a method call.</p>
+<br />
+<p>Lose the <code>$</code> and your output looks like your source.</p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §4 · putting values into text</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §5 · the refusal" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §5 · the warm-up" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -550,7 +546,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="12" style="--class:invert;--paginate:true;--footer:🖥️ Demo §5 · the refusal;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="12" style="--class:invert;--paginate:true;--footer:🖥️ Demo §5 · the warm-up;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -569,15 +565,12 @@ section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
 <h2 id="the-build-failed">The build failed</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>error CS0029: Cannot implicitly
-convert type 'string' to 'int'
-
-The build failed.
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>Program.cs(13,26): error CS0029:
+Cannot implicitly convert 'string' to 'int'
 </code></pre>
 <br />
-<p>Your program didn't run.</p>
-<p>Not <em>ran and crashed</em> — <strong>didn't run.</strong></p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §5 · the refusal</footer>
+<p>You've seen this. <strong>Now read it properly.</strong></p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §5 · the warm-up</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §5 · reading an error" data-theme="gaia" data-style="section pre {
   background: #151b23;
@@ -623,7 +616,7 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 <p><code>CS0029</code> is searchable. Every C# error has a code.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §5 · reading an error</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §5 · the compiler’s limit" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §5 · the limit" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -640,7 +633,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="14" style="--class:invert;--paginate:true;--footer:🖥️ Demo §5 · the compiler’s limit;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="14" style="--class:invert;--paginate:true;--footer:🖥️ Demo §5 · the limit;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -665,9 +658,9 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 <span class="hljs-built_in">double</span> hours = fuelLitres / burnPerHour;   <span class="hljs-comment">// 5</span>
 </code></pre>
 <br />
-<p>The answer is <strong>5.375</strong>. No error. No warning.</p>
-<p><strong>whole ÷ whole = whole</strong></p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §5 · the compiler’s limit</footer>
+<p>The answer is <strong>5.375</strong>. No error. No warning. Nothing.</p>
+<p><strong>It checks your types. Not your program.</strong></p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §5 · the limit</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §6 · a method" data-theme="gaia" data-style="section pre {
   background: #151b23;
@@ -704,18 +697,16 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
-<h2 id="a-method-is-a-def-with-types">A method is a def with types</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">sign_on</span>(<span class="hljs-params">dj_name</span>):
-    <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;KDXR - <span class="hljs-subst">{dj_name}</span>&quot;</span>
-</code></pre>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">string</span> <span class="hljs-title">SignOn</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> djName</span>)</span>
-{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">$&quot;KDXR - <span class="hljs-subst">{djName}</span>&quot;</span>;
-}
-</code></pre>
+<h2 id="the-words-in-front-of-a-method">The words in front of a method</h2>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">string</span> <span class="hljs-title">SignOn</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> djName</span>)
+</span></code></pre>
+<br />
+<p><code>public</code> — the checks can reach it</p>
+<p><code>static</code> — no object needed first</p>
+<p><code>string</code> — <strong>what comes back</strong></p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §6 · a method</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §6 · the class" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §6 · two words owed" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -732,7 +723,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="16" style="--class:invert;--paginate:true;--footer:🖥️ Demo §6 · the class;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="16" style="--class:invert;--paginate:true;--footer:🖥️ Demo §6 · two words owed;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -750,18 +741,15 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
-<h2 id="the-class-is-a-box-to-put-methods-in">The class is a box to put methods in</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Broadcast</span>
-{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">string</span> <span class="hljs-title">CallSign</span>()</span>
-    {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;KDXR&quot;</span>;
-    }
-}
-</code></pre>
+<h2 id="what-nobody-told-you-yet">What nobody told you yet</h2>
+<p><strong><code>public</code> / <code>private</code></strong> — why a class hides anything.</p>
+<p>→ <strong>week 4</strong></p>
 <br />
-<p><code>class</code> is <strong>week 4</strong>. <code>static</code> is <strong>week 5</strong>. Tonight: the shape.</p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §6 · the class</footer>
+<p><strong><code>static</code></strong> — what it is actually doing.</p>
+<p>→ <strong>week 5</strong></p>
+<br />
+<p>Tonight: it's the shape you type.</p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §6 · two words owed</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §6 · two files, two jobs" data-theme="gaia" data-style="section pre {
   background: #151b23;
@@ -802,9 +790,9 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 <p><strong><code>Program.cs</code></strong> — what a human sees.</p>
 <p><strong>The class</strong> — what has to be <strong>right</strong>.</p>
 <br />
-<p>The checks can only call the second one.</p>
+<p>Nothing can call into <code>Program.cs</code>. Not the checks. Not you.</p>
 <br />
-<p>So can you, in <strong>week 7</strong>, when you write your own.</p>
+<p>If your habit is &quot;everything in <code>Main</code>&quot; — that's tonight.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §6 · two files, two jobs</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §7 · four commands" data-theme="gaia" data-style="section pre {
@@ -937,7 +925,7 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">dotnet <span class="hljs-built_in">test</span> KDXR.Checks
 </code></pre>
 <p><strong>1 / 5 green</strong> out of the box.</p>
-<p><strong><img class="emoji" draggable="false" alt="⏱️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/23f1.svg" data-marp-twemoji=""/> 40 minutes · target tonight: 1–4 green.</strong></p>
+<p><strong><img class="emoji" draggable="false" alt="⏱️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/23f1.svg" data-marp-twemoji=""/> 50 minutes · target tonight: 1–5 green.</strong></p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §8 · hand off</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §9 · one picture" data-theme="gaia" data-style="section pre {
@@ -976,9 +964,9 @@ section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="21">
 <h2 id="tonight-in-one-picture">Tonight, in one picture</h2>
-<p><strong>Types</strong> — you say what a thing is.</p>
-<p><strong>The compiler</strong> — reads it all before any of it runs.</p>
-<p><strong>And it still can't catch everything.</strong></p>
+<p><strong>The compiler</strong> checks your types — <strong>not your program.</strong></p>
+<p><strong>Your logic</strong> lives where a test can reach it.</p>
+<p><strong>Your work</strong> is on GitHub.</p>
 <br />
 <p>Week 3: you type in three records, quit, and start again.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §9 · one picture</footer>
