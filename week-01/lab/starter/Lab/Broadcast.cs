@@ -35,7 +35,7 @@ public static class Broadcast
     // The Owl runs midnight to 6:00 AM. Given the time right now as an hour and
     // a minute (so 2:15 AM arrives as hour = 2, minute = 15), return how many
     // minutes are left until 6:00.
-    //   2:15 AM  →  225        // 6:00 minus 2:15 is 3 h 45 m, and 3 x 60 + 45 = 225
+    //   2:15 AM  →  225        // in minutes past midnight: 2:15 is 135, and 6:00 is 360
     public static int MinutesUntilSunrise(int hour, int minute)
     {
         return 0;
