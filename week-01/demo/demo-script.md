@@ -110,7 +110,8 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine("========================================");
   Console.WriteLine();
   ```
-- [ ] `dotnet run --project Haldane`. **Set the fiction here** — this is the only world-building beat and it takes fifteen seconds: *"Haldane is a research station. Twelve people, five hundred kilometres from anybody, and one console. There is no browser out here. This terminal is the entire interface to the building — and if it's wrong about who's outside, somebody is outside"*
+- [ ] `dotnet run --project Haldane`. **Set the fiction here** — this is the only world-building beat and it takes fifteen seconds: *"Haldane is a research station in Antarctica. Twelve people, five hundred kilometres from anybody, and one console — no browser, no phone, no app. This terminal is how you find out whether the generator lasts the night and whether it's safe to go outside. Get that wrong and somebody's out there in a blizzard"*
+- [ ] ⚠️ **Say "Antarctica" out loud — it is the only place all night the room is told where they are.** Everything else is inference from `-41.5`, `Blizzard: True` and `512 km`, and most of them will get there, but one word is cheaper than an evening of mild uncertainty. ⚠️ **And every claim in that sentence is something they watch you type in the next hour** — the generator countdown is §5, `Safe to go out` is §6. **Don't promise a roster of who's out on the ice; nothing tonight builds one.** That idea is week 3's, where a `List<T>` makes it real and *"restart and it's gone"* means losing track of a person
 
 ## 4 · The status board *(slides 9–11)*
 
