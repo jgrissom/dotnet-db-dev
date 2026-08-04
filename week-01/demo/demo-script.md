@@ -144,7 +144,10 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine($"Blizzard:    {blizzardWarning}");
   ```
 - [ ] 🎞️ **GO TO SLIDE 11** — *Putting values into text* · one useful line beyond the recap: *"anything in the braces gets **evaluated** — that can be a whole expression, including a method call. You'll want that in about ten minutes"*
-- [ ] `dotnet run --project Haldane` — the board fills in
+- [ ] Run it and the board fills in:
+  ```bash
+  dotnet run --project Haldane
+  ```
 
 ## 5 · What the compiler cannot catch *(slides 12–14)*
 
