@@ -22,7 +22,7 @@ public class BroadcastChecks
     public void Check1_TheStationIsOnTheAir()
     {
         Assert.True(Broadcast.CallSign() == "KDXR",
-            "Broadcast.CallSign() should return \"Lab\", and it's the one method that was "
+            "Broadcast.CallSign() should return \"KDXR\", and it's the one method that was "
             + "written for you — so if this check is red, something else in the project got "
             + $"changed by accident. (It returned: \"{Broadcast.CallSign()}\")\n"
             + "Undo whatever you last did in Lab/Broadcast.cs and this goes green again.");
@@ -51,7 +51,7 @@ public class BroadcastChecks
             "SignOn(\"Marisol\") doesn't mention the station:\n"
             + $"    {marisol}\n"
             + "It should contain the call sign, and you get that by CALLING the method that "
-            + "already knows it — CallSign() — rather than typing \"Lab\" again. Two places "
+            + "already knows it — CallSign() — rather than typing \"KDXR\" again. Two places "
             + "that both know the station's name is one place too many.");
 
         // A second name, because a line that only works for Marisol isn't a method.

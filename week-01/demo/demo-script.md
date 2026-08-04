@@ -226,7 +226,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ### Two files, two jobs
 
-- [ ] 🎞️ **GO TO SLIDE 17** — *Two files, two jobs* · 🎯 **this is the second of tonight's two real beats. Give it its full three minutes and do not let it sound like tidiness:** *"`Program.cs` is what a human sees. `Conditions.cs` is what has to be **right**. The checks in your lab tonight call `Conditions.Fahrenheit` directly and ask what came back. They cannot call anything inside `Program.cs`. **Nothing can.** Not the checks, not me, not you"*
+- [ ] 🎞️ **GO TO SLIDE 17** — *Two files, two jobs* · 🎯 **this is the second of tonight's two real beats. Give it its full three minutes and do not let it sound like tidiness:** *"`Program.cs` is what a human sees. `Conditions.cs` is what has to be **right**. In an hour you'll open a lab with a `Broadcast.cs` in it, and its checks call `Broadcast.SignOn` directly and ask what came back — same shape, different station. They cannot call anything inside `Program.cs`. **Nothing can.** Not the checks, not me, not you"*
 - [ ] 🎯 **Collect the show of hands from §1 and make it the lesson:** *"most of you put everything in `Main` last semester. That worked, and it will never work again — not because I say so, but because a thing nobody can call is a thing nobody can test and nobody can grade"*
 - [ ] 💡 **Prove it rather than asserting it, if the clock allows (30 seconds):** move `Fahrenheit` to the bottom of `Program.cs`, mark it `public`, and show the call failing to resolve. *"Public doesn't help. It has to be in a class, in its own file"*
 - [ ] 🔗 **Plant week 7 without spending it:** *"there's a file in tonight's lab that grades you. In week 7 you find out it isn't magic, and you write one"*
