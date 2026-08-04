@@ -35,7 +35,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] **Rehearse the whole thing once (≈20 min)** — it also warms the NuGet cache, so the first `dotnet new` in front of the room is instant rather than a thirty-second stare
 - [ ] ⚠️ **Pre-position two terminals for §8 so you never `cd` on the projector** — **separate terminal windows, not VS Code's integrated one**, since that one is tied to the `week-01` you'll have open all night. One stands in the answer key's `week-01/lab/solution`, one in a throwaway `week-01` holding a copy of `lab/starter`. **Navigating there live costs you twice:** it breaks the *never `cd`* habit you've modelled all evening, in the last five minutes of modelling it, and it puts the answer-key path on the wall
 - [ ] ⚠️ **Bump the font in those windows too.** *Terminal sized for the back row* above is about VS Code's integrated terminal — a separate app window has its own setting and defaults small
-- [ ] **Position and warm the solution window — the answer key is already on your machine, in the private repo's clone.** Nothing to fetch:
+- [ ] **Position and warm the solution window — the answer key is already on your machine, in the private repo's clone.** Nothing to fetch. ⚠️ **This line assumes the two course repos are cloned side by side under `~/Repos`** — if yours live somewhere else, change the path. **It is the only machine-specific command in this sheet:**
   ```bash
   cd ~/Repos/dotnet-db-dev-answer-keys/week-01/lab/solution
   dotnet test Lab.Checks
