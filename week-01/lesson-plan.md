@@ -7,7 +7,7 @@
 >
 > One moment carries the evening: **§5's second break** — two whole numbers divided, a wrong answer, and *no error and no warning of any kind*. That's the sentence the whole course hangs off. They have lived under a compiler for a semester; nobody has ever shown them its limit.
 
-## 🎯 The payoff moment
+## 🎯 The payoff moment — the demo's
 
 **`4300 / 800` prints `5`, and the terminal says nothing about it.** Not a crash, not a warning, not a squiggle — a clean build and a wrong answer. *"Twenty-two minutes of heat at forty below, and the compiler had no opinion at all."*
 
@@ -15,6 +15,12 @@ It only lands if the break is **unannounced** and the slide comes **after** the 
 
 > [!IMPORTANT]
 > **This room has seen a build error before, so §5's *first* break is no longer a revelation and must not be played as one.** Assigning a `string` to an `int` is a 3-minute warm-up whose job is to get everyone reading an error properly — file, line, character, code — and to set up the contrast. **The weight is all on break 2.** Playing break 1 as the big moment is the single easiest way to lose the room tonight.
+
+## 🎯 The payoff moment — the lab's
+
+**Check 4 is the demo's break happening in their own hands.** `HoursOnAir(330)` should be `5.5`; a student who writes the obvious thing gets `5`, from code they wrote themselves, forty minutes after watching it happen to the generator. The check's message names the cause rather than the symptom, so the recognition is theirs to have.
+
+**It needs nothing said in advance** — §5's cue already plants it (*"you will meet this exact bug in the lab tonight, in check 4"*) and the plant is the whole setup. **Circulate for this one rather than announcing it**, and when someone gets there, let them say what happened.
 
 ## Learning objectives
 
