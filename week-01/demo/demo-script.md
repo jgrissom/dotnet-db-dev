@@ -210,7 +210,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ### Two words owed
 
 - [ ] 🎞️ **GO TO SLIDE 16** — *What nobody told you yet* · ⚠️ **do not say "you're not expected to understand this" — they've written classes and it would be condescending.** Say the true version: *"you have all typed `public static class`. What I'd bet nobody told you is **why** — why a class hides anything at all, which is week 4, and what `static` is actually doing, which is week 5. If you've been adding `static` because the red squiggle asked you to, week 5 is the week that stops"*
-- [ ] Add the second method, and let them see one method call another:
+- [ ] Add the second method — **two things in, one `bool` out**, which is worth one line out loud: *"the answer to a yes/no question has a type too, and it's called `bool`"*
   ```csharp
       public static bool IsSafeToGoOut(double celsius, bool blizzard)
       {
