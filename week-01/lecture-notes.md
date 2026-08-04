@@ -348,6 +348,7 @@ git commit -m "Week 1: station sign-on"
 ```
 
 - **`git init`** — start tracking this folder. **Once, ever** — at `dotnet-db-coursework`, never again. If you run it inside `week-01` or inside a project you get a second, broken repo in the wrong place.
+  - ⚠️ **VS Code will ask you something right after this**, because the repo you just made is one level *above* the `week-01` folder you have open: *"A git repository was found in the parent folders of the workspace… Would you like to open the repository?"* **Click `Always`.** It's the right answer every week of this course, and `Never` is sticky — pick it and VS Code's git panel stays empty from here on.
 - **`git add .`** — stage everything that changed. The `.` means "this folder and everything under it".
 - **`git commit -m "..."`** — save a snapshot, with a message saying what you did.
 
