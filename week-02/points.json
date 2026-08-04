@@ -1,0 +1,48 @@
+{
+  "week": 2,
+  "total": 20,
+  "_comment": "One source of truth for week 2's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first.",
+
+  "checks": {
+    "Check1_TheStationCameForward": {
+      "points": 2,
+      "label": "Your Station class came forward — call sign still four capitals, K or W"
+    },
+    "Check2_TheGreetingSaysWhoYouAre": {
+      "points": 2,
+      "label": "Greeting() names your station — built by calling Station.CallSign()"
+    },
+    "Check3_ACallerCanBeNobody": {
+      "points": 3,
+      "label": "CallerName() trims real names and has a default for nobody — nothing crashes"
+    },
+    "Check4_TheContestCantBeCrashed": {
+      "points": 4,
+      "label": "IsWinner() survives any answer — your number wins, lies lose, nothing throws"
+    }
+  },
+
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Private coursework repo still reachable (same URL as week 1)"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing — even when fed nothing but Enter"
+    },
+    "gitignoreClean": {
+      "points": 3,
+      "label": "bin/ and obj/ tracked NOWHERE in the repo — .gitignore in place, old ones cleaned out"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits touching week-02/ 👀 (meaningful messages are a judgement call)"
+    },
+    "readme": {
+      "points": 1,
+      "label": "README.md at the repo root that says whose repo this is 👀"
+    }
+  }
+}

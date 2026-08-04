@@ -32,4 +32,4 @@ Setup night — but for a room that already took a C# course, setup is a *verifi
 - Editor font **and** terminal sized for the back row — tonight is when people find out whether they can read the screen at all
 - ⚠️ **Do not hand out the SQL Server credentials.** They're not needed until week 10 and they'll be lost by then
 
-**Next:** Week 2 — Types, the Compiler and Git Hygiene *(coming)*
+**Next:** [Week 2 — The Mistakes the Compiler Can't Catch](../week-02/)
