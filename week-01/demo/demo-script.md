@@ -84,7 +84,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 - [ ] 🎞️ **GO TO SLIDE 6** — *Two commands* · then swipe away and actually do it, **on screen, in this order**:
 - [ ] **VS Code → File → Open Folder → `dotnet-db-coursework`** *(the empty folder they made in §2)* **→ *New Folder* → name it `week-01` → Open.** An empty explorer pane, and say so: *"nothing. That's the starting point"*
-- [ ] 🎯 **Say what you just did, because it is exactly their lab setup in an hour:** *"one folder per week, inside the one repo folder that holds your whole semester. In a fortnight there's a `week-02` next to it"*
+- [ ] 🎯 **Say what you just did, because it is exactly their lab setup in an hour:** *"one folder per week, inside the one repo folder that holds your whole semester. Next week there's a `week-02` next to it"*
 - [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), which is already standing in `week-01` — **no `cd` for anything `dotnet`**, and point that out:
   ```bash
   dotnet new console -o Haldane
@@ -240,7 +240,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```bash
   cd ..
   ```
-- [ ] ⚠️ **Check the prompt reads `dotnet-db-coursework` before you type `git init`** — `pwd` if it isn't obvious. A `git init` run one folder low makes the repo inside `week-01`, and then `week-02` next month is outside it. **If it happens, delete the `.git` folder it just made, `cd ..`, and start this beat again**
+- [ ] ⚠️ **Check the prompt reads `dotnet-db-coursework` before you type `git init`** — `pwd` if it isn't obvious. A `git init` run one folder low makes the repo inside `week-01`, and then `week-02` next week is outside it. **If it happens, delete the `.git` folder it just made, `cd ..`, and start this beat again**
 - [ ] 🎯 **Say why, because it is the rule they will get wrong:** *"every `dotnet` command tonight ran from `week-01`. **Every `git` command runs from the folder above it.** One repo holds your whole semester — `week-01`, then `week-02`, then fourteen more — so git goes at the top, once, and never again"*
 - [ ] Then the first three, **reading each one aloud as you go** — what it does rather than what it is:
   ```bash
