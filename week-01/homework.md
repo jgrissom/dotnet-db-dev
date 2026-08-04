@@ -103,10 +103,18 @@ What each one has to do:
 | `City()` | `string` | wherever your station broadcasts from |
 | `SignOffHour()` | `int` | when it shuts down, **1 to 12** |
 | `SignOn()` | `string` | must contain **your call sign and your city** — [built by calling your own methods](lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean), not by retyping them |
-| `MinutesUntilSignOff(int hour, int minute)` | `int` | minutes from the given time until **your** sign-off hour |
+| `MinutesUntilSignOff(int hour, int minute)` | `int` | minutes from the given time until **your** sign-off hour. **`hour` is the clock hour and `minute` is the minutes past it** — 2:30 AM arrives as `hour = 2, minute = 30`, and midnight is `(0, 0)`. Not minutes-past-midnight; that's the thing you work out |
 
 > [!WARNING]
 > **`MinutesUntilSignOff` has to work out its answer from `SignOffHour()`.** If you type the number in and the two disagree, the check says so by name. A program that contradicts itself is worse than one that's simply wrong.
+
+**Worked through, with my station's 5:00 AM sign-off** — yours will use your own hour:
+
+```
+MinutesUntilSignOff(2, 30)  →  150
+```
+
+Both times become minutes past midnight, then you subtract: 5:00 is `5 * 60` = 300, and 2:30 is `(2 * 60) + 30` = 150. **300 − 150 = 150.** ⚠️ **Multiply the hour by 60 *before* adding the minutes** — brackets make it obvious, and getting it backwards is off-by-a-multiple-of-59, which the check names for you.
 
 **5. `Homework/Program.cs` prints the sign-on** and a countdown. Small on purpose — everything worth checking lives in `Station.cs`:
 
