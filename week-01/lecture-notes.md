@@ -354,7 +354,12 @@ git commit -m "Week 1: station sign-on"
 
 **Commit more than once, and make the messages mean something.** `week 1 setup`, `station class`, `countdown working` tells a story. `a`, `b`, `asdf` doesn't, and it's worth points.
 
-Then connect it to the repo you made on GitHub and push. **GitHub shows you these two lines on the new-repo page** — use the ones it gives you, since they contain your username:
+Then connect it to the repo you made on GitHub and push.
+
+> [!IMPORTANT]
+> **The repo has to exist on GitHub first — `git push` cannot create it.** If you haven't made it, it's two minutes: [`setup-guide.md` §5](setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo). Name it `dotnet-db-coursework`, set it **Private**, **don't** add a README, and add `jgrissom` as a collaborator. A push to a repo that isn't there fails with `Repository not found`.
+
+**GitHub shows you these two lines on the new-repo page** — use the ones it gives you, since they contain your username:
 
 ```bash
 git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git

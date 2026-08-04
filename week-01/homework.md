@@ -119,7 +119,9 @@ Console.WriteLine($"{Station.MinutesUntilSignOff(2, 30)} minutes until sign-off.
 
 ⚠️ **All of this runs from `dotnet-db-coursework`, not from `week-01`** — [git lives at the top folder, one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). `cd ..` if you're still in `week-01`.
 
-**First time only** — if you haven't connected this folder to GitHub yet:
+**First time only** — if you haven't connected this folder to GitHub yet.
+
+⚠️ **The repo has to already exist on GitHub, and `git push` will not create it for you.** If you skipped it during setup: [`setup-guide.md` §5](setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo) — `dotnet-db-coursework`, **Private**, **no** README, then add `jgrissom` as a collaborator. That last part is 3 of tonight's points.
 
 ```bash
 git init
