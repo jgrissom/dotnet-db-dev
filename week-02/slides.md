@@ -33,7 +33,7 @@ style: |
 
 <!-- _footer: '🖥️ Demo §1 · the number' -->
 
-## Forty files you never wrote
+## The files you never wrote
 
 `git add .` swept up **everything**.
 

@@ -25,7 +25,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```bash
   cd ~/scratch/dotnet-db-coursework && git ls-files | grep -cE '(^|/)(bin|obj)/'
   ```
-  A number in the dozens = ready. **Write that number down — it's "the forty files" all night, and yours is the real count.**
+  A number in the dozens = ready. **Write that number down — it's "the files you never wrote" all night, and the terminal's count is the only one you ever say aloud.**
 - [ ] ⚠️ **If the scratch repo is gone**, rebuild the week-1 end state (~2 min) — and note the force-push replaces the demo repo on GitHub, which is fine, it's the same teaching artifact:
   ```bash
   rm -rf ~/scratch/dotnet-db-coursework && mkdir -p ~/scratch/dotnet-db-coursework/week-01
@@ -55,7 +55,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ### The number
 
 - [ ] **Open with the homework reading, cold:** *"you were asked to count the folders you didn't write. Who's got a number?"* Take two or three answers — they'll vary, and that's fine
-- [ ] 🎞️ **GO TO SLIDE 2** — *Forty files you never wrote* · *"whatever your number was, here's the thing about it: `git add .` doesn't mean 'add my work'. It means add **everything** — and last week, everything included a pile of machinery"*
+- [ ] 🎞️ **GO TO SLIDE 2** — *The files you never wrote* · *"whatever your number was, here's the thing about it: `git add .` doesn't mean 'add my work'. It means add **everything** — and last week, everything included a pile of machinery"*
 - [ ] Swipe to the browser — **[github.com/jgrissom/dotnet-db-coursework](https://github.com/jgrissom/dotnet-db-coursework)**, click into `week-01/Haldane/obj/`, open one of the `.json` files: *"I pushed this. I have no idea what it does. Neither does anyone — it's the compiler talking to itself"*
 - [ ] **Now count mine properly.** VS Code — **File → Open Folder → `dotnet-db-coursework`** — ⚠️ **the top folder this time, not `week-01`, and say why:** *"tonight starts with git, and git lives at the top. When we get back to writing C#, we'll open a week folder like always"*
 - [ ] Integrated terminal (`` Ctrl+` ``), standing at the top — where every git command tonight runs:
@@ -63,7 +63,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   git ls-files | wc -l
   git ls-files | grep -E '(^|/)(bin|obj)/' | wc -l
   ```
-- [ ] 🎯 *"`ls-files` is everything git is carrying. The second number is how much of it is machinery. I wrote five of these files. Five."*
+- [ ] 🎯 *"`ls-files` is everything git is carrying. The second number is how much of it is machinery. The gap between those two numbers is what I actually wrote."* — and let the terminal's own numbers carry it; never quote a count the screen isn't showing
 
 ### What they are
 
