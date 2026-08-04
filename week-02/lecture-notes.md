@@ -33,9 +33,10 @@ Committing them isn't just untidy. They change on every build, so they bury your
 bin/
 obj/
 *.user
+.DS_Store
 ```
 
-Anything that matches, git stops *seeing*: it won't list it as untracked, won't stage it with `git add .`, won't nag you about it. (`*.user` covers per-machine editor settings — you may never see one, and if you do, you don't want it committed either.)
+Anything that matches, git stops *seeing*: it won't list it as untracked, won't stage it with `git add .`, won't nag you about it. The last two lines cover things you didn't write and may never meet: `*.user` is per-machine editor settings, and `.DS_Store` is macOS's Finder leaving notes to itself in every folder it opens — Windows users never see one, and the line costs nothing.
 
 ⚠️ **Now the part everyone gets wrong, everywhere, always:**
 

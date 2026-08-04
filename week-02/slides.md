@@ -64,7 +64,7 @@ A repo holds what you **wrote**. The rest rebuilds.
 
 ---
 
-<!-- _footer: '🖥️ Demo §2 · three lines' -->
+<!-- _footer: '🖥️ Demo §2 · four lines' -->
 
 ## .gitignore
 
@@ -74,6 +74,7 @@ One file, at the **top** of the repo:
 bin/
 obj/
 *.user
+.DS_Store
 ```
 
 <br>

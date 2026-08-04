@@ -168,6 +168,7 @@ This is the demo's cleanup, on your repo, for points — **and it stays scored e
 bin/
 obj/
 *.user
+.DS_Store
 ```
 
 **2. The one-time cleanup.** The `.gitignore` alone changes nothing about what's already committed — [ignored is not untracked](lecture-notes.md#cleaning-a-repo-that-already-committed-the-mess):
@@ -234,5 +235,5 @@ Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywher
 
 Week 3 is **collections** — the station starts keeping a list, and you find out what it costs to keep one in memory.
 
-- Go look at [GitHub's official `.gitignore` for Visual Studio](https://github.com/github/gitignore/blob/main/VisualStudio.gitignore). It's several hundred lines. Yours is three, and both are correct — answer for yourself: **what would have to be true about a project for it to need all the rest?**
+- Go look at [GitHub's official `.gitignore` for Visual Studio](https://github.com/github/gitignore/blob/main/VisualStudio.gitignore). It's several hundred lines. Yours is four, and both are correct — answer for yourself: **what would have to be true about a project for it to need all the rest?**
 - Then, in your own week 2 program: take three calls in a row by running it three times. **Where are the first two calls while the third one is happening?** Write your answer down and bring it. (It's a trick question. That's the point.)

@@ -78,15 +78,17 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ## 2 · The cleanup *(slides 4–5)*
 
-### Three lines
+### Four lines
 
 - [ ] In the VS Code Explorer, **click the empty space below the file list first** — so the new file lands at the **root**, not inside `week-01` — then **New File → `.gitignore`**, and type it:
   ```
   bin/
   obj/
   *.user
+  .DS_Store
   ```
 - [ ] 🎞️ **GO TO SLIDE 4** — *.gitignore* · *"a filename pattern per line. Anything that matches, git stops seeing — won't list it, won't stage it, won't nag about it. The dot at the front just means it's configuration; the file is plain text"*
+- [ ] 💡 **The fourth line, one sentence each way:** *"`.DS_Store` is macOS's Finder leaving notes to itself in every folder it opens — one more file nobody wrote. If you're on Windows you'll never see one; the line costs you nothing and saves your Mac neighbour's repo"*
 - [ ] 🎯 *"It sits at the **top** because it covers everything below it — `week-01`, `week-02`, and the fourteen folders that don't exist yet. You write this once, tonight, and it works all semester"*
 
 ### The part everyone gets wrong
