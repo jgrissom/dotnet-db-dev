@@ -105,7 +105,10 @@ git version 2.51.0
 ```bash
 git config --global user.name "Ada Lovelace"
 git config --global user.email "ada@example.com"
+git config --global init.defaultBranch main
 ```
+
+**The third line matters more than it looks.** Depending on how git was installed, a brand-new repo's first branch is called either `main` or `master`. GitHub expects `main`, and every command in this course says `main` — so setting it once now saves you a confusing `src refspec main does not match any` when you push.
 
 **✓ Check:**
 

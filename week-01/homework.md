@@ -175,6 +175,7 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 - **`MSB1003: Specify which project or solution file to use`** — run `dotnet test` from `week-01/`, not from inside either project folder.
 - **`fatal: not a git repository`** — you're not inside your `dotnet-db-coursework` folder. `cd ..` out of `week-01`.
 - **`git status` shows nothing, or a repo you didn't expect** — you ran `git init` in the wrong folder. It belongs at `dotnet-db-coursework`, **once ever**. If you ran it inside `week-01` or inside a project, delete the stray `.git` folder that got made there and run it again at the top.
+- **`git push` says `src refspec main does not match any`** — your first branch got called `master`, not `main`, because `init.defaultBranch` wasn't set when you ran `git init`. Fix it in one line: `git branch -M main`, then push again. ([Setting it once](setup-guide.md) stops it happening in week 2.)
 - **`git push` says "Authentication failed"** — GitHub wants a token, not your password. Easiest fix is to install [GitHub CLI](https://cli.github.com/) and run `gh auth login`; come find me if it fights you.
 - The [troubleshooting appendix](lecture-notes.md#appendix-troubleshooting) covers the rest.
 

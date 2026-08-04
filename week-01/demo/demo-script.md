@@ -263,9 +263,9 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] ⚠️ **Say the private part twice, with the reason:** *"weeks 1 through 3 are the same exercises for all of you. A public repo is a copy-sharing surface, and I'd rather not have to care"*
 - [ ] **Show where the setting lives — Settings → Collaborators → Add people — and stop there.** ⚠️ **You cannot complete this one: you are the person they add, so on your own repo there is nobody to invite.** Leave the page up and say the username: 🎯 *"`jgrissom`. Three points, and it's how I read your work at all — skip it and your homework is indistinguishable from no homework"*
 - [ ] 🎯 **Then turn it into a check, because they were told to do it in [`setup-guide.md`](../setup-guide.md) §5 during setup** — hands up for anyone who *hasn't* got `jgrissom` on their collaborator list, and **sort them now rather than at 10pm on Sunday.** *"`Pending Invite` is fine — it just means I haven't clicked accept yet"*
-- [ ] Push, using the lines GitHub itself prints:
+- [ ] **Push — and copy the lines off GitHub's own page rather than typing them**, because that's the habit the room needs: *"it hands you these; you don't invent them."* (Same two lines below, already carrying your username, if the page has scrolled away.)
   ```bash
-  git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git
+  git remote add origin https://github.com/jgrissom/dotnet-db-coursework.git
   git push -u origin main
   ```
 - [ ] Reload the GitHub page — the files are there. 🔗 *"Week 4 you make a **second** repo, public, with your own project in it. That one has your name on it and you'll want it to look good"*
