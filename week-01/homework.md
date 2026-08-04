@@ -118,6 +118,19 @@ Console.WriteLine($"{Station.MinutesUntilSignOff(2, 30)} minutes until sign-off.
 > [!NOTE]
 > **No `Console.ReadLine` this week.** Your program prints and exits. Reading input arrives in week 2 — and there's a reason for the order: I have to *run* your program to grade it, and a program that sits waiting for input nobody types is a program that never finishes.
 
+### Run it as you go
+
+**Both commands run from `week-01`** — the folder holding `Homework` and `Homework.Checks`, [never from inside either one](lecture-notes.md#the-project-not-the-file), and never with a `cd`:
+
+```bash
+dotnet run --project Homework
+dotnet test Homework.Checks
+```
+
+**Don't save these for the end.** Write one method, run the checks, watch one more go green — same loop as the lab, and the same loop every week of this course uses. Four methods means four rounds, and a red check right after you wrote something tells you exactly where to look.
+
+⚠️ **Run the program too, not just the checks.** **Two of tonight's twenty points are simply "it builds and runs without crashing"** — and a `Station.cs` that satisfies every check can still sit inside a `Program.cs` that throws on line one. The checks never look at `Program.cs`; I do.
+
 ## Part 3 — Push it (graded)
 
 ⚠️ **All of this runs from `dotnet-db-coursework`, not from `week-01`** — [git lives at the top folder, one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). `cd ..` if you're still in `week-01`.
