@@ -64,6 +64,8 @@ dotnet test Lab.Checks
 
 ## The tasks
 
+**Run the checks after every task, before you start the next one.** Each task turns exactly one more check green, so the number tells you where you are — and if it *doesn't* go up by one, the thing you just changed is the thing to look at, not the task you were about to start. Each task below ends with the number you should see.
+
 | # | Check | What to do |
 |---|-------|------------|
 | 1 | *(check 1 is already green)* | Get the project running and read what you were handed. **[Task 1 in full ↓](#task-1-in-full)** |
@@ -94,6 +96,8 @@ public static string SignOn(string djName)
 
 ⚠️ **What's worth noticing before you start:** all of tonight's work happens in `Broadcast.cs` and none of it in `Program.cs`. That isn't a filing preference — it's the only reason the checks can see your work at all.
 
+`dotnet test Lab.Checks`: **1 / 5.** Now run `dotnet run --project Lab` as well, and read it knowing the station clock says 2:15 AM — it claims nobody's on air, it isn't the overnight block, and there are 0 minutes until sunrise. **Every one of those is a lie, and each task you finish turns one of them true.**
+
 ### Task 2 in full
 
 **Check:** `Check2_TheSignOnGreetsTheDj`
@@ -114,6 +118,8 @@ Two things worth noticing, because both come back all term:
 
 The words between the braces are yours. Make it sound like 3 AM.
 
+`dotnet test Lab.Checks`: **2 / 5.** And in `dotnet run --project Lab`, the DJ gets greeted properly for the first time.
+
 ### Task 3 in full
 
 **Check:** `Check3_TheClockCountsDownToSunrise`
@@ -130,6 +136,8 @@ Two steps: turn the time you were given into **minutes past midnight**, then sub
 
 > [!TIP]
 > If your answer is off by a multiple of 59, that's the order of operations — the hour has to be multiplied by 60 *before* the minutes are added. Brackets make it obvious: `(hour * 60) + minute`.
+
+`dotnet test Lab.Checks`: **3 / 5.** The program now counts down properly — **225 minutes until sunrise**.
 
 ### Task 4 in full
 
@@ -157,6 +165,8 @@ Given minutes already broadcast, return how many **hours** that is — including
 > ```
 
 In Python 3 you'd have got 5.5 without thinking about it. This is the single most common way a Python habit produces a wrong answer in C#, which is why it's a whole check.
+
+`dotnet test Lab.Checks`: **4 / 5.** The program says **5.5 hours on air** now, where a minute ago it said 5.
 
 ### Task 5 in full
 
