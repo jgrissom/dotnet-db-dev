@@ -261,7 +261,8 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] **Commit messages, said once and meant:** *"three commits minimum, and they should tell a story. `week 1 setup`, `station class`, `countdown working`. Not `a`, `b`, `asdf`. I read these and they're worth points"*
 - [ ] 🎞️ **GO TO SLIDE 19** — *Your repo for the whole term* · make the repo on GitHub **live, on screen**: private, no README, name it `dotnet-db-coursework`
 - [ ] ⚠️ **Say the private part twice, with the reason:** *"weeks 1 through 3 are the same exercises for all of you. A public repo is a copy-sharing surface, and I'd rather not have to care"*
-- [ ] **Add a collaborator on screen** — Settings → Collaborators → Add people. 🎯 *"this is worth three points and it's how I read your work. Skip it and your homework is indistinguishable from no homework"*
+- [ ] **Show where the setting lives — Settings → Collaborators → Add people — and stop there.** ⚠️ **You cannot complete this one: you are the person they add, so on your own repo there is nobody to invite.** Leave the page up and say the username: 🎯 *"`jgrissom`. Three points, and it's how I read your work at all — skip it and your homework is indistinguishable from no homework"*
+- [ ] 🎯 **Then turn it into a check, because they were told to do it in [`setup-guide.md`](../setup-guide.md) §5 during setup** — hands up for anyone who *hasn't* got `jgrissom` on their collaborator list, and **sort them now rather than at 10pm on Sunday.** *"`Pending Invite` is fine — it just means I haven't clicked accept yet"*
 - [ ] Push, using the lines GitHub itself prints:
   ```bash
   git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git
