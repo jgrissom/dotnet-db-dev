@@ -285,8 +285,9 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🎞️ **GO TO SLIDE 20** — *Lab: KDXR signs on*. Leave it up for the whole lab; it's the task list and it carries the clock
 - [ ] Show **what done looks like** — the answer key **running on your machine**: `week-01/lab/solution`, then `dotnet test Lab.Checks` printing **5 / 5**, and `dotnet run --project Lab` showing the sign-on. ~60 seconds, a target not a walkthrough. **Nothing in this course gets deployed — there's no URL to visit and no server to start, tonight or ever. Every program you write runs on your own machine** ⚠️ **don't add "and always will" — from week 10 the *data* lives on the school's SQL Server, which is the whole point of `P5`**
 - [ ] ⚠️ **Run it from the pre-positioned terminal window. VS Code stays exactly as it is** — this is not *"no VS Code"*, it is **don't open the *solution folder* in it**. Its Explorer would list `Broadcast.cs`, somebody will ask you to open it, and that file is the answers to what they're about to spend fifty minutes on. **A bare terminal shows the result without showing the work**
-- [ ] In that window, both commands, ~60 seconds total — **`Passed! - Failed: 0, Passed: 5`**, then the sign-on:
+- [ ] In that window, both commands, ~60 seconds total — **`Passed! - Failed: 0, Passed: 5`**, then the sign-on. **The `cd` is only needed if you lost the window §0 set up** *(and it assumes `~/Repos`)*:
   ```bash
+  cd ~/Repos/dotnet-db-dev-answer-keys/week-01/lab/solution
   dotnet test Lab.Checks
   dotnet run --project Lab
   ```
