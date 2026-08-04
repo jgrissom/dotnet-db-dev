@@ -188,7 +188,7 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 | `MinutesUntilSignOff()` counts down to **your** sign-off hour, correctly | 4 | `dotnet test` |
 | Private coursework repo exists and I can clone it (collaborator accepted) | 3 | your repo |
 | The program builds and runs without crashing | 2 | your repo |
-| 3+ commits 👀 | 3 | your repo |
+| 3+ commits touching `week-01/` 👀 | 3 | your repo |
 
 *Reminder: the explain-it standard applies — I ask a couple of people in person each week. The ones I'll reach for this week: "why does `SignOn` call `CallSign()` instead of just writing the letters again?", "330 divided by 60 gave you 5 — would casting the answer to `double` have fixed it?", and "which of your two files can the checks actually see, and why?"*
 
