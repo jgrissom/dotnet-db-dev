@@ -45,7 +45,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   dotnet test Lab.Checks
   ```
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`week-01`** — exactly where last week left it; §1 moves it to the top folder on screen
-- [ ] ⚠️ **Check `git.openRepositoryInParentFolders` is still `always`** on the teaching profile — §1–§3 die without the repo showing in the panel. **How:** with the teaching profile active, **`Cmd+,`** (Settings) → type `openRepositoryInParentFolders` in the search box → the dropdown should read **`always`**. If it doesn't: set it to `always`, then **`Cmd+Shift+P` → *Developer: Reload Window*** so the repository scan re-runs. Thirty seconds now; a dead panel live
+- [ ] ⚠️ **Check `git.openRepositoryInParentFolders` is still `always`** on the teaching profile — §1–§3 die without the repo showing in the panel. **How:** teaching profile active, **`Cmd+,`** → search `openRepositoryInParentFolders` → should read **`always`**. Wrong or dead panel? [The notes' panel section has the fix](../lecture-notes.md#the-source-control-panel-translated) — it's written for students, because anyone who clicked `Never` in week 1 hits this exact wall tonight
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** The board gained a generator panel this week — say nothing about it; it explains itself or it isn't working. **Close it before slide 1**
 - [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."***
 
