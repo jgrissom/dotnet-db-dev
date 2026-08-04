@@ -21,6 +21,8 @@ KDXR is mine. **This one is yours:** you invent the station, and the program tel
 
 Pick a call sign, a city and a sign-off time. It can be a real town or an invented one, a jazz station or a pirate transmitter in somebody's attic. The code is the same either way — and the more specific it is, the better it reads at 3 AM.
 
+**Your station works the overnight shift, the way KDXR does: on the air at midnight, off at your sign-off hour.** That's why the sign-off hour is 1 to 12 — it's an early-morning hour, not an evening one — and why every time your countdown is handed sits between midnight and that hour.
+
 > [!TIP]
 > **Keep [`lecture-notes.md`](lecture-notes.md) open while you work.** Every requirement below links to the section that shows it done, and the [troubleshooting appendix](lecture-notes.md#appendix-troubleshooting) names this week's actual error codes.
 
@@ -101,7 +103,7 @@ What each one has to do:
 |---|---|---|
 | `CallSign()` | `string` | **four capital letters, starting with K or W** — that's the real US convention, and the check enforces it |
 | `City()` | `string` | wherever your station broadcasts from |
-| `SignOffHour()` | `int` | when it shuts down, **1 to 12** |
+| `SignOffHour()` | `int` | the morning hour it shuts down, **1 to 12** — a station going off at 5:00 AM returns `5` |
 | `SignOn()` | `string` | must contain **your call sign and your city** — [built by calling your own methods](lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean), not by retyping them |
 | `MinutesUntilSignOff(int hour, int minute)` | `int` | minutes from the given time until **your** sign-off hour. **`hour` is the clock hour and `minute` is the minutes past it** — 2:30 AM arrives as `hour = 2, minute = 30`, and midnight is `(0, 0)`. Not minutes-past-midnight; that's the thing you work out |
 
