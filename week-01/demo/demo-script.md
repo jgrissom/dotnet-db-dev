@@ -35,7 +35,12 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] **Rehearse the whole thing once (≈20 min)** — it also warms the NuGet cache, so the first `dotnet new` in front of the room is instant rather than a thirty-second stare
 - [ ] ⚠️ **Pre-position two terminals for §8 so you never `cd` on the projector** — **separate terminal windows, not VS Code's integrated one**, since that one is tied to the `week-01` you'll have open all night. One stands in the answer key's `week-01/lab/solution`, one in a throwaway `week-01` holding a copy of `lab/starter`. **Navigating there live costs you twice:** it breaks the *never `cd`* habit you've modelled all evening, in the last five minutes of modelling it, and it puts the answer-key path on the wall
 - [ ] ⚠️ **Bump the font in those windows too.** *Terminal sized for the back row* above is about VS Code's integrated terminal — a separate app window has its own setting and defaults small
-- [ ] **Run `dotnet test Lab.Checks` in both of them now** — the first run in each restores and builds. **Warm, it's about a second; cold, it's half a minute of scrolling build output** at the exact moment you want one clean number on screen
+- [ ] **Position and warm the solution window — the answer key is already on your machine, in the private repo's clone.** Nothing to fetch:
+  ```bash
+  cd ~/Repos/dotnet-db-dev-answer-keys/week-01/lab/solution
+  dotnet test Lab.Checks
+  ```
+- [ ] **Do the same in the starter window**, then leave both open. **The first run in each restores and builds — warm it's about a second, cold it's half a minute of scrolling build output** at the exact moment you want one clean number on screen
 - [ ] Terminal sized for the back row. **Editor font up too** — tonight is the night people are checking whether they can read the screen at all
 - [ ] Teaching profile in VS Code; close every other folder and tab
 - [ ] Have the [setup guide](../setup-guide.md) open on a projector-adjacent tab, or printed. **It is self-serve by design** — your job in §2 is to circulate, not to present
@@ -280,6 +285,11 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🎞️ **GO TO SLIDE 20** — *Lab: KDXR signs on*. Leave it up for the whole lab; it's the task list and it carries the clock
 - [ ] Show **what done looks like** — the answer key **running on your machine**: `week-01/lab/solution`, then `dotnet test Lab.Checks` printing **5 / 5**, and `dotnet run --project Lab` showing the sign-on. ~60 seconds, a target not a walkthrough. **Nothing in this course gets deployed — there's no URL to visit and no server to start, tonight or ever. Every program you write runs on your own machine** ⚠️ **don't add "and always will" — from week 10 the *data* lives on the school's SQL Server, which is the whole point of `P5`**
 - [ ] ⚠️ **Run it from the pre-positioned terminal window. VS Code stays exactly as it is** — this is not *"no VS Code"*, it is **don't open the *solution folder* in it**. Its Explorer would list `Broadcast.cs`, somebody will ask you to open it, and that file is the answers to what they're about to spend fifty minutes on. **A bare terminal shows the result without showing the work**
+- [ ] In that window, both commands, ~60 seconds total — **`Passed! - Failed: 0, Passed: 5`**, then the sign-on:
+  ```bash
+  dotnet test Lab.Checks
+  dotnet run --project Lab
+  ```
 - [ ] 💡 **Scroll to the summary line instead of reading the build output aloud** — `Passed! - Failed: 0, Passed: 5` is the entire point, and `dotnet test` prints a screen of noise above it. **One number, then move**
 - [ ] 🎯 **That `5 / 5` is the answer to §5. Say so, and give it ten seconds of quiet** — ⚠️ **the room has been carrying an unanswered question since the generator break, and this is where it lands. Do not let it play as logistics:** *"an hour ago I divided 4300 by 800, got 5, and the compiler said nothing at all. No error, no warning, no squiggle. It had no opinion about whether my program was right, and it never will. So something else has to. That's this — five of five"*
 - [ ] 🎯 **Then the part that is new to every single person in the room, including whoever found tonight easy:** *"you have all written plenty of code. I don't think any of you has ever had a machine tell you that you were finished. That's what you're about to go and do"* ⚠️ **One sentence, then let them start.** Overselling it is how the debugger got oversold in the web course 🧾
