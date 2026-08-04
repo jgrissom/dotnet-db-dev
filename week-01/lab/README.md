@@ -31,6 +31,13 @@ git pull
 
 **3. Copy the two folders inside `week-01/lab/starter` into your `week-01`.** (Copy them *out* of the clone; never work inside it, or next week's `git pull` will fight your edits.)
 
+The two folders sit side by side, [the way setup left them](../setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo) — so you're dragging from the right-hand one into the left:
+
+```
+├─ dotnet-db-coursework/week-01/     ← INTO here
+└─ dotnet-db-dev/week-01/lab/starter/  ← FROM here
+```
+
 ```
 dotnet-db-coursework/
 └─ week-01/           ← keep THIS open in VS Code

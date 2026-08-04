@@ -39,8 +39,11 @@ dotnet new console -o Homework
 **3. Copy the checks project in from your clone of the course repo** — the same clone you took the lab starter out of. (Haven't got it? `git clone https://github.com/jgrissom/dotnet-db-dev.git`.) Copy the whole folder into `week-01/`, **beside** `Homework` — not inside it:
 
 ```
-dotnet-db-dev/week-01/homework-checks/Homework.Checks     ← copy this folder
+├─ dotnet-db-coursework/week-01/                        ← INTO here, beside Homework
+└─ dotnet-db-dev/week-01/homework-checks/Homework.Checks  ← copy THIS folder
 ```
+
+⚠️ **Note the path is `homework-checks/`, not `lab/starter/`** — different folder from the one the lab came out of, because there's no homework starter. You write `Homework` yourself; only the checks are handed over.
 
 You should end up with exactly this — tonight's lab on top, your homework underneath:
 

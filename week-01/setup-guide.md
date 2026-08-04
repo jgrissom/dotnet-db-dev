@@ -163,11 +163,22 @@ The repo you just made is **empty and on GitHub**. Your actual work happens in a
 
 That was *your* repo. This is **mine** — everything I hand you all term arrives in it: tonight's lab, the checks that grade your homework, the notes. You clone it once, now, and `git pull` it at the start of every week.
 
-Do this somewhere sensible that is **not** inside your `dotnet-db-coursework` folder — your home folder is fine:
+⚠️ **Put it right next to `dotnet-db-coursework`, not inside it.** Side by side is the arrangement every instruction for the rest of the term assumes — *"copy this out of the clone into your `week-01`"* only has a direction if you know where both folders are. So `cd` to wherever you just made `dotnet-db-coursework` first, then:
 
 ```bash
 git clone https://github.com/jgrissom/dotnet-db-dev.git
 ```
+
+**That is the whole shape, and it does not change again all semester:**
+
+```
+wherever you keep your work/
+├─ dotnet-db-coursework/     ← YOURS. A folder per week. This is what I grade.
+│  └─ week-01/
+└─ dotnet-db-dev/            ← MINE. Read-only. You copy things OUT of it.
+```
+
+**Two folders. One you write, one you read.** Everything else this term happens inside `week-01`, `week-02`, and so on.
 
 ⚠️ **You never edit anything in this folder and you never work inside it.** Each week you copy that week's starter *out* of it and work on the copy. Work inside the clone and next week's `git pull` fights your own edits.
 
