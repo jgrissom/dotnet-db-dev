@@ -35,7 +35,7 @@ public static class Broadcast
     // The Owl runs midnight to 6:00 AM. Given the time right now as an hour and
     // a minute (so 2:15 AM arrives as hour = 2, minute = 15), return how many
     // minutes are left until 6:00.
-    //   2:15 AM  →  225
+    //   2:15 AM  →  225        // 6:00 minus 2:15 is 3 h 45 m, and 3 x 60 + 45 = 225
     public static int MinutesUntilSunrise(int hour, int minute)
     {
         return 0;
@@ -44,7 +44,7 @@ public static class Broadcast
     // TODO — Task 4.
     // Given a number of minutes already broadcast, return how many HOURS that
     // is — including the part hours.
-    //   330 minutes  →  5.5
+    //   330 minutes  →  5.5    // five and a half hours on air
     // ⚠️ Read the check's message carefully when this one fails. It is the
     //    single most common way a Python habit produces a wrong answer in C#.
     public static double HoursOnAir(int minutes)
