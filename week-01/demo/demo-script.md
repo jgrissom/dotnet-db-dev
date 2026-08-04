@@ -242,13 +242,16 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```
 - [ ] ⚠️ **Check the prompt reads `dotnet-db-coursework` before you type `git init`** — `pwd` if it isn't obvious. A `git init` run one folder low makes the repo inside `week-01`, and then `week-02` next week is outside it. **If it happens, delete the `.git` folder it just made, `cd ..`, and start this beat again**
 - [ ] 🎯 **Say why, because it is the rule they will get wrong:** *"every `dotnet` command tonight ran from `week-01`. **Every `git` command runs from the folder above it.** One repo holds your whole semester — `week-01`, then `week-02`, then fourteen more — so git goes at the top, once, and never again"*
-- [ ] Then the first three, **reading each one aloud as you go** — what it does rather than what it is:
+- [ ] Then the first three, **reading each one aloud as you go** — what it does rather than what it is. ⚠️ **One line at a time; the `git status` between each is a beat, not filler:**
   ```bash
   git init
+  git status
   git add .
+  git status
   git commit -m "Week 1: Haldane duty console"
+  git status
   ```
-- [ ] 🎯 **`git status` between each one**, and actually look at it: *"this is the command you'll run more than any other, and it always tells you what git thinks is going on"*
+- [ ] 🎯 **Actually look at each `git status`, out loud:** *"this is the command you'll run more than any other, and it always tells you what git thinks is going on"*
 - [ ] 💡 **`git status` after `git add .` is the beat that sells it** — it lists `week-01/Haldane/...` with the folder in front. *"That's why git is up here. It can see the whole term from this one spot"*
 - [ ] ⚠️ **Do not fix what `git add .` just swept up.** `bin/` and `obj/` are now staged and that is *correct for tonight*. If someone spots it — and in this room someone might, having heard of `.gitignore` — give them the credit and hold the line: *"good eye. That's next week's first ten minutes, and it's better as a mess you made than a rule I gave you"*
 - [ ] ⚠️ **A notification fires on `git init` and it has to be answered, or the rest of this beat doesn't happen.** The repo is at `dotnet-db-coursework` while VS Code has `week-01` open, so it sits *above* the workspace: *"A git repository was found in the parent folders of the workspace… Would you like to open the repository?"* → **click `Always`**, and tell the room to click it too. ⚠️ **`Never` is the wrong button and it's sticky** — it's the one that leaves them with a dead Source Control panel in week 2
