@@ -98,7 +98,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   git status
   git ls-files | grep -E '(^|/)(bin|obj)/' | wc -l
   ```
-  `status` shows one new untracked file — the `.gitignore` itself. The count is **unchanged**
+  `status` shows one new untracked file — the `.gitignore` itself — and the count is **unchanged**. ⚠️ **Expect a couple of tracked `obj/` files listed as *modified* too** — the editor's own background build touched them the moment the folder opened. **That's a gift; point at it:** *"I haven't edited anything tonight, and the repo already has 'changes'. That's the tax on committing machinery — it never stops generating noise. And notice the `.gitignore` didn't hide them: ignoring only governs files git hasn't met, and it's already met these"*
 - [ ] 🎞️ **GO TO SLIDE 5** — *Ignored is not untracked* · 🎯 **this is the misconception half the internet has, so kill it precisely:** *"`.gitignore` is a bouncer. It stops new files at the door. The ones already inside? Already inside. Nothing about ignoring reaches back into the repo"*
 - [ ] **The eviction, read aloud as you type it:** *"`rm` remove, `-r` and everything under it, `--cached` — **repo only, hands off my disk** — everything:"*
   ```bash
