@@ -150,6 +150,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine($"On station:  {personnelOnStation}");
   Console.WriteLine($"Outside:     {temperatureC} C");
   Console.WriteLine($"Blizzard:    {blizzardWarning}");
+  Console.WriteLine();
   ```
 - [ ] 🎞️ **GO TO SLIDE 11** — *Putting values into text* · one useful line beyond the recap: *"anything in the braces gets **evaluated** — that can be a whole expression, including a method call. You'll want that in about ten minutes"*
 - [ ] Run it and the board fills in:
@@ -184,6 +185,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
   double hoursOfFuel = fuelLitres / burnPerHour;
   Console.WriteLine($"Generator fuel: {hoursOfFuel} hours remaining.");
+  Console.WriteLine();
   ```
 - [ ] **Predict, hands up:** *"4300 litres, 800 an hour. What prints?"* — the room will say five point something
 - [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** `dotnet run --project Haldane` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
