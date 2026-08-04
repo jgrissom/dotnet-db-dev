@@ -379,7 +379,7 @@ git push
 
 **`error CS0029: Cannot implicitly convert type 'string' to 'int'`** — you put text where a number goes, or the reverse. Check the variable's declared type.
 
-**`error CS0103: The name 'x' does not exist in the current context`** — a typo in a name, or you're using a variable before you declare it, or it's declared inside a different set of braces.
+**`error CS0103: The name 'x' does not exist in the current context`** — a typo in a name, or you're using a variable before you declare it, or it's declared inside a different set of braces. ⚠️ **If `x` is one of your own classes and the spelling is right, check where the file is.** A `.cs` file has to sit **inside the project folder** — `Homework/Station.cs`, not `Station.cs` next to it. A file one level up belongs to no project, so nothing compiles it and the class genuinely doesn't exist.
 
 **`error CS0117` / "does not contain a definition for"** — the method name doesn't match. Capitals count: `signOn` and `SignOn` are different names.
 

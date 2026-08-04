@@ -195,7 +195,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ### A method
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *The words in front of a method* · read it off the slide. **Recap — sixty seconds**
-- [ ] Make a **new file**, `Conditions.cs`, and type it:
+- [ ] Make a new file — **`Conditions.cs`, inside the `Haldane` folder, beside `Program.cs`.** ⚠️ **Right-click `Haldane` → *New File*.** The toolbar's *New File* button puts it in `week-01` instead, which is the folder you opened in §3 and never left — and a `.cs` sitting there belongs to **no project at all**, so the calls two beats below fail with `CS0103: The name 'Conditions' does not exist in the current context`. Then type it:
   ```csharp
   public static class Conditions
   {
@@ -205,6 +205,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
       }
   }
   ```
+- [ ] 💡 **If it does land in the wrong folder live, don't hide it — it's the §3 beat happening for real.** Drag it into `Haldane`, re-run, and say it: *"the folder I opened holds projects — it isn't one. The file has to be **in** the project or nothing knows it exists"*
 - [ ] 💡 Someone may ask why `* 9 / 5` doesn't lose its remainder like the fuel did — **good question, and it's the checkpoint from §5 being applied**: *"because `celsius` is already a double, so the whole line is double arithmetic. The trap needs **both** sides to be whole numbers"*
 
 ### Two words owed
