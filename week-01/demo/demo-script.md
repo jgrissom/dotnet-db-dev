@@ -320,6 +320,8 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 - [ ] **Push — and copy the lines off GitHub's own page rather than typing them**, because that's the habit the room needs: *"it hands you these; you don't invent them."* (Same two lines below, already carrying your username, if the page has scrolled away.)
   ```bash
   git remote add origin https://github.com/jgrissom/dotnet-db-coursework.git
+  ```
+  ```bash
   git push -u origin main
   ```
 - [ ] Reload the GitHub page — the files are there. 🔗 *"Week 4 you make a **second** repo, public, with your own project in it. That one has your name on it and you'll want it to look good"*
