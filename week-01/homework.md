@@ -160,9 +160,10 @@ git push
 
 **These are the same checks I run.** There isn't a second, secret set.
 
-From your `week-01` folder — the one holding both project folders:
+Your terminal is still standing at the top of the repo from Part 3 — one hop down and run them:
 
 ```bash
+cd week-01
 dotnet test Homework.Checks
 ```
 

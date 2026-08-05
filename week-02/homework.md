@@ -172,9 +172,10 @@ git push
 
 ## Part 4 — Check it before you submit ✅
 
-**These are the same checks I run.** From `week-02`:
+**These are the same checks I run.** Your terminal is still standing at the top of the repo from Part 3 — one hop down and run them:
 
 ```bash
+cd week-02
 dotnet test Homework.Checks
 ```
 
