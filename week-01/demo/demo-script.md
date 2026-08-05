@@ -1,6 +1,6 @@
 # Week 1 Demo Script — Haldane Station Boots Up 🧊
 
-Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Read each block aloud once it's on screen**; that's the beat the typing used to provide.
+Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Talk each block through once it's on screen** — that's the beat the typing used to provide. ⚠️ **Say what it *does*, never what it says:** `Console.WriteLine($"Station: {stationName}")` is *"print the label, then drop the station's name in"* — not *"dollar sign, quote, curly brace."* **Name syntax only when the syntax is the lesson** (the `$`, the `.0`, the `out`).
 
 ⚠️ **One exception tonight, and it's the payoff: §5's `int`.** The break only works if the room watches the *choice* get made — so paste the generator block, then change that one word yourself, out loud. Two seconds of typing, and it's the two seconds that matter.
 
@@ -136,7 +136,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *Program.cs is the whole file* · **twenty seconds, don't teach it:** *"one file, statements top to bottom, no class around them. This is where your program starts"* 🔗 **that second half plants §6** — `Conditions.cs` is a file the program does NOT start in
 - [ ] **Ask, don't assume:** *"has anyone written `static void Main` before?"* — hands up, one sentence (*"older spelling, both still work"*); no hands, move on. ⚠️ **Never frame the slide as "where did Main go?"** — most of this room has never had one
-- [ ] In `week-01/Haldane/Program.cs`, delete the template line and paste the banner. 📖 **Read it out once it lands** — it's the station introducing itself:
+- [ ] In `week-01/Haldane/Program.cs`, delete the template line and paste the banner. 📖 **Say what it does** — it's the station introducing itself:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");
@@ -154,7 +154,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### A declared type
 
-- [ ] Paste the four declarations. 📖 **Read them out** — name, type, value — no commentary yet:
+- [ ] Paste the four declarations. 📖 **Name each one as a promise** — *"a string called stationName, an int called personnelOnStation"* — no commentary yet:
   ```csharp
   string stationName = "Haldane";
   int personnelOnStation = 12;
@@ -170,7 +170,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### Putting values into text
 
-- [ ] Paste the status board. 📖 **Read one line out** and let the pattern carry the rest:
+- [ ] Paste the status board. 📖 **Talk one line through** — *"a label, then a value dropped in"* — and let the pattern carry the rest:
   ```csharp
   Console.WriteLine($"Station:     {stationName}");
   Console.WriteLine($"On station:  {personnelOnStation}");
@@ -204,7 +204,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### The limit
 
-- [ ] Paste the generator block — ⚠️ **then change `double burnPerHour` to `int` by hand, out loud.** That one word is the break; the room has to watch you choose it. 📖 **Read the block out first:**
+- [ ] Paste the generator block — ⚠️ **then change `double burnPerHour` to `int` by hand, out loud.** That one word is the break; the room has to watch you choose it. 📖 **Talk it through first** — *"the fuel, divided by the burn rate, into a double"*:
   ```csharp
   int fuelLitres = 4300;
   int burnPerHour = 800;
@@ -231,7 +231,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 ### A method
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *The words in front of a method* · read it off the slide. **Recap — sixty seconds**
-- [ ] Make a **new file — `week-01/Haldane/Conditions.cs`**, beside `Program.cs` *(right-click the `Haldane` folder in the Explorer, not the toolbar button — that one lands at the top of the repo)*, and paste it. 📖 **Read the signature out loud** — return type, name, what goes in:
+- [ ] Make a **new file — `week-01/Haldane/Conditions.cs`**, beside `Program.cs` *(right-click the `Haldane` folder in the Explorer, not the toolbar button — that one lands at the top of the repo)*, and paste it. 📖 **Say the signature as a sentence** — *"takes a double, gives back a double, called Fahrenheit"*:
   ```csharp
   public static class Conditions
   {

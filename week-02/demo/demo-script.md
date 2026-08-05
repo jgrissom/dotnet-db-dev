@@ -1,6 +1,6 @@
 # Week 2 Demo Script — The Mess and the Lies 🧊
 
-Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Read each block aloud once it's on screen**; that's the beat the typing used to provide.
+Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Talk each block through once it's on screen** — that's the beat the typing used to provide. ⚠️ **Say what it *does*, never what it says:** `Console.WriteLine($"Station: {stationName}")` is *"print the label, then drop the station's name in"* — not *"dollar sign, quote, curly brace."* **Name syntax only when the syntax is the lesson** (the `$`, the `.0`, the `out`).
 
 ⚠️ **Two exceptions tonight, both typed by hand at the keyboard:** the `.gitignore`'s four lines in §1 (the badge has to fall *as each line lands* — that's the whole beat), and the **answers you give the running program** in §3–§4, especially `-41.5 C`. Those aren't code, they're the room watching a human make the mistake a human makes.
 
@@ -138,7 +138,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   ```
   `Hello, World!` — *"the fresh project runs, and `Conditions.cs` came along for the build. The carry-forward is already legal C# here, before I've typed a thing"*
 - [ ] **First commit of the new week — in the panel:** stage, message `Week 2: new week, Conditions carried forward`, **✓ Commit**, **Sync**. 🎯 *"a commit is a save point. Make one whenever you're somewhere solid, and the interesting work becomes safe to botch — which is exactly what we're about to do"*
-- [ ] In `week-02/Haldane/Program.cs`, delete the template line and paste the banner and the prompt. 📖 **Read the `ReadLine` line out** — it's the one with the squiggle you're about to ignore on purpose:
+- [ ] In `week-02/Haldane/Program.cs`, delete the template line and paste the banner and the prompt. 📖 **Talk the `ReadLine` line through** — *"whatever they type, into a string"* — it's the one with the squiggle you're about to ignore on purpose:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");
@@ -169,7 +169,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 
 ### Text becomes a number
 
-- [ ] Paste the rest — the parse and the board. 📖 **Read the `Parse` line out** before you run it; it's the one that breaks in a minute:
+- [ ] Paste the rest — the parse and the board. 📖 **Talk the `Parse` line through** — *"turn that text into a number"* — it's the one that breaks in a minute:
   ```csharp
   double reading = double.Parse(raw);
 
@@ -201,7 +201,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 
 ### The tool that asks first
 
-- [ ] **Fix it live** — paste the rewrite over the old block. 📖 **Read the `if` line out**: the `Parse` line has become a *question*, and the board moved inside the answer:
+- [ ] **Fix it live** — paste the rewrite over the old block. 📖 **Say the `if` line as a question** — *"did that text turn into a number? then use it"* — the board has moved inside the answer:
   ```csharp
   if (double.TryParse(raw, out double reading))
   {
