@@ -130,7 +130,15 @@ dotnet test week-01/Homework.Checks
 
 ⚠️ **The repo has to already exist on GitHub, and `git push` will not create it for you.** If you skipped it during setup: [`setup-guide.md` §5](setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo) — `dotnet-db-coursework`, **Private**, **no** README, then add `jgrissom` as a collaborator. That last part is 3 of tonight's points.
 
-**1. The `.gitignore` first, exactly as the demo did it** — [the four lines, before your first commit](lecture-notes.md#the-gitignore-written-before-your-first-commit). In the Explorer, click the empty space below the file list (so it lands at the root), **New File → `.gitignore`**:
+**1. Make it a repo**, from your terminal at the top:
+
+```bash
+git init
+```
+
+The Source Control icon in the sidebar grows a badge with a number on it — every file in the folder, including hundreds you never wrote.
+
+**2. Then the `.gitignore`, exactly as the demo did it** — [the four lines, before your first commit](lecture-notes.md#the-gitignore-written-before-your-first-commit). In the Explorer, click the empty space below the file list (so it lands at the root), **New File → `.gitignore`**, and type it **with that badge in view**:
 
 ```
 bin/
@@ -139,19 +147,18 @@ obj/
 .DS_Store
 ```
 
-Watch the Source Control badge fall as you type the lines — that's git losing sight of the machinery, which is the point. Your repo will only ever hold what you wrote.
+Watch the number fall as the lines land — that's git losing sight of the machinery, which is the point. Your repo will only ever hold what you wrote.
 
-**2. Then connect and push:**
+**3. Then commit and push:**
 
 ```bash
-git init
 git add .
 git commit -m "Week 1: setup"
 git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git
 git push -u origin main
 ```
 
-Use the `git remote add` line **GitHub itself shows you** on the repo page — it has your username in it. (Wrote the `.gitignore` *after* `git init`? Same effect — it just needs to exist before `git add .`.)
+Use the `git remote add` line **GitHub itself shows you** on the repo page — it has your username in it. (Wrote the `.gitignore` *before* `git init`? Same effect — it just needs to exist before `git add .`; you only miss watching the badge do it.)
 
 **Every time after that:**
 
