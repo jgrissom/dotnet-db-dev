@@ -2,7 +2,7 @@
 
 Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Talk each block through once it's on screen** — that's the beat the typing used to provide. ⚠️ **Say what it *does*, never what it says:** `Console.WriteLine($"Station: {stationName}")` is *"print the label, then drop the station's name in"* — not *"dollar sign, quote, curly brace."* **Name syntax only when the syntax is the lesson** (the `$`, the `.0`, the `out`).
 
-⚠️ **Two exceptions tonight, both typed by hand at the keyboard:** the `.gitignore`'s four lines in §1 (the badge has to fall *as each line lands* — that's the whole beat), and the **answers you give the running program** in §3–§4, especially `-41.5 C`. Those aren't code, they're the room watching a human make the mistake a human makes.
+**Type whatever you feel like typing** — this is a default, not a rule. **The two that would cost you if you didn't:** the `.gitignore`'s four lines in §1 (the badge has to fall *as each line lands* — that's the whole beat), and the **answers you give the running program** in §3–§4, especially `-41.5 C`. Those aren't code; they're the room watching a human make a human's mistake.
 
 > [!TIP]
 > **Clickable version:** [the hosted script](https://jgrissom.github.io/dotnet-db-dev/week-02/demo/script.html) — checkboxes survive refreshes; Reset button for next run.

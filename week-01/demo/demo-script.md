@@ -2,7 +2,7 @@
 
 Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Talk each block through once it's on screen** — that's the beat the typing used to provide. ⚠️ **Say what it *does*, never what it says:** `Console.WriteLine($"Station: {stationName}")` is *"print the label, then drop the station's name in"* — not *"dollar sign, quote, curly brace."* **Name syntax only when the syntax is the lesson** (the `$`, the `.0`, the `out`).
 
-⚠️ **One exception tonight, and it's the payoff: §5's `int`.** The break only works if the room watches the *choice* get made — so paste the generator block, then change that one word yourself, out loud. Two seconds of typing, and it's the two seconds that matter.
+**Type whatever you feel like typing** — this is a default, not a rule. **The one that would cost you if you didn't: §5's `int`.** That break only works if the room watches the *choice* get made, so paste the generator block and change that one word by hand, out loud. Two seconds of typing, and they're the two that matter.
 
 > [!TIP]
 > **Clickable version:** [the hosted script](https://jgrissom.github.io/dotnet-db-dev/week-01/demo/script.html) — checkboxes survive refreshes; Reset button for next run.
