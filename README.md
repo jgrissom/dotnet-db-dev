@@ -59,7 +59,7 @@ Your semester project is neither — it's yours.
 
 **Tap/click a week folder** (or the link in the course map above) — each one opens to its own index page with the documents in the order you use them.
 
-**Students:** clone this repo once (`git clone https://github.com/jgrissom/dotnet-db-dev.git`), then `git pull` at the start of each week. Copy the week's `lab/starter/` folder out into your own projects folder and work on the copy — never inside the clone. Slides are also hosted at **https://jgrissom.github.io/dotnet-db-dev/**.
+**Students:** clone this repo once (`git clone https://github.com/jgrissom/dotnet-db-dev.git`), then `git pull` at the start of each week. **Each week is one drag:** copy the ready-made `week-NN` folder out of that week's `starter/` into your own coursework repo and work on the copy — never inside the clone. It holds the whole week: the lab, the homework's starting point, and both checks projects. Slides are also hosted at **https://jgrissom.github.io/dotnet-db-dev/**.
 
 **Instructors** — the weekly rhythm:
 
@@ -78,7 +78,8 @@ Each `week-NN/` folder contains:
 - `slides.html` — standalone exported deck. Regenerated **automatically** by the `Export and publish slide decks` workflow whenever a `slides.md` is pushed
 - `lecture-notes.md` — full lecture content with code examples; the at-home reference *(student-facing)*
 - `demo/demo-script.md` — the instructor's cue sheet for the live demo, also published as a [clickable checklist](https://jgrissom.github.io/dotnet-db-dev/)
-- `lab/` — in-class lab: `README.md` instructions and `starter/` code, including a read-only `*.Checks` project
+- `starter/` — **the one folder students drag in**: a ready-made `week-NN` holding the lab, the homework's starting point, and both read-only `*.Checks` projects
+- `lab/` — the in-class lab's `README.md` instructions
 - `homework.md` — assignment due before the next session *(student-facing)*
 - `points.json` — what each homework check is worth. The grader reads this exact file
 
@@ -90,8 +91,8 @@ Every week ships two check projects, and the difference matters:
 
 | Project | When you run it | Collected? | Worth |
 |---|---|---|---|
-| `*.Checks` | during the lab, turning red into green | never | **0 points** — it's a guide |
-| `*.HomeworkChecks` | on your own homework, before you submit | yes, by me, against your clone | most of the week's points |
+| `Lab.Checks` | during the lab, turning red into green | never | **0 points** — it's a guide |
+| `Homework.Checks` | on your own homework, before you submit | yes, by me, against your clone | most of the week's points |
 
 The homework checks you run are **byte-for-byte the ones I run**. Nothing about your score should ever be a surprise — if it's green on your machine and your work is pushed, it's green on mine.
 

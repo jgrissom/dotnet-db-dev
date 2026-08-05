@@ -1,15 +1,15 @@
 # Week 2 Lab — The Caller Line 📻
 
-It's 2:04 AM at **KDXR 88.1, "The Owl."** The desk you finished last week is holding the station together nicely — and then the phone lights up. Everything a caller says arrives as text typed by a tired human, and the day shift's code believes every word of it.
+It's 2:04 AM at **KDXR 88.1, "The Owl."** The desk you finished last week is holding the station together nicely — and then the phone lights up. Everything a caller says arrives as text typed by a tired human, and the day shift's code believes every word of it. (The software on this desk is older than the DJ, by the way. The station likes it that way.)
 
-**Time:** ~60 minutes in class — **in-class target: all five green, then try to crash your own desk and fail.**
+**Time:** ~60 minutes in class — **in-class target: all five green, then run a shift nobody can crash.**
 
 > [!NOTE]
 > **Missed week 1, or didn't finish the lab?** You're not behind. `Broadcast.cs` ships in tonight's starter **already finished** — the desk is on the air before you touch anything, and all of tonight's work is in a new file.
 
 ## Setup
 
-Four steps, and every terminal in them is VS Code's — already standing in the right folder, nothing to `cd`, tonight or ever.
+Three steps. Every terminal is VS Code's — already standing in the right folder, nothing to `cd`, tonight or ever.
 
 **1. Update your clone of the course repo.**
 
@@ -26,36 +26,32 @@ Four steps, and every terminal in them is VS Code's — already standing in the 
 > ```
 > Now you have both folders side by side. Continue from step 2.
 
-**2. Make your `week-02` folder.**
-
-**File → Open Folder → `dotnet-db-coursework` → *New Folder* → name it `week-02` → Open.**
-
-VS Code swaps from my repo to yours — that's correct, and you're done with the clone until the homework.
-
-> [!NOTE]
-> **No `dotnet-db-coursework` folder?** Make it first, the same way — File → Open Folder → *New Folder* → `dotnet-db-coursework` → then `week-02` inside it.
-
-**3. Copy tonight's starter in — this happens in your file manager, not VS Code.**
+**2. Drag this week in — one folder, in your file manager.**
 
 Open **Finder** (Mac) or **File Explorer** (Windows):
 
-1. Go into `dotnet-db-dev` → `week-02` → `lab` → `starter`. Two folders are inside: **`Lab`** and **`Lab.Checks`**.
-2. Select both → **Copy**.
-3. Go into `dotnet-db-coursework` → `week-02` (empty right now) → **Paste**.
+1. Go into `dotnet-db-dev` → `week-02` → `starter`. Inside is one folder: **`week-02`**.
+2. **Copy it** (don't drag-move — the clone keeps its copy).
+3. Go into `dotnet-db-coursework` → **Paste**.
 
-You're copying *out* of the clone and working on the copy — never inside the clone itself. The end state:
+That one folder is the whole week — the lab, the checks, and the homework's starting point:
 
 ```
 dotnet-db-coursework/
-├─ week-01/           ← last week, untouched
-└─ week-02/           ← the folder you have open in VS Code
-   ├─ Lab/            ← the station — ALL your work happens in here
-   └─ Lab.Checks/     ← the checks — read-only, never edit
+├─ week-01/            ← last week, untouched
+└─ week-02/            ← the folder you just pasted
+   ├─ Lab/             ← the station — tonight's work happens in here
+   ├─ Lab.Checks/      ← the lab's checks — read-only, never edit
+   ├─ Homework/        ← your station — the homework builds this
+   └─ Homework.Checks/ ← the homework's checks — read-only, never edit
 ```
 
-**4. Run the checks.**
+> [!NOTE]
+> **No `dotnet-db-coursework` folder?** Make it in VS Code first — File → Open Folder → *New Folder* → `dotnet-db-coursework` → Open — then come back and paste.
 
-Back in VS Code — still open on `week-02`; the pasted folders are now in its Explorer — open the terminal (`` Ctrl+` ``) and type:
+**3. Open the week and run the checks.**
+
+**VS Code → File → Open Folder → `dotnet-db-coursework` → `week-02` → Open.** Then the terminal (`` Ctrl+` ``):
 
 ```bash
 dotnet test Lab.Checks
@@ -72,8 +68,9 @@ dotnet test Lab.Checks
 |---|---|
 | `Lab/CallerLine.cs` | **everything.** Three methods to write, one to fix |
 | `Lab/Broadcast.cs` | last week's desk, finished — don't touch it |
-| `Lab/Program.cs` | read it, run it — it's how you crash the desk in Task 1 |
+| `Lab/Program.cs` | **the shift.** You run it and live in it; you don't edit it |
 | `Lab.Checks/` | **never edit.** It's how you know you're done |
+| `Homework/`, `Homework.Checks/` | tonight: nothing. They're the homework's starting point |
 
 > [!NOTE]
 > **New this week: the checks feed your methods input that lies.** Several of them hand your code `null`, blank text, and answers that only claim to be numbers. A method that crashes fails the check exactly as hard as one that's wrong — and the failure message tells you which happened. [The notes cover every tool you need.](../lecture-notes.md#parse-believes-tryparse-asks)
@@ -92,19 +89,21 @@ dotnet test Lab.Checks
 
 ### Task 1 in full
 
-**Check 1 is already green** — this task is about breaking something on purpose.
+**Check 1 is already green** — this task is about working a shift, and then ending it early.
 
-**Run the station and take the calls politely.** Answer the caller's name, a request, and give Ray's position as a number, like `240`:
+**Start your shift and take a few calls politely:**
 
 ```bash
 dotnet run --project Lab
 ```
 
-Works fine. Some of the output is blank or lying — those are your unwritten methods, same as last week.
+Sign on with your name. The phone lights up: give a caller's name, a request. It lights up again — calls keep coming until you type `q`. **When the caller is `ray`**, the desk asks where he's at instead; answer with a number, like `240`, and his position gets logged. Take three or four calls, then `q` to end the shift.
 
-**Now run it again, and when it asks where Ray is, answer the way Ray actually talks:** `somewhere past the truck stop`. Or `mile two-forty`. Or just press Enter.
+Works fine — though some of the output is blank or lying. Those are your unwritten methods, same as last week.
 
-💥 **`Unhandled exception. System.FormatException`** — the desk is down, and your typing did it. Read the crash before you fix anything: the exception **type**, the message (it names your exact input), and the line — it points into `WhereIsRay`, in `Lab/CallerLine.cs`. Open that file and find the `int.Parse`. That's the day shift's work. It believes people.
+**Now start another shift, and when Ray calls, answer the way Ray actually talks:** `somewhere past the truck stop`. Or `mile two-forty`. Or just press Enter.
+
+💥 **`Unhandled exception. System.FormatException`** — the whole shift is down, mid-call, and your typing did it. Read the crash before you fix anything: the exception **type**, the message (it names your exact input), and the line — it points into `WhereIsRay`, in `Lab/CallerLine.cs`. Open that file and find the `int.Parse`. That's the day shift's work. It believes people.
 
 `dotnet test Lab.Checks`: still **1 / 5.** Now go earn the rest.
 
@@ -175,7 +174,7 @@ public static string WhereIsRay(string? typed)
 
 Same tool as Task 3 — deliberately. If you'd rather call your own `IsOnTheStretch` as the guard, that's correct too.
 
-**Then re-run Task 1's crash:** `dotnet run --project Lab`, and answer Ray's line with anything you like. **The desk doesn't die anymore.** That run — the same sentence that killed it twenty minutes ago, now getting a civil answer — is what tonight is for.
+**Then re-run Task 1's crash:** start a shift, call in as `ray`, and answer with the exact sentence that killed the desk twenty minutes ago. **The shift doesn't die anymore** — Ray gets logged as out there somewhere, and the phone lights up for the next call. That run is what tonight is for.
 
 `dotnet test Lab.Checks`: **4 / 5.**
 
@@ -204,7 +203,9 @@ public static string TakeRequest(string? name, string? request)
 
 (That `? :` is the conditional operator — an `if`/`else` that fits inside an expression. Writing it as a full `if` is exactly as correct.)
 
-`dotnet test Lab.Checks`: **5 / 5.** Now run the program one last time and answer every prompt as badly as you can. **The Owl stays on the air.** 🦉
+`dotnet test Lab.Checks`: **5 / 5.** Now pull a real shift: `dotnet run --project Lab`, and be the worst night of calls the desk has ever had — blank names, blank requests, Ray answering in riddles, all of it. Every call gets a civil answer, and the phone keeps ringing until *you* type `q`. **The Owl stays on the air.** 🦉
+
+And read the desk's sign-off. It counted your calls — and it can't tell you a single thing about them. Sit with that for a second before you close the terminal.
 
 ## Rules
 

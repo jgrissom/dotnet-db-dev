@@ -234,7 +234,7 @@ That's not a workaround — it's the same *testable shape* rule from week 1 appl
 Your week 1 `Station` class was right last week and it's still right this week — so it moves, it doesn't get rewritten:
 
 ```bash
-# from your week-02 folder, after `dotnet new console -o Homework`:
+# from your week-02 folder — the Homework project ships in the starter:
 cp ../week-01/Homework/Station.cs Homework/
 ```
 

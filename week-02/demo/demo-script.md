@@ -244,7 +244,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *Lab: the caller line*. Leave it up for the whole lab
 - [ ] 🎯 **The frame:** *"the desk you finished last week is in the starter, done — you're not behind if you missed it. Tonight the desk answers the phone, and the phone is where programs die. One of tonight's methods ships **already written and already wrong** — the day shift wrote it, it works every time Ray answers with a number, and Task 1 is crashing it with your own typing. The crash is on purpose. Cause it"*
-- [ ] Setup on screen, said once: **`git pull` in the clone → copy the two folders in `week-02/lab/starter` into a new `week-02` folder in your own repo → open `week-02` in VS Code → `dotnet test Lab.Checks`** → **1 / 5**
+- [ ] Setup on screen, said once: **`git pull` in the clone → drag the one `week-02` folder out of `starter` into your repo → open it in VS Code → `dotnet test Lab.Checks`** → **1 / 5**. *"One folder is the whole week — lab, checks, and your homework's starting point"*
 - [ ] ⚠️ **The folder split, every week until it sticks:** both commands run from **`week-02`** — the folder holding both project folders. Never from inside either. Never `cd`
 - [ ] 🎯 **Say the target, and put "done" on their machines, not yours:** *"all five green is not the finish line — it's the checkpoint before it. **When check 4 goes green, run your program again and answer Ray with the exact sentence that crashed it in Task 1.** A desk you can't crash — that's what done looks like tonight, and every one of you gets to watch your own program do it"*
 - [ ] *"Read the failure messages — check 3's and 4's tell you the tool, and check 4's names the crash you just watched me cause"*

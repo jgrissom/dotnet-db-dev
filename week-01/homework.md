@@ -28,44 +28,25 @@ Pick a call sign, a city and a sign-off time. It can be a real town or an invent
 
 ### Set it up
 
-**1. Open your `week-01` folder in VS Code** — the same one from tonight's lab, already holding `Lab/` and `Lab.Checks/`. (Didn't get to the lab? Make the folder inside `dotnet-db-coursework` now.) **This is the folder you stay in for everything below.**
+There's nothing to install and nothing to copy — the `week-01` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, with `Homework.Checks` beside it.
 
-**2. In the VS Code terminal** (`` Ctrl+` ``, already standing in `week-01` — [nothing to `cd`](lecture-notes.md#the-project-not-the-file)):
-
-```bash
-dotnet new console -o Homework
-```
-
-`-o` makes the folder and names the project after it, so you get `Homework/Homework.csproj`. Same command you watched build Haldane, different name.
-
-**3. Copy the checks project in from your clone of the course repo** — the same clone you took the lab starter out of. (Haven't got it? `git clone https://github.com/jgrissom/dotnet-db-dev.git`.) Copy the whole folder into `week-01/`, **beside** `Homework` — not inside it:
-
-```
-├─ dotnet-db-coursework/week-01/                        ← INTO here, beside Homework
-└─ dotnet-db-dev/week-01/homework-checks/Homework.Checks  ← copy THIS folder
-```
-
-⚠️ **Note the path is `homework-checks/`, not `lab/starter/`** — different folder from the one the lab came out of, because there's no homework starter. You write `Homework` yourself; only the checks are handed over.
-
-You should end up with exactly this — tonight's lab on top, your homework underneath:
+**1. Open your `week-01` folder in VS Code** — the same one from tonight's lab. (Didn't get to the lab? [Its setup](lab/README.md#setup) is three steps and brings the whole week in — do that first.) **This is the folder you stay in for everything below.** The week looks like this:
 
 ```
 dotnet-db-coursework/
 └─ week-01/
    ├─ Lab/                ← tonight's lab (not graded)
    ├─ Lab.Checks/
-   ├─ Homework/           ← your program
+   ├─ Homework/           ← your program — the work below happens here
    └─ Homework.Checks/    ← the checks, unchanged
 ```
 
 > [!CAUTION]
-> **Those two folder names are not suggestions.** The checks find your project by the name `Homework`, and I run the same checks against your repo. Rename either folder and nothing can find your work — which looks exactly like not doing it.
->
-> **And `Homework.Checks` goes *beside* `Homework`, never inside it.** A project folder can't contain another project — your own program stops compiling, with errors pointing at files you didn't write.
+> **The folder names are not suggestions.** The checks find your project by the name `Homework`, and I run the same checks against your repo. Rename either homework folder and nothing can find your work — which looks exactly like not doing it. (And `Homework.Checks` stays *beside* `Homework`, never inside it — a project folder can't contain another project.)
 
 ### Write it
 
-**4. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `Homework/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. This is the whole file, with my station's answers in it; yours will say something else:
+**2. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `Homework/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. This is the whole file, with my station's answers in it; yours will say something else:
 
 ```csharp
 public static class Station
@@ -118,7 +99,7 @@ MinutesUntilSignOff(2, 30)  →  150
 
 Both times become minutes past midnight, then you subtract: 5:00 is `5 * 60` = 300, and 2:30 is `(2 * 60) + 30` = 150. **300 − 150 = 150.** ⚠️ **Multiply the hour by 60 *before* adding the minutes** — brackets make it obvious, and getting it backwards is off-by-a-multiple-of-59, which the check names for you.
 
-**5. `Homework/Program.cs` prints the sign-on** and a countdown. Small on purpose — everything worth checking lives in `Station.cs`:
+**3. `Homework/Program.cs` prints the sign-on** and a countdown. The starter ships it with a placeholder line — replace the whole file with this. Small on purpose; everything worth checking lives in `Station.cs`:
 
 ```csharp
 Console.WriteLine(Station.SignOn());

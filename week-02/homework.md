@@ -24,15 +24,11 @@ Last week you invented a station. **This week it gets a request line:** a greeti
 
 ### Set it up
 
-**1. Open a `week-02` folder in VS Code** — the same one from tonight's lab, already holding `Lab/` and `Lab.Checks/`. (Didn't get to the lab? Make the folder inside `dotnet-db-coursework` now: File → Open Folder → `dotnet-db-coursework` → *New Folder* → `week-02` → Open.)
+There's almost nothing to set up — the `week-02` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, and `Homework.Checks` beside it.
 
-**2. In the VS Code terminal** (`` Ctrl+` ``, standing in `week-02`):
+**1. Open `week-02` in VS Code** — the same folder as tonight's lab. (Didn't get to the lab? [Its setup](lab/README.md#setup) is three steps and brings the whole week in — do that first.)
 
-```bash
-dotnet new console -o Homework
-```
-
-**3. Carry your `Station` class forward** — [the same one-move copy from the demo](lecture-notes.md#carrying-a-class-forward):
+**2. Carry your `Station` class forward** — [the same one-move copy from the demo](lecture-notes.md#carrying-a-class-forward):
 
 ```bash
 cp ../week-01/Homework/Station.cs Homework/
@@ -50,30 +46,12 @@ cp ../week-01/Homework/Station.cs Homework/
 > }
 > ```
 
-**4. Copy the checks project in from your clone** — the same file-manager copy as [the lab's setup](lab/README.md#setup), one folder deeper: copy `Homework.Checks` and paste it into your `week-02`, beside `Homework`. (No clone at all? The lab's Setup step 1 shows the whole move — two minutes.)
-
-```
-├─ dotnet-db-coursework/week-02/                          ← INTO here, beside Homework
-└─ dotnet-db-dev/week-02/homework-checks/Homework.Checks  ← copy THIS folder
-```
-
-You end up with the full four-project week:
-
-```
-dotnet-db-coursework/
-└─ week-02/
-   ├─ Lab/                ← tonight's lab (not graded)
-   ├─ Lab.Checks/
-   ├─ Homework/           ← your program
-   └─ Homework.Checks/    ← the checks, unchanged
-```
-
 > [!CAUTION]
-> **The folder names are still not suggestions.** The checks find your project by the name `Homework`, `Homework.Checks` goes *beside* it (never inside), and I run the same checks against your repo. Rename anything and nothing can find your work.
+> **The folder names are still not suggestions.** The checks find your project by the name `Homework`, `Homework.Checks` stays *beside* it (never inside), and I run the same checks against your repo. Rename anything and nothing can find your work.
 
 ### Write it
 
-**5. A `Switchboard` class in its own file** — `Homework/Switchboard.cs`, `public`, four methods. This is the whole file, shapes included — **and the three blanks in it fail on purpose.** Pasting it as-is leaves two checks red; the blanks are where your station shows up:
+**3. A `Switchboard` class in its own file** — `Homework/Switchboard.cs`, `public`, four methods. This is the whole file, shapes included — **and the three blanks in it fail on purpose.** Pasting it as-is leaves two checks red; the blanks are where your station shows up:
 
 ```csharp
 public static class Switchboard
@@ -121,7 +99,7 @@ What each one has to do:
 
 **The no-name default is a writing assignment as much as a code one.** *"a voice in the dark"*, *"the 2 AM mystery"*, *"caller unknown"* — it's your station's house style. It just can't be blank.
 
-**6. `Homework/Program.cs` opens the line.** Small on purpose — every decision lives in `Switchboard.cs`:
+**4. `Homework/Program.cs` opens the line.** The skeleton ships with a placeholder — replace the whole file with this. Small on purpose; every decision lives in `Switchboard.cs`:
 
 ```csharp
 Console.WriteLine(Switchboard.Greeting());

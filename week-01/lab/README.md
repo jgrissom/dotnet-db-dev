@@ -9,45 +9,50 @@ It's 11:58 PM and you're the overnight desk at **KDXR 88.1, "The Owl."** The sig
 
 ## Setup
 
-**1. Update your clone of the course repo** — the one you cloned during [setup](../setup-guide.md):
+Three steps. Every terminal is VS Code's — already standing in the right folder, nothing to `cd`, tonight or ever.
 
-```bash
-cd dotnet-db-dev
-git pull
-```
+**1. Update your clone of the course repo** — the one you made during [setup](../setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo).
+
+1. Open VS Code → **File → Open Folder** → find **`dotnet-db-dev`** — it sits **next to** your `dotnet-db-coursework` folder → **Open**.
+2. Open the terminal: **`` Ctrl+` ``**. It's standing in `dotnet-db-dev` already. Type:
+   ```bash
+   git pull
+   ```
 
 > [!NOTE]
-> **`cd: no such file or directory`?** You haven't cloned it yet. One command, from your home folder, and then run the two above:
+> **No `dotnet-db-dev` folder anywhere?** You haven't cloned it. **File → Open Folder** → the folder where `dotnet-db-coursework` lives (the one that *holds* it) → **Open** → `` Ctrl+` `` → then:
 > ```bash
 > git clone https://github.com/jgrissom/dotnet-db-dev.git
 > ```
+> Now you have both folders side by side. Continue from step 2.
 
-**2. Make a `week-01` folder inside your `dotnet-db-coursework` folder** — the empty one you made during [setup](../setup-guide.md#then-make-the-folder-that-repo-will-hold). Exactly the move you watched in the demo:
+**2. Drag this week in — one folder, in your file manager.**
 
-**VS Code → File → Open Folder → `dotnet-db-coursework` → *New Folder* → name it `week-01` → Open.**
+Open **Finder** (Mac) or **File Explorer** (Windows):
 
-> [!NOTE]
-> **No `dotnet-db-coursework` folder?** Make it now — File → Open Folder → *New Folder* → `dotnet-db-coursework` — then make `week-01` inside it. You'll add one folder like this every week for the rest of the term.
+1. Go into `dotnet-db-dev` → `week-01` → `starter`. Inside is one folder: **`week-01`**.
+2. **Copy it** (don't drag-move — the clone keeps its copy).
+3. Go into `dotnet-db-coursework` (empty right now) → **Paste**.
 
-**3. Copy the two folders inside `week-01/lab/starter` into your `week-01`.** (Copy them *out* of the clone; never work inside it, or next week's `git pull` will fight your edits.)
-
-The two folders sit side by side, [the way setup left them](../setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo) — so you're dragging from the right-hand one into the left:
-
-```
-├─ dotnet-db-coursework/week-01/     ← INTO here
-└─ dotnet-db-dev/week-01/lab/starter/  ← FROM here
-```
+That one folder is the whole week — tonight's lab, its checks, and the homework's starting point:
 
 ```
 dotnet-db-coursework/
-└─ week-01/           ← keep THIS open in VS Code
-   ├─ Lab/            ← the station — ALL your work happens in here
-   └─ Lab.Checks/     ← the checks — read-only, never edit
+└─ week-01/            ← the folder you just pasted
+   ├─ Lab/             ← the station — tonight's work happens in here
+   ├─ Lab.Checks/      ← the lab's checks — read-only, never edit
+   ├─ Homework/        ← your own station — the homework builds this
+   └─ Homework.Checks/ ← the homework's checks — read-only, never edit
 ```
 
-Your lab work lives in your repo alongside everything else from this week. It isn't graded — but it's the worked example your homework is built on, so you want it where you can find it.
+You're copying *out* of the clone and working on the copy — never inside the clone itself, or next week's `git pull` fights your edits. Your lab work isn't graded, but it's the worked example your homework is built on, so it lives in your repo where you can find it.
 
-**4. With `week-01` still open**, use the VS Code terminal (`` Ctrl+` ``) — it's already standing in that folder, exactly like the demo:
+> [!NOTE]
+> **No `dotnet-db-coursework` folder?** Make it in VS Code first — File → Open Folder → *New Folder* → `dotnet-db-coursework` → Open — then come back and paste. You'll paste one week folder into it every week for the rest of the term.
+
+**3. Open the week and run the checks.**
+
+**VS Code → File → Open Folder → `dotnet-db-coursework` → `week-01` → Open.** Then the terminal (`` Ctrl+` ``) — it's standing in `week-01`, exactly like the demo:
 
 ```bash
 dotnet test Lab.Checks

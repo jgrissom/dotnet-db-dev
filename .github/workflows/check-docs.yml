@@ -9,7 +9,7 @@ on:
     paths:
       - "**/*.md"
       - "scripts/check-*.js"
-      - "week-*/lab/starter/**"
+      - "week-*/starter/**"
       - ".github/workflows/check-docs.yml"
   schedule:
     - cron: "0 12 * * 1"   # Mondays: full check including external URLs
@@ -41,19 +41,21 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "10.0.x"
-      # Every lab starter must build, and its checks project must RUN — a starter
-      # that doesn't compile wastes the first ten minutes of a lab for everybody.
+      # Every starter project must build, and every checks project must RUN — a
+      # starter that doesn't compile wastes the first ten minutes of a lab for
+      # everybody. The glob covers BOTH checks projects per week (Lab.Checks and
+      # Homework.Checks) now that the one-drag starter ships all four projects.
       # FAILING TESTS ARE THE EXPECTED RESULT: a starter is red on purpose, and
-      # week 1's reports 1/5 by design. A build error or a crash is not.
+      # a homework skeleton scores 0/N by design. A build error or a crash is not.
       #
       # Console programs block on ReadLine forever, so stdin gets a few newlines
       # (which satisfies an interactive program rather than making ReadLine
       # return null) and every run is capped.
-      - name: Build and run every lab starter's checks
+      - name: Build and run every starter's checks
         run: |
           fail=0
           shopt -s nullglob
-          for proj in week-*/lab/starter/*.Checks/*.csproj; do
+          for proj in week-*/starter/week-*/*.Checks/*.csproj; do
             echo "── $proj"
             if ! dotnet build "$proj" -warnaserror -nologo; then
               echo "::error::$proj does not build"
