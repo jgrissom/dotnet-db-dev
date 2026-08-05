@@ -194,7 +194,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```csharp
   int personnelOnStation = "twelve";
   ```
-- [ ] `dotnet run --project week-01/Haldane`. 🎞️ **GO TO SLIDE 12** — *The build failed* · *"nobody is surprised. Fine. But be precise about what just happened: it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
+- [ ] `dotnet run --project week-01/Haldane`. 🎞️ **GO TO SLIDE 12** — *The build failed* · nobody is surprised. Fine. But be precise about what just happened: *"it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
 
 ### Reading an error
 
