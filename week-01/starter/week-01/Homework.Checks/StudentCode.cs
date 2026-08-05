@@ -71,8 +71,8 @@ internal static class StudentCode
             + $"    yours:  {Pretty(candidates[0].ReturnType)} {name}("
             + $"{Signature(candidates[0].GetParameters().Select(p => p.ParameterType).ToArray())})\n"
             + $"    wanted: {Pretty(returns)} {name}({Signature(takes)})\n"
-            + "The types in the brackets are part of the method's identity in C# — that's a real "
-            + "difference from Python, where a name is a name.");
+            + "The types in the brackets are part of the method's identity in C# — the same "
+            + "name with different parameters is a different method.");
 
         Assert.True(method!.ReturnType == returns,
             $"Station.{name} gives back a {Pretty(method.ReturnType)}, and it should give back a "

@@ -102,7 +102,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   dotnet run --project week-01/Haldane
   ```
 - [ ] 🎯 **This is the beat that pays off all term, so say it deliberately:** *"look at the path in that command. `-o` made the week folder AND the project inside it, in one go — and when I run it, I name the whole path: week, then project. **The folder you open holds weeks; weeks hold projects; commands say which.** I never move, I never open anything else, and neither will you. Next week the command says `week-02` and everything else about it is identical"*
-- [ ] Name the difference while it's concrete — **this is the new part of the beat, not `Hello, World!`**: *"Python runs a file. C# runs a **project** — a folder that knows how to build itself. If your last course was full Visual Studio, this is File → New Project with the wizard taken away"*
+- [ ] Name the difference while it's concrete — **this is the new part of the beat, not `Hello, World!`**: *"C# doesn't run a file — it runs a **project**, a folder that knows how to build itself. If your last course was full Visual Studio, this is File → New Project with the wizard taken away"*
 - [ ] 💡 **If someone asks why not just `cd` in:** *"because from this one spot, everything works — this week's projects, last week's, the checks, and git. The moment you wander, some command stops working and you have to remember where you are. Stay put, name the path"* 🔗 **forgetting the week prefix is the error they will hit in the lab, and `MSB1003` names it**
 
 ### What it made

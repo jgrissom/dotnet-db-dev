@@ -170,7 +170,7 @@ Given minutes already broadcast, return how many **hours** that is — including
 > return minutes / 60.0;
 > ```
 
-In Python 3 you'd have got 5.5 without thinking about it. This is the single most common way a Python habit produces a wrong answer in C#, which is why it's a whole check.
+The remainder is gone before the `double` ever gets involved — silently, every time. It's the most common silent wrong answer in early C#, which is why it's a whole check.
 
 `dotnet test week-01/Lab.Checks`: **4 / 5.** The program says **5.5 hours on air** now, where a minute ago it said 5.
 

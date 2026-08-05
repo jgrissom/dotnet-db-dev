@@ -34,7 +34,7 @@ And one thing that isn't new but is worth twenty minutes anyway: **the compiler 
 
 ## The project, not the file
 
-Python runs a file: `python thing.py`. C# runs a **project** — a folder with a `.csproj` in it that says what to build.
+C# doesn't run a file — it runs a **project**: a folder with a `.csproj` in it that says what to build. (Your last course may have kept this behind an IDE; here it's on the table.)
 
 **One way of working, used in the demo, the lab and the homework alike — and it's one window, all semester:**
 
@@ -192,7 +192,7 @@ Console.WriteLine($"Generator fuel: {hoursOfFuel} hours remaining.");
 
 That prints **5**. The right answer is **5.375**. There is no error, no warning, and no squiggle in the editor.
 
-In Python 3, `/` always gives you a real number and you have to *ask* for the whole-number version with `//`. **In C# it's the other way round: whole ÷ whole = whole**, and the remainder is thrown away immediately with no announcement:
+**In C#, whole ÷ whole = whole** — the remainder is thrown away immediately, with no announcement:
 
 ```csharp
 int minutes = 330;

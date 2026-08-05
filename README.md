@@ -8,7 +8,7 @@ Console applications in **C# on .NET 10**, from first program to a real database
 > [!NOTE]
 > **You already know how to program, and you've already written C#.** So this isn't a second tour of the syntax. It's the part your intro course didn't have room for: **code shaped so a machine can test it**, git as a weekly habit rather than plumbing, collections, LINQ, and a real database underneath the whole thing.
 >
-> Everything familiar gets about a minute of recap and then goes somewhere new — what `static` is actually costing you, why logic buried in `Main` can't be tested or graded by anyone, and the handful of places a **Python** reflex still quietly hands you a wrong answer.
+> Everything familiar gets about a minute of recap and then goes somewhere new — what `static` is actually costing you, why logic buried in `Main` can't be tested or graded by anyone, and the places where code that compiles cleanly still hands you a wrong answer.
 
 ## The spine
 

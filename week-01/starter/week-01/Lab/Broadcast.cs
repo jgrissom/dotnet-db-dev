@@ -4,10 +4,10 @@
 //  Program.cs is the part a human sees. THIS is the part that has to be
 //  right, and it's the part the checks can call.
 //
-//  Every method below is a Python `def` with the types written down:
+//  Every method below is a shape you've written before, with every type
+//  spelled out:
 //
-//      def sign_on(dj_name):          →   public static string SignOn(string djName)
-//          return ...                          {  return ...;  }
+//      public static string SignOn(string djName)
 //
 //  The word before the name is the type of what comes BACK. The words in
 //  the brackets are the types of what goes IN. That's the whole idea.
@@ -46,7 +46,7 @@ public static class Broadcast
     // is — including the part hours.
     //   330 minutes  →  5.5    // five and a half hours on air
     // ⚠️ Read the check's message carefully when this one fails. It is the
-    //    single most common way a Python habit produces a wrong answer in C#.
+    //    generator bug from the demo, arriving in your own code.
     public static double HoursOnAir(int minutes)
     {
         return 0;

@@ -39,7 +39,7 @@ public class BroadcastChecks
             + "starts. Something like:\n"
             + "    return $\"{CallSign()} 88.1 The Owl - you're on with {djName}.\";\n"
             + "The $ in front of the quotes is what lets you drop a value straight into the "
-            + "text — it's Python's f-string, spelled differently.");
+            + "text — anything inside the braces gets evaluated.");
 
         Assert.True(marisol.Contains("Marisol"),
             "SignOn(\"Marisol\") returned a line with no \"Marisol\" in it:\n"
@@ -84,7 +84,7 @@ public class BroadcastChecks
             + "(hour * 60) + minute.");
     }
 
-    [Fact] // Task 4: the integer-division trap — a Python habit misfiring
+    [Fact] // Task 4: the integer-division trap — the silent one from the demo
     public void Check4_TheHoursIncludeThePartHours()
     {
         var got = Broadcast.HoursOnAir(330);
@@ -94,9 +94,9 @@ public class BroadcastChecks
         Assert.True(Math.Abs(got - 5.5) < 0.0001,
             $"330 minutes is five and a half hours. HoursOnAir(330) returned {got}.\n"
             + (Math.Abs(got - 5.0) < 0.0001
-                ? "You got 5, so the halves are being thrown away — and this is THE trap for "
-                  + "anyone arriving from Python.\n"
-                  + "In Python 3, 330 / 60 gives you 5.5. In C#, a whole number divided by a "
+                ? "You got 5, so the halves are being thrown away — the demo's generator bug, "
+                  + "in your own code.\n"
+                  + "In C#, a whole number divided by a "
                   + "whole number is a WHOLE NUMBER: the division happens first, the remainder "
                   + "is dropped on the floor, and only then does the answer become a double. "
                   + "Nothing warns you, because nothing went wrong as far as C# is concerned.\n"

@@ -15,7 +15,7 @@ Console.WriteLine();
 Console.Write("DJ on duty: ");
 // Console.ReadLine() can hand back nothing at all — if the input has ended
 // there is no line to read. The `?? "somebody"` means "or use this instead".
-// That's C#'s version of Python's None, and week 5 explains why it's so fussy.
+// Week 5 explains why C# is so careful about "nothing at all".
 string djName = Console.ReadLine() ?? "somebody";
 
 Console.WriteLine();
