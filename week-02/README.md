@@ -26,7 +26,6 @@ The compiler's limit, part two — and the bill for week 1's push. Students clea
 - ⚠️ **The scratch coursework repo from week 1 is tonight's set, mess intact** — verify with §0's command, **write down your file count** (it's "the forty files" all night), and rebuild from §0's block if it's gone
 - **The week-1 demo repo on GitHub still shows `bin/` and `obj/`** — §1 tours it live before cleaning it
 - **Rehearse the whole demo once (≈20 min)** — the cleanup beat especially; its order (`.gitignore` first, prove it changed nothing, *then* evict) is the lesson
-- Your finished lab answer key at **5/5**, warmed, in a pre-positioned terminal — the handoff feeds it garbage on screen
 - ⚠️ **`git.openRepositoryInParentFolders` still `always`** on the teaching profile — §1–§3 need the panel alive
 - Editor font **and** terminal sized for the back row, as ever
 

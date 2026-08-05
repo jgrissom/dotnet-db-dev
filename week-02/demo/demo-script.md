@@ -39,11 +39,6 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```
 - [ ] ⚠️ **The GitHub page must show the mess too** — §1 opens on `github.com/jgrissom/dotnet-db-coursework`, clicking into `week-01/Haldane/obj/`. If the week-1 class push didn't happen, the rebuild above fixes it
 - [ ] **Rehearse the whole thing once (≈20 min).** The §4 `dotnet new` wants a warm NuGet cache, and the §2 cleanup is a beat you want in your hands, not your head
-- [ ] ⚠️ **Pre-position a separate terminal window for §6** — standing in the answer key's `week-02/lab/solution`, font bumped for the back row, warmed:
-  ```bash
-  cd ~/Repos/dotnet-db-dev-answer-keys/week-02/lab/solution
-  dotnet test Lab.Checks
-  ```
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`week-01`** — exactly where last week left it; §1 moves it to the top folder on screen
 - [ ] ⚠️ **Check `git.openRepositoryInParentFolders` is still `always`** on the teaching profile — §1–§3 die without the repo showing in the panel. **How:** teaching profile active, **`Cmd+,`** → search `openRepositoryInParentFolders` → should read **`always`**. Wrong or dead panel? [The notes' panel section has the fix](../lecture-notes.md#the-source-control-panel-translated) — it's written for students, because anyone who clicked `Never` in week 1 hits this exact wall tonight
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** The board gained a generator panel this week — say nothing about it; it explains itself or it isn't working. **Close it before slide 1**
@@ -248,16 +243,11 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ## 6 · Hand off to the lab *(slide 15)*
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *Lab: the caller line*. Leave it up for the whole lab
-- [ ] **Show what done looks like — from the pre-positioned terminal window**, answer key, ~90 seconds:
-  ```bash
-  dotnet test Lab.Checks
-  dotnet run --project Lab
-  ```
-  `Passed! - Failed: 0, Passed: 5` — then **run the program and feed it garbage, out loud:** DJ name fine, caller name with a fistful of spaces, request left blank, and when it asks where Ray is: *"somewhere past the truck stop"*. **Every prompt gets a civil answer and the desk stays on the air.** 🎯 *"that's the target: not five green checks — a program I just tried to crash, and couldn't"*
 - [ ] 🎯 **The frame:** *"the desk you finished last week is in the starter, done — you're not behind if you missed it. Tonight the desk answers the phone, and the phone is where programs die. One of tonight's methods ships **already written and already wrong** — the day shift wrote it, it works every time Ray answers with a number, and Task 1 is crashing it with your own typing. The crash is on purpose. Cause it"*
 - [ ] Setup on screen, said once: **`git pull` in the clone → copy the two folders in `week-02/lab/starter` into a new `week-02` folder in your own repo → open `week-02` in VS Code → `dotnet test Lab.Checks`** → **1 / 5**
 - [ ] ⚠️ **The folder split, every week until it sticks:** both commands run from **`week-02`** — the folder holding both project folders. Never from inside either. Never `cd`
-- [ ] Say the target and mean it: **all five green, and then try to crash your own desk and fail.** *"Read the failure messages — check 3's and 4's tell you the tool, and check 4's names the crash you just watched me cause"*
+- [ ] 🎯 **Say the target, and put "done" on their machines, not yours:** *"all five green is not the finish line — it's the checkpoint before it. **When check 4 goes green, run your program again and answer Ray with the exact sentence that crashed it in Task 1.** A desk you can't crash — that's what done looks like tonight, and every one of you gets to watch your own program do it"*
+- [ ] *"Read the failure messages — check 3's and 4's tell you the tool, and check 4's names the crash you just watched me cause"*
 
 ## 7 · Wrap-up, after the lab *(slide 16)*
 

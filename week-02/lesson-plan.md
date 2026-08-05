@@ -37,8 +37,7 @@ By the end of this session, students can:
 - `slides.md` / `slides.html` — the deck (hosted at jgrissom.github.io/dotnet-db-dev)
 - `lecture-notes.md` on your second screen
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-02/demo/script.html))
-- ⚠️ **The scratch `dotnet-db-coursework` repo from week 1, mess intact** — §0 of the cue sheet has the verification command and a rebuild block. **Know your file count before class**; it's "the forty files" all night
-- Your finished lab answer key with `dotnet test Lab.Checks` printing **5/5**, warmed, in a pre-positioned terminal
+- ⚠️ **The scratch `dotnet-db-coursework` repo from week 1, mess intact** — §0 of the cue sheet has the verification command and a rebuild block. **Know your file count before class**; it's "the files you never wrote" all night
 - The week-1 demo repo **on GitHub** still showing `bin/` and `obj/` — §1 tours it live
 
 ## Timed agenda
@@ -52,7 +51,7 @@ By the end of this session, students can:
 | 1:20 | 30 min | **The console takes a reading** *(slides 8–11, demo §4)*. New `week-02` folder, `Conditions.cs` carried forward in one `cp` (the homework's move, modeled). `ReadLine`, **the squiggle read properly and ignored knowingly**, `?? ""`, `double.Parse`, happy-path run. |
 | 1:50 | 30 min | **Input that lies** *(slides 12–14, demo §5)*. 💥 The unannounced break: `-41.5 C` → `FormatException`. Read the crash's anatomy. Why the compiler warned about `null` but *couldn't* warn about this. `TryParse`, both paths run, the console stays up. The week's sentence. |
 | 2:20 | 10 min | **☕ Break** |
-| 2:30 | 5 min | **Lab launch** *(slide 15, demo §6)*. What done looks like: 5/5, then the key fed garbage out loud and surviving. *"One method ships already written and already wrong — crash it."* |
+| 2:30 | 5 min | **Lab launch** *(slide 15, demo §6)*. The frame — *"one method ships already written and already wrong — crash it"* — and "done" defined on **their** machines: after check 4, re-feed the sentence that crashed it and watch the desk survive. |
 | 2:35 | 60 min | **Lab: the caller line** *(slide 15 stays up)*. **In-class target: all five green, then fail to crash your own desk.** Circulate for Task 1's crash and Task 4's re-run. |
 | 3:35 | 10 min | **Wrap-up** *(slide 16, demo §7)*. Repo holds what you wrote · warnings mark the promise's edge · Parse believes, TryParse asks. Homework: the switchboard + the cleanup, both graded. Week 3 tease: the list, and losing it at midnight. |
 
@@ -66,7 +65,7 @@ By the end of this session, students can:
 - 🎯 **The warning beat lives or dies on the pause.** Hover the squiggle, read `CS8600` aloud, ask who read their warnings last semester — and then **build and run anyway.** Ignoring it *knowingly* is the setup; the crash in §5 is what the ignoring costs. If you fix the warning the moment it appears, §5 loses its teeth.
 - ⚠️ **§5's break is unannounced, as always.** Type `-41.5 C` while saying the reading out loud like a log entry — the room should realize what's about to happen about half a second before it does. If nobody reacts to the crash, read the exception type aloud and ask *"is that a compile error?"* — the distinction is the segment.
 - 🎯 **Take the loop-until-valid question seriously when it comes** (it will, and it's a good instinct): the grader answers with silence, a loop that insists spins forever, ask once and answer gracefully. It's testable-shape thinking applied to input — and promise week 13 honestly for the full retry/exception story.
-- ⚠️ **In the handoff, feed the answer key garbage yourself, out loud.** *"That's the target — a program I just tried to crash and couldn't."* It reframes the lab from "make checks pass" to "make the desk unkillable," which is the correct frame for this room.
+- ⚠️ **The handoff shows no answer key — deliberately** *(decided at rehearsal, 2026-08-04: it was the one beat that needed a third folder, for ninety seconds of value the lab now delivers itself)*. The reframe from "make checks pass" to "make the desk unkillable" is carried by the target line instead: **done is their own program surviving the sentence that crashed it.** Say it like you mean it; it's the lab's payoff being scheduled.
 - **The two exact strings in the lab** (`"some night owl"`, `"dealer's choice"`) are checked exactly, and the lab says so. A student burned by capitalization is having a normal week 2; point at the Rules block.
 - **No color, no Spectre, nothing pretty.** Week 3 earns the library; two weeks of hand-aligned console output is the ache that pays for it. If the output looks sad tonight, good.
 
