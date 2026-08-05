@@ -286,7 +286,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   git status -u
   ```
   *"`-u` — untracked files, all of them. Now we are looking at what git is actually looking at."* 💡 **They will use plain `git status` for the rest of their lives; `-u` is for tonight, and for any time a folder is hiding its contents from you.**
-- [ ] 🎯 **The wall.** Screens of red — every file git can see. **Scroll it, then ask the room:** *"how much of this did you write?"* — let them find it: `Program.cs`, `Conditions.cs`, a `.csproj`… and screen after screen of `bin/` and `obj/`. *"Three files are mine. The rest is the compiler's machinery — scratch paper and build output, remade from my source every single build. A repo holds what you **wrote**. Nobody wants this"*
+- [ ] 🎯 **The wall.** Screens of red — every file git can see. **Scroll it, then ask the room:** *"how much of this did I write?"* — let them find it: `Program.cs`, `Conditions.cs`, a `.csproj`… and screen after screen of `bin/` and `obj/`. *"Three files are mine. The rest is the compiler's machinery — scratch paper and build output, remade from my source every single build. A repo holds what you **wrote**. Nobody wants this"*
 - [ ] 🎯 **The collapse — one of tonight's best twenty seconds.** In the Explorer, **click the empty space below the file list** (so it lands at the root), **New File → `.gitignore`**, and type it **with the Source Control badge in view** — watch the number fall as lines land:
   ```
   bin/
