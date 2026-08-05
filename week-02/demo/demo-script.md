@@ -119,7 +119,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ### The panel reads a clean tree
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *The panel: same verbs, buttons* · *"last week I made you type four commands and told you to leave this panel alone. Here's why that order: every region of this thing is one of those commands, and now you can read it"*
+- [ ] 🎞️ **GO TO SLIDE 6** — *The panel reads the tree* · *"last week I made you type four commands and told you to leave this panel alone. Here's why that order: every region of this thing is one of those commands, and now you can read it — starting with what it says right now, which is nothing"*
 - [ ] **Open the panel — it's empty, and that's the first lesson, not a problem:** *"an empty Changes list is `git status` saying 'working tree clean'. We committed everything a minute ago, and the panel agrees. Before it's buttons, it's a status readout"* — then name the regions in one pass: Changes = `status` · **+** = `add` · message box + **✓** = `commit` · **Sync** = `push` and pull. *"Easier to believe with something moving through it — so let's make a change worth committing"*
 
 ### A README, committed with the buttons

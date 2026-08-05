@@ -103,19 +103,18 @@ Nothing leaves your disk. It leaves the **repo**.
 
 <!-- _footer: '🖥️ Demo §3 · the panel' -->
 
-## The panel: same verbs, buttons
+## The panel reads the tree
 
-**Source Control** = `status` + `add` + `commit` + `push`
+**An empty *Changes* list is `git status` saying: clean.**
 
-<br>
+| Region | Verb |
+|---|---|
+| *Changes* list | `git status` |
+| **+** | `git add` |
+| message + **✓ Commit** | `git commit -m` |
+| **Sync** | `git push` (and pull) |
 
-**Changes** — not yet staged · **+** — that's `git add`
-
-**✓ Commit** — with the message box · **Sync** — push & pull
-
-<br>
-
-You learned the verbs first. Now the buttons make sense.
+Verbs first, buttons second. **Watch one file make the trip.**
 
 ---
 
