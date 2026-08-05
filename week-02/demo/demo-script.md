@@ -117,11 +117,10 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ## 3 · The panel, and a README *(slides 6–7)*
 
-### The buttons do the verbs
+### The panel reads a clean tree
 
 - [ ] 🎞️ **GO TO SLIDE 6** — *The panel: same verbs, buttons* · *"last week I made you type four commands and told you to leave this panel alone. Here's why that order: every region of this thing is one of those commands, and now you can read it"*
-- [ ] **Tour the open panel, mapping as you go:** the file list is `git status` · the **+** on a file is `git add` · the message box and **✓ Commit** are `git commit -m` · the **Sync** arrows are `git push` (and pull). *"Nothing new. A second view of what you already understand"*
-- [ ] 🎯 *"Use whichever you like from here on. When the panel confuses you — and some week it will — the terminal is how you find out what it actually did. `git status` never lies"*
+- [ ] **Open the panel — it's empty, and that's the first lesson, not a problem:** *"an empty Changes list is `git status` saying 'working tree clean'. We committed everything a minute ago, and the panel agrees. Before it's buttons, it's a status readout"* — then name the regions in one pass: Changes = `status` · **+** = `add` · message box + **✓** = `commit` · **Sync** = `push` and pull. *"Easier to believe with something moving through it — so let's make a change worth committing"*
 
 ### A README, committed with the buttons
 
@@ -135,7 +134,8 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   - week-01 — toolchain, first program, KDXR signs on
   - week-02 — input that lies, .gitignore, the caller line
   ```
-- [ ] **Commit it with the panel, narrating each button as its verb:** the file under *Changes* → **+** *("git add")* → message `Week 2: readme` → **✓ Commit** → **Sync** *("git push")*. Reload GitHub — the README renders on the repo's front page
+- [ ] **Now the tour happens for real — watch the file move through the verbs, narrating each region as you click it:** it appears under *Changes* (`status` sees it) → **+** (`git add` — watch it jump to *Staged Changes*) → message `Week 2: readme` → **✓ Commit** → **Sync** (`git push`). Reload GitHub — the README renders on the repo's front page
+- [ ] 🎯 *"Use whichever you like from here on. When the panel confuses you — and some week it will — the terminal is how you find out what it actually did. `git status` never lies"*
 - [ ] 🔗 *"Your homework does these exact three moves to your repo — gitignore, cleanup, README — and this week they're worth points. The grader checks all three"*
 
 ## 4 · The console takes a reading *(slides 8–11)*
