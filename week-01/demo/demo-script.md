@@ -154,7 +154,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### A declared type
 
-- [ ] Paste the four declarations. 📖 **Name each one as a promise** — *"a string called stationName, an int called personnelOnStation"* — no commentary yet:
+- [ ] Paste the four declarations. 📖 **Name all four as promises, in one breath** — *"a string called stationName, an int called personnelOnStation, a double called temperatureC, a bool called blizzardWarning"* — no commentary yet; 🔗 **slide 10 is that same list, so this is the room hearing it before they see it**:
   ```csharp
   string stationName = "Haldane";
   int personnelOnStation = 12;
