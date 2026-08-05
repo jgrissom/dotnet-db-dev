@@ -73,7 +73,7 @@ dotnet-db-coursework/
 
 ### Write it
 
-**5. A `Switchboard` class in its own file** — `Homework/Switchboard.cs`, `public`, four methods. This is the whole file with my answers in it; **three of the four are yours to invent:**
+**5. A `Switchboard` class in its own file** — `Homework/Switchboard.cs`, `public`, four methods. This is the whole file, shapes included — **and the three blanks in it fail on purpose.** Pasting it as-is leaves two checks red; the blanks are where your station shows up:
 
 ```csharp
 public static class Switchboard
@@ -87,19 +87,22 @@ public static class Switchboard
     {
         if (string.IsNullOrWhiteSpace(typed))
         {
-            return "a voice in the dark";   // yours will say something else
+            return "";   // ← invent your station's word for a caller who won't say.
+                         //   Blank fails the check, on purpose.
         }
         return typed.Trim();
     }
 
     public static int LuckyCallerNumber()
     {
-        return 9;
+        return 0;   // ← your contest's number, 1 to 100. Zero fails, on purpose.
     }
 
     public static bool IsWinner(string? typed)
     {
-        return int.TryParse(typed, out int caller) && caller == LuckyCallerNumber();
+        // Parse what they typed — the tool that never throws — then compare it
+        // with LuckyCallerNumber(). The notes show it done; so does the lab's Task 3.
+        return false;
     }
 }
 ```
