@@ -183,7 +183,7 @@ git commit -m "Week 2: take out the trash"
 
 **3. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). Commit it — from the Source Control panel if you like; the buttons are the verbs now.
 
-**4. Commit as you go — three or more commits touching `week-02/`**, with messages that mean something. `week 2 lab`, `switchboard`, `repo cleanup` tells a story. I read these.
+**4. Commit as you go — three or more commits touching `week-02/`**, with messages that mean something. `week 2 lab`, `switchboard working`, `repo cleanup` tells a story. I read these. (A good rhythm, and the one the demo modeled: commit whenever you're somewhere solid — right after the setup compiles, again when the checks go green — so the risky stretches always have a save point behind them.)
 
 ```bash
 git push

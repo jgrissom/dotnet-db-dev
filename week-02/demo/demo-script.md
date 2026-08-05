@@ -149,6 +149,12 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   cp ../week-01/Haldane/Conditions.cs Haldane/
   ```
 - [ ] 🎯 **The `cp` is a beat, not plumbing:** *"that's last week's logic — Fahrenheit, safe-to-go-out — carried forward in one move. I didn't rewrite it; it was already right. **Your homework asks you for exactly this move** with your own `Station.cs`"*
+- [ ] **Run it before touching it:**
+  ```bash
+  dotnet run --project Haldane
+  ```
+  `Hello, World!` — *"the fresh project runs, and `Conditions.cs` came along for the build. The carry-forward is already legal C# here, before I've typed a thing"*
+- [ ] **First commit of the new week — in the panel:** stage, message `Week 2: new week, Conditions carried forward`, **✓ Commit**, **Sync**. 🎯 *"a commit is a save point. Make one whenever you're somewhere solid, and the interesting work becomes safe to botch — which is exactly what we're about to do"*
 - [ ] In `Program.cs`, delete the template line and type the banner and the prompt:
   ```csharp
   Console.WriteLine("========================================");
