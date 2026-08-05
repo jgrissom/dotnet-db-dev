@@ -99,6 +99,22 @@ What each one has to do:
 
 **The no-name default is a writing assignment as much as a code one.** *"a voice in the dark"*, *"the 2 AM mystery"*, *"caller unknown"* — it's your station's house style. It just can't be blank.
 
+**Every command in this assignment runs from your terminal in `dotnet-db-coursework`, naming the week.** Two of them, and you'll use both after every method you fill in.
+
+See what the checks say:
+
+```bash
+dotnet test week-02/Homework.Checks
+```
+
+Then watch your program do it:
+
+```bash
+dotnet run --project week-02/Homework
+```
+
+**Do that after every method** — write `Greeting()`, test, run. Then `CallerName()`, test, run. **Four methods, four rounds**, and the pasted file starts you at 2 of 4. A check that goes red right after you wrote something tells you exactly where to look.
+
 **4. `week-02/Homework/Program.cs` opens the line.** The skeleton ships with a placeholder — replace the whole file with this. Small on purpose; every decision lives in `Switchboard.cs`:
 
 ```csharp
@@ -123,16 +139,19 @@ else
 > [!IMPORTANT]
 > **Your program gets run with nobody typing.** The grader answers every prompt by pressing Enter and then goes quiet — so `ReadLine` hands your code empty strings and then `null`. Built like the above, that's fine: a blank caller gets your default, a blank number loses the contest, the program exits cleanly. **[No loops that re-ask until the input is valid](lecture-notes.md#ask-once-answer-gracefully)** — a program that won't take no for an answer never finishes, and 2 of tonight's points are "runs cleanly when fed nothing but Enter."
 
-### Run it as you go
-
-Both from your terminal in `dotnet-db-coursework`, naming the week:
+Same two commands again. The checks:
 
 ```bash
-dotnet run --project week-02/Homework
 dotnet test week-02/Homework.Checks
 ```
 
-**Run the program the way the lab taught you to** — politely once, then rudely: spaces for a name, words for a number, Enter for everything. If anything crashes, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
+And the program, which is the half the checks never look at:
+
+```bash
+dotnet run --project week-02/Homework
+```
+
+**Run it the way the lab taught you to** — politely once, then rudely: spaces for a name, words for a number, Enter for everything. If anything crashes, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
 
 ## Part 3 — Repo hygiene (graded)
 
@@ -143,10 +162,17 @@ dotnet test week-02/Homework.Checks
 > [!NOTE]
 > **Never connected this folder to GitHub at all?** Do [week 1's Part 3](../week-01/homework.md#part-3--push-it-graded) first — its *first time only* block makes the repo, connects it, and adds me as a collaborator. Then come back here.
 
-**1. Glance at your repo's hygiene** — thirty seconds:
+**1. Glance at your repo's hygiene** — thirty seconds, two questions.
+
+What's changed but not saved:
 
 ```bash
 git status
+```
+
+And what's tracked that never should have been:
+
+```bash
 git ls-files | grep -E '(^|/)(bin|obj)/'
 ```
 
@@ -170,6 +196,12 @@ dotnet test week-02/Homework.Checks
 
 ```
 Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
+```
+
+**And one last run**, because two points ride on it and no check will tell you:
+
+```bash
+dotnet run --project week-02/Homework
 ```
 
 Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywhere, a README on the front page, and a commit history that says what happened.
