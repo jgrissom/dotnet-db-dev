@@ -207,6 +207,11 @@ public static string TakeRequest(string? name, string? request)
 
 And read the desk's sign-off. It counted your calls — and it can't tell you a single thing about them. Sit with that for a second before you close the terminal.
 
+**Then clock out — commit the shift.** You're somewhere solid; that's when a commit happens. The Source Control panel does it without leaving your folder: stage the changes (**+**), message `week 2 lab: the desk survives its callers`, **✓ Commit**, **Sync**. That's one of the [3+ commits this week's homework grades](../homework.md#part-3--clean-the-repo-graded), banked before you've even started the homework.
+
+> [!NOTE]
+> **Panel empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 3](../../week-01/homework.md#part-3--push-it-graded) has the first-time block. Or just skip this; the homework's push collects everything either way.
+
 ## Rules
 
 > [!IMPORTANT]
