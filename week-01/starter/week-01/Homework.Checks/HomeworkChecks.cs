@@ -2,8 +2,8 @@
 //  READ-ONLY — and this time it IS your grade. These are the exact checks
 //  I run against your repo; I don't have a second, secret set.
 //
-//  Run them from your week-01 folder, the one holding both project folders:
-//      dotnet test Homework.Checks
+//  Run them from your coursework folder — the one window you always have open:
+//      dotnet test week-01/Homework.Checks
 //
 //  Notice what they never do: they never assume what your station is called,
 //  what city it's in, or when it signs off. They ask YOUR code what its own

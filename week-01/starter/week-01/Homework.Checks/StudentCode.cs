@@ -97,7 +97,7 @@ internal static class StudentCode
             throw new Xunit.Sdk.XunitException(
                 $"Station.{method.Name}(...) threw {e.InnerException.GetType().Name} instead of "
                 + $"returning a value:\n    {e.InnerException.Message}\n"
-                + "Run your program with `dotnet run --project Homework` and you should see the "
+                + "Run your program with `dotnet run --project week-01/Homework` and you should see the "
                 + "same crash. Fix it there first, then come back to the checks.");
         }
     }

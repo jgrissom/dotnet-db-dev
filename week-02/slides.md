@@ -276,7 +276,7 @@ Last week's desk answers the phone tonight —
 and the phone can **crash it**. You'll fix that.
 
 ```bash
-dotnet test Lab.Checks
+dotnet test week-02/Lab.Checks
 ```
 
 **1 / 5 green** out of the box.

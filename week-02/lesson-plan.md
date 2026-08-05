@@ -76,7 +76,7 @@ By the end of this session, students can:
 | Nobody did the reading, nobody has a number | Count live — §1's `git ls-files` count on your own repo is the beat anyway; theirs was a warm-up, not a dependency. |
 | The scratch repo lost its mess (rebuilt machine, overzealous cleanup) | §0's rebuild block, two minutes. If discovered mid-class: a student's repo on GitHub shows the same mess — tour theirs (ask first). |
 | `git rm -r --cached .` output floods the terminal | Fine — say *"every line is a file leaving"* and scroll to the end. The panel shows the same thing tidier. |
-| Someone's panel is empty during §3 | The week-1 `Never` click. Settings → `openRepositoryInParentFolders` → `always` → reload. It's in the notes' appendix; fix one machine on screen and the room self-serves. |
+| Someone's panel is empty during §3 | They have a *week folder* open instead of the top. File → Open Folder → `dotnet-db-coursework`, panel comes alive. It's in the notes' appendix; fix one machine on screen and the room self-serves. |
 | Someone asks why not commit `bin/` "so it always runs" | A real question — answer it straight: the clone can't run your build output anyway (different machine, different paths), but it can always rebuild from source. Repos ship recipes, not casseroles. |
 | The `-41.5 C` break doesn't crash because you typed `-41.5` | You dodged your own break — laugh, say *"that's the point, it works when you're careful,"* and type it again with the unit. |
 | Someone asks about `try`/`catch` | *"Exactly the right instinct, and it's week 13's whole subject. Tonight's tool is better here anyway: TryParse never throws, so there's nothing to catch."* |

@@ -94,18 +94,18 @@ Missing one? We install it now. **Everyone** does GitHub.
 
 ## Two commands
 
-**Open Folder** → `dotnet-db-coursework` → new folder `week-01`:
+**Open Folder** → `dotnet-db-coursework` — **once, all semester:**
 
 ```bash
-dotnet new console -o Haldane
-dotnet run --project Haldane
+dotnet new console -o week-01/Haldane
+dotnet run --project week-01/Haldane
 ```
 
 <br>
 
-Stay in the folder you opened. **Name the project.**
+Stay at the top. **Name the week, then the project.**
 
-Same shape in the lab, and in tonight's homework.
+Same shape in the lab, the homework, and every week after.
 
 ---
 
@@ -313,9 +313,9 @@ git push
 
 <br>
 
-**`dotnet` runs from `week-01`.**
+**Your terminal is already standing where git lives** —
 
-**`git` runs from the folder above it.** One repo, all term.
+the top of the repo. One window, one place, all term.
 
 ---
 
@@ -346,7 +346,7 @@ Week 4 adds a second, **public** repo. That one's yours.
 Four methods in `Broadcast.cs`.
 
 ```bash
-dotnet test Lab.Checks
+dotnet test week-01/Lab.Checks
 ```
 
 **1 / 5 green** out of the box.

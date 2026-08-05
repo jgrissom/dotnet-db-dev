@@ -8,7 +8,7 @@
 All five checks green:
 
 ```bash
-dotnet test Lab.Checks
+dotnet test week-01/Lab.Checks
 # Passed! - Failed: 0, Passed: 5 ...
 ```
 
@@ -30,7 +30,7 @@ Pick a call sign, a city and a sign-off time. It can be a real town or an invent
 
 There's nothing to install and nothing to copy — the `week-01` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, with `Homework.Checks` beside it.
 
-**1. Open your `week-01` folder in VS Code** — the same one from tonight's lab. (Didn't get to the lab? [Its setup](lab/README.md#setup) is three steps and brings the whole week in — do that first.) **This is the folder you stay in for everything below.** The week looks like this:
+**1. Your coursework window is the whole setup** — VS Code open on `dotnet-db-coursework`, the same window as tonight's lab and the demo. (Didn't get to the lab? [Its setup](lab/README.md#setup) brings the whole week in — do that first.) The week looks like this:
 
 ```
 dotnet-db-coursework/
@@ -46,7 +46,7 @@ dotnet-db-coursework/
 
 ### Write it
 
-**2. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `Homework/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. This is the whole file, with my station's answers in it; yours will say something else:
+**2. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `week-01/Homework/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. This is the whole file, with my station's answers in it; yours will say something else:
 
 ```csharp
 public static class Station
@@ -99,7 +99,7 @@ MinutesUntilSignOff(2, 30)  →  150
 
 Both times become minutes past midnight, then you subtract: 5:00 is `5 * 60` = 300, and 2:30 is `(2 * 60) + 30` = 150. **300 − 150 = 150.** ⚠️ **Multiply the hour by 60 *before* adding the minutes** — brackets make it obvious, and getting it backwards is off-by-a-multiple-of-59, which the check names for you.
 
-**3. `Homework/Program.cs` prints the sign-on** and a countdown. The starter ships it with a placeholder line — replace the whole file with this. Small on purpose; everything worth checking lives in `Station.cs`:
+**3. `week-01/Homework/Program.cs` prints the sign-on** and a countdown. The starter ships it with a placeholder line — replace the whole file with this. Small on purpose; everything worth checking lives in `Station.cs`:
 
 ```csharp
 Console.WriteLine(Station.SignOn());
@@ -111,11 +111,11 @@ Console.WriteLine($"{Station.MinutesUntilSignOff(2, 30)} minutes until sign-off.
 
 ### Run it as you go
 
-**Both commands run from `week-01`** — the folder holding `Homework` and `Homework.Checks`, [never from inside either one](lecture-notes.md#the-project-not-the-file), and never with a `cd`:
+**Both commands run from your terminal at the top, naming the week** — [the one place every command runs from](lecture-notes.md#the-project-not-the-file):
 
 ```bash
-dotnet run --project Homework
-dotnet test Homework.Checks
+dotnet run --project week-01/Homework
+dotnet test week-01/Homework.Checks
 ```
 
 **Don't save these for the end.** Write one method, run the checks, watch one more go green — same loop as the lab, and the same loop every week of this course uses. Four methods means four rounds, and a red check right after you wrote something tells you exactly where to look.
@@ -124,7 +124,7 @@ dotnet test Homework.Checks
 
 ## Part 3 — Push it (graded)
 
-⚠️ **All of this runs from `dotnet-db-coursework`, not from `week-01`** — [git lives at the top folder, one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). `cd ..` if you're still in `week-01`.
+**You're already standing where all of this happens** — your window is the top of the repo, [where git lives, one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). Nothing to open, nowhere to move.
 
 **First time only** — if you haven't connected this folder to GitHub yet.
 
@@ -160,11 +160,10 @@ git push
 
 **These are the same checks I run.** There isn't a second, secret set.
 
-Your terminal is still standing at the top of the repo from Part 3 — one hop down and run them:
+Same terminal, same place it's been all night:
 
 ```bash
-cd week-01
-dotnet test Homework.Checks
+dotnet test week-01/Homework.Checks
 ```
 
 ```
@@ -182,9 +181,9 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 - **Check 4 says your countdown disagrees with your sign-off hour** — you typed a number instead of working it out from `SignOffHour()`.
 - **Check 4 is off by a multiple of 59** — the minutes got added before the hour was multiplied. `(hour * 60) + minute`.
 - **`error CS0117`/"does not contain a definition for"** — a method name doesn't match what you're calling.
-- **`MSB1003: Specify which project or solution file to use`** — run `dotnet test` from `week-01/`, not from inside either project folder.
-- **`fatal: not a git repository`** — you're not inside your `dotnet-db-coursework` folder. `cd ..` out of `week-01`.
-- **`git status` shows nothing, or a repo you didn't expect** — you ran `git init` in the wrong folder. It belongs at `dotnet-db-coursework`, **once ever**. If you ran it inside `week-01` or inside a project, delete the stray `.git` folder that got made there and run it again at the top.
+- **`MSB1003: Specify which project or solution file to use`** — the command ran without its week in front. From the top it is always `dotnet test week-01/Homework.Checks` — week first, then the project.
+- **`fatal: not a git repository`** — your terminal wandered out of the repo (a leftover `cd`?). Close it and open a fresh one (`` Ctrl+` ``) — it starts back at the top, where git lives.
+- **`git status` shows nothing, or a repo you didn't expect** — you ran `git init` in the wrong folder. It belongs at `dotnet-db-coursework`, **once ever**. If you ran it inside `week-01` or inside a project (a leftover `cd`), delete the stray `.git` folder that got made there, open a fresh terminal, and run it again — a fresh `` Ctrl+` `` terminal always starts at the top.
 - **`git push` says `src refspec main does not match any`** — your first branch got called `master`, not `main`, because `init.defaultBranch` wasn't set when you ran `git init`. Fix it in one line: `git branch -M main`, then push again. ([Setting it once](setup-guide.md) stops it happening in week 2.)
 - **`git push` says "Authentication failed"** — GitHub wants a token, not your password. Easiest fix is to install [GitHub CLI](https://cli.github.com/) and run `gh auth login`; come find me if it fights you.
 - The [troubleshooting appendix](lecture-notes.md#appendix-troubleshooting) covers the rest.

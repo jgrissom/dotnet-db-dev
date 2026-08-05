@@ -45,7 +45,10 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] Teaching profile in VS Code; close every other folder and tab
 - [ ] Have the [setup guide](../setup-guide.md) open on a projector-adjacent tab, or printed. **It is self-serve by design** — your job in §2 is to circulate, not to present
 - [ ] ⚠️ **Check your own `git config --global user.name`** is the teaching identity and not something you'd rather not project
-- [ ] ⚠️ **Check VS Code's `git.openRepositoryInParentFolders` is `always` on the teaching profile** *(Settings → search the key)*. ⭐ **Found the hard way on 2026-08-04: a `never` in there silently kills §7's badge and week 2's opening beat** — and `never` gets written by clicking `Never` once on the notification, months ago, on some unrelated repo. `always` also means **you** get no dialog on the projector while the room gets theirs
+- [ ] **`~/scratch` mirrors a student machine** — the demo coursework folder sits beside its own plain clone, so the two-folder layout on screen is the one the room builds, and any student step is demonstrable from your chair. If the clone is missing:
+  ```bash
+  cd ~/scratch && git clone https://github.com/jgrissom/dotnet-db-dev.git
+  ```
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive**, and leave it there while the room settles. **Costs no class time** — it is read by whoever is early, and it makes the banner you type in §3 land as *"that thing that was on screen when I walked in."* ⚠️ **Close it before slide 1**, and don't introduce it, explain it or refer to it. It is the station's own board; it explains itself or it isn't working
 - [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."*** Tonight especially, because the temptation to follow along is highest when the material is familiar
 
@@ -92,16 +95,15 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ### Two commands
 
 - [ ] 🎞️ **GO TO SLIDE 6** — *Two commands* · then swipe away and actually do it, **on screen, in this order**:
-- [ ] **VS Code → File → Open Folder → `dotnet-db-coursework`** *(the empty folder they made in §2)* **→ *New Folder* → name it `week-01` → Open.** An empty explorer pane, and say so: *"nothing. That's the starting point"*
-- [ ] 🎯 **Say what you just did, because it is exactly their lab setup in an hour:** *"one folder per week, inside the one repo folder that holds your whole semester. Next week there's a `week-02` next to it"*
-- [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), which is already standing in `week-01` — **no `cd` for anything `dotnet`**, and point that out:
+- [ ] **VS Code → File → Open Folder → `dotnet-db-coursework`** *(the empty folder they made in §2)* **→ Open.** An empty explorer pane, and say so: *"nothing. That's the starting point — and this is the **only folder any of us opens, all semester**. Sixteen weeks from now, this same window"*
+- [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), standing at the top — where it lives all term:
   ```bash
-  dotnet new console -o Haldane
-  dotnet run --project Haldane
+  dotnet new console -o week-01/Haldane
+  dotnet run --project week-01/Haldane
   ```
-- [ ] 🎯 **This is the beat that pays off all term, so say it deliberately:** *"look at where I'm standing. I opened `week-01` and I never left it. `-o` made the project folder, and I name the project when I run it. **The folder you open holds projects — it isn't one.** That exact shape is your lab in an hour and your homework tonight"*
+- [ ] 🎯 **This is the beat that pays off all term, so say it deliberately:** *"look at the path in that command. `-o` made the week folder AND the project inside it, in one go — and when I run it, I name the whole path: week, then project. **The folder you open holds weeks; weeks hold projects; commands say which.** I never move, I never open anything else, and neither will you. Next week the command says `week-02` and everything else about it is identical"*
 - [ ] Name the difference while it's concrete — **this is the new part of the beat, not `Hello, World!`**: *"Python runs a file. C# runs a **project** — a folder that knows how to build itself. If your last course was full Visual Studio, this is File → New Project with the wizard taken away"*
-- [ ] 💡 **If someone asks why not just `cd` in:** *"because in an hour your checks project sits next to your code, and `dotnet test` has to run from the folder holding both. Learn the habit now while there's only one project in here"* 🔗 **it is the error they will hit in the lab**
+- [ ] 💡 **If someone asks why not just `cd` in:** *"because from this one spot, everything works — this week's projects, last week's, the checks, and git. The moment you wander, some command stops working and you have to remember where you are. Stay put, name the path"* 🔗 **forgetting the week prefix is the error they will hit in the lab, and `MSB1003` names it**
 
 ### What it made
 
@@ -120,7 +122,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine("========================================");
   Console.WriteLine();
   ```
-- [ ] `dotnet run --project Haldane`. **Set the fiction here** — this is the only world-building beat and it takes fifteen seconds: *"Haldane is a research station in Antarctica. Twelve people, five hundred kilometres from anybody, and one console — no browser, no phone, no app. This terminal is how you find out whether the generator lasts the night and whether it's safe to go outside. Get that wrong and somebody's out there in a blizzard"*
+- [ ] `dotnet run --project week-01/Haldane`. **Set the fiction here** — this is the only world-building beat and it takes fifteen seconds: *"Haldane is a research station in Antarctica. Twelve people, five hundred kilometres from anybody, and one console — no browser, no phone, no app. This terminal is how you find out whether the generator lasts the night and whether it's safe to go outside. Get that wrong and somebody's out there in a blizzard"*
 - [ ] ⚠️ **Say "Antarctica" out loud — it is the only place all night the room is told where they are.** Everything else is inference from `-41.5`, `Blizzard: True` and `512 km`, and most of them will get there, but one word is cheaper than an evening of mild uncertainty. ⚠️ **And every claim in that sentence is something they watch you type in the next hour** — the generator countdown is §5, `Safe to go out` is §6. **Don't promise a roster of who's out on the ice; nothing tonight builds one.** That idea is week 3's, where a `List<T>` makes it real and *"restart and it's gone"* means losing track of a person
 
 ## 4 · The status board *(slides 9–11)*
@@ -156,7 +158,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🎞️ **GO TO SLIDE 11** — *Putting values into text* · one useful line beyond the recap: *"anything in the braces gets **evaluated** — that can be a whole expression, including a method call. You'll want that in about ten minutes"*
 - [ ] Run it and the board fills in:
   ```bash
-  dotnet run --project Haldane
+  dotnet run --project week-01/Haldane
   ```
 
 ## 5 · What the compiler cannot catch *(slides 12–14)*
@@ -169,13 +171,13 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```csharp
   int personnelOnStation = "twelve";
   ```
-- [ ] `dotnet run --project Haldane`. 🎞️ **GO TO SLIDE 12** — *The build failed* · *"nobody is surprised. Fine. But be precise about what just happened: it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
+- [ ] `dotnet run --project week-01/Haldane`. 🎞️ **GO TO SLIDE 12** — *The build failed* · *"nobody is surprised. Fine. But be precise about what just happened: it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
 
 ### Reading an error
 
 - [ ] 🎞️ **GO TO SLIDE 13** — *Reading an error*. Back to the terminal and take the message apart on screen: **file · line and character · what's wrong**
 - [ ] 🎯 *"`CS0029`. Every C# error has a code and it's searchable. Paste the code and the message into a search box and you get the actual documentation. Most of you have been reading the squiggle and guessing. Read the code instead"*
-- [ ] Fix it back to `12`, `dotnet run --project Haldane`, banner returns
+- [ ] Fix it back to `12`, `dotnet run --project week-01/Haldane`, banner returns
 
 ### The limit
 
@@ -189,7 +191,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine();
   ```
 - [ ] **Predict, hands up:** *"4300 litres, 800 an hour. What prints?"* — the room will say five point something
-- [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** `dotnet run --project Haldane` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
+- [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** `dotnet run --project week-01/Haldane` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
 - [ ] ⚠️ **Don't rescue it too fast.** If nobody speaks within twenty seconds, ask *"is that right?"* — never *"that's wrong"*
 - [ ] **Ask before explaining:** *"why?"* — someone usually gets there, and a few will have been bitten by it before. **Let that person say it.** Then: *"both sides are whole numbers, so C# did whole-number division and threw the remainder away. Then it stored `5` in a double, as 5.0. **The decimal point was gone before `double` ever got involved**"*
 - [ ] 💡 **The follow-up that separates knowing-the-fix from understanding it:** *"so would casting the answer to double save you?"* — no. `(double)(4300 / 800)` is 5.0. **The fix has to happen before the division, not after**
@@ -197,7 +199,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```csharp
   double burnPerHour = 800;
   ```
-- [ ] `dotnet run --project Haldane` → **5.375**. 🎯 **The sentence the course hangs off:** *"here is the promise that word at the front actually makes. **The compiler checks that your types line up. It does not check that your program is right.** Those are wildly different promises, and everything that lives in the gap is yours to catch. That gap is why week 7 exists, and why every lab you do has a file full of checks in it"*
+- [ ] `dotnet run --project week-01/Haldane` → **5.375**. 🎯 **The sentence the course hangs off:** *"here is the promise that word at the front actually makes. **The compiler checks that your types line up. It does not check that your program is right.** Those are wildly different promises, and everything that lives in the gap is yours to catch. That gap is why week 7 exists, and why every lab you do has a file full of checks in it"*
 - [ ] 🔗 *"You will meet this exact bug in the lab tonight, in check 4. Now you know what it looks like"*
 - [ ] **✓ CHECKPOINT:** somebody can say why `4300 / 800` gave 5, **and** why casting the result doesn't fix it
 
@@ -206,7 +208,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 ### A method
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *The words in front of a method* · read it off the slide. **Recap — sixty seconds**
-- [ ] Make a **new file — `Haldane/Conditions.cs`**, beside `Program.cs` *(right-click the `Haldane` folder, not the toolbar button — that one lands in `week-01`)*, and type it:
+- [ ] Make a **new file — `week-01/Haldane/Conditions.cs`**, beside `Program.cs` *(right-click the `Haldane` folder in the Explorer, not the toolbar button — that one lands at the top of the repo)*, and type it:
   ```csharp
   public static class Conditions
   {
@@ -233,7 +235,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine($"That's {Conditions.Fahrenheit(temperatureC)} F.");
   Console.WriteLine($"Safe to go out: {Conditions.IsSafeToGoOut(temperatureC, blizzardWarning)}");
   ```
-- [ ] `dotnet run --project Haldane` → `-42.7 F` and `Safe to go out: False`
+- [ ] `dotnet run --project week-01/Haldane` → `-42.7 F` and `Safe to go out: False`
 
 ### Two files, two jobs
 
@@ -247,12 +249,8 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 > **Twenty-five minutes, and it needs them. Assume nobody has used git.** It's graded every week from here.
 
-- [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. ⚠️ **First, `cd ..` — out loud and on screen.** You are standing in **`week-01`**, where every `dotnet` command tonight ran; this moves you up to **`dotnet-db-coursework`**, the folder you made in §2. It is the one place tonight the folder changes and it is worth ten deliberate seconds:
-  ```bash
-  cd ..
-  ```
-- [ ] ⚠️ **Check the prompt reads `dotnet-db-coursework` before you type `git init`** — `pwd` if it isn't obvious. A `git init` run one folder low makes the repo inside `week-01`, and then `week-02` next week is outside it. **If it happens, delete the `.git` folder it just made, `cd ..`, and start this beat again**
-- [ ] 🎯 **Say why, because it is the rule they will get wrong:** *"every `dotnet` command tonight ran from `week-01`. **Every `git` command runs from the folder above it.** One repo holds your whole semester — `week-01`, then `week-02`, then fourteen more — so git goes at the top, once, and never again"*
+- [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. 🎯 **Open with the payoff of the one-window design:** *"notice what we don't have to do: move. Every `dotnet` command tonight named its week from this exact spot — and git wants to run at the top of the repo, which is **exactly where this terminal has been standing all night.** One window, one place, both tools"*
+- [ ] ⚠️ **Quick confirm before `git init`** — the prompt reads `dotnet-db-coursework` (it will, unless a stray `cd` happened; if in doubt, close the terminal and `` Ctrl+` `` a fresh one — it always starts at the top)
 - [ ] Then the first three, **reading each one aloud as you go** — what it does rather than what it is. ⚠️ **One line at a time; the `git status` between each is a beat, not filler:**
   ```bash
   git init
@@ -265,9 +263,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🎯 **Actually look at each `git status`, out loud:** *"this is the command you'll run more than any other, and it always tells you what git thinks is going on"*
 - [ ] 💡 **`git status` after `git add .` is the beat that sells it** — it lists `week-01/Haldane/...` with the folder in front. *"That's why git is up here. It can see the whole term from this one spot"*
 - [ ] ⚠️ **Do not fix what `git add .` just swept up.** `bin/` and `obj/` are now staged and that is *correct for tonight*. If someone spots it — and in this room someone might, having heard of `.gitignore` — give them the credit and hold the line: *"good eye. That's next week's first ten minutes, and it's better as a mess you made than a rule I gave you"*
-- [ ] ⚠️ **Glance at the Source Control icon before you say anything about it — the badge is not guaranteed to be there.** The repo is at `dotnet-db-coursework` while VS Code has `week-01` open, so it sits *above* the workspace, and VS Code does not adopt a parent repo silently. **Two things can happen and you want either one handled in five seconds:**
-  - **A notification appears on their machines** *(not yours, if §0's check is done)* — *"A git repository was found in the parent folders of the workspace… Would you like to open the repository?"* → **tell the room to click `Always`**. ⚠️ **`Never` is sticky, it is the wrong button, and it writes a setting they will never find again** — it leaves them with a dead Source Control panel in week 2, the week that teaches it. **Verified 2026-08-04**
-  - **Nothing appears and no badge shows** — rare, and the recovery is **`Cmd/Ctrl+Shift+P` → *Developer: Reload Window***, which re-runs the repository scan
+- [ ] **The Source Control badge lights up the moment `git init` finishes** — the window you all have open *is* the repo, so VS Code sees it instantly, no dialogs, nothing to configure. *(This used to be a whole hazard; the one-window design deleted it.)*
 - [ ] ⚠️ **Name the Source Control panel before anybody clicks it** — once the badge is showing, that number is enormous, because there's no `.gitignore` tonight. **Ten seconds, and it turns a distraction into a plant:** *"you'll have noticed the sidebar icon with a number on it. That's VS Code's git panel and it does all of this with buttons. Leave it alone tonight — you're learning what the commands **do**, and next week we'll use the panel once you know what it's doing for you. That number, by the way, is next week's first ten minutes"* 🔗 **The badge sits there showing week 2's punchline for the rest of the evening**
 - [ ] **Commit messages, said once and meant:** *"three commits minimum, and they should tell a story. `week 1 setup`, `station class`, `countdown working`. Not `a`, `b`, `asdf`. I read these and they're worth points"*
 - [ ] 🎞️ **GO TO SLIDE 19** — *Your repo for the whole term*
@@ -298,9 +294,9 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🎯 **That `5 / 5` is the answer to §5. Say so, and give it ten seconds of quiet** — ⚠️ **the room has been carrying an unanswered question since the generator break, and this is where it lands. Do not let it play as logistics:** *"an hour ago I divided 4300 by 800, got 5, and the compiler said nothing at all. No error, no warning, no squiggle. It had no opinion about whether my program was right, and it never will. So something else has to. That's this — five of five"*
 - [ ] 🎯 **Then the part that is new to every single person in the room, including whoever found tonight easy:** *"you have all written plenty of code. I don't think any of you has ever had a machine tell you that you were finished. That's what you're about to go and do"* ⚠️ **One sentence, then let them start.** Overselling it is how the debugger got oversold in the web course 🧾
 - [ ] 🎯 **Frame it honestly, because the C# is well within them:** *"the code tonight is not hard for you. What's new is the loop — run the checks, read what they say, fix one thing, run again. That loop is the whole course"*
-- [ ] Setup on screen, said once: **`git pull` in the clone → drag the one `week-01` folder out of `starter` into their `dotnet-db-coursework` → open it in VS Code → `dotnet test Lab.Checks`** → **1 / 5**. *"One folder is the whole week — the lab, its checks, and tonight's homework's starting point"*
-- [ ] 🎯 **Tie it back to the shape they watched an hour ago:** *"same shape you just saw me build Haldane in. You open `week-01`, you stay there, and you name the project when you run or test it. Everything the week needs is already beside everything else"*
-- [ ] ⚠️ **The folder split, because it trips everybody all term:** `dotnet test Lab.Checks` and `dotnet run --project Lab` both run from **`week-01`**. Never from inside `Lab` or `Lab.Checks`, and **never `cd`**
+- [ ] Setup on screen, said once: **drag the one `week-01` folder out of the clone's `starter` into their `dotnet-db-coursework` → `dotnet test week-01/Lab.Checks`** → **1 / 5**. *"Your window is already the right window — the same one from tonight. One folder in, one command, and the week is live"*
+- [ ] 🎯 **Tie it back to the shape they watched all night:** *"same window you watched me work in — the top of your repo, the only folder you ever open. The drag puts `week-01` in it, and every command names the week: `dotnet test week-01/Lab.Checks`. Everything the week needs is already beside everything else"*
+- [ ] ⚠️ **The one error worth pre-empting:** *"forget the week prefix and you get `MSB1003` — it just means the command couldn't see a project from the top. Week first, then project, and it always works"*
 - [ ] ⚠️ **"Copy it OUT of the clone, into your own repo."** Working inside the clone means next week's `git pull` fights their edits — and their lab belongs in their `week-01` with everything else from tonight
 - [ ] Say the target and mean it: **all five green tonight.** *"Check 1 is green before you touch anything — that's the station you were handed"*
 - [ ] 🎯 **Point them at the failure messages:** *"these are not 'assertion failed'. They tell you what's wrong and what to do about it. Read them — especially check 4's, which is the bug you watched me make forty minutes ago"*

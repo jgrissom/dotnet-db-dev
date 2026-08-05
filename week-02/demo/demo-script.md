@@ -28,19 +28,18 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   A number in the dozens = ready. **Write that number down — it's "the files you never wrote" all night, and the terminal's count is the only one you ever say aloud.**
 - [ ] ⚠️ **If the scratch repo is gone**, rebuild the week-1 end state (~2 min) — and note the force-push replaces the demo repo on GitHub, which is fine, it's the same teaching artifact:
   ```bash
-  rm -rf ~/scratch/dotnet-db-coursework && mkdir -p ~/scratch/dotnet-db-coursework/week-01
-  cd ~/scratch/dotnet-db-coursework/week-01
-  dotnet new console -o Haldane
-  cp ~/Repos/dotnet-db-dev-answer-keys/week-01/demo-starter/Haldane/*.cs Haldane/
-  dotnet build Haldane
-  cd .. && git init && git add . && git commit -m "Week 1: Haldane duty console"
+  rm -rf ~/scratch/dotnet-db-coursework && mkdir -p ~/scratch/dotnet-db-coursework
+  cd ~/scratch/dotnet-db-coursework
+  dotnet new console -o week-01/Haldane
+  cp ~/Repos/dotnet-db-dev-answer-keys/week-01/demo-starter/Haldane/*.cs week-01/Haldane/
+  dotnet build week-01/Haldane
+  git init && git add . && git commit -m "Week 1: Haldane duty console"
   git remote add origin https://github.com/jgrissom/dotnet-db-coursework.git
   git push -f -u origin main
   ```
 - [ ] ⚠️ **The GitHub page must show the mess too** — §1 opens on `github.com/jgrissom/dotnet-db-coursework`, clicking into `week-01/Haldane/obj/`. If the week-1 class push didn't happen, the rebuild above fixes it
 - [ ] **Rehearse the whole thing once (≈20 min).** The §4 `dotnet new` wants a warm NuGet cache, and the §2 cleanup is a beat you want in your hands, not your head
-- [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`week-01`** — exactly where last week left it; §1 moves it to the top folder on screen
-- [ ] ⚠️ **Check `git.openRepositoryInParentFolders` is still `always`** on the teaching profile — §1–§3 die without the repo showing in the panel. **How:** teaching profile active, **`Cmd+,`** → search `openRepositoryInParentFolders` → should read **`always`**. Wrong or dead panel? [The notes' panel section has the fix](../lecture-notes.md#the-source-control-panel-translated) — it's written for students, because anyone who clicked `Never` in week 1 hits this exact wall tonight
+- [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`~/scratch/dotnet-db-coursework`** — the top, exactly where week 1's class left it, and the only folder that ever gets opened
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** The board gained a generator panel this week — say nothing about it; it explains itself or it isn't working. **Close it before slide 1**
   - ⚠️ **Wrong week showing?** The bare URL routes by date, so on class night it lands on week 2 by itself — but **when rehearsing ahead of the calendar it will show an earlier board, correctly.** Force it: **[`dutyconsole.com/?week=2`](https://dutyconsole.com/?week=2)** (works on any date), or go straight to [`dutyconsole.com/week-02.html`](https://dutyconsole.com/week-02.html). The `?week=` override is the supported way to look ahead — never edit `index.html`'s anchor to preview
 - [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."***
@@ -52,8 +51,8 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] **Open with the homework reading, cold:** *"you were asked to count the folders you didn't write. Who's got a number?"* Take two or three answers — they'll vary, and that's fine
 - [ ] 🎞️ **GO TO SLIDE 2** — *The files you never wrote* · *"whatever your number was, here's the thing about it: `git add .` doesn't mean 'add my work'. It means add **everything** — and last week, everything included a pile of machinery"*
 - [ ] Swipe to the browser — **[github.com/jgrissom/dotnet-db-coursework](https://github.com/jgrissom/dotnet-db-coursework)**, click into `week-01/Haldane/obj/`, open one of the `.json` files: *"I pushed this. I have no idea what it does. Neither does anyone — it's the compiler talking to itself"*
-- [ ] **Now count mine properly.** VS Code — **File → Open Folder → `dotnet-db-coursework`** — ⚠️ **the top folder this time, not `week-01`, and say why:** *"tonight starts with git, and git lives at the top. When we get back to writing C#, we'll open a week folder like always"*
-- [ ] Integrated terminal (`` Ctrl+` ``), standing at the top — where every git command tonight runs:
+- [ ] **Now count mine properly.** Swipe to VS Code — it's exactly where last week left it, the top of the repo, because that's the only window this course has. *"Tonight starts with git, and git lives right here — where this terminal has been standing since week 1"*
+- [ ] Integrated terminal (`` Ctrl+` ``), standing at the top — where every command runs, git included:
   ```bash
   git ls-files | wc -l
   git ls-files | grep -E '(^|/)(bin|obj)/' | wc -l
@@ -137,20 +136,20 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ### A new week, the same move
 
-- [ ] **File → Open Folder → `dotnet-db-coursework` → *New Folder* → `week-02` → Open.** *"Back to C#, so back into a week folder — same move as last week, and it's the move every Monday starts with from here"*
-- [ ] In the integrated terminal (standing in `week-02`):
+- [ ] *"Back to C# — and notice what we don't do: open anything. A new week isn't a new window; it's a new name in the command."* In the same terminal, same spot:
   ```bash
-  dotnet new console -o Haldane
-  cp ../week-01/Haldane/Conditions.cs Haldane/
+  dotnet new console -o week-02/Haldane
+  cp week-01/Haldane/Conditions.cs week-02/Haldane/
   ```
+  🎯 *"`-o` made the week folder and the project in one go — there's `week-02` in the Explorer, right under `week-01`. That's every Monday for the rest of the term"*
 - [ ] 🎯 **The `cp` is a beat, not plumbing:** *"that's last week's logic — Fahrenheit, safe-to-go-out — carried forward in one move. I didn't rewrite it; it was already right. **Your homework asks you for exactly this move** with your own `Station.cs`"*
 - [ ] **Run it before touching it:**
   ```bash
-  dotnet run --project Haldane
+  dotnet run --project week-02/Haldane
   ```
   `Hello, World!` — *"the fresh project runs, and `Conditions.cs` came along for the build. The carry-forward is already legal C# here, before I've typed a thing"*
 - [ ] **First commit of the new week — in the panel:** stage, message `Week 2: new week, Conditions carried forward`, **✓ Commit**, **Sync**. 🎯 *"a commit is a save point. Make one whenever you're somewhere solid, and the interesting work becomes safe to botch — which is exactly what we're about to do"*
-- [ ] In `Program.cs`, delete the template line and type the banner and the prompt:
+- [ ] In `week-02/Haldane/Program.cs`, delete the template line and type the banner and the prompt:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");
@@ -168,7 +167,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] **Point at the squiggle under `Console.ReadLine()`. Do not fix it yet.** Hover it, and read the whole thing out loud
 - [ ] 🎞️ **GO TO SLIDE 9** — *The warning you'd have ignored* · 🎯 *"`CS8600`, and it's a **warning**, not an error — the build succeeds, the program runs. Hands up: who read the warnings in their build output last semester?"* — expect near-zero, and give it the beat it deserves
 - [ ] 🎯 **The sentence that reframes warnings for good:** *"an error is the compiler saying 'I can't build this.' A warning is the compiler saying **'I can build it, but this is the part I can't promise.'** Last week you learned the compiler's promise has an edge. A warning is the compiler drawing you a map of that edge — and everyone scrolls past it"*
-- [ ] Prove it builds anyway — `dotnet run --project Haldane`, and point at the warning line scrolling by in the build output before the banner prints: *"there it is again, in writing, every build. `0 Warnings` is a sentence worth wanting"*
+- [ ] Prove it builds anyway — `dotnet run --project week-02/Haldane`, and point at the warning line scrolling by in the build output before the banner prints: *"there it is again, in writing, every build. `0 Warnings` is a sentence worth wanting"*
 
 ### What it was warning about
 
@@ -195,7 +194,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```
 - [ ] 🎞️ **GO TO SLIDE 11** — *Text becomes a number* · *"everything `ReadLine` gives you is **text**. `\"-41.5\"` with quotes on it. The board does arithmetic, so it needs the number, and `double.Parse` is the converter — note the verb: it takes the string's word for it"*
 - [ ] 💡 **The `bool` line is worth ten seconds, not more:** *"why `== \"y\"` instead of parsing a bool? Because `bool.Parse` wants the literal word `True`, and no human on a radio at 3 AM says `True`. Ask a y/n question, compare the answer. Parsing is for numbers"*
-- [ ] Run it and type carefully — `dotnet run --project Haldane`, answer **`-41.5`** and **`y`**. The board fills in: `-42.7 F`, `Safe to go out: False`. *"Works. Last week's methods, this week's input"*
+- [ ] Run it and type carefully — `dotnet run --project week-02/Haldane`, answer **`-41.5`** and **`y`**. The board fills in: `-42.7 F`, `Safe to go out: False`. *"Works. Last week's methods, this week's input"*
 - [ ] **✓ CHECKPOINT:** the room can say what `??` did and what `Parse` did, and that both happened to *text*
 
 ## 5 · Input that lies *(slides 12–14)*
@@ -244,7 +243,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *Lab: the caller line*. Leave it up for the whole lab
 - [ ] 🎯 **The frame:** *"the desk you finished last week is in the starter, done — you're not behind if you missed it. Tonight the desk answers the phone, and the phone is where programs die. One of tonight's methods ships **already written and already wrong** — the day shift wrote it, it works every time Ray answers with a number, and Task 1 is crashing it with your own typing. The crash is on purpose. Cause it"*
-- [ ] Setup on screen, said once: **`git pull` in the clone → drag the one `week-02` folder out of `starter` into your repo → open it in VS Code → `dotnet test Lab.Checks`** → **1 / 5**. *"One folder is the whole week — lab, checks, and your homework's starting point"*
+- [ ] Setup on screen, said once: **pull the clone → drag the one `week-02` folder out of `starter` into your repo → `dotnet test week-02/Lab.Checks`** → **1 / 5**. *"Nothing to open — your window is already the right window. One folder in, one command, and the week is live"*
 - [ ] ⚠️ **The folder split, every week until it sticks:** both commands run from **`week-02`** — the folder holding both project folders. Never from inside either. Never `cd`
 - [ ] 🎯 **Say the target, and put "done" on their machines, not yours:** *"all five green is not the finish line — it's the checkpoint before it. **When check 4 goes green, run your program again and answer Ray with the exact sentence that crashed it in Task 1.** A desk you can't crash — that's what done looks like tonight, and every one of you gets to watch your own program do it"*
 - [ ] *"Read the failure messages — check 3's and 4's tell you the tool, and check 4's names the crash you just watched me cause"*

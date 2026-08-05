@@ -9,24 +9,22 @@ It's 11:58 PM and you're the overnight desk at **KDXR 88.1, "The Owl."** The sig
 
 ## Setup
 
-Three steps. Every terminal is VS Code's — already standing in the right folder, nothing to `cd`, tonight or ever.
+Three steps, all from the **one VS Code window you'll keep all semester** — open on `dotnet-db-coursework`, the top of your repo, exactly as the demo left it.
 
-**1. Update your clone of the course repo** — the one you made during [setup](../setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo).
-
-1. Open VS Code → **File → Open Folder** → find **`dotnet-db-dev`** — it sits **next to** your `dotnet-db-coursework` folder → **Open**.
-2. Open the terminal: **`` Ctrl+` ``**. It's standing in `dotnet-db-dev` already. Type:
-   ```bash
-   git pull
-   ```
+**1. Open your coursework window.** VS Code → **File → Open Folder → `dotnet-db-coursework` → Open** — the empty folder you made during [setup](../setup-guide.md#then-make-the-folder-that-repo-will-hold). If it's already open from the demo, you're done with this step. **This is the only folder you will ever open, all sixteen weeks.**
 
 > [!NOTE]
-> **No `dotnet-db-dev` folder anywhere?** You haven't cloned it. **File → Open Folder** → the folder where `dotnet-db-coursework` lives (the one that *holds* it) → **Open** → `` Ctrl+` `` → then:
-> ```bash
-> git clone https://github.com/jgrissom/dotnet-db-dev.git
-> ```
-> Now you have both folders side by side. Continue from step 2.
+> **No `dotnet-db-coursework` folder?** Make it now: File → Open Folder → *New Folder* → name it `dotnet-db-coursework` → Open. It starts empty; the next two steps fill it.
 
-**2. Drag this week in — one folder, in your file manager.**
+**2. Make sure you have the course repo** — the clone from [setup](../setup-guide.md#then-clone-the-course-repo), sitting **next to** your coursework folder. If setup went to plan, nothing to do here. If you never cloned it, the terminal (`` Ctrl+` ``) fixes it in one hop:
+
+```bash
+cd ..
+git clone https://github.com/jgrissom/dotnet-db-dev.git
+cd dotnet-db-coursework
+```
+
+**3. Drag this week in — one folder, in your file manager.**
 
 Open **Finder** (Mac) or **File Explorer** (Windows):
 
@@ -34,42 +32,38 @@ Open **Finder** (Mac) or **File Explorer** (Windows):
 2. **Copy it** (don't drag-move — the clone keeps its copy).
 3. Go into `dotnet-db-coursework` (empty right now) → **Paste**.
 
-That one folder is the whole week — tonight's lab, its checks, and the homework's starting point:
+It appears in your VS Code Explorer immediately. That one folder is the whole week — tonight's lab, its checks, and the homework's starting point:
 
 ```
-dotnet-db-coursework/
-└─ week-01/            ← the folder you just pasted
-   ├─ Lab/             ← the station — tonight's work happens in here
-   ├─ Lab.Checks/      ← the lab's checks — read-only, never edit
-   ├─ Homework/        ← your own station — the homework builds this
-   └─ Homework.Checks/ ← the homework's checks — read-only, never edit
+dotnet-db-coursework/      ← your VS Code window, all semester
+└─ week-01/                ← the folder you just pasted
+   ├─ Lab/                 ← the station — tonight's work happens in here
+   ├─ Lab.Checks/          ← the lab's checks — read-only, never edit
+   ├─ Homework/            ← your own station — the homework builds this
+   └─ Homework.Checks/     ← the homework's checks — read-only, never edit
 ```
 
 You're copying *out* of the clone and working on the copy — never inside the clone itself, or next week's `git pull` fights your edits. Your lab work isn't graded, but it's the worked example your homework is built on, so it lives in your repo where you can find it.
 
-> [!NOTE]
-> **No `dotnet-db-coursework` folder?** Make it in VS Code first — File → Open Folder → *New Folder* → `dotnet-db-coursework` → Open — then come back and paste. You'll paste one week folder into it every week for the rest of the term.
-
-**3. Open the week and run the checks.**
-
-**VS Code → File → Open Folder → `dotnet-db-coursework` → `week-01` → Open.** Then the terminal (`` Ctrl+` ``) — it's standing in `week-01`, exactly like the demo:
+**Then run the checks** — from the terminal (`` Ctrl+` ``), naming the week, exactly like the demo:
 
 ```bash
-dotnet test Lab.Checks
+dotnet test week-01/Lab.Checks
 ```
 
 **1 / 5 passing.** Check 1 is the station you were handed, already on the air. The other four are tonight.
 
 > [!CAUTION]
-> **The folder split trips everybody, all term.** `dotnet test Lab.Checks` and `dotnet run --project Lab` both run from `week-01` — the folder you opened in VS Code, the one holding **both** project folders. Not from inside `Lab`, and never from inside `Lab.Checks`. **You never `cd` anywhere.**
+> **Every command names its week.** Your terminal always stands at the top of your repo — so it's `dotnet test week-01/Lab.Checks` and `dotnet run --project week-01/Lab`, week first. Forget the week and you'll get `MSB1003` — it just means the command couldn't see a project from the top; add the week and go again.
 
 ## Where tonight's work happens
 
 | File | What you do to it |
 |---|---|
-| `Lab/Broadcast.cs` | **everything.** Four methods to fill in |
-| `Lab/Program.cs` | read it, don't change it — it's what a human sees |
-| `Lab.Checks/` | **never edit.** It's how you know you're done |
+| `week-01/Lab/Broadcast.cs` | **everything.** Four methods to fill in |
+| `week-01/Lab/Program.cs` | read it, don't change it — it's what a human sees |
+| `week-01/Lab.Checks/` | **never edit.** It's how you know you're done |
+| `week-01/Homework/`, `Homework.Checks/` | tonight: nothing. They're the homework's starting point |
 
 > [!NOTE]
 > **Notice what the checks never look at: your output.** They call your methods and inspect what comes back. That's why `Broadcast.cs` exists separately from `Program.cs` — and it's the shape [every homework this term asks for](../lecture-notes.md#where-your-code-has-to-live). Put a method in `Program.cs` instead and nothing can reach it, `public` or not.
@@ -93,12 +87,12 @@ dotnet test Lab.Checks
 **Run the station:**
 
 ```bash
-dotnet run --project Lab
+dotnet run --project week-01/Lab
 ```
 
 It asks who's on duty, then prints a sign-on that's blank, a countdown that says 0, and a number of hours that's also 0. Everything it's lying about is one of tonight's four methods.
 
-**Then open `Lab/Broadcast.cs` and read it.** Nothing in the signatures will surprise you — [they're the same words you've been writing](../lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean):
+**Then open `week-01/Lab/Broadcast.cs` and read it.** Nothing in the signatures will surprise you — [they're the same words you've been writing](../lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean):
 
 ```csharp
 public static string SignOn(string djName)
@@ -108,7 +102,7 @@ public static string SignOn(string djName)
 
 ⚠️ **What's worth noticing before you start:** all of tonight's work happens in `Broadcast.cs` and none of it in `Program.cs`. That isn't a filing preference — it's the only reason the checks can see your work at all.
 
-`dotnet test Lab.Checks`: **1 / 5.** Now run `dotnet run --project Lab` as well, and read it knowing the station clock says 2:15 AM — it claims nobody's on air, it isn't the overnight block, and there are 0 minutes until sunrise. **Every one of those is a lie, and each task you finish turns one of them true.**
+`dotnet test week-01/Lab.Checks`: **1 / 5.** Now run `dotnet run --project week-01/Lab` as well, and read it knowing the station clock says 2:15 AM — it claims nobody's on air, it isn't the overnight block, and there are 0 minutes until sunrise. **Every one of those is a lie, and each task you finish turns one of them true.**
 
 ### Task 2 in full
 
@@ -130,7 +124,7 @@ Two things worth noticing, because both come back all term:
 
 The words between the braces are yours. Make it sound like 3 AM.
 
-`dotnet test Lab.Checks`: **2 / 5.** And in `dotnet run --project Lab`, the DJ gets greeted properly for the first time.
+`dotnet test week-01/Lab.Checks`: **2 / 5.** And in `dotnet run --project week-01/Lab`, the DJ gets greeted properly for the first time.
 
 ### Task 3 in full
 
@@ -149,7 +143,7 @@ Two steps: turn the time you were given into **minutes past midnight**, then sub
 > [!TIP]
 > If your answer is off by a multiple of 59, that's the order of operations — the hour has to be multiplied by 60 *before* the minutes are added. Brackets make it obvious: `(hour * 60) + minute`.
 
-`dotnet test Lab.Checks`: **3 / 5.** The program now counts down properly — **225 minutes until sunrise**.
+`dotnet test week-01/Lab.Checks`: **3 / 5.** The program now counts down properly — **225 minutes until sunrise**.
 
 ### Task 4 in full
 
@@ -178,7 +172,7 @@ Given minutes already broadcast, return how many **hours** that is — including
 
 In Python 3 you'd have got 5.5 without thinking about it. This is the single most common way a Python habit produces a wrong answer in C#, which is why it's a whole check.
 
-`dotnet test Lab.Checks`: **4 / 5.** The program says **5.5 hours on air** now, where a minute ago it said 5.
+`dotnet test week-01/Lab.Checks`: **4 / 5.** The program says **5.5 hours on air** now, where a minute ago it said 5.
 
 ### Task 5 in full
 
@@ -199,7 +193,7 @@ return hour >= 22 || hour < 6;
 
 Check the two boundaries when you're done: **6 is not overnight, and 22 is.** Off-by-one at a boundary is the way this one usually fails.
 
-`dotnet test Lab.Checks`: **5 / 5.** The Owl is on the air. 🦉
+`dotnet test week-01/Lab.Checks`: **5 / 5.** The Owl is on the air. 🦉
 
 ## Rules
 
@@ -217,7 +211,7 @@ Check the two boundaries when you're done: **6 is not overnight, and 22 is.** Of
 - **Check 2 passes for Marisol but the message mentions Ford** — the name is typed into the text instead of coming from the parameter. A method has to work for every value it's handed.
 - **Check 4 says you returned 5** — [whole ÷ whole = whole](../lecture-notes.md#whole-numbers-and-real-numbers). Put `.0` on one side.
 - **Check 5 is never true** — you have `&&` where you need `||`.
-- **`MSB1003: Specify which project or solution file to use`** — you're in the wrong folder. Go up to the one holding *both* project folders.
+- **`MSB1003: Specify which project or solution file to use`** — the command ran without its week in front. From the top it is always `dotnet test week-01/Lab.Checks` — week first, then the project.
 - **`dotnet test` says it can't find `Lab.Checks`** — same cause, same fix.
 - The [troubleshooting appendix](../lecture-notes.md#appendix-troubleshooting) covers the rest.
 

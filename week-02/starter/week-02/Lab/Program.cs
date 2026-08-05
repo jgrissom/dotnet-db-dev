@@ -5,7 +5,7 @@
 // because this desk can be crashed from the keyboard, and finding out how
 // is Task 1.
 //
-// Run it with:   dotnet run --project Lab
+// Run it with:   dotnet run --project week-02/Lab
 // The shift lasts as long as you want. q ends it.
 
 Console.WriteLine("+------------------------------------------+");

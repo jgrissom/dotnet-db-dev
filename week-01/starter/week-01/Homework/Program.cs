@@ -4,6 +4,6 @@
 //   1. Create Station.cs next to this file — the homework shows the shape.
 //   2. Replace this file's contents with the two lines the homework gives you.
 //
-// Check yourself as you go, from the week-01 folder:  dotnet test Homework.Checks
+// Check yourself as you go, from your coursework folder:  dotnet test week-01/Homework.Checks
 
 Console.WriteLine("This station hasn't signed on yet. (homework.md, Part 2.)");

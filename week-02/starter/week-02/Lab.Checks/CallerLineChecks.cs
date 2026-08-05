@@ -3,8 +3,8 @@
 //  lab is done. Turn ❌ into ✅ by editing Lab/CallerLine.cs — never this
 //  file.
 //
-//  Run them from the folder that holds BOTH project folders:
-//      dotnet test Lab.Checks
+//  Run them from your coursework folder — the one window you always have open:
+//      dotnet test week-02/Lab.Checks
 //
 //  New this week: these checks hand your methods input that is null, blank,
 //  or flatly lying — because that's what a phone line does. A method that

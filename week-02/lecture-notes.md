@@ -84,7 +84,7 @@ Last week you learned four git commands and were told to leave the sidebar panel
 Use whichever you like from here on — panel, terminal, or both. **When the panel confuses you, the terminal is how you find out what's actually going on.** `git status` never lies.
 
 > [!NOTE]
-> **If your panel shows nothing at all** while `git status` in the terminal works: VS Code once asked whether to open the repository found in the parent folder, and `Never` got clicked. Fix: **Settings → search `openRepositoryInParentFolders` → set it to `always`**, then reload the window.
+> **If your panel shows nothing at all**, the usual cause is having a *week folder* open instead of your coursework folder — the panel watches the folder VS Code has open, and the repo lives at the top. **File → Open Folder → `dotnet-db-coursework`** and it comes alive. (One more reason the top is the window you keep.)
 
 ---
 
@@ -234,8 +234,8 @@ That's not a workaround — it's the same *testable shape* rule from week 1 appl
 Your week 1 `Station` class was right last week and it's still right this week — so it moves, it doesn't get rewritten:
 
 ```bash
-# from your week-02 folder — the Homework project ships in the starter:
-cp ../week-01/Homework/Station.cs Homework/
+# from your coursework window — the Homework project ships in the starter:
+cp week-01/Homework/Station.cs week-02/Homework/
 ```
 
 (Or copy-paste the file in VS Code's Explorer — same result.) The file lands **inside** the project folder, next to `Program.cs`, and compiles as part of this week's project without a word changed.
@@ -260,7 +260,7 @@ This is the first taste of a rhythm the whole course runs on: **from week 4, you
 
 **Everything came back after the cleanup commit** — the `.gitignore` wasn't in place (or has a typo) when you ran `git add .`. Check the file is at the repo **root**, spelled exactly `.gitignore`, then redo the two commands.
 
-**The Source Control panel is empty but the terminal's `git status` works** — the `Never` button from week 1. Settings → `openRepositoryInParentFolders` → `always`, then reload the window.
+**The Source Control panel is empty but `git status` works in some terminal** — VS Code is open on a week folder instead of the top. File → Open Folder → `dotnet-db-coursework`, and the panel comes alive.
 
 **The checks say they can't find `Switchboard`** — it needs to be `public`, spelled `Switchboard`, in its own file **inside** the `Homework` folder. Same rules as `Station` last week, [same fix if the file's in the wrong place](../week-01/lecture-notes.md#appendix-troubleshooting).
 
@@ -268,6 +268,6 @@ This is the first taste of a rhythm the whole course runs on: **from week 4, you
 
 **`error CS8936` or `'out' variable` complaints** — the `out int marker` declaration needs to be inside the `TryParse(...)` call's brackets, exactly as [shown above](#parse-believes-tryparse-asks).
 
-**`MSB1003: Specify which project or solution file to use`** — wrong folder, same as ever: run from `week-02`, the folder holding both project folders, and name the project.
+**`MSB1003: Specify which project or solution file to use`** — the command is missing its week prefix. From your coursework window it is always `dotnet test week-02/Homework.Checks` — week first, then the project.
 
 **The program hangs when you test it with redirected input** — you have a loop that re-asks until input is valid. [Ask once, answer gracefully.](#ask-once-answer-gracefully)

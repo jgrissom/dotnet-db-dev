@@ -8,7 +8,7 @@
 All five checks green, and the desk survives your worst typing:
 
 ```bash
-dotnet test Lab.Checks
+dotnet test week-02/Lab.Checks
 # Passed! - Failed: 0, Passed: 5 ...
 ```
 
@@ -26,16 +26,16 @@ Last week you invented a station. **This week it gets a request line:** a greeti
 
 There's almost nothing to set up — the `week-02` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, and `Homework.Checks` beside it.
 
-**1. Open `week-02` in VS Code** — the same folder as tonight's lab. (Didn't get to the lab? [Its setup](lab/README.md#setup) is three steps and brings the whole week in — do that first.)
+**1. Your coursework window is the whole setup** — VS Code open on `dotnet-db-coursework`, the same window as tonight's lab. (Didn't get to the lab? [Its setup](lab/README.md#setup) brings the whole week in — do that first.)
 
-**2. Carry your `Station` class forward** — [the same one-move copy from the demo](lecture-notes.md#carrying-a-class-forward):
+**2. Carry your `Station` class forward** — [the same one-move copy from the demo](lecture-notes.md#carrying-a-class-forward), from the terminal:
 
 ```bash
-cp ../week-01/Homework/Station.cs Homework/
+cp week-01/Homework/Station.cs week-02/Homework/
 ```
 
 > [!NOTE]
-> **No week 1 `Station.cs` to copy?** Type the minimum and move on — the file is `Homework/Station.cs`, the call sign rules are [week 1's](../week-01/homework.md) (four capitals, starting K or W), and this is the whole file:
+> **No week 1 `Station.cs` to copy?** Type the minimum and move on — the file is `week-02/Homework/Station.cs`, the call sign rules are [week 1's](../week-01/homework.md) (four capitals, starting K or W), and this is the whole file:
 > ```csharp
 > public static class Station
 > {
@@ -51,7 +51,7 @@ cp ../week-01/Homework/Station.cs Homework/
 
 ### Write it
 
-**3. A `Switchboard` class in its own file** — `Homework/Switchboard.cs`, `public`, four methods. This is the whole file, shapes included — **and the three blanks in it fail on purpose.** Pasting it as-is leaves two checks red; the blanks are where your station shows up:
+**3. A `Switchboard` class in its own file** — `week-02/Homework/Switchboard.cs`, `public`, four methods. This is the whole file, shapes included — **and the three blanks in it fail on purpose.** Pasting it as-is leaves two checks red; the blanks are where your station shows up:
 
 ```csharp
 public static class Switchboard
@@ -99,7 +99,7 @@ What each one has to do:
 
 **The no-name default is a writing assignment as much as a code one.** *"a voice in the dark"*, *"the 2 AM mystery"*, *"caller unknown"* — it's your station's house style. It just can't be blank.
 
-**4. `Homework/Program.cs` opens the line.** The skeleton ships with a placeholder — replace the whole file with this. Small on purpose; every decision lives in `Switchboard.cs`:
+**4. `week-02/Homework/Program.cs` opens the line.** The skeleton ships with a placeholder — replace the whole file with this. Small on purpose; every decision lives in `Switchboard.cs`:
 
 ```csharp
 Console.WriteLine(Switchboard.Greeting());
@@ -125,11 +125,11 @@ else
 
 ### Run it as you go
 
-Both from `week-02`, the folder holding all four project folders:
+Both from your terminal at the top, naming the week:
 
 ```bash
-dotnet run --project Homework
-dotnet test Homework.Checks
+dotnet run --project week-02/Homework
+dotnet test week-02/Homework.Checks
 ```
 
 **Run the program the way the lab taught you to** — politely once, then rudely: spaces for a name, words for a number, Enter for everything. If anything crashes, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
@@ -138,7 +138,7 @@ dotnet test Homework.Checks
 
 This is the demo's cleanup, on your repo, for points — **and it stays scored every week from now on.**
 
-⚠️ **All of this happens at the top of the repo, so change what VS Code has open** — the same move the demo made when its git half started: **File → Open Folder → `dotnet-db-coursework` → Open.** Now the Explorer can make files at the root, and the terminal (`` Ctrl+` ``) is already standing where every `git` command runs. (That's the pattern from here on: *dotnet work happens in a week folder; repo work happens at the top.*)
+**You're already standing where all of this happens.** Your window is the top of the repo — the Explorer can make files at the root, and the terminal is where every `git` command runs. Nothing to open, nothing to change.
 
 > [!NOTE]
 > **Never connected this folder to GitHub at all?** Do [week 1's Part 3](../week-01/homework.md#part-3--push-it-graded) first — its *first time only* block makes the repo, connects it, and adds me as a collaborator. Then come back here.
@@ -172,11 +172,10 @@ git push
 
 ## Part 4 — Check it before you submit ✅
 
-**These are the same checks I run.** Your terminal is still standing at the top of the repo from Part 3 — one hop down and run them:
+**These are the same checks I run.** Same terminal, same place it's been all night:
 
 ```bash
-cd week-02
-dotnet test Homework.Checks
+dotnet test week-02/Homework.Checks
 ```
 
 ```
@@ -194,7 +193,7 @@ Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywher
 - **Check 3 says your defaults disagree** — `null`, `""` and `"   "` must all get the same answer; `IsNullOrWhiteSpace` makes that automatic.
 - **Check 4 says the right number loses** — `IsWinner` compares against a typed-in number instead of `LuckyCallerNumber()`, and they disagree.
 - **GitHub still shows `bin/` after your cleanup** — the untrack step didn't run, or ran before the `.gitignore` existed. [The order matters.](lecture-notes.md#cleaning-a-repo-that-already-committed-the-mess)
-- **`fatal: not a git repository`** — your terminal is standing inside `week-02`; Part 3's git work wants VS Code opened on `dotnet-db-coursework`, the top folder, so the terminal stands there.
+- **`fatal: not a git repository`** — your terminal wandered out of the repo (a leftover `cd`?). Close it and open a fresh one (`` Ctrl+` ``) — it starts back at the top, where git lives.
 - The [troubleshooting appendix](lecture-notes.md#appendix-troubleshooting) covers the rest.
 
 ## 📊 Grading (20 pts)

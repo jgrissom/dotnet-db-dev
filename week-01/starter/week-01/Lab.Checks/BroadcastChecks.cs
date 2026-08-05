@@ -3,8 +3,8 @@
 //  your grade, and they are not collected. Your job is turning ❌ into ✅ by
 //  editing Lab/Broadcast.cs — never this file.
 //
-//  Run them from the folder that holds BOTH project folders:
-//      dotnet test Lab.Checks
+//  Run them from your coursework folder — the one window you always have open:
+//      dotnet test week-01/Lab.Checks
 //
 //  Notice what they do NOT look at: nothing in here reads what your program
 //  prints. They call your methods and check what comes back. That's the whole

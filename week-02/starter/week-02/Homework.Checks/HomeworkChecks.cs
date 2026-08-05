@@ -2,8 +2,8 @@
 //  READ-ONLY — and this time it IS your grade. These are the exact checks
 //  I run against your repo; I don't have a second, secret set.
 //
-//  Run them from your week-02 folder, the one holding both project folders:
-//      dotnet test Homework.Checks
+//  Run them from your coursework folder — the one window you always have open:
+//      dotnet test week-02/Homework.Checks
 //
 //  Notice what's new this week: several checks hand your methods null,
 //  blank text, and answers that only claim to be numbers — because that's

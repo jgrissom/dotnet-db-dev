@@ -36,17 +36,17 @@ And one thing that isn't new but is worth twenty minutes anyway: **the compiler 
 
 Python runs a file: `python thing.py`. C# runs a **project** — a folder with a `.csproj` in it that says what to build.
 
-**One way of working, used in the demo, the lab and the homework alike:**
+**One way of working, used in the demo, the lab and the homework alike — and it's one window, all semester:**
 
-1. **VS Code → File → Open Folder** — open the folder that *holds* your projects. In the demo that's `week-01`; in the lab it's `week-01` too.
-2. Open the integrated terminal (`` Ctrl+` ``). It's already standing in that folder, so there is never anything to `cd`.
-3. Make the project **inside** it with `-o` ("output"), which creates the folder and names the project after it:
+1. **VS Code → File → Open Folder → `dotnet-db-coursework`** — the top of your repo. **You open this folder once, and it's the only folder you ever open, all sixteen weeks.**
+2. Open the integrated terminal (`` Ctrl+` ``). It stands at the top of your repo — which is where every command in this course runs, `git` included.
+3. Make projects with `-o` ("output"), naming the week and the project in one path — it creates both folders as needed:
 
 ```bash
-dotnet new console -o Haldane
+dotnet new console -o week-01/Haldane
 ```
 
-That leaves you with `Haldane/`, containing:
+That leaves you with `week-01/Haldane/`, containing:
 
 | | |
 |---|---|
@@ -54,13 +54,13 @@ That leaves you with `Haldane/`, containing:
 | `Haldane.csproj` | the project file: what version of .NET, what packages |
 | `obj/`, `bin/` | build machinery and the compiled program. **You never edit these**, and from week 2 you'll stop committing them |
 
-And you run it **without moving** — from the same folder you opened, naming the project:
+And you run it **without moving** — same terminal, naming the week-qualified project:
 
 ```bash
-dotnet run --project Haldane
+dotnet run --project week-01/Haldane
 ```
 
-⚠️ **Stay in the folder you opened.** Every `dotnet` command this term is run from there and names its target. That one habit removes the most common error of the whole course.
+⚠️ **Stay at the top, and put the week in front of every project name.** That one habit removes the most common error of the whole course — and it means any command from any week works from the one place your terminal always is.
 
 ### A folder is either a project or a container — never both
 
@@ -80,17 +80,17 @@ week-01/               ← container. Not a project. Nothing builds here.
 └─ Homework.Checks/    ← project — its checks, referencing ../Homework
 ```
 
-**Open `week-01` and stay there.** Every command names the project it means:
+**Your terminal stays at the top.** Every command names the week, then the project it means:
 
 ```bash
-dotnet test Lab.Checks
-dotnet run  --project Lab
+dotnet test week-01/Lab.Checks
+dotnet run  --project week-01/Lab
 
-dotnet test Homework.Checks
-dotnet run  --project Homework
+dotnet test week-01/Homework.Checks
+dotnet run  --project week-01/Homework
 ```
 
-Standing in the wrong folder is the single most common way to get `MSB1003: Specify which project or solution file to use`. If you see it, you're inside one of the four instead of in `week-01`.
+Forgetting the week prefix is the single most common way to get `MSB1003: Specify which project or solution file to use` — the command couldn't see a project from where it ran. Put the week in front and go again.
 
 ⚠️ **The checks folder goes *beside* the project it tests, never inside it** — `Lab.Checks` next to `Lab`, not within it. Put one inside the other and *your* program stops compiling, complaining about files you never wrote.
 
@@ -326,18 +326,16 @@ That "nothing at all" is `null`, and C# is unusually careful about it. **Week 5 
 
 **Assume this is new.** An intro programming course usually doesn't cover git, and from week 2 your repo hygiene is worth points every single week.
 
-⚠️ **Run these from `dotnet-db-coursework` — the folder at the very top, not `week-01` and not a project folder.** One repo holds your whole semester:
+**And here's the payoff of the one-window design: your terminal is already standing where git lives.** One repo holds your whole semester, its top is the folder you always have open, and `git` and `dotnet` finally agree about where you should be:
 
 ```
-dotnet-db-coursework/     ← git lives HERE. Run every git command from here.
-└─ week-01/               ← you run dotnet commands from here
+dotnet-db-coursework/     ← your VS Code window. git lives HERE. So does your terminal.
+└─ week-01/               ← named in dotnet commands: --project week-01/Lab
    ├─ Lab/
    ├─ Lab.Checks/
    ├─ Homework/
    └─ Homework.Checks/
 ```
-
-That's the one place the two habits differ: **`dotnet` commands run from `week-01`, `git` commands run from the folder above it.** Getting them the wrong way round is the most common mistake of the first week.
 
 Four commands, and you'll type them every week until they're muscle memory:
 
@@ -347,8 +345,7 @@ git add .
 git commit -m "Week 1: station sign-on"
 ```
 
-- **`git init`** — start tracking this folder. **Once, ever** — at `dotnet-db-coursework`, never again. If you run it inside `week-01` or inside a project you get a second, broken repo in the wrong place.
-  - ⚠️ **VS Code will ask you something right after this**, because the repo you just made is one level *above* the `week-01` folder you have open: *"A git repository was found in the parent folders of the workspace… Would you like to open the repository?"* **Click `Always`.** It's the right answer every week of this course, and `Never` is sticky — pick it and VS Code's git panel stays empty from here on.
+- **`git init`** — start tracking this folder. **Once, ever** — at `dotnet-db-coursework`, never again. Run it from a fresh `` Ctrl+` `` terminal (which always starts at the top) and you can't get it wrong.
 - **`git add .`** — stage everything that changed. The `.` means "this folder and everything under it".
 - **`git commit -m "..."`** — save a snapshot, with a message saying what you did.
 
@@ -393,7 +390,7 @@ git push
 
 **`error CS8618` or a warning about null** — something that could be nothing. This week the answer is `?? "something"`.
 
-**`MSB1003: Specify which project or solution file to use`** — you're in a folder with no `.csproj` in it. Either `cd` into the project folder, or use `dotnet run --project TheFolder`.
+**`MSB1003: Specify which project or solution file to use`** — the command couldn't see a project from where it ran. From your coursework window it's always week first, then project: `dotnet run --project week-01/Lab`.
 
 **The program prints `{djName}` instead of a name** — missing `$` before the opening quote.
 

@@ -5,6 +5,6 @@
 //   2. Create Switchboard.cs next to it — the homework shows the shape.
 //   3. Replace this file's contents with the Program.cs the homework gives you.
 //
-// Check yourself as you go, from the week-02 folder:  dotnet test Homework.Checks
+// Check yourself as you go, from your coursework folder:  dotnet test week-02/Homework.Checks
 
 Console.WriteLine("This station hasn't signed on yet. (homework.md, Part 2.)");

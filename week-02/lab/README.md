@@ -9,24 +9,33 @@ It's 2:04 AM at **KDXR 88.1, "The Owl."** The desk you finished last week is hol
 
 ## Setup
 
-Three steps. Every terminal is VS Code's — already standing in the right folder, nothing to `cd`, tonight or ever.
+Three steps, all from the **one VS Code window you keep all semester** — open on `dotnet-db-coursework`, the top of your repo.
 
-**1. Update your clone of the course repo.**
-
-1. Open VS Code → **File → Open Folder** → find **`dotnet-db-dev`** — the course repo you cloned during setup; it sits **next to** your `dotnet-db-coursework` folder → **Open**.
-2. Open the terminal: **`` Ctrl+` ``**. It's standing in `dotnet-db-dev` already. Type:
-   ```bash
-   git pull
-   ```
+**1. Confirm your coursework window is open.** If VS Code is already showing `dotnet-db-coursework` from last week — done, skip to step 2. Otherwise: **File → Open Folder → `dotnet-db-coursework` → Open.**
 
 > [!NOTE]
-> **No `dotnet-db-dev` folder anywhere?** You haven't cloned it. **File → Open Folder** → the folder where `dotnet-db-coursework` lives (the one that *holds* it) → **Open** → `` Ctrl+` `` → then:
-> ```bash
-> git clone https://github.com/jgrissom/dotnet-db-dev.git
-> ```
-> Now you have both folders side by side. Continue from step 2.
+> **No `dotnet-db-coursework` folder?** Make it now: File → Open Folder → *New Folder* → name it `dotnet-db-coursework` → Open. It starts empty; the next two steps fill it.
 
-**2. Drag this week in — one folder, in your file manager.**
+**2. Update your clone of the course repo — from the terminal you already have.** `` Ctrl+` `` (it opens standing at the top of your repo), then:
+
+```bash
+cd ../dotnet-db-dev
+git pull
+cd ../dotnet-db-coursework
+```
+
+One hop sideways into the clone (it sits right next to your repo, [the way setup left them](../../week-01/setup-guide.md#then-clone-the-course-repo)), pull, hop back.
+
+> [!NOTE]
+> **`cd: no such file or directory`?** You haven't cloned it. From the same terminal:
+> ```bash
+> cd ..
+> git clone https://github.com/jgrissom/dotnet-db-dev.git
+> cd dotnet-db-coursework
+> ```
+> Now the two folders sit side by side, and the pull above will work every week after.
+
+**3. Drag this week in — one folder, in your file manager.**
 
 Open **Finder** (Mac) or **File Explorer** (Windows):
 
@@ -34,33 +43,28 @@ Open **Finder** (Mac) or **File Explorer** (Windows):
 2. **Copy it** (don't drag-move — the clone keeps its copy).
 3. Go into `dotnet-db-coursework` → **Paste**.
 
-That one folder is the whole week — the lab, the checks, and the homework's starting point:
+It appears in your VS Code Explorer immediately — nothing to reopen. That one folder is the whole week:
 
 ```
-dotnet-db-coursework/
-├─ week-01/            ← last week, untouched
-└─ week-02/            ← the folder you just pasted
-   ├─ Lab/             ← the station — tonight's work happens in here
-   ├─ Lab.Checks/      ← the lab's checks — read-only, never edit
-   ├─ Homework/        ← your station — the homework builds this
-   └─ Homework.Checks/ ← the homework's checks — read-only, never edit
+dotnet-db-coursework/      ← your VS Code window, all semester
+├─ week-01/                ← last week, untouched
+└─ week-02/                ← the folder you just pasted
+   ├─ Lab/                 ← the station — tonight's work happens in here
+   ├─ Lab.Checks/          ← the lab's checks — read-only, never edit
+   ├─ Homework/            ← your station — the homework builds this
+   └─ Homework.Checks/     ← the homework's checks — read-only, never edit
 ```
 
-> [!NOTE]
-> **No `dotnet-db-coursework` folder?** Make it in VS Code first — File → Open Folder → *New Folder* → `dotnet-db-coursework` → Open — then come back and paste.
-
-**3. Open the week and run the checks.**
-
-**VS Code → File → Open Folder → `dotnet-db-coursework` → `week-02` → Open.** Then the terminal (`` Ctrl+` ``):
+**Then run the checks** — from the terminal, naming the week:
 
 ```bash
-dotnet test Lab.Checks
+dotnet test week-02/Lab.Checks
 ```
 
 **1 / 5 passing.** Check 1 is last week's desk, shipped finished and still on the air. The other four are tonight.
 
 > [!CAUTION]
-> **Same rule as every week:** `dotnet test Lab.Checks` and `dotnet run --project Lab` both run from **`week-02`** — the folder holding **both** project folders. Never from inside either one. **You never `cd` anywhere.**
+> **Every command names its week.** Your terminal always stands at the top of your repo — so it's `dotnet test week-02/Lab.Checks` and `dotnet run --project week-02/Lab`, with the week in front. Forget the week and you'll get `MSB1003` — it just means the command couldn't see a project from the top; add the week and go again.
 
 ## Where tonight's work happens
 
@@ -94,7 +98,7 @@ dotnet test Lab.Checks
 **Start your shift and take a few calls politely:**
 
 ```bash
-dotnet run --project Lab
+dotnet run --project week-02/Lab
 ```
 
 Sign on with your name. The phone lights up: give a caller's name, a request. It lights up again — calls keep coming until you type `q`. **When the caller is `ray`**, the desk asks where he's at instead; answer with a number, like `240`, and his position gets logged. Take three or four calls, then `q` to end the shift.
@@ -105,7 +109,7 @@ Works fine — though some of the output is blank or lying. Those are your unwri
 
 💥 **`Unhandled exception. System.FormatException`** — the whole shift is down, mid-call, and your typing did it. Read the crash before you fix anything: the exception **type**, the message (it names your exact input), and the line — it points into `WhereIsRay`, in `Lab/CallerLine.cs`. Open that file and find the `int.Parse`. That's the day shift's work. It believes people.
 
-`dotnet test Lab.Checks`: still **1 / 5.** Now go earn the rest.
+`dotnet test week-02/Lab.Checks`: still **1 / 5.** Now go earn the rest.
 
 ### Task 2 in full
 
@@ -129,7 +133,7 @@ Two things worth noticing:
 - **`IsNullOrWhiteSpace` is one question that covers three situations** — `null`, `""`, and `"   "` are all "nobody there", and [they all need the same answer](../lecture-notes.md#readline-and-null).
 - **The order is load-bearing.** `.Trim()` on a `null` is itself a crash — test for nothing *first*. (That's also why the compiler's null warning goes quiet here: it can see `null` can't reach the `Trim`.)
 
-`dotnet test Lab.Checks`: **2 / 5.**
+`dotnet test week-02/Lab.Checks`: **2 / 5.**
 
 ### Task 3 in full
 
@@ -149,7 +153,7 @@ public static bool IsOnTheStretch(string? typed)
 - **`TryParse` never throws** — words, blanks, even `null` just come back `false`. It also shrugs off spaces around a number on its own.
 - **Parsing and believing are different steps.** `"9000"` parses perfectly and is still nowhere Ray can be — that's what the range check after the `&&` is for. (The `&&` only runs its right side when the parse succeeded, which is why `marker` is safe to look at there.)
 
-`dotnet test Lab.Checks`: **3 / 5.**
+`dotnet test week-02/Lab.Checks`: **3 / 5.**
 
 ### Task 4 in full
 
@@ -176,7 +180,7 @@ Same tool as Task 3 — deliberately. If you'd rather call your own `IsOnTheStre
 
 **Then re-run Task 1's crash:** start a shift, call in as `ray`, and answer with the exact sentence that killed the desk twenty minutes ago. **The shift doesn't die anymore** — Ray gets logged as out there somewhere, and the phone lights up for the next call. That run is what tonight is for.
 
-`dotnet test Lab.Checks`: **4 / 5.**
+`dotnet test week-02/Lab.Checks`: **4 / 5.**
 
 ### Task 5 in full
 
@@ -203,7 +207,7 @@ public static string TakeRequest(string? name, string? request)
 
 (That `? :` is the conditional operator — an `if`/`else` that fits inside an expression. Writing it as a full `if` is exactly as correct.)
 
-`dotnet test Lab.Checks`: **5 / 5.** Now pull a real shift: `dotnet run --project Lab`, and be the worst night of calls the desk has ever had — blank names, blank requests, Ray answering in riddles, all of it. Every call gets a civil answer, and the phone keeps ringing until *you* type `q`. **The Owl stays on the air.** 🦉
+`dotnet test week-02/Lab.Checks`: **5 / 5.** Now pull a real shift: `dotnet run --project week-02/Lab`, and be the worst night of calls the desk has ever had — blank names, blank requests, Ray answering in riddles, all of it. Every call gets a civil answer, and the phone keeps ringing until *you* type `q`. **The Owl stays on the air.** 🦉
 
 And read the desk's sign-off. It counted your calls — and it can't tell you a single thing about them. Sit with that for a second before you close the terminal.
 
@@ -232,7 +236,7 @@ You'll notice the Changes list is *long* — `bin/` and `obj/` again, because yo
 - **Check 4 passes garbage but fails `"9000"`** — your `WhereIsRay` parses but doesn't range-check. Same guard as Task 3.
 - **Check 5 shows `For   Ray  :` with the spaces still in** — the name didn't go through `CallerName`. Call it; don't re-trim.
 - **`error CS8936` or complaints about `out`** — the `out int marker` goes *inside* the `TryParse(...)` brackets, [exactly as the notes show](../lecture-notes.md#parse-believes-tryparse-asks).
-- **`MSB1003: Specify which project or solution file to use`** — wrong folder. Go up to `week-02`, the one holding *both* project folders.
+- **`MSB1003: Specify which project or solution file to use`** — the command ran without its week in front. From the top it is always `dotnet test week-02/Lab.Checks` — week first, then the project.
 - The [troubleshooting appendix](../lecture-notes.md#appendix-troubleshooting) covers the rest.
 
 ## 🚀 Done early?
