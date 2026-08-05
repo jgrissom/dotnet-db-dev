@@ -117,7 +117,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   ```
 - [ ] **Now the tour happens for real — watch the file move through the verbs, narrating each region as you click it:** it appears under *Changes* (`status` sees it) → **+** (`git add` — watch it jump to *Staged Changes*) → message `Week 2: readme` → **✓ Commit** → **Sync** (`git push`). Reload GitHub — the README renders on the repo's front page
 - [ ] 🎯 *"Use whichever you like from here on. When the panel confuses you — and some week it will — the terminal is how you find out what it actually did. `git status` never lies"*
-- [ ] 🔗 *"Your homework does these exact three moves to your repo — gitignore, cleanup, README — and this week they're worth points. The grader checks all three"*
+- [ ] 🔗 *"Your homework adds one of these to your own repo — a README — and from this week your repo hygiene is worth points every single week"*
 
 ## 3 · The console takes a reading *(slides 8–11)*
 
@@ -231,7 +231,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 - [ ] 🎞️ **GO TO SLIDE 15** — *Lab: the caller line*. Leave it up for the whole lab
 - [ ] 🎯 **The frame:** *"the desk you finished last week is in the starter, done — you're not behind if you missed it. Tonight the desk answers the phone, and the phone is where programs die. One of tonight's methods ships **already written and already wrong** — the day shift wrote it, it works every time Ray answers with a number, and Task 1 is crashing it with your own typing. The crash is on purpose. Cause it"*
 - [ ] Setup on screen, said once: **pull the clone → drag the one `week-02` folder out of `starter` into your repo → `dotnet test week-02/Lab.Checks`** → **1 / 5**. *"Nothing to open — your window is already the right window. One folder in, one command, and the week is live"*
-- [ ] ⚠️ **The folder split, every week until it sticks:** both commands run from **`week-02`** — the folder holding both project folders. Never from inside either. Never `cd`
+- [ ] ⚠️ **The one error worth pre-empting, every week until it sticks:** the week goes *in front* — `dotnet test week-02/Lab.Checks`. Forget it and `MSB1003` says so
 - [ ] 🎯 **Say the target, and put "done" on their machines, not yours:** *"all five green is not the finish line — it's the checkpoint before it. **When check 4 goes green, run your program again and answer Ray with the exact sentence that crashed it in Task 1.** A desk you can't crash — that's what done looks like tonight, and every one of you gets to watch your own program do it"*
 - [ ] *"Read the failure messages — check 3's and 4's tell you the tool, and check 4's names the crash you just watched me cause"*
 
@@ -239,5 +239,5 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 
 - [ ] 🎞️ **GO TO SLIDE 16** — *Tonight, in one picture*. Three beats: **your repo holds what you wrote** · **a warning marks the edge of the compiler's promise** · **Parse believes, TryParse asks**
 - [ ] Homework, in two sentences: *"your own station grows a request line — greeting, a name for callers who won't give one, and a caller-number contest that survives any answer a human gives. And your repo gets tonight's cleanup: gitignore, untrack the old mess, README — all three are points now, and they stay points all semester"*
-- [ ] ⚠️ Repeat the two that cost points silently: **the cleanup covers the WHOLE repo, week-01 included** — the grader looks everywhere — and **your program has to survive being run with nobody typing**
+- [ ] ⚠️ Repeat the two that cost points silently: **a README at the top of your repo**, and **your program has to survive being run with nobody typing**
 - [ ] 🔗 **Week 3:** *"next week the station starts keeping a list — callers, requests, all of it. You'll type three records in, quit, run it again, and they'll be gone. I want you to be annoyed by that. Being annoyed by it is the point"*

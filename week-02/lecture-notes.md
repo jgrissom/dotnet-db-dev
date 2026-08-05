@@ -1,6 +1,6 @@
 # Week 2 — Lecture Notes
 
-Your at-home reference for the week. Two subjects tonight, and they meet at the same idea: **git hygiene** (what your first push swept up, and how to clean it for good) and **input** (the mistakes the compiler can't catch, because they happen after compiling is over).
+Your at-home reference for the week. Two subjects tonight, and they meet at the same idea — **the limits of things that protect you**: what your `.gitignore` *can't* do (and the three-command repair), and the mistakes the compiler can't catch, because they happen after compiling is over.
 
 **Rule for reading the code blocks:** every one of them either *is* a complete file, or the line above it says which file it goes inside. Nothing here is a fragment you're expected to guess the home of.
 
@@ -238,7 +238,7 @@ This is the first taste of a rhythm the whole course runs on: **from week 4, you
 
 **`git rm -r --cached .` says `fatal: pathspec '.' did not match any files`** — you're in an empty folder or not in the repo. Run it from `dotnet-db-coursework`.
 
-**Everything came back after the cleanup commit** — the `.gitignore` wasn't in place (or has a typo) when you ran `git add .`. Check the file is at the repo **root**, spelled exactly `.gitignore`, then redo the two commands.
+**Everything came back after an eviction** — the `.gitignore` wasn't in place (or has a typo) when you ran `git add .`. Check the file is at the repo **root**, spelled exactly `.gitignore`, then redo the three commands.
 
 **The Source Control panel is empty but `git status` works in some terminal** — VS Code is open on a week folder instead of the top. File → Open Folder → `dotnet-db-coursework`, and the panel comes alive.
 
