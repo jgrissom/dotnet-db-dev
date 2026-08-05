@@ -299,8 +299,14 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 - [ ] Then the rest, **one line at a time; the `git status` between each is a beat, not filler:**
   ```bash
   git add .
+  ```
+  ```bash
   git status
+  ```
+  ```bash
   git commit -m "Week 1: Haldane duty console"
+  ```
+  ```bash
   git status
   ```
 - [ ] 💡 **`git status` after `git add .` is the beat that sells the top:** it lists `week-01/Haldane/...` with the folder in front. *"That's why git is up here. It can see the whole term from this one spot"*
