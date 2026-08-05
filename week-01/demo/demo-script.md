@@ -61,7 +61,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```bash
   cd ~/Repos/dotnet-db-dev-course-trial/instructor && git clone https://github.com/jgrissom/dotnet-db-dev.git
   ```
-- [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive**, and leave it there while the room settles. **Costs no class time** — it is read by whoever is early, and it makes the banner you type in §3 land as *"that thing that was on screen when I walked in."* ⚠️ **Close it before slide 1**, and don't introduce it, explain it or refer to it. It is the station's own board; it explains itself or it isn't working
+- [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive**, and leave it there while the room settles. **Costs no class time** — it is read by whoever is early, and it makes the banner you type in §3 land as *that thing that was on screen when I walked in.* ⚠️ **Close it before slide 1**, and don't introduce it, explain it or refer to it. It is the station's own board; it explains itself or it isn't working
 - [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."*** Tonight especially, because the temptation to follow along is highest when the material is familiar
 
 ## 1 · Welcome *(slides 2–4)*
@@ -78,14 +78,14 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 ### The paperwork
 
 - [ ] **Slide 3 stays up; swipe to the browser for Canvas.** Fifteen minutes, once, and never again: the syllabus (top to bottom, fast — dates, the drop-lowest rules if any, contact and office hours), then **the Canvas tour**: where assignments appear, where the repo URL gets submitted, where announcements land
-- [ ] 🎯 **How grading works in this course, said plainly, because it's unusual:** *"every week is 20 points. Most of them are checked by a program — the same checks you run yourself before submitting, so your score should never be a surprise. The rest is your repo: commits that tell a story, work that's pushed. There is no midterm and no final exam; there is a project, from week 4, on a topic you pick"*
-- [ ] ⚠️ **Due rhythm, once:** homework is due before the next class, submitted as a repo URL on Canvas — *"the URL never changes after tonight, so submitting is thirty seconds"*
+- [ ] 🎯 **How grading works in this course, said plainly, because it's unusual:** *every week is 20 points. Most of them are checked by a program — the same checks you run yourself before submitting, so your score should never be a surprise. The rest is your repo: commits that tell a story, work that's pushed. There is no midterm and no final exam; there is a project, from week 4, on a topic you pick*
+- [ ] ⚠️ **Due rhythm, once:** homework is due before the next class, submitted as a repo URL on Canvas — *the URL never changes after tonight, so submitting is thirty seconds*
 - [ ] 💡 Questions about grading policy get answered now or parked to office hours — **do not let the paperwork eat the toolchain slot**
 
 ### You already write C#
 
 - [ ] 🎞️ **GO TO SLIDE 4** — *You already write C#* · 🎯 **the frame for the whole term, and it buys you permission to move fast:** *"you have all written C#. I am not going to teach you what a loop is, or a method, or a class. This course is the part your last one didn't have room for — code that a machine can test, git, collections, and a real database underneath it"*
-- [ ] Ask for hands: *"who put every single method inside `Main` last semester?"* — expect most of the room, and expect laughter. 🔗 **That's §6, and naming it now makes the later beat land**
+<!-- - [ ] Ask for hands: *"who put every single method inside `Main` last semester?"* — expect most of the room, and expect laughter. 🔗 **That's §6, and naming it now makes the later beat land** -->
 - [ ] 💡 Be straight about the overlap rather than hiding it: *"some of tonight you'll have seen. I'll go fast through those bits. Two things you almost certainly haven't seen, and they're both after the second break"*
 
 ## 2 · Toolchain check *(slide 5)*
