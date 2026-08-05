@@ -273,12 +273,16 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 - [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. 🎯 **Open with the payoff of the one-window design:** *"notice what we don't have to do: move. Every `dotnet` command tonight named its week from this exact spot — and git wants to run at the top of the repo, which is **exactly where this terminal has been standing all night.** One window, one place, both tools"*
 - [ ] ⚠️ **Quick confirm before `git init`** — the prompt reads `dotnet-db-coursework` (it will, unless a stray `cd` happened; if in doubt, close the terminal and `` Ctrl+` `` a fresh one — it always starts at the top)
-- [ ] The first command, read aloud, then **stop and look**:
+- [ ] The first command, then **stop and look**:
   ```bash
   git init
-  git status
   ```
-- [ ] 🎯 **The wall.** `status` lists everything in red, and the Source Control badge lights up with a number *(the window IS the repo — VS Code sees it instantly, no dialogs)*. **Scroll the list, then ask the room:** *"how much of this did you write?"* — let them find it: `Program.cs`, `Conditions.cs`, a `.csproj`… and screen after screen of `bin/` and `obj/`. *"Three files are mine. The rest is the compiler's machinery — scratch paper and build output, remade from my source every single build. A repo holds what you **wrote**. Nobody wants this"*
+- [ ] 🎯 **Before running anything else, let them notice** — *"anything different in the IDE?"* The Source Control icon just grew a badge with a number on it. **The window IS the repo, so VS Code saw it instantly — no dialog, nothing to configure.** Then ask for the same thing in the terminal:
+  ```bash
+  git status -u
+  ```
+  ⚠️ **The `-u` is load-bearing: plain `git status` collapses an untracked folder to one line — `week-01/` — and the wall never appears.** One sentence if anyone asks: *"list every file, not just the folder."*
+- [ ] 🎯 **The wall.** Screens of red — every file git can see. **Scroll it, then ask the room:** *"how much of this did you write?"* — let them find it: `Program.cs`, `Conditions.cs`, a `.csproj`… and screen after screen of `bin/` and `obj/`. *"Three files are mine. The rest is the compiler's machinery — scratch paper and build output, remade from my source every single build. A repo holds what you **wrote**. Nobody wants this"*
 - [ ] 🎯 **The collapse — one of tonight's best twenty seconds.** In the Explorer, **click the empty space below the file list** (so it lands at the root), **New File → `.gitignore`**, and type it **with the Source Control badge in view** — watch the number fall as lines land:
   ```
   bin/
@@ -287,7 +291,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   .DS_Store
   ```
   *"Watch the badge. `bin/` — falling. `obj/` — there. Four lines, and git now sees exactly what I made"* 💡 **The last two, one sentence each:** `*.user` is per-machine editor settings; `.DS_Store` is macOS's Finder leaving notes to itself — Windows people never see one, the line costs nothing
-- [ ] `git status` again — **short now, and readable:** the three files, the `.gitignore` itself, nothing else. *"That file sits at the top, so it covers `week-01`, `week-02`, and the fourteen folders that don't exist yet. You write it once, tonight, before your first commit — and your repo never holds machinery, ever"*
+- [ ] `git status -u` again — **short now, and readable:** the three files, the `.gitignore` itself, nothing else. *"That file sits at the top, so it covers `week-01`, `week-02`, and the fourteen folders that don't exist yet. You write it once, tonight, before your first commit — and your repo never holds machinery, ever"*
 - [ ] Then the rest, **one line at a time; the `git status` between each is a beat, not filler:**
   ```bash
   git add .

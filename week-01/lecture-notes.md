@@ -339,7 +339,7 @@ dotnet-db-coursework/     ← your VS Code window. git lives HERE. So does your 
 
 ### The gitignore, written before your first commit
 
-Run `git init` and then `git status`, and git lists **everything** in the folder as untracked — your three source files, and screen after screen of `bin/` and `obj/`. That machinery is regenerated from your source on every build; nothing in it is yours, and none of it belongs in a repo:
+Run `git init`, then `git status -u`, and git lists **everything** it can see as untracked — your three source files, and screen after screen of `bin/` and `obj/`. *(The `-u` matters: plain `git status` summarises an untracked folder as one line — `week-01/` — so you never see what's inside it.)* That machinery is regenerated from your source on every build; nothing in it is yours, and none of it belongs in a repo:
 
 > **A repo holds what you wrote. Everything generated can be regenerated — by anyone, from your source, any time.**
 
