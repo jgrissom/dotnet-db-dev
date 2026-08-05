@@ -214,7 +214,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```
 - [ ] **Predict, hands up:** *"4300 litres, 800 an hour. What prints?"* — the room will say five point something
 - [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** `dotnet run --project week-01/Haldane` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
-- [ ] ⚠️ **Don't rescue it too fast.** If nobody speaks within twenty seconds, ask *"is that right?"* — never *"that's wrong"*
+- [ ] ⚠️ **Don't rescue it too fast.** If nobody speaks within twenty seconds, ask *"is that right?"* — never *that's wrong*
 - [ ] **Ask before explaining:** *"why?"* — someone usually gets there, and a few will have been bitten by it before. **Let that person say it.** Then: *"both sides are whole numbers, so C# did whole-number division and threw the remainder away. Then it stored `5` in a double, as 5.0. **The decimal point was gone before `double` ever got involved**"*
 - [ ] 💡 **The follow-up that separates knowing-the-fix from understanding it:** *"so would casting the answer to double save you?"* — no. `(double)(4300 / 800)` is 5.0. **The fix has to happen before the division, not after**
 - [ ] 🎞️ **GO TO SLIDE 14** — *What the compiler cannot catch* · **fix it live, and type this one by hand** — `int` becomes `double` on the `burnPerHour` line. ⚠️ **This is the typing that matters tonight:** one word, changed in front of them, and the answer changes:
