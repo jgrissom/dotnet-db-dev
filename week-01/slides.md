@@ -104,9 +104,9 @@ dotnet run --project week-01/Haldane
 
 <br>
 
-Stay at the top. **Name the week, then the project.**
+Your terminal never leaves that folder.
 
-Same shape in the lab, the homework, and every week after.
+**Name the week, then the project.**
 
 ---
 
@@ -316,7 +316,7 @@ git push
 
 so the repo only ever holds what you wrote.
 
-Your terminal is already standing where git lives: the top.
+Your terminal already stands where git lives: `dotnet-db-coursework`.
 
 ---
 

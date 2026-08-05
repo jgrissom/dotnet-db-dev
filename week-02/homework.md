@@ -125,7 +125,7 @@ else
 
 ### Run it as you go
 
-Both from your terminal at the top, naming the week:
+Both from your terminal in `dotnet-db-coursework`, naming the week:
 
 ```bash
 dotnet run --project week-02/Homework

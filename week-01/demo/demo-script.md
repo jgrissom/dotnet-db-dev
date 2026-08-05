@@ -116,6 +116,8 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 - [ ] Then the **VS Code integrated terminal** (`` Ctrl+` ``), standing at the top — where it lives all term:
   ```bash
   dotnet new console -o week-01/Haldane
+  ```
+  ```bash
   dotnet run --project week-01/Haldane
   ```
 - [ ] 🎯 **This is the beat that pays off all term, so say it deliberately:** *"look at the path in that command. `-o` made the week folder AND the project inside it, in one go — and when I run it, I name the whole path: week, then project. **The folder you open holds weeks; weeks hold projects; commands say which.** I never move, I never open anything else, and neither will you. Next week the command says `week-02` and everything else about it is identical"*

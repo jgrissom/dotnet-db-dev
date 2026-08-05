@@ -51,11 +51,13 @@ function cuesOf(file) {
   const out = [];
   let sec = null, lo = null, hi = null, beat = false;
   for (const line of fs.readFileSync(file, "utf8").split("\n")) {
-    let m = line.match(/^## (\d+[a-z]?) · (.+?)\s*(?:\*\(slides? (\d+)(?:[–—-](\d+))?\)\*)?\s*(?:—.*)?$/);
+    // Emphasis may be *…* or _…_ — a markdown formatter (Prettier) rewrites one
+    // into the other on save, and the sheets must survive that either way.
+    let m = line.match(/^## (\d+[a-z]?) · (.+?)\s*(?:[*_]\(slides? (\d+)(?:[–—-](\d+))?\)[*_])?\s*(?:—.*)?$/);
     if (m) { sec = m[1]; lo = m[3] ? +m[3] : null; hi = m[4] ? +m[4] : lo; beat = false; continue; }
     if (/^## /.test(line)) { sec = null; continue; }
     if (/^### /.test(line) && sec) { beat = true; continue; }
-    m = line.match(/🎞️ \*\*GO TO SLIDE (\d+)\*\* — \*([^*]+)\*/);
+    m = line.match(/🎞️ \*\*GO TO SLIDE (\d+)\*\* — [*_]([^*_]+)[*_]/);
     if (m && sec) out.push({ n: +m[1], title: m[2].trim(), sec, lo, hi, beat });
   }
   return out;

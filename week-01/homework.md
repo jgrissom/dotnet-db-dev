@@ -111,7 +111,7 @@ Console.WriteLine($"{Station.MinutesUntilSignOff(2, 30)} minutes until sign-off.
 
 ### Run it as you go
 
-**Both commands run from your terminal at the top, naming the week** — [the one place every command runs from](lecture-notes.md#the-project-not-the-file):
+**Both commands run from your terminal in `dotnet-db-coursework`, naming the week** — [the one place every command runs from](lecture-notes.md#the-project-not-the-file):
 
 ```bash
 dotnet run --project week-01/Homework
