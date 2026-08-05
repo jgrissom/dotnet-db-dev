@@ -280,13 +280,35 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="16">
-<h2 id="the-panel-same-verbs-buttons">The panel: same verbs, buttons</h2>
-<p><strong>Source Control</strong> = <code>status</code> + <code>add</code> + <code>commit</code> + <code>push</code></p>
-<br />
-<p><strong>Changes</strong> — not yet staged · <strong>+</strong> — that's <code>git add</code></p>
-<p><strong>✓ Commit</strong> — with the message box · <strong>Sync</strong> — push &amp; pull</p>
-<br />
-<p>You learned the verbs first. Now the buttons make sense.</p>
+<h2 id="the-panel-reads-the-tree">The panel reads the tree</h2>
+<p><strong>An empty <em>Changes</em> list is <code>git status</code> saying: clean.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Verb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Changes</em> list</td>
+<td><code>git status</code></td>
+</tr>
+<tr>
+<td><strong>+</strong></td>
+<td><code>git add</code></td>
+</tr>
+<tr>
+<td>message + <strong>✓ Commit</strong></td>
+<td><code>git commit -m</code></td>
+</tr>
+<tr>
+<td><strong>Sync</strong></td>
+<td><code>git push</code> (and pull)</td>
+</tr>
+</tbody>
+</table>
+<p>Verbs first, buttons second. <strong>Watch one file make the trip.</strong></p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §3 · the panel</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §3 · a readme" data-theme="gaia" data-style="section pre {
