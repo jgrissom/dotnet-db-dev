@@ -229,7 +229,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### A method
 
-- [ ] 🎞️ **GO TO SLIDE 15** — *The words in front of a method* · read it off the slide. **Recap — sixty seconds**
+- [ ] 🎞️ **GO TO SLIDE 15** — *The words in front of a method* · **three words, already annotated on the slide — say them and stop:** *"`public` — the checks can reach it. `static` — no object needed first. `string` — what comes back."* **Sixty seconds; it's recap.** ⚠️ **Don't explain `static` past that** — slide 16 owes it to week 5, and spending it here is how this segment eats §6's real beat
 - [ ] Make a **new file — `week-01/Haldane/Conditions.cs`**, beside `Program.cs` *(right-click the `Haldane` folder in the Explorer, not the toolbar button — that one lands at the top of the repo)*, and paste it. 📖 **Say the signature as a sentence** — *"takes a double, gives back a double, called Fahrenheit"*:
   ```csharp
   public static class Conditions
