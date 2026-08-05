@@ -70,6 +70,11 @@ public class HomeworkChecks
         var callSign = (string)StudentCode.Call(StudentCode.RequireMethod("CallSign", typeof(string)));
         var city = (string)StudentCode.Call(StudentCode.RequireMethod("City", typeof(string)));
 
+        Assert.False(string.IsNullOrWhiteSpace(callSign) || string.IsNullOrWhiteSpace(city),
+            "This check can't run yet — it asks whether SignOn() says your call sign and your "
+            + "city, and one of those two is still blank, so there's nothing to look for.\n"
+            + "👉 Next: get Check 1 and Check 2 green first, then come back to this one.");
+
         var method = StudentCode.RequireMethod("SignOn", typeof(string));
         var signOn = (string)StudentCode.Call(method);
 

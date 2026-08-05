@@ -46,37 +46,39 @@ dotnet-db-coursework/
 
 ### Write it
 
-**2. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `week-01/Homework/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. This is the whole file, with my station's answers in it; yours will say something else:
+**2. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `week-01/Homework/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. **This is the whole file's shape, with every answer taken out** — the blanks are where your station shows up:
 
 ```csharp
 public static class Station
 {
     public static string CallSign()
     {
-        return "KRAB";
+        return "";      // ← yours
     }
 
     public static string City()
     {
-        return "Monterey, California";
+        return "";      // ← yours
     }
 
     public static int SignOffHour()
     {
-        return 5;
+        return 0;       // ← yours
     }
 
     public static string SignOn()
     {
-        return $"{CallSign()} 88.9 FM, broadcasting from {City()}.";
+        return "";      // ← yours
     }
 
     public static int MinutesUntilSignOff(int hour, int minute)
     {
-        // your arithmetic here
+        return 0;       // ← yours
     }
 }
 ```
+
+**Paste that and it builds — and all four checks are red.** That's deliberate, and it's what makes the loop below work: it compiles from the first minute, so you can fill in one method, run the checks, and watch exactly one go green.
 
 What each one has to do:
 
