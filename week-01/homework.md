@@ -80,6 +80,22 @@ public static class Station
 
 **Paste that and it builds — and all four checks are red.** That's deliberate, and it's what makes the loop below work: it compiles from the first minute, so you can fill in one method, run the checks, and watch exactly one go green.
 
+**Every command in this assignment runs from your terminal in `dotnet-db-coursework`, naming the week** — [the one place every command runs from](lecture-notes.md#the-project-not-the-file). Two commands, and you'll use both after every method you write.
+
+See what the checks say:
+
+```bash
+dotnet test week-01/Homework.Checks
+```
+
+Then watch your program do it:
+
+```bash
+dotnet run --project week-01/Homework
+```
+
+**Do that after every single method** — fill in `CallSign()`, test, run. Then `City()`, test, run. Four methods, four rounds, and the count goes **0 → 1 → 2 → 3 → 4**. A check that goes red right after you wrote something tells you exactly where to look; twenty minutes of writing followed by one test run tells you nothing.
+
 What each one has to do:
 
 | Method | Returns | Rules |
@@ -108,19 +124,22 @@ Console.WriteLine(Station.SignOn());
 Console.WriteLine($"{Station.MinutesUntilSignOff(2, 30)} minutes until sign-off.");
 ```
 
-> [!NOTE]
-> **No `Console.ReadLine` this week.** Your program prints and exits. Reading input arrives in week 2 — and there's a reason for the order: I have to *run* your program to grade it, and a program that sits waiting for input nobody types is a program that never finishes.
-
-### Run it as you go
-
-**Both commands run from your terminal in `dotnet-db-coursework`, naming the week** — [the one place every command runs from](lecture-notes.md#the-project-not-the-file):
+Same two commands again. The checks:
 
 ```bash
-dotnet run --project week-01/Homework
 dotnet test week-01/Homework.Checks
 ```
 
-**Don't save these for the end.** Write one method, run the checks, watch one more go green — same loop as the lab, and the same loop every week of this course uses. Four methods means four rounds, and a red check right after you wrote something tells you exactly where to look.
+And the program, which is the half the checks never look at:
+
+```bash
+dotnet run --project week-01/Homework
+```
+
+You should see your station's sign-on line and a countdown — your own call sign, your own city, your own hour.
+
+> [!NOTE]
+> **No `Console.ReadLine` this week.** Your program prints and exits. Reading input arrives in week 2 — and there's a reason for the order: I have to *run* your program to grade it, and a program that sits waiting for input nobody types is a program that never finishes.
 
 ⚠️ **Run the program too, not just the checks.** **Two of tonight's twenty points are simply "it builds and runs without crashing"** — and a `Station.cs` that satisfies every check can still sit inside a `Program.cs` that throws on line one. The checks never look at `Program.cs`; I do.
 
@@ -151,16 +170,26 @@ obj/
 
 Watch the number fall as the lines land — that's git losing sight of the machinery, which is the point. Your repo will only ever hold what you wrote.
 
-**3. Then commit and push:**
+**3. Then commit** — stage everything git can still see, and save it:
 
 ```bash
 git add .
 git commit -m "Week 1: setup"
+```
+
+**4. Point it at GitHub.** Use the line **GitHub itself shows you** on the repo page — it has *your* username in it, not the placeholder:
+
+```bash
 git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git
+```
+
+**5. Push.** This is the one that talks to the internet, so it's the one that can ask you for credentials or complain about a branch name — if either happens, 🆘 Stuck? below has both:
+
+```bash
 git push -u origin main
 ```
 
-Use the `git remote add` line **GitHub itself shows you** on the repo page — it has your username in it. (Wrote the `.gitignore` *before* `git init`? Same effect — it just needs to exist before `git add .`; you only miss watching the badge do it.)
+*(Wrote the `.gitignore` before `git init`? Same effect — it just needs to exist before `git add .`; you only miss watching the badge do it.)*
 
 **Every time after that:**
 
@@ -190,6 +219,12 @@ dotnet test week-01/Homework.Checks
 
 ```
 Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
+```
+
+**And one last run**, because two points ride on it and no check will tell you:
+
+```bash
+dotnet run --project week-01/Homework
 ```
 
 > [!TIP]
