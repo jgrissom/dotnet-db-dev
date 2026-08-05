@@ -1,6 +1,8 @@
 # Week 1 Demo Script — Haldane Station Boots Up 🧊
 
-Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *first* instance of every pattern; paste the rest from here.
+Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Read each block aloud once it's on screen**; that's the beat the typing used to provide.
+
+⚠️ **One exception tonight, and it's the payoff: §5's `int`.** The break only works if the room watches the *choice* get made — so paste the generator block, then change that one word yourself, out loud. Two seconds of typing, and it's the two seconds that matter.
 
 > [!TIP]
 > **Clickable version:** [the hosted script](https://jgrissom.github.io/dotnet-db-dev/week-01/demo/script.html) — checkboxes survive refreshes; Reset button for next run.
@@ -134,7 +136,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *Program.cs is the whole file* · **twenty seconds, don't teach it:** *"one file, statements top to bottom, no class around them. This is where your program starts"* 🔗 **that second half plants §6** — `Conditions.cs` is a file the program does NOT start in
 - [ ] **Ask, don't assume:** *"has anyone written `static void Main` before?"* — hands up, one sentence (*"older spelling, both still work"*); no hands, move on. ⚠️ **Never frame the slide as "where did Main go?"** — most of this room has never had one
-- [ ] Then in `Program.cs`, delete the template line and **type** the banner — first instance, so type it, don't paste:
+- [ ] In `week-01/Haldane/Program.cs`, delete the template line and paste the banner. 📖 **Read it out once it lands** — it's the station introducing itself:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");
@@ -152,7 +154,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### A declared type
 
-- [ ] **Type these four lines** — fast, no commentary while typing:
+- [ ] Paste the four declarations. 📖 **Read them out** — name, type, value — no commentary yet:
   ```csharp
   string stationName = "Haldane";
   int personnelOnStation = 12;
@@ -168,7 +170,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### Putting values into text
 
-- [ ] **Type the status board:**
+- [ ] Paste the status board. 📖 **Read one line out** and let the pattern carry the rest:
   ```csharp
   Console.WriteLine($"Station:     {stationName}");
   Console.WriteLine($"On station:  {personnelOnStation}");
@@ -202,7 +204,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### The limit
 
-- [ ] **Type the generator block** — and type `int` on the second line, on purpose:
+- [ ] Paste the generator block — ⚠️ **then change `double burnPerHour` to `int` by hand, out loud.** That one word is the break; the room has to watch you choose it. 📖 **Read the block out first:**
   ```csharp
   int fuelLitres = 4300;
   int burnPerHour = 800;
@@ -229,7 +231,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 ### A method
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *The words in front of a method* · read it off the slide. **Recap — sixty seconds**
-- [ ] Make a **new file — `week-01/Haldane/Conditions.cs`**, beside `Program.cs` *(right-click the `Haldane` folder in the Explorer, not the toolbar button — that one lands at the top of the repo)*, and type it:
+- [ ] Make a **new file — `week-01/Haldane/Conditions.cs`**, beside `Program.cs` *(right-click the `Haldane` folder in the Explorer, not the toolbar button — that one lands at the top of the repo)*, and paste it. 📖 **Read the signature out loud** — return type, name, what goes in:
   ```csharp
   public static class Conditions
   {
