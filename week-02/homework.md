@@ -138,12 +138,12 @@ dotnet test Homework.Checks
 
 This is the demo's cleanup, on your repo, for points — **and it stays scored every week from now on.**
 
-⚠️ **All of this runs from `dotnet-db-coursework`, the top folder** — `cd ..` if you're in `week-02`.
+⚠️ **All of this happens at the top of the repo, so change what VS Code has open** — the same move the demo made when its git half started: **File → Open Folder → `dotnet-db-coursework` → Open.** Now the Explorer can make files at the root, and the terminal (`` Ctrl+` ``) is already standing where every `git` command runs. (That's the pattern from here on: *dotnet work happens in a week folder; repo work happens at the top.*)
 
 > [!NOTE]
 > **Never connected this folder to GitHub at all?** Do [week 1's Part 3](../week-01/homework.md#part-3--push-it-graded) first — its *first time only* block makes the repo, connects it, and adds me as a collaborator. Then come back here.
 
-**1. A `.gitignore` at the repo root** — [this exact file](lecture-notes.md#gitignore-and-the-part-everyone-gets-wrong):
+**1. A `.gitignore` at the repo root.** In the Explorer, **click the empty space below the file list first** — so the new file lands at the root, not inside a week folder — then **New File → `.gitignore`**, and type [this exact file](lecture-notes.md#gitignore-and-the-part-everyone-gets-wrong):
 
 ```
 bin/
@@ -193,7 +193,7 @@ Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywher
 - **Check 3 says your defaults disagree** — `null`, `""` and `"   "` must all get the same answer; `IsNullOrWhiteSpace` makes that automatic.
 - **Check 4 says the right number loses** — `IsWinner` compares against a typed-in number instead of `LuckyCallerNumber()`, and they disagree.
 - **GitHub still shows `bin/` after your cleanup** — the untrack step didn't run, or ran before the `.gitignore` existed. [The order matters.](lecture-notes.md#cleaning-a-repo-that-already-committed-the-mess)
-- **`fatal: not a git repository`** — you're inside `week-02`; git runs from `dotnet-db-coursework`.
+- **`fatal: not a git repository`** — your terminal is standing inside `week-02`; Part 3's git work wants VS Code opened on `dotnet-db-coursework`, the top folder, so the terminal stands there.
 - The [troubleshooting appendix](lecture-notes.md#appendix-troubleshooting) covers the rest.
 
 ## 📊 Grading (20 pts)
