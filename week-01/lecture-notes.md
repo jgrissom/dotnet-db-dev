@@ -132,7 +132,7 @@ personnelOnStation = "twelve";   // does not compile. Not "crashes" — does not
 **Naming:** `camelCase` for variables, `PascalCase` for methods and classes. `var` means "work the type out from what I'm assigning" — the variable still has exactly one type forever, you just didn't type it out.
 
 > [!NOTE]
-> **Where's `static void Main`?** A file called `Program.cs` can just have statements in it and they run in order — that's *top-level statements*. If your last course had you writing `static void Main(string[] args)`, that's the older spelling and both still work. The starters here use the short form.
+> **`Program.cs` holds bare statements, and they run in order** — no class around them. That's *top-level statements*, and it's what `dotnet new console` has produced since .NET 6, so it's probably all you've ever written. **If you have seen `static void Main(string[] args)`** — in an older course, a tutorial, or full Visual Studio — that's the longer spelling of the same thing. Both still work; everything here uses the short form.
 
 ---
 

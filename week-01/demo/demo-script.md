@@ -130,9 +130,9 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 - [ ] `Haldane.csproj` — **open it**, because most of them have never looked inside one: *"eight lines of XML that say which .NET and which packages. You'll add a line to this in week 3, and it's the whole reason there's no `.sln` in this course"*
 - [ ] `bin/` and `obj/` — 🎯 *"you didn't write any of this and you never edit it. Remember these two names — they come back tonight, the moment git meets this folder"* ⚠️ **plant it, don't explain it** — §7's wall-and-collapse beat is where they get their moment
 
-### Where Main went
+### The whole file
 
-- [ ] 🎞️ **GO TO SLIDE 8** — *Where did Main go?* · worth a real thirty seconds if their course used `static void Main`: *"a file called `Program.cs` can just have statements in it. Both spellings still work — this one is shorter and it's what the starters use"*
+- [ ] 🎞️ **GO TO SLIDE 8** — *Program.cs is the whole file* · **twenty seconds, and don't teach it — most of this room has never written anything else:** *"one file, statements top to bottom, no class around them. This is where your program starts"* ⚠️ **Do not frame this as "where did Main go?"** — `dotnet new console` has generated top-level statements since .NET 6, so for most of them there was never a `Main` to lose. **Ask instead** — *"has anyone written `static void Main` before?"* — and if hands go up, spend one sentence: *"that's the older spelling, both still work, this one is shorter."* If no hands, move on 🔗 **the "where your program starts" half is the plant for §6 — `Conditions.cs` is a file the program does NOT start in**
 - [ ] Then in `Program.cs`, delete the template line and **type** the banner — first instance, so type it, don't paste:
   ```csharp
   Console.WriteLine("========================================");

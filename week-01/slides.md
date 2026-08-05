@@ -126,9 +126,9 @@ A `.gitignore` keeps those last two out — **before your first commit.**
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · where Main went' -->
+<!-- _footer: '🖥️ Demo §3 · the whole file' -->
 
-## Where did Main go?
+## Program.cs is the whole file
 
 ```csharp
 Console.WriteLine("Haldane Station");
@@ -136,11 +136,13 @@ Console.WriteLine("Haldane Station");
 
 <br>
 
-That's the **whole file**. Statements run top to bottom.
+No class, no `Main` — statements run top to bottom.
+
+**This file is where the program starts.** Remember that in an hour.
 
 <br>
 
-`static void Main` still works. This is the short spelling.
+Seen `static void Main`? Still works. This is the short spelling.
 
 ---
 
