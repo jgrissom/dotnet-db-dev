@@ -2,7 +2,7 @@
 
 Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Talk each block through once it's on screen** — that's the beat the typing used to provide. ⚠️ **Say what it *does*, never what it says:** `Console.WriteLine($"Station: {stationName}")` is *"print the label, then drop the station's name in"* — not *"dollar sign, quote, curly brace."* **Name syntax only when the syntax is the lesson** (the `$`, the `.0`, the `out`).
 
-**Type whatever you feel like typing** — this is a default, not a rule. **The one that would cost you if you didn't: §5's `int`.** That break only works if the room watches the *choice* get made, so paste the generator block and change that one word by hand, out loud. Two seconds of typing, and they're the two that matter.
+**Type whatever you feel like typing** — this is a default, not a rule. **The one that would cost you if you didn't: §5's fix.** The generator block arrives already broken (`int burnPerHour`) and should look unremarkable — but the *repair* is one word changed in front of the room, `int` → `double`, and the answer changing as they watch is the whole payoff. Two seconds of typing, and they're the two that matter.
 
 > [!TIP]
 > **Clickable version:** [the hosted script](https://jgrissom.github.io/dotnet-db-dev/week-01/demo/script.html) — checkboxes survive refreshes; Reset button for next run.
@@ -203,7 +203,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 ### The limit
 
-- [ ] Paste the generator block — ⚠️ **then change `double burnPerHour` to `int` by hand, out loud.** That one word is the break; the room has to watch you choose it. 📖 **Talk it through first** — *"the fuel, divided by the burn rate, into a double"*:
+- [ ] Paste the generator block. ⚠️ **The bug is already in it — `int burnPerHour` — and that is exactly the point: nothing here looks wrong.** 📖 **Talk it through as if it were fine** — *"the fuel, divided by the burn rate, into a double"* — and say nothing about the types:
   ```csharp
   int fuelLitres = 4300;
   int burnPerHour = 800;
@@ -217,7 +217,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 - [ ] ⚠️ **Don't rescue it too fast.** If nobody speaks within twenty seconds, ask *"is that right?"* — never *"that's wrong"*
 - [ ] **Ask before explaining:** *"why?"* — someone usually gets there, and a few will have been bitten by it before. **Let that person say it.** Then: *"both sides are whole numbers, so C# did whole-number division and threw the remainder away. Then it stored `5` in a double, as 5.0. **The decimal point was gone before `double` ever got involved**"*
 - [ ] 💡 **The follow-up that separates knowing-the-fix from understanding it:** *"so would casting the answer to double save you?"* — no. `(double)(4300 / 800)` is 5.0. **The fix has to happen before the division, not after**
-- [ ] 🎞️ **GO TO SLIDE 14** — *What the compiler cannot catch* · **fix it live, and it's one word** — `int` becomes `double` on the `burnPerHour` line:
+- [ ] 🎞️ **GO TO SLIDE 14** — *What the compiler cannot catch* · **fix it live, and type this one by hand** — `int` becomes `double` on the `burnPerHour` line. ⚠️ **This is the typing that matters tonight:** one word, changed in front of them, and the answer changes:
   ```csharp
   double burnPerHour = 800;
   ```
