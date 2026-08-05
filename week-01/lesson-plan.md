@@ -43,7 +43,7 @@ By the end of this session, students can:
 - `lecture-notes.md` on your second screen
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-01/demo/script.html))
 - [`setup-guide.md`](setup-guide.md) — self-serve, on a spare screen. §2 is now mostly ✓-checks, with the full install path kept for whoever needs it
-- ⚠️ **An empty scratch folder**, and any rehearsal `Haldane` folder deleted. The finished state lives in the private repo as `week-01/demo-starter/Haldane` — **rehearse against it, don't open it in class**
+- ⚠️ **The instructor rehearsal repo reset to empty** (`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`), any rehearsal `Haldane` deleted. The finished state lives in the private repo as `week-01/demo-starter/Haldane` — **rehearse against it, don't open it in class**
 - Your finished lab answer key with `dotnet test Lab.Checks` printing **5/5**, ready for the lab launch
 - The school SQL Server handout is **not** needed until week 10 — don't hand it out tonight
 

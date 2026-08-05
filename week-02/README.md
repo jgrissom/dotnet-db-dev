@@ -23,10 +23,10 @@ The compiler's limit, part two — and the bill for week 1's push. Students clea
 
 ## 📋 Before class, don't forget
 
-- ⚠️ **The scratch coursework repo from week 1 is tonight's set, mess intact** — verify with §0's command, **write down your file count** (it's "the forty files" all night), and rebuild from §0's block if it's gone
+- ⚠️ **The instructor demo repo from week 1 is tonight's set, mess intact** — verify with §0's command, **write down your file count** (it's "the forty files" all night), and rebuild from §0's block if it's gone
 - **The week-1 demo repo on GitHub still shows `bin/` and `obj/`** — §1 tours it live before cleaning it
 - **Rehearse the whole demo once (≈20 min)** — the cleanup beat especially; its order (`.gitignore` first, prove it changed nothing, *then* evict) is the lesson
-- **VS Code open on the scratch repo's top** (`~/scratch/dotnet-db-coursework`) — the one window, exactly where week 1's class left it; the panel needs no configuration because the workspace *is* the repo
+- **VS Code open on the demo repo's top** (`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`) — the one window, exactly where week 1's class left it; the panel needs no configuration because the workspace *is* the repo
 - Editor font **and** terminal sized for the back row, as ever
 
 **Prev:** [Week 1 — Setup and First Contact](../week-01/) · **Next:** Week 3 — Collections, and Losing Everything at Midnight *(coming)*

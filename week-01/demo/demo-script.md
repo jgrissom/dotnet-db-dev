@@ -28,12 +28,12 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] **Copy `week-01/demo-starter/Haldane` out of the private repo** somewhere you can look at it — that's the **finished** state. ⚠️ **Do not open it in class.** Tonight's first beat is an empty folder becoming a program, and having it pre-made throws that away
 - [ ] ⚠️ **Reset to exactly what the room will have after §2** — an empty `dotnet-db-coursework` and nothing else. §3 *creates* `week-01` inside it on screen, and a leftover folder kills that beat:
   ```bash
-  rm -rf ~/scratch/dotnet-db-coursework && mkdir -p ~/scratch/dotnet-db-coursework
+  rm -rf ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && mkdir -p ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework
   ```
 - [ ] 🎯 **This is deliberate: your folders match theirs exactly, all night.** They make `dotnet-db-coursework` in §2, you already have it; §3 puts `week-01` inside it; §7 does `git init` at the top. **Nothing you do on screen is a "demo shortcut" they have to mentally translate**
-- [ ] **Have VS Code's Open Folder dialog land somewhere sane** — open `~/scratch/dotnet-db-coursework` once beforehand so the picker starts there and you aren't navigating your home directory on the projector
+- [ ] **Have VS Code's Open Folder dialog land somewhere sane** — open `~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework` once beforehand so the picker starts there and you aren't navigating your home directory on the projector
 - [ ] **Rehearse the whole thing once (≈20 min)** — it also warms the NuGet cache, so the first `dotnet new` in front of the room is instant rather than a thirty-second stare
-- [ ] ⚠️ **Pre-position two terminals for §8 so you never `cd` on the projector** — **separate terminal windows, not VS Code's integrated one**, since that one is tied to the `week-01` you'll have open all night. One stands in the answer key's `week-01/lab/solution`, one in a throwaway copy of the public repo's `starter/week-01`. **Navigating there live costs you twice:** it breaks the *never `cd`* habit you've modelled all evening, in the last five minutes of modelling it, and it puts the answer-key path on the wall
+- [ ] ⚠️ **Pre-position two terminals for §8 so you never `cd` on the projector** — **separate terminal windows, not VS Code's integrated one**, since that one is tied to the `week-01` you'll have open all night. One stands in the answer key's `week-01/lab/solution`, one in a throwaway copy of the public repo's `starter/week-01`. **Navigating there live costs you:** it puts the answer-key path on the wall, and it is fumbling at exactly the moment the room needs one clean number
 - [ ] ⚠️ **Bump the font in those windows too.** *Terminal sized for the back row* above is about VS Code's integrated terminal — a separate app window has its own setting and defaults small
 - [ ] **Position and warm the solution window — the answer key is already on your machine, in the private repo's clone.** Nothing to fetch. ⚠️ **This line assumes the two course repos are cloned side by side under `~/Repos`** — if yours live somewhere else, change the path. **It is the only machine-specific command in this sheet:**
   ```bash
@@ -45,9 +45,9 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] Teaching profile in VS Code; close every other folder and tab
 - [ ] Have the [setup guide](../setup-guide.md) open on a projector-adjacent tab, or printed. **It is self-serve by design** — your job in §2 is to circulate, not to present
 - [ ] ⚠️ **Check your own `git config --global user.name`** is the teaching identity and not something you'd rather not project
-- [ ] **`~/scratch` mirrors a student machine** — the demo coursework folder sits beside its own plain clone, so the two-folder layout on screen is the one the room builds, and any student step is demonstrable from your chair. If the clone is missing:
+- [ ] **`instructor/` mirrors a student machine** — the demo coursework folder sits beside its own plain clone, so the two-folder layout on screen is the one the room builds, and any student step is demonstrable from your chair. If the clone is missing:
   ```bash
-  cd ~/scratch && git clone https://github.com/jgrissom/dotnet-db-dev.git
+  cd ~/Repos/dotnet-db-dev-course-trial/instructor && git clone https://github.com/jgrissom/dotnet-db-dev.git
   ```
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive**, and leave it there while the room settles. **Costs no class time** — it is read by whoever is early, and it makes the banner you type in §3 land as *"that thing that was on screen when I walked in."* ⚠️ **Close it before slide 1**, and don't introduce it, explain it or refer to it. It is the station's own board; it explains itself or it isn't working
 - [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."*** Tonight especially, because the temptation to follow along is highest when the material is familiar

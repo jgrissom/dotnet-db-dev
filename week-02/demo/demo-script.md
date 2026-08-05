@@ -21,15 +21,15 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ## 0 · Before class
 
-- [ ] ⚠️ **The scratch coursework repo from week 1 is tonight's set.** Verify it's intact — the whole §1 beat is that its mess is still committed:
+- [ ] ⚠️ **The instructor demo repo from week 1 is tonight's set.** Verify it's intact — the whole §1 beat is that its mess is still committed:
   ```bash
-  cd ~/scratch/dotnet-db-coursework && git ls-files | grep -cE '(^|/)(bin|obj)/'
+  cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && git ls-files | grep -cE '(^|/)(bin|obj)/'
   ```
   A number in the dozens = ready. **Write that number down — it's "the files you never wrote" all night, and the terminal's count is the only one you ever say aloud.**
-- [ ] ⚠️ **If the scratch repo is gone**, rebuild the week-1 end state (~2 min) — and note the force-push replaces the demo repo on GitHub, which is fine, it's the same teaching artifact:
+- [ ] ⚠️ **If the demo repo is gone**, rebuild the week-1 end state (~2 min) — and note the force-push replaces the demo repo on GitHub, which is fine, it's the same teaching artifact:
   ```bash
-  rm -rf ~/scratch/dotnet-db-coursework && mkdir -p ~/scratch/dotnet-db-coursework
-  cd ~/scratch/dotnet-db-coursework
+  rm -rf ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && mkdir -p ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework
+  cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework
   dotnet new console -o week-01/Haldane
   cp ~/Repos/dotnet-db-dev-answer-keys/week-01/demo-starter/Haldane/*.cs week-01/Haldane/
   dotnet build week-01/Haldane
@@ -39,7 +39,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```
 - [ ] ⚠️ **The GitHub page must show the mess too** — §1 opens on `github.com/jgrissom/dotnet-db-coursework`, clicking into `week-01/Haldane/obj/`. If the week-1 class push didn't happen, the rebuild above fixes it
 - [ ] **Rehearse the whole thing once (≈20 min).** The §4 `dotnet new` wants a warm NuGet cache, and the §2 cleanup is a beat you want in your hands, not your head
-- [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`~/scratch/dotnet-db-coursework`** — the top, exactly where week 1's class left it, and the only folder that ever gets opened
+- [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`** — the top, exactly where week 1's class left it, and the only folder that ever gets opened
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** The board gained a generator panel this week — say nothing about it; it explains itself or it isn't working. **Close it before slide 1**
   - ⚠️ **Wrong week showing?** The bare URL routes by date, so on class night it lands on week 2 by itself — but **when rehearsing ahead of the calendar it will show an earlier board, correctly.** Force it: **[`dutyconsole.com/?week=2`](https://dutyconsole.com/?week=2)** (works on any date), or go straight to [`dutyconsole.com/week-02.html`](https://dutyconsole.com/week-02.html). The `?week=` override is the supported way to look ahead — never edit `index.html`'s anchor to preview
 - [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."***
