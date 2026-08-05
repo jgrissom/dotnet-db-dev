@@ -290,7 +290,7 @@ The checks in tonight's lab call `Broadcast.SignOn("Marisol")` **directly** and 
 
 ⚠️ **A method written at the bottom of `Program.cs` is invisible from outside**, even if you mark it `public`. It has to be in a class, in its own file. If the checks say they can't find your method and you're sure you wrote it, this is why.
 
-**If your habit is to put everything in `Main`** — and for most people coming out of an intro course, it is — this is the habit to break tonight. It's not tidiness:
+**If your programs so far have been one file, top to bottom** — and for most people coming out of an intro course, they have been — this is the habit to break tonight. It's not tidiness:
 
 - **This week** it's the difference between a check finding your work and reporting zero.
 - **In week 7** it's the difference between code you can test and code you can only squint at.

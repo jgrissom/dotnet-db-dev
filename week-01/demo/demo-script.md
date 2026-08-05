@@ -21,7 +21,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the
 >
 > **Familiar beats move fast.** §3 and §4 are recap — if you find yourself explaining what a `string` is, you have taken eight minutes from git.
 >
-> **Two beats carry the evening, and both are new to them.** §5's *second* break divides two whole numbers, gets a wrong answer, and shows **no error and no warning at all** — that's the payoff and it gets twenty minutes. Then §6's split: **logic inside `Program.cs` cannot be called, tested or graded by anyone.** Most of the room has spent a semester putting everything in `Main`.
+> **Two beats carry the evening, and both are new to them.** §5's *second* break divides two whole numbers, gets a wrong answer, and shows **no error and no warning at all** — that's the payoff and it gets twenty minutes. Then §6's split: **logic inside `Program.cs` cannot be called, tested or graded by anyone.** Most of the room has spent a semester writing programs that live entirely in `Program.cs`.
 >
 > ⚠️ **§5's first break is a warm-up, not a reveal.** They have seen a build fail. Play it as "now read it properly", inside four minutes, and move on.
 
@@ -85,7 +85,6 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 ### You already write C#
 
 - [ ] 🎞️ **GO TO SLIDE 4** — *You already write C#* · 🎯 **the frame for the whole term, and it buys you permission to move fast:** *"you have all written C#. I am not going to teach you what a loop is, or a method, or a class. This course is the part your last one didn't have room for — code that a machine can test, git, collections, and a real database underneath it"*
-<!-- - [ ] Ask for hands: *"who put every single method inside `Main` last semester?"* — expect most of the room, and expect laughter. 🔗 **That's §6, and naming it now makes the later beat land** -->
 - [ ] 💡 Be straight about the overlap rather than hiding it: *"some of tonight you'll have seen. I'll go fast through those bits. Two things you almost certainly haven't seen, and they're both after the second break"*
 
 ## 2 · Toolchain check *(slide 5)*
@@ -99,13 +98,13 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```
 - [ ] ⚠️ **Name the two name-collisions before they cost anyone ten minutes:** VS **Code** is not Visual **Studio**; the **C#** extension is not **C# Dev Kit**. Anyone who came through full Visual Studio last term needs both said out loud
 - [ ] **Circulate. Do not present during this segment** — the room is at a dozen different stages and a demo strands whoever is behind
-- [ ] 🎯 **The two failures worth calling out once, loudly:** *"if the terminal says 'command not found', it was open while you installed — close it completely and open a new one. And if `dotnet --version` says 8 or 9, that's last term's SDK. Install 10 anyway; they live side by side"*
+- [ ] 🎯 **The two failures worth calling out once, loudly:** *if the terminal says 'command not found', it was open while you installed — close it completely and open a new one. And if `dotnet --version` says 8 or 9, that's last term's SDK. Install 10 anyway; they live side by side*
 - [ ] ⚠️ **`git config --global user.name` is the check most of them fail**, because an intro course rarely sets it up. That's expected and it's not a problem — it's two commands
 - [ ] ⚠️ **§5 of the guide is the part that gets skipped, because it isn't an install and the fast finishers stop reading.** It has **two** endings and the lab needs both — **a `dotnet-db-coursework` folder of their own** (empty, made with Open Folder → New Folder) **and** a clone of the course repo:
   ```bash
   git clone https://github.com/jgrissom/dotnet-db-dev.git
   ```
-- [ ] 🎯 **Say why there are two folders, once, clearly** — it prevents the commonest confusion of the night: *"`dotnet-db-coursework` is yours and starts empty. `dotnet-db-dev` is mine and you only ever copy things **out** of it. Never work inside mine"*
+- [ ] 🎯 **Say why there are two folders, once, clearly** — it prevents the commonest confusion of the night: *`dotnet-db-coursework` is yours and starts empty. `dotnet-db-dev` is mine and you only ever copy things **out** of it. Never work inside mine*
 - [ ] **✓ CHECKPOINT:** every machine prints a `10.` from `dotnet --version`, prints a name from `git config`, **and has both folders** — `dotnet-db-coursework` (theirs, empty) beside `dotnet-db-dev` (the clone) — before the break. ⚠️ **A missing coursework folder does not hurt until 2:50 and then costs ten minutes**
 - [ ] 💡 **Verified and idle by 0:25?** Take the break early and give the minutes to §7. **Do not pad the recap segments** — that's the one way to lose this room
 
@@ -263,7 +262,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 ### Two files, two jobs
 
 - [ ] 🎞️ **GO TO SLIDE 17** — *Two files, two jobs* · 🎯 **this is the second of tonight's two real beats. Give it its full three minutes and do not let it sound like tidiness:** *"`Program.cs` is what a human sees. `Conditions.cs` is what has to be **right**. In an hour you'll open a lab with a `Broadcast.cs` in it, and its checks call `Broadcast.SignOn` directly and ask what came back — same shape, different station. They cannot call anything inside `Program.cs`. **Nothing can.** Not the checks, not me, not you"*
-- [ ] 🎯 **Collect the show of hands from §1 and make it the lesson:** *"most of you put everything in `Main` last semester. That worked, and it will never work again — not because I say so, but because a thing nobody can call is a thing nobody can test and nobody can grade"*
+- [ ] 🎯 **Ask it here, where it pays off:** *"last semester, when you wrote a program — where did the actual work live?"* Most will say `Program.cs`, top to bottom. Then: *"that worked, and it will never work again — not because I say so, but because a thing nobody can call is a thing nobody can test and nobody can grade"*
 - [ ] 💡 **Prove it rather than asserting it, if the clock allows (30 seconds):** move `Fahrenheit` to the bottom of `Program.cs`, mark it `public`, and show the call failing to resolve. *"Public doesn't help. It has to be in a class, in its own file"*
 - [ ] 🔗 **Plant week 7 without spending it:** *"there's a file in tonight's lab that grades you. In week 7 you find out it isn't magic, and you write one"*
 - [ ] **✓ CHECKPOINT:** the room can say which file the checks can see, and why

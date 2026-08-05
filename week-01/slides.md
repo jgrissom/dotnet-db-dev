@@ -299,7 +299,7 @@ Nothing can call into `Program.cs`. Not the checks. Not you.
 
 <br>
 
-If your habit is "everything in `Main`" — that's tonight.
+If your logic lives in `Program.cs` — that's tonight.
 
 ---
 
