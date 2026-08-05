@@ -339,7 +339,13 @@ dotnet-db-coursework/     ← your VS Code window. git lives HERE. So does your 
 
 ### The gitignore, written before your first commit
 
-Run `git init`, then `git status -u`, and git lists **everything** it can see as untracked — your three source files, and screen after screen of `bin/` and `obj/`. *(The `-u` matters: plain `git status` summarises an untracked folder as one line — `week-01/` — so you never see what's inside it.)* That machinery is regenerated from your source on every build; nothing in it is yours, and none of it belongs in a repo:
+Run `git init`, then `git status`, and you get one line: `week-01/`. That is git being tidy — **it summarises an untracked folder rather than listing what is inside it** — and it is hiding the problem. Ask for all of it:
+
+```bash
+git status -u
+```
+
+Now you see everything git can see: your three source files, and screen after screen of `bin/` and `obj/`. *(`git status` on its own is the one you'll type every day; `-u` is for when a folder is hiding its contents from you.)* That machinery is regenerated from your source on every build; nothing in it is yours, and none of it belongs in a repo:
 
 > **A repo holds what you wrote. Everything generated can be regenerated — by anyone, from your source, any time.**
 

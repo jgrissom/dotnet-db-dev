@@ -277,11 +277,15 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```bash
   git init
   ```
-- [ ] 🎯 **Before running anything else, let them notice** — *"anything different in the IDE?"* The Source Control icon just grew a badge with a number on it. **The window IS the repo, so VS Code saw it instantly — no dialog, nothing to configure.** Then ask for the same thing in the terminal:
+- [ ] 🎯 **Before running anything else, let them notice** — *"anything different in the IDE?"* The Source Control icon just grew a badge with a number on it. **The window IS the repo, so VS Code saw it instantly — no dialog, nothing to configure.** Then ask the terminal the same question, with the command they will actually type every day:
+  ```bash
+  git status
+  ```
+- [ ] 🎯 **Sit on the oddity — this is a notice-then-explain beat, so don't answer it yourself:** *"one line. For a folder with dozens of files in it. And the badge over there says something completely different. Anything strike you as odd?"* Let it hang, then explain: **git summarises an untracked folder as a single line rather than listing what is inside it.** To see the lot:
   ```bash
   git status -u
   ```
-  ⚠️ **The `-u` is load-bearing: plain `git status` collapses an untracked folder to one line — `week-01/` — and the wall never appears.** One sentence if anyone asks: *"list every file, not just the folder."*
+  *"`-u` — untracked files, all of them. Now we are looking at what git is actually looking at."* 💡 **They will use plain `git status` for the rest of their lives; `-u` is for tonight, and for any time a folder is hiding its contents from you.**
 - [ ] 🎯 **The wall.** Screens of red — every file git can see. **Scroll it, then ask the room:** *"how much of this did you write?"* — let them find it: `Program.cs`, `Conditions.cs`, a `.csproj`… and screen after screen of `bin/` and `obj/`. *"Three files are mine. The rest is the compiler's machinery — scratch paper and build output, remade from my source every single build. A repo holds what you **wrote**. Nobody wants this"*
 - [ ] 🎯 **The collapse — one of tonight's best twenty seconds.** In the Explorer, **click the empty space below the file list** (so it lands at the root), **New File → `.gitignore`**, and type it **with the Source Control badge in view** — watch the number fall as lines land:
   ```
