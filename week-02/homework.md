@@ -134,37 +134,27 @@ dotnet test week-02/Homework.Checks
 
 **Run the program the way the lab taught you to** — politely once, then rudely: spaces for a name, words for a number, Enter for everything. If anything crashes, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
 
-## Part 3 — Clean the repo (graded)
+## Part 3 — Repo hygiene (graded)
 
-This is the demo's cleanup, on your repo, for points — **and it stays scored every week from now on.**
+**Hygiene is scored every week from now on** — and because your `.gitignore` has been guarding the door since your very first commit, most of it is already true. Tonight adds a README and the commit habit.
 
 **You're already standing where all of this happens.** Your window is the top of the repo — the Explorer can make files at the root, and the terminal is where every `git` command runs. Nothing to open, nothing to change.
 
 > [!NOTE]
 > **Never connected this folder to GitHub at all?** Do [week 1's Part 3](../week-01/homework.md#part-3--push-it-graded) first — its *first time only* block makes the repo, connects it, and adds me as a collaborator. Then come back here.
 
-**1. A `.gitignore` at the repo root.** In the Explorer, **click the empty space below the file list first** — so the new file lands at the root, not inside a week folder — then **New File → `.gitignore`**, and type [this exact file](lecture-notes.md#gitignore-and-the-part-everyone-gets-wrong):
-
-```
-bin/
-obj/
-*.user
-.DS_Store
-```
-
-**2. The one-time cleanup.** The `.gitignore` alone changes nothing about what's already committed — [ignored is not untracked](lecture-notes.md#cleaning-a-repo-that-already-committed-the-mess):
+**1. Glance at your repo's hygiene** — thirty seconds:
 
 ```bash
-git rm -r --cached .
-git add .
-git commit -m "Week 2: take out the trash"
+git status
+git ls-files | grep -E '(^|/)(bin|obj)/'
 ```
 
-**The grader sweeps your whole repo, `week-01` included** — that's where the mess is. After the push, GitHub should show no `bin/` or `obj/` anywhere.
+`status` should be quiet (or list only tonight's real work), and the second command should print **nothing** — no generated file is tracked anywhere. If something *did* slip in, [the eviction drill from the demo](lecture-notes.md#the-eviction-when-junk-gets-tracked-anyway) fixes it in three commands — that's exactly what it's for.
 
-**3. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). Commit it — from the Source Control panel if you like; the buttons are the verbs now.
+**2. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). In the Explorer, **click the empty space below the file list first** so it lands at the root, then New File → `README.md`. Commit it — from the Source Control panel if you like; the buttons are the verbs now.
 
-**4. Commit as you go — three or more commits touching `week-02/`**, with messages that mean something. `week 2 lab`, `switchboard working`, `repo cleanup` tells a story. I read these. (A good rhythm, and the one the demo modeled: commit whenever you're somewhere solid — right after the setup compiles, again when the checks go green — so the risky stretches always have a save point behind them.)
+**3. Commit as you go — three or more commits touching `week-02/`**, with messages that mean something. `week 2 lab`, `switchboard working`, `readme` tells a story. I read these. (A good rhythm, and the one the demo modeled: commit whenever you're somewhere solid — right after the setup compiles, again when the checks go green — so the risky stretches always have a save point behind them.)
 
 ```bash
 git push
@@ -192,7 +182,7 @@ Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywher
 - **`FormatException` in `IsWinner`** — that's `int.Parse` believing a caller. [`TryParse` asks.](lecture-notes.md#parse-believes-tryparse-asks)
 - **Check 3 says your defaults disagree** — `null`, `""` and `"   "` must all get the same answer; `IsNullOrWhiteSpace` makes that automatic.
 - **Check 4 says the right number loses** — `IsWinner` compares against a typed-in number instead of `LuckyCallerNumber()`, and they disagree.
-- **GitHub still shows `bin/` after your cleanup** — the untrack step didn't run, or ran before the `.gitignore` existed. [The order matters.](lecture-notes.md#cleaning-a-repo-that-already-committed-the-mess)
+- **A generated file shows up tracked on GitHub** — something slipped past the ignore file at some point. [The eviction drill](lecture-notes.md#the-eviction-when-junk-gets-tracked-anyway) clears it in three commands.
 - **`fatal: not a git repository`** — your terminal wandered out of the repo (a leftover `cd`?). Close it and open a fresh one (`` Ctrl+` ``) — it starts back at the top, where git lives.
 - The [troubleshooting appendix](lecture-notes.md#appendix-troubleshooting) covers the rest.
 
@@ -206,7 +196,7 @@ Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywher
 | `IsWinner()` survives any answer — your number wins, lies lose, nothing throws | 4 | `dotnet test` |
 | Private coursework repo still reachable (same URL as week 1) | 1 | your repo |
 | The program builds and runs without crashing — even when fed nothing but Enter | 2 | your repo |
-| `bin/` and `obj/` tracked **nowhere** in the repo — `.gitignore` in place, old ones cleaned out | 3 | your repo |
+| `bin/` and `obj/` tracked **nowhere** in the repo — the `.gitignore` holding | 3 | your repo |
 | 3+ commits touching `week-02/` 👀 | 2 | your repo |
 | `README.md` at the repo root that says whose repo this is 👀 | 1 | your repo |
 

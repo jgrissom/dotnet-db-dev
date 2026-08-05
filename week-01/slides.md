@@ -51,6 +51,7 @@ You'll feel the first one in **week 3**.
 
 ## Tonight
 
+0. The paperwork — syllabus, Canvas, how grading works
 1. Toolchain check — four commands
 2. What `dotnet new console` actually made
 3. **Where your code has to live**
@@ -121,7 +122,7 @@ Same shape in the lab, the homework, and every week after.
 
 <br>
 
-**Week 2:** you stop committing those last two.
+A `.gitignore` keeps those last two out — **before your first commit.**
 
 ---
 
@@ -311,11 +312,11 @@ git commit -m "Week 1: station sign-on"
 git push
 ```
 
-<br>
+**Plus four lines of `.gitignore`, before the `add`** —
 
-**Your terminal is already standing where git lives** —
+so the repo only ever holds what you wrote.
 
-the top of the repo. One window, one place, all term.
+Your terminal is already standing where git lives: the top.
 
 ---
 
@@ -351,7 +352,7 @@ dotnet test week-01/Lab.Checks
 
 **1 / 5 green** out of the box.
 
-**⏱️ 50 minutes · target tonight: 1–5 green.**
+**⏱️ 45 minutes · target tonight: 1–5 green.**
 
 ---
 

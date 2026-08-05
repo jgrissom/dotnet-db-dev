@@ -25,6 +25,16 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ## 0 · Before class
 
+**The set, at curtain — check this before anything else:**
+
+```
+instructor/                    ← the container on your machine
+├─ dotnet-db-coursework/       ← OPEN IN VS CODE, and completely EMPTY
+└─ dotnet-db-dev/              ← a plain clone beside it — never opened
+```
+
+VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**. That emptiness is the first beat of the night — §3 turns nothing into a program on screen. By §9 the same window holds `.gitignore` + `week-01/Haldane/`, committed and pushed clean — which is also **week 2's opening state**, untouched.
+
 - [ ] **Copy `week-01/demo-starter/Haldane` out of the private repo** somewhere you can look at it — that's the **finished** state. ⚠️ **Do not open it in class.** Tonight's first beat is an empty folder becoming a program, and having it pre-made throws that away
 - [ ] ⚠️ **Reset to exactly what the room will have after §2** — an empty `dotnet-db-coursework` and nothing else. §3 *creates* `week-01` inside it on screen, and a leftover folder kills that beat:
   ```bash
@@ -61,7 +71,14 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ### Tonight
 
-- [ ] 🎞️ **GO TO SLIDE 3** — *Tonight*. Four things, and be honest about the shape: *"the first twenty minutes are a toolchain check, most of you will pass it in five, and then we get to the part that's actually new"*
+- [ ] 🎞️ **GO TO SLIDE 3** — *Tonight*. Four things, and be honest about the shape: *"fifteen minutes of paperwork, a toolchain check most of you pass in five, and then we get to the part that's actually new"*
+
+### The paperwork
+
+- [ ] **Slide 3 stays up; swipe to the browser for Canvas.** Fifteen minutes, once, and never again: the syllabus (top to bottom, fast — dates, the drop-lowest rules if any, contact and office hours), then **the Canvas tour**: where assignments appear, where the repo URL gets submitted, where announcements land
+- [ ] 🎯 **How grading works in this course, said plainly, because it's unusual:** *"every week is 20 points. Most of them are checked by a program — the same checks you run yourself before submitting, so your score should never be a surprise. The rest is your repo: commits that tell a story, work that's pushed. There is no midterm and no final exam; there is a project, from week 4, on a topic you pick"*
+- [ ] ⚠️ **Due rhythm, once:** homework is due before the next class, submitted as a repo URL on Canvas — *"the URL never changes after tonight, so submitting is thirty seconds"*
+- [ ] 💡 Questions about grading policy get answered now or parked to office hours — **do not let the paperwork eat the toolchain slot**
 
 ### You already write C#
 
@@ -109,7 +126,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *What dotnet new made*. Then open the folder in VS Code and tour it — briskly:
 - [ ] `Haldane.csproj` — **open it**, because most of them have never looked inside one: *"eight lines of XML that say which .NET and which packages. You'll add a line to this in week 3, and it's the whole reason there's no `.sln` in this course"*
-- [ ] `bin/` and `obj/` — 🎯 *"you didn't write any of this and you never edit it. Remember these two names. Next week they cause the first real mess of the term"* ⚠️ **plant it, don't explain it** — week 2's opening beat is `git status` showing forty files
+- [ ] `bin/` and `obj/` — 🎯 *"you didn't write any of this and you never edit it. Remember these two names — they come back tonight, the moment git meets this folder"* ⚠️ **plant it, don't explain it** — §7's wall-and-collapse beat is where they get their moment
 
 ### Where Main went
 
@@ -247,24 +264,34 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 
 ## 7 · Onto GitHub *(slides 18–19)*
 
-> **Twenty-five minutes, and it needs them. Assume nobody has used git.** It's graded every week from here.
+> **Thirty minutes, and it needs them. Assume nobody has used git.** It's graded every week from here — and the `.gitignore` collapse in the middle is one of tonight's best beats; don't rush it.
 
 - [ ] 🎞️ **GO TO SLIDE 18** — *Four commands*. 🎯 **Open with the payoff of the one-window design:** *"notice what we don't have to do: move. Every `dotnet` command tonight named its week from this exact spot — and git wants to run at the top of the repo, which is **exactly where this terminal has been standing all night.** One window, one place, both tools"*
 - [ ] ⚠️ **Quick confirm before `git init`** — the prompt reads `dotnet-db-coursework` (it will, unless a stray `cd` happened; if in doubt, close the terminal and `` Ctrl+` `` a fresh one — it always starts at the top)
-- [ ] Then the first three, **reading each one aloud as you go** — what it does rather than what it is. ⚠️ **One line at a time; the `git status` between each is a beat, not filler:**
+- [ ] The first command, read aloud, then **stop and look**:
   ```bash
   git init
   git status
+  ```
+- [ ] 🎯 **The wall.** `status` lists everything in red, and the Source Control badge lights up with a number *(the window IS the repo — VS Code sees it instantly, no dialogs)*. **Scroll the list, then ask the room:** *"how much of this did you write?"* — let them find it: `Program.cs`, `Conditions.cs`, a `.csproj`… and screen after screen of `bin/` and `obj/`. *"Three files are mine. The rest is the compiler's machinery — scratch paper and build output, remade from my source every single build. A repo holds what you **wrote**. Nobody wants this"*
+- [ ] 🎯 **The collapse — one of tonight's best twenty seconds.** In the Explorer, **click the empty space below the file list** (so it lands at the root), **New File → `.gitignore`**, and type it **with the Source Control badge in view** — watch the number fall as lines land:
+  ```
+  bin/
+  obj/
+  *.user
+  .DS_Store
+  ```
+  *"Watch the badge. `bin/` — falling. `obj/` — there. Four lines, and git now sees exactly what I made"* 💡 **The last two, one sentence each:** `*.user` is per-machine editor settings; `.DS_Store` is macOS's Finder leaving notes to itself — Windows people never see one, the line costs nothing
+- [ ] `git status` again — **short now, and readable:** the three files, the `.gitignore` itself, nothing else. *"That file sits at the top, so it covers `week-01`, `week-02`, and the fourteen folders that don't exist yet. You write it once, tonight, before your first commit — and your repo never holds machinery, ever"*
+- [ ] Then the rest, **one line at a time; the `git status` between each is a beat, not filler:**
+  ```bash
   git add .
   git status
   git commit -m "Week 1: Haldane duty console"
   git status
   ```
-- [ ] 🎯 **Actually look at each `git status`, out loud:** *"this is the command you'll run more than any other, and it always tells you what git thinks is going on"*
-- [ ] 💡 **`git status` after `git add .` is the beat that sells it** — it lists `week-01/Haldane/...` with the folder in front. *"That's why git is up here. It can see the whole term from this one spot"*
-- [ ] ⚠️ **Do not fix what `git add .` just swept up.** `bin/` and `obj/` are now staged and that is *correct for tonight*. If someone spots it — and in this room someone might, having heard of `.gitignore` — give them the credit and hold the line: *"good eye. That's next week's first ten minutes, and it's better as a mess you made than a rule I gave you"*
-- [ ] **The Source Control badge lights up the moment `git init` finishes** — the window you all have open *is* the repo, so VS Code sees it instantly, no dialogs, nothing to configure. *(This used to be a whole hazard; the one-window design deleted it.)*
-- [ ] ⚠️ **Name the Source Control panel before anybody clicks it** — once the badge is showing, that number is enormous, because there's no `.gitignore` tonight. **Ten seconds, and it turns a distraction into a plant:** *"you'll have noticed the sidebar icon with a number on it. That's VS Code's git panel and it does all of this with buttons. Leave it alone tonight — you're learning what the commands **do**, and next week we'll use the panel once you know what it's doing for you. That number, by the way, is next week's first ten minutes"* 🔗 **The badge sits there showing week 2's punchline for the rest of the evening**
+- [ ] 💡 **`git status` after `git add .` is the beat that sells the top:** it lists `week-01/Haldane/...` with the folder in front. *"That's why git is up here. It can see the whole term from this one spot"*
+- [ ] ⚠️ **Name the Source Control panel before anybody clicks it** — ten seconds, and it turns a distraction into a plant: *"you've been watching the sidebar icon count along with us. That's VS Code's git panel, and it does all of this with buttons. Leave it alone tonight — you're learning what the commands **do**, and next week we'll use the panel once you know what it's doing for you"* 🔗 **Week 2's §2 collects this**
 - [ ] **Commit messages, said once and meant:** *"three commits minimum, and they should tell a story. `week 1 setup`, `station class`, `countdown working`. Not `a`, `b`, `asdf`. I read these and they're worth points"*
 - [ ] 🎞️ **GO TO SLIDE 19** — *Your repo for the whole term*
 - [ ] **Make the repo now, live on screen → [github.com/new](https://github.com/new).** Name it `dotnet-db-coursework` · **Private** · **don't** tick *Add a README* — you're pushing an existing folder into it. **Leave the page up**; the two lines it prints are the next beat but one
@@ -307,4 +334,4 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🎞️ **GO TO SLIDE 21** — *Tonight, in one picture*. Three beats: **the compiler checks types, not programs** · **your logic lives where a test can reach it** · **your work is on GitHub**
 - [ ] Homework: **their own radio station** — call sign, city, sign-off hour, five methods in a `Station` class, pushed to the private repo they made tonight. *"Same shape as the lab. Different station, and the station is yours"*
 - [ ] ⚠️ Repeat the two that cost points silently: **add me as a collaborator**, and **the class goes in its own file, marked `public`**
-- [ ] 🔗 **Week 2:** *"we start by looking at what `git add .` swept up tonight, and it's about forty files none of you wrote"*
+- [ ] 🔗 **Week 2:** *"those four lines you wrote tonight have been guarding your repo since your first commit. Next week: the one thing they can't do — and the first crash no compiler could have caught"*

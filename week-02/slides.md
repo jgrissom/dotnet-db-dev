@@ -31,44 +31,9 @@ style: |
 
 ---
 
-<!-- _footer: '🖥️ Demo §1 · the number' -->
+<!-- _footer: '🖥️ Demo §1 · four lines recapped' -->
 
-## The files you never wrote
-
-`git add .` swept up **everything**.
-
-<br>
-
-**How many files did you push last week?**
-
-<br>
-
-Somebody wrote every one of them. It wasn't you.
-
----
-
-<!-- _footer: '🖥️ Demo §1 · what they are' -->
-
-## What bin/ and obj/ are
-
-| | |
-|---|---|
-| `obj/` | the compiler's scratch paper |
-| `bin/` | the built program |
-
-Regenerated on **every build**. Deleting them costs nothing.
-
-<br>
-
-A repo holds what you **wrote**. The rest rebuilds.
-
----
-
-<!-- _footer: '🖥️ Demo §2 · four lines' -->
-
-## .gitignore
-
-One file, at the **top** of the repo:
+## Four lines, working since day one
 
 ```
 bin/
@@ -79,29 +44,63 @@ obj/
 
 <br>
 
-git stops **seeing** whatever matches.
+Your repo has never held a file you didn't write.
+
+**Tonight: the one thing those lines can't do.**
 
 ---
 
-<!-- _footer: '🖥️ Demo §2 · ignored is not untracked' -->
+<!-- _footer: '🖥️ Demo §1 · the slip' -->
+
+## The slip
+
+One build, one `add`, **before** the ignore file existed —
+
+<br>
+
+that's all it takes. And someday it will happen to you:
+
+a rename, a new machine, a hurried commit.
+
+<br>
+
+**Junk gets tracked. Now what?**
+
+---
+
+<!-- _footer: '🖥️ Demo §1 · ignored is not untracked' -->
 
 ## Ignored is not untracked
 
 `.gitignore` only covers files git hasn't met yet.
 
-What's already committed **stays tracked**. So, once:
+<br>
+
+What's already committed **stays tracked** —
+
+ignoring does not reach back.
+
+---
+
+<!-- _footer: '🖥️ Demo §1 · the eviction' -->
+
+## The eviction
 
 ```bash
 git rm -r --cached .
 git add .
-git commit -m "Week 2: take out the trash"
+git commit -m "take out the trash"
 ```
+
+Untrack everything · re-add · the ignore file filters.
+
+<br>
 
 Nothing leaves your disk. It leaves the **repo**.
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · the panel' -->
+<!-- _footer: '🖥️ Demo §2 · the panel' -->
 
 ## The panel reads the tree
 
@@ -118,7 +117,7 @@ Verbs first, buttons second. **Watch one file make the trip.**
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · a readme' -->
+<!-- _footer: '🖥️ Demo §2 · a readme' -->
 
 ## A README
 
@@ -134,7 +133,7 @@ Who you are, what this is, one line per week.
 
 ---
 
-<!-- _footer: '🖥️ Demo §4 · input arrives' -->
+<!-- _footer: '🖥️ Demo §3 · input arrives' -->
 
 ## Input arrives
 
@@ -153,7 +152,7 @@ You've called `ReadLine` a hundred times.
 
 ---
 
-<!-- _footer: '🖥️ Demo §4 · the warning' -->
+<!-- _footer: '🖥️ Demo §3 · the warning' -->
 
 ## The warning you'd have ignored
 
@@ -172,7 +171,7 @@ A warning is the compiler saying:
 
 ---
 
-<!-- _footer: '🖥️ Demo §4 · or use this instead' -->
+<!-- _footer: '🖥️ Demo §3 · or use this instead' -->
 
 ## ?? — or use this instead
 
@@ -192,7 +191,7 @@ The full story of `null` is **week 5**.
 
 ---
 
-<!-- _footer: '🖥️ Demo §4 · text becomes a number' -->
+<!-- _footer: '🖥️ Demo §3 · text becomes a number' -->
 
 ## Text becomes a number
 
@@ -210,7 +209,7 @@ double reading = double.Parse(raw);
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · the lie' -->
+<!-- _footer: '🖥️ Demo §4 · the lie' -->
 
 ## Input that lies
 
@@ -228,7 +227,7 @@ Went down over a **unit of measurement**, at 3 AM.
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · tryparse asks' -->
+<!-- _footer: '🖥️ Demo §4 · tryparse asks' -->
 
 ## TryParse asks first
 
@@ -247,7 +246,7 @@ else
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · the sentence' -->
+<!-- _footer: '🖥️ Demo §4 · the sentence' -->
 
 ## What no compiler can check
 
@@ -265,7 +264,7 @@ Your program has to.
 
 ---
 
-<!-- _footer: '🖥️ Demo §6 · hand off' -->
+<!-- _footer: '🖥️ Demo §5 · hand off' -->
 
 ## Lab: the caller line
 
@@ -281,11 +280,11 @@ dotnet test week-02/Lab.Checks
 
 **1 / 5 green** out of the box.
 
-**⏱️ 60 minutes · target tonight: 1–5 green.**
+**⏱️ 75 minutes · target tonight: 1–5 green.**
 
 ---
 
-<!-- _footer: '🖥️ Demo §7 · one picture' -->
+<!-- _footer: '🖥️ Demo §6 · one picture' -->
 
 ## Tonight, in one picture
 

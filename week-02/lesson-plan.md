@@ -1,15 +1,15 @@
 # Week 2 — Lesson Plan
 
-**Topic:** The mistakes the compiler *can't* catch — input that lies, `null`, and reading a warning you'd have ignored. Git hygiene: `.gitignore`, commit messages, README — and the Source Control panel's promised slot.
+**Topic:** The mistakes the compiler *can't* catch — input that lies, `null`, and reading a warning you'd have ignored. Git: what the four lines *can't* do (the slip, and the eviction drill), the Source Control panel's promised slot, and a README.
 **Session length:** 3h 45m
 
-> Two halves, and the order is a kept promise: week 1 ended with *"next week starts by looking at what `git add .` swept up tonight."* So the night opens on the mess — counted, explained, and cleaned for good — and then turns to the compiler's limit, part two: last week it was silent about a wrong answer; this week it *warns* and gets ignored, and then something no compiler could ever catch takes the console down. **Input happens after compiling is over.**
+> Two halves, and the order is a kept promise: week 1 ended with *"next week: what those four lines can't do."* So the night opens on git — the slip manufactured live, the eviction drill taught while it's cheap — and then turns to the compiler's limit, part two: last week it was silent about a wrong answer; this week it *warns* and gets ignored, and then something no compiler could ever catch takes the console down. **Input happens after compiling is over.**
 
 ## 🎯 The payoff moment — the demo's
 
-**`git status` right after the first build: forty files you never wrote** — collected exactly as promised, with the room's own counted numbers from the reading, and then the Source Control panel scrolling the entire mess as staged deletions at the moment of `git rm -r --cached .` **That scroll is the beat**: the mess they made in week 1, leaving, forty entries long. The published course-map payoff is the `git status` moment; the panel scroll is how it lands hardest.
+**A program that ran perfectly all week goes down over a unit of measurement.** The watch officer types `-41.5 C` — the way a human writes a log entry — and the console dies mid-handover with a `FormatException` the compiler never had a chance to see: the input didn't exist until compiling was long over. *"Compiled clean. Ran fine every rehearsal. Dead at 3 AM over two characters."*
 
-It only works because the mess is *theirs* — week 1 shipped no `.gitignore` on purpose, and the reading had them count their own junk. Don't apologize for the mess; it was the plan.
+It only lands if the break is **unannounced** (say the reading aloud as you type it) and slide 12 comes **after** the crash. The `??` warning beat earlier is the setup: the compiler warned about the one thing it *could* see, and said nothing about this — because it couldn't.
 
 ## 🎯 The payoff moment — the lab's
 
@@ -30,40 +30,39 @@ By the end of this session, students can:
 7. Explain why "ask once, answer gracefully" beats a re-asking loop for any program a grader (or test) has to run.
 
 > [!NOTE]
-> **Objectives 2, 4 and 6 are the week.** The panel and the README are quick payoffs on week 1's setup; protect the cleanup beat and both halves of §5 if the night runs short.
+> **Objectives 2, 4 and 6 are the week.** The panel and the README are quick payoffs on week 1's setup; protect the eviction drill and both halves of §4 if the night runs short.
 
 ## Materials
 
 - `slides.md` / `slides.html` — the deck (hosted at jgrissom.github.io/dotnet-db-dev)
 - `lecture-notes.md` on your second screen
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-02/demo/script.html))
-- ⚠️ **The scratch `dotnet-db-coursework` repo from week 1, mess intact** — §0 of the cue sheet has the verification command and a rebuild block. **Know your file count before class**; it's "the files you never wrote" all night
-- The week-1 demo repo **on GitHub** still showing `bin/` and `obj/` — §1 tours it live
+- ⚠️ **The instructor demo repo from week 1, CLEAN** — four-line `.gitignore` at its root, zero tracked machinery. §0 of the cue sheet has the verification command and a rebuild block. §1 manufactures its own mess, live, one file
+- A mental list of who struggled in week 1 — the **loose-ends slot** exists for them
 
 ## Timed agenda
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 25 min | **The forty files** *(slides 2–3, demo §1)*. Open cold on the reading: *"who's got a number?"* GitHub tour of the junk, then `git ls-files` counts on your own repo. What `bin/` and `obj/` are. Ends with the 60-second lab-PC drill the setup guide promised. |
-| 0:25 | 30 min | **The cleanup** *(slides 4–5, demo §2)*. `.gitignore` typed at the root — then **proved useless against what's already tracked**, which is the misconception to kill. `git rm -r --cached .`, the panel scrolling forty staged deletions 🎯, commit, push, GitHub clean. |
-| 0:55 | 15 min | **The panel, and a README** *(slides 6–7, demo §3)*. The promised Source Control slot: every region mapped to a verb they know. README typed and committed **with the buttons**. |
-| 1:10 | 10 min | **☕ Break** |
-| 1:20 | 30 min | **The console takes a reading** *(slides 8–11, demo §4)*. New `week-02` folder, `Conditions.cs` carried forward in one `cp` (the homework's move, modeled). `ReadLine`, **the squiggle read properly and ignored knowingly**, `?? ""`, `double.Parse`, happy-path run. |
-| 1:50 | 30 min | **Input that lies** *(slides 12–14, demo §5)*. 💥 The unannounced break: `-41.5 C` → `FormatException`. Read the crash's anatomy. Why the compiler warned about `null` but *couldn't* warn about this. `TryParse`, both paths run, the console stays up. The week's sentence. |
-| 2:20 | 10 min | **☕ Break** |
-| 2:30 | 5 min | **Lab launch** *(slide 15, demo §6)*. The frame — *"one method ships already written and already wrong — crash it"* — and "done" defined on **their** machines: after check 4, re-feed the sentence that crashed it and watch the desk survive. |
-| 2:35 | 60 min | **Lab: the caller line** *(slide 15 stays up)*. **In-class target: all five green, then fail to crash your own desk.** Circulate for Task 1's crash and Task 4's re-run. |
-| 3:35 | 10 min | **Wrap-up** *(slide 16, demo §7)*. Repo holds what you wrote · warnings mark the promise's edge · Parse believes, TryParse asks. Homework: the switchboard + the cleanup, both graded. Week 3 tease: the list, and losing it at midnight. |
+| 0:00 | 15 min | **The four lines, revisited** *(slides 2–5, demo §1)*. Thirty-second recap of what the `.gitignore` has been doing, the lab-PC drill, then **the slip manufactured live** (`git add -f` one build artifact), *ignored is not untracked*, and the eviction drill: `git rm -r --cached .` → re-add → clean. The one git skill everyone eventually needs, taught while it's cheap. |
+| 0:15 | 20 min | **Loose ends** *(no slides)*. Circulate: failed week-1 pushes, missing collaborator invites, broken toolchains, anyone who couldn't finish the homework. The room that leaves this slot healthy stays healthy all term. Early finishers: re-run their week-1 shift or read this week's lab intro. |
+| 0:35 | 15 min | **The panel, and a README** *(slides 6–7, demo §2)*. The promised Source Control slot: every region mapped to a verb they know. README typed and committed **with the buttons**. |
+| 0:50 | 10 min | **☕ Break** |
+| 1:00 | 30 min | **The console takes a reading** *(slides 8–11, demo §3)*. `week-02/Haldane` created by command, `Conditions.cs` carried forward in one `cp` (the homework's move, modeled). `ReadLine`, **the squiggle read properly and ignored knowingly**, `?? ""`, `double.Parse`, happy-path run. |
+| 1:30 | 35 min | **Input that lies** *(slides 12–14, demo §4)*. 💥 The unannounced break: `-41.5 C` → `FormatException` 🎯. Read the crash's anatomy. Why the compiler warned about `null` but *couldn't* warn about this. `TryParse`, both paths run, the console stays up. The save-point and closing commits. The week's sentence. |
+| 2:05 | 10 min | **☕ Break** |
+| 2:15 | 5 min | **Lab launch** *(slide 15, demo §5)*. The frame — *"one method ships already written and already wrong — crash it"* — and "done" defined on **their** machines: after check 4, re-feed the sentence that crashed it and watch the desk survive. |
+| 2:20 | 75 min | **Lab: the caller line** *(slide 15 stays up)*. **In-class target: all five green, then fail to crash your own desk.** Circulate for Task 1's crash and Task 4's re-run. The generous clock is deliberate — this is the room's first real building session, and the *Done early?* list is real work. |
+| 3:35 | 10 min | **Wrap-up** *(slide 16, demo §6)*. Repo holds what you wrote · warnings mark the promise's edge · Parse believes, TryParse asks. Homework: the switchboard + README, graded. Week 3 tease: the list, and losing it at midnight. |
 
 ## Instructor notes
 
-- 🎯 **Open on their numbers, not yours.** The reading asked them to count; someone did. Two or three answers from the room make the whole first segment *theirs* — and a student who says "like two hundred?" is not wrong, counts vary by how they counted. Yours is the precise one because `git ls-files` did the counting.
-- ⚠️ **The `.gitignore`-doesn't-untrack beat is the hill to die on in §2.** Half the room will meet this exact confusion in real life within a year. The sequence is: add the file → **show the count unchanged** → *then* evict. If you evict first, the lesson evaporates.
-- 🎯 **Let the panel scroll do its own talking.** Forty staged deletions is the week's promised image. Scroll slowly, don't click anything, and resist narrating over it for the first few seconds.
-- ⚠️ **Someone cleaned their repo already** — this room was told about `.gitignore` by a friend, or found it themselves. Same handling as week 1: credit out loud (*"good instinct, and now you know what the second command was for"*), and their homework hygiene points are already earned. The beat still works; the mess on screen is yours.
+- ⚠️ **The slip has to be framed as inevitable, not hypothetical.** *"One day you'll do this by accident"* is the sentence that makes §1 land — a rename, a new machine, a hurried commit before the ignore file exists. The room watched the four lines work last week; tonight they learn the lines have an edge, which is this course's favorite shape of lesson (week 1: the compiler's edge; tonight: the gitignore's).
+- ⚠️ **Ignored-is-not-untracked is still the hill to die on.** The sequence is: slip in → point at the `.gitignore` sitting right there, powerless → *then* evict. If you evict before letting the powerlessness register, the lesson evaporates.
+- 🎯 **The loose-ends slot is load-bearing, not slack.** Week 1 always leaves two or three students quietly broken — a rejected push, a missing invite, a machine that fought the install. Twenty minutes in week 2 is the cheapest possible repair window; the same problems discovered on grading night cost points and confidence. Say what the slot is for out loud so nobody feels singled out.
 - ⚠️ **Do not oversell the panel.** It gets fifteen minutes and it's a *translation*, not a tour — every button named as its verb, one README committed with it, done. The CLI stays the taught path; the graders read repos, not editors.
-- 🎯 **The warning beat lives or dies on the pause.** Hover the squiggle, read `CS8600` aloud, ask who read their warnings last semester — and then **build and run anyway.** Ignoring it *knowingly* is the setup; the crash in §5 is what the ignoring costs. If you fix the warning the moment it appears, §5 loses its teeth.
-- ⚠️ **§5's break is unannounced, as always.** Type `-41.5 C` while saying the reading out loud like a log entry — the room should realize what's about to happen about half a second before it does. If nobody reacts to the crash, read the exception type aloud and ask *"is that a compile error?"* — the distinction is the segment.
+- 🎯 **The warning beat lives or dies on the pause.** Hover the squiggle, read `CS8600` aloud, ask who read their warnings last semester — and then **build and run anyway.** Ignoring it *knowingly* is the setup; the crash in §4 is what the ignoring costs. If you fix the warning the moment it appears, §4 loses its teeth.
+- ⚠️ **§4's break is unannounced, as always.** Type `-41.5 C` while saying the reading out loud like a log entry — the room should realize what's about to happen about half a second before it does. If nobody reacts to the crash, read the exception type aloud and ask *"is that a compile error?"* — the distinction is the segment.
 - 🎯 **Take the loop-until-valid question seriously when it comes** (it will, and it's a good instinct): the grader answers with silence, a loop that insists spins forever, ask once and answer gracefully. It's testable-shape thinking applied to input — and promise week 13 honestly for the full retry/exception story.
 - ⚠️ **The handoff shows no answer key — deliberately** *(decided at rehearsal, 2026-08-04: it was the one beat that needed a third folder, for ninety seconds of value the lab now delivers itself)*. The reframe from "make checks pass" to "make the desk unkillable" is carried by the target line instead: **done is their own program surviving the sentence that crashed it.** Say it like you mean it; it's the lab's payoff being scheduled.
 - **The two exact strings in the lab** (`"some night owl"`, `"dealer's choice"`) are checked exactly, and the lab says so. A student burned by capitalization is having a normal week 2; point at the Rules block.
@@ -73,10 +72,11 @@ By the end of this session, students can:
 
 | If | Then |
 |---|---|
-| Nobody did the reading, nobody has a number | Count live — §1's `git ls-files` count on your own repo is the beat anyway; theirs was a warm-up, not a dependency. |
-| The scratch repo lost its mess (rebuilt machine, overzealous cleanup) | §0's rebuild block, two minutes. If discovered mid-class: a student's repo on GitHub shows the same mess — tour theirs (ask first). |
-| `git rm -r --cached .` output floods the terminal | Fine — say *"every line is a file leaving"* and scroll to the end. The panel shows the same thing tidier. |
-| Someone's panel is empty during §3 | They have a *week folder* open instead of the top. File → Open Folder → `dotnet-db-coursework`, panel comes alive. It's in the notes' appendix; fix one machine on screen and the room self-serves. |
+| The demo repo isn't in its clean week-1 end state | §0's rebuild block, two minutes — it builds the state with the `.gitignore` in place, as week 1's demo now leaves it. |
+| A student announces their repo *does* have junk in it (skipped the gitignore, or committed before writing it) | A gift — that's a real slip, live. Offer the eviction drill on their machine during loose ends, out loud if they're game: §1 just taught exactly this repair. |
+| `git rm -r --cached .` output floods the terminal | Fine — say *"every line is a file leaving"* and scroll to the end. |
+| Someone's panel is empty during §2 | They have a *week folder* open instead of the top. File → Open Folder → `dotnet-db-coursework`, panel comes alive. It's in the notes' appendix; fix one machine on screen and the room self-serves. |
+| The loose-ends slot finds nothing broken | Wonderful — release it into the lab (start the launch early) rather than filling it. Its job is insurance, not content. |
 | Someone asks why not commit `bin/` "so it always runs" | A real question — answer it straight: the clone can't run your build output anyway (different machine, different paths), but it can always rebuild from source. Repos ship recipes, not casseroles. |
 | The `-41.5 C` break doesn't crash because you typed `-41.5` | You dodged your own break — laugh, say *"that's the point, it works when you're careful,"* and type it again with the unit. |
 | Someone asks about `try`/`catch` | *"Exactly the right instinct, and it's week 13's whole subject. Tonight's tool is better here anyway: TryParse never throws, so there's nothing to catch."* |

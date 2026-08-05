@@ -15,21 +15,35 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 > [!IMPORTANT]
 > **Tonight has two halves and they trade places at the first break.**
 >
-> **The git half (§1–§3) collects last week's promise:** the forty files, on screen, counted — then cleaned up for good, and the Source Control panel introduced now that the verbs are known. It runs first because the room was *told* it runs first — "next week starts by looking at what `git add .` swept up."
+> **The git half (§1–§2) collects last week's promise:** *"what those four lines can't do."* The slip is manufactured on screen, the eviction drill teaches the one git skill everyone eventually needs, and the Source Control panel gets its slot now that the verbs are known.
 >
-> **The C# half (§4–§5) is the compiler's limit, part two.** Last week: a clean build, a wrong answer, and silence. This week: a clean build, a **warning nobody reads**, and then a crash the compiler could never have caught — because the input didn't exist until someone typed it. The break in §5 is unannounced, as always.
+> **The C# half (§3–§4) is the compiler's limit, part two.** Last week: a clean build, a wrong answer, and silence. This week: a clean build, a **warning nobody reads**, and then a crash the compiler could never have caught — because the input didn't exist until someone typed it. The break in §4 is unannounced, as always.
 
 ## 0 · Before class
 
-- [ ] ⚠️ **The instructor demo repo from week 1 is tonight's set.** Verify it's intact — the whole §1 beat is that its mess is still committed:
+**The set, at curtain — check this before anything else:**
+
+```
+instructor/                    ← the container on your machine
+├─ dotnet-db-coursework/       ← OPEN IN VS CODE — week 1's end state, untouched:
+│  ├─ .gitignore               ←   the four lines, written in week 1's §7
+│  └─ week-01/
+│     └─ Haldane/              ←   source + csproj committed; bin/ obj/ on disk, ignored
+└─ dotnet-db-dev/              ← the clone beside it — never opened
+```
+
+VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, Source Control is quiet. Tonight adds `week-02/Haldane` beside `week-01` — by command, nothing reopened — and §1 manufactures one slipped file on purpose, then evicts it.
+
+- [ ] ⚠️ **The instructor demo repo from week 1 is tonight's set — and it should be CLEAN.** Week 1 ended with the `.gitignore` written before the first commit, so verify: repo exists, four-line `.gitignore` at the root, and
   ```bash
   cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && git ls-files | grep -cE '(^|/)(bin|obj)/'
   ```
-  A number in the dozens = ready. **Write that number down — it's "the files you never wrote" all night, and the terminal's count is the only one you ever say aloud.**
-- [ ] ⚠️ **If the demo repo is gone**, rebuild the week-1 end state (~2 min) — and note the force-push replaces the demo repo on GitHub, which is fine, it's the same teaching artifact:
+  **`0` = ready.** §1 manufactures its own mess live — one file, on purpose, evicted the same segment.
+- [ ] ⚠️ **If the demo repo is gone**, rebuild the week-1 end state (~2 min) — the force-push replaces the demo repo on GitHub, which is fine, it's the same teaching artifact:
   ```bash
   rm -rf ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && mkdir -p ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework
   cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework
+  printf 'bin/\nobj/\n*.user\n.DS_Store\n' > .gitignore
   dotnet new console -o week-01/Haldane
   cp ~/Repos/dotnet-db-dev-answer-keys/week-01/demo-starter/Haldane/*.cs week-01/Haldane/
   dotnet build week-01/Haldane
@@ -37,32 +51,18 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   git remote add origin https://github.com/jgrissom/dotnet-db-coursework.git
   git push -f -u origin main
   ```
-- [ ] ⚠️ **The GitHub page must show the mess too** — §1 opens on `github.com/jgrissom/dotnet-db-coursework`, clicking into `week-01/Haldane/obj/`. If the week-1 class push didn't happen, the rebuild above fixes it
 - [ ] **Rehearse the whole thing once (≈20 min).** The §4 `dotnet new` wants a warm NuGet cache, and the §2 cleanup is a beat you want in your hands, not your head
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`** — the top, exactly where week 1's class left it, and the only folder that ever gets opened
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** The board gained a generator panel this week — say nothing about it; it explains itself or it isn't working. **Close it before slide 1**
   - ⚠️ **Wrong week showing?** The bare URL routes by date, so on class night it lands on week 2 by itself — but **when rehearsing ahead of the calendar it will show an earlier board, correctly.** Force it: **[`dutyconsole.com/?week=2`](https://dutyconsole.com/?week=2)** (works on any date), or go straight to [`dutyconsole.com/week-02.html`](https://dutyconsole.com/week-02.html). The `?week=` override is the supported way to look ahead — never edit `index.html`'s anchor to preview
 - [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."***
 
-## 1 · The forty files *(slides 2–3)*
+## 1 · The four lines, revisited *(slides 2–5)*
 
-### The number
+### Four lines recapped
 
-- [ ] **Open with the homework reading, cold:** *"you were asked to count the folders you didn't write. Who's got a number?"* Take two or three answers — they'll vary, and that's fine
-- [ ] 🎞️ **GO TO SLIDE 2** — *The files you never wrote* · *"whatever your number was, here's the thing about it: `git add .` doesn't mean 'add my work'. It means add **everything** — and last week, everything included a pile of machinery"*
-- [ ] Swipe to the browser — **[github.com/jgrissom/dotnet-db-coursework](https://github.com/jgrissom/dotnet-db-coursework)**, click into `week-01/Haldane/obj/`, open one of the `.json` files: *"I pushed this. I have no idea what it does. Neither does anyone — it's the compiler talking to itself"*
-- [ ] **Now count mine properly.** Swipe to VS Code — it's exactly where last week left it, the top of the repo, because that's the only window this course has. *"Tonight starts with git, and git lives right here — where this terminal has been standing since week 1"*
-- [ ] Integrated terminal (`` Ctrl+` ``), standing at the top — where every command runs, git included:
-  ```bash
-  git ls-files | wc -l
-  git ls-files | grep -E '(^|/)(bin|obj)/' | wc -l
-  ```
-- [ ] 🎯 *"`ls-files` is everything git is carrying. The second number is how much of it is machinery. The gap between those two numbers is what I actually wrote."* — and let the terminal's own numbers carry it; never quote a count the screen isn't showing
-
-### What they are
-
-- [ ] 🎞️ **GO TO SLIDE 3** — *What bin/ and obj/ are* · *"`obj` is the compiler's scratch paper. `bin` is the built program — the thing that actually runs. Both are **regenerated from your source every single build**. Delete them and nothing of value is lost; commit them and every build turns your repo into a construction site"*
-- [ ] 💡 If someone asks why git doesn't just know: *"git tracks files. It has no idea what a compiler is — that's exactly why it needs to be told, and telling it is the next ten minutes"*
+- [ ] 🎞️ **GO TO SLIDE 2** — *Four lines, working since day one* · *"you wrote these four lines last week, before your first commit, and watched the wall of untracked machinery collapse. Because of them, no repo in this room has ever held a file its owner didn't write. Thirty seconds of why, and then the thing they **can't** do"*
+- [ ] The thirty seconds: *"`obj` is the compiler's scratch paper, `bin` is the built program — both regenerated from your source on every build. A repo holds what you wrote; the rest rebuilds. That's the whole argument"*
 - [ ] ⚠️ **The lab-PC drill, 60 seconds, promised in the setup guide:** *"if you're ever on a machine that wiped overnight, git forgot who you are. Two commands, from your notes, ten seconds"* —
   ```bash
   git config --global user.name "Ada Lovelace"
@@ -70,46 +70,33 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   ```
   *"That's the whole drill. Every per-machine thing this course adds gets one of these, always under a minute"*
 
-## 2 · The cleanup *(slides 4–5)*
+### The slip
 
-### Four lines
-
-- [ ] In the VS Code Explorer, **click the empty space below the file list first** — so the new file lands at the **root**, not inside `week-01` — then **New File → `.gitignore`**, and type it:
-  ```
-  bin/
-  obj/
-  *.user
-  .DS_Store
-  ```
-- [ ] 🎞️ **GO TO SLIDE 4** — *.gitignore* · *"a filename pattern per line. Anything that matches, git stops seeing — won't list it, won't stage it, won't nag about it. The dot at the front just means it's configuration; the file is plain text"*
-- [ ] 💡 **The fourth line, one sentence each way:** *"`.DS_Store` is macOS's Finder leaving notes to itself in every folder it opens — one more file nobody wrote. If you're on Windows you'll never see one; the line costs you nothing and saves your Mac neighbour's repo"*
-- [ ] 🎯 *"It sits at the **top** because it covers everything below it — `week-01`, `week-02`, and the fourteen folders that don't exist yet. You write this once, tonight, and it works all semester"*
-
-### The part everyone gets wrong
-
-- [ ] **Prove it didn't fix anything.** Same two commands as before:
+- [ ] 🎞️ **GO TO SLIDE 3** — *The slip* · *"here's what those four lines cannot do — and I'll show you by making the mistake on purpose, because one day you'll make it by accident: a rename, a new machine, a commit before the ignore file existed"*
+- [ ] Swipe to VS Code — exactly where last week left it, the top, the only window — and **manufacture the slip live** (`-f` forces past the ignore, which is precisely the point: pretend it wasn't there):
   ```bash
-  git status
-  git ls-files | grep -E '(^|/)(bin|obj)/' | wc -l
+  git add -f week-01/Haldane/bin/Debug/net10.0/Haldane.dll
+  git commit -m "a build artifact, committed by accident"
   ```
-  `status` shows one new untracked file — the `.gitignore` itself — and the count is **unchanged**. ⚠️ **Expect a couple of tracked `obj/` files listed as *modified* too** — the editor's own background build touched them the moment the folder opened. **That's a gift; point at it:** *"I haven't edited anything tonight, and the repo already has 'changes'. That's the tax on committing machinery — it never stops generating noise. And notice the `.gitignore` didn't hide them: ignoring only governs files git hasn't met, and it's already met these"*
-- [ ] 🎞️ **GO TO SLIDE 5** — *Ignored is not untracked* · 🎯 **this is the misconception half the internet has, so kill it precisely:** *"`.gitignore` is a bouncer. It stops new files at the door. The ones already inside? Already inside. Nothing about ignoring reaches back into the repo"*
-- [ ] **The eviction, read aloud as you type it:** *"`rm` remove, `-r` and everything under it, `--cached` — **repo only, hands off my disk** — everything:"*
+- [ ] Prove it's really in: `git ls-files | grep bin` → one tracked build artifact. *"There's a compiled binary in my repo now. And look at the `.gitignore` — sitting right there, `bin/` on line one — completely powerless"*
+
+### Ignored is not untracked
+
+- [ ] 🎞️ **GO TO SLIDE 4** — *Ignored is not untracked* · 🎯 **this is the misconception half the internet has, so kill it precisely:** *"`.gitignore` is a bouncer. It stops new files at the door. The ones already inside? Already inside. Nothing about ignoring reaches back into the repo — which is why 'just add it to the gitignore' fixes nothing once the file is tracked"*
+
+### The eviction
+
+- [ ] 🎞️ **GO TO SLIDE 5** — *The eviction* · **read it aloud as you type it:** *"`rm` remove, `-r` and everything under it, `--cached` — **repo only, hands off my disk** — everything. Then re-add, and the bouncer filters what comes back:"*
   ```bash
   git rm -r --cached .
   git add .
-  ```
-- [ ] 🎯 **Now look at the Source Control icon — there's the number.** Open the panel and **scroll it, slowly, without clicking anything:** *"every one of these is a staged deletion. That's the mess, leaving. The `git add .` after it re-staged everything that survived the bouncer — which is to say, everything I actually wrote"* 🔗 **This is the panel's first appearance; §3 comes back and drives it**
-- [ ] Commit and push — from the terminal, the way they know:
-  ```bash
   git commit -m "Week 2: take out the trash"
-  git push
   ```
-- [ ] **Reload the GitHub page** → `week-01/Haldane/` now shows source and a `.csproj` and nothing else. *"That's what a repo is supposed to look like: things a human wrote"*
-- [ ] ⚠️ **Say what did NOT happen:** *"nothing was deleted from my machine — `bin` and `obj` are still right there in the Explorer, grayed out. `--cached` means the repo forgot them; my disk never will, because the compiler remakes them every build"*
-- [ ] **✓ CHECKPOINT:** somebody can say why the `.gitignore` alone changed nothing, and what `--cached` spared
+- [ ] `git ls-files | grep bin` → **nothing.** And in the Explorer: the `.dll` is still on disk, grayed out. *"`--cached` means the repo forgot it; my disk never will, because the compiler remakes it every build"*
+- [ ] `git push`, and say the drill's name: 🎯 *"that's the whole eviction — three commands, and it works whether one file slipped in or four hundred. Someday, on some repo, you will need this. Now you have it"*
+- [ ] **✓ CHECKPOINT:** somebody can say why the `.gitignore` alone couldn't fix it, and what `--cached` spared
 
-## 3 · The panel, and a README *(slides 6–7)*
+## 2 · The panel, and a README *(slides 6–7)*
 
 ### The panel reads a clean tree
 
@@ -132,7 +119,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🎯 *"Use whichever you like from here on. When the panel confuses you — and some week it will — the terminal is how you find out what it actually did. `git status` never lies"*
 - [ ] 🔗 *"Your homework does these exact three moves to your repo — gitignore, cleanup, README — and this week they're worth points. The grader checks all three"*
 
-## 4 · The console takes a reading *(slides 8–11)*
+## 3 · The console takes a reading *(slides 8–11)*
 
 ### A new week, the same move
 
@@ -197,7 +184,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] Run it and type carefully — `dotnet run --project week-02/Haldane`, answer **`-41.5`** and **`y`**. The board fills in: `-42.7 F`, `Safe to go out: False`. *"Works. Last week's methods, this week's input"*
 - [ ] **✓ CHECKPOINT:** the room can say what `??` did and what `Parse` did, and that both happened to *text*
 
-## 5 · Input that lies *(slides 12–14)*
+## 4 · Input that lies *(slides 12–14)*
 
 ### The break
 
@@ -239,7 +226,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🔗 *"Commit as you go — it's graded from this week: three or more touching your week-02. Mine says what happened. Yours should too"*
 - [ ] **✓ CHECKPOINT:** somebody can say why the warning and the crash were different failures — one flagged at compile time, one impossible to flag — **and** what `TryParse` returns for `null`
 
-## 6 · Hand off to the lab *(slide 15)*
+## 5 · Hand off to the lab *(slide 15)*
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *Lab: the caller line*. Leave it up for the whole lab
 - [ ] 🎯 **The frame:** *"the desk you finished last week is in the starter, done — you're not behind if you missed it. Tonight the desk answers the phone, and the phone is where programs die. One of tonight's methods ships **already written and already wrong** — the day shift wrote it, it works every time Ray answers with a number, and Task 1 is crashing it with your own typing. The crash is on purpose. Cause it"*
@@ -248,7 +235,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
 - [ ] 🎯 **Say the target, and put "done" on their machines, not yours:** *"all five green is not the finish line — it's the checkpoint before it. **When check 4 goes green, run your program again and answer Ray with the exact sentence that crashed it in Task 1.** A desk you can't crash — that's what done looks like tonight, and every one of you gets to watch your own program do it"*
 - [ ] *"Read the failure messages — check 3's and 4's tell you the tool, and check 4's names the crash you just watched me cause"*
 
-## 7 · Wrap-up, after the lab *(slide 16)*
+## 6 · Wrap-up, after the lab *(slide 16)*
 
 - [ ] 🎞️ **GO TO SLIDE 16** — *Tonight, in one picture*. Three beats: **your repo holds what you wrote** · **a warning marks the edge of the compiler's promise** · **Parse believes, TryParse asks**
 - [ ] Homework, in two sentences: *"your own station grows a request line — greeting, a name for callers who won't give one, and a caller-number contest that survives any answer a human gives. And your repo gets tonight's cleanup: gitignore, untrack the old mess, README — all three are points now, and they stay points all semester"*

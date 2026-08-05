@@ -6,26 +6,9 @@ Your at-home reference for the week. Two subjects tonight, and they meet at the 
 
 ---
 
-## What bin/ and obj/ actually are
-
-Last week's push included dozens of files you never wrote. Here's what they are:
-
-| | |
-|---|---|
-| `obj/` | the compiler's working files — scratch paper it uses while building |
-| `bin/` | the build output — the actual runnable program |
-
-Both are **regenerated from your source code on every build.** Delete them and nothing of value is lost; the next `dotnet run` remakes them. That's the whole argument for keeping them out of a repo:
-
-> **A repo holds what you wrote. Everything generated can be regenerated — by anyone, from your source, any time.**
-
-Committing them isn't just untidy. They change on every build, so they bury your real changes in noise — and they're different on every machine, so they make two people's repos disagree about files neither person wrote.
-
----
-
 ## .gitignore, and the part everyone gets wrong
 
-`.gitignore` is a plain text file of filename patterns, one per line, sitting at the **top** of the repo — where it covers every folder below it, including the fourteen week folders that don't exist yet.
+You wrote this file in week 1, before your first commit, and watched the wall of untracked machinery collapse as each line landed. The recap of what it's been doing since:
 
 **This is the whole file, `.gitignore`, at the root of `dotnet-db-coursework`:**
 
@@ -36,37 +19,34 @@ obj/
 .DS_Store
 ```
 
-Anything that matches, git stops *seeing*: it won't list it as untracked, won't stage it with `git add .`, won't nag you about it. The last two lines cover things you didn't write and may never meet: `*.user` is per-machine editor settings, and `.DS_Store` is macOS's Finder leaving notes to itself in every folder it opens — Windows users never see one, and the line costs nothing.
+Anything that matches, git stops *seeing*: it won't list it as untracked, won't stage it with `git add .`, won't nag you about it. `obj/` is the compiler's scratch paper and `bin/` is the built program — both regenerated from your source on every build, which is the whole argument: **a repo holds what you wrote; everything generated can be regenerated, by anyone, any time.** Because the file sits at the *top* of the repo, it covers every week folder — including the fourteen that don't exist yet.
 
 ⚠️ **Now the part everyone gets wrong, everywhere, always:**
 
 > **`.gitignore` only affects files git hasn't started tracking yet. Files that are already committed stay tracked — ignoring does not reach back.**
 
-Your `bin/` and `obj/` are already committed, from week 1. Adding the `.gitignore` changes nothing about them — GitHub will keep showing them, and every build will keep generating "changes" to commit. They need to be **untracked**, once, by hand. That's the next section.
+Your repo is clean *because* the four lines existed before your first commit. But someday — a rename, a new machine, a hurried commit before the ignore file exists — a generated file will get tracked anyway. That's the slip, and the demo manufactured one on purpose, because the repair is worth knowing before you need it.
 
 ---
 
-## Cleaning a repo that already committed the mess
+## The eviction: when junk gets tracked anyway
 
-⚠️ **Run these from `dotnet-db-coursework`** — the top folder, where every git command runs — **and add the `.gitignore` first**, or step two will sweep the mess straight back in.
+⚠️ **Run these from `dotnet-db-coursework`** — the top folder, where every git command runs — **with the `.gitignore` in place first**, or step two sweeps the junk straight back in.
 
 ```bash
 git rm -r --cached .
 git add .
-git commit -m "Week 2: take out the trash"
+git commit -m "take out the trash"
 git push
 ```
 
 What each piece does, because this is a command worth understanding rather than pasting:
 
 - **`git rm -r --cached .`** — *remove, recursively, from the repo only, everything.* **`--cached` is the load-bearing word: nothing is deleted from your disk.** Git just forgets it was tracking any of it.
-- **`git add .`** — re-stage everything… except that now the `.gitignore` is standing at the door, so `bin/` and `obj/` don't come back. What's re-added is exactly what you wrote.
-- The commit shows up as a pile of **deletions** — every one a generated file leaving the repo. Your source files survive untouched.
+- **`git add .`** — re-stage everything… except the `.gitignore` is standing at the door, so the junk doesn't come back. What's re-added is exactly what you wrote.
+- The commit shows the junk as **deletions** — leaving the repo, not your disk. Your source files survive untouched.
 
-Afterwards, `bin/` and `obj/` are still on your disk (grayed out in VS Code's Explorer — that's what "ignored" looks like), your program still runs, and GitHub shows only files a human wrote.
-
-> [!IMPORTANT]
-> **The homework asks you to clean your whole repo, and the grader checks the whole repo** — `week-01` included, because week 1 is where the mess is. The commands above do the whole repo in one pass. If GitHub still shows a `bin/` folder anywhere after your push, the untrack step didn't happen — re-read this section, don't re-type the `.gitignore` harder.
+Afterwards the evicted files are still on disk (grayed out in VS Code's Explorer — that's what "ignored" looks like), your program still runs, and GitHub shows only files a human wrote. **It works identically for one slipped file or four hundred**, which is why it's the drill worth having: every developer eventually inherits or creates a repo with tracked junk, and this is the whole repair.
 
 ---
 
@@ -254,7 +234,7 @@ This is the first taste of a rhythm the whole course runs on: **from week 4, you
 
 **`warning CS8604: Possible null reference argument...`** — you're handing something that might be `null` (usually `ReadLine()`) to a method that wants a real string. Same two fixes as above — and note `TryParse` takes a `string?` happily, no warning.
 
-**GitHub still shows `bin/` after you added `.gitignore`** — [ignoring is not untracking](#gitignore-and-the-part-everyone-gets-wrong). You need the one-time [cleanup](#cleaning-a-repo-that-already-committed-the-mess).
+**GitHub still shows `bin/` after you added `.gitignore`** — [ignoring is not untracking](#gitignore-and-the-part-everyone-gets-wrong). You need the one-time [eviction](#the-eviction-when-junk-gets-tracked-anyway).
 
 **`git rm -r --cached .` says `fatal: pathspec '.' did not match any files`** — you're in an empty folder or not in the repo. Run it from `dotnet-db-coursework`.
 

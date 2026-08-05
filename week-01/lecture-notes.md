@@ -52,7 +52,7 @@ That leaves you with `week-01/Haldane/`, containing:
 |---|---|
 | `Program.cs` | your code |
 | `Haldane.csproj` | the project file: what version of .NET, what packages |
-| `obj/`, `bin/` | build machinery and the compiled program. **You never edit these**, and from week 2 you'll stop committing them |
+| `obj/`, `bin/` | build machinery and the compiled program. **You never edit these**, and [your `.gitignore` keeps them out of your repo](#the-gitignore-written-before-your-first-commit) from the very first commit |
 
 And you run it **without moving** — same terminal, naming the week-qualified project:
 
@@ -336,6 +336,27 @@ dotnet-db-coursework/     ← your VS Code window. git lives HERE. So does your 
    ├─ Homework/
    └─ Homework.Checks/
 ```
+
+### The gitignore, written before your first commit
+
+Run `git init` and then `git status`, and git lists **everything** in the folder as untracked — your three source files, and screen after screen of `bin/` and `obj/`. That machinery is regenerated from your source on every build; nothing in it is yours, and none of it belongs in a repo:
+
+> **A repo holds what you wrote. Everything generated can be regenerated — by anyone, from your source, any time.**
+
+The fix is one file, written **before your first commit**. **This is the whole file, `.gitignore`, at the root of `dotnet-db-coursework`:**
+
+```
+bin/
+obj/
+*.user
+.DS_Store
+```
+
+One filename pattern per line; anything that matches, git stops *seeing* — it vanishes from `git status`, and `git add .` won't touch it. Type the lines with the Source Control badge in view and you can watch the number collapse. The last two lines cover things you may never meet: `*.user` is per-machine editor settings, and `.DS_Store` is macOS's Finder leaving notes to itself in every folder it opens — Windows users never see one, and the line costs nothing.
+
+Because the file sits at the **top** of the repo, it covers every week folder — including the fifteen that don't exist yet. You write it once, tonight, and never think about it again. *(What happens if a generated file gets committed anyway — and someday, somewhere, one will — is week 2's opening lesson: ignoring is not untracking, and there's a three-command repair.)*
+
+### The four commands
 
 Four commands, and you'll type them every week until they're muscle memory:
 

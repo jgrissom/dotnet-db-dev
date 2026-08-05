@@ -33,7 +33,7 @@
     },
     "gitignoreClean": {
       "points": 3,
-      "label": "bin/ and obj/ tracked NOWHERE in the repo — .gitignore in place, old ones cleaned out"
+      "label": "bin/ and obj/ tracked NOWHERE in the repo — the .gitignore holding, all semester"
     },
     "commits": {
       "points": 2,

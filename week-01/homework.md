@@ -130,6 +130,19 @@ dotnet test week-01/Homework.Checks
 
 ⚠️ **The repo has to already exist on GitHub, and `git push` will not create it for you.** If you skipped it during setup: [`setup-guide.md` §5](setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo) — `dotnet-db-coursework`, **Private**, **no** README, then add `jgrissom` as a collaborator. That last part is 3 of tonight's points.
 
+**1. The `.gitignore` first, exactly as the demo did it** — [the four lines, before your first commit](lecture-notes.md#the-gitignore-written-before-your-first-commit). In the Explorer, click the empty space below the file list (so it lands at the root), **New File → `.gitignore`**:
+
+```
+bin/
+obj/
+*.user
+.DS_Store
+```
+
+Watch the Source Control badge fall as you type the lines — that's git losing sight of the machinery, which is the point. Your repo will only ever hold what you wrote.
+
+**2. Then connect and push:**
+
 ```bash
 git init
 git add .
@@ -138,7 +151,7 @@ git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git
 git push -u origin main
 ```
 
-Use the `git remote add` line **GitHub itself shows you** on the repo page — it has your username in it.
+Use the `git remote add` line **GitHub itself shows you** on the repo page — it has your username in it. (Wrote the `.gitignore` *after* `git init`? Same effect — it just needs to exist before `git add .`.)
 
 **Every time after that:**
 
@@ -154,7 +167,7 @@ git push
 > **Check that `jgrissom` is on your repo's collaborator list** (Settings → Collaborators). It's worth 3 points, it's how I read your work at all, and a private repo I can't open is indistinguishable from an empty one.
 
 > [!NOTE]
-> **Your push will include `bin/` and `obj/`** — dozens of files you didn't write. That's what everybody's first repo looks like, it costs you nothing this week, and **week 2 opens by cleaning it up.** Leave it.
+> **Check GitHub after your push: no `bin/`, no `obj/`, anywhere.** Just your source, your `.csproj` files, and the `.gitignore` doing its quiet work. If machinery *did* sneak in — you added before writing the four lines — week 2's first segment teaches the three-command repair, or ask me in class.
 
 ## Part 4 — Check it before you submit ✅
 
@@ -202,10 +215,9 @@ Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
 
 *Reminder: the explain-it standard applies — I ask a couple of people in person each week. The ones I'll reach for this week: "why does `SignOn` call `CallSign()` instead of just writing the letters again?", "330 divided by 60 gave you 5 — would casting the answer to `double` have fixed it?", and "which of your two files can the checks actually see, and why?"*
 
-## 📖 Reading for next week (~15 min)
+## 📖 Reading for next week (~10 min)
 
-Week 2 is **the mistakes the compiler can't catch for you** — input that lies, `null`, and the warnings you've been scrolling past — and **cleaning up what git swept up tonight**.
+Week 2 is **the mistakes the compiler can't catch for you** — input that lies, `null`, and the warnings you've been scrolling past — plus the one thing your `.gitignore` *can't* do.
 
-- **Go and look at your repo on GitHub.** Click into `week-01/Homework/`. Count the folders you didn't write, and open one file inside `obj/`. You don't need to understand it — just get a sense of how much of what you pushed isn't yours. Bring the number.
-- Then answer this for yourself, and write it down: **why would a compiler need a folder of its own working files, and why would anyone want those in a repo?** (One of those questions has a good answer. The other doesn't.)
+- **Go and look at your repo on GitHub.** It's clean — source files, a `.csproj`, your four-line `.gitignore`, and nothing you didn't write. Then look at [GitHub's official `.gitignore` for Visual Studio](https://github.com/github/gitignore/blob/main/VisualStudio.gitignore): several hundred lines. Yours is four, and both are correct — answer for yourself: **what would have to be true about a project for it to need all the rest?**
 - Have a look at [the C# error code list](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/) — not to read it, just to see that it exists and that every error you hit has a page. Find `CS0029` and see what it says.

@@ -211,9 +211,9 @@ public static string TakeRequest(string? name, string? request)
 
 And read the desk's sign-off. It counted your calls — and it can't tell you a single thing about them. Sit with that for a second before you close the terminal.
 
-**Then clock out — commit the shift.** You're somewhere solid; that's when a commit happens. The Source Control panel does it without leaving your folder: stage the changes (**+**), message `week 2 lab: the desk survives its callers`, **✓ Commit**, **Sync**. That's one of the [3+ commits this week's homework grades](../homework.md#part-3--clean-the-repo-graded), banked before you've even started the homework.
+**Then clock out — commit the shift.** You're somewhere solid; that's when a commit happens. The Source Control panel does it without leaving your folder: stage the changes (**+**), message `week 2 lab: the desk survives its callers`, **✓ Commit**, **Sync**. That's one of the [3+ commits this week's homework grades](../homework.md#part-3--repo-hygiene-graded), banked before you've even started the homework.
 
-You'll notice the Changes list is *long* — `bin/` and `obj/` again, because your repo doesn't have its `.gitignore` yet. **Commit the mess anyway.** Tonight's homework writes the four lines and evicts every generated file your repo has ever swallowed, this commit's included — it's the last mess your repo will ever hold, and the eviction is more satisfying with something to evict.
+Notice what the Changes list *doesn't* show: no `bin/`, no `obj/` — the four lines you wrote in week 1 have been quietly covering this brand-new folder since the moment you pasted it. The list is just your work, which is the whole point.
 
 > [!NOTE]
 > **Panel empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 3](../../week-01/homework.md#part-3--push-it-graded) has the first-time block. Or just skip this; the homework's push collects everything either way.
