@@ -295,7 +295,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   .DS_Store
   ```
   *"Watch the badge. `bin/` — falling. `obj/` — there. Four lines, and git now sees exactly what I made"* 💡 **The last two, one sentence each:** `*.user` is per-machine editor settings; `.DS_Store` is macOS's Finder leaving notes to itself — Windows people never see one, the line costs nothing
-- [ ] `git status -u` again — **short now, and readable:** the three files, the `.gitignore` itself, nothing else. *"That file sits at the top, so it covers `week-01`, `week-02`, and the fourteen folders that don't exist yet. You write it once, tonight, before your first commit — and your repo never holds machinery, ever"*
+- [ ] `git status -u` again — **short now, and readable:** the three files, the `.gitignore` itself, nothing else. *"That file sits at the top, so it covers `week-01`, `week-02`, and the fourteen folders that don't exist yet. Write it before your first commit, and git never starts tracking any of it"*
 - [ ] Then the rest, **one line at a time; the `git status` between each is a beat, not filler:**
   ```bash
   git add .
