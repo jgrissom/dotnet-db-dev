@@ -6,4 +6,4 @@
 //
 // Check yourself as you go, from your coursework folder:  dotnet test week-01/Homework.Checks
 
-Console.WriteLine("This station hasn't signed on yet. (homework.md, Part 2.)");
+Console.WriteLine("This station hasn't signed on yet. (homework.md, Part 3.)");

@@ -160,7 +160,7 @@ dotnet run --project week-02/Homework
 **You're already standing where all of this happens.** Your window is the top of the repo — the Explorer can make files at the root, and the terminal is where every `git` command runs. Nothing to open, nothing to change.
 
 > [!NOTE]
-> **Never connected this folder to GitHub at all?** Do [week 1's Part 3](../week-01/homework.md#part-3--push-it-graded) first — its *first time only* block makes the repo, connects it, and adds me as a collaborator. Then come back here.
+> **Never connected this folder to GitHub at all?** Do [week 1's Part 2](../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) first — it makes the repo, connects it, and adds me as a collaborator. Then come back here.
 
 **1. Glance at your repo's hygiene** — thirty seconds, two questions.
 

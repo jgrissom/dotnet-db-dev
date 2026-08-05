@@ -216,7 +216,7 @@ And read the desk's sign-off. It counted your calls — and it can't tell you a 
 Notice what the Changes list *doesn't* show: no `bin/`, no `obj/` — the four lines you wrote in week 1 have been quietly covering this brand-new folder since the moment you pasted it. The list is just your work, which is the whole point.
 
 > [!NOTE]
-> **Panel empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 3](../../week-01/homework.md#part-3--push-it-graded) has the first-time block. Or just skip this; the homework's push collects everything either way.
+> **Panel empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. Or just skip this; the homework's push collects everything either way.
 
 ## Rules
 

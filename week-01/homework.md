@@ -13,9 +13,66 @@ dotnet test week-01/Lab.Checks
 ```
 
 > [!IMPORTANT]
-> **You should have got all five of these in class.** If you didn't, finish them first — it isn't submitted and it isn't worth points, but it's the guided version of exactly what Part 2 asks you to do alone. Same shapes, different station. Doing it first is what turns Part 2 into an hour.
+> **You should have got all five of these in class.** If you didn't, finish them first — it isn't submitted and it isn't worth points, but it's the guided version of exactly what Part 3 asks you to do alone. Same shapes, different station. Doing it first is what turns Part 3 into an hour.
 
-## Part 2 — Your own station (graded)
+## Part 2 — Put it under git, before you write anything (graded)
+
+**Do this first — before your station exists.** Two reasons, and the second is the real one:
+
+- Your commits should record the work **as it happens**. A repo made at the end holds one commit that says "everything, at once", which tells nobody anything — including you, in week 9, trying to remember when something broke.
+- If your push is going to argue with you about credentials or a branch name, **find out now**, with nothing on the line. Not at 11pm with a finished program you can't submit.
+
+**You're already standing where all of this happens** — your window is the top of the repo, [where git lives, one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). Nothing to open, nowhere to move.
+
+⚠️ **The repo has to already exist on GitHub, and `git push` will not create it for you.** If you skipped it during setup: [`setup-guide.md` §5](setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo) — `dotnet-db-coursework`, **Private**, **no** README, then add `jgrissom` as a collaborator. That last part is 3 of tonight's points.
+
+**1. Make it a repo**, from your terminal at the top:
+
+```bash
+git init
+```
+
+The Source Control icon in the sidebar grows a badge with a number on it — every file in the folder, including hundreds you never wrote.
+
+**2. Then the `.gitignore`, exactly as the demo did it** — [the four lines, before your first commit](lecture-notes.md#the-gitignore-written-before-your-first-commit). In the Explorer, click the empty space below the file list (so it lands at the root), **New File → `.gitignore`**, and type it **with that badge in view**:
+
+```
+bin/
+obj/
+*.user
+.DS_Store
+```
+
+Watch the number fall as the lines land — that's git losing sight of the machinery, which is the point. Your repo will only ever hold what you wrote.
+
+> [!NOTE]
+> **Four lines, at the top, once — and that's the whole file for the semester.** It covers `week-01`, `week-02`, and the fourteen folders that don't exist yet. Nothing gets added to it later, including your lab: **the lab is something you wrote**, so it belongs in your repo like everything else you wrote. What gets ignored is what a machine can regenerate.
+
+**3. Commit what you already have** — the lab you just finished:
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "Week 1: lab"
+```
+
+**4. Point it at GitHub.** Use the line **GitHub itself shows you** on the repo page — it has *your* username in it, not the placeholder:
+
+```bash
+git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git
+```
+
+**5. Push.** This is the one that talks to the internet, so it's the one that can ask you for credentials or complain about a branch name — if either happens, 🆘 Stuck? below has both:
+
+```bash
+git push -u origin main
+```
+
+**Go and look at it on GitHub.** Your lab, your `.gitignore`, and nothing you didn't write — no `bin/`, no `obj/`, anywhere. That's a repo born clean, and it stays that way for sixteen weeks.
+
+## Part 3 — Your own station (graded)
 
 KDXR is mine. **This one is yours:** you invent the station, and the program tells the world about it.
 
@@ -96,6 +153,18 @@ dotnet run --project week-01/Homework
 
 **Do that after every single method** — fill in `CallSign()`, test, run. Then `City()`, test, run. Four methods, four rounds, and the count goes **0 → 1 → 2 → 3 → 4**. A check that goes red right after you wrote something tells you exactly where to look; twenty minutes of writing followed by one test run tells you nothing.
 
+**When the count stops going up, commit.** You're standing where git lives, so it's two commands and no navigation:
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "Week 1: station class"
+```
+
+**Commit whenever you're somewhere solid** — that's the habit, and it's the one every week from here is graded on. Somewhere solid means: the checks went green, or you're about to try something that might not work and you'd like a way back.
+
 What each one has to do:
 
 | Method | Returns | Rules |
@@ -143,71 +212,17 @@ You should see your station's sign-on line and a countdown — your own call sig
 
 ⚠️ **Run the program too, not just the checks.** **Two of tonight's twenty points are simply "it builds and runs without crashing"** — and a `Station.cs` that satisfies every check can still sit inside a `Program.cs` that throws on line one. The checks never look at `Program.cs`; I do.
 
-## Part 3 — Push it (graded)
-
-**You're already standing where all of this happens** — your window is the top of the repo, [where git lives, one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). Nothing to open, nowhere to move.
-
-**First time only** — if you haven't connected this folder to GitHub yet.
-
-⚠️ **The repo has to already exist on GitHub, and `git push` will not create it for you.** If you skipped it during setup: [`setup-guide.md` §5](setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo) — `dotnet-db-coursework`, **Private**, **no** README, then add `jgrissom` as a collaborator. That last part is 3 of tonight's points.
-
-**1. Make it a repo**, from your terminal at the top:
-
-```bash
-git init
-```
-
-The Source Control icon in the sidebar grows a badge with a number on it — every file in the folder, including hundreds you never wrote.
-
-**2. Then the `.gitignore`, exactly as the demo did it** — [the four lines, before your first commit](lecture-notes.md#the-gitignore-written-before-your-first-commit). In the Explorer, click the empty space below the file list (so it lands at the root), **New File → `.gitignore`**, and type it **with that badge in view**:
-
-```
-bin/
-obj/
-*.user
-.DS_Store
-```
-
-Watch the number fall as the lines land — that's git losing sight of the machinery, which is the point. Your repo will only ever hold what you wrote.
-
-**3. Then commit** — stage everything git can still see, and save it:
+**Commit again once it prints your station:**
 
 ```bash
 git add .
-git commit -m "Week 1: setup"
 ```
-
-**4. Point it at GitHub.** Use the line **GitHub itself shows you** on the repo page — it has *your* username in it, not the placeholder:
 
 ```bash
-git remote add origin https://github.com/YOUR-USERNAME/dotnet-db-coursework.git
+git commit -m "Week 1: countdown working"
 ```
 
-**5. Push.** This is the one that talks to the internet, so it's the one that can ask you for credentials or complain about a branch name — if either happens, 🆘 Stuck? below has both:
-
-```bash
-git push -u origin main
-```
-
-*(Wrote the `.gitignore` before `git init`? Same effect — it just needs to exist before `git add .`; you only miss watching the badge do it.)*
-
-**Every time after that:**
-
-```bash
-git add .
-git commit -m "Week 1: KRAB signs on"
-git push
-```
-
-**Three or more commits**, and they should mean something — `week 1 setup`, `station class`, `countdown working` tells a story; `a`, `b`, `asdf` doesn't. I read these.
-
-> [!IMPORTANT]
-> **Check that `jgrissom` is on your repo's collaborator list** (Settings → Collaborators). It's worth 3 points, it's how I read your work at all, and a private repo I can't open is indistinguishable from an empty one.
-
-> [!NOTE]
-> **Check GitHub after your push: no `bin/`, no `obj/`, anywhere.** Just your source, your `.csproj` files, and the `.gitignore` doing its quiet work. If machinery *did* sneak in — you added before writing the four lines — week 2's first segment teaches the three-command repair, or ask me in class.
-
-## Part 4 — Check it before you submit ✅
+## Part 4 — Check it, then push it ✅
 
 **These are the same checks I run.** There isn't a second, secret set.
 
@@ -229,6 +244,20 @@ dotnet run --project week-01/Homework
 
 > [!TIP]
 > **Read the failures, don't just count them.** Each one names what's wrong and what to write instead. If a check can't find your `Station` class at all, that's the first line of its message and it's usually a file in the wrong place.
+
+**Then send it.** The remote was set up in Part 2, so from here on it's the one word:
+
+```bash
+git push
+```
+
+**Three or more commits touching `week-01/`, and they should mean something.** If you followed the parts in order you already have them — `week 1 lab`, `station class`, `countdown working` tells a story; `a`, `b`, `asdf` doesn't. I read these.
+
+> [!IMPORTANT]
+> **Check that `jgrissom` is on your repo's collaborator list** (Settings → Collaborators). It's worth 3 points, it's how I read your work at all, and a private repo I can't open is indistinguishable from an empty one.
+
+> [!NOTE]
+> **Last look at GitHub: no `bin/`, no `obj/`, anywhere.** Just your source, your `.csproj` files, and the `.gitignore` doing its quiet work. If machinery *did* sneak in — you ran `git add` before writing the four lines — week 2's first segment teaches the three-command repair, or ask me in class.
 
 ## 🆘 Stuck?
 
