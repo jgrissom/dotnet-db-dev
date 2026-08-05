@@ -145,11 +145,11 @@ string raw = Console.ReadLine();
 
 <br>
 
-`ReadLine` is Python's `input()` — **almost**.
+You've called `ReadLine` a hundred times.
 
 <br>
 
-That squiggle is not decoration.
+**That squiggle is not decoration.**
 
 ---
 
@@ -206,7 +206,7 @@ double reading = double.Parse(raw);
 
 <br>
 
-Python: `float(input())`. Same move.
+`Parse` is the converter — and it takes the string's word for it.
 
 ---
 

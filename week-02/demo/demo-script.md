@@ -166,7 +166,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.Write("Outside temperature (C): ");
   string raw = Console.ReadLine();
   ```
-- [ ] 🎞️ **GO TO SLIDE 8** — *Input arrives* · *"last week every value on the board was typed into the source. Tonight the duty officer types it into the running program — which is how the real board works; it says right on it that it's kept by hand. `ReadLine` is Python's `input()` — almost. The almost is that squiggle"*
+- [ ] 🎞️ **GO TO SLIDE 8** — *Input arrives* · *"last week every value on the board was typed into the source. Tonight the duty officer types it into the running program — which is how the real board works; it says right on it that it's kept by hand. You've all called `ReadLine` before. What you haven't done is read that squiggle"*
 
 ### The warning, read properly
 
@@ -198,7 +198,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. Type the *f
   Console.WriteLine($"Blizzard:        {blizzard}");
   Console.WriteLine($"Safe to go out:  {Conditions.IsSafeToGoOut(reading, blizzard)}");
   ```
-- [ ] 🎞️ **GO TO SLIDE 11** — *Text becomes a number* · *"everything `ReadLine` gives you is **text**. `\"-41.5\"` with quotes on it. The board does arithmetic, so it needs the number, and `double.Parse` is the converter — Python's `float(input())`, same move"*
+- [ ] 🎞️ **GO TO SLIDE 11** — *Text becomes a number* · *"everything `ReadLine` gives you is **text**. `\"-41.5\"` with quotes on it. The board does arithmetic, so it needs the number, and `double.Parse` is the converter — note the verb: it takes the string's word for it"*
 - [ ] 💡 **The `bool` line is worth ten seconds, not more:** *"why `== \"y\"` instead of parsing a bool? Because `bool.Parse` wants the literal word `True`, and no human on a radio at 3 AM says `True`. Ask a y/n question, compare the answer. Parsing is for numbers"*
 - [ ] Run it and type carefully — `dotnet run --project Haldane`, answer **`-41.5`** and **`y`**. The board fills in: `-42.7 F`, `Safe to go out: False`. *"Works. Last week's methods, this week's input"*
 - [ ] **✓ CHECKPOINT:** the room can say what `??` did and what `Parse` did, and that both happened to *text*

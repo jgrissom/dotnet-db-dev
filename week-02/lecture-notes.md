@@ -114,7 +114,7 @@ Console.Write("Caller's name: ");
 string? typed = Console.ReadLine();
 ```
 
-`Console.ReadLine()` is Python's `input()` — *almost*. The difference is what it hands back when there's nothing to read: **`null`, which is not an empty string. It's no string at all.**
+You've called `Console.ReadLine()` before — probably into a plain `string`, without the `?`. What your last course didn't dwell on is what it hands back when there's nothing to read: **`null`, which is not an empty string. It's no string at all.**
 
 When does that actually happen? When the input *ends* — and for your homework that's not hypothetical: **the grader runs your program and answers every prompt by pressing Enter, and when its patience runs out, `ReadLine` returns `null`.** A program that falls over on `null` falls over on grading night.
 
