@@ -9,42 +9,53 @@ It's 2:04 AM at **KDXR 88.1, "The Owl."** The desk you finished last week is hol
 
 ## Setup
 
-**1. Update your clone of the course repo:**
+Four steps, and every terminal in them is VS Code's — already standing in the right folder, nothing to `cd`, tonight or ever.
 
-```bash
-cd dotnet-db-dev
-git pull
-```
+**1. Update your clone of the course repo.**
+
+1. Open VS Code → **File → Open Folder** → find **`dotnet-db-dev`** — the course repo you cloned during setup; it sits **next to** your `dotnet-db-coursework` folder → **Open**.
+2. Open the terminal: **`` Ctrl+` ``**. It's standing in `dotnet-db-dev` already. Type:
+   ```bash
+   git pull
+   ```
 
 > [!NOTE]
-> **`cd: no such file or directory`?** You haven't cloned it yet — one command, from your home folder, then the two above:
+> **No `dotnet-db-dev` folder anywhere?** You haven't cloned it. **File → Open Folder** → the folder where `dotnet-db-coursework` lives (the one that *holds* it) → **Open** → `` Ctrl+` `` → then:
 > ```bash
 > git clone https://github.com/jgrissom/dotnet-db-dev.git
 > ```
+> Now you have both folders side by side. Continue from step 2.
 
-**2. Make a `week-02` folder inside your `dotnet-db-coursework` folder** — a new week, the same move:
+**2. Make your `week-02` folder.**
 
-**VS Code → File → Open Folder → `dotnet-db-coursework` → *New Folder* → name it `week-02` → Open.**
+**File → Open Folder → `dotnet-db-coursework` → *New Folder* → name it `week-02` → Open.**
+
+VS Code swaps from my repo to yours — that's correct, and you're done with the clone until the homework.
 
 > [!NOTE]
-> **No `dotnet-db-coursework` folder?** Make that one first, the same way, then `week-02` inside it. (It's also fine that your `week-01` is sitting next to it — that's the whole idea.)
+> **No `dotnet-db-coursework` folder?** Make it first, the same way — File → Open Folder → *New Folder* → `dotnet-db-coursework` → then `week-02` inside it.
 
-**3. Copy the two folders inside `week-02/lab/starter` into your `week-02`.** Out of the clone, never working inside it:
+**3. Copy tonight's starter in — this happens in your file manager, not VS Code.**
 
-```
-├─ dotnet-db-coursework/week-02/       ← INTO here
-└─ dotnet-db-dev/week-02/lab/starter/  ← FROM here
-```
+Open **Finder** (Mac) or **File Explorer** (Windows):
+
+1. Go into `dotnet-db-dev` → `week-02` → `lab` → `starter`. Two folders are inside: **`Lab`** and **`Lab.Checks`**.
+2. Select both → **Copy**.
+3. Go into `dotnet-db-coursework` → `week-02` (empty right now) → **Paste**.
+
+You're copying *out* of the clone and working on the copy — never inside the clone itself. The end state:
 
 ```
 dotnet-db-coursework/
 ├─ week-01/           ← last week, untouched
-└─ week-02/           ← keep THIS open in VS Code
+└─ week-02/           ← the folder you have open in VS Code
    ├─ Lab/            ← the station — ALL your work happens in here
    └─ Lab.Checks/     ← the checks — read-only, never edit
 ```
 
-**4. With `week-02` open**, in the VS Code terminal (`` Ctrl+` ``):
+**4. Run the checks.**
+
+Back in VS Code — still open on `week-02`; the pasted folders are now in its Explorer — open the terminal (`` Ctrl+` ``) and type:
 
 ```bash
 dotnet test Lab.Checks

@@ -50,7 +50,7 @@ cp ../week-01/Homework/Station.cs Homework/
 > }
 > ```
 
-**4. Copy the checks project in from your clone**, beside `Homework` — same move as last week, new week number. (No clone? `git clone https://github.com/jgrissom/dotnet-db-dev.git`, then come back.)
+**4. Copy the checks project in from your clone** — the same file-manager copy as [the lab's setup](lab/README.md#setup), one folder deeper: copy `Homework.Checks` and paste it into your `week-02`, beside `Homework`. (No clone at all? The lab's Setup step 1 shows the whole move — two minutes.)
 
 ```
 ├─ dotnet-db-coursework/week-02/                          ← INTO here, beside Homework
