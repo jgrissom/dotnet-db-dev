@@ -76,12 +76,20 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 ### The slip
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *The slip* · *"here's what those four lines cannot do — and I'll show you by making the mistake on purpose, because one day you'll make it by accident: a rename, a new machine, a commit before the ignore file existed"*
-- [ ] Swipe to VS Code — exactly where last week left it, the top, the only window — and **manufacture the slip live** (`-f` forces past the ignore, which is precisely the point: pretend it wasn't there):
+- [ ] Swipe to VS Code — exactly where last week left it, the top, the only window — and **manufacture the slip live.** Say what `-f` is for as you go: *"force. I'm telling git to add this even though the ignore file says not to — which is exactly what a rename or a bad commit does to you by accident"*
   ```bash
   git add -f week-01/Haldane/bin/Debug/net10.0/Haldane.dll
+  ```
+- [ ] ⚠️ **Stop before committing and look** — this is the beat, and it needs the `.gitignore` open in the editor beside the terminal:
+  ```bash
+  git status
+  ```
+  *"`bin/` is line one of that file, right there on screen. And here's a file out of `bin/`, staged, ready to go in. The ignore file isn't a lock — it's a default, and `-f` walks straight past it"* 💡 **Don't dress this up as a puzzle** — they watched you type `-f`, so nothing here is a surprise; it's evidence being laid down for the slide that follows
+- [ ] Now let it happen:
+  ```bash
   git commit -m "a build artifact, committed by accident"
   ```
-- [ ] Prove it's really in: `git ls-files | grep bin` → one tracked build artifact. *"There's a compiled binary in my repo now. And look at the `.gitignore` — sitting right there, `bin/` on line one — completely powerless"*
+- [ ] Prove it's really in: `git ls-files | grep bin` → one tracked build artifact. *"There's a compiled binary in my repo now. And the `.gitignore` hasn't changed a character — completely powerless, because that file is already inside"*
 
 ### Ignored is not untracked
 
