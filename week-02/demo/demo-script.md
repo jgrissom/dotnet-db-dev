@@ -221,7 +221,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   cp week-01/Haldane/Conditions.cs week-02/Haldane/
   ```
   🎯 *"`-o` made the week folder and the project in one go — there's `week-02` in the Explorer, right under `week-01`. That's every Monday for the rest of the term"*
-- [ ] 💡 **The Explorer sees the new folder instantly; the part that does IntelliSense catches up in the background** — usually seconds, occasionally longer. **If the squiggle beat below has no squiggle, that's this, not you:** Command Palette → `.NET: Restart Language Server` *(or `Developer: Reload Window`)*. ⚠️ **`dotnet build` reports `CS8600` either way**, so the build output is the version of this evidence that never lets you down
+- [ ] 💡 **The Explorer sees it instantly; IntelliSense catches up in the background** — usually seconds. **Worth knowing now so a missing squiggle later reads as a delay, not a failure** *(the fix, if you need it, is at the squiggle beat in §3)*
 - [ ] 🎯 **The `cp` is a beat, not plumbing:** *"that's last week's logic — Fahrenheit, safe-to-go-out — carried forward in one move. I didn't rewrite it; it was already right. **Your homework asks you for exactly this move** with your own `Station.cs`"*
 - [ ] **Run it before touching it:**
   ```bash
@@ -251,6 +251,8 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 ### The warning, read properly
 
 - [ ] **Swipe back to VS Code** — the deck is fullscreen, so the editor has been hidden behind it. **Now point at the squiggle under `Console.ReadLine()`. Do not fix it yet.** Hover it, and read the whole thing out loud
+  - 💡 **No squiggle?** The language server picks up a project this new **in the background** — usually seconds, occasionally longer. Command Palette → `.NET: Restart Language Server` *(or `Developer: Reload Window`)*, and it appears
+  - ⚠️ **Don't stall waiting for it — `dotnet build` prints `CS8600` every time**, and you run it two beats below anyway. **That output is the version of this evidence that never lets you down**, so if the editor is being slow, lead with the build and come back to the squiggle
 - [ ] 🎞️ **GO TO SLIDE 9** — *The warning you'd have ignored* · 🎯 *"`CS8600`, and it's a **warning**, not an error — the build succeeds, the program runs. Hands up: who read the warnings in their build output last semester?"* — expect near-zero, and give it the beat it deserves
 - [ ] 🎯 **The sentence that reframes warnings for good:** *"an error is the compiler saying 'I can't build this.' A warning is the compiler saying **'I can build it, but this is the part I can't promise.'** Last week you learned the compiler's promise has an edge. A warning is the compiler drawing you a map of that edge — and everyone scrolls past it"*
 - [ ] Prove it builds anyway:
