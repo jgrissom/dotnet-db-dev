@@ -31,6 +31,8 @@ jobs:
         run: node scripts/check-cues.js .
       - name: Emphasis that would render as literal asterisks
         run: node scripts/check-emphasis.js .
+      - name: Every homework scaffolds its own commits
+        run: node scripts/check-commit-points.js .
       - name: External URLs (scheduled/manual runs only)
         if: github.event_name != 'push'
         run: node scripts/check-links.js . --external
