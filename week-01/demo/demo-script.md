@@ -2,7 +2,7 @@
 
 Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Talk each block through once it's on screen** — that's the beat the typing used to provide. ⚠️ **Say what it *does*, never what it says:** `Console.WriteLine($"Station: {stationName}")` is *print the label, then drop the station's name in* — not *dollar sign, quote, curly brace.* **Name syntax only when the syntax is the lesson** (the `$`, the `.0`, the `out`).
 
-**Type whatever you feel like typing** — this is a default, not a rule. **The one that would cost you if you didn't: §5's fix.** The generator block arrives already broken (`int burnPerHour`) and should look unremarkable — but the *repair* is one word changed in front of the room, `int` → `double`, and the answer changing as they watch is the whole payoff. Two seconds of typing, and they're the two that matter.
+**Type whatever you feel like typing** — this is a default, not a rule. **Two are worth typing, and both take seconds.** **§5's fix:** the generator block arrives already broken (`int burnPerHour`) and should look unremarkable — but the *repair* is one word changed in front of the room, `int` → `double`, and the answer changing as they watch is the whole payoff. **§7's four `.gitignore` lines:** the badge has to fall *as each line lands*, which is the entire beat and the only thing pasting could take from you.
 
 > [!TIP]
 > **Clickable version:** [the hosted script](https://jgrissom.github.io/dotnet-db-dev/week-01/demo/script.html) — checkboxes survive refreshes; Reset button for next run.
