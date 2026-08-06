@@ -31,8 +31,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the
 
 ```
 instructor/                    ← the container on your machine
-├─ dotnet-db-coursework/       ← OPEN IN VS CODE, and completely EMPTY
-└─ dotnet-db-dev/              ← a plain clone beside it — never opened
+└─ dotnet-db-coursework/       ← OPEN IN VS CODE, and completely EMPTY
 ```
 
 VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**. That emptiness is the first beat of the night — §3 turns nothing into a program on screen. By §9 the same window holds `.gitignore` + `week-01/Haldane/`, committed and pushed clean — which is also **week 2's opening state**, untouched.

@@ -27,11 +27,10 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the
 
 ```
 instructor/                    ← the container on your machine
-├─ dotnet-db-coursework/       ← OPEN IN VS CODE — week 1's end state, untouched:
-│  ├─ .gitignore               ←   the four lines, written in week 1's §7
-│  └─ week-01/
-│     └─ Haldane/              ←   source + csproj committed; bin/ obj/ on disk, ignored
-└─ dotnet-db-dev/              ← the clone beside it — never opened
+└─ dotnet-db-coursework/       ← OPEN IN VS CODE — week 1's end state, untouched:
+   ├─ .gitignore               ←   the four lines, written in week 1's §7
+   └─ week-01/
+      └─ Haldane/              ←   source + csproj committed; bin/ obj/ on disk, ignored
 ```
 
 VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, Source Control is quiet. Tonight adds `week-02/Haldane` beside `week-01` — by command, nothing reopened — and §1 manufactures one slipped file on purpose, then evicts it.
