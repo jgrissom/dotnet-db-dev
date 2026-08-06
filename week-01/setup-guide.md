@@ -209,7 +209,7 @@ ls ..
 ls ../dotnet-db-starters
 ```
 
-You should see a `README.md` and **one folder per week that exists so far** — `week-01`, `week-02`, and however many more by the time you read this. Week folders and nothing else; that's the whole repo.
+You should see a `README.md` and a folder for each week — `week-01`, `week-02`, … **Week folders and nothing else** — that's the whole repo.
 
 ---
 
