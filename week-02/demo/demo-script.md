@@ -100,7 +100,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 
 #### Case 1 — it never left your machine
 
-- [ ] 🎯 **The question the whole segment turns on. Ask it, and let them answer:** *"before anything else — one question decides what happens next. **Have I pushed it?**"* — you haven't. *"Then this is the good case, and it's the one you'll usually be in, because you notice within about ten seconds"*
+- [ ] 🎯 **The question the whole segment turns on. Ask it, and let them answer:** *"before anything else — one question decides what happens next. **Have I pushed it**?"* — you haven't. *"Then this is the good case, and it's the one you'll usually be in, because you notice within about ten seconds"*
 - [ ] Undo the commit:
   ```bash
   git reset HEAD~1
