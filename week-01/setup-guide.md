@@ -163,11 +163,17 @@ The repo you just made is **empty and on GitHub**. Your actual work happens in a
 
 That was *your* repo. This one is **mine**, and it holds exactly one kind of thing: **the folder you copy at the start of every week** — the lab, your homework's starting point, and the checks. Nothing in it is reading material.
 
-⚠️ **Put it right next to `dotnet-db-coursework`, not inside it.** Side by side is the arrangement every instruction for the rest of the term assumes. So `cd` to wherever you just made `dotnet-db-coursework` first, then:
+⚠️ **It goes right next to `dotnet-db-coursework`, not inside it.** Side by side is what every instruction for the rest of the term assumes.
+
+**Open the terminal in VS Code — `` Ctrl+` `` (backtick, top-left of your keyboard).** It opens standing *inside* `dotnet-db-coursework`, so step out one level, clone, and step back in:
 
 ```bash
+cd ..
 git clone https://github.com/jgrissom/dotnet-db-starters.git
+cd dotnet-db-coursework
 ```
+
+**That last line matters** — it puts you back at the top of your own folder, which is where every command in this course runs from.
 
 **That is the whole shape, and it does not change again all semester:**
 
@@ -190,11 +196,10 @@ wherever you keep your work/
 **✓ Check:**
 
 ```bash
-cd dotnet-db-starters
-ls
+ls ../dotnet-db-starters
 ```
 
-You should see `week-01`, `week-02` and a `README.md` — week folders and nothing else.
+You should see `week-01`, `week-02` and a `README.md` — week folders and nothing else. *(The `../` looks next door without moving you.)*
 
 ---
 
