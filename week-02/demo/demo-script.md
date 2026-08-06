@@ -158,11 +158,17 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   git ls-files | grep secrets
   ```
   **Nothing.** And in the Explorer `secrets.txt` is still there, grayed out. *"`--cached` means the repo forgot it. My disk never will — and I still need that file to do my job"*
-- [ ] Push it and refresh GitHub — **gone from the file list:**
+- [ ] Push it:
   ```bash
   git push
   ```
-- [ ] ⚠️ 🎯 **The beat this whole redesign exists for. Do not skip it, and do not soften it.** Click into the repo's **commit history**, open the *"uplink config"* commit — **the password is still right there, on screen.** *"The file is out of my repo. The password is still on GitHub, in a commit anybody with access can read, and it is not coming back out. `--cached` untracked it going forward; it cannot un-happen the past"*
+- [ ] **In the browser, on the repo's front page — refresh.** `secrets.txt` is **gone from the file list.** *"Fixed, as far as anyone can see"* — leave that hanging, it is the wrong conclusion and they are about to watch it break
+- [ ] ⚠️ 🎯 **The beat this whole redesign exists for. Do not skip it, and do not soften it.** ⚠️ **Say which history, because there are two and only one of them proves anything:**
+  - **In the browser, not the terminal.** `git log` on your machine shows commit *messages*; this beat needs the commit *contents*, on GitHub, where other people are.
+  - **Not the file browser.** That is the view you just refreshed, and it only ever shows the **current** state — which is exactly why it looked fixed.
+  - **The link is `Commits`**, above the file list on the repo's front page (the clock-with-arrow icon, *"N Commits"*). Click it, then click the **`Week 2: uplink config`** commit.
+  - **The diff opens with `secrets.txt` in it and the password readable on screen.** Zoom in if the room is far back.
+- [ ] 🎯 *"The file is out of my repo. The password is still on GitHub, in a commit anybody with access can read, and it is not coming back out. `--cached` untracked it going forward; it cannot un-happen the past"*
 - [ ] 🎯 **So say the only real fix out loud:** *"once a secret is pushed, it is burned. You change the password. That is the entire remedy, and it's why the answer is never to let it happen — which is week 10's whole job, when your database password needs somewhere to live that isn't your repo"*
 - [ ] 💡 **Then hand back the good news, because the drill is still worth having:** *"the eviction works identically for one file or four hundred, and most of what slips in is junk, not secrets. Someday, on some repo, you'll need it. Now you have it"*
 - [ ] **✓ CHECKPOINT:** somebody can say what decides between the two fixes (*have you pushed?*), why the `.gitignore` alone couldn't fix case 2, and what `--cached` spared

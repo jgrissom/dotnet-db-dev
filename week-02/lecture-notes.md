@@ -73,7 +73,16 @@ Afterwards the evicted files are still on disk (grayed out in VS Code's Explorer
 
 ### ⚠️ What the drill does *not* do
 
-**It does not remove anything from your history.** The file is gone from the current state of the repo — but every commit you made before the eviction still contains it, and if you pushed, those commits are on GitHub. Open the commit history and the contents are right there to read.
+**It does not remove anything from your history.** The file is gone from the current state of the repo — but every commit you made before the eviction still contains it, and if you pushed, those commits are on GitHub.
+
+**Go and see it for yourself, because the wrong view is the convincing one:**
+
+1. Open your repo on GitHub. The file list is the **current** state — the evicted file isn't in it, which is exactly why this looks fixed.
+2. Click **Commits** above the file list (the clock icon, *"N Commits"*).
+3. Open the commit where the file first went in.
+4. **It's right there in the diff, contents and all.**
+
+Two different questions, and only one of them matters once a password is involved: *what does my repo look like now?* and *what has my repo ever contained?*
 
 For build junk, nobody cares. **For a password, it means the password is burned:**
 
