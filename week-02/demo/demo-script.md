@@ -58,6 +58,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   git remote add origin https://github.com/jgrissom/dotnet-db-coursework.git
   git push -f -u origin main
   ```
+- [ ] **Open the hosted cue sheet and check it matches the markdown.** The published page is a *build* — it lags a push by a couple of minutes and can fail outright, leaving the previous version up with no warning at all. **Stale or won't load? Read `demo-script.md` from the clone instead** — the markdown is always right, and all you lose is the checkboxes and the Copy buttons
 - [ ] **Rehearse the whole thing once (≈20 min).** The §4 `dotnet new` wants a warm NuGet cache, and the §2 cleanup is a beat you want in your hands, not your head
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`** — the top, exactly where week 1's class left it, and the only folder that ever gets opened
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** The board gained a generator panel this week — say nothing about it; it explains itself or it isn't working. **Close it before slide 1**
