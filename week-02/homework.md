@@ -204,6 +204,8 @@ git commit -m "week 2: the request line holds"
 
 ## Part 3 — Repo hygiene (graded)
 
+⚠️ **Not optional, and not the end of the homework: 3 of tonight's 20 points live in this part** — the README is 1 and the commits are 2. It's about ten minutes.
+
 **Hygiene is scored every week from now on** — and because your `.gitignore` has been guarding the door since your very first commit, most of it is already true. Tonight adds a README and the commit habit.
 
 **You're already standing where all of this happens.** Your window is the top of the repo — the Explorer can make files at the root, and the terminal is where every `git` command runs. Nothing to open, nothing to change.
