@@ -143,7 +143,11 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   Console.WriteLine("========================================");
   Console.WriteLine();
   ```
-- [ ] `dotnet run --project week-01/Haldane`. **Set the fiction here** — this is the only world-building beat, and it takes about twenty seconds: *"Haldane is a research station in Antarctica. Twelve people, five hundred kilometres from anybody, and one console. **Everything the station knows about itself is on this screen** — the fuel, the weather, the log, all of it. There's no browser, no phone, no app, and no second opinion: if it's wrong here, it's just wrong, and nobody finds out from somewhere else. Tonight it answers two of those questions — does the generator last the night, and is it safe to go outside. Get one of those wrong and somebody's out in it at forty below"*
+- [ ] Run it:
+  ```bash
+  dotnet run --project week-01/Haldane
+  ```
+- [ ] **Set the fiction here** — this is the only world-building beat, and it takes about twenty seconds: *"Haldane is a research station in Antarctica. Twelve people, five hundred kilometres from anybody, and one console. **Everything the station knows about itself is on this screen** — the fuel, the weather, the log, all of it. There's no browser, no phone, no app, and no second opinion: if it's wrong here, it's just wrong, and nobody finds out from somewhere else. Tonight it answers two of those questions — does the generator last the night, and is it safe to go outside. Get one of those wrong and somebody's out in it at forty below"*
 - [ ] ⚠️ **Say "Antarctica" out loud — it is the only place all night the room is told where they are.** Everything else is inference from `-41.5`, `Blizzard: True` and `512 km`, and most of them will get there, but one word is cheaper than an evening of mild uncertainty
 - [ ] ⚠️ **Resist improvising extra features into it** — no roster of who's out on the ice, no incident log, no sign-out board. Each one is a promise with a due date, and tonight builds none of them; week 3 makes the log real
 
@@ -193,13 +197,20 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```csharp
   int personnelOnStation = "twelve";
   ```
-- [ ] `dotnet run --project week-01/Haldane`. 🎞️ **GO TO SLIDE 12** — *The build failed* · nobody is surprised. Fine. But be precise about what just happened: *"it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
+- [ ] Run it and let it fail:
+  ```bash
+  dotnet run --project week-01/Haldane
+  ```
+- [ ] 🎞️ **GO TO SLIDE 12** — *The build failed* · nobody is surprised. Fine. But be precise about what just happened: *"it didn't print the banner, it didn't print the station name — the program **did not run**. Not 'ran and crashed'"*
 
 ### Reading an error
 
 - [ ] 🎞️ **GO TO SLIDE 13** — *Reading an error*. Back to the terminal and take the message apart on screen: **file · line and character · what's wrong**
 - [ ] 🎯 *"`CS0029`. Every C# error has a code and it's searchable. Paste the code and the message into a search box and you get the actual documentation. Most of you have been reading the squiggle and guessing. Read the code instead"*
-- [ ] Fix it back to `12`, `dotnet run --project week-01/Haldane`, banner returns
+- [ ] Fix it back to `12`, then run — banner returns:
+  ```bash
+  dotnet run --project week-01/Haldane
+  ```
 
 ### The limit
 
@@ -213,7 +224,11 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   Console.WriteLine();
   ```
 - [ ] **Predict, hands up:** *"4300 litres, 800 an hour. What prints?"* — the room will say five point something
-- [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** `dotnet run --project week-01/Haldane` → **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
+- [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** Just run it:
+  ```bash
+  dotnet run --project week-01/Haldane
+  ```
+- [ ] It prints **`5 hours remaining`**. 🎯 Let it sit. *"Five. The real answer is 5.375 — that's twenty-two minutes of heat, at forty below. And look at the terminal: no error. No warning. **Nothing.** Look at the editor: no squiggle. The compiler had no opinion about this at all"*
 - [ ] ⚠️ **Don't rescue it too fast.** If nobody speaks within twenty seconds, ask *"is that right?"* — never *that's wrong*
 - [ ] **Ask before explaining:** *"why?"* — someone usually gets there, and a few will have been bitten by it before. **Let that person say it.** Then: *"both sides are whole numbers, so C# did whole-number division and threw the remainder away. Then it stored `5` in a double, as 5.0. **The decimal point was gone before `double` ever got involved**"*
 - [ ] 💡 **The follow-up that separates knowing-the-fix from understanding it:** *"so would casting the answer to double save you?"* — no. `(double)(4300 / 800)` is 5.0. *"The fix has to happen before the division, not after"*
@@ -221,7 +236,11 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```csharp
   double burnPerHour = 800;
   ```
-- [ ] `dotnet run --project week-01/Haldane` → **5.375**. 🎯 **The sentence the course hangs off:** *"here is the promise that word at the front actually makes. **The compiler checks that your types line up. It does not check that your program is right.** Those are wildly different promises, and everything that lives in the gap is yours to catch. That gap is why week 7 exists, and why every lab you do has a file full of checks in it"*
+- [ ] Run it — **5.375**:
+  ```bash
+  dotnet run --project week-01/Haldane
+  ```
+- [ ] 🎯 **The sentence the course hangs off:** *"here is the promise that word at the front actually makes. **The compiler checks that your types line up. It does not check that your program is right.** Those are wildly different promises, and everything that lives in the gap is yours to catch. That gap is why week 7 exists, and why every lab you do has a file full of checks in it"*
 - [ ] 🔗 *"You will meet this exact bug in the lab tonight, in check 4. Now you know what it looks like"*
 - [ ] **✓ CHECKPOINT:** somebody can say why `4300 / 800` gave 5, **and** why casting the result doesn't fix it
 
@@ -257,7 +276,10 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   Console.WriteLine($"That's {Conditions.Fahrenheit(temperatureC)} F.");
   Console.WriteLine($"Safe to go out: {Conditions.IsSafeToGoOut(temperatureC, blizzardWarning)}");
   ```
-- [ ] `dotnet run --project week-01/Haldane` → `-42.7 F` and `Safe to go out: False`
+- [ ] Run it — `-42.7 F` and `Safe to go out: False`:
+  ```bash
+  dotnet run --project week-01/Haldane
+  ```
 
 ### Two files, two jobs
 
@@ -295,7 +317,11 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   .DS_Store
   ```
   *"Watch the badge. `bin/` — falling. `obj/` — there. Four lines, and git now sees exactly what I made"* 💡 **The last two, one sentence each:** `*.user` is per-machine editor settings; `.DS_Store` is macOS's Finder leaving notes to itself — Windows people never see one, the line costs nothing
-- [ ] `git status -u` again — **short now, and readable:** the three files, the `.gitignore` itself, nothing else. *"That file sits at the top, so it covers `week-01`, `week-02`, and the fourteen folders that don't exist yet. Write it before your first commit, and git never starts tracking any of it"*
+- [ ] Ask again:
+  ```bash
+  git status -u
+  ```
+- [ ] **Short now, and readable:** the three files, the `.gitignore` itself, nothing else. *"That file sits at the top, so it covers `week-01`, `week-02`, and the fourteen folders that don't exist yet. Write it before your first commit, and git never starts tracking any of it"*
 - [ ] Then the rest, **one line at a time; the `git status` between each is a beat, not filler:**
   ```bash
   git add .
@@ -330,7 +356,15 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 ## 8 · Hand off to the lab *(slide 20)*
 
 - [ ] 🎞️ **GO TO SLIDE 20** — *Lab: KDXR signs on*. Leave it up for the whole lab; it's the task list and it carries the clock
-- [ ] Show **what done looks like** — the answer key **running on your machine**: `week-01/lab/solution`, then `dotnet test Lab.Checks` printing **5 / 5**, and `dotnet run --project Lab` showing the sign-on. ~60 seconds, a target not a walkthrough. *"Nothing in this course gets deployed — no URL to visit, no server to start. Every program you write runs on your own machine"* ⚠️ **stop there; don't add "and always will"** — from week 10 the *data* lives on the school's server
+- [ ] Show **what done looks like** — the answer key **running on your machine**, from `week-01/lab/solution`. ~60 seconds, a target not a walkthrough:
+  ```bash
+  dotnet test Lab.Checks
+  ```
+  → **5 / 5**
+  ```bash
+  dotnet run --project Lab
+  ```
+  → the sign-on. *"Nothing in this course gets deployed — no URL to visit, no server to start. Every program you write runs on your own machine"* ⚠️ **stop there; don't add "and always will"** — from week 10 the *data* lives on the school's server
 - [ ] ⚠️ **Run it from the pre-positioned terminal window. VS Code stays exactly as it is** — this is not *"no VS Code"*, it is **don't open the *solution folder* in it**. Its Explorer would list `Broadcast.cs`, somebody will ask you to open it, and that file is the answers to what they're about to spend fifty minutes on. **A bare terminal shows the result without showing the work**
 - [ ] In that window, both commands, ~60 seconds total — **`Passed! - Failed: 0, Passed: 5`**, then the sign-on. **The `cd` is only needed if you lost the window §0 set up** *(and it assumes `~/Repos`)*:
   ```bash

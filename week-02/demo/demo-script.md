@@ -89,7 +89,11 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   ```bash
   git commit -m "a build artifact, committed by accident"
   ```
-- [ ] Prove it's really in: `git ls-files | grep bin` → one tracked build artifact. *"There's a compiled binary in my repo now. And the `.gitignore` hasn't changed a character — completely powerless, because that file is already inside"*
+- [ ] Prove it's really in — not just staged, **tracked**:
+  ```bash
+  git ls-files | grep bin
+  ```
+  One line back: the build artifact. *"There's a compiled binary in my repo now. And the `.gitignore` hasn't changed a character — completely powerless, because that file is already inside"*
 
 ### Ignored is not untracked
 
@@ -165,7 +169,11 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 - [ ] **Point at the squiggle under `Console.ReadLine()`. Do not fix it yet.** Hover it, and read the whole thing out loud
 - [ ] 🎞️ **GO TO SLIDE 9** — *The warning you'd have ignored* · 🎯 *"`CS8600`, and it's a **warning**, not an error — the build succeeds, the program runs. Hands up: who read the warnings in their build output last semester?"* — expect near-zero, and give it the beat it deserves
 - [ ] 🎯 **The sentence that reframes warnings for good:** *"an error is the compiler saying 'I can't build this.' A warning is the compiler saying **'I can build it, but this is the part I can't promise.'** Last week you learned the compiler's promise has an edge. A warning is the compiler drawing you a map of that edge — and everyone scrolls past it"*
-- [ ] Prove it builds anyway — `dotnet run --project week-02/Haldane`, and point at the warning line scrolling by in the build output before the banner prints: *"there it is again, in writing, every build. `0 Warnings` is a sentence worth wanting"*
+- [ ] Prove it builds anyway:
+  ```bash
+  dotnet run --project week-02/Haldane
+  ```
+- [ ] Point at the warning line scrolling by in the build output before the banner prints: *"there it is again, in writing, every build. `0 Warnings` is a sentence worth wanting"*
 
 ### What it was warning about
 
@@ -192,7 +200,11 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   ```
 - [ ] 🎞️ **GO TO SLIDE 11** — *Text becomes a number* · *"everything `ReadLine` gives you is **text**. `\"-41.5\"` with quotes on it. The board does arithmetic, so it needs the number, and `double.Parse` is the converter — note the verb: it takes the string's word for it"*
 - [ ] 💡 **The `bool` line is worth ten seconds, not more:** *"why `== \"y\"` instead of parsing a bool? Because `bool.Parse` wants the literal word `True`, and no human on a radio at 3 AM says `True`. Ask a y/n question, compare the answer. Parsing is for numbers"*
-- [ ] Run it and type carefully — `dotnet run --project week-02/Haldane`, answer **`-41.5`** and **`y`**. The board fills in: `-42.7 F`, `Safe to go out: False`. *"Works. Last week's methods, this week's input"*
+- [ ] Run it and type carefully:
+  ```bash
+  dotnet run --project week-02/Haldane
+  ```
+- [ ] Answer **`-41.5`** and **`y`**. The board fills in: `-42.7 F`, `Safe to go out: False`. *"Works. Last week's methods, this week's input"*
 - [ ] **✓ CHECKPOINT:** the room can say what `??` did and what `Parse` did, and that both happened to *text*
 
 ## 4 · Input that lies *(slides 12–14)*
