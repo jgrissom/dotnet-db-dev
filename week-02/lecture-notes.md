@@ -116,21 +116,21 @@ Use the same name and email as your GitHub account, and keep them somewhere that
 
 ---
 
-## The Source Control panel, translated
+## The Source Control view, translated
 
-Last week you learned four git commands and were told to leave the sidebar panel alone. That order was the point — the panel is those commands with buttons, and now you can read it:
+Last week you learned four git commands and were told to leave the Source Control view alone. That order was the point — the view is those commands with buttons, and now you can read it:
 
-| In the panel | Is the command |
+| In the view | Is the command |
 |---|---|
 | the **Changes** list | `git status` |
 | **+** on a file (or on the Changes header) | `git add` |
 | the message box + **✓ Commit** | `git commit -m "..."` |
 | the **Sync** button (circling arrows) | `git push` (and pull) |
 
-Use whichever you like from here on — panel, terminal, or both. **When the panel confuses you, the terminal is how you find out what's actually going on.** `git status` never lies.
+Use whichever you like from here on — view, terminal, or both. **When the view confuses you, the terminal is how you find out what's actually going on.** `git status` never lies.
 
 > [!NOTE]
-> **If your panel shows nothing at all**, the usual cause is having a *week folder* open instead of your coursework folder — the panel watches the folder VS Code has open, and the repo lives at the top. **File → Open Folder → `dotnet-db-coursework`** and it comes alive. (One more reason the top is the window you keep.)
+> **If your Source Control view shows nothing at all**, the usual cause is having a *week folder* open instead of your coursework folder — the view watches the folder VS Code has open, and the repo lives at the top. **File → Open Folder → `dotnet-db-coursework`** and it comes alive. (One more reason the top is the window you keep.)
 
 ---
 
@@ -306,7 +306,7 @@ This is the first taste of a rhythm the whole course runs on: **from week 4, you
 
 **Everything came back after an eviction** — the `.gitignore` wasn't in place (or has a typo) when you ran `git add .`. Check the file is at the repo **root**, spelled exactly `.gitignore`, then redo the three commands.
 
-**The Source Control panel is empty but `git status` works in some terminal** — VS Code is open on a week folder instead of the top. File → Open Folder → `dotnet-db-coursework`, and the panel comes alive.
+**The Source Control view is empty but `git status` works in some terminal** — VS Code is open on a week folder instead of the top. File → Open Folder → `dotnet-db-coursework`, and the view comes alive.
 
 **The checks say they can't find `Switchboard`** — it needs to be `public`, spelled `Switchboard`, in its own file **inside** the `Homework` folder. Same rules as `Station` last week, [same fix if the file's in the wrong place](../week-01/lecture-notes.md#appendix-troubleshooting).
 

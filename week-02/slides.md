@@ -106,9 +106,9 @@ Nothing leaves your disk. It leaves the **repo** —
 
 ---
 
-<!-- _footer: '🖥️ Demo §2 · the panel' -->
+<!-- _footer: '🖥️ Demo §2 · the view' -->
 
-## The panel reads the tree
+## The view reads the tree
 
 **An empty *Changes* list is `git status` saying: clean.**
 

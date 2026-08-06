@@ -68,7 +68,7 @@ You want something starting with `10.`:
 - **Windows:** during install, tick **"Add to PATH"**. It's on by default; don't untick it.
 - **macOS:** drag it to Applications, then open it once so macOS stops asking whether you're sure.
 
-**✓ Check.** VS Code opens and you can see the Explorer panel down the left side.
+**✓ Check.** VS Code opens and you can see the Explorer view down the left side.
 
 ---
 
@@ -154,7 +154,7 @@ The repo you just made is **empty and on GitHub**. Your actual work happens in a
 
 ⚠️ **Put it somewhere sensible and permanent** — your home folder, or wherever you keep projects. **Not on the Desktop, not in Downloads, and not inside any other folder from this course.** You will add a folder to it every week for the rest of the semester.
 
-**✓ Check.** VS Code's title bar says `dotnet-db-coursework` and the Explorer panel on the left is empty. That empty panel is correct — you'll fill it in tonight's lab.
+**✓ Check.** VS Code's title bar says `dotnet-db-coursework` and the Explorer view on the left is empty. That emptiness is correct — you'll fill it in tonight's lab.
 
 > [!NOTE]
 > **You don't run any `git` commands on it yet.** Connecting this folder to the repo on GitHub is the last thing we do in class tonight, and it's four commands. For now it's just a folder.

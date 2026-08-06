@@ -178,7 +178,7 @@ git ls-files | grep -E '(^|/)(bin|obj)/'
 
 `status` should be quiet (or list only tonight's real work), and the second command should print **nothing** — no generated file is tracked anywhere. If something *did* slip in, [the eviction drill from the demo](lecture-notes.md#the-eviction-when-its-already-pushed) fixes it in three commands — that's exactly what it's for.
 
-**2. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). In the Explorer, **click the empty space below the file list first** so it lands at the root, then New File → `README.md`. Commit it — from the Source Control panel if you like; the buttons are the verbs now.
+**2. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). In the Explorer, **click the empty space below the file list first** so it lands at the root, then New File → `README.md`. Commit it — from the Source Control view if you like; the buttons are the verbs now.
 
 **3. Commit as you go — three or more commits touching `week-02/`**, with messages that mean something. `week 2 lab`, `switchboard working`, `readme` tells a story. I read these. (A good rhythm, and the one the demo modeled: commit whenever you're somewhere solid — right after the setup compiles, again when the checks go green — so the risky stretches always have a save point behind them.)
 

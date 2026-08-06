@@ -1,6 +1,6 @@
 # Week 2 — Lesson Plan
 
-**Topic:** The mistakes the compiler *can't* catch — input that lies, `null`, and reading a warning you'd have ignored. Git: what the four lines *can't* do (the slip, and the eviction drill), the Source Control panel's promised slot, and a README.
+**Topic:** The mistakes the compiler *can't* catch — input that lies, `null`, and reading a warning you'd have ignored. Git: what the four lines *can't* do (the slip, and the eviction drill), the Source Control view's promised slot, and a README.
 **Session length:** 3h 45m
 
 > Two halves, and the order is a kept promise: week 1 ended with *"next week: what those four lines can't do."* So the night opens on git — the slip manufactured live, the eviction drill taught while it's cheap — and then turns to the compiler's limit, part two: last week it was silent about a wrong answer; this week it *warns* and gets ignored, and then something no compiler could ever catch takes the console down. **Input happens after compiling is over.**
@@ -23,14 +23,14 @@ By the end of this session, students can:
 
 1. Say what `bin/` and `obj/` contain, and why a repo holds only what a human wrote.
 2. Write a root `.gitignore` — and explain precisely why it doesn't untrack already-committed files. Given a bad commit, ask **"have I pushed it?"** and pick the right repair: `git reset HEAD~1` if not, `git rm -r --cached .` if so (and say what `--cached` spares) — plus why a *pushed secret* must be changed either way.
-3. Read the Source Control panel as the four git verbs they already know, and commit from it.
+3. Read the Source Control view as the four git verbs they already know, and commit from it.
 4. Read a compiler **warning** as the edge of the compiler's promise — different from an error, and not decoration.
 5. Handle `null` and blank input with `??`, `IsNullOrWhiteSpace` and `Trim`, in a method that never crashes.
 6. Say why `Parse` throws on bad input and `TryParse` doesn't, and write the `TryParse(...) && range` idiom.
 7. Explain why "ask once, answer gracefully" beats a re-asking loop for any program a grader (or test) has to run.
 
 > [!NOTE]
-> **Objectives 2, 4 and 6 are the week.** The panel and the README are quick payoffs on week 1's setup; protect the eviction drill and both halves of §4 if the night runs short.
+> **Objectives 2, 4 and 6 are the week.** The view and the README are quick payoffs on week 1's setup; protect the eviction drill and both halves of §4 if the night runs short.
 
 ## Materials
 
@@ -46,7 +46,7 @@ By the end of this session, students can:
 |------|----------|---------|
 | 0:00 | 22 min | **The four lines, revisited** *(slides 2–5, demo §1)*. Thirty-second recap of what the `.gitignore` has been doing, the lab-PC drill, then **`secrets.txt` committed live, on purpose — twice.** Case 1, unpushed: `git reset HEAD~1`, and it never happened. Case 2, pushed: adding it to the `.gitignore` changes nothing (*ignored is not untracked*), the eviction drill clears the repo, **and the password is still readable in the commit history on GitHub** — so the only real fix is to change it. The one git skill everyone eventually needs, taught while it's cheap. |
 | 0:22 | 13 min | **Loose ends** *(no slides)*. Circulate: failed week-1 pushes, missing collaborator invites, broken toolchains, anyone who couldn't finish the homework. The room that leaves this slot healthy stays healthy all term. Early finishers: re-run their week-1 shift or read this week's lab intro. |
-| 0:35 | 15 min | **The panel, and a README** *(slides 6–7, demo §2)*. The promised Source Control slot: every region mapped to a verb they know. README typed and committed **with the buttons**. |
+| 0:35 | 15 min | **The view, and a README** *(slides 6–7, demo §2)*. The promised Source Control slot: every region mapped to a verb they know. README typed and committed **with the buttons**. |
 | 0:50 | 10 min | **☕ Break** |
 | 1:00 | 30 min | **The console takes a reading** *(slides 8–11, demo §3)*. `week-02/Haldane` created by command, `Conditions.cs` carried forward in one `cp` (the homework's move, modeled). `ReadLine`, **the squiggle read properly and ignored knowingly**, `?? ""`, `double.Parse`, happy-path run. |
 | 1:30 | 35 min | **Input that lies** *(slides 12–14, demo §4)*. 💥 The unannounced break: `-41.5 C` → `FormatException` 🎯. Read the crash's anatomy. Why the compiler warned about `null` but *couldn't* warn about this. `TryParse`, both paths run, the console stays up. The save-point and closing commits. The week's sentence. |
@@ -63,7 +63,7 @@ By the end of this session, students can:
 - ⚠️ **Do not let case 2 end on the eviction.** The last beat is the commit history on GitHub with the password still in it, and the sentence *"a pushed secret is burned — you change it."* That is the beat the whole redesign exists for, and it is the one a running-late instinct will cut.
 - 💡 **Adding `secrets.txt` is a fifth line in a file week 1 promised you'd never reopen.** Say why out loud — the four lines are the *machinery* rule and still settled; a secret is a different category. Unaddressed, it reads as the promise breaking.
 - 🎯 **The loose-ends slot is load-bearing, not slack.** Week 1 always leaves two or three students quietly broken — a rejected push, a missing invite, a machine that fought the install. Twenty minutes in week 2 is the cheapest possible repair window; the same problems discovered on grading night cost points and confidence. Say what the slot is for out loud so nobody feels singled out.
-- ⚠️ **Do not oversell the panel.** It gets fifteen minutes and it's a *translation*, not a tour — every button named as its verb, one README committed with it, done. The CLI stays the taught path; the graders read repos, not editors.
+- ⚠️ **Do not oversell the view.** It gets fifteen minutes and it's a *translation*, not a tour — every button named as its verb, one README committed with it, done. The CLI stays the taught path; the graders read repos, not editors.
 - 🎯 **The warning beat lives or dies on the pause.** Hover the squiggle, read `CS8600` aloud, ask who read their warnings last semester — and then **build and run anyway.** Ignoring it *knowingly* is the setup; the crash in §4 is what the ignoring costs. If you fix the warning the moment it appears, §4 loses its teeth.
 - ⚠️ **§4's break is unannounced, as always.** Type `-41.5 C` while saying the reading out loud like a log entry — the room should realize what's about to happen about half a second before it does. If nobody reacts to the crash, read the exception type aloud and ask *"is that a compile error?"* — the distinction is the segment.
 - 🎯 **Take the loop-until-valid question seriously when it comes** (it will, and it's a good instinct): the grader answers with silence, a loop that insists spins forever, ask once and answer gracefully. It's testable-shape thinking applied to input — and promise week 13 honestly for the full retry/exception story.
@@ -79,7 +79,7 @@ By the end of this session, students can:
 | A student announces their repo *does* have junk in it (skipped the gitignore, or committed before writing it) | A gift — that's a real slip, live. Offer the eviction drill on their machine during loose ends, out loud if they're game: §1 just taught exactly this repair. |
 | `git rm -r --cached .` output floods the terminal | Fine — say *"every line is a file leaving"* and scroll to the end. |
 | **Somebody asks: "couldn't you delete the repo on GitHub and push it again?"** *(Not a beat — don't raise it yourself. This is only here so the answer is ready.)* | **It doesn't fix it, for two reasons.** ① **As described it doesn't even remove the secret** — your *local* history still holds the `uplink config` commit, so pushing to a fresh remote uploads the password again. You'd have to rewrite local history too, which is a bigger tool than this course teaches. ② **Even done properly, you can't know who already has it** — anyone who cloned or forked, a CI run, a notification email carrying the diff. ⚠️ **Don't dismiss the instinct** — limiting exposure is reasonable; it just isn't a substitute for a new password, which is the only step that actually ends the problem. |
-| Someone's panel is empty during §2 | They have a *week folder* open instead of the top. File → Open Folder → `dotnet-db-coursework`, panel comes alive. It's in the notes' appendix; fix one machine on screen and the room self-serves. |
+| Someone's Source Control view is empty during §2 | They have a *week folder* open instead of the top. File → Open Folder → `dotnet-db-coursework`, the view comes alive. It's in the notes' appendix; fix one machine on screen and the room self-serves. |
 | The loose-ends slot finds nothing broken | Wonderful — release it into the lab (start the launch early) rather than filling it. Its job is insurance, not content. |
 | Someone asks why not commit `bin/` "so it always runs" | A real question — answer it straight: the clone can't run your build output anyway (different machine, different paths), but it can always rebuild from source. Repos ship recipes, not casseroles. |
 | The `-41.5 C` break doesn't crash because you typed `-41.5` | You dodged your own break — laugh, say *"that's the point, it works when you're careful,"* and type it again with the unit. |
