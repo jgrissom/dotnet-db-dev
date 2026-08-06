@@ -118,6 +118,16 @@ dotnet run --project week-02/Homework
 
 **Do that after every method** — write `Greeting()`, test, run. Then `CallerName()`, test, run. **Four methods, four rounds**, and the pasted file starts you at 2 of 4. A check that goes red right after you wrote something tells you exactly where to look.
 
+**Green? Commit it** — you're somewhere solid, and that's when a commit happens:
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "week 2: switchboard"
+```
+
 **4. `week-02/Homework/Program.cs` opens the line.** The skeleton ships with a placeholder — replace the whole file with this. Small on purpose; every decision lives in `Switchboard.cs`:
 
 ```csharp
@@ -170,6 +180,16 @@ dotnet run --project week-02/Homework
 
 If anything does crash, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
 
+**Commit again once it survives everything you threw at it:**
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "week 2: the request line holds"
+```
+
 ## Part 3 — Repo hygiene (graded)
 
 **Hygiene is scored every week from now on** — and because your `.gitignore` has been guarding the door since your very first commit, most of it is already true. Tonight adds a README and the commit habit.
@@ -195,9 +215,13 @@ git ls-files | grep -E '(^|/)(bin|obj)/'
 
 `status` should be quiet (or list only tonight's real work), and the second command should print **nothing** — no generated file is tracked anywhere. If something *did* slip in, [the eviction drill from the demo](lecture-notes.md#the-eviction-when-its-already-pushed) fixes it in three commands — that's exactly what it's for.
 
-**2. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). In the Explorer, **click the empty space below the file list first** so it lands at the root, then New File → `README.md`. Commit it — from the Source Control view if you like; the buttons are the verbs now.
+**2. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). In the Explorer, **click the empty space below the file list first** so it lands at the root, then New File → `README.md`. Then commit it — from the Source Control view if you like; the buttons are the verbs now:
 
-**3. Commit as you go — three or more commits touching `week-02/`**, with messages that mean something. `week 2 lab`, `switchboard working`, `readme` tells a story. I read these. (A good rhythm, and the one the demo modeled: commit whenever you're somewhere solid — right after the setup compiles, again when the checks go green — so the risky stretches always have a save point behind them.)
+```
+week 2: readme
+```
+
+**3. Three or more commits touching `week-02/`**, with messages that mean something. **If you followed the parts above you already have three** — switchboard, request line, readme — and any commits from tonight's lab count too, because they're in the same week folder. `week 2 lab`, `switchboard working`, `readme` tells a story; `a`, `b`, `asdf` doesn't. I read these. (A good rhythm, and the one the demo modeled: commit whenever you're somewhere solid — right after the setup compiles, again when the checks go green — so the risky stretches always have a save point behind them.)
 
 ```bash
 git push
