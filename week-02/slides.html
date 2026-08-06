@@ -134,12 +134,14 @@ section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="16">
 <h2 id="the-slip">The slip</h2>
-<p>One build, one <code>add</code>, <strong>before</strong> the ignore file existed —</p>
+<p>One <code>add .</code>, one tired commit — and the password is in the repo.</p>
 <br />
-<p>that's all it takes. And someday it will happen to you:</p>
-<p>a rename, a new machine, a hurried commit.</p>
+<p><strong>One question decides what happens next: have you pushed it?</strong></p>
 <br />
-<p><strong>Junk gets tracked. Now what?</strong></p>
+<p><strong>Not yet?</strong> Then it never really happened:</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">git reset HEAD~1
+</code></pre>
+<p><em>(never <code>--hard</code> — that one throws your work away)</em></p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §1 · the slip</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §1 · ignored is not untracked" data-theme="gaia" data-style="section pre {
@@ -226,7 +228,8 @@ git commit -m <span class="hljs-string">&quot;take out the trash&quot;</span>
 </code></pre>
 <p>Untrack everything · re-add · the ignore file filters.</p>
 <br />
-<p>Nothing leaves your disk. It leaves the <strong>repo</strong>.</p>
+<p>Nothing leaves your disk. It leaves the <strong>repo</strong> —</p>
+<p><strong>but a pushed secret is already gone. Change it.</strong></p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §1 · the eviction</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §2 · the panel" data-theme="gaia" data-style="section pre {
