@@ -28,4 +28,4 @@ The compiler's limit, part two — and the `.gitignore`'s limit, first. Students
 - **VS Code open on the demo repo's top** (`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`) — the one window, exactly where week 1's class left it; the view needs no configuration because the workspace *is* the repo
 - Editor font **and** terminal sized for the back row, as ever
 
-**Prev:** [Week 1 — Setup and First Contact](../week-01/) · **Next:** Week 3 — Collections, and Losing Everything at Midnight *(coming)*
+**Prev:** [Week 1 — Setup and First Contact](../week-01/) · **Next:** [Week 3 — Collections, and Losing Everything at Midnight](../week-03/)

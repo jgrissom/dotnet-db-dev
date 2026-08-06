@@ -1,0 +1,50 @@
+{
+  "week": 3,
+  "total": 20,
+  "_comment": "One source of truth for week 3's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first.",
+  "checks": {
+    "Check1_TheStationCameForward": {
+      "points": 2,
+      "label": "Station and Switchboard both came forward — call sign legal, CallerName still working"
+    },
+    "Check2_TheNightIsKept": {
+      "points": 4,
+      "label": "Take() builds the on-air line and the List<string> KEEPS it — names trimmed, null survives"
+    },
+    "Check3_TheDeskKnowsItsRegulars": {
+      "points": 3,
+      "label": "Dictionary counts callers — a stranger is 0, not a crash; the same name is one key"
+    },
+    "Check4_TheSignOffTellsTheTruth": {
+      "points": 2,
+      "label": "SignOff() reads the collections — a quiet night and a busy one say different things"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Private coursework repo still reachable (same URL as week 1)"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing — even when fed nothing but Enter"
+    },
+    "spectrePackage": {
+      "points": 1,
+      "label": "Spectre.Console added to Homework.csproj — your first NuGet package, added by you"
+    },
+    "gitignoreClean": {
+      "points": 2,
+      "label": "bin/ and obj/ tracked NOWHERE in the repo — the .gitignore holding, all semester"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits touching week-03/Homework/ 👀 (meaningful messages are a judgement call)"
+    },
+    "readme": {
+      "points": 1,
+      "label": "README.md at the repo root that says whose repo this is 👀"
+    }
+  }
+}
