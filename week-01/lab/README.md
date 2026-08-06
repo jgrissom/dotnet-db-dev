@@ -53,6 +53,11 @@ dotnet test week-01/Lab.Checks
 
 **1 / 5 passing.** Check 1 is the station you were handed, already on the air. The other four are tonight.
 
+> [!IMPORTANT]
+> **That's a lot of output, and most of it isn't for you.** Every failing check prints its message and then a **stack trace** — the `at Lab.Checks…` lines. Ignore the trace. **The part written for you is the sentence right after the check's name**, and it tells you what's wrong and what to write instead.
+>
+> ⚠️ **And the last line lies a little.** It says `Build failed with 4 error(s)` — but look above it: `Lab succeeded`, `Lab.Checks succeeded`. **Your code built fine.** `dotnet test` reports a failing test as an "error", so "build failed" here means *four checks are still red* — which is exactly where you're supposed to be right now.
+
 > [!CAUTION]
 > **Every command names its week.** Your terminal always stands at the top of your repo — so it's `dotnet test week-01/Lab.Checks` and `dotnet run --project week-01/Lab`, week first. Forget the week and you'll get `MSB1003` — it just means the command couldn't see a project from the top; add the week and go again.
 
