@@ -302,13 +302,13 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   -41.5 C
   ```
 - [ ] 💥 **`Unhandled exception. System.FormatException: The input string '-41.5 C' was not in a correct format.`** — let it sit. Then, deliberately: *"the build was clean. No error, no warning — the `??` fix took care of the only thing it was worried about. It ran perfectly every time I rehearsed. And it just went down, at 3 AM, over a **unit of measurement**"*
-- [ ] **Read the crash like week 1 read the build error:** the exception **type** (`FormatException` — searchable, like an error code) · the message (*"was not in a correct format"* — it names the input) · the line number. *"A runtime crash has an anatomy too, and it tells you where it died"*
+- [ ] **Read the crash like week 1 read the build error:** the exception **type** (`FormatException` — searchable, like an error code) · the message (*was not in a correct format* — it names the input) · the line number. *"A runtime crash has an anatomy too, and it tells you where it died"*
 - [ ] 🎯 **Ask before explaining:** *"the compiler warned me about null. Why didn't it warn me about this?"* — someone will get there: *because the input didn't exist yet.* *"Right. Compiling happened this afternoon. `-41.5 C` happened just now. **No compiler, in any language, can check a value that arrives after compiling is over.** Last week's gap was arithmetic it considered fine; this week's gap is everything your users will ever type"*
-- [ ] 🎞️ **GO TO SLIDE 12** — *Input that lies* · *"and input lies constantly. Not maliciously — helpfully. A unit. A comma. The word 'about'. `Parse` takes the string's word for it, and the string was wrong"*
+- [ ] 🎞️ **GO TO SLIDE 12** — *Input that lies* · *"and input lies constantly. A unit. A comma. The word 'about'. `Parse` takes the string's word for it, and the string was wrong"*
 
 ### The tool that asks first
 
-- [ ] **Fix it live** — paste the rewrite over the old block. 📖 **Say the `if` line as a question** — *"did that text turn into a number? then use it"* — the board has moved inside the answer:
+- [ ] **Fix it live.** In `week-02/Haldane/Program.cs`, **select from `double reading = double.Parse(raw);` down to the last line of the file** — that's everything below `string raw = ...`, the parse and the whole board — and paste this over the top of it. 📖 **Say the `if` line as a question** — *"did that text turn into a number? then use it"* — the board has moved inside the answer:
   ```csharp
   if (double.TryParse(raw, out double reading))
   {

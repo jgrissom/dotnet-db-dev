@@ -209,7 +209,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 - [ ] 🎞️ **GO TO SLIDE 13** — *Reading an error*. Back to the terminal and take the message apart on screen: **file · line and character · what's wrong**
 - [ ] 🎯 *"`CS0029`. Every C# error has a code and it's searchable. Paste the code and the message into a search box and you get the actual documentation. Most of you have been reading the squiggle and guessing. Read the code instead"*
-- [ ] Fix it back to `12`, then run — banner returns:
+- [ ] Put `12` back on the `personnelOnStation` line — no quotes — then run. Banner returns:
   ```bash
   dotnet run --project week-01/Haldane
   ```
