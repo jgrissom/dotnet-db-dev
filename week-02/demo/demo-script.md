@@ -245,11 +245,11 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   Console.Write("Outside temperature (C): ");
   string raw = Console.ReadLine();
   ```
-- [ ] 🎞️ **GO TO SLIDE 8** — *Input arrives* · *"last week every value on the board was typed into the source. Tonight the duty officer types it into the running program — which is how the real board works; it says right on it that it's kept by hand. You've all called `ReadLine` before. What you haven't done is read that squiggle"*
+- [ ] 🎞️ **GO TO SLIDE 8** — *Input arrives* · *"last week every value on the board was typed into the source. Tonight the duty officer types it into the running program — which is how the real board works; it says right on it that it's kept by hand. You've all called `ReadLine` before. What you probably haven't done is read what the editor says about it"*
 
 ### The warning, read properly
 
-- [ ] **Point at the squiggle under `Console.ReadLine()`. Do not fix it yet.** Hover it, and read the whole thing out loud
+- [ ] **Swipe back to VS Code** — the deck is fullscreen, so the editor has been hidden behind it. **Now point at the squiggle under `Console.ReadLine()`. Do not fix it yet.** Hover it, and read the whole thing out loud
 - [ ] 🎞️ **GO TO SLIDE 9** — *The warning you'd have ignored* · 🎯 *"`CS8600`, and it's a **warning**, not an error — the build succeeds, the program runs. Hands up: who read the warnings in their build output last semester?"* — expect near-zero, and give it the beat it deserves
 - [ ] 🎯 **The sentence that reframes warnings for good:** *"an error is the compiler saying 'I can't build this.' A warning is the compiler saying **'I can build it, but this is the part I can't promise.'** Last week you learned the compiler's promise has an edge. A warning is the compiler drawing you a map of that edge — and everyone scrolls past it"*
 - [ ] Prove it builds anyway:
