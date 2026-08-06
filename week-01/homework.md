@@ -263,7 +263,7 @@ dotnet run --project week-01/Homework
 git push
 ```
 
-**Three or more commits touching `week-01/`, and they should mean something.** If you followed the parts in order you already have them — `week 1 lab`, `station class`, `countdown working` tells a story; `a`, `b`, `asdf` doesn't. I read these.
+**Three or more commits touching `week-01/Homework/`, and they should mean something.** ⚠️ **Only commits that change your homework project count** — lab commits don't, so this measures the work being graded. If you followed the parts in order you already have them — `week 1 lab`, `station class`, `countdown working` tells a story; `a`, `b`, `asdf` doesn't. I read these.
 
 > [!IMPORTANT]
 > **Check that `jgrissom` is on your repo's collaborator list** (Settings → Collaborators). It's worth 3 points, it's how I read your work at all, and a private repo I can't open is indistinguishable from an empty one.
@@ -296,7 +296,7 @@ git push
 | `MinutesUntilSignOff()` counts down to **your** sign-off hour, correctly | 4 | `dotnet test` |
 | Private coursework repo exists and I can clone it (collaborator accepted) | 3 | your repo |
 | The program builds and runs without crashing | 2 | your repo |
-| 3+ commits touching `week-01/` 👀 | 3 | your repo |
+| 3+ commits touching `week-01/Homework/` 👀 | 3 | your repo |
 
 *Reminder: the explain-it standard applies — I ask a couple of people in person each week. The ones I'll reach for this week: "why does `SignOn` call `CallSign()` instead of just writing the letters again?", "330 divided by 60 gave you 5 — would casting the answer to `double` have fixed it?", and "which of your two files can the checks actually see, and why?"*
 

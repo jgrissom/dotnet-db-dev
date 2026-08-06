@@ -37,6 +37,16 @@ There's almost nothing to set up — the `week-02` folder you dragged in for the
 cp week-01/Homework/Station.cs week-02/Homework/
 ```
 
+**That's a real change to your homework project — commit it before you write anything new:**
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "week 2: station carried forward"
+```
+
 > [!NOTE]
 > **No week 1 `Station.cs` to copy?** Type the minimum and move on — the file is `week-02/Homework/Station.cs`, the call sign rules are [week 1's](../week-01/homework.md) (four capitals, starting K or W), and this is the whole file:
 > ```csharp
@@ -221,7 +231,7 @@ git ls-files | grep -E '(^|/)(bin|obj)/'
 week 2: readme
 ```
 
-**3. Three or more commits touching `week-02/`**, with messages that mean something. **If you followed the parts above you already have three** — switchboard, request line, readme — and any commits from tonight's lab count too, because they're in the same week folder. `week 2 lab`, `switchboard working`, `readme` tells a story; `a`, `b`, `asdf` doesn't. I read these. (A good rhythm, and the one the demo modeled: commit whenever you're somewhere solid — right after the setup compiles, again when the checks go green — so the risky stretches always have a save point behind them.)
+**3. Three or more commits touching `week-02/Homework/`**, with messages that mean something. ⚠️ **Only commits that change your homework project count** — tonight's lab commits don't, so this measures the graded work. **If you followed the parts above you already have three** — station carried forward, switchboard, request line. *(The README commit is a good habit but it lives at the repo root, so it isn't one of the three.)* `week 2 lab`, `switchboard working`, `readme` tells a story; `a`, `b`, `asdf` doesn't. I read these. (A good rhythm, and the one the demo modeled: commit whenever you're somewhere solid — right after the setup compiles, again when the checks go green — so the risky stretches always have a save point behind them.)
 
 ```bash
 git push
@@ -270,7 +280,7 @@ Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywher
 | Private coursework repo still reachable (same URL as week 1) | 1 | your repo |
 | The program builds and runs without crashing — even when fed nothing but Enter | 2 | your repo |
 | `bin/` and `obj/` tracked **nowhere** in the repo — the `.gitignore` holding | 3 | your repo |
-| 3+ commits touching `week-02/` 👀 | 2 | your repo |
+| 3+ commits touching `week-02/Homework/` 👀 | 2 | your repo |
 | `README.md` at the repo root that says whose repo this is 👀 | 1 | your repo |
 
 *The explain-it standard applies — I ask a couple of people in person each week. This week's likely questions: "your `.gitignore` says `bin/` — so why did GitHub still show it until you ran the second command?", "what does `IsWinner` return for `null`, and where in your code does that get decided?", and "why can't your program loop until the caller types a real number?"*

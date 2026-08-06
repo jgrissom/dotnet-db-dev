@@ -2,7 +2,6 @@
   "week": 1,
   "total": 20,
   "_comment": "One source of truth for week 1's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first.",
-
   "checks": {
     "Check1_TheStationHasALegalCallSign": {
       "points": 2,
@@ -14,14 +13,13 @@
     },
     "Check3_TheSignOnIdentifiesTheStation": {
       "points": 4,
-      "label": "SignOn() says the call sign and the city — built from your own methods"
+      "label": "SignOn() says the call sign and the city \u2014 built from your own methods"
     },
     "Check4_TheClockCountsDownToSignOff": {
       "points": 4,
       "label": "MinutesUntilSignOff() counts down to YOUR sign-off hour, correctly"
     }
   },
-
   "repo": {
     "repoReachable": {
       "points": 3,
@@ -34,7 +32,7 @@
     "commits": {
       "points": 3,
       "minimum": 3,
-      "label": "3+ commits touching week-01/ 👀 (meaningful messages are a judgement call)"
+      "label": "3+ commits touching week-01/Homework/ \ud83d\udc40 (meaningful messages are a judgement call)"
     }
   }
 }

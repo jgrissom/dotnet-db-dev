@@ -25,9 +25,18 @@
 //   2. a bare fenced block holding just a commit message (`week 2: readme`) —
 //      the form used when committing from VS Code's Source Control view
 //
-// ⚠️ It counts occurrences, not intent. An *example* commit message in prose
-// would inflate the count, so read the listed messages when it reports — they
-// are printed for exactly that reason.
+// ⚠️ TWO blind spots, both of which only ever INFLATE the count — so this is a
+// lower-bound alarm, not a proof:
+//
+//   • It counts occurrences, not intent. An *example* commit message in prose
+//     would be counted.
+//   • It cannot tell which commits will actually touch `week-NN/Homework/`,
+//     which is what the grader counts. Week 2 lists four commit points and only
+//     three of them count — the README lives at the repo ROOT, so committing it
+//     changes nothing inside the homework project.
+//
+// Both are why the messages are printed: read them, and ask of each one
+// "does this change a file inside week-NN/Homework/?" 
 
 const fs = require("fs");
 const path = require("path");
