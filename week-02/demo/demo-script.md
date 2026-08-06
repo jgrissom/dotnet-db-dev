@@ -65,12 +65,13 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 
 - [ ] 🎞️ **GO TO SLIDE 2** — *Four lines, working since day one* · *"you wrote these four lines last week, before your first commit, and watched the wall of untracked machinery collapse. Because of them, no repo in this room has ever held a file its owner didn't write. Thirty seconds of why, and then the thing they **can't** do"*
 - [ ] The thirty seconds: *"`obj` is the compiler's scratch paper, `bin` is the built program — both regenerated from your source on every build. A repo holds what you wrote; the rest rebuilds. That's the whole argument"*
-- [ ] ⚠️ **The lab-PC drill, 60 seconds, promised in the setup guide:** *"if you're ever on a machine that wiped overnight, git forgot who you are. Two commands, from your notes, ten seconds"* —
+- [ ] ⚠️ **The lab-PC drill, 60 seconds, promised in the setup guide.** Lead with the contrast — it is what makes the drill land as a *category* rather than a chore: *"say your machine wiped overnight. You clone your repo, and those four lines are right there — the `.gitignore` lives in the repo, so it travels. Your name doesn't. That one lives on the machine, and git has forgotten who you are"*
+- [ ] *"Two commands, from your notes, ten seconds"* —
   ```bash
   git config --global user.name "Ada Lovelace"
   git config --global user.email "ada@example.com"
   ```
-  *"That's the whole drill. Every per-machine thing this course adds gets one of these, always under a minute"*
+  *"That's the whole drill. Every per-machine thing this course adds gets one of these, always under a minute"* 💡 **That's a promise you're making** — week 10's user secrets are the next one to collect it
 
 ### The slip
 

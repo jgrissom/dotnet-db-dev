@@ -50,6 +50,30 @@ Afterwards the evicted files are still on disk (grayed out in VS Code's Explorer
 
 ---
 
+## What lives in the repo, and what lives on the machine
+
+Everything you set up falls into one of two buckets, and the difference only shows up on the day a machine lets you down.
+
+**In the repo — it travels.** Your `.gitignore`, your source, your `.csproj` files. Clone the repo anywhere and they arrive with it. That is why the `.gitignore` sits at the **top** of the repo rather than inside a week folder: one file, sixteen weeks, and it comes back every time.
+
+**On the machine — it doesn't.** Your git identity is the first thing you've met that lives here. `git config --global` writes to a file in your home folder, not to any repo, so a lab PC that wipes itself overnight comes back not knowing who you are — and `git commit` will refuse until you tell it again.
+
+**The drill is two commands and about ten seconds:**
+
+```bash
+git config --global user.name "Ada Lovelace"
+```
+
+```bash
+git config --global user.email "ada@example.com"
+```
+
+Use the same name and email as your GitHub account, and keep them somewhere that isn't that machine — the notes app on your phone is fine.
+
+> **Every per-machine thing this course adds comes with a drill like this, and none of them take more than a minute.** The next one is in week 10, when your database password needs somewhere to live that isn't your repo.
+
+---
+
 ## The Source Control panel, translated
 
 Last week you learned four git commands and were told to leave the sidebar panel alone. That order was the point — the panel is those commands with buttons, and now you can read it:
