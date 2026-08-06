@@ -182,8 +182,8 @@ wherever you keep your work/
 ├─ dotnet-db-coursework/     ← YOURS. A folder per week. This is what I grade.
 │  └─ week-01/
 └─ dotnet-db-starters/       ← MINE. You copy a week folder OUT of it. Never work in it.
-   ├─ week-01/
-   └─ week-02/
+   ├─ week-01/               ←   one folder per week, all term
+   └─ …
 ```
 
 **Two folders. One you write, one you copy from.** Everything else this term happens inside `week-01`, `week-02`, and so on.
@@ -209,7 +209,7 @@ ls ..
 ls ../dotnet-db-starters
 ```
 
-You should see `week-01`, `week-02` and a `README.md` — week folders and nothing else.
+You should see a `README.md` and **one folder per week that exists so far** — `week-01`, `week-02`, and however many more by the time you read this. Week folders and nothing else; that's the whole repo.
 
 ---
 
