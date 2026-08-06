@@ -121,8 +121,13 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```bash
   dotnet run --project week-01/Haldane
   ```
-- [ ] ⚠️ **Confirm the editor is actually awake before you rely on it.** The language server picks up a brand-new project **in the background** — usually within seconds, occasionally not. **Type `Console.` in `Program.cs`: a completion list means it's live.** Delete the line. 💡 **Nothing?** Command Palette → `.NET: Restart Language Server` *(or `Developer: Reload Window`)*, then check again
-  - ⚠️ **Why this one matters more than it looks:** §5's payoff is *"look at the editor: no squiggle — the compiler had no opinion at all."* **A language server that hasn't loaded yet shows you exactly that, for entirely the wrong reason** — the beat looks fine and proves nothing. This ten-second check is what makes it evidence
+- [ ] ⚠️ **Confirm the editor is actually reporting problems before you rely on it.** Paste this into `Program.cs` — it is *supposed* to be underlined:
+  ```csharp
+  string check = Console.ReadLine();
+  ```
+  **A yellow squiggle (and a `CS8600` entry in the Problems view) means diagnostics are live. Delete the line.** 💡 **Nothing?** Command Palette → **`Developer: Reload Window`**. ⚠️ **`.NET: Restart Language Server` does NOT fix this — verified 2026-08-06.** Only a window reload does
+  - ⚠️ **Why this one matters more than it looks:** §5's payoff is *"look at the editor: no squiggle — the compiler had no opinion at all."* **A language server that isn't reporting shows you exactly that, for entirely the wrong reason** — the beat looks fine and proves nothing. This ten-second check is what turns it into evidence
+  - ⚠️ **Do not test this with IntelliSense.** Completions and diagnostics are separate: `Console.` can return a perfect completion list while the Problems view stays empty *(observed, on the author's machine)*. **Only a line that must be flagged proves diagnostics work**
 - [ ] 🎯 **This is the beat that pays off all term, so say it deliberately:** *"look at the path in that command. `-o` made the week folder AND the project inside it, in one go — and when I run it, I name the whole path: week, then project. **The folder you open holds weeks; weeks hold projects; commands say which.** I never move, I never open anything else, and neither will you. Next week the command says `week-02` and everything else about it is identical"*
 - [ ] Name the difference while it's concrete — **this is the new part of the beat, not `Hello, World!`**: *"C# doesn't run a file — it runs a **project**, a folder that knows how to build itself. If your last course was full Visual Studio, this is File → New Project with the wizard taken away"*
 - [ ] 💡 **If someone asks why not just `cd` in:** *"because from this one spot, everything works — this week's projects, last week's, the checks, and git. The moment you wander, some command stops working and you have to remember where you are. Stay put, name the path"* 🔗 **forgetting the week prefix is the error they will hit in the lab, and `MSB1003` names it**
