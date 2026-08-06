@@ -199,7 +199,15 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   - week-01 — toolchain, first program, KDXR signs on
   - week-02 — input that lies, .gitignore, the caller line
   ```
-- [ ] **Now the tour happens for real — watch the file move through the verbs, narrating each region as you click it:** it appears under *Changes* (`status` sees it) → **+** (`git add` — watch it jump to *Staged Changes*) → message `Week 2: readme` → **✓ Commit** → **Sync** (`git push`). Reload GitHub — the README renders on the repo's front page
+- [ ] **Now the tour happens for real — watch the file move through the verbs, narrating each region as you click it:**
+  - It appears under *Changes* — *"`git status` just saw it"*
+  - **+** — *"that's `git add`"* — watch it jump to *Staged Changes*
+  - The message box — paste:
+    ```
+    Week 2: readme
+    ```
+  - **✓ Commit**, then **Sync** — *"that's `git push`"*
+- [ ] Reload GitHub — **the README renders on the repo's front page**
 - [ ] 🎯 *"Use whichever you like from here on. When the view confuses you — and some week it will — the terminal is how you find out what it actually did. `git status` never lies"*
 - [ ] 🔗 *"Your homework adds one of these to your own repo — a README — and from this week your repo hygiene is worth points every single week"*
 
@@ -219,7 +227,11 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   dotnet run --project week-02/Haldane
   ```
   `Hello, World!` — *"the fresh project runs, and `Conditions.cs` came along for the build. The carry-forward is already legal C# here, before I've typed a thing"*
-- [ ] **First commit of the new week — in the Source Control view:** stage, message `Week 2: new week, Conditions carried forward`, **✓ Commit**, **Sync**. 🎯 *"a commit is a save point. Make one whenever you're somewhere solid, and the interesting work becomes safe to botch — which is exactly what we're about to do"*
+- [ ] **First commit of the new week — in the Source Control view:** stage, paste the message, **✓ Commit**, **Sync**:
+  ```
+  Week 2: new week, Conditions carried forward
+  ```
+- [ ] 🎯 *"a commit is a save point. Make one whenever you're somewhere solid, and the interesting work becomes safe to botch — which is exactly what we're about to do"*
 - [ ] In `week-02/Haldane/Program.cs`, delete the template line and paste the banner and the prompt. 📖 **Talk the `ReadLine` line through** — *"whatever they type, into a string"* — it's the one with the squiggle you're about to ignore on purpose:
   ```csharp
   Console.WriteLine("========================================");
@@ -314,7 +326,10 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 - [ ] Run both paths on screen: `-41.5` + `y` → the board · then again with `-41.5 C` → the civil answer, and the program **exits cleanly**. 🎯 *"same lie, no body. At a station where this console is the only interface for five hundred kilometres, those two runs are different worlds"*
 - [ ] 💡 **Someone will ask why not loop until they type it right. Take it seriously — it's a good instinct with a bad failure mode:** *"because sometimes nobody's typing. My grader feeds your program blank lines — a loop that won't take no for an answer spins forever and gets killed at the timeout. **Ask once, answer gracefully.** The re-ask loop has its week, and it's week 13"*
 - [ ] 🎞️ **GO TO SLIDE 14** — *What no compiler can check* · 🎯 **the week's sentence, said slow:** *"the compiler checks your program. **It cannot check your users.** So your program has to — and now you've seen what that checking looks like: it's an `if`, on a question, instead of faith"*
-- [ ] **Close the watch: commit tonight's code, with the view** — Source Control shows the `week-02/Haldane` sources. ⚠️ **Point at what it does NOT show first: no `bin/`, no `obj/`.** 🎯 *"the four lines we wrote an hour ago are already covering a folder that didn't exist yet. That's why the file lives at the top of the repo"* — then stage, message `Week 2: the console takes readings without believing them`, **✓ Commit**, **Sync**
+- [ ] **Close the watch: commit tonight's code, with the view** — Source Control shows the `week-02/Haldane` sources. ⚠️ **Point at what it does NOT show first: no `bin/`, no `obj/`.** 🎯 *"the four lines we wrote an hour ago are already covering a folder that didn't exist yet. That's why the file lives at the top of the repo"* — then stage, paste the message, **✓ Commit**, **Sync**:
+  ```
+  Week 2: the console takes readings without believing them
+  ```
 - [ ] 🔗 *"Commit as you go — it's graded from this week: three or more touching your week-02. Mine says what happened. Yours should too"*
 - [ ] **✓ CHECKPOINT:** somebody can say why the warning and the crash were different failures — one flagged at compile time, one impossible to flag — **and** what `TryParse` returns for `null`
 
