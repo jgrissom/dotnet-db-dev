@@ -63,6 +63,12 @@ dotnet test week-02/Lab.Checks
 
 **1 / 5 passing.** Check 1 is last week's desk, shipped finished and still on the air. The other four are tonight.
 
+
+**Commit that before you change anything** — it's the week exactly as you were handed it, and it makes every later commit obviously *your* work. Source Control view: stage (**+**), paste, **✓ Commit**, **Sync**.
+
+```
+week 2: starter
+```
 > [!CAUTION]
 > **Every command names its week.** Your terminal always stands at the top of your repo — so it's `dotnet test week-02/Lab.Checks` and `dotnet run --project week-02/Lab`, with the week in front. Forget the week and you'll get `MSB1003` — it just means the command couldn't see a project from the top; add the week and go again.
 
@@ -83,7 +89,7 @@ dotnet test week-02/Lab.Checks
 
 **Run the checks after every task.** Each one turns exactly one more check green, and the number tells you where you are.
 
-**From Task 3 on, commit when a check goes green.** Three clicks in the Source Control view, and each task below hands you the message to paste. Nobody collects this lab — the habit is the point, and it's the one your repo gets graded on every week from here.
+**Commit every time a check goes green.** Three clicks in the Source Control view, and each task below hands you the message to paste. Nobody collects this lab — the habit is the point, and it's the one your repo gets graded on every week from here.
 
 | # | Check | What to do |
 |---|-------|------------|
@@ -137,6 +143,12 @@ Two things worth noticing:
 
 `dotnet test week-02/Lab.Checks`: **2 / 5.**
 
+**Green? Commit it** — same three clicks:
+
+```
+week 2 lab: every caller gets a name
+```
+
 ### Task 3 in full
 
 **Check:** `Check3_TheMarkerHasToBeReal`
@@ -157,7 +169,7 @@ public static bool IsOnTheStretch(string? typed)
 
 `dotnet test week-02/Lab.Checks`: **3 / 5.**
 
-**Green? Commit it.** You're somewhere solid, and that's when a commit happens — you learned the buttons an hour ago, so use them: stage the changes (**+**), paste the message, **✓ Commit**, **Sync**.
+**Green? Commit it.** You're somewhere solid, and that's when a commit happens:
 
 ```
 week 2 lab: the marker has to be real
