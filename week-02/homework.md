@@ -37,7 +37,9 @@ There's almost nothing to set up — the `week-02` folder you dragged in for the
 cp week-01/Homework/Station.cs week-02/Homework/
 ```
 
-**That's a real change to your homework project — commit it before you write anything new:**
+**Commit that before you write anything new.** It takes two seconds and it buys something specific: **a line in your history between *what I carried forward* and *what I wrote this week*.** Open your repo in week 9 and you can still tell them apart — and if the copy went to the wrong place, you find out now, against a clean history, instead of untangling it from an hour of new work.
+
+*(It's the same move week 1 made, committing the lab before you built your station.)*
 
 ```bash
 git add .
