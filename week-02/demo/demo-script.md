@@ -221,7 +221,6 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   cp week-01/Haldane/Conditions.cs week-02/Haldane/
   ```
   🎯 *"`-o` made the week folder and the project in one go — there's `week-02` in the Explorer, right under `week-01`. That's every Monday for the rest of the term"*
-- [ ] 💡 **The Explorer sees it instantly; IntelliSense catches up in the background** — usually seconds. **Worth knowing now so a missing squiggle later reads as a delay, not a failure** *(the fix, if you need it, is at the squiggle beat in §3)*
 - [ ] 🎯 **The `cp` is a beat, not plumbing:** *"that's last week's logic — Fahrenheit, safe-to-go-out — carried forward in one move. I didn't rewrite it; it was already right. **Your homework asks you for exactly this move** with your own `Station.cs`"*
 - [ ] **Run it before touching it:**
   ```bash
@@ -250,16 +249,18 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 
 ### The warning, read properly
 
-- [ ] **Swipe back to VS Code** — the deck is fullscreen, so the editor has been hidden behind it. **Now point at the squiggle under `Console.ReadLine()`. Do not fix it yet.** Hover it, and read the whole thing out loud
-  - 💡 **No squiggle?** The language server picks up a project this new **in the background** — usually seconds, occasionally longer. Command Palette → `.NET: Restart Language Server` *(or `Developer: Reload Window`)*, and it appears
-  - ⚠️ **Don't stall waiting for it — `dotnet build` prints `CS8600` every time**, and you run it two beats below anyway. **That output is the version of this evidence that never lets you down**, so if the editor is being slow, lead with the build and come back to the squiggle
-- [ ] 🎞️ **GO TO SLIDE 9** — *The warning you'd have ignored* · 🎯 *"`CS8600`, and it's a **warning**, not an error — the build succeeds, the program runs. Hands up: who read the warnings in their build output last semester?"* — expect near-zero, and give it the beat it deserves
-- [ ] 🎯 **The sentence that reframes warnings for good:** *"an error is the compiler saying 'I can't build this.' A warning is the compiler saying **'I can build it, but this is the part I can't promise.'** Last week you learned the compiler's promise has an edge. A warning is the compiler drawing you a map of that edge — and everyone scrolls past it"*
-- [ ] Prove it builds anyway:
+- [ ] **Swipe back to VS Code** — the deck is fullscreen, so the editor has been hidden behind it. **Run it, without fixing anything:**
   ```bash
   dotnet run --project week-02/Haldane
   ```
-- [ ] Point at the warning line scrolling by in the build output before the banner prints: *"there it is again, in writing, every build. `0 Warnings` is a sentence worth wanting"*
+- [ ] ⚠️ **This is the evidence, and it is the one that never fails.** **Scroll up to the build output above the banner and point at it:**
+  ```
+  warning CS8600: Converting null literal or possible null value to non-nullable type.
+  ```
+  *"The program ran. It printed the banner, it asked me for a reading. And on the way past, the compiler said that — every build, in writing"*
+- [ ] 🎞️ **GO TO SLIDE 9** — *The warning you'd have ignored* · 🎯 *"`CS8600`, and it's a **warning**, not an error — the build succeeded, the program ran. Hands up: who read the warnings in their build output last semester?"* — expect near-zero, and give it the beat it deserves
+- [ ] 🎯 **The sentence that reframes warnings for good:** *"an error is the compiler saying 'I can't build this.' A warning is the compiler saying **'I can build it, but this is the part I can't promise.'** Last week you learned the compiler's promise has an edge. A warning is the compiler drawing you a map of that edge — and everyone scrolls past it"*
+- [ ] 💡 **Bonus, only if it's there: the squiggle.** Back in `Program.cs`, `Console.ReadLine()` may be underlined — hover it and it says the same thing. *"And your editor has been telling you this the entire time"* ⚠️ **Do not build the beat on it and do not go hunting for it.** The language server analyses a project this new in the background, and it is genuinely unreliable in the minutes after `dotnet new` — verified silent on the author's own machine three sessions running, with `dotnet build` reporting `CS8600` perfectly throughout. **If the Problems view is empty, move on; the terminal already made the point**
 
 ### What it was warning about
 
@@ -331,7 +332,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 - [ ] Run both paths on screen: `-41.5` + `y` → the board · then again with `-41.5 C` → the civil answer, and the program **exits cleanly**. 🎯 *"same lie, no body. At a station where this console is the only interface for five hundred kilometres, those two runs are different worlds"*
 - [ ] 💡 **Someone will ask why not loop until they type it right. Take it seriously — it's a good instinct with a bad failure mode:** *"because sometimes nobody's typing. My grader feeds your program blank lines — a loop that won't take no for an answer spins forever and gets killed at the timeout. **Ask once, answer gracefully.** The re-ask loop has its week, and it's week 13"*
 - [ ] 🎞️ **GO TO SLIDE 14** — *What no compiler can check* · 🎯 **the week's sentence, said slow:** *"the compiler checks your program. **It cannot check your users.** So your program has to — and now you've seen what that checking looks like: it's an `if`, on a question, instead of faith"*
-- [ ] **Close the watch: commit tonight's code, with the view** — Source Control shows the `week-02/Haldane` sources. ⚠️ **Point at what it does NOT show first: no `bin/`, no `obj/`.** 🎯 *"the four lines we wrote an hour ago are already covering a folder that didn't exist yet. That's why the file lives at the top of the repo"* — then stage, paste the message, **✓ Commit**, **Sync**:
+- [ ] **Close the watch: commit tonight's code, with the view** — Source Control shows the `week-02/Haldane` sources. ⚠️ **Point at what it does NOT show first: no `bin/`, no `obj/`.** 🎯 *"the four lines we wrote an hour ago are already covering a folder that didn't exist yet. That's why the gitignore file lives at the top of the repo"* — then stage, paste the message, **✓ Commit**, **Sync**:
   ```
   Week 2: the console takes readings without believing them
   ```
