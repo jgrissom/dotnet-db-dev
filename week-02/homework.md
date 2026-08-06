@@ -176,7 +176,7 @@ And what's tracked that never should have been:
 git ls-files | grep -E '(^|/)(bin|obj)/'
 ```
 
-`status` should be quiet (or list only tonight's real work), and the second command should print **nothing** — no generated file is tracked anywhere. If something *did* slip in, [the eviction drill from the demo](lecture-notes.md#the-eviction-when-junk-gets-tracked-anyway) fixes it in three commands — that's exactly what it's for.
+`status` should be quiet (or list only tonight's real work), and the second command should print **nothing** — no generated file is tracked anywhere. If something *did* slip in, [the eviction drill from the demo](lecture-notes.md#the-eviction-when-its-already-pushed) fixes it in three commands — that's exactly what it's for.
 
 **2. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). In the Explorer, **click the empty space below the file list first** so it lands at the root, then New File → `README.md`. Commit it — from the Source Control panel if you like; the buttons are the verbs now.
 
@@ -214,7 +214,7 @@ Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywher
 - **`FormatException` in `IsWinner`** — that's `int.Parse` believing a caller. [`TryParse` asks.](lecture-notes.md#parse-believes-tryparse-asks)
 - **Check 3 says your defaults disagree** — `null`, `""` and `"   "` must all get the same answer; `IsNullOrWhiteSpace` makes that automatic.
 - **Check 4 says the right number loses** — `IsWinner` compares against a typed-in number instead of `LuckyCallerNumber()`, and they disagree.
-- **A generated file shows up tracked on GitHub** — something slipped past the ignore file at some point. [The eviction drill](lecture-notes.md#the-eviction-when-junk-gets-tracked-anyway) clears it in three commands.
+- **A generated file shows up tracked on GitHub** — something slipped past the ignore file at some point. [The eviction drill](lecture-notes.md#the-eviction-when-its-already-pushed) clears it in three commands.
 - **`fatal: not a git repository`** — your terminal wandered out of the repo (a leftover `cd`?). Close it and open a fresh one (`` Ctrl+` ``) — it starts back at the top, where git lives.
 - The [troubleshooting appendix](lecture-notes.md#appendix-troubleshooting) covers the rest.
 

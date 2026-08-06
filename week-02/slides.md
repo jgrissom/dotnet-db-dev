@@ -54,17 +54,21 @@ Your repo has never held a file you didn't write.
 
 ## The slip
 
-One build, one `add`, **before** the ignore file existed —
+One `add .`, one tired commit — and the password is in the repo.
 
 <br>
 
-that's all it takes. And someday it will happen to you:
-
-a rename, a new machine, a hurried commit.
+**One question decides what happens next: have you pushed it?**
 
 <br>
 
-**Junk gets tracked. Now what?**
+**Not yet?** Then it never really happened:
+
+```bash
+git reset HEAD~1
+```
+
+*(never `--hard` — that one throws your work away)*
 
 ---
 
@@ -96,7 +100,9 @@ Untrack everything · re-add · the ignore file filters.
 
 <br>
 
-Nothing leaves your disk. It leaves the **repo**.
+Nothing leaves your disk. It leaves the **repo** —
+
+**but a pushed secret is already gone. Change it.**
 
 ---
 

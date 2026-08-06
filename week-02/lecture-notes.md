@@ -25,11 +25,34 @@ Anything that matches, git stops *seeing*: it won't list it as untracked, won't 
 
 > **`.gitignore` only affects files git hasn't started tracking yet. Files that are already committed stay tracked — ignoring does not reach back.**
 
-Your repo is clean *because* the four lines existed before your first commit. But someday — a rename, a new machine, a hurried commit before the ignore file exists — a generated file will get tracked anyway. That's the slip, and the demo manufactured one on purpose, because the repair is worth knowing before you need it.
+Your repo is clean *because* the four lines existed before your first commit. But someday something will get committed that you wish hadn't — a generated file after a rename, or the thing the demo did on purpose: **a file full of passwords.** That's the slip, and the repair is worth knowing before you need it.
 
 ---
 
-## The eviction: when junk gets tracked anyway
+## The one question: have you pushed it?
+
+**Everything about fixing a bad commit turns on this**, so ask it first, every time:
+
+| | The fix | What it costs you |
+|---|---|---|
+| **Not pushed yet** | undo the commit — it never really happened | nothing at all |
+| **Already pushed** | the eviction drill *(below)* | the file leaves your repo. **A secret in it is still burned** |
+
+**Case 1 — it never left your machine.** This is the case you'll usually be in, because you notice within seconds:
+
+```bash
+git reset HEAD~1
+```
+
+That moves your branch back one commit. **It does not touch your files** — everything you wrote is still on disk, just unstaged again, ready to be committed properly (or added to the `.gitignore` first).
+
+> ⚠️ **There is a `--hard` version of that command and it deletes your work.** You will not need it this semester. Plain `git reset HEAD~1` is the one that undoes a commit and keeps everything.
+
+**Case 2 is the rest of this page.**
+
+---
+
+## The eviction: when it's already pushed
 
 ⚠️ **Run these from `dotnet-db-coursework`** — the top folder, where every git command runs — **with the `.gitignore` in place first**, or step two sweeps the junk straight back in.
 
@@ -47,6 +70,16 @@ What each piece does, because this is a command worth understanding rather than 
 - The commit shows the junk as **deletions** — leaving the repo, not your disk. Your source files survive untouched.
 
 Afterwards the evicted files are still on disk (grayed out in VS Code's Explorer — that's what "ignored" looks like), your program still runs, and GitHub shows only files a human wrote. **It works identically for one slipped file or four hundred**, which is why it's the drill worth having: every developer eventually inherits or creates a repo with tracked junk, and this is the whole repair.
+
+### ⚠️ What the drill does *not* do
+
+**It does not remove anything from your history.** The file is gone from the current state of the repo — but every commit you made before the eviction still contains it, and if you pushed, those commits are on GitHub. Open the commit history and the contents are right there to read.
+
+For build junk, nobody cares. **For a password, it means the password is burned:**
+
+> **A secret that has been pushed is public as far as you're concerned. Change it — new password, new key, new token. That is the only real fix, and no git command replaces it.**
+
+Which is why the answer is not to let it happen. Anything with a credential in it goes in the `.gitignore` **before** the commit — and from week 10, your database password doesn't live in a file in your repo at all.
 
 ---
 
@@ -258,7 +291,7 @@ This is the first taste of a rhythm the whole course runs on: **from week 4, you
 
 **`warning CS8604: Possible null reference argument...`** — you're handing something that might be `null` (usually `ReadLine()`) to a method that wants a real string. Same two fixes as above — and note `TryParse` takes a `string?` happily, no warning.
 
-**GitHub still shows `bin/` after you added `.gitignore`** — [ignoring is not untracking](#gitignore-and-the-part-everyone-gets-wrong). You need the one-time [eviction](#the-eviction-when-junk-gets-tracked-anyway).
+**GitHub still shows `bin/` after you added `.gitignore`** — [ignoring is not untracking](#gitignore-and-the-part-everyone-gets-wrong). You need the one-time [eviction](#the-eviction-when-its-already-pushed).
 
 **`git rm -r --cached .` says `fatal: pathspec '.' did not match any files`** — you're in an empty folder or not in the repo. Run it from `dotnet-db-coursework`.
 

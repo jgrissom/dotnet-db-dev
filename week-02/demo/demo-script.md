@@ -41,6 +41,11 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && git ls-files | grep -cE '(^|/)(bin|obj)/'
   ```
   **`0` = ready.** §1 manufactures its own mess live — one file, on purpose, evicted the same segment.
+- [ ] ⚠️ **Rehearsed §1 already? Reset it, or the slip cannot happen.** The segment ends with `secrets.txt` **in** the `.gitignore` — so on a second run `git add .` skips it silently and there is nothing to commit. Put the repo back to week 1's end state:
+  ```bash
+  cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && git reset --hard 2877f33 && git push -f && rm -f secrets.txt
+  ```
+  💡 **Check it took:** the `.gitignore` is back to **four** lines and `secrets.txt` is gone from disk. *(This is the one place `--hard` is wanted — it's the throwaway rehearsal repo, and §1 teaches students never to use it.)*
 - [ ] ⚠️ **If the demo repo is gone**, rebuild the week-1 end state (~2 min) — the force-push replaces the demo repo on GitHub, which is fine, it's the same teaching artifact:
   ```bash
   rm -rf ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && mkdir -p ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework
@@ -75,41 +80,91 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 
 ### The slip
 
-- [ ] 🎞️ **GO TO SLIDE 3** — *The slip* · *"here's what those four lines cannot do — and I'll show you by making the mistake on purpose, because one day you'll make it by accident: a rename, a new machine, a commit before the ignore file existed"*
-- [ ] Swipe to VS Code — exactly where last week left it, the top, the only window — and **manufacture the slip live.** Say what `-f` is for as you go: *"force. I'm telling git to add this even though the ignore file says not to — which is exactly what a rename or a bad commit does to you by accident"*
-  ```bash
-  git add -f week-01/Haldane/bin/Debug/net10.0/Haldane.dll
+- [ ] 🎞️ **GO TO SLIDE 3** — *The slip* · *"the four lines cover machinery, and they've never let you down. But they only cover what you told them to cover — and one day you'll commit something you very much wish you hadn't. I'm going to do it on purpose. Twice"*
+- [ ] Swipe to VS Code — the top, the only window. **New File at the root → `secrets.txt`**, and type it where they can see it. ⚠️ **Type this one; it's four short lines and the room needs to watch it become a real file:**
   ```
-- [ ] ⚠️ **Stop before committing and look** — this is the beat, and it needs the `.gitignore` open in the editor beside the terminal:
-  ```bash
-  git status
+  # Haldane - mainland uplink
+  UPLINK_USER=haldane_duty
+  UPLINK_PASSWORD=southerly-1957
   ```
-  *"`bin/` is line one of that file, right there on screen. And here's a file out of `bin/`, staged, ready to go in. The ignore file isn't a lock — it's a default, and `-f` walks straight past it"* 💡 **Don't dress this up as a puzzle** — they watched you type `-f`, so nothing here is a surprise; it's evidence being laid down for the slide that follows
-- [ ] Now let it happen:
+  *"Every real project has a file like this. Database password, API key, the thing that gets you in"*
+- [ ] Commit it the way you'd commit anything — **innocently, without looking:**
   ```bash
-  git commit -m "a build artifact, committed by accident"
+  git add .
   ```
-- [ ] Prove it's really in — not just staged, **tracked**:
   ```bash
-  git ls-files | grep bin
+  git commit -m "Week 2: uplink config"
   ```
-  One line back: the build artifact. *"There's a compiled binary in my repo now. And the `.gitignore` hasn't changed a character — completely powerless, because that file is already inside"*
+- [ ] 🎯 **Now the realisation. Say it flatly, no theatre:** *"…that file has the station's password in it. And I just put it in the repo"*
+
+#### Case 1 — it never left your machine
+
+- [ ] 🎯 **The question the whole segment turns on. Ask it, and let them answer:** *"before anything else — one question decides what happens next. **Have I pushed it?**"* — you haven't. *"Then this is the good case, and it's the one you'll usually be in, because you notice within about ten seconds"*
+- [ ] Undo the commit:
+  ```bash
+  git reset HEAD~1
+  ```
+- [ ] Show what that did — the commit is gone, the file is still on disk and simply unstaged again:
+  ```bash
+  git log --oneline
+  ```
+  *"The commit never happened. `secrets.txt` is still sitting there in my Explorer — `reset` moved the branch back a step, it didn't touch my files"*
+- [ ] ⚠️ **The one warning that has to be said out loud, because they will find it:** *"there is a `--hard` version of that command, and it **throws your work away**. You will not need it this semester. Plain `git reset HEAD~1` undoes the commit and keeps everything you wrote"*
+- [ ] 🎯 *"That's the best outcome in git: the mistake never left the building. Nobody else ever saw it, so it's genuinely as if it didn't happen"*
+
+#### Case 2 — this time you weren't that lucky
+
+- [ ] *"Same mistake. But tonight I'm tired, and I do the thing everybody does at the end of a session"* — commit **and push**:
+  ```bash
+  git add .
+  ```
+  ```bash
+  git commit -m "Week 2: uplink config"
+  ```
+  ```bash
+  git push
+  ```
+- [ ] **Refresh the repo on GitHub with the room watching.** There it is — `secrets.txt`, in the file list. Click it: the password, on a web page. *"That took four seconds and it is now somewhere I don't control"*
 
 ### Ignored is not untracked
 
+- [ ] 🎯 **Ask for the fix before you give it** — this one is a real prediction, because it is what everybody tries first: *"what do I do?"* Somebody will say *add it to the `.gitignore`*. **Do exactly that, in front of them** — open the file and add a fifth line:
+  ```
+  secrets.txt
+  ```
+- [ ] ⚠️ **Name the exception as you type it, or you contradict week 1:** *"four lines, written once, never touched again — that was machinery, and that promise holds. A secret is a different category, and it's the one good reason to open this file again"*
+- [ ] Now show it didn't work:
+  ```bash
+  git ls-files | grep secrets
+  ```
+  **Still there.** *"I've told git to ignore it. Git does not care"*
 - [ ] 🎞️ **GO TO SLIDE 4** — *Ignored is not untracked* · 🎯 **this is the misconception half the internet has, so kill it precisely:** *"`.gitignore` is a bouncer. It stops new files at the door. The ones already inside? Already inside. Nothing about ignoring reaches back into the repo — which is why 'just add it to the gitignore' fixes nothing once the file is tracked"*
 
 ### The eviction
 
-- [ ] 🎞️ **GO TO SLIDE 5** — *The eviction* · **read it aloud as you type it:** *"`rm` remove, `-r` and everything under it, `--cached` — **repo only, hands off my disk** — everything. Then re-add, and the bouncer filters what comes back:"*
+- [ ] 🎞️ **GO TO SLIDE 5** — *The eviction* · **talk it through as it goes up:** *"`rm` remove, `-r` and everything under it, `--cached` — **repo only, hands off my disk** — everything. Then re-add, and the bouncer filters what comes back. The ignore line had to exist first, which is why we wrote it"*
   ```bash
   git rm -r --cached .
+  ```
+  ```bash
   git add .
+  ```
+  ```bash
   git commit -m "Week 2: take out the trash"
   ```
-- [ ] `git ls-files | grep bin` → **nothing.** And in the Explorer: the `.dll` is still on disk, grayed out. *"`--cached` means the repo forgot it; my disk never will, because the compiler remakes it every build"*
-- [ ] `git push`, and say the drill's name: 🎯 *"that's the whole eviction — three commands, and it works whether one file slipped in or four hundred. Someday, on some repo, you will need this. Now you have it"*
-- [ ] **✓ CHECKPOINT:** somebody can say why the `.gitignore` alone couldn't fix it, and what `--cached` spared
+- [ ] It's out of the repo, and still on your disk:
+  ```bash
+  git ls-files | grep secrets
+  ```
+  **Nothing.** And in the Explorer `secrets.txt` is still there, grayed out. *"`--cached` means the repo forgot it. My disk never will — and I still need that file to do my job"*
+- [ ] Push it and refresh GitHub — **gone from the file list:**
+  ```bash
+  git push
+  ```
+- [ ] ⚠️ 🎯 **The beat this whole redesign exists for. Do not skip it, and do not soften it.** Click into the repo's **commit history**, open the *"uplink config"* commit — **the password is still right there, on screen.** *"The file is out of my repo. The password is still on GitHub, in a commit anybody with access can read, and it is not coming back out. `--cached` untracked it going forward; it cannot un-happen the past"*
+- [ ] 🎯 **So say the only real fix out loud:** *"once a secret is pushed, it is burned. You change the password. That is the entire remedy, and it's why the answer is never to let it happen — which is week 10's whole job, when your database password needs somewhere to live that isn't your repo"*
+- [ ] 💡 **Then hand back the good news, because the drill is still worth having:** *"the eviction works identically for one file or four hundred, and most of what slips in is junk, not secrets. Someday, on some repo, you'll need it. Now you have it"*
+- [ ] **✓ CHECKPOINT:** somebody can say what decides between the two fixes (*have you pushed?*), why the `.gitignore` alone couldn't fix case 2, and what `--cached` spared
 
 ## 2 · The panel, and a README *(slides 6–7)*
 

@@ -22,7 +22,7 @@ It's the week's sentence made physical: the compiler never saw the crash coming 
 By the end of this session, students can:
 
 1. Say what `bin/` and `obj/` contain, and why a repo holds only what a human wrote.
-2. Write a root `.gitignore` — and explain precisely why it doesn't untrack already-committed files, and what `git rm -r --cached .` does about it (and what `--cached` spares).
+2. Write a root `.gitignore` — and explain precisely why it doesn't untrack already-committed files. Given a bad commit, ask **"have I pushed it?"** and pick the right repair: `git reset HEAD~1` if not, `git rm -r --cached .` if so (and say what `--cached` spares) — plus why a *pushed secret* must be changed either way.
 3. Read the Source Control panel as the four git verbs they already know, and commit from it.
 4. Read a compiler **warning** as the edge of the compiler's promise — different from an error, and not decoration.
 5. Handle `null` and blank input with `??`, `IsNullOrWhiteSpace` and `Trim`, in a method that never crashes.
@@ -44,8 +44,8 @@ By the end of this session, students can:
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 15 min | **The four lines, revisited** *(slides 2–5, demo §1)*. Thirty-second recap of what the `.gitignore` has been doing, the lab-PC drill, then **the slip manufactured live** (`git add -f` one build artifact), *ignored is not untracked*, and the eviction drill: `git rm -r --cached .` → re-add → clean. The one git skill everyone eventually needs, taught while it's cheap. |
-| 0:15 | 20 min | **Loose ends** *(no slides)*. Circulate: failed week-1 pushes, missing collaborator invites, broken toolchains, anyone who couldn't finish the homework. The room that leaves this slot healthy stays healthy all term. Early finishers: re-run their week-1 shift or read this week's lab intro. |
+| 0:00 | 22 min | **The four lines, revisited** *(slides 2–5, demo §1)*. Thirty-second recap of what the `.gitignore` has been doing, the lab-PC drill, then **`secrets.txt` committed live, on purpose — twice.** Case 1, unpushed: `git reset HEAD~1`, and it never happened. Case 2, pushed: adding it to the `.gitignore` changes nothing (*ignored is not untracked*), the eviction drill clears the repo, **and the password is still readable in the commit history on GitHub** — so the only real fix is to change it. The one git skill everyone eventually needs, taught while it's cheap. |
+| 0:22 | 13 min | **Loose ends** *(no slides)*. Circulate: failed week-1 pushes, missing collaborator invites, broken toolchains, anyone who couldn't finish the homework. The room that leaves this slot healthy stays healthy all term. Early finishers: re-run their week-1 shift or read this week's lab intro. |
 | 0:35 | 15 min | **The panel, and a README** *(slides 6–7, demo §2)*. The promised Source Control slot: every region mapped to a verb they know. README typed and committed **with the buttons**. |
 | 0:50 | 10 min | **☕ Break** |
 | 1:00 | 30 min | **The console takes a reading** *(slides 8–11, demo §3)*. `week-02/Haldane` created by command, `Conditions.cs` carried forward in one `cp` (the homework's move, modeled). `ReadLine`, **the squiggle read properly and ignored knowingly**, `?? ""`, `double.Parse`, happy-path run. |
@@ -57,8 +57,11 @@ By the end of this session, students can:
 
 ## Instructor notes
 
-- ⚠️ **The slip has to be framed as inevitable, not hypothetical.** *"One day you'll do this by accident"* is the sentence that makes §1 land — a rename, a new machine, a hurried commit before the ignore file exists. The room watched the four lines work last week; tonight they learn the lines have an edge, which is this course's favorite shape of lesson (week 1: the compiler's edge; tonight: the gitignore's).
-- ⚠️ **Ignored-is-not-untracked is still the hill to die on.** The sequence is: slip in → point at the `.gitignore` sitting right there, powerless → *then* evict. If you evict before letting the powerlessness register, the lesson evaporates.
+- ⚠️ **The slip has to be framed as inevitable, not hypothetical.** *"One day you'll do this by accident"* is the sentence that makes §1 land — a tired `git add .` at the end of a session is all it takes, and everyone has done one. The room watched the four lines work last week; tonight they learn the lines have an edge, which is this course's favorite shape of lesson (week 1: the compiler's edge; tonight: the gitignore's).
+- ⚠️ **Ignored-is-not-untracked is still the hill to die on.** The sequence is: slip in → *ask them for the fix* and let somebody say "add it to the gitignore" → do exactly that → show `git ls-files` still finding it → *then* evict. If you evict before letting the powerlessness register, the lesson evaporates.
+- ⚠️ **The two cases are one question, not two demos.** *"Have you pushed it?"* is the thing to repeat; the commands are its two answers. If it lands as "here are two more git commands," the segment has cost seven minutes for nothing.
+- ⚠️ **Do not let case 2 end on the eviction.** The last beat is the commit history on GitHub with the password still in it, and the sentence *"a pushed secret is burned — you change it."* That is the beat the whole redesign exists for, and it is the one a running-late instinct will cut.
+- 💡 **Adding `secrets.txt` is a fifth line in a file week 1 promised you'd never reopen.** Say why out loud — the four lines are the *machinery* rule and still settled; a secret is a different category. Unaddressed, it reads as the promise breaking.
 - 🎯 **The loose-ends slot is load-bearing, not slack.** Week 1 always leaves two or three students quietly broken — a rejected push, a missing invite, a machine that fought the install. Twenty minutes in week 2 is the cheapest possible repair window; the same problems discovered on grading night cost points and confidence. Say what the slot is for out loud so nobody feels singled out.
 - ⚠️ **Do not oversell the panel.** It gets fifteen minutes and it's a *translation*, not a tour — every button named as its verb, one README committed with it, done. The CLI stays the taught path; the graders read repos, not editors.
 - 🎯 **The warning beat lives or dies on the pause.** Hover the squiggle, read `CS8600` aloud, ask who read their warnings last semester — and then **build and run anyway.** Ignoring it *knowingly* is the setup; the crash in §4 is what the ignoring costs. If you fix the warning the moment it appears, §4 loses its teeth.
