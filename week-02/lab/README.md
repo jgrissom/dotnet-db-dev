@@ -117,7 +117,11 @@ Works fine — though some of the output is blank or lying. Those are your unwri
 
 💥 **`Unhandled exception. System.FormatException`** — the whole shift is down, mid-call, and your typing did it. Read the crash before you fix anything: the exception **type**, the message (it names your exact input), and the line — it points into `WhereIsRay`, in `Lab/CallerLine.cs`. Open that file and find the `int.Parse`. That's the day shift's work. It believes people.
 
-`dotnet test week-02/Lab.Checks`: still **1 / 5.** Now go earn the rest.
+```bash
+dotnet test week-02/Lab.Checks
+```
+
+Still **1 / 5.** Now go earn the rest.
 
 ### Task 2 in full
 
@@ -141,7 +145,11 @@ Two things worth noticing:
 - **`IsNullOrWhiteSpace` is one question that covers three situations** — `null`, `""`, and `"   "` are all "nobody there", and [they all need the same answer](../lecture-notes.md#readline-and-null).
 - **The order is load-bearing.** `.Trim()` on a `null` is itself a crash — test for nothing *first*. (That's also why the compiler's null warning goes quiet here: it can see `null` can't reach the `Trim`.)
 
-`dotnet test week-02/Lab.Checks`: **2 / 5.**
+```bash
+dotnet test week-02/Lab.Checks
+```
+
+**2 / 5.**
 
 **Green? Commit it** — same three clicks:
 
@@ -167,7 +175,11 @@ public static bool IsOnTheStretch(string? typed)
 - **`TryParse` never throws** — words, blanks, even `null` just come back `false`. It also shrugs off spaces around a number on its own.
 - **Parsing and believing are different steps.** `"9000"` parses perfectly and is still nowhere Ray can be — that's what the range check after the `&&` is for. (The `&&` only runs its right side when the parse succeeded, which is why `marker` is safe to look at there.)
 
-`dotnet test week-02/Lab.Checks`: **3 / 5.**
+```bash
+dotnet test week-02/Lab.Checks
+```
+
+**3 / 5.**
 
 **Green? Commit it.** You're somewhere solid, and that's when a commit happens:
 
@@ -202,7 +214,11 @@ Same tool as Task 3 — deliberately. If you'd rather call your own `IsOnTheStre
 
 **Then re-run Task 1's crash:** start a shift, call in as `ray`, and answer with the exact sentence that killed the desk twenty minutes ago. **The shift doesn't die anymore** — Ray gets logged as out there somewhere, and the phone lights up for the next call. That run is what tonight is for.
 
-`dotnet test week-02/Lab.Checks`: **4 / 5.**
+```bash
+dotnet test week-02/Lab.Checks
+```
+
+**4 / 5.**
 
 **Commit again** — same three clicks, new message:
 
@@ -235,7 +251,17 @@ public static string TakeRequest(string? name, string? request)
 
 (That `? :` is the conditional operator — an `if`/`else` that fits inside an expression. Writing it as a full `if` is exactly as correct.)
 
-`dotnet test week-02/Lab.Checks`: **5 / 5.** Now pull a real shift: `dotnet run --project week-02/Lab`, and be the worst night of calls the desk has ever had — blank names, blank requests, Ray answering in riddles, all of it. Every call gets a civil answer, and the phone keeps ringing until *you* type `q`. **The Owl stays on the air.** 🦉
+```bash
+dotnet test week-02/Lab.Checks
+```
+
+**5 / 5.** Now pull a real shift:
+
+```bash
+dotnet run --project week-02/Lab
+```
+
+Be the worst night of calls the desk has ever had — blank names, blank requests, Ray answering in riddles, all of it. Every call gets a civil answer, and the phone keeps ringing until *you* type `q`. **The Owl stays on the air.** 🦉
 
 And read the desk's sign-off. It counted your calls — and it can't tell you a single thing about them. Sit with that for a second before you close the terminal.
 
