@@ -279,13 +279,24 @@ public static string TakeRequest(string? name, string? request)
 dotnet test week-02/Lab.Checks
 ```
 
-**5 / 5.** Now pull a real shift:
+**5 / 5.** Until now that line has read `On air:` and then nothing — `TakeRequest` returned an empty string. Run it and watch the desk find its voice:
 
 ```bash
 dotnet run --project week-02/Lab
 ```
 
-Be the worst night of calls the desk has ever had — blank names, blank requests, Ray answering in riddles, all of it. Every call gets a civil answer, and the phone keeps ringing until *you* type `q`. **The Owl stays on the air.** 🦉
+**Four calls worth taking, and each one proves something different:**
+
+| You type | Expect on air |
+|---|---|
+| `Dorothy` · `something with strings` | `For Dorothy: something with strings.` |
+| `  Bex  ` *(spaces on purpose)* · `that one again` | `For Bex: that one again.` |
+| *Enter* · *Enter* | `For some night owl: dealer's choice.` |
+| `Pham's Bakery` · *Enter* | `For Pham's Bakery: dealer's choice.` |
+
+⚠️ **Row two is the one to notice.** You never wrote trimming code in `TakeRequest` — it calls **your** `CallerName` from Task 2, so the spaces are gone and the nameless caller has a name, for free. **One method knows the rule; everything else asks it.** That's week 1's `CallSign()` lesson wearing a new shirt.
+
+Then be the worst night of calls the desk has ever had — blank names, blank requests, Ray answering in riddles, all of it. Every call gets a civil answer, and the phone keeps ringing until *you* type `q`. **The Owl stays on the air.** 🦉
 
 And read the desk's sign-off. It counted your calls — and it can't tell you a single thing about them. Sit with that for a second before you close the terminal.
 
