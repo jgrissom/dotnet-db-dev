@@ -193,13 +193,23 @@ wherever you keep your work/
 > [!NOTE]
 > **Everything you *read* — labs, homework, notes, slides — lives on the web**, at [github.com/jgrissom/dotnet-db-dev](https://github.com/jgrissom/dotnet-db-dev) and [the slides site](https://jgrissom.github.io/dotnet-db-dev/). There is nothing to clone for those, and they're never out of date in your browser.
 
-**✓ Check:**
+**✓ Check — two commands, and neither one moves you.** *(`..` means "the folder above me", so both of these look around without going anywhere.)*
+
+**First, that the two folders are side by side:**
+
+```bash
+ls ..
+```
+
+**`dotnet-db-coursework` and `dotnet-db-starters`, both in that list.** If `dotnet-db-starters` isn't there, the clone landed somewhere else; if it's missing but shows up in `ls` on its own, it went *inside* your coursework folder — move it out.
+
+**Then, that the clone has this term's weeks in it:**
 
 ```bash
 ls ../dotnet-db-starters
 ```
 
-You should see `week-01`, `week-02` and a `README.md` — week folders and nothing else. *(The `../` looks next door without moving you.)*
+You should see `week-01`, `week-02` and a `README.md` — week folders and nothing else.
 
 ---
 
