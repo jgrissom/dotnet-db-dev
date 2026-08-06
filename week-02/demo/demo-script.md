@@ -226,7 +226,9 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   ```bash
   dotnet run --project week-02/Haldane
   ```
-  `Hello, World!` — *"the fresh project runs, and `Conditions.cs` came along for the build. The carry-forward is already legal C# here, before I've typed a thing"*
+- [ ] 🎯 **It prints `Hello, World!` — and that is worth fifteen seconds, because the interesting question isn't why it said that.** Ask, then wait: *"I just copied a whole file of working code in here — Fahrenheit, safe-to-go-out, all of it. So why did none of it happen?"*
+  - **The answer, once somebody offers it:** nothing called it. `Program.cs` is still the template's one line, and `Conditions.cs` is sitting there compiled, reachable, and completely idle. 💡 **That's week 1's rule seen from the other side** — logic in `Program.cs` can't be called by anything; a class nobody calls doesn't run. They're the same lesson, and this is the cheapest place to say so
+  - *"What it does prove: the carry-forward is already legal C# in here, before I've typed a thing"*
 - [ ] **First commit of the new week — in the Source Control view:** stage, paste the message, **✓ Commit**, **Sync**:
   ```
   Week 2: new week, Conditions carried forward
