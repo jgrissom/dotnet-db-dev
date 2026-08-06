@@ -16,11 +16,11 @@ Three steps, all from the **one VS Code window you'll keep all semester** — op
 > [!NOTE]
 > **No `dotnet-db-coursework` folder?** Make it now: File → Open Folder → *New Folder* → name it `dotnet-db-coursework` → Open. It starts empty; the next two steps fill it.
 
-**2. Make sure you have the course repo** — the clone from [setup](../setup-guide.md#then-clone-the-course-repo), sitting **next to** your coursework folder. If setup went to plan, nothing to do here. If you never cloned it, the terminal (`` Ctrl+` ``) fixes it in one hop:
+**2. Make sure you have the starters clone** — the clone from [setup](../setup-guide.md#then-clone-the-starters), sitting **next to** your coursework folder. If setup went to plan, nothing to do here. If you never cloned it, the terminal (`` Ctrl+` ``) fixes it in one hop:
 
 ```bash
 cd ..
-git clone https://github.com/jgrissom/dotnet-db-dev.git
+git clone https://github.com/jgrissom/dotnet-db-starters.git
 cd dotnet-db-coursework
 ```
 
@@ -28,7 +28,7 @@ cd dotnet-db-coursework
 
 Open **Finder** (Mac) or **File Explorer** (Windows):
 
-1. Go into `dotnet-db-dev` → `week-01` → `starter`. Inside is one folder: **`week-01`**.
+1. Open `dotnet-db-starters`. It holds nothing but week folders — find **`week-01`**.
 2. **Copy it** (don't drag-move — the clone keeps its copy).
 3. Go into `dotnet-db-coursework` (empty right now) → **Paste**.
 

@@ -11,7 +11,7 @@ The compiler's limit, part two — and the `.gitignore`'s limit, first. Students
 | Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck (GFM, one slide per `##`) — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-02/) (arrow keys, `F` for fullscreen) |
 | In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *The slip and the lies* — junk tracked on purpose and evicted, then Haldane takes a typed reading; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-02/demo/script.html) |
 | In&nbsp;class,&nbsp;last&nbsp;75&nbsp;min | 🧪&nbsp;[lab/⁠](lab/) | *The caller line* — 5 checks, 1/5 green out of the box, and one method that ships **already wrong** (answer key in the private repo) |
-| With&nbsp;the&nbsp;homework | ✅&nbsp;[starter/⁠](starter/) | The **one folder students drag in** — lab, homework skeleton, and both checks projects, **byte-for-byte the ones the grader runs** |
+| With&nbsp;the&nbsp;homework | ✅&nbsp;[starters&nbsp;repo⁠](https://github.com/jgrissom/dotnet-db-starters) | The **one folder students copy in** — lab, homework skeleton, and both checks projects, **byte-for-byte the ones the grader runs** |
 | Assigned&nbsp;at&nbsp;wrap-⁠up | 📤&nbsp;[homework.md](homework.md) | Their station grows a request line + repo hygiene, both graded (20 pts) |
 
 ## What students walk out with

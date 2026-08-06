@@ -159,14 +159,14 @@ The repo you just made is **empty and on GitHub**. Your actual work happens in a
 > [!NOTE]
 > **You don't run any `git` commands on it yet.** Connecting this folder to the repo on GitHub is the last thing we do in class tonight, and it's four commands. For now it's just a folder.
 
-### Then clone the course repo
+### Then clone the starters
 
-That was *your* repo. This is **mine** — everything I hand you all term arrives in it: tonight's lab, the checks that grade your homework, the notes. You clone it once, now, and `git pull` it at the start of every week.
+That was *your* repo. This one is **mine**, and it holds exactly one kind of thing: **the folder you copy at the start of every week** — the lab, your homework's starting point, and the checks. Nothing in it is reading material.
 
-⚠️ **Put it right next to `dotnet-db-coursework`, not inside it.** Side by side is the arrangement every instruction for the rest of the term assumes — *"copy this out of the clone into your `week-01`"* only has a direction if you know where both folders are. So `cd` to wherever you just made `dotnet-db-coursework` first, then:
+⚠️ **Put it right next to `dotnet-db-coursework`, not inside it.** Side by side is the arrangement every instruction for the rest of the term assumes. So `cd` to wherever you just made `dotnet-db-coursework` first, then:
 
 ```bash
-git clone https://github.com/jgrissom/dotnet-db-dev.git
+git clone https://github.com/jgrissom/dotnet-db-starters.git
 ```
 
 **That is the whole shape, and it does not change again all semester:**
@@ -175,21 +175,26 @@ git clone https://github.com/jgrissom/dotnet-db-dev.git
 wherever you keep your work/
 ├─ dotnet-db-coursework/     ← YOURS. A folder per week. This is what I grade.
 │  └─ week-01/
-└─ dotnet-db-dev/            ← MINE. Read-only. You copy things OUT of it.
+└─ dotnet-db-starters/       ← MINE. You copy a week folder OUT of it. Never work in it.
+   ├─ week-01/
+   └─ week-02/
 ```
 
-**Two folders. One you write, one you read.** Everything else this term happens inside `week-01`, `week-02`, and so on.
+**Two folders. One you write, one you copy from.** Everything else this term happens inside `week-01`, `week-02`, and so on.
 
-⚠️ **You never edit anything in this folder and you never work inside it.** Each week you copy that week's starter *out* of it and work on the copy. Work inside the clone and next week's `git pull` fights your own edits.
+⚠️ **You never edit anything in the starters clone and you never work inside it.** Copy the week's folder *out* of it and work on the copy. Work inside the clone and next week's `git pull` fights your own edits — and none of it is in your repo, so none of it is graded.
+
+> [!NOTE]
+> **Everything you *read* — labs, homework, notes, slides — lives on the web**, at [github.com/jgrissom/dotnet-db-dev](https://github.com/jgrissom/dotnet-db-dev) and [the slides site](https://jgrissom.github.io/dotnet-db-dev/). There is nothing to clone for those, and they're never out of date in your browser.
 
 **✓ Check:**
 
 ```bash
-cd dotnet-db-dev
+cd dotnet-db-starters
 ls
 ```
 
-You should see `week-01`, `README.md` and a `scripts` folder.
+You should see `week-01`, `week-02` and a `README.md` — week folders and nothing else.
 
 ---
 

@@ -16,21 +16,21 @@ Three steps, all from the **one VS Code window you keep all semester** — open 
 > [!NOTE]
 > **No `dotnet-db-coursework` folder?** Make it now: File → Open Folder → *New Folder* → name it `dotnet-db-coursework` → Open. It starts empty; the next two steps fill it.
 
-**2. Update your clone of the course repo — from the terminal you already have.** `` Ctrl+` `` (it opens standing at the top of your repo), then:
+**2. Update your starters clone — from the terminal you already have.** `` Ctrl+` `` (it opens standing at the top of your repo), then:
 
 ```bash
-cd ../dotnet-db-dev
+cd ../dotnet-db-starters
 git pull
 cd ../dotnet-db-coursework
 ```
 
-One hop sideways into the clone (it sits right next to your repo, [the way setup left them](../../week-01/setup-guide.md#then-clone-the-course-repo)), pull, hop back.
+One hop sideways into the clone (it sits right next to your repo, [the way setup left them](../../week-01/setup-guide.md#then-clone-the-starters)), pull, hop back.
 
 > [!NOTE]
 > **`cd: no such file or directory`?** You haven't cloned it. From the same terminal:
 > ```bash
 > cd ..
-> git clone https://github.com/jgrissom/dotnet-db-dev.git
+> git clone https://github.com/jgrissom/dotnet-db-starters.git
 > cd dotnet-db-coursework
 > ```
 > Now the two folders sit side by side, and the pull above will work every week after.
@@ -39,7 +39,7 @@ One hop sideways into the clone (it sits right next to your repo, [the way setup
 
 Open **Finder** (Mac) or **File Explorer** (Windows):
 
-1. Go into `dotnet-db-dev` → `week-02` → `starter`. Inside is one folder: **`week-02`**.
+1. Open `dotnet-db-starters`. It holds nothing but week folders — find **`week-02`**.
 2. **Copy it** (don't drag-move — the clone keeps its copy).
 3. Go into `dotnet-db-coursework` → **Paste**.
 

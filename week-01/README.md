@@ -12,7 +12,7 @@ Setup night — but for a room that already took a C# course, setup is a *verifi
 | Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck (GFM, one slide per `##`) — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-01/) (arrow keys, `F` for fullscreen) |
 | In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *Haldane Station boots up* — built from an empty folder; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-01/demo/script.html) |
 | In&nbsp;class,&nbsp;last&nbsp;50&nbsp;min | 🧪&nbsp;[lab/⁠](lab/) | *KDXR signs on* — 5 `dotnet test` checks; 1/5 green out of the box (answer key in the private repo) |
-| With&nbsp;the&nbsp;homework | ✅&nbsp;[starter/⁠](starter/) | The **one folder students drag in** — lab, homework skeleton, and both checks projects, **byte-for-byte the ones the grader runs** |
+| With&nbsp;the&nbsp;homework | ✅&nbsp;[starters&nbsp;repo⁠](https://github.com/jgrissom/dotnet-db-starters) | The **one folder students copy in** — lab, homework skeleton, and both checks projects, **byte-for-byte the ones the grader runs** |
 | Assigned&nbsp;at&nbsp;wrap-⁠up | 📤&nbsp;[homework.md](homework.md) | Their own invented radio station + first push to a private repo (20 pts) |
 
 ## What students walk out with

@@ -5,11 +5,10 @@ on:
     branches: [main]
     # The workflow's own file is in this list on purpose: without it, a change
     # to the checks below can't re-run them, and a fix looks unverified because
-    # nothing fires. Lab starters are here for the same reason.
+    # nothing fires.
     paths:
       - "**/*.md"
       - "scripts/check-*.js"
-      - "week-*/starter/**"
       - ".github/workflows/check-docs.yml"
   schedule:
     - cron: "0 12 * * 1"   # Mondays: full check including external URLs
@@ -36,46 +35,3 @@ jobs:
         if: github.event_name != 'push'
         run: node scripts/check-links.js . --external
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "10.0.x"
-      # Every starter project must build, and every checks project must RUN — a
-      # starter that doesn't compile wastes the first ten minutes of a lab for
-      # everybody. The glob covers BOTH checks projects per week (Lab.Checks and
-      # Homework.Checks) now that the one-drag starter ships all four projects.
-      # FAILING TESTS ARE THE EXPECTED RESULT: a starter is red on purpose, and
-      # a homework skeleton scores 0/N by design. A build error or a crash is not.
-      #
-      # Console programs block on ReadLine forever, so stdin gets a few newlines
-      # (which satisfies an interactive program rather than making ReadLine
-      # return null) and every run is capped.
-      - name: Build and run every starter's checks
-        run: |
-          fail=0
-          shopt -s nullglob
-          for proj in week-*/starter/week-*/*.Checks/*.csproj; do
-            echo "── $proj"
-            if ! dotnet build "$proj" -warnaserror -nologo; then
-              echo "::error::$proj does not build"
-              fail=1
-              continue
-            fi
-            # `|| code=$?` is load-bearing: this step runs under `bash -e`, so a
-            # bare failing command aborts the whole script before the exit code
-            # can be inspected. That is exactly what happened on week 1's first
-            # push — the starter correctly reported 1/5 and CI called it a
-            # failure, because line 2 never ran.
-            code=0
-            printf '\n\n\n\n' | timeout 300 dotnet test "$proj" --no-build --nologo || code=$?
-            # 0 = all green, 1 = tests failed (fine). Anything else is a crash,
-            # a hang (124 from timeout), or a runner problem.
-            if [ "$code" -gt 1 ]; then
-              echo "::error::$proj exited $code (crash, hang or runner error)"
-              fail=1
-            fi
-          done
-          exit $fail
