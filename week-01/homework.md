@@ -22,7 +22,12 @@ dotnet test week-01/Lab.Checks
 - Your commits should record the work **as it happens**. A repo made at the end holds one commit that says "everything, at once", which tells nobody anything — including you, in week 9, trying to remember when something broke.
 - If your push is going to argue with you about credentials or a branch name, **find out now**, with nothing on the line. Not at 11pm with a finished program you can't submit.
 
-**You're already standing where all of this happens** — your window is the top of the repo, [where git lives, one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). Nothing to open, nowhere to move.
+**First, get back to your coursework window.** If VS Code is still open on `dotnet-db-coursework` from the lab, you're there — skip ahead. Otherwise: **VS Code → File → Open Folder → `dotnet-db-coursework` → Open.**
+
+Then the terminal: **`` Ctrl+` ``**. It opens standing at the top of your repo, [which is where git lives — one repo for the whole semester](lecture-notes.md#getting-your-work-onto-github). Everything below runs from there, and you never move.
+
+> [!NOTE]
+> **No `week-01` folder inside it?** Then the lab's setup didn't happen — [do that first](lab/README.md#setup); it's one copy out of `dotnet-db-starters` and it brings the whole week in. The homework builds on what it puts there.
 
 ⚠️ **The repo has to already exist on GitHub, and `git push` will not create it for you.** If you skipped it during setup: [`setup-guide.md` §5](setup-guide.md#5-github-an-account-your-coursework-repo-and-the-course-repo) — `dotnet-db-coursework`, **Private**, **no** README, then add `jgrissom` as a collaborator. That last part is 3 of tonight's points.
 
@@ -87,7 +92,7 @@ Pick a call sign, a city and a sign-off time. It can be a real town or an invent
 
 There's nothing to install and nothing to copy — the `week-01` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, with `Homework.Checks` beside it.
 
-**1. Your coursework window is the whole setup** — VS Code open on `dotnet-db-coursework`, the same window as tonight's lab and the demo. (Didn't get to the lab? [Its setup](lab/README.md#setup) brings the whole week in — do that first.) The week looks like this:
+**1. Same window, same terminal** — you set it up in Part 2 and you don't move again. The week looks like this:
 
 ```
 dotnet-db-coursework/

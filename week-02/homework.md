@@ -26,7 +26,10 @@ Last week you invented a station. **This week it gets a request line:** a greeti
 
 There's almost nothing to set up — the `week-02` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, and `Homework.Checks` beside it.
 
-**1. Your coursework window is the whole setup** — VS Code open on `dotnet-db-coursework`, the same window as tonight's lab. (Didn't get to the lab? [Its setup](lab/README.md#setup) brings the whole week in — do that first.)
+**1. Get back to your coursework window.** Still open on `dotnet-db-coursework` from the lab? You're there. Otherwise: **VS Code → File → Open Folder → `dotnet-db-coursework` → Open**, then the terminal with **`` Ctrl+` ``** — it opens standing at the top, where every command below runs.
+
+> [!NOTE]
+> **No `week-02` folder inside it?** The lab's setup didn't happen — [do that first](lab/README.md#setup). It's one copy out of `dotnet-db-starters` and it brings the whole week in, this homework's starting point included.
 
 **2. Carry your `Station` class forward** — [the same one-move copy from the demo](lecture-notes.md#carrying-a-class-forward), from the terminal:
 
