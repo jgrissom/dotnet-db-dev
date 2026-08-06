@@ -149,7 +149,19 @@ Two things worth noticing:
 dotnet test week-02/Lab.Checks
 ```
 
-**2 / 5.**
+**2 / 5.** Now work a shift and watch it happen:
+
+```bash
+dotnet run --project week-02/Lab
+```
+
+Sign on, then **press Enter without typing a name**, and Enter again for the request. **Expect:**
+
+```
+On air: For some night owl: dealer's choice.
+```
+
+A minute ago that line had a hole where the name should be. `q` ends the shift.
 
 **Green? Commit it** — same three clicks:
 
@@ -179,7 +191,25 @@ public static bool IsOnTheStretch(string? typed)
 dotnet test week-02/Lab.Checks
 ```
 
-**3 / 5.**
+**3 / 5.** Run it and call in as Ray:
+
+```bash
+dotnet run --project week-02/Lab
+```
+
+Sign on, answer `ray`, and give him a marker — `240`. **Expect:**
+
+```
+Log: Ray at mile 240 - 160 to go on his stretch.
+```
+
+⚠️ **Now try `9000`** — a real number, nowhere on his stretch:
+
+```
+Log: Ray's out there somewhere. He'll call back.
+```
+
+*Parsing and believing are different steps.* `q` ends the shift.
 
 **Green? Commit it.** You're somewhere solid, and that's when a commit happens:
 

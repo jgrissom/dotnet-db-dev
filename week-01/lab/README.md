@@ -170,7 +170,13 @@ Two steps: turn the time you were given into **minutes past midnight**, then sub
 dotnet test week-01/Lab.Checks
 ```
 
-**3 / 5.** The program now counts down properly — **225 minutes until sunrise**.
+**3 / 5.** Now run the desk and read that line:
+
+```bash
+dotnet run --project week-01/Lab
+```
+
+`0 minutes until sunrise` has become **`225 minutes until sunrise`**. Second lie, gone.
 
 ### Task 4 in full
 
@@ -203,7 +209,13 @@ The remainder is gone before the `double` ever gets involved — silently, every
 dotnet test week-01/Lab.Checks
 ```
 
-**4 / 5.** The program says **5.5 hours on air** now, where a minute ago it said 5.
+**4 / 5.** Run it again:
+
+```bash
+dotnet run --project week-01/Lab
+```
+
+**`5.5 hours on air so far tonight`** — a minute ago that line said `5`. Nothing warned you it was wrong; the check did.
 
 ### Task 5 in full
 
@@ -228,7 +240,13 @@ Check the two boundaries when you're done: **6 is not overnight, and 22 is.** Of
 dotnet test week-01/Lab.Checks
 ```
 
-**5 / 5.** The Owl is on the air. 🦉
+**5 / 5.** One last run — and this time read the whole thing top to bottom:
+
+```bash
+dotnet run --project week-01/Lab
+```
+
+`Overnight block: True`, the DJ greeted by name, `225 minutes until sunrise`, `5.5 hours on air`. **Every line that lied when you started now tells the truth, and you made each one true.** The Owl is on the air. 🦉
 
 ## Rules
 
