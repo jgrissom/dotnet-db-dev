@@ -1,6 +1,6 @@
 # Week 2 Demo Script — The Mess and the Lies 🧊
 
-Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Talk each block through once it's on screen** — that's the beat the typing used to provide. ⚠️ **Say what it *does*, never what it says:** `Console.WriteLine($"Station: {stationName}")` is *"print the label, then drop the station's name in"* — not *"dollar sign, quote, curly brace."* **Name syntax only when the syntax is the lesson** (the `$`, the `.0`, the `out`).
+Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the code from here** — every block has a Copy button, and the room can't read code that appears character by character anyway. **Talk each block through once it's on screen** — that's the beat the typing used to provide. ⚠️ **Say what it *does*, never what it says:** `Console.WriteLine($"Station: {stationName}")` is *print the label, then drop the station's name in* — not *dollar sign, quote, curly brace.* **Name syntax only when the syntax is the lesson** (the `$`, the `.0`, the `out`).
 
 **Type whatever you feel like typing** — this is a default, not a rule. **The two that would cost you if you didn't:** the `.gitignore`'s four lines in §1 (the badge has to fall *as each line lands* — that's the whole beat), and the **answers you give the running program** in §3–§4, especially `-41.5 C`. Those aren't code; they're the room watching a human make a human's mistake.
 
@@ -17,7 +17,7 @@ Terminal + VS Code cue sheet, in lecture order, keyed to the slides. **Paste the
 > [!IMPORTANT]
 > **Tonight has two halves and they trade places at the first break.**
 >
-> **The git half (§1–§2) collects last week's promise:** *"what those four lines can't do."* The slip is manufactured on screen, the eviction drill teaches the one git skill everyone eventually needs, and the Source Control panel gets its slot now that the verbs are known.
+> **The git half (§1–§2) collects last week's promise:** *what those four lines can't do.* The slip is manufactured on screen, the eviction drill teaches the one git skill everyone eventually needs, and the Source Control panel gets its slot now that the verbs are known.
 >
 > **The C# half (§3–§4) is the compiler's limit, part two.** Last week: a clean build, a wrong answer, and silence. This week: a clean build, a **warning nobody reads**, and then a crash the compiler could never have caught — because the input didn't exist until someone typed it. The break in §4 is unannounced, as always.
 
