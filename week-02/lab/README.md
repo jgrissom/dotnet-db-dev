@@ -83,8 +83,6 @@ dotnet test week-02/Lab.Checks
 
 **Run the checks after every task.** Each one turns exactly one more check green, and the number tells you where you are.
 
-**From Task 3 on, commit when a check goes green.** Three clicks in the Source Control view, and each task below hands you the message to paste. Nobody collects this lab — the habit is the point, and it's the one your repo gets graded on every week from here.
-
 | # | Check | What to do |
 |---|-------|------------|
 | 1 | *(check 1 is already green)* | Run the program — and crash it with your own typing. **[Task 1 in full ↓](#task-1-in-full)** |
@@ -157,14 +155,6 @@ public static bool IsOnTheStretch(string? typed)
 
 `dotnet test week-02/Lab.Checks`: **3 / 5.**
 
-**Green? Commit it.** You're somewhere solid, and that's when a commit happens — you learned the buttons an hour ago, so use them: stage the changes (**+**), paste the message, **✓ Commit**, **Sync**.
-
-```
-week 2 lab: the marker has to be real
-```
-
-⚠️ **Notice what the *Changes* list doesn't show: no `bin/`, no `obj/`.** The four lines you wrote in week 1 have been quietly covering this brand-new folder since the moment you pasted it in.
-
 ### Task 4 in full
 
 **Check:** `Check4_RayCanSayAnything`
@@ -191,12 +181,6 @@ Same tool as Task 3 — deliberately. If you'd rather call your own `IsOnTheStre
 **Then re-run Task 1's crash:** start a shift, call in as `ray`, and answer with the exact sentence that killed the desk twenty minutes ago. **The shift doesn't die anymore** — Ray gets logged as out there somewhere, and the phone lights up for the next call. That run is what tonight is for.
 
 `dotnet test week-02/Lab.Checks`: **4 / 5.**
-
-**Commit again** — same three clicks, new message:
-
-```
-week 2 lab: Ray can say anything
-```
 
 ### Task 5 in full
 
@@ -227,16 +211,12 @@ public static string TakeRequest(string? name, string? request)
 
 And read the desk's sign-off. It counted your calls — and it can't tell you a single thing about them. Sit with that for a second before you close the terminal.
 
-**Then clock out — commit the shift**, the same way you did after Tasks 3 and 4:
+**Then clock out — commit the shift.** You're somewhere solid; that's when a commit happens. The Source Control view does it without leaving your folder: stage the changes (**+**), message `week 2 lab: the desk survives its callers`, **✓ Commit**, **Sync**. That's one of the [3+ commits this week's homework grades](../homework.md#part-3--repo-hygiene-graded), banked before you've even started the homework.
 
-```
-week 2 lab: the desk survives its callers
-```
-
-**That's three commits, and you didn't set out to make any of them** — you just saved every time you got somewhere solid. That's the habit, it's [what the homework grades](../homework.md#part-3--repo-hygiene-graded), and it means the risky stretches always have a save point behind them.
+Notice what the Changes list *doesn't* show: no `bin/`, no `obj/` — the four lines you wrote in week 1 have been quietly covering this brand-new folder since the moment you pasted it. The list is just your work, which is the whole point.
 
 > [!NOTE]
-> **Source Control view empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. Or just skip this; the homework's push collects everything either way.
+> **Panel empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. Or just skip this; the homework's push collects everything either way.
 
 ## Rules
 
