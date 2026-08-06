@@ -221,6 +221,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   cp week-01/Haldane/Conditions.cs week-02/Haldane/
   ```
   🎯 *"`-o` made the week folder and the project in one go — there's `week-02` in the Explorer, right under `week-01`. That's every Monday for the rest of the term"*
+- [ ] ⚠️ **Wake the editor up — Command Palette → `.NET: Restart Language Server`** *(or `Developer: Reload Window`)*. **The Explorer sees the new folder instantly; the part that does IntelliSense does not.** Verified 2026-08-05: skip this and there is **no squiggle under `Console.ReadLine()` at all**, which quietly kills the whole warning beat below — while `dotnet build` keeps reporting `CS8600` perfectly, so nothing else looks wrong
 - [ ] 🎯 **The `cp` is a beat, not plumbing:** *"that's last week's logic — Fahrenheit, safe-to-go-out — carried forward in one move. I didn't rewrite it; it was already right. **Your homework asks you for exactly this move** with your own `Station.cs`"*
 - [ ] **Run it before touching it:**
   ```bash
