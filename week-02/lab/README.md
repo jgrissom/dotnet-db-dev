@@ -155,7 +155,7 @@ dotnet test week-02/Lab.Checks
 dotnet run --project week-02/Lab
 ```
 
-Sign on, then **press Enter without typing a name**, and Enter again for the request. **Expect:**
+Sign on with your name. Then at *Who's calling?* **press Enter without typing anything**, and do the same at *What do they want to hear?* **Expect:**
 
 ```
 On air: For some night owl: dealer's choice.
@@ -285,14 +285,14 @@ dotnet test week-02/Lab.Checks
 dotnet run --project week-02/Lab
 ```
 
-**Four calls worth taking, and each one proves something different:**
+**Four calls worth taking, and each one proves something different.** The desk asks you two questions per call — answer them like this:
 
-| You type | Expect on air |
-|---|---|
-| `Dorothy` · `something with strings` | `For Dorothy: something with strings.` |
-| `  Bex  ` *(spaces on purpose)* · `that one again` | `For Bex: that one again.` |
-| *Enter* · *Enter* | `For some night owl: dealer's choice.` |
-| `Pham's Bakery` · *Enter* | `For Pham's Bakery: dealer's choice.` |
+| *Who's calling?* | *What do they want to hear?* | Expect on air |
+|---|---|---|
+| `Dorothy` | `something with strings` | `For Dorothy: something with strings.` |
+| `  Bex  ` — **type the spaces** | `that one again` | `For Bex: that one again.` |
+| **press Enter, type nothing** | **press Enter, type nothing** | `For some night owl: dealer's choice.` |
+| `Pham's Bakery` | **press Enter, type nothing** | `For Pham's Bakery: dealer's choice.` |
 
 ⚠️ **Row two is the one to notice.** You never wrote trimming code in `TakeRequest` — it calls **your** `CallerName` from Task 2, so the spaces are gone and the nameless caller has a name, for free. **One method knows the rule; everything else asks it.** That's week 1's `CallSign()` lesson wearing a new shirt.
 
