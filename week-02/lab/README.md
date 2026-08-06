@@ -191,25 +191,7 @@ public static bool IsOnTheStretch(string? typed)
 dotnet test week-02/Lab.Checks
 ```
 
-**3 / 5.** Run it and call in as Ray:
-
-```bash
-dotnet run --project week-02/Lab
-```
-
-Sign on, answer `ray`, and give him a marker — `240`. **Expect:**
-
-```
-Log: Ray at mile 240 - 160 to go on his stretch.
-```
-
-⚠️ **Now try `9000`** — a real number, nowhere on his stretch:
-
-```
-Log: Ray's out there somewhere. He'll call back.
-```
-
-*Parsing and believing are different steps.* `q` ends the shift.
+**3 / 5.** ⚠️ **Don't bother running the shift after this one — nothing will look different**, and that's worth understanding rather than shrugging at: you've written `IsOnTheStretch`, but **nothing calls it yet.** `Program.cs` still asks `WhereIsRay` where Ray is, and `WhereIsRay` is the day shift's version — the one that crashed in Task 1. **Task 4 is where your new method gets used**, and that's when the shift changes.
 
 **Green? Commit it.** You're somewhere solid, and that's when a commit happens:
 
@@ -242,7 +224,19 @@ public static string WhereIsRay(string? typed)
 
 Same tool as Task 3 — deliberately. If you'd rather call your own `IsOnTheStretch` as the guard, that's correct too.
 
-**Then re-run Task 1's crash:** start a shift, call in as `ray`, and answer with the exact sentence that killed the desk twenty minutes ago. **The shift doesn't die anymore** — Ray gets logged as out there somewhere, and the phone lights up for the next call. That run is what tonight is for.
+**Now run the shift and put it through all three cases** — this is the run tonight is for:
+
+```bash
+dotnet run --project week-02/Lab
+```
+
+Sign on, call in as `ray` each time:
+
+- **`240`** — a real marker → `Log: Ray at mile 240 - 160 to go on his stretch.`
+- **`9000`** — a real number, nowhere on his stretch → `Log: Ray's out there somewhere. He'll call back.`
+- **the exact sentence that killed the desk in Task 1** (`somewhere past the truck stop`) → the same civil answer. **The shift doesn't die anymore**, and the phone lights up for the next call.
+
+⚠️ **The middle one is the lesson.** `9000` parses perfectly — it's the range check that catches it. *Parsing and believing are different steps.*
 
 ```bash
 dotnet test week-02/Lab.Checks
