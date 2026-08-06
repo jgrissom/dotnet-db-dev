@@ -154,7 +154,21 @@ And the program, which is the half the checks never look at:
 dotnet run --project week-02/Homework
 ```
 
-**Run it the way the lab taught you to** — politely once, then rudely: spaces for a name, words for a number, Enter for everything. If anything crashes, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
+**Each method has one call that proves it works.** Take these four, one per run — the answers are yours, so I can only tell you what should *happen*:
+
+| At *Who's calling?* | At *what caller number* | What should happen |
+|---|---|---|
+| your own name | your lucky number | the greeting says **your call sign**, and you **win** |
+| `  spaces round it  ` | any number | the name comes back **trimmed** |
+| **press Enter, type nothing** | **press Enter, type nothing** | **your** no-name default, and you lose — **no crash** |
+| any name | `abc` | you lose — **no crash** |
+
+⚠️ **Row three is the one worth two points.** Read on:
+
+> [!IMPORTANT]
+> **Now run it the way I will run it: press Enter at every prompt and type nothing else.** That is exactly what the grader does — it answers each question with a bare newline and then stops typing. **If your program crashes on that, it scores 0 for "builds and runs" no matter how green your checks are.** A program that only survives sensible answers has not been tested; it's been humoured.
+
+If anything does crash, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
 
 ## Part 3 — Repo hygiene (graded)
 

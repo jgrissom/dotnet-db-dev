@@ -210,7 +210,14 @@ And the program, which is the half the checks never look at:
 dotnet run --project week-01/Homework
 ```
 
-You should see your station's sign-on line and a countdown — your own call sign, your own city, your own hour.
+**Expect two lines, both wearing your station's name** — I can't print them for you, because they're yours:
+
+```
+<YOUR CALL SIGN> … broadcasting from <YOUR CITY>.
+<a number> minutes until sign-off.
+```
+
+⚠️ **Check that number by hand, once.** Work it out on paper for the time in your `Program.cs` — minutes past midnight, subtracted from your sign-off hour × 60 — and see whether your program agrees. **The check only catches a countdown that disagrees with your *own* `SignOffHour()`**; it can't tell you that you got the arithmetic backwards in both places. Ninety seconds now, or four points later.
 
 > [!NOTE]
 > **No `Console.ReadLine` this week.** Your program prints and exits. Reading input arrives in week 2 — and there's a reason for the order: I have to *run* your program to grade it, and a program that sits waiting for input nobody types is a program that never finishes.
