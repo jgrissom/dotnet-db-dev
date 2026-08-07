@@ -49,8 +49,9 @@ function slidesOf(file) {
 
 function cuesOf(file) {
   const out = [];
-  let sec = null, lo = null, hi = null, beat = false;
+  let sec = null, lo = null, hi = null, beat = false, ln = 0;
   for (const line of fs.readFileSync(file, "utf8").split("\n")) {
+    ln++;
     // Emphasis may be *…* or _…_ — a markdown formatter (Prettier) rewrites one
     // into the other on save, and the sheets must survive that either way.
     let m = line.match(/^## (\d+[a-z]?) · (.+?)\s*(?:[*_]\(slides? (\d+)(?:[–—-](\d+))?\)[*_])?\s*(?:—.*)?$/);
@@ -58,16 +59,25 @@ function cuesOf(file) {
     if (/^## /.test(line)) { sec = null; continue; }
     if (/^### /.test(line) && sec) { beat = true; continue; }
     m = line.match(/🎞️ \*\*GO TO SLIDE (\d+)\*\* — [*_]([^*_]+)[*_]/);
-    if (m && sec) out.push({ n: +m[1], title: m[2].trim(), sec, lo, hi, beat });
+    // A cue buried mid-line is a cue that gets walked straight past — it has to
+    // lead its own checkbox so the eye finds it at the projector.
+    if (m && sec) out.push({ n: +m[1], title: m[2].trim(), sec, lo, hi, beat, ln,
+                             own: /^\s*[-*] \[[ xX]\] 🎞️ \*\*GO TO SLIDE/.test(line) });
   }
   return out;
 }
+
+// This script globs week-NN folders INSIDE `root`, so handing it a week folder
+// scans nothing and used to print the success line anyway — a green report over
+// zero files, which is worse than no report at all. Say so instead.
+let scanned = 0;
 
 for (const wk of fs.readdirSync(root).filter(d => /^week-\d+$/.test(d)).sort()) {
   const script = path.join(root, wk, "demo", "demo-script.md");
   const deck = path.join(root, wk, "slides.md");
   if (!fs.existsSync(script) || !fs.existsSync(deck)) continue;
 
+  scanned++;
   const slides = slidesOf(deck);
   const cues = cuesOf(script);
   const last = slides.length;
@@ -83,6 +93,11 @@ for (const wk of fs.readdirSync(root).filter(d => /^week-\d+$/.test(d)).sort()) 
   if (dupes.length) say(`slide(s) cued more than once: ${[...new Set(dupes)].join(", ")}`);
 
   for (const c of cues) {
+    // 0 — the cue leads its own checkbox, or the eye walks past it
+    if (!c.own)
+      say(`demo-script.md:${c.ln} buries the slide ${c.n} cue mid-line — a 🎞️ has to `
+        + `START its own "- [ ] " checkbox, or it gets missed at the projector.`);
+
     const slide = slides[c.n - 1];
     if (!slide) continue;
 
@@ -120,4 +135,11 @@ if (problems.length) {
   console.error("❌ cue sheet / deck mismatches:\n" + problems.map(p => "   " + p).join("\n"));
   process.exit(1);
 }
-console.log("✅ demo cues line up with the decks (order, titles, section ranges, footers)");
+if (!scanned) {
+  console.error(`❌ no week-NN folders under ${root} — nothing was checked.\n`
+    + `   This script wants the root that CONTAINS the weeks: node scripts/check-cues.js .\n`
+    + `   (check-links.js and check-emphasis.js take a week folder; this one does not.)`);
+  process.exit(1);
+}
+console.log(`✅ demo cues line up with the decks in ${scanned} week(s) `
+  + `(order, titles, section ranges, footers, cues on their own line)`);

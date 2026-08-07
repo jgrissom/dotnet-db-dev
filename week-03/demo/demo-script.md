@@ -140,7 +140,8 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] It prints **`4 people outside.`** 🎯 **Collect the pair before you move — it's the same sentence they read two minutes ago:** *"a hundred, and now four. Same sentence — and this time it's true"* 🎞️ **GO TO SLIDE 5** — *The one that grows* · *"`Add` puts one on the end and it never runs out. `Count` is the list answering a question about itself"*
+- [ ] It prints **`4 people outside.`** 🎯 **Collect the pair before you move — it's the same sentence they read two minutes ago:** *"a hundred, and now four. Same sentence — and this time it's true"*
+- [ ] 🎞️ **GO TO SLIDE 5** — *The one that grows* · *"`Add` puts one on the end and it never runs out. `Count` is the list answering a question about itself"*
 - [ ] 🎯 **The line worth saying slowly**, because it kills a habit they all have: *"`Count` is not a variable you keep updated. Last week your desk had an `int callsTaken` that you had to remember to increment."*
 
 ### What the brackets are for
@@ -165,7 +166,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   }
   ```
   - 💡 **If anyone asks why the constructor:** the four fields would otherwise be four `CS8618` warnings, and week 2 taught them to want `0 Warnings`. One sentence, then move
-  - ⚠️ **Do not discuss `public` fields.** Week 4 opens on what they cost. If it's raised: *"hold that thought for exactly one week"*
+  - ⚠️ **Do not discuss `public` fields.** Week 4 opens on what they cost. If it's raised: *hold that thought for exactly one week*
 - [ ] Back in `Program.cs`, replace the list block. 📖 **The brackets are the lesson — name them:** *"a list **of SignOut**. Not of strings — of the thing I wrote thirty seconds ago"*:
   ```csharp
   List<SignOut> outside = new List<SignOut>();
