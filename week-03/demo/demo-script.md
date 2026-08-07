@@ -186,7 +186,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 
 ### The board, printed the hard way
 
-- [ ] *"Now we are going to display the duty console and make it easier to read"* — paste under the list. 📖 **Name the `,-12` when you hit it:** *"each column is defined by a fixed number of characters - 8 for Time, 12 for Name, 10 for Reason. Expected does need to be defined (last column). The negative sign indicates a left-aligned column."*:
+- [ ] *"Now we are going to display the duty console and make it easier to read"* — paste under the list. 📖 **Name the `,-12` when you hit it:** *"each column is defined by a fixed number of characters - 8 for Time, 12 for Name, 10 for Reason. Expected does not need one - it's the last column, so nothing has to start after it. The negative sign indicates a left-aligned column."*:
   ```csharp
   Console.WriteLine("TIME    NAME        REASON    EXPECTED");
   Console.WriteLine("-------------------------------------------");
