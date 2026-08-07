@@ -213,7 +213,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```
 - [ ] 💥 **`14:57   Achterberg  DIG OUT VENT 316:30`** — let it sit. Then, deliberately: *"Achterberg is due back at three-sixteen-thirty. At forty below"*
 - [ ] 🎞️ **GO TO SLIDE 7** — *Counting spaces by hand* · 🎯 **ask before explaining:** *"I could go and change the 10 to a 16. What happens the next time somebody types a longer one?"*
-- [ ] 🎯 **Then land it, and point back a week:** *"those widths are guesses I made about text that didn't exist yet. **I wrote the format string this afternoon and Achterberg typed that at 14:57.** That's last week's sentence wearing different clothes"*
+- [ ] 🎯 **Then land it:** *"those widths are guesses I made about text that didn't exist yet. I wrote the format string this afternoon and Achterberg typed that at 14:57."*
 - [ ] 💡 *"What I actually want is something that looks at the values first and then decides how wide the columns are. That's a genuinely annoying afternoon to write. So we won't"*
 
 ### Your first NuGet package
