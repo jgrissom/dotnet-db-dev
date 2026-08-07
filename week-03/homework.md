@@ -126,32 +126,6 @@ What each one has to do:
 
 **The sign-off line is a writing assignment as much as a code one.** You're going to read the quiet one more often than you expect tonight.
 
-**Every command below runs from your terminal in `dotnet-db-coursework`, naming the week.** Two of them, and you'll use both after every method.
-
-Watch your program do it:
-
-```bash
-dotnet run --project week-03/Homework
-```
-
-Then see what the checks say:
-
-```bash
-dotnet test week-03/Homework.Checks
-```
-
-**Do that after every method** — write `Take()`, run, test. Then `TimesCalled()`, run, test. **Three methods, three rounds: 1 → 2 → 3 → 4**, one per round. A check that goes red right after you wrote something tells you exactly where to look. **Run first on purpose:** a green check ends the step, and a step that's already over doesn't get run.
-
-**Green? Commit it:**
-
-```bash
-git add .
-```
-
-```bash
-git commit -m "week 3: the night is kept"
-```
-
 **5. `week-03/Homework/Program.cs` opens the line.** Replace the whole file with this. Small on purpose; every decision lives in `Playlist.cs`:
 
 ```csharp
@@ -207,6 +181,51 @@ Console.WriteLine($"{Station.CallSign()} - {Playlist.SignOff()}");
 > System.InvalidOperationException: Failed to read input in non-interactive mode.
 > ```
 > **I run your program by pressing Enter at every prompt and then typing nothing.** This crash never happens when you test by hand and always happens when I run it, and it costs the 2 points for "runs without crashing." [Ask once, answer gracefully](../week-02/lecture-notes.md#ask-once-answer-gracefully) — and no loops that re-ask until the input is valid.
+
+**Every command below runs from your terminal in `dotnet-db-coursework`, naming the week.** Two of them, and you'll use both after every method.
+
+Watch your program do it:
+
+```bash
+dotnet run --project week-03/Homework
+```
+
+**Expect a station that signs on and then has nothing to say.** The first two lines are real — they came forward with your classes. Everything after them is the three blanks:
+
+```
+<your sign-on line>
+<your greeting>
+
+Who's calling? And what do they want to hear?
+
+
+┌───┬────────┐
+│ # │ ON AIR │
+└───┴────────┘
+<YOUR CALL SIGN> -
+```
+
+An empty table and a sign-off that stops mid-sentence. **Each method you write turns one of those into something.**
+
+Then see what the checks say:
+
+```bash
+dotnet test week-03/Homework.Checks
+```
+
+**1 of 4** — exactly where the paste left you.
+
+**Do that after every method** — write `Take()`, run, test. Then `TimesCalled()`, run, test. **Three methods, three rounds: 1 → 2 → 3 → 4**, one per round. A check that goes red right after you wrote something tells you exactly where to look. **Run first on purpose:** a green check ends the step, and a step that's already over doesn't get run.
+
+**Green? Commit it:**
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "week 3: the night is kept"
+```
 
 Same two commands again. The program first — it's the half the checks never look at:
 
