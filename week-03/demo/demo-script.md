@@ -141,7 +141,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   dotnet run --project week-03/Haldane
   ```
 - [ ] It prints **`4 people outside.`** 🎯 **Collect the pair before you move — it's the same sentence they read two minutes ago:** *"a hundred, and now four. Same sentence — and this time it's true"* 🎞️ **GO TO SLIDE 5** — *The one that grows* · *"`Add` puts one on the end and it never runs out. `Count` is the list answering a question about itself"*
-- [ ] 🎯 **The line worth saying slowly**, because it kills a habit they all have: *"`Count` is not a variable you keep updated. Last week your desk had an `int callsTaken` that you had to remember to increment. This can't get out of step with reality, because it **is** reality"*
+- [ ] 🎯 **The line worth saying slowly**, because it kills a habit they all have: *"`Count` is not a variable you keep updated. Last week your desk had an `int callsTaken` that you had to remember to increment."*
 
 ### What the brackets are for
 
