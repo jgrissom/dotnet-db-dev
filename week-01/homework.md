@@ -90,7 +90,7 @@ Pick a call sign, a city and a sign-off time. It can be a real town or an invent
 
 ### Set it up
 
-There's nothing to install and nothing to copy — the `week-01` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, with `Homework.Checks` beside it.
+There's nothing to install and nothing to set up — the `week-01` folder you copied in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, with `Homework.Checks` beside it.
 
 **1. Same window, same terminal** — you set it up in Part 2 and you don't move again. The week looks like this:
 

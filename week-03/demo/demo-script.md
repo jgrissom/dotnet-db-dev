@@ -88,7 +88,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   cp week-02/Haldane/Conditions.cs week-03/Haldane/
   ```
   - 🎯 **The `cp` is the half that's theirs — scope it out loud, the way week 2 did:** *"last week's logic, carried forward in one move. I didn't rewrite it; it was already right. **Your homework asks you for this twice tonight** — `Station.cs` and `Switchboard.cs`, both making the trip into `week-03`"*
-  - ⚠️ **`dotnet new` is NOT theirs, and must not be sold as a shared rhythm.** They have not typed it since week 1 and will not until week 4 — their week arrives as a **dragged folder**, not a command. **What they actually share is the window and the week-prefix**, which is what the line above claims and the whole of what it claims
+  - ⚠️ **`dotnet new` is NOT theirs, and must not be sold as a shared rhythm.** They have not typed it since week 1 and will not until week 4 — their week arrives as a **one-line copy of a folder that already exists**, never `dotnet new`. **What they actually share is the window and the week-prefix**, which is what the line above claims and the whole of what it claims
 - [ ] **The station's problem tonight, said once:** *"everything on that duty console so far has been one of a thing — one temperature, one blizzard flag. Tonight it has to hold **the people who are outside**, and that number changes all day"*
 
 ### Who chose the 3?

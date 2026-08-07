@@ -30,7 +30,7 @@ Last week your station could take **one** call and had nowhere to put it. Tonigh
 
 ### Set it up
 
-The `week-03` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting for tonight's work, and `Homework.Checks` beside it.
+The `week-03` folder you copied in for the lab **already contains your homework's starting point**: a `Homework` project waiting for tonight's work, and `Homework.Checks` beside it.
 
 **1. Get back to your coursework window.** Still open on `dotnet-db-coursework` from the lab? You're there. Otherwise: **VS Code → File → Open Folder → `dotnet-db-coursework` → Open**, then the terminal with **`` Ctrl+` ``** — it opens standing at the top, where every command below runs.
 

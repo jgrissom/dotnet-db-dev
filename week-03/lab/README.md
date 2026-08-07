@@ -37,13 +37,26 @@ One hop sideways into the clone, pull, hop back.
 > ```
 > Now the two folders sit side by side, and the pull above will work every week after.
 
-**3. Drag this week in — one folder, in your file manager.**
+**3. Copy this week in — one command, from the same terminal.**
 
-Open **Finder** (Mac) or **File Explorer** (Windows):
+You haven't moved: step 2 left you standing at the top of your repo, which is exactly where this runs.
 
-1. Open `dotnet-db-starters`. It holds nothing but week folders — find **`week-03`**.
-2. **Copy it** (don't drag-move — the clone keeps its copy).
-3. Go into `dotnet-db-coursework` → **Paste**.
+**macOS:**
+
+```bash
+cp -R ../dotnet-db-starters/week-03 .
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Copy-Item -Recurse ../dotnet-db-starters/week-03 .
+```
+
+The `.` on the end means **right here** — the top of your repo. Nothing to find, nothing to drag.
+
+> [!CAUTION]
+> **Run it once.** If a `week-03` folder is already there, this replaces what's inside it — **your own work included, without asking**. If you need a do-over, or the command won't run, your file manager does the same job and *does* ask first: open `dotnet-db-starters`, **copy** `week-03` (⌘C / Ctrl+C — **not a drag**, which *moves* it out of the clone), then open `dotnet-db-coursework` and **paste**.
 
 It appears in your VS Code Explorer immediately — nothing to reopen:
 

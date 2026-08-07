@@ -24,7 +24,7 @@ Last week you invented a station. **This week it gets a request line:** a greeti
 
 ### Set it up
 
-There's almost nothing to set up — the `week-02` folder you dragged in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, and `Homework.Checks` beside it.
+There's almost nothing to set up — the `week-02` folder you copied in for the lab **already contains your homework's starting point**: a `Homework` project waiting to become your station, and `Homework.Checks` beside it.
 
 **1. Get back to your coursework window.** Still open on `dotnet-db-coursework` from the lab? You're there. Otherwise: **VS Code → File → Open Folder → `dotnet-db-coursework` → Open**, then the terminal with **`` Ctrl+` ``** — it opens standing at the top, where every command below runs.
 

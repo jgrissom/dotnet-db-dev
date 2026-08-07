@@ -24,13 +24,26 @@ git clone https://github.com/jgrissom/dotnet-db-starters.git
 cd dotnet-db-coursework
 ```
 
-**3. Drag this week in — one folder, in your file manager.**
+**3. Copy this week in — one command, from the terminal.**
 
-Open **Finder** (Mac) or **File Explorer** (Windows):
+`` Ctrl+` `` opens the terminal standing at the top of your repo, which is exactly where this runs.
 
-1. Open `dotnet-db-starters`. It holds nothing but week folders — find **`week-01`**.
-2. **Copy it** (don't drag-move — the clone keeps its copy).
-3. Go into `dotnet-db-coursework` (empty right now) → **Paste**.
+**macOS:**
+
+```bash
+cp -R ../dotnet-db-starters/week-01 .
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Copy-Item -Recurse ../dotnet-db-starters/week-01 .
+```
+
+The `.` on the end means **right here** — the top of your repo, empty until now. Nothing to find, nothing to drag.
+
+> [!CAUTION]
+> **Run it once.** If a `week-01` folder is already there, this replaces what's inside it — **your own work included, without asking**. If you need a do-over, or the command won't run, your file manager does the same job and *does* ask first: open `dotnet-db-starters`, **copy** `week-01` (⌘C / Ctrl+C — **not a drag**, which *moves* it out of the clone), then open `dotnet-db-coursework` and **paste**.
 
 It appears in your VS Code Explorer immediately. That one folder is the whole week — tonight's lab, its checks, and the homework's starting point:
 

@@ -221,7 +221,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   cp week-01/Haldane/Conditions.cs week-02/Haldane/
   ```
   🎯 *"`-o` made the week folder and the project in one go — there's `week-02` in the Explorer, right under `week-01`"*
-  - ⚠️ **Don't extend that into a claim about them** — `dotnet new` is yours, not theirs: they have not typed it since week 1 and won't until week 4, because their week arrives as a **dragged folder**. What you *can* say is the part that's true for everybody: **a new week is a new folder beside the last one, and nobody reopened a window**
+  - ⚠️ **Don't extend that into a claim about them** — `dotnet new` is yours, not theirs: they have not typed it since week 1 and won't until week 4, because their week arrives as a **copy of a folder that already exists**. What you *can* say is the part that's true for everybody: **a new week is a new folder beside the last one, and nobody reopened a window**
 - [ ] 🎯 **The `cp` is a beat, not plumbing:** *"that's last week's logic — Fahrenheit, safe-to-go-out — carried forward in one move. I didn't rewrite it; it was already right. **Your homework asks you for exactly this move** with your own `Station.cs`"*
 - [ ] **Run it before touching it:**
   ```bash
