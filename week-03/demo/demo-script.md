@@ -174,7 +174,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   outside.Add(new SignOut("14:20", "Reyes", "DIG OUT", "14:45"));
   outside.Add(new SignOut("09:05", "Lindqvist", "FUEL", "10:30"));
   ```
-- [ ] 🎞️ **GO TO SLIDE 6** — *What the brackets are for* · *"that's what the angle brackets have always been for. A list is a list **of** something, and the something is yours to decide"*
+- [ ] 🎞️ **GO TO SLIDE 6** — *What the brackets are for* · *"that's what the angle brackets are for. A list is a list **of** something, and the something is defined by what's inside the brackets"*
 - [ ] 💡 **The reasons are worth five seconds and no more:** *"MET RUN, DIG OUT, FUEL. People go outside at a place like this for about six reasons, and every one of them ends with somebody due back at a time"* ⚠️ **Do not explain the station.** The rows do it
 - [ ] **Commit it — Source Control view: stage, paste, ✓ Commit.** ⚠️ **No narration, and no Sync.** Git stopped being content after week 2; from here it is a habit they watch you have. Say nothing about it at all:
   ```
