@@ -258,7 +258,7 @@ Nothing was typed. Nothing is broken.
 
 ## A place to keep things *while you work*
 
-A collection is not a place to keep things.
+A collection is not a place to keep things permanently.
 
 <br>
 
