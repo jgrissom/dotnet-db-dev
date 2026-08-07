@@ -100,7 +100,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   names[1] = "Reyes";
   names[2] = "Lindqvist";
   ```
-- [ ] 💥 **Now somebody else signs out. Type this one** — the room needs to watch a fourth thing go into a space for three:
+- [ ] 💥 **Now somebody else signs out. Type this one, under the other three** — the room needs to watch a fourth thing go into a space for three:
   ```csharp
   names[3] = "Bhatt";
   ```
@@ -289,11 +289,12 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
     nearest neighbour: 512 km - winter crew - day 226
   ========================================================
   ```
-- [ ] **Now the readings line — the only thing tonight that calls what you carried forward:**
+- [ ] **Two more colours — straight under `Amber` and `Dim`, so all four sit together:**
   ```csharp
   const string Fg = "#c8d3cf";
   const string Cold = "#7fb2d4";
   ```
+- [ ] **Then the readings line itself — under the banner's closing `AnsiConsole.WriteLine();`, above the list.** It is the only thing tonight that calls what you carried forward:
   ```csharp
   AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]-41.5 C[/]   "
       + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(-41.5, false)}[/]");
