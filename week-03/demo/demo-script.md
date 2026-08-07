@@ -199,7 +199,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] 🎯 **It looks good. Say so, and mean it** — this is the setup and it only works if you don't sneer at it: *"…and that's fine, isn't it. Three columns, all lined up. That header row I counted the spaces in by hand, but it's done now"*
+- [ ] 🎯 **It looks good. Say so, and mean it** — this is the setup and it only works if you don't sneer at it: *"…and that's fine, isn't it. Four columns, all lined up. That header row I counted the spaces in by hand, but it's done now"*
 
 ### The break
 

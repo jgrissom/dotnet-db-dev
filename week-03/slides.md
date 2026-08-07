@@ -125,7 +125,7 @@ a class you wrote this morning.
 ## Counting spaces by hand
 
 ```csharp
-Console.WriteLine($"{s.Time,-8}{s.Name,-12}{s.Reason,-10}");
+Console.WriteLine($"{s.Time,-8}{s.Name,-12}{s.Reason,-10}{s.Expected}");
 ```
 
 ```
