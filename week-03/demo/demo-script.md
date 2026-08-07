@@ -411,7 +411,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```
 - [ ] 💥 **`Unhandled exception. System.Collections.Generic.KeyNotFoundException: The given key 'Halvorsen' was not present in the dictionary.`**
 - [ ] 🎞️ **GO TO SLIDE 11** — *The key that isn't there* · 🎯 **kill the two wrong beliefs by name, because the room holds both:** *"it did not give me back `null`. It did not give me back nothing. **It threw.** And 'a name that isn't on the list' is the most ordinary thing that will ever happen to a lookup"*
-- [ ] ⚠️ 🎯 **The distinction that will cost them an hour if you skip it. Scroll up and point at the lines that made the dictionary:** *"look at these. `roles["Bhatt"] = "comms";` — Bhatt wasn't in there either, and that line worked fine. **Assigning a key that doesn't exist creates it. Reading one throws.** Two operations that look almost identical on the page"*
+- [ ] ⚠️ 🎯 **The distinction that will cost them an hour if you skip it. Scroll up and point at the lines that made the dictionary:** *"look at the lines that built this dictionary. When `roles["Bhatt"] = "comms";` ran, there was no Bhatt in here yet — that line is what put him in. A key that wasn't there, same as Halvorsen a second ago, and no crash. **Assigning a key that isn't there creates it. Reading one throws.** Two operations that look almost identical on the page"*
 
 ### TryGetValue asks first
 
