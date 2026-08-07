@@ -93,7 +93,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 
 ### Who chose the 3?
 
-- [ ] In `week-03/Haldane/Program.cs`, replace the template line. 📖 **Talk it through** — *"three people are out on the ice, so a space for three"*:
+- [ ] In `week-03/Haldane/Program.cs`, **select the whole file (`⌘A`) and paste over it.** ⚠️ **The template is TWO lines** — a `// See https://aka.ms/new-console-template` comment *and* the `Hello, World!` — so replacing "the line" strands the comment at the top, which is exactly where §4's `using Spectre.Console;` is about to land. 📖 **Talk it through** — *"three people are out on the ice, so a space for three"*:
   ```csharp
   string[] names = new string[3];
   names[0] = "Okonkwo";
