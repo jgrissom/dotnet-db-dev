@@ -266,26 +266,45 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 ### Now it's the board
 
 - [ ] ⚠️ **This is the week's second payoff and it is not decoration — so paste, run, and let them see it before a word is said about it.** The room has had `dutyconsole.com` on the projector at the start of three sessions; it is about to turn up in the terminal
-- [ ] **Under `using Spectre.Console;` — the station's four colours, straight out of the board's own stylesheet:**
+- [ ] ⚠️ **Three changes, and you run after every one of them** — the room watches the board assemble itself a piece at a time. **Each colour arrives with the line that uses it**, so every build stays at `0 Warnings`; paste all four up front and `CS0219` puts two on screen
+- [ ] **Under `using Spectre.Console;` — two of the station's colours and week 1's banner.** 📖 **One sentence, no more:** *"week 1's banner. Same four lines — Spectre is drawing them now"*:
   ```csharp
   const string Amber = "#e8b04b";
   const string Dim = "#6c7b78";
-  const string Fg = "#c8d3cf";
-  const string Cold = "#7fb2d4";
-  ```
-- [ ] **Then the banner, above the list.** 📖 **One sentence, no more:** *"week 1's banner. Same four lines — Spectre is drawing them now"*:
-  ```csharp
+
   AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
   AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
   AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 226[/]");
   AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
   AnsiConsole.WriteLine();
   ```
-- [ ] **And the readings line — the only thing tonight that calls what you carried forward:**
+- [ ] Run it:
+  ```bash
+  dotnet run --project week-03/Haldane
+  ```
+- [ ] **The banner is back, in amber, above the plain table** — the hex codes came out of the board's own stylesheet, so it is the *same* amber:
+  ```
+  ========================================================
+    HALDANE STATION - DUTY CONSOLE
+    nearest neighbour: 512 km - winter crew - day 226
+  ========================================================
+  ```
+- [ ] **Now the readings line — the only thing tonight that calls what you carried forward:**
   ```csharp
+  const string Fg = "#c8d3cf";
+  const string Cold = "#7fb2d4";
+
   AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]-41.5 C[/]   "
       + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(-41.5, false)}[/]");
   AnsiConsole.WriteLine();
+  ```
+- [ ] Run it:
+  ```bash
+  dotnet run --project week-03/Haldane
+  ```
+- [ ] **A new line under the banner** — `-41.5` in cold blue, the answer in white:
+  ```
+  Outside: -41.5 C   Safe to go out: True
   ```
   - 🎯 **Collect the `cp` from the top of the hour** — it has been sitting there unused until now: *"`Conditions.IsSafeToGoOut`. I wrote that last week, copied it in at the start of tonight, and I still haven't opened the file"*
 - [ ] **Then paint the board — select from `var board` down through the count, and paste over all of it:**
@@ -391,6 +410,8 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 ### Sign somebody out
 
 - [ ] *"One last thing, and then we're done with the board. Right now every person on it is typed into my source code. That's not a duty console — that's a poster"*
+- [ ] ⚠️ **First, delete the `Achterberg` line from the list — this is required, not tidying.** He was typed in back in §3 to break the columns, and he has done that job. 📖 **One sentence as you delete him:** *"and this one I typed in myself to make a mess. A real one is about to sign out at the same time"*
+  - ⚠️ **Skip it and every number after this point is wrong**: the sign-out run reads `5 people outside.` instead of `4`, the re-run reads `4` instead of `3`, and **slide 13 shows neither**. The list must be back to Okonkwo, Reyes and Lindqvist — the three §6 names out loud
 - [ ] Paste **above** the `var board = new Table();` line. 📖 **Talk it through** — *"ask three questions, put the answers on the board"*:
   ```csharp
   Console.Write("Sign out - name: ");
