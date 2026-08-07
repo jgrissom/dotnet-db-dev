@@ -331,7 +331,12 @@ week 2 lab: the desk survives its callers
 **That's four commits, and you didn't set out to make any of them** — you just saved every time you got somewhere solid. **That's the habit**, and it means the risky stretches always have a save point behind them. *(Nobody grades these; [the homework counts its own commits](../homework.md#part-3--repo-hygiene-graded), separately. This is practice with the safety on.)*
 
 > [!NOTE]
-> **Source Control view empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. Or just skip this; the homework's push collects everything either way.
+> **Source Control view empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. **The buttons are only a second view of the commands you already know**, so the terminal does the same job whenever they misbehave:
+>
+> ```bash
+> git add .
+> git commit -m "week 2 lab: every caller gets a name"
+> ```
 
 ## Rules
 

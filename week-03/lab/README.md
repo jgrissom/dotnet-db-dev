@@ -450,7 +450,12 @@ There is nothing in this week that fixes it. Not `List`, not `Dictionary`, not t
 **Being annoyed by this is the assignment.**
 
 > [!NOTE]
-> **Source Control view empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. Or just skip it; the homework's push collects everything either way.
+> **Source Control view empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. **The buttons are only a second view of the commands you already know**, so the terminal does the same job whenever they misbehave:
+>
+> ```bash
+> git add .
+> git commit -m "week 3 lab: the desk keeps the night"
+> ```
 
 ## Rules
 
