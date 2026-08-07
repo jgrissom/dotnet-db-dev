@@ -479,7 +479,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 - [ ] 🎞️ **GO TO SLIDE 13** — *Run it again* · 🎯 **the distinction that makes it a lesson instead of a disappointment:** *"and look at what **did** come back. Okonkwo, Reyes, Lindqvist — three for three. Why them?"*
   - **Wait.** Somebody will get it: they're written in the source. *"Right. Those three aren't saved data, they're **lines of code**, and lines of code run again every time. Bhatt had no line of code behind him. He only ever existed in memory, and memory is the length of one program"*
 - [ ] ⚠️ **Somebody will ask how to fix it. Take it seriously and refuse it:** *"with everything you know tonight — you can't. That is not a gap in your skills. There is no arrangement of `List` and `Dictionary` that survives the program ending"*
-- [ ] 🎞️ **GO TO SLIDE 14** — *A place to keep things while you work* · *"a collection is a place to keep things **while you work**. It is not a place to keep things"*
+- [ ] 🎞️ **GO TO SLIDE 14** — *A place to keep things while you work* · *"a collection is a place to keep things **while you work**. It is not a place to keep things permanently"*
 - [ ] 🔗 **Name where it gets answered, and then stop:** *"week 8, your list gets a file, and it survives the night for the first time. Week 10 it gets a database and it stops being only yours. Most of the rest of this course is this one problem, answered properly"*
 - [ ] 🎯 *"Until then — be annoyed by it. That's genuinely the assignment"*
 - [ ] **Commit the week's work — in the Source Control view:** stage, paste the message, **✓ Commit**, then **Sync**:
