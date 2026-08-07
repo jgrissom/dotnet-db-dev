@@ -146,7 +146,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 ### What the brackets are for
 
 - [ ] *"But a person on that board is more than a name. It's a name, a reason, a time they went out and a time they're due back — four facts that belong together"*
-- [ ] **New file, `week-03/Haldane/SignOut.cs`.** 📖 **Forty seconds, and say so:** *"you have all written one of these. I'm not going to explain it"*:
+- [ ] **New file, `week-03/Haldane/SignOut.cs`.** 📖 **Forty seconds, and say so:** *"you have all written a class. I'm not going to explain it"*:
   ```csharp
   public class SignOut
   {
