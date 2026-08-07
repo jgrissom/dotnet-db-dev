@@ -442,7 +442,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 - [ ] *"One last thing, and then we're done with the board. Right now every person on it is typed into my source code. That's not a duty console — that's a poster"*
 - [ ] ⚠️ **First, delete the `Achterberg` line from the list — this is required, not tidying.** He was typed in back in §3 to break the columns, and he has done that job. 📖 **One sentence as you delete him:** *"and this one I typed in myself to make a mess. A real one is about to sign out at the same time"*
   - ⚠️ **Skip it and every number after this point is wrong**: the sign-out run reads `5 people outside.` instead of `4`, the re-run reads `4` instead of `3`, and **slide 13 shows neither**. The list must be back to Okonkwo, Reyes and Lindqvist — the three §6 names out loud
-- [ ] Paste **above** the `var board = new Table();` line. 📖 **Talk it through** — *"ask three questions, put the answers on the board"*:
+- [ ] Paste **above the board block** — the line starting `var board = new Table()`, which lost its semicolon when you painted it in §4. 📖 **Talk it through** — *"ask three questions, put the answers on the board"*:
   ```csharp
   Console.Write("Sign out - name: ");
   string name = Console.ReadLine() ?? "";
