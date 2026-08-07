@@ -464,6 +464,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   dotnet run --project week-03/Haldane
   ```
 - [ ] **There he is on the board, at 14:57.** And the count says **`4 people outside.`** 🎯 *"That's a working duty console. Somebody went outside, and the board knows"*
+  - 💡 **Where 14:57 came from, because somebody will ask and the obvious answer is wrong:** the program has **no clock** — the time is hard-coded in the line you just pasted, exactly like the three rows above it. It is *not* the current time. **14:57 is tonight's fictional "now"**: it's when Achterberg signed out in §3, and it's the timestamp on the duty console that was up on the projector as they walked in (`as at 14:57`). ⚠️ **Don't volunteer it** — it costs a beat and adds nothing to the list. **If asked:** *"I typed it. The board can't see a clock — asking it for the time is a fourth prompt that teaches nothing tonight"*
 
 ### The drop
 
