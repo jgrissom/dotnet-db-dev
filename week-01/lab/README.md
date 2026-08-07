@@ -109,7 +109,7 @@ dotnet test week-01/Lab.Checks
 dotnet run --project week-01/Lab
 ```
 
-It asks who's on duty, then prints a sign-on that's blank, a countdown that says 0, and a number of hours that's also 0. Everything it's lying about is one of tonight's four methods.
+It asks who's on duty, then prints a sign-on that's blank, a countdown that says 0, and a number of hours that's also 0. Read it knowing the station clock says 2:15 AM — it claims nobody's on air, it isn't the overnight block, and there are 0 minutes until sunrise. **Every one of those is a lie, and each task you finish turns one of them true**, and every one of them is one of tonight's four methods.
 
 **Then open `week-01/Lab/Broadcast.cs` and read it.** Nothing in the signatures will surprise you — [they're the same words you've been writing](../lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean):
 
@@ -120,14 +120,6 @@ public static string SignOn(string djName)
 `CallSign()` is done for you. It's the one to copy the shape from.
 
 ⚠️ **What's worth noticing before you start:** all of tonight's work happens in `Broadcast.cs` and none of it in `Program.cs`. That isn't a filing preference — it's the only reason the checks can see your work at all.
-
-Now run it again, knowing what's in that file:
-
-```bash
-dotnet run --project week-01/Lab
-```
-
-Read it knowing the station clock says 2:15 AM — it claims nobody's on air, it isn't the overnight block, and there are 0 minutes until sunrise. **Every one of those is a lie, and each task you finish turns one of them true.**
 
 And the checks say the same thing, in numbers:
 
