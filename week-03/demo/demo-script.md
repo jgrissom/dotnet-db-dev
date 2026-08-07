@@ -163,6 +163,10 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```
 - [ ] 🎞️ **GO TO SLIDE 6** — *What the brackets are for* · *"that's what the angle brackets have always been for. A list is a list **of** something, and the something is yours to decide"*
 - [ ] 💡 **The reasons are worth five seconds and no more:** *"MET RUN, DIG OUT, FUEL. People go outside at a place like this for about six reasons, and every one of them ends with somebody due back at a time"* ⚠️ **Do not explain the station.** The rows do it
+- [ ] **Commit it — Source Control view: stage, paste, ✓ Commit.** ⚠️ **No narration, and no Sync.** Git stopped being content after week 2; from here it is a habit they watch you have. Say nothing about it at all:
+  ```
+  Week 3: the board holds people
+  ```
 - [ ] **✓ CHECKPOINT:** somebody can say what `<SignOut>` is doing, and why `Count` beats a counter
 
 ## 3 · Counting spaces by hand *(slides 7–8)*
@@ -248,6 +252,10 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   - ⚠️ **Wait.** The board has been on the projector at the start of three sessions and somebody will get there. **If nobody bites within a few seconds, say it plainly and move on** — it's a gift, not a hinge: *"that's the duty console. The thing that's been up on the screen when you walk in"*
   - 💡 **The honest version of the line, if you want it:** *"the page was built to look like this program. Not the other way round"*
 - [ ] 💡 **Colour, thirty seconds, no more** — borders and hex colours in markup. *"All of this is yours to play with in the lab, and **none of it is graded**. No check in this course has ever looked at what your program prints, and that's on purpose"*
+- [ ] **Commit it — stage, paste, ✓ Commit.** Still silent, still no Sync:
+  ```
+  Week 3: the table measures instead of guessing
+  ```
 - [ ] **✓ CHECKPOINT:** the room can say what a `Table` does that `,-12` couldn't
 
 ## 5 · Names, not positions *(slides 10–12)*
@@ -352,10 +360,11 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 - [ ] 🎞️ **GO TO SLIDE 14** — *A place to keep things while you work* · *"a collection is a place to keep things **while you work**. It is not a place to keep things"*
 - [ ] 🔗 **Name where it gets answered, and then stop:** *"week 8, your list gets a file, and it survives the night for the first time. Week 10 it gets a database and it stops being only yours. Most of the rest of this course is this one problem, answered properly"*
 - [ ] 🎯 *"Until then — be annoyed by it. That's genuinely the assignment"*
-- [ ] **Commit the week's work — in the Source Control view:** stage, paste the message, **✓ Commit**, **Sync**:
+- [ ] **Commit the week's work — in the Source Control view:** stage, paste the message, **✓ Commit**, then **Sync**:
   ```
   Week 3: the board holds people, and forgets them
   ```
+  - 💡 **Instructor-facing, worth knowing and not worth saying:** that's the **third** commit tonight and the **only** Sync — three saves, one push, which is the shape §8 is about to ask them for. It also quietly does §6's job for you: the room has now watched these lines of code get saved three times, so *"those three aren't data, they're lines of code"* is something they have seen rather than something you told them
 - [ ] **✓ CHECKPOINT:** somebody can say why three rows came back and one didn't
 
 ## 7 · Hand off to the lab *(slide 15)*
