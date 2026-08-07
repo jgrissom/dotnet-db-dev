@@ -111,7 +111,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 - [ ] 💥 **`Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.`** — let it sit for a second
 - [ ] 🎞️ **GO TO SLIDE 4** — *Who chose the 3?* · 🎯 **ask before explaining:** nobody's surprised. But *"answer me this — who chose the 3?"*
   - **The answer, once somebody says it:** *"I did. This afternoon. Before I knew how many people would be outside"*
-  - ⚠️ **The follow-up is the actual lesson, and somebody will offer it:** *"make it a hundred?"* — *"how many people are outside Haldane right now?"* Nobody knows. *"And now the board has ninety-six blank lines on it. The number isn't the problem. **Having to pick one** is the problem"*
+  - ⚠️ **The follow-up is the actual lesson, and somebody will offer it:** *"why not make it a hundred?"* — *"how many people are outside Haldane right now?"* Nobody knows. *"And now the board has ninety-six blank lines on it. The number isn't the problem. **Having to pick one** is the problem"*
 
 ### The one that grows
 
