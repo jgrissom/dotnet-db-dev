@@ -41,9 +41,6 @@ The `week-03` folder you copied in for the lab **already contains your homework'
 
 ```bash
 cp week-02/Homework/Station.cs week-03/Homework/
-```
-
-```bash
 cp week-02/Homework/Switchboard.cs week-03/Homework/
 ```
 
