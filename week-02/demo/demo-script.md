@@ -62,7 +62,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`** — the top, exactly where week 1's class left it, and the only folder that ever gets opened
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** The board gained a generator panel this week — say nothing about it; it explains itself or it isn't working. **Close it before slide 1**
   - ⚠️ **Wrong week showing?** The bare URL routes by date, so on class night it lands on week 2 by itself — but **when rehearsing ahead of the calendar it will show an earlier board, correctly.** Force it: **[`dutyconsole.com/?week=2`](https://dutyconsole.com/?week=2)** (works on any date), or go straight to [`dutyconsole.com/week-02.html`](https://dutyconsole.com/week-02.html). The `?week=` override is the supported way to look ahead — never edit `index.html`'s anchor to preview
-- [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."***
+- [ ] **Say it before you start: *"lids down for the demo — you'll write all of this yourself in the lab, on a station of your own."***
 
 ## 1 · The four lines, revisited *(slides 2–5)*
 
@@ -220,7 +220,8 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   dotnet new console -o week-02/Haldane
   cp week-01/Haldane/Conditions.cs week-02/Haldane/
   ```
-  🎯 *"`-o` made the week folder and the project in one go — there's `week-02` in the Explorer, right under `week-01`. That's every Monday for the rest of the term"*
+  🎯 *"`-o` made the week folder and the project in one go — there's `week-02` in the Explorer, right under `week-01`"*
+  - ⚠️ **Don't extend that into a claim about them** — `dotnet new` is yours, not theirs: they have not typed it since week 1 and won't until week 4, because their week arrives as a **dragged folder**. What you *can* say is the part that's true for everybody: **a new week is a new folder beside the last one, and nobody reopened a window**
 - [ ] 🎯 **The `cp` is a beat, not plumbing:** *"that's last week's logic — Fahrenheit, safe-to-go-out — carried forward in one move. I didn't rewrite it; it was already right. **Your homework asks you for exactly this move** with your own `Station.cs`"*
 - [ ] **Run it before touching it:**
   ```bash
@@ -234,7 +235,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   Week 2: new week, Conditions carried forward
   ```
 - [ ] 🎯 *"a commit is a save point. Make one whenever you're somewhere solid, and the interesting work becomes safe to botch — which is exactly what we're about to do"*
-- [ ] In `week-02/Haldane/Program.cs`, delete the template line and paste the banner and the prompt. 📖 **Talk the `ReadLine` line through** — *"whatever they type, into a string"* — it's the one with the squiggle you're about to ignore on purpose:
+- [ ] In `week-02/Haldane/Program.cs`, **select the whole file (`⌘A`) and paste the banner and the prompt over it.** ⚠️ **The template is TWO lines** — the `aka.ms` comment as well as the `Hello, World!`. 📖 **Talk the `ReadLine` line through** — *"whatever they type, into a string"* — it's the one with the squiggle you're about to ignore on purpose:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");

@@ -59,7 +59,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** VS Code open on **`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`** — the top, exactly where week 2's class left it
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** ⚠️ **This week it matters more than usual and you still say nothing about it.** The board gained a sign-out panel, a log and the winter crew — and in §4 the program is going to start looking exactly like it. **Leave it up long enough to be looked at**, then close it before slide 1
   - ⚠️ **Wrong week showing?** The bare URL routes by date, so on class night it lands on week 3 by itself — but **when rehearsing ahead of the calendar it will show an earlier board, correctly.** Force it: **[`dutyconsole.com/?week=3`](https://dutyconsole.com/?week=3)** (works on any date). The `?week=` override is the supported way to look ahead — never edit `index.html`'s anchor to preview
-- [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."***
+- [ ] **Say it before you start: *"lids down for the demo — you'll write all of this yourself in the lab, on a station of your own."***
 
 ## 1 · The three calls that never met *(slides 2–3)*
 

@@ -62,7 +62,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   cd ~/Repos/dotnet-db-dev-course-trial/instructor && git clone https://github.com/jgrissom/dotnet-db-dev.git
   ```
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive**, and leave it there while the room settles. **Costs no class time** — it is read by whoever is early, and it makes the banner you type in §3 land as *that thing that was on screen when I walked in.* ⚠️ **Close it before slide 1**, and don't introduce it, explain it or refer to it. It is the station's own board; it explains itself or it isn't working
-- [ ] **Say it before you start: *"lids down for the demo — you'll type all of this yourself in the lab."*** Tonight especially, because the temptation to follow along is highest when the material is familiar
+- [ ] **Say it before you start: *"lids down for the demo — you'll write all of this yourself in the lab, on a station of your own."*** Tonight especially, because the temptation to follow along is highest when the material is familiar
 
 ## 1 · Welcome *(slides 2–4)*
 
@@ -142,7 +142,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *Program.cs is the whole file* · **twenty seconds, don't teach it:** *"one file, statements top to bottom, no class around them. This is where your program starts"* 🔗 **that second half plants §6** — `Conditions.cs` is a file the program does NOT start in
 - [ ] **Ask, don't assume:** *"has anyone written `static void Main` before?"* — hands up, one sentence (*"older spelling, both still work"*); no hands, move on. ⚠️ **Never frame the slide as "where did Main go?"** — most of this room has never had one
-- [ ] In `week-01/Haldane/Program.cs`, delete the template line and paste the banner. 📖 **Say what it does** — it's the station introducing itself:
+- [ ] In `week-01/Haldane/Program.cs`, **select the whole file (`⌘A`) and paste the banner over it.** ⚠️ **The template is TWO lines** — a `// See https://aka.ms/new-console-template` comment *and* the `Hello, World!` — so deleting "the line" leaves the comment stranded above your first code of the term. 📖 **Say what it does** — it's the station introducing itself:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");
