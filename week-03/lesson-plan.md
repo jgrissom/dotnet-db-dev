@@ -57,7 +57,7 @@ By the end of this session, students can:
 | 0:15 | 28 min | **The board has to hold people** *(slides 4–6, demo §2)*. `week-03/Haldane` by command, `Conditions.cs` carried forward. `SignOut.cs` in forty seconds — *"you've all written one of these."* 💥 **Break 1:** `new string[3]` and a fourth person → `IndexOutOfRangeException`. `List<SignOut>`, `Add`, `Count`, `foreach`. |
 | 0:43 | 10 min | **☕ Break** |
 | 0:53 | 27 min | **Counting spaces by hand** *(slides 7–8, demo §3)*. The board printed with `,-12` padding — and it looks **fine**. 💥 **Break 2:** somebody signs out as `DIG OUT VENT 3` and the columns shear into `DIG OUT VENT 316:30`. Then `dotnet add package Spectre.Console`, and the `.csproj` line that appears — restored, not installed. |
-| 1:20 | 18 min | 🎯 **The table** *(slide 9, demo §4)*. Padding out, one `AnsiConsole.Write` in — and the output is the duty console. **The convergence beat.** |
+| 1:20 | 18 min | 🎯 **The table** *(slide 9, demo §4)*. **Two passes.** Padding out, a plain `Table` in — one `AnsiConsole.Write` doing what the arithmetic did *(slide 9)*. Then the colours, the banner and the border go on, `Conditions` finally gets called, and the output **is** the duty console. **The convergence beat.** |
 | 1:38 | 27 min | **Names, not positions** *(slides 10–12, demo §5)*. `Dictionary<string, string>` of crew roles. 💥 **Break 3:** `roles["Halvorsen"]` → `KeyNotFoundException`. `TryGetValue`, named as last week's shape. Assigning a missing key is fine; only reading throws. |
 | 2:05 | 10 min | **☕ Break** |
 | 2:15 | 15 min | 🎯 **Run it again** *(slides 13–14, demo §6)*. Nothing typed. `4 people outside` → `3 people outside`. The promise from week 1, collected. Where it gets answered: week 8, week 10. |

@@ -236,6 +236,8 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 
 ## 4 · One line does the drawing *(slide 9)*
 
+### The table replaces the arithmetic
+
 - [ ] At the very top of `Program.cs`:
   ```csharp
   using Spectre.Console;
@@ -261,10 +263,63 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   dotnet run --project week-03/Haldane
   ```
 - [ ] 🎞️ **GO TO SLIDE 9** — *One line does the drawing* · 🎯 **point at what did *not* change:** *"the loop is the same loop. What went away is every number I was counting by hand — and `DIG OUT VENT 3` fits, because the table measured it instead of guessing"*
+### Now it's the board
+
+- [ ] ⚠️ **This is the week's second payoff and it is not decoration — so paste, run, and let them see it before a word is said about it.** The room has had `dutyconsole.com` on the projector at the start of three sessions; it is about to turn up in the terminal
+- [ ] **Under `using Spectre.Console;` — the station's four colours, straight out of the board's own stylesheet:**
+  ```csharp
+  const string Amber = "#e8b04b";
+  const string Dim = "#6c7b78";
+  const string Fg = "#c8d3cf";
+  const string Cold = "#7fb2d4";
+  ```
+- [ ] **Then the banner, above the list.** 📖 **One sentence, no more:** *"week 1's banner. Same four lines — Spectre is drawing them now"*:
+  ```csharp
+  AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
+  AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
+  AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 226[/]");
+  AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
+  AnsiConsole.WriteLine();
+  ```
+- [ ] **And the readings line — the only thing tonight that calls what you carried forward:**
+  ```csharp
+  AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]-41.5 C[/]   "
+      + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(-41.5, false)}[/]");
+  AnsiConsole.WriteLine();
+  ```
+  - 🎯 **Collect the `cp` from the top of the hour** — it has been sitting there unused until now: *"`Conditions.IsSafeToGoOut`. I wrote that last week, copied it in at the start of tonight, and I still haven't opened the file"*
+- [ ] **Then paint the board — select from `var board` down through the count, and paste over all of it:**
+  ```csharp
+  var board = new Table()
+      .Border(TableBorder.Square)
+      .BorderColor(Color.FromHex("#1e2529"))
+      .AddColumn($"[{Dim}]TIME[/]")
+      .AddColumn($"[{Dim}]NAME[/]")
+      .AddColumn($"[{Dim}]REASON[/]")
+      .AddColumn($"[{Dim}]EXPECTED[/]");
+
+  foreach (SignOut s in outside)
+  {
+      board.AddRow(
+          $"[{Dim}]{Markup.Escape(s.Time)}[/]",
+          $"[{Fg}]{Markup.Escape(s.Name)}[/]",
+          $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
+          $"[{Dim}]{Markup.Escape(s.Expected)}[/]");
+  }
+
+  AnsiConsole.Write(board);
+  AnsiConsole.MarkupLine($"[{Dim}]{outside.Count} people outside.[/]");
+  AnsiConsole.WriteLine();
+  ```
+  - 💡 **`Markup.Escape` only if somebody asks**, and one sentence: in §6 a human types into these cells, and a stray `[` would be read as markup instead of text
+- [ ] Run it:
+  ```bash
+  dotnet run --project week-03/Haldane
+  ```
 - [ ] 🎯 **The convergence. Ask it; don't announce it:** *"anybody recognise this?"*
   - ⚠️ **Wait.** The board has been on the projector at the start of three sessions and somebody will get there. **If nobody bites within a few seconds, say it plainly and move on** — it's a gift, not a hinge: *"that's the duty console. The thing that's been up on the screen when you walk in"*
   - 💡 **The honest version of the line, if you want it:** *"the page was built to look like this program. Not the other way round"*
-- [ ] 💡 **Colour, thirty seconds, no more** — borders and hex colours in markup. *"All of this is yours to play with in the lab, and **none of it is graded**. No check in this course has ever looked at what your program prints, and that's on purpose"*
+- [ ] 💡 **Then hand it over and stop — thirty seconds, no tour of the library:** *"all of this is yours to play with in the lab, and **none of it is graded**. No check in this course has ever looked at what your program prints, and that's on purpose"*
 - [ ] **Commit it — stage, paste, ✓ Commit.** Still silent, still no Sync:
   ```
   Week 3: the table measures instead of guessing
@@ -349,6 +404,8 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   {
       outside.Add(new SignOut("14:57", name.Trim(), reason.Trim(), expected.Trim()));
   }
+
+  AnsiConsole.WriteLine();
   ```
   - 💡 **The `if` is week 2, in one sentence:** *"somebody who typed nothing didn't sign out"*
 - [ ] Run it, and sign **Bhatt** out on a **COMMS** run, back by **16:30**:
