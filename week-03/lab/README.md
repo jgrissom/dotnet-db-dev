@@ -41,19 +41,11 @@ One hop sideways into the clone, pull, hop back.
 
 You haven't moved: step 2 left you standing at the top of your repo, which is exactly where this runs.
 
-**macOS:**
-
 ```bash
-cp -R ../dotnet-db-starters/week-03 .
+cp -r ../dotnet-db-starters/week-03 .
 ```
 
-**Windows (PowerShell):**
-
-```powershell
-Copy-Item -Recurse ../dotnet-db-starters/week-03 .
-```
-
-The `.` on the end means **right here** — the top of your repo. Nothing to find, nothing to drag.
+The `.` on the end means **right here** — the top of your repo. Nothing to find, nothing to drag. Same line on Mac and Windows.
 
 > [!CAUTION]
 > **Run it once.** If a `week-03` folder is already there, this replaces what's inside it — **your own work included, without asking**. If you need a do-over, or the command won't run, your file manager does the same job and *does* ask first: open `dotnet-db-starters`, **copy** `week-03` (⌘C / Ctrl+C — **not a drag**, which *moves* it out of the clone), then open `dotnet-db-coursework` and **paste**.
@@ -64,7 +56,7 @@ It appears in your VS Code Explorer immediately — nothing to reopen:
 dotnet-db-coursework/      ← your VS Code window, all semester
 ├─ week-01/
 ├─ week-02/
-└─ week-03/                ← the folder you just pasted
+└─ week-03/                ← the folder you just copied in
    ├─ Lab/                 ← the desk — tonight's work happens in here
    ├─ Lab.Checks/          ← the lab's checks — read-only, never edit
    ├─ Homework/            ← your station — the homework builds this
