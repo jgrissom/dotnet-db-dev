@@ -293,7 +293,8 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```csharp
   const string Fg = "#c8d3cf";
   const string Cold = "#7fb2d4";
-
+  ```
+  ```csharp
   AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]-41.5 C[/]   "
       + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(-41.5, false)}[/]");
   AnsiConsole.WriteLine();
