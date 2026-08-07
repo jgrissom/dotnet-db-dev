@@ -111,18 +111,18 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 - [ ] 💥 **`Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.`** — let it sit for a second
 - [ ] 🎞️ **GO TO SLIDE 4** — *Who chose the 3?* · 🎯 **ask before explaining:** nobody's surprised. But *"answer me this — who chose the 3?"*
   - **The answer, once somebody says it:** *"I did. This afternoon. Before I knew how many people would be outside"*
-- [ ] ⚠️ **The follow-up is the actual lesson, and somebody will offer it:** *"why not make it a hundred?"* — ⚠️ **don't answer it in words. Do it**, back in `Program.cs`. Change the `3`, and ask the board how big it is:
+- [ ] ⚠️ **The follow-up is the actual lesson, and somebody will offer it:** *"why not make it a hundred?"* — ⚠️ **don't answer it in words. Do it**, back in `Program.cs`. Change the `3`, and have the board say how many people are outside:
   ```csharp
   string[] names = new string[100];
   ```
   ```csharp
-  Console.WriteLine(names.Length);
+  Console.WriteLine($"{names.Length} people outside.");
   ```
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] 💥 **It prints `100`** — and the crash is gone, which is the point being made *against* them. 🎯 **Now ask the question the screen can't answer:** *"that's the size of the board. So — how many people are outside?"* **Let it hang.** `100` is the only number this program has, and it is the number **I picked this afternoon**, not the number of people on the ice
-- [ ] 🎯 **Then land it:** *"the number isn't the problem. **Having to pick one** is the problem"* 🔗 **This plants `Count`** — two beats from now the list prints `4 people outside.`, which is the answer the array had no way to give
+- [ ] 💥 **`100 people outside.`** — and the crash is gone, which is the point being made *against* them. **Let it sit.** 🎯 Then, flatly: *"there are four. The board says a hundred — and the board is the only thing that knows"*
+- [ ] 🎯 **Then land it:** *"the number isn't the problem. **Having to pick one** is the problem"* 🔗 **This plants `Count` exactly** — two beats on, **the same sentence** prints `4 people outside.` The array could only ever report **the size I guessed**; the list reports **how many there are**
 
 ### The one that grows
 
@@ -140,7 +140,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] It prints **`4 people outside.`** 🎞️ **GO TO SLIDE 5** — *The one that grows* · *"`Add` puts one on the end and it never runs out. `Count` is the list answering a question about itself"*
+- [ ] It prints **`4 people outside.`** 🎯 **Collect the pair before you move — it's the same sentence they read two minutes ago:** *"a hundred, and now four. Same sentence — and this time it's true"* 🎞️ **GO TO SLIDE 5** — *The one that grows* · *"`Add` puts one on the end and it never runs out. `Count` is the list answering a question about itself"*
 - [ ] 🎯 **The line worth saying slowly**, because it kills a habit they all have: *"`Count` is not a variable you keep updated. Last week your desk had an `int callsTaken` that you had to remember to increment. This can't get out of step with reality, because it **is** reality"*
 
 ### What the brackets are for
