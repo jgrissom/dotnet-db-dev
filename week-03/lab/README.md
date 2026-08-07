@@ -32,11 +32,7 @@ One hop sideways into the clone, pull, hop back.
 > **`cd: no such file or directory`?** You haven't cloned it. From the same terminal:
 > ```bash
 > cd ..
-> ```
-> ```bash
 > git clone https://github.com/jgrissom/dotnet-db-starters.git
-> ```
-> ```bash
 > cd dotnet-db-coursework
 > ```
 > Now the two folders sit side by side, and the pull above will work every week after.
