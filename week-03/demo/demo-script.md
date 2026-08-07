@@ -486,7 +486,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```
   Week 3: the board holds people, and forgets them
   ```
-  - 💡 **Instructor-facing, worth knowing and not worth saying:** that's the **third** commit tonight and the **only** Sync — three saves, one push, which is the shape §8 is about to ask them for. It also quietly does §6's job for you: the room has now watched these lines of code get saved three times, so *"those three aren't data, they're lines of code"* is something they have seen rather than something you told them
+  - 💡 **Instructor-facing, worth knowing and not worth saying:** that's the **third** commit tonight and the **only** Sync — three saves, one push, which is the shape §8 is about to ask them for. It also quietly does §6's job for you: the room has now watched these lines of code get saved three times, so *those three aren't data, they're lines of code* is something they have seen rather than something you told them
 - [ ] **✓ CHECKPOINT:** somebody can say why three rows came back and one didn't
 
 ## 7 · Hand off to the lab *(slide 15)*
