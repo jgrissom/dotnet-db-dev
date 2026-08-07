@@ -309,30 +309,58 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   Outside: -41.5 C   Safe to go out: True
   ```
   - 🎯 **Collect the `cp` from the top of the hour** — it has been sitting there unused until now: *"`Conditions.IsSafeToGoOut`. I wrote that last week, copied it in at the start of tonight, and I still haven't opened the file"*
-- [ ] **Then paint the board — select from `var board` down through the count, and paste over all of it:**
+- [ ] ⚠️ **Now the table itself, in four passes, running after each one.** The board is repainted a layer at a time — frame, headings, cells, count — and **only the last two change anything dramatic**, which is worth knowing so you don't oversell the first
+- [ ] **First the frame. Select `var board = new Table();` and the four `AddColumn` lines under it, and paste over them:**
   ```csharp
   var board = new Table()
       .Border(TableBorder.Square)
       .BorderColor(Color.FromHex("#1e2529"))
+      .AddColumn("TIME")
+      .AddColumn("NAME")
+      .AddColumn("REASON")
+      .AddColumn("EXPECTED");
+  ```
+- [ ] Run it:
+  ```bash
+  dotnet run --project week-03/Haldane
+  ```
+- [ ] **The box lines go dark** — they recede into the background instead of competing with the data. ⚠️ **The SHAPE does not change, and don't claim it does:** `Square` is already Spectre's default, so that line buys you nothing tonight. 💡 **Say why it's there anyway:** *"that's the line you change if you want a different frame — and in the lab, you should"*
+- [ ] **Then the headings. Select the four `AddColumn` lines and paste over them:**
+  ```csharp
       .AddColumn($"[{Dim}]TIME[/]")
       .AddColumn($"[{Dim}]NAME[/]")
       .AddColumn($"[{Dim}]REASON[/]")
       .AddColumn($"[{Dim}]EXPECTED[/]");
-
-  foreach (SignOut s in outside)
-  {
+  ```
+- [ ] Run it:
+  ```bash
+  dotnet run --project week-03/Haldane
+  ```
+- [ ] **`TIME NAME REASON EXPECTED` go dim grey** — the same grey as the column headings on the board upstairs. 📖 **Name the markup once, because it is the whole API:** *"square brackets round the text, colour in the front one, slash in the back. That's all Spectre markup is"*
+- [ ] **Then the cells. Select the `board.AddRow(...)` line inside the `foreach` and paste over it:**
+  ```csharp
       board.AddRow(
           $"[{Dim}]{Markup.Escape(s.Time)}[/]",
           $"[{Fg}]{Markup.Escape(s.Name)}[/]",
           $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
           $"[{Dim}]{Markup.Escape(s.Expected)}[/]");
-  }
-
-  AnsiConsole.Write(board);
+  ```
+- [ ] Run it:
+  ```bash
+  dotnet run --project week-03/Haldane
+  ```
+- [ ] 💥 **This is the one that lands** — the **reasons go amber**, the names go pale, the times and due-backs drop into grey. **The board stops being a table and starts being the duty console.** Let it sit before the next paste
+  - 💡 **`Markup.Escape` only if somebody asks**, and one sentence: in §6 a human types into these cells, and a stray `[` would be read as markup instead of text
+- [ ] **Last, the count. Select `Console.WriteLine($"{outside.Count} people outside.");` under `AnsiConsole.Write(board);` and paste over it:**
+  ```csharp
   AnsiConsole.MarkupLine($"[{Dim}]{outside.Count} people outside.[/]");
   AnsiConsole.WriteLine();
   ```
-  - 💡 **`Markup.Escape` only if somebody asks**, and one sentence: in §6 a human types into these cells, and a stray `[` would be read as markup instead of text
+- [ ] Run it:
+  ```bash
+  dotnet run --project week-03/Haldane
+  ```
+- [ ] **The count drops into grey too, and the board gets a blank line under it.** That is the whole console, finished
 - [ ] Run it:
   ```bash
   dotnet run --project week-03/Haldane
