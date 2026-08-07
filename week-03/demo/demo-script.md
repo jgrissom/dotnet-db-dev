@@ -111,11 +111,22 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 - [ ] 💥 **`Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.`** — let it sit for a second
 - [ ] 🎞️ **GO TO SLIDE 4** — *Who chose the 3?* · 🎯 **ask before explaining:** nobody's surprised. But *"answer me this — who chose the 3?"*
   - **The answer, once somebody says it:** *"I did. This afternoon. Before I knew how many people would be outside"*
-  - ⚠️ **The follow-up is the actual lesson, and somebody will offer it:** *"why not make it a hundred?"* — *"how many people are outside Haldane right now?"* Nobody knows. *"And now the board has ninety-six blank lines on it. The number isn't the problem. **Having to pick one** is the problem"*
+- [ ] ⚠️ **The follow-up is the actual lesson, and somebody will offer it:** *"why not make it a hundred?"* — ⚠️ **don't answer it in words. Do it**, back in `Program.cs`. Change the `3`, and ask the board how big it is:
+  ```csharp
+  string[] names = new string[100];
+  ```
+  ```csharp
+  Console.WriteLine(names.Length);
+  ```
+  ```bash
+  dotnet run --project week-03/Haldane
+  ```
+- [ ] 💥 **It prints `100`** — and the crash is gone, which is the point being made *against* them. 🎯 **Now ask the question the screen can't answer:** *"that's the size of the board. So — how many people are outside?"* **Let it hang.** `100` is the only number this program has, and it is the number **I picked this afternoon**, not the number of people on the ice
+- [ ] 🎯 **Then land it:** *"the number isn't the problem. **Having to pick one** is the problem"* 🔗 **This plants `Count`** — two beats from now the list prints `4 people outside.`, which is the answer the array had no way to give
 
 ### The one that grows
 
-- [ ] Select the whole array block and paste over it:
+- [ ] **Select all of it — the array, the four names *and* the `Length` line — and paste over it.** ⚠️ **`⌘A` is the safe move; a stray `Console.WriteLine(names.Length);` left behind is a `CS0103` on a name that no longer exists:**
   ```csharp
   List<string> outside = new List<string>();
   outside.Add("Okonkwo");
