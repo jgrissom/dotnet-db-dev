@@ -60,7 +60,13 @@ git commit -m "week 3: station carried forward"
 ```
 
 > [!NOTE]
-> **Missing one of them?** Type the minimum and move on. `Station` needs a `CallSign()` returning four capitals starting K or W; `Switchboard` needs `CallerName(string? typed)` that trims a real name and returns *something non-blank* for `null`, `""` or `"   "`. [Week 2's homework](../week-02/homework.md) has both in full.
+> **Missing one of them?** Type the minimum and move on — **all four of these, or tonight's `Program.cs` won't compile:**
+> - `Station.CallSign()` → four capitals starting K or W
+> - `Station.SignOn()` → a line containing your call sign and your city
+> - `Switchboard.CallerName(string? typed)` → trims a real name, returns *something non-blank* for `null`, `""` or `"   "`
+> - `Switchboard.Greeting()` → how your station answers the phone, containing your call sign
+>
+> [Week 1's homework](../week-01/homework.md) has the `Station` pair in full and [week 2's](../week-02/homework.md) has the `Switchboard` pair.
 
 **3. Add the package — your first one, and it's one command.** From the same terminal:
 
@@ -243,15 +249,15 @@ git commit -m "week 3: the request line renders"
 
 ### 🌙 6. Then lose it
 
-**Run it one more time**, and this time look at the table before you do anything else.
+**Run it one more time**, and answer with a **different** caller than last time.
 
 ```bash
 dotnet run --project week-03/Homework
 ```
 
-**Two rows** — Dorothy, twice. The caller you took a minute ago is not there.
+**Three rows again — but read who's in them.** Rows 1 and 2 are Dorothy, exactly as they were. Row 3 is the call you *just* made. **The caller from your last run is nowhere on this board**, and there is no way to get them back.
 
-Those two came back because they're **lines of code** in `Program.cs`, and lines of code run again every time. Yours was only ever in memory. [The whole explanation is in the notes](lecture-notes.md#and-then-its-gone), and nothing you learned this week can fix it:
+Dorothy came back because those two calls are **lines of code** in `Program.cs`, and lines of code run again every time. Your caller was only ever in memory. [The whole explanation is in the notes](lecture-notes.md#and-then-its-gone), and nothing you learned this week can fix it:
 
 - **Week 8** — your list gets a file, and survives the night for the first time.
 - **Week 10** — it gets a database, and stops being only yours.
@@ -285,7 +291,7 @@ git ls-files | grep -E '(^|/)(bin|obj)/'
 
 **2. A `README.md` at the repo root**, saying whose repo this is. You made one in week 2 — adding a `week-03` line to it takes ten seconds and is a good habit.
 
-**3. Three or more commits touching `week-03/Homework/`**, with messages that mean something. ⚠️ **Only commits that change your homework project count** — tonight's lab commits don't. **If you followed the steps above you already have exactly three:** station carried forward, the night is kept, the request line renders. I read these.
+**3. Three or more commits touching `week-03/Homework/`**, with messages that mean something. ⚠️ **Only commits that change your homework project count** — the ones you made while working through the lab's `RequestLog.cs` don't touch it. **If you followed the steps above you already have three:** station carried forward, the night is kept, the request line renders. I read these.
 
 ```bash
 git push

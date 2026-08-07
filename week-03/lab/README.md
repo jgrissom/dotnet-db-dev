@@ -222,7 +222,7 @@ week 3 lab: the desk keeps the night
 
 Some people ring every night. The desk should know.
 
-**First, go back into `Log`** and count the caller as well as keeping the line — three new lines, just above the `return`:
+**First, go back into `Log`** and count the caller as well as keeping the line — an `if`/`else`, just above the `return`:
 
 ```csharp
     if (Regulars.ContainsKey(name))

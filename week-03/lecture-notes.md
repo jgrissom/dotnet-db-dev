@@ -4,7 +4,7 @@ Your at-home reference for the week. One subject tonight, arriving in three piec
 
 Then the fourth piece, which is the one the rest of this course is built on: **none of it is written down anywhere.**
 
-**Rule for reading the code blocks:** every one of them either *is* a complete file, or the line above it says which file it goes inside. Nothing here is a fragment you're expected to guess the home of.
+**Rule for reading the code blocks:** every one of them either *is* a complete file, or its first line is a comment naming the file it goes inside — except where the prose says outright that it is quoting code you already have. Nothing here is a fragment you're expected to guess the home of.
 
 ---
 
@@ -38,13 +38,14 @@ names[3] = "Bhatt";
 Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.
 ```
 
-⚠️ **Making it `new string[100]` is not the fix.** It's the same decision with a bigger guess, and now the board has ninety-six blank lines on it. The real problem is that an array's size is fixed at the moment you create it, and the number of people outside a research station is not a thing anybody knows in advance.
+⚠️ **Making it `new string[100]` is not the fix.** It's the same decision with a bigger guess — and now `names.Length` reports **100 people outside** when four people are on the ice, because an array only ever knows the size you asked for, never how much of it you used. The real problem is that an array's size is fixed at the moment you create it, and the number of people outside a research station is not a thing anybody knows in advance.
 
 ---
 
 ## `List<T>` — the collection that grows
 
 ```csharp
+// Inside Program.cs:
 List<string> outside = new List<string>();
 
 outside.Add("Okonkwo");
@@ -66,6 +67,7 @@ Three things to know and that's most of it:
 And the loop you already know works on it unchanged:
 
 ```csharp
+// Inside Program.cs, after the list is built:
 foreach (string name in outside)
 {
     Console.WriteLine(name);
@@ -101,6 +103,7 @@ public class SignOut
 You've written a class like this before. What's new is the next line:
 
 ```csharp
+// Inside Program.cs, replacing the List<string> above:
 List<SignOut> outside = new List<SignOut>();
 outside.Add(new SignOut("14:20", "Okonkwo", "MET RUN", "15:00"));
 ```
@@ -108,6 +111,7 @@ outside.Add(new SignOut("14:20", "Okonkwo", "MET RUN", "15:00"));
 Now one entry carries four facts that belong together, and `foreach` hands you whole objects:
 
 ```csharp
+// Inside Program.cs, after the list is built:
 foreach (SignOut s in outside)
 {
     Console.WriteLine($"{s.Name} is out on a {s.Reason}, back by {s.Expected}");
@@ -210,10 +214,13 @@ AnsiConsole.Write(board);
 │ TIME  │ NAME       │ REASON         │ EXPECTED │
 ├───────┼────────────┼────────────────┼──────────┤
 │ 14:20 │ Okonkwo    │ MET RUN        │ 15:00    │
+│ 14:20 │ Reyes      │ DIG OUT        │ 14:45    │
 │ 09:05 │ Lindqvist  │ FUEL           │ 10:30    │
 │ 14:57 │ Achterberg │ DIG OUT VENT 3 │ 16:30    │
 └───────┴────────────┴────────────────┴──────────┘
 ```
+
+**The same three sign-outs as the hand-printed board, plus the one that sheared it.** `DIG OUT VENT 3` fits now, because the column was measured instead of guessed.
 
 Colour and borders come from the same object — `.Border(TableBorder.Rounded)`, `.BorderColor(...)`, and markup like `[#e8b04b]MET RUN[/]` inside a cell. **All of that is yours to play with and none of it is graded.** No check in this course looks at what your program prints.
 
@@ -238,6 +245,7 @@ Colour and borders come from the same object — `.Border(TableBorder.Rounded)`,
 A list finds things by **position**. Often you want to find them by **name**:
 
 ```csharp
+// Inside Program.cs:
 Dictionary<string, string> roles = new Dictionary<string, string>();
 
 roles["Okonkwo"] = "station leader";
@@ -273,6 +281,7 @@ The first time somebody calls there's no number to add to, so there are genuinel
 This is the one to remember, because it's the one that will bite you tonight:
 
 ```csharp
+// Inside Program.cs, with that same `roles` dictionary:
 Console.WriteLine(roles["Halvorsen"]);
 ```
 
@@ -288,6 +297,7 @@ It does **not** return `null`, and it does **not** return `0`. It throws — and
 The tool that asks first has a shape you already know:
 
 ```csharp
+// Inside Program.cs, where `who` is a name somebody typed:
 if (roles.TryGetValue(who, out string? role))
 {
     Console.WriteLine($"{who} - {role}");
@@ -319,6 +329,7 @@ public static int TimesCalled(string name)
 ### Walking a dictionary
 
 ```csharp
+// Inside your class, wherever Regulars lives:
 foreach (KeyValuePair<string, int> entry in Regulars)
 {
     Console.WriteLine($"{entry.Key} rang {entry.Value} times");
@@ -371,11 +382,17 @@ Run your program. Take four calls. Watch the board fill up. Quit.
 Run it again.
 
 ```
+── the night so far ─────────────────────────────────────
 ╭───┬────────┬────────╮
 │ # │ CALLER │ ON AIR │
 ╰───┴────────┴────────╯
+╭─────┬───────╮
+│ WHO │ CALLS │
+╰─────┴───────╯
+most calls tonight: nobody yet
 
 KDXR - Nobody called. Not one person.
+Keep it quiet out there.
 ```
 
 **Nothing is broken. You did nothing wrong.** Every program you have written in this course does this, and so does every program you wrote last year.
