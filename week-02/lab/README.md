@@ -159,11 +159,7 @@ Two things worth noticing:
 - **`IsNullOrWhiteSpace` is one question that covers three situations** — `null`, `""`, and `"   "` are all "nobody there", and [they all need the same answer](../lecture-notes.md#readline-and-null).
 - **The order is load-bearing.** `.Trim()` on a `null` is itself a crash — test for nothing *first*. (That's also why the compiler's null warning goes quiet here: it can see `null` can't reach the `Trim`.)
 
-```bash
-dotnet test week-02/Lab.Checks
-```
-
-**2 / 5.** Now work a shift and watch it happen:
+Now work a shift and watch it happen:
 
 ```bash
 dotnet run --project week-02/Lab
@@ -176,6 +172,14 @@ On air: For some night owl: dealer's choice.
 ```
 
 A minute ago that line had a hole where the name should be. `q` ends the shift.
+
+Now let the checks agree with you:
+
+```bash
+dotnet test week-02/Lab.Checks
+```
+
+**2 / 5.**
 
 **Green? Commit it** — same three clicks:
 
@@ -289,11 +293,7 @@ public static string TakeRequest(string? name, string? request)
 
 (That `? :` is the conditional operator — an `if`/`else` that fits inside an expression. Writing it as a full `if` is exactly as correct.)
 
-```bash
-dotnet test week-02/Lab.Checks
-```
-
-**5 / 5.** Until now that line has read `On air:` and then nothing — `TakeRequest` returned an empty string. Run it and watch the desk find its voice:
+Until now that line has read `On air:` and then nothing — `TakeRequest` returned an empty string. Run it and watch the desk find its voice:
 
 ```bash
 dotnet run --project week-02/Lab
@@ -313,6 +313,14 @@ dotnet run --project week-02/Lab
 Then be the worst night of calls the desk has ever had — blank names, blank requests, Ray answering in riddles, all of it. Every call gets a civil answer, and the phone keeps ringing until *you* type `q`. **The Owl stays on the air.** 🦉
 
 And read the desk's sign-off. It counted your calls — and it can't tell you a single thing about them. Sit with that for a second before you close the terminal.
+
+Now let the checks agree with you:
+
+```bash
+dotnet test week-02/Lab.Checks
+```
+
+**5 / 5.**
 
 **Then clock out — commit the shift**, the same way you did after Tasks 3 and 4:
 

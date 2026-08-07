@@ -116,19 +116,19 @@ What each one has to do:
 
 **Every command in this assignment runs from your terminal in `dotnet-db-coursework`, naming the week.** Two of them, and you'll use both after every method you fill in.
 
-See what the checks say:
-
-```bash
-dotnet test week-02/Homework.Checks
-```
-
-Then watch your program do it:
+Watch your program do it:
 
 ```bash
 dotnet run --project week-02/Homework
 ```
 
-**Do that after every method** — write `Greeting()`, test, run. Then `CallerName()`, test, run. **Four methods, four rounds**, and the pasted file starts you at 2 of 4. A check that goes red right after you wrote something tells you exactly where to look.
+Then see what the checks say:
+
+```bash
+dotnet test week-02/Homework.Checks
+```
+
+**Do that after every method** — write `Greeting()`, run, test. Then `CallerName()`, run, test. **Four methods, four rounds**, and the pasted file starts you at 2 of 4. A check that goes red right after you wrote something tells you exactly where to look. **Run first on purpose:** a green check ends the step, and a step that's already over doesn't get run.
 
 **Green? Commit it** — you're somewhere solid, and that's when a commit happens:
 
@@ -164,13 +164,7 @@ else
 > [!IMPORTANT]
 > **Your program gets run with nobody typing.** The grader answers every prompt by pressing Enter and then goes quiet — so `ReadLine` hands your code empty strings and then `null`. Built like the above, that's fine: a blank caller gets your default, a blank number loses the contest, the program exits cleanly. **[No loops that re-ask until the input is valid](lecture-notes.md#ask-once-answer-gracefully)** — a program that won't take no for an answer never finishes, and 2 of tonight's points are "runs cleanly when fed nothing but Enter."
 
-Same two commands again. The checks:
-
-```bash
-dotnet test week-02/Homework.Checks
-```
-
-And the program, which is the half the checks never look at:
+Same two commands again. The program first — it's the half the checks never look at:
 
 ```bash
 dotnet run --project week-02/Homework
@@ -191,6 +185,12 @@ dotnet run --project week-02/Homework
 > **Now run it the way I will run it: press Enter at every prompt and type nothing else.** That is exactly what the grader does — it answers each question with a bare newline and then stops typing. **If your program crashes on that, it scores 0 for "builds and runs" no matter how green your checks are.** A program that only survives sensible answers has not been tested; it's been humoured.
 
 If anything does crash, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
+
+Then let the checks have their say:
+
+```bash
+dotnet test week-02/Homework.Checks
+```
 
 **Commit again once it survives everything you threw at it:**
 
@@ -243,7 +243,13 @@ git push
 
 ## Part 4 — Check it before you submit ✅
 
-**These are the same checks I run.** Same terminal, same place it's been all night:
+Same terminal, same place it's been all night. **One last run first**, because two points ride on it and no check will ever tell you:
+
+```bash
+dotnet run --project week-02/Homework
+```
+
+**Then the checks — these are the same ones I run.**
 
 ```bash
 dotnet test week-02/Homework.Checks
@@ -251,12 +257,6 @@ dotnet test week-02/Homework.Checks
 
 ```
 Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
-```
-
-**And one last run**, because two points ride on it and no check will tell you:
-
-```bash
-dotnet run --project week-02/Homework
 ```
 
 Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywhere, a README on the front page, and a commit history that says what happened.

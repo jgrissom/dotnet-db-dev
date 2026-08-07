@@ -121,17 +121,21 @@ public static string SignOn(string djName)
 
 ⚠️ **What's worth noticing before you start:** all of tonight's work happens in `Broadcast.cs` and none of it in `Program.cs`. That isn't a filing preference — it's the only reason the checks can see your work at all.
 
-```bash
-dotnet test week-01/Lab.Checks
-```
-
-**1 / 5.** Now run it as well:
+Now run it again, knowing what's in that file:
 
 ```bash
 dotnet run --project week-01/Lab
 ```
 
 Read it knowing the station clock says 2:15 AM — it claims nobody's on air, it isn't the overnight block, and there are 0 minutes until sunrise. **Every one of those is a lie, and each task you finish turns one of them true.**
+
+And the checks say the same thing, in numbers:
+
+```bash
+dotnet test week-01/Lab.Checks
+```
+
+**1 / 5.**
 
 ### Task 2 in full
 
@@ -153,15 +157,19 @@ Two things worth noticing, because both come back all term:
 
 The words between the braces are yours. Make it sound like 3 AM.
 
-```bash
-dotnet test week-01/Lab.Checks
-```
-
-**2 / 5.** And run it again — the DJ gets greeted properly for the first time:
+Run it — the DJ gets greeted properly for the first time:
 
 ```bash
 dotnet run --project week-01/Lab
 ```
+
+Then let the checks agree with you:
+
+```bash
+dotnet test week-01/Lab.Checks
+```
+
+**2 / 5.**
 
 ### Task 3 in full
 
@@ -180,17 +188,21 @@ Two steps: turn the time you were given into **minutes past midnight**, then sub
 > [!TIP]
 > If your answer is off by a multiple of 59, that's the order of operations — the hour has to be multiplied by 60 *before* the minutes are added. Brackets make it obvious: `(hour * 60) + minute`.
 
-```bash
-dotnet test week-01/Lab.Checks
-```
-
-**3 / 5.** Now run the desk and read that line:
+Now run the desk and read that line:
 
 ```bash
 dotnet run --project week-01/Lab
 ```
 
 `0 minutes until sunrise` has become **`225 minutes until sunrise`**. Second lie, gone.
+
+Then let the checks agree with you:
+
+```bash
+dotnet test week-01/Lab.Checks
+```
+
+**3 / 5.**
 
 ### Task 4 in full
 
@@ -219,17 +231,21 @@ Given minutes already broadcast, return how many **hours** that is — including
 
 The remainder is gone before the `double` ever gets involved — silently, every time. It's the most common silent wrong answer in early C#, which is why it's a whole check.
 
-```bash
-dotnet test week-01/Lab.Checks
-```
-
-**4 / 5.** Run it again:
+Run it again:
 
 ```bash
 dotnet run --project week-01/Lab
 ```
 
-**`5.5 hours on air so far tonight`** — a minute ago that line said `5`. Nothing warned you it was wrong; the check did.
+**`5.5 hours on air so far tonight`** — a minute ago that line said `5`, and nothing warned you it was wrong.
+
+The checks are what notice:
+
+```bash
+dotnet test week-01/Lab.Checks
+```
+
+**4 / 5.**
 
 ### Task 5 in full
 
@@ -250,17 +266,21 @@ return hour >= 22 || hour < 6;
 
 Check the two boundaries when you're done: **6 is not overnight, and 22 is.** Off-by-one at a boundary is the way this one usually fails.
 
-```bash
-dotnet test week-01/Lab.Checks
-```
-
-**5 / 5.** One last run — and this time read the whole thing top to bottom:
+One last run — and this time read the whole thing top to bottom:
 
 ```bash
 dotnet run --project week-01/Lab
 ```
 
 `Overnight block: True`, the DJ greeted by name, `225 minutes until sunrise`, `5.5 hours on air`. **Every line that lied when you started now tells the truth, and you made each one true.** The Owl is on the air. 🦉
+
+Now make it official:
+
+```bash
+dotnet test week-01/Lab.Checks
+```
+
+**5 / 5.**
 
 ## Rules
 

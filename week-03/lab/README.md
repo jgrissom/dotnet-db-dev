@@ -186,11 +186,7 @@ Two things worth noticing:
 - **`Tonight.Add(...)` is the whole difference between this week and last week.** A `List<Call>` starts empty and grows on the end; nothing has to be resized and nothing gets replaced.
 - **The line is built once and used twice** — stored and returned. Two places that both know how to write an on-air line is one place too many, which is week 1's lesson wearing its third shirt.
 
-```bash
-dotnet test week-03/Lab.Checks
-```
-
-**2 / 5.** Now work a shift and watch it happen:
+Now work a shift and watch it happen:
 
 ```bash
 dotnet run --project week-03/Lab
@@ -213,6 +209,14 @@ Sign on, then take these two calls, then `q`:
 │ 2 │ Bex     │ For Bex: that one again.             │
 ╰───┴─────────┴──────────────────────────────────────╯
 ```
+
+Seen it? Now let the checks agree with you:
+
+```bash
+dotnet test week-03/Lab.Checks
+```
+
+**2 / 5.**
 
 **Green? Commit it:**
 
@@ -260,11 +264,7 @@ public static int TimesCalled(string? caller)
 
 💡 **Both methods put the name through `CallerName` first.** That's what makes `Dorothy` and `  Dorothy  ` the same person instead of two regulars.
 
-```bash
-dotnet test week-03/Lab.Checks
-```
-
-**3 / 5.** Now run a shift where somebody calls twice:
+Now run a shift where somebody calls twice:
 
 ```bash
 dotnet run --project week-03/Lab
@@ -294,6 +294,14 @@ dotnet run --project week-03/Lab
 ```
 
 🎯 **Stop and compare the two tables for a second.** Three rows in the first, two in the second — three calls, two callers. **That's the entire difference between a `List` and a `Dictionary`, sitting on your own screen.** The list keeps every call in order; the dictionary keeps one entry per person and counts.
+
+Now let the checks agree with you:
+
+```bash
+dotnet test week-03/Lab.Checks
+```
+
+**3 / 5.**
 
 **Green? Commit it:**
 
@@ -332,11 +340,7 @@ public static string TheRegular()
 
 *(In week 9 this whole loop becomes one line. It's worth writing by hand once first.)*
 
-```bash
-dotnet test week-03/Lab.Checks
-```
-
-**4 / 5.** Run the same three calls as Task 3 — `Dorothy`, `Bex`, `Dorothy` — and the line under the tables now has an answer:
+Run the same three calls as Task 3 — `Dorothy`, `Bex`, `Dorothy` — and the line under the tables now has an answer:
 
 ```bash
 dotnet run --project week-03/Lab
@@ -345,6 +349,14 @@ dotnet run --project week-03/Lab
 ```
 most calls tonight: Dorothy
 ```
+
+Now let the checks agree with you:
+
+```bash
+dotnet test week-03/Lab.Checks
+```
+
+**4 / 5.**
 
 **Green? Commit it:**
 
@@ -374,12 +386,6 @@ public static string SignOff()
 - **`Tonight.Count` is how many calls. `Regulars.Count` is how many people.** Different numbers, from the two different collections, in one sentence — which is the whole week in one line of code.
 - **It asks `TheRegular()` rather than working it out again.** You already wrote that method.
 
-```bash
-dotnet test week-03/Lab.Checks
-```
-
-**5 / 5.** 🎉
-
 **Now work a proper shift.** Take four or five calls — repeat a caller, leave a name blank, put in whatever you like — and end with `q`:
 
 ```bash
@@ -396,6 +402,14 @@ Keep it quiet out there.
 ```
 
 **That's the whole thing working.** The desk that couldn't tell you a single thing about your night last week now knows what came in, who rang, and who wouldn't stop.
+
+Now let the checks agree with you:
+
+```bash
+dotnet test week-03/Lab.Checks
+```
+
+**5 / 5.** 🎉
 
 **Commit it:**
 

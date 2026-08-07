@@ -131,19 +131,19 @@ What each one has to do:
 
 **Every command below runs from your terminal in `dotnet-db-coursework`, naming the week.** Two of them, and you'll use both after every method.
 
-See what the checks say:
-
-```bash
-dotnet test week-03/Homework.Checks
-```
-
-Then watch your program do it:
+Watch your program do it:
 
 ```bash
 dotnet run --project week-03/Homework
 ```
 
-**Do that after every method** — write `Take()`, test, run. Then `TimesCalled()`, test, run. **Three methods, three rounds: 1 → 2 → 3 → 4**, one per round. A check that goes red right after you wrote something tells you exactly where to look.
+Then see what the checks say:
+
+```bash
+dotnet test week-03/Homework.Checks
+```
+
+**Do that after every method** — write `Take()`, run, test. Then `TimesCalled()`, run, test. **Three methods, three rounds: 1 → 2 → 3 → 4**, one per round. A check that goes red right after you wrote something tells you exactly where to look. **Run first on purpose:** a green check ends the step, and a step that's already over doesn't get run.
 
 **Green? Commit it:**
 
@@ -211,13 +211,7 @@ Console.WriteLine($"{Station.CallSign()} - {Playlist.SignOff()}");
 > ```
 > **I run your program by pressing Enter at every prompt and then typing nothing.** This crash never happens when you test by hand and always happens when I run it, and it costs the 2 points for "runs without crashing." [Ask once, answer gracefully](../week-02/lecture-notes.md#ask-once-answer-gracefully) — and no loops that re-ask until the input is valid.
 
-Same two commands again. The checks:
-
-```bash
-dotnet test week-03/Homework.Checks
-```
-
-And the program, which is the half the checks never look at:
+Same two commands again. The program first — it's the half the checks never look at:
 
 ```bash
 dotnet run --project week-03/Homework
@@ -236,6 +230,12 @@ dotnet run --project week-03/Homework
 
 > [!IMPORTANT]
 > **Now run it the way I will run it: press Enter at every prompt and type nothing else.** That is exactly what the grader does. **If your program crashes on that, it scores 0 for "builds and runs" no matter how green your checks are.**
+
+Then let the checks have their say:
+
+```bash
+dotnet test week-03/Homework.Checks
+```
 
 **Commit again once it survives everything you threw at it:**
 
@@ -299,7 +299,13 @@ git push
 
 ## Part 4 — Check it before you submit ✅
 
-**These are the same checks I run.** Same terminal, same place it's been all night:
+Same terminal, same place it's been all night. **One last run first**, because two points ride on it and no check will ever tell you:
+
+```bash
+dotnet run --project week-03/Homework
+```
+
+**Then the checks — these are the same ones I run.**
 
 ```bash
 dotnet test week-03/Homework.Checks
@@ -307,12 +313,6 @@ dotnet test week-03/Homework.Checks
 
 ```
 Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
-```
-
-**And one last run**, because two points ride on it and no check will tell you:
-
-```bash
-dotnet run --project week-03/Homework
 ```
 
 Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywhere, a README on the front page, and a commit history that says what happened.

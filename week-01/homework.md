@@ -144,19 +144,19 @@ public static class Station
 
 **Every command in this assignment runs from your terminal in `dotnet-db-coursework`, naming the week** — [the one place every command runs from](lecture-notes.md#the-project-not-the-file). Two commands, and you'll use both after every method you write.
 
-See what the checks say:
-
-```bash
-dotnet test week-01/Homework.Checks
-```
-
-Then watch your program do it:
+Watch your program do it:
 
 ```bash
 dotnet run --project week-01/Homework
 ```
 
-**Do that after every single method** — fill in `CallSign()`, test, run. Then `City()`, test, run. Four methods, four rounds, and the count goes **0 → 1 → 2 → 3 → 4**. A check that goes red right after you wrote something tells you exactly where to look; twenty minutes of writing followed by one test run tells you nothing.
+Then see what the checks say:
+
+```bash
+dotnet test week-01/Homework.Checks
+```
+
+**Do that after every single method** — fill in `CallSign()`, run, test. Then `City()`, run, test. Four methods, four rounds, and the count goes **0 → 1 → 2 → 3 → 4**. **Run first on purpose:** a green check ends the step, and a step that's already over doesn't get run. A check that goes red right after you wrote something tells you exactly where to look; twenty minutes of writing followed by one test run tells you nothing.
 
 **When the count stops going up, commit.** You're standing where git lives, so it's two commands and no navigation:
 
@@ -198,13 +198,7 @@ Console.WriteLine(Station.SignOn());
 Console.WriteLine($"{Station.MinutesUntilSignOff(2, 30)} minutes until sign-off.");
 ```
 
-Same two commands again. The checks:
-
-```bash
-dotnet test week-01/Homework.Checks
-```
-
-And the program, which is the half the checks never look at:
+Same two commands again. The program first — it's the half the checks never look at:
 
 ```bash
 dotnet run --project week-01/Homework
@@ -222,6 +216,12 @@ dotnet run --project week-01/Homework
 > [!NOTE]
 > **No `Console.ReadLine` this week.** Your program prints and exits. Reading input arrives in week 2 — and there's a reason for the order: I have to *run* your program to grade it, and a program that sits waiting for input nobody types is a program that never finishes.
 
+Then the checks:
+
+```bash
+dotnet test week-01/Homework.Checks
+```
+
 ⚠️ **Run the program too, not just the checks.** **Two of tonight's twenty points are simply "it builds and runs without crashing"** — and a `Station.cs` that satisfies every check can still sit inside a `Program.cs` that throws on line one. The checks never look at `Program.cs`; I do.
 
 **Commit again once it prints your station:**
@@ -238,7 +238,13 @@ git commit -m "Week 1: countdown working"
 
 **These are the same checks I run.** There isn't a second, secret set.
 
-Same terminal, same place it's been all night:
+Same terminal, same place it's been all night. **One last run first**, because two points ride on it and no check will ever tell you:
+
+```bash
+dotnet run --project week-01/Homework
+```
+
+Then the checks:
 
 ```bash
 dotnet test week-01/Homework.Checks
@@ -246,12 +252,6 @@ dotnet test week-01/Homework.Checks
 
 ```
 Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
-```
-
-**And one last run**, because two points ride on it and no check will tell you:
-
-```bash
-dotnet run --project week-01/Homework
 ```
 
 > [!TIP]
