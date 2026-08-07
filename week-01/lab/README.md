@@ -35,7 +35,16 @@ cp -r ../dotnet-db-starters/week-01 .
 The `.` on the end means **right here** — the top of your repo, empty until now. Nothing to find, nothing to drag. Same line on Mac and Windows.
 
 > [!CAUTION]
-> **Run it once.** If a `week-01` folder is already there, this replaces what's inside it — **your own work included, without asking**. If you need a do-over, or the command won't run, your file manager does the same job and *does* ask first: open `dotnet-db-starters`, **copy** `week-01` (⌘C / Ctrl+C — **not a drag**, which *moves* it out of the clone), then open `dotnet-db-coursework` and **paste**.
+> **Run it once.** If a `week-01` folder is already there, this replaces what's inside it — **your own work included, without asking**.
+
+<details>
+<summary><b>Command didn't work, or you need a do-over?</b> Your file manager does the same job — and it asks first.</summary>
+
+1. Open `dotnet-db-starters`. It holds nothing but week folders — find **`week-01`**.
+2. **Copy** it (⌘C / Ctrl+C) — **not a drag**, which *moves* it out of the clone.
+3. Open `dotnet-db-coursework` (empty right now) → **Paste**.
+
+</details>
 
 It appears in your VS Code Explorer immediately. That one folder is the whole week — tonight's lab, its checks, and the homework's starting point:
 
