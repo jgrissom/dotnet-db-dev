@@ -100,7 +100,7 @@ week 3: starter
 | `Lab/Call.cs` | one call — who rang, what went out. Ships finished, don't touch |
 | `Lab/CallerLine.cs` | last week's desk, finished — don't touch it, but **do call it** |
 | `Lab/Broadcast.cs` | week 1's desk, finished — don't touch it |
-| `Lab/Program.cs` | **the shift.** You run it and live in it; you don't edit it |
+| `Lab/Program.cs` | **the shift.** You run it and live in it; nothing tonight asks you to edit it |
 | `Lab.Checks/` | **never edit.** It's how you know you're done |
 | `Homework/`, `Homework.Checks/` | tonight: nothing. They're the homework's starting point |
 
@@ -466,7 +466,8 @@ There is nothing in this week that fixes it. Not `List`, not `Dictionary`, not t
 You will be. These are real, and the first one is week 9's homework arriving five weeks early.
 
 - ⭐ **Count the requests, not the callers.** Add a second dictionary — `public static Dictionary<string, int> Rotation` — keyed on what people asked for, and a `MostRequested()` beside it. Now the desk knows the song of the night. *(This is exactly the shape that becomes one line of LINQ in week 9, and having written it twice by hand is what makes that land.)*
-- **Give the board a face.** `Program.cs` is yours to break — `TableBorder.Heavy`, `TableBorder.Ascii`, different colours, a `Rule` between sections. **No check in this course looks at what your program prints**, so none of this can cost you anything. Make it look like a 3 AM radio desk.
+- **Sign on as your own station.** `Program.cs` is yours to break, and the ident at the top — the owl in the box — is three `const string`s and a `Panel`. Redraw the bird, change the call sign, change the colours. `BoxBorder.Heavy`, `BoxBorder.Double`, `BoxBorder.Ascii` for the plate; `TableBorder.Heavy` or `TableBorder.Ascii` for the board; a `Rule` between sections. **No check in this course looks at what your program prints**, so none of this can cost you anything. Make it a 3 AM radio desk — *yours*, not KDXR's.
+  - ⚠️ **Keep your ASCII in a `const string`, the way the owl is.** Typed straight into the `$"..."`, C# reads `{o,o}` as an instruction to print a variable called `o`, and the project stops building.
 - **Sort the night.** The regulars table comes out in whatever order people first rang. Print the busiest first instead — you already have the loop that finds the biggest.
 - **Let the DJ ask.** Add a `?` option at the *Who's calling?* prompt that takes a name and prints `TimesCalled` for it. ⚠️ You'll want `TryGetValue`, and you'll find out fast if you didn't use it.
 - **Give Teodoro a line.** He rings every week, asks for the same song, dedicates it to the same name. Nothing checks this. That's rather the point.
