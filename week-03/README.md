@@ -34,4 +34,4 @@ And they walk out annoyed, on purpose: **everything above lives in memory, and m
 - **VS Code open on the demo repo's top** (`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`), exactly where week 2 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — it matters more this week than any other, and you still say nothing about it. In §4 the program starts looking exactly like it
 
-**Prev:** [Week 2 — The Mistakes the Compiler Can't Catch](../week-02/) · **Next:** Week 4 — OOP With a Reason, and the Semester Project *(coming)*
+**Prev:** [Week 2 — The Mistakes the Compiler Can't Catch](../week-02/) · **Next:** [Week 4 — OOP With a Reason, and the Semester Project](../week-04/)

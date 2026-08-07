@@ -1,0 +1,50 @@
+{
+  "week": 4,
+  "total": 20,
+  "_comment": "One source of truth for week 4's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first. NOTE: from week 4 the graded repo is the PROJECT repo, not the coursework repo — the coursework repo is still swept for hygiene and holds the (ungraded) lab.",
+  "checks": {
+    "Check1_YouPickedATopic": {
+      "points": 1,
+      "label": "Registry.Topic says what your project is about — in words, and not the example"
+    },
+    "Check2_YourRecordKeepsItsDataToItself": {
+      "points": 3,
+      "label": "Your record has no public fields and at least 3 properties — week 3's shape, closed"
+    },
+    "Check3_SomethingRefusesABadValue": {
+      "points": 3,
+      "label": "At least one property turns away a nonsense value instead of storing it"
+    },
+    "Check4_OnlyYourCodeCanChangeIt": {
+      "points": 2,
+      "label": "At least one property the outside world can read and cannot write"
+    },
+    "Check5_TheRegistryHoldsRecords": {
+      "points": 3,
+      "label": "Registry keeps records — Count asks the list, and All() hands back a copy"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing — even when fed nothing but Enter"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked in NEITHER repo — the .gitignore holding, in both places"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits in the project repo 👀 (meaningful messages are a judgement call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — the branch → pull request → merge round trip, done once"
+    }
+  }
+}
