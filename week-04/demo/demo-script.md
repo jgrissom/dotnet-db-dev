@@ -144,7 +144,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   dotnet run --project week-04/Haldane
   ```
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *Nothing happened* · 🎯 **ask, then shut up:** *"what went wrong?"* — and let it hang. **The answer is nothing. No exception, no warning, no squiggle**
+- [ ] 🎞️ **GO TO SLIDE 4** — *Nothing happened* · 🎯 **ask, then shut up:** *"what went wrong?"* — and let it hang. The answer is nothing. *"No exception, no warning, no squiggle"*
 
   ```
   │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │
