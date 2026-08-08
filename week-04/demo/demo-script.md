@@ -362,8 +362,8 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 ## 7 · Branch, pull request, merge *(slide 13)*
 
-- [ ] 🎞️ **GO TO SLIDE 13** — *Nothing goes straight to `main` again* · *"you've been committing straight onto main since week 1. From tonight, every feature arrives on a branch and comes in through a pull request"*
-- [ ] 🎯 **Point at the terminal.** *"I've been on a branch all night, and you didn't notice. I made it right after the board lost Reyes's time"*
+- [ ] 🎞️ **GO TO SLIDE 13** — *Nothing goes straight to `main` again* · *"we have been committing straight onto main since week 1. From tonight, every feature arrives on a branch and comes in through a pull request"*
+- [ ] 🎯 **Point at the terminal.** *"I've been on a branch all night, and you may not have even noticed. I made it right after the board lost Reyes's time"*
 
 - [ ] **Push it**
 
