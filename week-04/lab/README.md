@@ -2,7 +2,7 @@
 
 It's 3 AM at **KDXR 88.1, "The Owl."** Last week the desk got a memory — a list of every call, a count of every regular. Tonight it gets something to protect.
 
-The overnight rotation is three carts and whatever you load into it. (A *cart* is what a station calls one recorded item; the word outlived the tape it came on. The software is still older than the DJ. The station still likes it that way.)
+The overnight rotation is three carts and whatever else you load in. (A *cart* is one playable thing — one song, one jingle, one ad. Short for *cartridge*: a case of looped tape that played once and rewound itself, racked up by the dozen beside the desk. The tape is gone; the word stayed. The software is still older than the DJ, and the station still likes it that way.)
 
 There is also, most nights around 03:14, **a glitch in the automation.**
 
