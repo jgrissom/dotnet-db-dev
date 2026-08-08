@@ -296,7 +296,7 @@ Make your changes, commit as you go, then:
 git push -u origin sealed-play-count
 ```
 
-GitHub answers that push with a URL for opening a pull request. Open it, give it a title that says what changed, and **merge it with the plain "Merge pull request" button**.
+GitHub answers that push with a URL for opening a pull request. Open it, give it a title that says what changed, and **scroll down to the changed files before you do anything else — that is the diff:** every line this branch added or took away, measured against `main`. Read it. Then **merge it with the plain "Merge pull request" button**.
 
 ```bash
 git checkout main

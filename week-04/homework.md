@@ -235,7 +235,7 @@ git push -u origin the-registry
 
 GitHub answers that push with a URL. Open it (or go to your repo — there'll be a **Compare & pull request** banner), give it a title that says what changed, and open it.
 
-**Read your own diff before you merge it.** Nobody else is going to, and it catches more than you'd expect.
+**[Read your own diff](lecture-notes.md#branch-pull-request-merge) before you merge it** — scroll down to the changed files. Nobody else is going to, and it catches more than you'd expect.
 
 Then merge it with the plain **"Merge pull request"** button.
 
