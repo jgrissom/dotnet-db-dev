@@ -33,7 +33,7 @@ style: |
 
 <!-- _footer: '🖥️ Demo §1 · the class you already write' -->
 
-## You have written this class
+## What's wrong with this class?
 
 ```csharp
 public class SignOut
@@ -46,8 +46,6 @@ public class SignOut
 ```
 
 It has been on that board all term.
-
-**Nothing is wrong with it.**
 
 ---
 

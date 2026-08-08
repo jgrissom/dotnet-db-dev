@@ -23,7 +23,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 ## 1 · The class you already write *(slide 2)*
 
-- [ ] 🎞️ **GO TO SLIDE 2** — *You have written this class* · *"this has been on the board since week 3. Nobody has complained about it, including me. Have a look at it and tell me what's wrong with it"*
+- [ ] 🎞️ **GO TO SLIDE 2** — *What's wrong with this class?* · *"this has been on the board since week 3. Nobody has complained about it, including me. Have a look at it and tell me what's wrong with it"*
 - [ ] **Let them look.** 🎯 **The honest answer is "nothing", and that is the answer you want.** If somebody says *"they should be private"* — *"why?"* — and let them try to finish the sentence. Most rooms cannot, because it has always been a rule rather than a reason
 - [ ] *"Right. Nothing is wrong with it. It compiles, it runs, the board draws. Hold that thought for about four minutes"*
 
@@ -39,7 +39,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   cp week-03/Haldane/Conditions.cs week-03/Haldane/SignOut.cs week-04/Haldane/
   ```
 
-- [ ] 📖 **Open `week-04/Haldane/SignOut.cs` and leave it on screen.** *"Four public fields and a constructor. That is the whole class, and it is exactly what you'd have written"*
+- [ ] 📖 **Open `week-04/Haldane/SignOut.cs` and leave it on screen.** *"Four public fields and a constructor. That is the whole class"*
 
 - [ ] **Paste the banner and the readings line** — select the whole of `week-04/Haldane/Program.cs` (`⌘A`) and paste over it. The two lines `dotnet new` wrote are the SDK's, not ours
 
