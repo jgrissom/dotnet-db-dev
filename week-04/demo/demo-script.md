@@ -350,7 +350,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 - [ ] 🎯 **The line that earns the beat:** *"return the real list and the `private` never meant anything — whoever asked can empty it, and your `Count` will agree with them"*
 - [ ] 💡 **`Lighthouse` is an example topic, not a third world** — the same one `lecture-notes.md` uses. It is on the slide because §6 is about *their* project, not the station and not the lab. Answer it if asked; don't introduce it otherwise
 
-- [ ] 🎞️ **GO TO SLIDE 11** — *Your project starts tonight* · *"tonight your homework stops being a radio station and starts being yours. A topic you pick, in a repo that's yours, public, with your name on it"*
+- [ ] 🎞️ **GO TO SLIDE 11** — *Your project starts tonight* · *"tonight your homework stops being something I asked you to make and starts being something you decided to make. A topic you pick, in a repo that's yours, public, with your name on it"*
 - [ ] *"And every week from here extends that same program. Behaviour next week, then interfaces, tests, a save file, queries, a database. In week 16 you present it"*
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Finish this sentence* · 🎯 **ask the room to do it out loud, with their own idea:** *"each one of my ___ has many ___"*
