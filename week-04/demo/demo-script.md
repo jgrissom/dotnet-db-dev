@@ -346,7 +346,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 ## 6 · Your own topic *(slides 10–12)*
 
-- [ ] 🎞️ **GO TO SLIDE 10** — *The list is nobody's business* · *"same idea, one size up. The class holds the collection, the collection is private, and `All()` hands out a **copy**"*
+- [ ] 🎞️ **GO TO SLIDE 10** — *The list is nobody's business* · *"same idea, one field to a whole list. The class holds the collection, the collection is private, and `All()` hands out a **copy**"*
 - [ ] 🎯 **The line that earns the beat:** *"return the real list and the `private` never meant anything — whoever asked can empty it, and your `Count` will agree with them"*
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *Your project starts tonight* · *"tonight your homework stops being my station and starts being yours. A topic you pick, in a repo that's yours, public, with your name on it"*
