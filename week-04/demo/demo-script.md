@@ -188,7 +188,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
       }
   ```
 
-- [ ] 📖 **Three things, and name them in this order** — *"`_expected` is the private one; the underscore is just how people write it. `value` is a keyword — inside a `set` it's whatever was on the right of the equals, and you never declare it. And the `if` is the entire point: that is a method running on the way in"*
+- [ ] 📖 **Three things, and name them in this order** — *"`_expected` is the private one; the underscore is just how people write it. `value` is a keyword — inside a `set` it's whatever was on the right of the equals, and you never declare it. And the `if` is the entire point: that `set` is a method, and the `if` runs inside it on the way in"*
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *The caller never noticed* · 🎯 **point at the unchanged line in `Program.cs`:** *"look at what did **not** change. `outside[1].Expected = newTime;` — same line, character for character. It still reads like a field and it's still written like a field"*
 
