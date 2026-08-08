@@ -31,7 +31,7 @@ style: |
 
 ---
 
-<!-- _footer: '🖥️ Demo §1 · the class you already write' -->
+<!-- _footer: '🖥️ Demo §1 · the class nobody complained about' -->
 
 ## What's wrong with this class?
 

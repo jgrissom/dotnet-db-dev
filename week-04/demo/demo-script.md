@@ -4,7 +4,7 @@
 
 Tonight the class you have shown them since week 3 gets convicted. It has been on screen all term as four public fields, and nobody has said a word about it. One typed correction at −39 is all it takes.
 
-> **The shape of the night:** a class you already write → a blank that gets in → a door instead of a hole → a fact nothing can rewrite → and a repo of their own.
+> **The shape of the night:** a class nobody complained about → a blank that gets in → a door instead of a hole → a fact nothing can rewrite → and a repo of their own.
 
 **Total: ~95 minutes across the evening**, in the timing table's segments.
 
@@ -21,7 +21,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 ---
 
-## 1 · The class you already write *(slide 2)*
+## 1 · The class nobody complained about *(slide 2)*
 
 - [ ] 🎞️ **GO TO SLIDE 2** — *What's wrong with this class?* · *"this has been on the board since week 3. Nobody has complained about it, including me. Have a look at it and tell me what's wrong with it"*
 - [ ] **Let them look.** 🎯 **The honest answer is "nothing", and that is the answer you want.** If somebody says *"they should be private"* — *"why?"* — and let them try to finish the sentence. Most rooms cannot, because it has always been a rule rather than a reason
@@ -354,7 +354,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Finish this sentence* · 🎯 **ask the room to do it out loud, with their own idea:** *"each one of my ___ has many ___"*
 - [ ] **Take two or three answers.** Anything that can't finish the sentence gets sent back tonight, not in November
-- [ ] ⚠️ **Sell the odd ones.** *"The best project in this room will be the strangest one. Nobody wants to present a list of products"*
+- [ ] ⚠️ **Sell the odd ones.** *"the strangest project in this room is the one I want to see most. I've read enough lists of products"*
 - [ ] 💡 **The one fixed rule, and it is one class:** *"there's one class in your project whose shape I dictate — `Registry`, with six members. It's how the checks find your code without me knowing a thing about your topic. Everything else is yours"*
 
 ---
@@ -404,4 +404,4 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 - [ ] 🎞️ **GO TO SLIDE 15** — *Tonight, in one picture*
 - [ ] **Three beats, and stop:** **a field** — anything can say anything · **a property** — somebody is at the door · **`private set`** — the record is the authority on itself
 - [ ] *"Two URLs in Canvas this week. Your coursework repo, same as always — and your project repo, which is new, and public"*
-- [ ] 💡 **Next week:** *"`static` — the word you've been adding to make the red squiggle go away. Next week you find out what it actually costs you"*
+- [ ] 💡 **Next week:** *"`static` — the word some of us add to make the red squiggle go away. Next week you find out what it actually costs you"*
