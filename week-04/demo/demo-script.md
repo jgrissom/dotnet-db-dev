@@ -258,7 +258,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   error CS0200: Property or indexer 'SignOut.Name' cannot be assigned to -- it is read only
   ```
 
-- [ ] 🎯 **Delete the `outside[0].Name = "Okonkow";` line.** *"That is the fix. Not a code review, not somebody noticing — the compiler simply will not build a program that rewrites who was outside"*
+- [ ] 🎯 **Delete the `outside[0].Name = "Okonkow";` line.** *"The compile error is the fix. Not a code review, not somebody noticing — the compiler simply will not build a program that rewrites who was outside"*
 
 - [ ] **Run it.** Clean board, right names
 
@@ -349,13 +349,13 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 - [ ] 🎞️ **GO TO SLIDE 10** — *The list is nobody's business* · *"same idea, one field to a whole list. The class holds the collection, the collection is private, and `All()` hands out a **copy**"*
 - [ ] 🎯 **The line that earns the beat:** *"return the real list and the `private` never meant anything — whoever asked can empty it, and your `Count` will agree with them"*
 
-- [ ] 🎞️ **GO TO SLIDE 11** — *Your project starts tonight* · *"tonight your homework stops being my station and starts being yours. A topic you pick, in a repo that's yours, public, with your name on it"*
+- [ ] 🎞️ **GO TO SLIDE 11** — *Your project starts tonight* · *"tonight your homework stops being a radio station and starts being yours. A topic you pick, in a repo that's yours, public, with your name on it"*
 - [ ] *"And every week from here extends that same program. Behaviour next week, then interfaces, tests, a save file, queries, a database. In week 16 you present it"*
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Finish this sentence* · 🎯 **ask the room to do it out loud, with their own idea:** *"each one of my ___ has many ___"*
 - [ ] **Take two or three answers.** Anything that can't finish the sentence gets sent back tonight, not in November
 - [ ] ⚠️ **Sell the odd ones.** *"the strangest project in this room is the one I want to see most. I've read enough lists of products"*
-- [ ] 💡 **The one fixed rule, and it is one class:** *"there's one class in your project whose shape I dictate — `Registry`, with six members. It's how the checks find your code without me knowing a thing about your topic. Everything else is yours"*
+- [ ] 💡 **The one fixed rule, and it is one class:** *"there's one class in your project whose shape I dictate — `Registry`, with five members. It's how the checks find your code without me knowing a thing about your topic. Everything else is yours"*
 
 ---
 
@@ -402,6 +402,6 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 ## 9 · Wrap *(slide 15)*
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *Tonight, in one picture*
-- [ ] **Three beats, and stop:** **a field** — anything can say anything · **a property** — somebody is at the door · **`private set`** — the record is the authority on itself
+- [ ] **Three beats, and stop:** **a field** — anything can say anything · **a property** — somebody at the door decides what gets in · **`private set`** — the record is the authority on itself
 - [ ] *"Two URLs in Canvas this week. Your coursework repo, same as always — and your project repo, which is new, and public"*
 - [ ] 💡 **Next week:** *"`static` — the word some of us add to make the red squiggle go away. Next week you find out what it actually costs you"*

@@ -261,7 +261,7 @@ Every task you finish, one more attack bounces.
 
 **A field** — anything can say anything.
 
-**A property** — somebody is standing at the door.
+**A property** — somebody at the door decides what gets in.
 
 **`private set`** — the record is the authority on itself.
 
