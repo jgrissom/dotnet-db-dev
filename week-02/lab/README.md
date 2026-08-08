@@ -229,18 +229,11 @@ This is the method that crashed the desk in Task 1, and now you know everything 
 Ray's out there somewhere. He'll call back.
 ```
 
-```csharp
-public static string WhereIsRay(string? typed)
-{
-    if (int.TryParse(typed, out int marker) && marker >= 1 && marker <= 400)
-    {
-        return $"Ray at mile {marker} - {400 - marker} to go on his stretch.";
-    }
-    return "Ray's out there somewhere. He'll call back.";
-}
-```
+**Same tool as Task 3 — deliberately.** Reuse [the `TryParse` guard](../lecture-notes.md#parse-believes-tryparse-asks) you just wrote: it tells you the input is a real marker **and** hands you the number itself, in one step.
 
-Same tool as Task 3 — deliberately. If you'd rather call your own `IsOnTheStretch` as the guard, that's correct too.
+What changes is what comes back. Task 3 handed back a `bool`; this one hands back **one of two sentences** — so the guard goes inside an `if`, the mile line goes inside it too, and the standard line is what's left underneath. **The day shift already wrote the mile line and it's worth keeping** — the marker, and `400 - marker` miles left on his stretch.
+
+💡 **Calling your own `IsOnTheStretch` as the guard is correct too, with one catch:** it answers *whether*, not *which* — so you'd still need the number for the mile line. (`int.Parse` is safe once that guard has said yes. But if you're reaching for it, `TryParse` was already going to hand you both.)
 
 **Now run the shift and put it through all three cases** — this is the run tonight is for:
 
@@ -283,15 +276,9 @@ The rules, and both are checked:
 - **The name goes through `CallerName` — call it, don't redo the trimming.** Task 2 already knows what to call a nameless caller; two places that both know the rule is one place too many. (Sound familiar? It's week 1's `CallSign()` lesson wearing a new shirt.)
 - **A `null` or blank request becomes exactly `"dealer's choice"`** — same `IsNullOrWhiteSpace` shape as Task 2.
 
-```csharp
-public static string TakeRequest(string? name, string? request)
-{
-    string track = string.IsNullOrWhiteSpace(request) ? "dealer's choice" : request.Trim();
-    return $"For {CallerName(name)}: {track}.";
-}
-```
+**Two steps, and the second is one line.** Work out the track first — blank or `null` becomes `"dealer's choice"`, anything else is the request with its spare spaces trimmed. Then build the sentence: `For `, the name, `: `, the track, a full stop.
 
-(That `? :` is the conditional operator — an `if`/`else` that fits inside an expression. Writing it as a full `if` is exactly as correct.)
+💡 **The blank-request guard is Task 2's, reused** — [the same one question that covers all three situations](../lecture-notes.md#readline-and-null). Write it as a full `if`/`else` if you like; if you'd rather have it as a one-line `? :`, that's the conditional operator — an `if`/`else` that fits inside an expression — and it's exactly as correct.
 
 Until now that line has read `On air:` and then nothing — `TakeRequest` returned an empty string. Run it and watch the desk find its voice:
 

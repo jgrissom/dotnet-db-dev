@@ -313,29 +313,12 @@ week 3 lab: the desk knows its regulars
 
 **Check:** `Check4_TheDeskKnowsWhoWontStop`
 
-Who rang the most tonight? The dictionary knows, but it won't just tell you — you have to walk it.
+Who rang the most tonight? The dictionary knows, but it won't just tell you — **you have to walk it.** [The notes show the walk](../lecture-notes.md#walking-a-dictionary): a `foreach` that visits every pair in turn. That version prints them as it goes; yours has to *remember* the best one it has seen.
 
-```csharp
-public static string TheRegular()
-{
-    string best = "nobody yet";
-    int most = 0;
-
-    foreach (KeyValuePair<string, int> entry in Regulars)
-    {
-        if (entry.Value > most)
-        {
-            most = entry.Value;
-            best = entry.Key;
-        }
-    }
-
-    return best;
-}
-```
+**Two variables before the loop** — the leading name so far, and the highest count so far — **one comparison inside it**, and the name is what you hand back at the end.
 
 - **Each item is a pair** — `entry.Key` is the name, `entry.Value` is the count.
-- ⚠️ **`best` starts at `"nobody yet"` for a real reason:** an empty dictionary means the loop never runs at all, so whatever you set up beforehand is what comes back. **You'll see that exact line tonight**, and not because you did anything wrong.
+- ⚠️ **Whatever you set that name to *before* the loop is what comes back when nobody has called**, because an empty dictionary means the loop never runs at all. It has to be exactly `"nobody yet"` — and **you'll see that line tonight**, not because you did anything wrong.
 - **There's no `break` in this loop.** You have to see everybody before you can know who called most.
 
 *(In week 9 this whole loop becomes one line. It's worth writing by hand once first.)*
@@ -370,21 +353,13 @@ week 3 lab: the desk knows who won't stop
 
 The line the desk signs off with. Two shapes, and **both of them matter tonight:**
 
-```csharp
-public static string SignOff()
-{
-    if (Tonight.Count == 0)
-    {
-        return "Nobody called. Not one person.";
-    }
+- **Nobody called at all** — return exactly `Nobody called. Not one person.` Check the count first and return early, before you build anything else.
+- **Otherwise** — one sentence carrying three facts: how many calls came in, how many different people rang, and who wouldn't stop. With `Dorothy`, `Bex`, `Dorothy` it reads `3 calls from 2 people. Dorothy would not stop.` **The wording is yours; the three facts aren't.**
 
-    return $"{Tonight.Count} calls from {Regulars.Count} people. "
-        + $"{TheRegular()} would not stop.";
-}
-```
+All three are already sitting there waiting to be asked:
 
-- **`Tonight.Count` is how many calls. `Regulars.Count` is how many people.** Different numbers, from the two different collections, in one sentence — which is the whole week in one line of code.
-- **It asks `TheRegular()` rather than working it out again.** You already wrote that method.
+- **`Tonight.Count` is how many calls. `Regulars.Count` is how many people.** [Two collections, two different questions](../lecture-notes.md#list-or-dictionary) — different numbers, in one sentence, which is the whole week in one line of code.
+- **Ask `TheRegular()` for the name** rather than working it out a second time. You already wrote that method.
 
 **Now work a proper shift.** Take four or five calls — repeat a caller, leave a name blank, put in whatever you like — and end with `q`:
 
@@ -392,7 +367,7 @@ public static string SignOff()
 dotnet run --project week-03/Lab
 ```
 
-With `Dorothy`, `Bex`, `Dorothy` the desk signs off like this:
+With `Dorothy`, `Bex`, `Dorothy` the desk signs off like this — the `KDXR -` and the last line come from the shift itself, and the sentence between them is however you worded it:
 
 ```
 most calls tonight: Dorothy

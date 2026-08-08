@@ -62,7 +62,7 @@ By the end of this session, students can:
 | 2:05 | 10 min | **☕ Break** |
 | 2:15 | 15 min | 🎯 **Run it again** *(slides 13–14, demo §6)*. Nothing typed. `4 people outside` → `3 people outside`. The promise from week 1, collected. Where it gets answered: week 8, week 10. |
 | 2:30 | 5 min | **Lab launch** *(slide 15, demo §7)*. The frame, and "done" defined on **their** machines: after check 5, quit and run it again. |
-| 2:35 | 60 min | **Lab: the night's log** *(slide 15 stays up)*. **In-class target: all five green, then lose the night.** Circulate for the Task 5 re-run. |
+| 2:35 | 60 min | **Lab: the night's log** *(slide 15 stays up)*. **In-class target: all five green, then lose the night.** Circulate for **Task 4** — the walk is theirs to write, and it's the one real piece of thinking in the night — and for the Task 5 re-run. |
 | 3:35 | 10 min | **Wrap-up** *(slide 16, demo §8)*. A list is every one · a dictionary is every key · and none of it was written down. Homework: the station's last night. Week 4 tease: **their own topic, and a repo they'll live in until December.** |
 
 ## Instructor notes
