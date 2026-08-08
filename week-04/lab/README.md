@@ -155,7 +155,7 @@ Open `Lab/Rotation.cs`. The private list is already there:
 private readonly List<Song> _songs = new List<Song>();
 ```
 
-Write the three members underneath it:
+Write [the three members](../lecture-notes.md#the-class-that-holds-the-collection) underneath it:
 
 - **`Add`** — one line. Put the song in `_songs`.
 - **`Count`** — ask `_songs`. It ships returning a hard-coded `0`, which is right exactly once.
@@ -197,7 +197,7 @@ dotnet test week-04/Lab.Checks
 
 ### Task 3 in full
 
-Open `Lab/Song.cs`. Turn `Title` and `Artist` into properties with private fields behind them:
+Open `Lab/Song.cs`. Turn `Title` and `Artist` into [properties with private fields behind them](../lecture-notes.md#a-property-is-a-field-with-a-doorman):
 
 ```csharp
 private string _title = "(untitled)";
@@ -229,6 +229,8 @@ dotnet run --project week-04/Lab
 
 **One line flipped.** The title held; the duration still went through. That's exactly one hole closed, and you can see which one.
 
+⚠️ **Don't go looking for the `-400` on the board — it isn't there, and nothing is broken.** The table has a **LENGTH** column, not a seconds one, and `Length` is still the hard-coded `"0:00"` it shipped as, so every row reads `0:00` whatever `Seconds` holds. The sabotaged track looks exactly like the healthy ones. **The glitch report is the only witness until Task 4**, which is the task that makes `Length` tell the truth — and the damage visible.
+
 **Then the checks:**
 
 ```bash
@@ -252,7 +254,7 @@ set { if (value >= 1) { _seconds = value; } }
 > [!WARNING]
 > **`value >= 1`, not `value >= 0`.** Zero slips straight through a "no negatives" test, and a zero-second song is still dead air.
 
-**`Length` reads off it, and stores nothing:**
+**[`Length` reads off it, and stores nothing](../lecture-notes.md#a-property-that-isnt-stored-anywhere):**
 
 ```csharp
 public string Length => $"{Seconds / 60}:{Seconds % 60:00}";
@@ -288,7 +290,7 @@ dotnet test week-04/Lab.Checks
 
 The last one, and the one worth slowing down for.
 
-`PlaysTonight` is still a public field, which means any line anywhere in the program can claim a song played forty times. Make it this instead:
+`PlaysTonight` is still a public field, which means any line anywhere in the program can claim a song played forty times. Make it [read by anybody and written by nobody](../lecture-notes.md#private-set--the-one-to-slow-down-on) instead:
 
 ```csharp
 public int PlaysTonight { get; private set; }
