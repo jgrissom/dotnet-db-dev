@@ -126,7 +126,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   AnsiConsole.WriteLine();
   ```
 
-- [ ] 📖 *"One line. Reach into the record and write the new time in. This is the line every one of you would write"*
+- [ ] 📖 *"One line. Reach into the record and write the new time in. This is the line some of us would write"*
 
 - [ ] **Run it and type `15:15`** — the ordinary case, and it works
 
