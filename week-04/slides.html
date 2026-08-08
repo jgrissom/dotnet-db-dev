@@ -450,17 +450,17 @@ section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="15">
 <h2 id="the-list-is-nobodys-business">The list is nobody's business</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp"><span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> List&lt;Song&gt; _songs
-    = <span class="hljs-keyword">new</span> List&lt;Song&gt;();
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp"><span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> List&lt;Lighthouse&gt; _items
+    = <span class="hljs-keyword">new</span> List&lt;Lighthouse&gt;();
 
-<span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Count =&gt; _songs.Count;
+<span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Count =&gt; _items.Count;
 
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">Song</span>&gt; <span class="hljs-title">All</span>()</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">Lighthouse</span>&gt; <span class="hljs-title">All</span>()</span>
 {
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> List&lt;Song&gt;(_songs);   <span class="hljs-comment">// a COPY</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> List&lt;Lighthouse&gt;(_items);  <span class="hljs-comment">// a COPY</span>
 }
 </code></pre>
-<p>Return <code>_songs</code> and the <code>private</code> meant nothing.</p>
+<p>Return <code>_items</code> and the <code>private</code> meant nothing.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §6 · the class that holds the list</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §6 · your own topic" data-theme="gaia" data-style="section pre {
