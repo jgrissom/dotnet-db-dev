@@ -61,7 +61,7 @@ No exception. No warning. No red squiggle. The board still cheerfully reports th
 **That is what a public field is.** It is a hole in the wall of your class. Anything, anywhere in your program, at any time, can write anything at all into it, and there is no place to stand between the outside world and your data.
 
 > [!IMPORTANT]
-> This is the promise from week 1 being collected. You were told that week 4 is where `public` and `private` get a reason. **The reason is not "encapsulation is good practice."** The reason is that a field gives you nowhere to put the rule.
+> This is the promise from week 1 being collected. You were told that week 4 is where `public` and `private` get a reason. **The reason is not "encapsulation is good practice."** The reason is that a field gives you nowhere to put rules.
 
 ---
 

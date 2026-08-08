@@ -16,7 +16,7 @@ The week a class you've been looking at since week 3 gets convicted. Four public
 
 ## What students walk out with
 
-**A reason, not a rule.** They can say what a public field costs — that there is nowhere to put the rule — and they've watched it silently destroy a value that mattered. They can write a property with a backing field, say what `value` is, write a setter that refuses without crashing, and reach for an auto-property when there's no rule yet. They can lock a fact with `{ get; }` and hand a fact's authority to the class itself with `{ get; private set; }`. They can build a class that owns a private collection and hands out a copy — and say what returning the real list would have undone.
+**A reason, not a rule.** They can say what a public field costs — that there is nowhere to put rules — and they've watched it silently destroy a value that mattered. They can write a property with a backing field, say what `value` is, write a setter that refuses without crashing, and reach for an auto-property when there's no rule yet. They can lock a fact with `{ get; }` and hand a fact's authority to the class itself with `{ get; private set; }`. They can build a class that owns a private collection and hands out a copy — and say what returning the real list would have undone.
 
 And they walk out with **a repo of their own**: public, on a topic they picked, with one feature already merged through a pull request.
 

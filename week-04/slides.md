@@ -91,7 +91,7 @@ Anything, anywhere, at any time, can write
 
 anything at all into it —
 
-and there is **nowhere to put the rule**.
+and there is **nowhere to put rules**.
 
 ---
 

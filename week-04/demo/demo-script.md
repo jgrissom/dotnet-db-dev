@@ -167,7 +167,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 ## 3 · A door instead of a hole *(slides 5–7)*
 
-- [ ] 🎞️ **GO TO SLIDE 5** — *What a public field is* · *"a public field is a hole in the wall of your class. Anything, anywhere, any time, can write anything into it — and there is nowhere to put the rule"*
+- [ ] 🎞️ **GO TO SLIDE 5** — *What a public field is* · *"a public field is a hole in the wall of your class. Anything, anywhere, any time, can write anything into it — and there is nowhere to put rules"*
 - [ ] 🎞️ **GO TO SLIDE 6** — *A property is a door* · *"so we put somebody at the door"*
 
 - [ ] **In `SignOut.cs`, replace the `public string Expected;` line** with the field and the property
