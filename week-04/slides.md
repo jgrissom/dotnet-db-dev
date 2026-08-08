@@ -175,18 +175,18 @@ somebody came back who didn't.
 ## The list is nobody's business
 
 ```csharp
-private readonly List<Song> _songs
-    = new List<Song>();
+private readonly List<Lighthouse> _items
+    = new List<Lighthouse>();
 
-public int Count => _songs.Count;
+public int Count => _items.Count;
 
-public List<Song> All()
+public List<Lighthouse> All()
 {
-    return new List<Song>(_songs);   // a COPY
+    return new List<Lighthouse>(_items);  // a COPY
 }
 ```
 
-Return `_songs` and the `private` meant nothing.
+Return `_items` and the `private` meant nothing.
 
 ---
 

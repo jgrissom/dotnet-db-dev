@@ -348,6 +348,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 🎞️ **GO TO SLIDE 10** — *The list is nobody's business* · *"same idea, one field to a whole list. The class holds the collection, the collection is private, and `All()` hands out a **copy**"*
 - [ ] 🎯 **The line that earns the beat:** *"return the real list and the `private` never meant anything — whoever asked can empty it, and your `Count` will agree with them"*
+- [ ] 💡 **`Lighthouse` is an example topic, not a third world** — the same one `lecture-notes.md` uses. It is on the slide because §6 is about *their* project, not the station and not the lab. Answer it if asked; don't introduce it otherwise
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *Your project starts tonight* · *"tonight your homework stops being a radio station and starts being yours. A topic you pick, in a repo that's yours, public, with your name on it"*
 - [ ] *"And every week from here extends that same program. Behaviour next week, then interfaces, tests, a save file, queries, a database. In week 16 you present it"*
