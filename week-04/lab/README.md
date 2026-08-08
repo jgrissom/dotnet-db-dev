@@ -193,6 +193,12 @@ dotnet test week-04/Lab.Checks
 
 **2 / 5.**
 
+**Green? Commit it:**
+
+```
+week 4 lab: the rotation keeps its own list
+```
+
 ---
 
 ### Task 3 in full
@@ -239,6 +245,12 @@ dotnet test week-04/Lab.Checks
 
 **3 / 5.**
 
+**Green? Commit it:**
+
+```
+week 4 lab: the title refuses a blank
+```
+
 ---
 
 ### Task 4 in full
@@ -283,6 +295,12 @@ dotnet test week-04/Lab.Checks
 ```
 
 **4 / 5.**
+
+**Green? Commit it:**
+
+```
+week 4 lab: the length reads off seconds
+```
 
 ---
 
@@ -331,6 +349,14 @@ dotnet test week-04/Lab.Checks
 
 **5 / 5.**
 
+**Then clock out — commit the shift**, the same way you did after Tasks 2, 3 and 4:
+
+```
+week 4 lab: nobody writes the play count
+```
+
+**That's five commits, and you didn't set out to make any of them** — you saved every time you got somewhere solid. **That's the habit**, and it's the one you'll be doing on a graded repo by the end of tonight's homework.
+
 ---
 
 ## Now try to break it
@@ -368,5 +394,17 @@ Everything you type goes through the same four doors you spent tonight building,
 | Check 4 says you got `3:7` instead of `3:07` | The seconds need padding — that's what `:00` is for inside `{Seconds % 60:00}`. |
 | The board is empty however much you load | `Rotation.All()` is still returning the brand-new empty list it ships with. |
 | `dotnet test` passes but the board still looks wrong | Run the program, not just the checks. The checks never look at `Program.cs`, and half of tonight is only visible on the board. |
+| Not sure what a property is even *for* | [A property is a field with a doorman](../lecture-notes.md#a-property-is-a-field-with-a-doorman) — the whole idea, worked. |
+| Not sure why `PlaysTonight` is different from the rest | [`private set` — the one to slow down on](../lecture-notes.md#private-set--the-one-to-slow-down-on). |
+| `Length` looks like it should be a field | [A property that isn't stored anywhere](../lecture-notes.md#a-property-that-isnt-stored-anywhere) — it's computed every time somebody asks. |
+| Not sure why `All()` hands back a copy | [The class that holds the collection](../lecture-notes.md#the-class-that-holds-the-collection). |
+
+> [!NOTE]
+> **Source Control view empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. **The buttons are only a second view of the commands you already know**, so the terminal does the same job whenever they misbehave:
+>
+> ```bash
+> git add .
+> git commit -m "week 4 lab: the rotation keeps its own list"
+> ```
 
 **Prev:** [Week 3 Lab — The Night's Log](../../week-03/lab/) · **Next:** [Week 4 Homework — Your Own Topic](../homework.md)
