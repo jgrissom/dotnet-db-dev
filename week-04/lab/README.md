@@ -109,13 +109,15 @@ Two files, and you should open both before you start.
 
 ## The tasks
 
-| # | Do this | Check |
-|---|---|---|
-| 1 | **Work a shift, and meet the 03:14 glitch.** No code. [Task 1 in full ↓](#task-1-in-full) | — |
-| 2 | `Rotation` keeps its own list — `Add`, `Count`, and an `All()` that hands back a **copy**. [Task 2 in full ↓](#task-2-in-full) | 2 |
-| 3 | `Title` and `Artist` become properties that refuse a blank. [Task 3 in full ↓](#task-3-in-full) | 3 |
-| 4 | `Seconds` refuses nonsense, and `Length` reads off it. [Task 4 in full ↓](#task-4-in-full) | 4 |
-| 5 | `PlaysTonight` can be read by anybody and written by nobody. [Task 5 in full ↓](#task-5-in-full) | 5 |
+**Commit every time a check goes green.** Three clicks in the Source Control view, and each task below hands you the message to paste. Nobody grades these; [the homework counts its own commits](../homework.md#commit-as-you-go), separately. This is practice with the safety on.
+
+| # | Check | What to do |
+|---|-------|------------|
+| 1 | *(check 1 is already green)* | Work a shift, and meet the 03:14 glitch. No code. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `TheRotationKeepsItsOwnList` | `Rotation` keeps its own list — `Add`, `Count`, and an `All()` that hands back a **copy**. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `ABlankTitleNeverGetsIn` | `Title` and `Artist` become properties that refuse a blank. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `ASongCannotBeMinusSevenMinutes` | `Seconds` refuses nonsense, and `Length` reads off it. **[Task 4 in full ↓](#task-4-in-full)** |
+| 5 | `ThePlayCountCannotBeForged` | `PlaysTonight` can be read by anybody and written by nobody. **[Task 5 in full ↓](#task-5-in-full)** |
 
 ---
 
@@ -148,6 +150,8 @@ Now open `Lab/Song.cs` and read the top of it. Four public fields. That's last w
 ---
 
 ### Task 2 in full
+
+**Check:** `Check2_TheRotationKeepsItsOwnList`
 
 Open `Lab/Rotation.cs`. The private list is already there:
 
@@ -203,6 +207,8 @@ week 4 lab: the rotation keeps its own list
 
 ### Task 3 in full
 
+**Check:** `Check3_ABlankTitleNeverGetsIn`
+
 Open `Lab/Song.cs`. Turn `Title` and `Artist` into [properties with private fields behind them](../lecture-notes.md#a-property-is-a-field-with-a-doorman):
 
 ```csharp
@@ -255,6 +261,8 @@ week 4 lab: the title refuses a blank
 
 ### Task 4 in full
 
+**Check:** `Check4_ASongCannotBeMinusSevenMinutes`
+
 Still in `Lab/Song.cs`. Two pieces, both about `Seconds`.
 
 **The setter refuses the impossible.** A song can't be zero seconds long and it certainly can't be negative:
@@ -305,6 +313,8 @@ week 4 lab: the length reads off seconds
 ---
 
 ### Task 5 in full
+
+**Check:** `Check5_ThePlayCountCannotBeForged`
 
 The last one, and the one worth slowing down for.
 
