@@ -376,7 +376,6 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 - [ ] 🎯 **Scroll down, past the description box, to the changed files — that is the diff.** *"Every line this branch added or took away, against `main`. This is the part that actually earns its keep. Nobody else is reviewing this — I'm reading my own work before it's permanent, and that catches more than you'd think"*
 - [ ] **Then click `Create pull request`**
 - [ ] **Merge it with the plain `Merge pull request` button**
-- [ ] ⚠️ **Say the trap once:** *"not Squash, not Rebase. They're both real and you'll use them at work — but only the plain one leaves a merge commit, and that's what I read out of your repo"*
 
 - [ ] **Come back down**
 
