@@ -7,13 +7,13 @@ Last week you were asked to bring two or three ideas for something you'd want to
 This is the hinge week. From here, every homework extends **this same program**: behaviour (5), interfaces (6), tests (7), a save file (8), queries (9), a database (10), full CRUD (11), a second related thing (12), defenses (13). In week 16 you present it.
 
 > [!TIP]
-> **Keep [`lecture-notes.md`](lecture-notes.md) open in a second tab.** Tonight's shapes — properties, `private set`, the registry — are all in there with working examples.
+> **Keep [`lecture-notes.md`](lecture-notes.md) open in a second tab.** Every requirement below links to the section that shows it done, and the [troubleshooting section](lecture-notes.md#-troubleshooting) names this week's actual errors.
 
 ---
 
 ## Part 1 — Pick your topic
 
-Take the ideas you brought and pick one. **Pick the odd one.** A registry of every payphone still standing in your county is a better project than a registry of products, it is much more fun to present in week 16, and nobody else in the room will have it.
+Take the ideas you brought and [pick one](lecture-notes.md#picking-a-topic). **Pick the odd one.** A registry of every payphone still standing in your county is a better project than a registry of products, it is much more fun to present in week 16, and nobody else in the room will have it.
 
 > [!IMPORTANT]
 > **One hard constraint, and it comes due in week 12.** Your topic has to be able to grow a **second, related thing** — not another list, but something that *belongs to* one of your records.
@@ -56,7 +56,7 @@ dotnet new console -o Project
 > [!CAUTION]
 > **The project must be called `Project`, exactly.** That's not a suggestion — the checks load your program by that name, and the folder has to sit at the top of your repo. Name your *repo* whatever you like; the project inside it is `Project`.
 
-**3. The `.gitignore`.** Same four lines you wrote in week 1, and this repo gets them before its first commit too:
+**3. The `.gitignore`.** [Same four lines you wrote in week 1](../week-01/lecture-notes.md#the-gitignore-written-before-your-first-commit), and this repo gets them before its first commit too:
 
 ```bash
 printf 'bin/\nobj/\n*.user\n.DS_Store\n' > .gitignore
@@ -104,7 +104,7 @@ git push -u origin main
 
 ## Part 3 — A branch, because that's how features arrive now
 
-From tonight, **nothing goes straight onto `main` again**. Every feature is a branch and a pull request — the workflow every job you'll have uses.
+From tonight, **nothing goes straight onto `main` again**. Every feature is [a branch and a pull request](lecture-notes.md#branch-pull-request-merge) — the workflow every job you'll have uses.
 
 ```bash
 git checkout -b the-registry
@@ -140,13 +140,13 @@ public class Thing
 
 That is *exactly* the shape you shipped `Call` in last week. Your job is to close it:
 
-- **Every public field becomes a property** with a private field behind it. No public fields left at all.
-- **At least one property refuses a bad value** — a name that won't go blank, a count that won't go negative, a year that has to be a year. Refusing means the old value stays; nothing crashes.
-- **At least one property the outside world can read and cannot write** — `{ get; private set; }`, moved only by a method of yours, or `{ get; }` set once in the constructor. Pick the fact your record is the authority on.
+- **[Every public field becomes a property](lecture-notes.md#a-property-is-a-field-with-a-doorman)** with a private field behind it. No public fields left at all.
+- **[At least one property refuses a bad value](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — a name that won't go blank, a count that won't go negative, a year that has to be a year. Refusing means the old value stays; nothing crashes.
+- **[At least one property the outside world can read and cannot write](lecture-notes.md#private-set--the-one-to-slow-down-on)** — `{ get; private set; }`, moved only by a method of yours, or [`{ get; }` set once in the constructor](lecture-notes.md#and-when-it-should-never-change-at-all). Pick the fact your record is the authority on.
 
 ### The registry
 
-**This one class has a fixed shape**, because it's how the checks find your code without knowing one word about your topic:
+**[This one class has a fixed shape](lecture-notes.md#the-one-class-whose-shape-isnt-up-to-you)**, because it's how the checks find your code without knowing one word about your topic:
 
 ```csharp
 // Project/Registry.cs
@@ -171,6 +171,8 @@ public class Registry
     }
 }
 ```
+
+The only line in there that isn't boilerplate is `All()` — [it has to hand back a **copy**](lecture-notes.md#the-class-that-holds-the-collection), never `_items` itself.
 
 > [!IMPORTANT]
 > **The six names — `Registry`, `Topic`, `NewItem`, `Add`, `Count`, `All` — are spelled exactly that way, every week, all semester.** Everything else is yours: the class name, the file names, the fields, what your program prints.
