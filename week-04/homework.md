@@ -45,24 +45,31 @@ This is your **second** repo, and unlike your coursework repo it is **public** �
 
 **1. Make it on GitHub.** New repository → name it after your topic (`payphones`, `lighthouse-log`, whatever) → **Public** → **don't** add a README, .gitignore or licence. You want it empty.
 
-**2. Make the folder and the project.** In a terminal, from wherever you keep your repos — *beside* `dotnet-db-coursework`, not inside it:
+**2. Make the folder, and open it in its own window.** Same move you used in week 1 to make `dotnet-db-coursework` — VS Code makes the folder for you:
+
+**File → New Window → Open Folder → *New Folder* → name it after your topic → Open.**
+
+⚠️ **The New Folder dialog is where you choose *where* it goes: beside `dotnet-db-coursework`, not inside it.** Two repos, side by side — the same way `dotnet-db-starters` sits beside your coursework.
+
+> [!IMPORTANT]
+> **Two windows from here on.** Your coursework repo stays open in its own window with tonight's lab in it; this repo gets its own. **Each window's terminal then stands in exactly one place**, which is what stops `MSB1003` — and it's why you don't `cd` between them.
+
+**3. Make the project.** `` Ctrl+` `` in the new window. It opens standing **inside your new repo**, which is where every command in this part runs:
 
 ```bash
-mkdir payphones
-cd payphones
 dotnet new console -o Project
 ```
 
 > [!CAUTION]
 > **The project must be called `Project`, exactly.** That's not a suggestion — the checks load your program by that name, and the folder has to sit at the top of your repo. Name your *repo* whatever you like; the project inside it is `Project`.
 
-**3. The `.gitignore`.** [Same four lines you wrote in week 1](../week-01/lecture-notes.md#the-gitignore-written-before-your-first-commit), and this repo gets them before its first commit too:
+**4. The `.gitignore`.** [Same four lines you wrote in week 1](../week-01/lecture-notes.md#the-gitignore-written-before-your-first-commit), and this repo gets them before its first commit too:
 
 ```bash
 printf 'bin/\nobj/\n*.user\n.DS_Store\n' > .gitignore
 ```
 
-**4. Bring in the checks.** They ship in the starters clone, and they have to sit *beside* `Project`:
+**5. Bring in the checks.** They ship in the starters clone, and they have to sit *beside* `Project`:
 
 ```bash
 cp -r ../dotnet-db-starters/project/week-04/Project.Checks .
@@ -82,7 +89,7 @@ payphones/              ← the top of your project repo
 └─ .gitignore
 ```
 
-**5. First commit and push.** Use the two lines GitHub showed you on the empty-repo page for the remote:
+**6. First commit and push.** Use the two lines GitHub showed you on the empty-repo page for the remote:
 
 ```bash
 git init
@@ -94,11 +101,6 @@ git commit -m "The project, empty"
 git remote add origin https://github.com/YOU/payphones.git
 git push -u origin main
 ```
-
-**6. Open it in a second VS Code window.** **File → New Window → Open Folder → `payphones`.**
-
-> [!NOTE]
-> **Two windows, not one.** Your coursework repo stays open in its own window with the lab in it; this repo gets its own. Each window's terminal then stands in exactly one place, which is what stops `MSB1003`.
 
 ---
 
