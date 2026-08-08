@@ -179,11 +179,35 @@ The only line in there that isn't boilerplate is `All()` — [it has to hand bac
 > [!IMPORTANT]
 > **The six names — `Registry`, `Topic`, `NewItem`, `Add`, `Count`, `All` — are spelled exactly that way, every week, all semester.** Everything else is yours: the class name, the file names, the fields, what your program prints.
 >
-> `NewItem` exists because I have never seen your code. The checks know the one name `Registry`, and they learn what your record is called from **what `NewItem` hands back**. It's the door. Without it, checking your work would mean guessing your class names, and guessing doesn't work.
+> ⚠️ **`NewItem` takes exactly one `string` — always, however many facts your record carries.** That is a rule about the *shape*, not just the spelling, and it's the one people widen. If your record needs three things to be built, give the extras defaults — `public BallPark(string name, string team = "unknown", int capacity = 0)` — and let `NewItem` pass only the name. Your longer constructor still works everywhere else.
+>
+> `NewItem` exists because I have never seen your code. The checks know the one name `Registry`, and they learn what your record is called from **what `NewItem` hands back**. It's the door — and the checks have to be able to make one of your things knowing **nothing but a name**, which is why it takes one string and no more. Widen it and they can't find the door at all: checks 2 through 5 fail together, for a reason that has nothing to do with your properties.
+>
+> 💡 **The private list's name is yours too** — `_items`, `_ballParks`, whatever. Only the six names above are fixed.
 
 ### And a `Program.cs` that runs
 
-Replace the whole of `Project/Program.cs` (`⌘A`, paste over it — the two lines `dotnet new` wrote are the SDK's, not yours). Make it seed two or three records, print them, and print `Registry.Topic` somewhere.
+Select the whole of `Project/Program.cs` (`⌘A`) and paste this over it — the two lines `dotnet new` wrote are the SDK's, not yours:
+
+```csharp
+// Project/Program.cs — swap Thing for your record's name, and print your own facts
+var registry = new Registry();
+
+registry.Add(new Thing("the first one"));
+registry.Add(new Thing("the second one"));
+registry.Add(new Thing("the third one"));
+
+Console.WriteLine(Registry.Topic);
+Console.WriteLine($"{registry.Count} on file.");
+Console.WriteLine();
+
+foreach (Thing item in registry.All())
+{
+    Console.WriteLine(item.Name);
+}
+```
+
+Then make it yours: real records instead of `"the first one"`, and print the facts your record actually carries.
 
 > [!CAUTION]
 > **Ask at most once, and never loop on input.** The grader runs your program with nothing but Enter on the keyboard. A `while` loop waiting for a menu choice hangs it, and a hung program scores zero for running.
@@ -295,6 +319,8 @@ That last one is the step everybody forgets. The merge happened on GitHub; your 
 | Check 2 passes but 3 and 4 say **blocked** | They can't run until your record has properties. Same problem as check 2, not a new one. |
 | Check 3: "every settable property stored a nonsense value" | Your setters are rubber stamps. At least one needs an `if` in it — a property with an empty setter *is* a field, just longer to type. |
 | Check 5: "the Registry went from 2 records to 0" | `All()` is handing out `_items` itself. `return new List<Thing>(_items);` |
+| `CS5001: Program does not contain a static 'Main' method` | `Project/Program.cs` is empty — you selected all and deleted without pasting. The block in [Part 4](#and-a-programcs-that-runs) goes there. **A build failure zeroes all five checks**, so this looks far worse than it is. |
+| `NewItem exists, but not with the parameters the homework asks for` | It takes **exactly one `string`** — yours takes more. Give your constructor's extra parameters defaults and let `NewItem` pass just the name. The message prints `yours:` and `wanted:` side by side. |
 | `Assembly.Load("Project")` failed / no tests ran | The console project isn't called `Project`, or it isn't beside `Project.Checks` at the top of your repo. |
 | `git push` → `src refspec ... does not match any` | You're on a branch with no commits on it. Commit first, then push. |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b the-registry`, push that. |
