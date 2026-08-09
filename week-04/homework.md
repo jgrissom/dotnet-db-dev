@@ -140,7 +140,7 @@ public class Thing
 }
 ```
 
-That is *exactly* the shape you shipped `Call` in last week. Your job is to close it:
+That is *exactly* the shape you shipped `Call` in last week. Your job is to close it — and [here is one closed, with the reason beside every decision](lecture-notes.md#and-here-is-the-record-it-hands-back):
 
 - **[Every public field becomes a property](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — no public fields left at all. Where the property needs a rule, write the private field and the rule; [where it doesn't, use the short form](lecture-notes.md#the-short-form-for-when-theres-no-rule) — `public string Team { get; set; } = "unknown";`
 - **[At least one property refuses a bad value](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — a name that won't go blank, a count that won't go negative, a year that has to be a year. Refusing means the old value stays; nothing crashes.
