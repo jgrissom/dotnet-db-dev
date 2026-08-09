@@ -278,6 +278,68 @@ public class Registry
 
 Why `NewItem` exists, since your program barely uses it: I have never seen your code. The checks know one name — `Registry` — and everything else they learn from what `NewItem` hands back. It's the door. Without it there is no way to check your work without me guessing what you called things, and guessing doesn't work.
 
+⚠️ **`NewItem` takes one `string` and nothing else** — always, however many facts your record carries. That is a rule about the *shape*, not just the spelling. If your record needs three things to be built, give the extras defaults and let `NewItem` pass only the name. Widen it and the checks can't find the door at all.
+
+### And here is the record it hands back
+
+The `Registry` above is the fixed half. This is the other half — the class the whole project is *about* — with every shape this week taught, and a note on why each one is the shape it is:
+
+```csharp
+// Project/Lighthouse.cs — my example. Yours is whatever your topic is made of.
+public class Lighthouse
+{
+    // A RULE, so the field is written by hand: a light with no name is a blank row.
+    private string _name = "(unnamed)";
+    public string Name
+    {
+        get { return _name; }
+        set { if (!string.IsNullOrWhiteSpace(value)) { _name = value.Trim(); } }
+    }
+
+    // NO rule, so the short form. One line, and it can grow a rule later.
+    public string Condition { get; set; } = "unknown";
+
+    // A rule again. Nothing is nought feet tall, so 0 means "haven't measured".
+    private int _heightFeet;
+    public int HeightFeet
+    {
+        get { return _heightFeet; }
+        set { if (value > 0) { _heightFeet = value; } }
+    }
+
+    // The lighthouse's OWN business. Anyone may read; only Visit may move them,
+    // and they move together — which no outside caller could keep straight.
+    public int Visits { get; private set; }
+    public DateOnly? LastVisit { get; private set; }
+
+    public void Visit(DateOnly when)
+    {
+        Visits++;
+        LastVisit = when;
+    }
+
+    public Lighthouse(string name, string condition = "unknown", int heightFeet = 0)
+    {
+        Name = name;
+        Condition = condition;
+        HeightFeet = heightFeet;
+    }
+}
+```
+
+**Read it as four decisions, because that's the week's actual question — *which shape, and why*:**
+
+| Member | Shape | Because |
+|---|---|---|
+| `Name`, `HeightFeet` | private field + a setter that refuses | there is a rule, and a rule needs somewhere to live |
+| `Condition` | [the short form](#the-short-form-for-when-theres-no-rule) | there is no rule. Don't write eight lines for nothing |
+| `Visits`, `LastVisit` | [`{ get; private set; }`](#private-set--the-one-to-slow-down-on) | the record's own bookkeeping — nobody outside gets to claim a visit that didn't happen |
+| `Visit(...)` | a method | **this is what makes `private set` honest.** A sealed property with nothing to move it is decoration — it promises "only I change this" and then nothing ever does |
+
+⚠️ **Notice what isn't here: `{ get; }`.** [It's a real shape](#and-when-it-should-never-change-at-all) and it's the right one for a fact that never changes — but it can only ever be filled **in the constructor**, and `NewItem(string)` has nothing to fill it *with* except a name. Choose it for the height of a lighthouse and every record the registry makes is stuck at `0` forever, with `CS0200` waiting for you when you try to fix it. Save `{ get; }` for something derived from the name itself, or a constant.
+
+**`Visits` and `LastVisit` are also a down payment on week 12.** Right now they're two summary values on the record. When your topic grows its second, related thing — *each lighthouse has many visits* — those become real rows in a second table, and the count stops being something you maintain at all.
+
 ---
 
 ## Branch, pull request, merge
