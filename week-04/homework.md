@@ -142,7 +142,7 @@ public class Thing
 
 That is *exactly* the shape you shipped `Call` in last week. Your job is to close it:
 
-- **[Every public field becomes a property](lecture-notes.md#a-property-is-a-field-with-a-doorman)** with a private field behind it. No public fields left at all.
+- **[Every public field becomes a property](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — no public fields left at all. Where the property needs a rule, write the private field and the rule; [where it doesn't, use the short form](lecture-notes.md#the-short-form-for-when-theres-no-rule) — `public string Team { get; set; } = "unknown";`
 - **[At least one property refuses a bad value](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — a name that won't go blank, a count that won't go negative, a year that has to be a year. Refusing means the old value stays; nothing crashes.
 - **[At least one property the outside world can read and cannot write](lecture-notes.md#private-set--the-one-to-slow-down-on)** — `{ get; private set; }`, moved only by a method of yours, or [`{ get; }` set once in the constructor](lecture-notes.md#and-when-it-should-never-change-at-all). Pick the fact your record is the authority on.
 
