@@ -37,18 +37,18 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
 
 - [ ] ⚠️ **The instructor demo repo from week 1 is tonight's set — and it should be CLEAN.** Week 1 ended with the `.gitignore` written before the first commit, so verify: repo exists, four-line `.gitignore` at the root, and
   ```bash
-  cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && git ls-files | grep -cE '(^|/)(bin|obj)/'
+  cd ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework && git ls-files | grep -cE '(^|/)(bin|obj)/'
   ```
   **`0` = ready.** §1 manufactures its own mess live — one file, on purpose, evicted the same segment.
 - [ ] ⚠️ **Rehearsed §1 already? Reset it, or the slip cannot happen.** The segment ends with `secrets.txt` **in** the `.gitignore` — so on a second run `git add .` skips it silently and there is nothing to commit. Put the repo back to week 1's end state:
   ```bash
-  cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && git reset --hard 2877f33 && git push -f && rm -f secrets.txt
+  cd ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework && git reset --hard 2877f33 && git push -f && rm -f secrets.txt
   ```
   💡 **Check it took:** the `.gitignore` is back to **four** lines and `secrets.txt` is gone from disk. *(This is the one place `--hard` is wanted — it's the throwaway rehearsal repo, and §1 teaches students never to use it.)*
 - [ ] ⚠️ **If the demo repo is gone**, rebuild the week-1 end state (~2 min) — the force-push replaces the demo repo on GitHub, which is fine, it's the same teaching artifact:
   ```bash
-  rm -rf ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && mkdir -p ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework
-  cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework
+  rm -rf ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework && mkdir -p ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework
+  cd ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework
   printf 'bin/\nobj/\n*.user\n.DS_Store\n' > .gitignore
   dotnet new console -o week-01/Haldane
   cp ~/Repos/dotnet-db-dev-answer-keys/week-01/demo-starter/Haldane/*.cs week-01/Haldane/
@@ -59,7 +59,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   ```
 - [ ] **Open the hosted cue sheet and check it matches the markdown.** The published page is a *build* — it lags a push by a couple of minutes and can fail outright, leaving the previous version up with no warning at all. **Stale or won't load? Read `demo-script.md` from the clone instead** — the markdown is always right, and all you lose is the checkboxes and the Copy buttons
 - [ ] **Rehearse the whole thing once (≈20 min).** The §4 `dotnet new` wants a warm NuGet cache, and the §2 cleanup is a beat you want in your hands, not your head
-- [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`** — the top, exactly where week 1's class left it, and the only folder that ever gets opened
+- [ ] **Teaching profile in VS Code; close every other folder and tab.** Have VS Code open on **`~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework`** — the top, exactly where week 1's class left it, and the only folder that ever gets opened
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** The board gained a generator panel this week — say nothing about it; it explains itself or it isn't working. **Close it before slide 1**
   - ⚠️ **Wrong week showing?** The bare URL routes by date, so on class night it lands on week 2 by itself — but **when rehearsing ahead of the calendar it will show an earlier board, correctly.** Force it: **[`dutyconsole.com/?week=2`](https://dutyconsole.com/?week=2)** (works on any date), or go straight to [`dutyconsole.com/week-02.html`](https://dutyconsole.com/week-02.html). The `?week=` override is the supported way to look ahead — never edit `index.html`'s anchor to preview
 - [ ] **Say it before you start: *"lids down for the demo — you'll write all of this yourself in the lab, on a station of your own."***

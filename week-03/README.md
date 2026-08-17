@@ -31,7 +31,7 @@ And they walk out annoyed, on purpose: **everything above lives in memory, and m
 - ⚠️ **Warm the NuGet cache** — `dotnet add package` on a cold cache is a silent thirty seconds in front of the room. §0 of the cue sheet has the one-line command
 - ⚠️ **Delete `week-03/` from the demo repo if you've rehearsed** — `dotnet new` refuses to overwrite, and §2 starts with it
 - **Rehearse the whole demo once (≈25 min)** — §3's column shear and §6's re-run are the two beats you want in your hands
-- **VS Code open on the demo repo's top** (`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`), exactly where week 2 left it
+- **VS Code open on the demo repo's top** (`~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework`), exactly where week 2 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — it matters more this week than any other, and you still say nothing about it. In §4 the program starts looking exactly like it
 
 **Prev:** [Week 2 — The Mistakes the Compiler Can't Catch](../week-02/) · **Next:** [Week 4 — OOP With a Reason, and the Semester Project](../week-04/)

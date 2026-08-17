@@ -44,19 +44,19 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   💡 **Check it took:** run it a second time and it finishes in about a second, with no `Restored` line about Spectre.
 - [ ] ⚠️ **Rehearsed already? Delete the week-03 folder**, or §2 starts with a project that already exists and `dotnet new` refuses:
   ```bash
-  rm -rf ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework/week-03
+  rm -rf ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework/week-03
   ```
 - [ ] ⚠️ **Check week 2's Haldane is actually there — §2 copies a file out of it.** This should print `Conditions.cs`:
   ```bash
-  ls ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework/week-02/Haldane/Conditions.cs
+  ls ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework/week-02/Haldane/Conditions.cs
   ```
   **Missing?** Rebuild just enough for tonight's `cp` to work (~30 seconds) — the demo never looks inside week-02 again:
   ```bash
-  cd ~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework && dotnet new console -o week-02/Haldane && cp ~/Repos/dotnet-db-dev-answer-keys/week-02/demo-starter/Haldane/Conditions.cs week-02/Haldane/
+  cd ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework && dotnet new console -o week-02/Haldane && cp ~/Repos/dotnet-db-dev-answer-keys/week-02/demo-starter/Haldane/Conditions.cs week-02/Haldane/
   ```
 - [ ] **Open the hosted cue sheet and check it matches the markdown.** The published page is a *build* — it lags a push by a couple of minutes and can fail outright, leaving the previous version up with no warning at all. **Stale or won't load? Read `demo-script.md` from the clone instead** — the markdown is always right, and all you lose is the checkboxes and the Copy buttons
 - [ ] **Rehearse the whole thing once (≈25 min).** §3's shear and §6's re-run are the two beats you want in your hands rather than your head
-- [ ] **Teaching profile in VS Code; close every other folder and tab.** VS Code open on **`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`** — the top, exactly where week 2's class left it
+- [ ] **Teaching profile in VS Code; close every other folder and tab.** VS Code open on **`~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework`** — the top, exactly where week 2's class left it
 - [ ] **Put [`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** ⚠️ **This week it matters more than usual and you still say nothing about it.** The board gained a sign-out panel, a log and the winter crew — and in §4 the program is going to start looking exactly like it. **Leave it up long enough to be looked at**, then close it before slide 1
   - ⚠️ **Wrong week showing?** The bare URL routes by date, so on class night it lands on week 3 by itself — but **when rehearsing ahead of the calendar it will show an earlier board, correctly.** Force it: **[`dutyconsole.com/?week=3`](https://dutyconsole.com/?week=3)** (works on any date). The `?week=` override is the supported way to look ahead — never edit `index.html`'s anchor to preview
 - [ ] **Say it before you start: *"lids down for the demo — you'll write all of this yourself in the lab, on a station of your own."***

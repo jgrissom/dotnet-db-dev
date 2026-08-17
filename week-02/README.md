@@ -25,7 +25,7 @@ The compiler's limit, part two — and the `.gitignore`'s limit, first. Students
 
 - ⚠️ **The instructor demo repo from week 1, CLEAN** — four-line `.gitignore` at its root, zero tracked machinery; verify with §0's command, rebuild from §0's block if it's gone. §1 manufactures its own mess, one file, live
 - **Rehearse the whole demo once (≈20 min)** — the slip beat especially; its order (slip in → show the gitignore powerless → *then* evict) is the lesson
-- **VS Code open on the demo repo's top** (`~/Repos/dotnet-db-dev-course-trial/instructor/dotnet-db-coursework`) — the one window, exactly where week 1's class left it; the view needs no configuration because the workspace *is* the repo
+- **VS Code open on the demo repo's top** (`~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework`) — the one window, exactly where week 1's class left it; the view needs no configuration because the workspace *is* the repo
 - Editor font **and** terminal sized for the back row, as ever
 
 **Prev:** [Week 1 — Setup and First Contact](../week-01/) · **Next:** [Week 3 — Collections, and Losing Everything at Midnight](../week-03/)
