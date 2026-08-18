@@ -33,6 +33,16 @@ jobs:
         run: node scripts/check-emphasis.js .
       - name: Every homework scaffolds its own commits
         run: node scripts/check-commit-points.js .
+      # Step 0 of the closing checklist, here so it cannot be skipped. It FAILS
+      # on a countable falling to zero, a missing CLI-fallback block, TODO — Task
+      # N out of order, or a timing table that isn't 225 with no drift.
+      #
+      # ⚠️ The TODO-order row needs the starters repo, which is a different repo
+      # and is not checked out here — that row WARNS "not checked" in CI and is
+      # only real on a machine where dotnet-db-starters is a sibling. Run it
+      # locally before every handover; CI is the backstop, not the check.
+      - name: Week inventory — nothing countable silently went to zero
+        run: node scripts/check-inventory.js .
       - name: External URLs (scheduled/manual runs only)
         if: github.event_name != 'push'
         run: node scripts/check-links.js . --external

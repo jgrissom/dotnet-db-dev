@@ -34,4 +34,4 @@ And they walk out with **a repo of their own**: public, on a topic they picked, 
 - **VS Code open on the demo repo's top**, exactly where week 3 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — week 4's board adds the STATUS column the demo builds tonight
 
-**Prev:** [Week 3 — Collections, and Losing Everything at Midnight](../week-03/) · **Next:** Week 5 — Behaviour, `static`, and the Debugger *(coming)*
+**Prev:** [Week 3 — Collections, and Losing Everything at Midnight](../week-03/) · **Next:** [Week 5 — How Many Are There?](../week-05/)

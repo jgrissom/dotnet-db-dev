@@ -326,4 +326,4 @@ That last one is the step everybody forgets. The merge happened on GitHub; your 
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b the-registry`, push that. |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
 
-**Prev:** [Week 4 Lab — The Rotation That Fights Back](lab/) · **Next:** Week 5 — Behaviour, `static`, and the debugger *(coming)*
+**Prev:** [Week 4 Lab — The Rotation That Fights Back](lab/) · **Next:** [Week 5 Homework — Find One, or Find Nothing](../week-05/homework.md)

@@ -138,6 +138,43 @@ function timing (week, dir) {
   return { total, drift, rows: rows.length }
 }
 
+// ── row 10: sections nobody can get to ─────────────────────────────────────
+// check-links.js is STRUCTURALLY BLIND to this. It proves a link RESOLVES; it
+// can never prove a section is REACHABLE. Paid for twice on 2026-08-08: week
+// 4's short-form section had no inbound link while the homework mandated the
+// long form, and the worked-record example shipped with none one commit after
+// the rule was written down. Adding a section and linking to it are two acts.
+//
+// ⚠️ WARNS, never fails. Weeks 1-4 are signed off, and a check that turns red
+// on finished work gets ignored rather than fixed.
+// Same slugger check-links.js uses — a hand-rolled one gets emoji headings
+// wrong, which reads as an orphan that is actually linked.
+const SluggerModule = require('github-slugger')
+const Slugger = SluggerModule.default || SluggerModule
+
+function orphanSections (week, dir) {
+  const notes = read(path.join(dir, `week-${week}`, 'lecture-notes.md'))
+  if (!notes) return { missing: true }
+
+  const slugger = new Slugger()
+  const headings = []
+  for (const line of notes.split('\n')) {
+    const m = line.match(/^(#{1,3}) (.+)$/)
+    if (!m) continue
+    const anchor = slugger.slug(m[2])          // slug() is stateful — feed it EVERY heading
+    if (m[1].length > 1) headings.push({ level: m[1].length, text: m[2], anchor })
+  }
+
+  const inbound = new Set()
+  for (const f of ['homework.md', path.join('lab', 'README.md')]) {
+    const doc = read(path.join(dir, `week-${week}`, f))
+    if (!doc) continue
+    for (const m of doc.matchAll(/lecture-notes\.md#([^)\s"']+)/g)) inbound.add(m[1])
+  }
+
+  return { headings: headings.length, orphans: headings.filter(h => !inbound.has(h.anchor)) }
+}
+
 // ── gather ─────────────────────────────────────────────────────────────────
 const weeks = fs.readdirSync(root)
   .filter(f => /^week-\d+$/.test(f))
@@ -230,6 +267,22 @@ for (const w of weeks) {
     failures++
   } else {
     console.log(`✅ week-${w}: timing 225 min, no clock drift (${t.rows} rows)`)
+  }
+}
+
+// row 10 — every notes section reachable from that week's homework or lab
+console.log('')
+for (const w of weeks) {
+  const r = orphanSections(w, root)
+  if (r.missing) {
+    console.log(`⚠️  week-${w}: no lecture-notes.md`); warnings++
+  } else if (r.orphans.length) {
+    console.log(`⚠️  week-${w}: ${r.orphans.length} of ${r.headings} notes section(s) have no `
+      + `inbound link from homework.md or lab/README.md:`)
+    for (const o of r.orphans) console.log(`      ${'#'.repeat(o.level)} ${o.text}`)
+    warnings++
+  } else {
+    console.log(`✅ week-${w}: all ${r.headings} notes sections are linked to`)
   }
 }
 

@@ -1,0 +1,50 @@
+{
+  "week": 5,
+  "total": 20,
+  "_comment": "One source of truth for week 5's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first. The graded repo is the PROJECT repo (D1b); the coursework repo is cloned only for the hygiene sweep, which covers both and scores once.",
+  "checks": {
+    "Check1_YourRecordDoesSomething": {
+      "points": 2,
+      "label": "A method of yours moves a fact nothing outside the class can write — and it moves it on THAT record only"
+    },
+    "Check2_TheRegistryCanFindOne": {
+      "points": 3,
+      "label": "Registry.Find(name) hands back the record itself, not a copy of it"
+    },
+    "Check3_AndNothingWhenThereIsnt": {
+      "points": 3,
+      "label": "Find hands back null for a name nobody has — no crash, and nothing changed"
+    },
+    "Check4_AndCanTakeOneOffTheBooks": {
+      "points": 2,
+      "label": "Registry.Remove(name) takes that one record off and says whether it did"
+    },
+    "Check5_LastWeeksDoorsStillHold": {
+      "points": 2,
+      "label": "Week 4 still holds — no public fields, All() still copies, Topic still says something"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing — even when fed nothing but Enter"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked in NEITHER repo — the .gitignore holding, in both places"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgement call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A second merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}
