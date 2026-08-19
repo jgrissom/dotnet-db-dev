@@ -376,6 +376,8 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");
   ```
 
+- [ ] 💡 **Nine lines to add up three numbers, and do not apologise for it — the tedium is the point.** *"Yes, this is a lot of typing to add up three numbers. Hold on to that feeling: in week 9 this entire loop becomes one line, and you will like that line considerably more for having written this one"*
+
 - [ ] **Run it**
 
   ```bash
