@@ -29,26 +29,89 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   dotnet new console -o week-05/Haldane
   ```
 
-- [ ] **Carry last week forward — all three files, including `Program.cs` this time.** *"Everything the board was on Tuesday night, moved across in one line"*
+- [ ] **Carry last week's two classes forward.** Nothing is edited; they just make the trip
 
   ```bash
-  cp week-04/Haldane/Conditions.cs week-04/Haldane/SignOut.cs week-04/Haldane/Program.cs week-05/Haldane/
+  cp week-04/Haldane/Conditions.cs week-04/Haldane/SignOut.cs week-05/Haldane/
   ```
+
+- [ ] **Now the board itself.** Select the whole of `week-05/Haldane/Program.cs` (`⌘A`) and paste this over it
+
+  ```csharp
+  using Spectre.Console;
+
+  AnsiConsole.Clear();
+
+  const string Amber = "#e8b04b";
+  const string Dim = "#6c7b78";
+  const string Fg = "#c8d3cf";
+  const string Cold = "#7fb2d4";
+
+  AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
+  AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
+  AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 234[/]");
+  AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
+  AnsiConsole.WriteLine();
+
+  AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]-39.0 C[/]   "
+      + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(-39.0, false)}[/]");
+  AnsiConsole.WriteLine();
+
+  // ── the board ──────────────────────────────────────────────────────────────
+
+  List<SignOut> outside = new List<SignOut>();
+  outside.Add(new SignOut("09:05", "Lindqvist", "FUEL", "10:30"));
+  outside.Add(new SignOut("14:20", "Reyes", "DIG OUT", "14:45"));
+  outside.Add(new SignOut("14:20", "Okonkwo", "MET RUN", "15:00"));
+
+  // Lindqvist is in from the fuel line.
+
+  outside[0].Back();
+
+  // ── the board, rendered ────────────────────────────────────────────────────
+
+  var board = new Table()
+      .Border(TableBorder.Square)
+      .BorderColor(Color.FromHex("#1e2529"))
+      .AddColumn($"[{Dim}]TIME[/]")
+      .AddColumn($"[{Dim}]NAME[/]")
+      .AddColumn($"[{Dim}]REASON[/]")
+      .AddColumn($"[{Dim}]EXPECTED[/]")
+      .AddColumn($"[{Dim}]STATUS[/]");
+
+  foreach (SignOut s in outside)
+  {
+      board.AddRow(
+          $"[{Dim}]{Markup.Escape(s.Time)}[/]",
+          $"[{Fg}]{Markup.Escape(s.Name)}[/]",
+          $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
+          $"[{Dim}]{Markup.Escape(s.Expected)}[/]",
+          s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]");
+  }
+
+  AnsiConsole.Write(board);
+
+  int stillOut = 0;
+  foreach (SignOut s in outside)
+  {
+      if (!s.IsBack)
+      {
+          stillOut++;
+      }
+  }
+
+  AnsiConsole.MarkupLine($"[{Dim}]{stillOut} people outside.[/]");
+  ```
+
+- [ ] 📖 **Nothing in it is new — say so.** *"That is Tuesday's board, exactly as we left it. Two things are different and neither is code you have not seen: the date, and the first line"*
+- [ ] 📖 **Point at `AnsiConsole.Clear()`.** *"New habit from tonight: the console clears itself down before it draws anything. A duty board that starts halfway down a build log is not a duty board"*
+- [ ] 💡 **And what is NOT in it:** last week's correction prompt. *"It did its job on Tuesday. If it were still here, every single run tonight would stop and wait for me to type a time"* — the door it went through is still in `SignOut.cs` and stays there
 
 - [ ] **Add the package** — the board needs it, same as every week since three
 
   ```bash
   dotnet add week-05/Haldane package Spectre.Console --version 0.57.2
   ```
-
-- [ ] **One new line, at the very top of `week-05/Haldane/Program.cs`** — directly under `using Spectre.Console;`, above the colour constants. 📖 *"New habit from tonight: the console clears itself down before it draws anything. A duty board that starts halfway down a build log is not a duty board"*
-
-  ```csharp
-  AnsiConsole.Clear();
-  ```
-
-- [ ] **Take last week's correction prompt out.** In `Program.cs`, delete the whole `// ── a correction` block — the `Console.Write`, the `ReadLine`, the `outside[1].Expected = newTime;` and the blank `AnsiConsole.WriteLine();` under it. 📖 *"That prompt did its job on Tuesday. If I leave it in, every single run tonight stops and waits for me to type a time"*
-- [ ] 💡 **The door it went through is still in `SignOut.cs` and stays there.** Only the prompt goes
 
 - [ ] **Run it.** The board they know, minus the prompt
 
@@ -123,7 +186,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"Last line. Signing somebody out **is** the trip — so there is no way to put a row on this board without the count moving, and no way to move the count without a row"*
 
-- [ ] **Back in `Program.cs`, replace the three `outside.Add(...)` lines and the `List<SignOut>` above them** with the crew and the sign-outs together
+- [ ] **Back in `Program.cs`.** Under the `// ── the board` banner, select the **four lines** from `List<SignOut> outside` down to the last `outside.Add(...)`, and paste this over them
 
   ```csharp
   List<CrewMember> crew = new List<CrewMember>();
@@ -140,23 +203,32 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   outside.Add(new SignOut("14:20", okonkwo, "MET RUN", "15:00"));
   ```
 
-- [ ] **Two edits to the table, so the board shows it.** First, one more column on the end of the `board` chain — under the `STATUS` line, and note the `;` moves down
+- [ ] **Now the table, in one go.** Under the `// ── the board, rendered` banner, select everything from `var board = new Table()` down to the closing `}` of the `foreach` under it, and paste this over the lot
 
   ```csharp
+  var board = new Table()
+      .Border(TableBorder.Square)
+      .BorderColor(Color.FromHex("#1e2529"))
+      .AddColumn($"[{Dim}]TIME[/]")
+      .AddColumn($"[{Dim}]NAME[/]")
+      .AddColumn($"[{Dim}]REASON[/]")
+      .AddColumn($"[{Dim}]EXPECTED[/]")
       .AddColumn($"[{Dim}]STATUS[/]")
       .AddColumn($"[{Dim}]TRIPS[/]");
-  ```
 
-- [ ] **Then inside the `foreach`**, the NAME cell reads through the person now, and a TRIPS cell goes on the end of `AddRow`
-
-  ```csharp
+  foreach (SignOut s in outside)
+  {
+      board.AddRow(
+          $"[{Dim}]{Markup.Escape(s.Time)}[/]",
           $"[{Fg}]{Markup.Escape(s.Who.Name)}[/]",
-  ```
-
-  ```csharp
+          $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
+          $"[{Dim}]{Markup.Escape(s.Expected)}[/]",
           s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]",
           $"[{Fg}]{s.Who.TripsToday}[/]");
+  }
   ```
+
+- [ ] 📖 **Two things changed in that block and both are worth naming** — *"a TRIPS column on the end, and the NAME cell now reads `s.Who.Name` instead of `s.Name`. The board goes through the person to get the name"*
 
 - [ ] **Run it.** Everybody has been out once, and that is true
 
@@ -209,7 +281,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"Now the board is complaining. And it is telling me exactly what to type"*
 
-- [ ] **In `Program.cs`, do what it says** — the TRIPS cell inside the `foreach` becomes
+- [ ] **In `Program.cs`, do what it says.** It is the **last line of `AddRow`** — the one that currently reads `$"[{Fg}]{s.Who.TripsToday}[/]");`. Replace that one line with
 
   ```csharp
           $"[{Fg}]{CrewMember.TripsToday}[/]");
@@ -250,7 +322,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
       public int TripsToday { get; private set; }
   ```
 
-- [ ] **And put the board's cell back** — inside the `foreach` in `Program.cs`
+- [ ] **And put the board's cell back.** Same line as before — the **last line of `AddRow`**, now reading `$"[{Fg}]{CrewMember.TripsToday}[/]");`. Back to
 
   ```csharp
           $"[{Fg}]{s.Who.TripsToday}[/]");
@@ -396,7 +468,8 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 *"`muster[1]` and `outside[1]` are two names for one record. Write through either name and there is only one thing there to write to"*
 - [ ] 💡 **Collect last week honestly, because it was not wrong:** *"last week, `All()` handing back a copy is what stopped anybody emptying the board, and it still does. Tonight is the other half of the sentence — a copy of the list protects the list, and it protects nothing inside it"*
 
-- [ ] **Fix it: the muster reads, it does not write.** Delete the `foreach` with `s.Back();` in it, leaving only the copy line, and paste this at the very bottom of `Program.cs`
+- [ ] **Fix it: the muster reads, it does not write.** Select the five lines from `foreach (SignOut s in muster)` down to its closing `}` and delete them — the `List<SignOut> muster = ...` line above stays
+- [ ] **Then paste this at the very bottom of `Program.cs`**
 
   ```csharp
   AnsiConsole.WriteLine();
