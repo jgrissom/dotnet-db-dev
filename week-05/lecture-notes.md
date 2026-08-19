@@ -438,6 +438,7 @@ Most of you have set a breakpoint before. Tonight it does a job some of us have 
 1. Click the **gutter** — the narrow strip left of the line numbers — beside a line. A red dot appears.
 2. Press <kbd>F5</kbd>. If it asks which debugger, choose **`.NET 5+ and .NET Core`**.
 3. **A project list appears — type the week to filter it.** Every entry is the project name followed by its **full path**, and you have a `Lab` in every week, so they look the same until you narrow them: type `week-05` and only this week's are left.
+   - ⚠️ **Not there at all?** VS Code learned what was in this folder when you opened it, and that week arrived later. Command Palette → **`Developer: Reload Window`**.
 4. It stops **on** the line, and that line **has not run yet**.
 5. Expand `this` in the **Variables** pane, top of the **Run and Debug** view.
 6. <kbd>F10</kbd> steps over one line · <kbd>F5</kbd> continues · <kbd>Shift</kbd>+<kbd>F5</kbd> stops.
@@ -457,6 +458,15 @@ Then move the breakpoint to `TripsToday++` inside `GoesOut()` and continue three
 
 > [!IMPORTANT]
 > **That is `static` versus instance, visible.** One line of code, `TripsToday++`, and which number it moves depends entirely on which object `this` is pointing at. Put `static` back on and there is only ever one number to move.
+
+> [!NOTE]
+> **Two things happen the first time you do this, and both are worth understanding rather than clicking past.**
+>
+> **VS Code writes you a `.vscode` folder** — `launch.json` (what to debug) and `tasks.json` (build it first). You didn't write those and you should keep them; it's how the editor remembers.
+>
+> **And it asked you which project**, because this folder holds a whole semester — eight programs by now. ⭐ **Your own project repo holds exactly one**, so there you press <kbd>F5</kbd>, pick the debugger once, and never see that list again. **The list is the price of keeping sixteen weeks in one folder, not something the debugger normally does.**
+>
+> When the config ends up aimed at the wrong week, open `.vscode/launch.json` and change the week in it — or delete the folder and press <kbd>F5</kbd> again to have it rewritten.
 
 > [!TIP]
 > **From now on, when a value is not what you think it is, this is faster than adding a `Console.WriteLine`** — and unlike a print, it shows you everything on the object rather than the one thing you thought to ask for. Weeks 10 and 11 assume you have it.

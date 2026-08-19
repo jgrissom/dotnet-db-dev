@@ -143,7 +143,9 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   Developer: Reload Window
   ```
 
-- [ ] 💡 **Why, so it does not look like superstition:** the editor learned which projects exist **when the window opened**, and `week-05/Haldane` did not exist then. Until it rescans, <kbd>F5</kbd>'s project list simply does not contain tonight's project — **and §4 is the payoff.** It also wakes IntelliSense up for the new files, which is the same staleness wearing a different hat. Say nothing about it; it takes five seconds
+- [ ] 📖 **Say why — thirty seconds, and they need it because they hit the same thing in the lab.** *"VS Code worked out which projects live in this folder when I opened it. This week's folder did not exist then — I made it four minutes ago. So it does not know about it yet, and reloading is how it finds out"*
+- [ ] 🎯 **Then the part that transfers:** *"you will do exactly this reload in the lab tonight, straight after you copy your week in. Anything that appears in a folder after VS Code opened it, VS Code learns about late"*
+- [ ] 💡 **It also wakes IntelliSense on the new files** — the same staleness wearing a different hat. Worth a sentence if squiggles show up on good code later
 
 - [ ] **Run it.** The board they know, minus the prompt
 
@@ -418,8 +420,12 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] **Open `week-05/Haldane/CrewMember.cs` and click in the gutter** — the narrow strip left of the line numbers — **beside `Name = name;`.** A red dot appears
 - [ ] **Press <kbd>F5</kbd>**, then **`.NET 5+ and .NET Core`** when it asks which debugger. ⚠️ **Not `C#`** — that entry exists in the extension but is not what this list offers you
 - [ ] ⚠️ **The project list is the fiddly part, and there is a trick: TYPE `week-05` TO FILTER IT.** Every entry reads `Haldane (/Users/…/week-05/Haldane/Haldane.csproj)` — the name first, then the **full path**, which runs off the end of the box. **You have a `Haldane` in every week by now and they all look identical.** The path is part of the entry, so typing narrows it: **`week-05` leaves only this week's** — one entry, in the demo repo. If more than one survives, add the project name: `05/Hal`. Then <kbd>Enter</kbd>
-- [ ] 💡 **Say nothing about this to the room** — it is a picker, not a lesson. But **do not fumble it**, because it is the first ten seconds of the payoff segment
 - [ ] ⚠️ **If tonight's project is not in the list at all**, the reload in §1 did not happen or did not take — Command Palette → `Developer: Reload Window` and try again. **The list only ever holds projects the editor knew about when it last loaded**
+
+- [ ] 🎯 **Point at the Explorer: a `.vscode` folder just appeared.** *"VS Code has written itself two files — that is it remembering how to run this. `launch.json` says what to debug, `tasks.json` says to build it first"*
+- [ ] 🎯 **And the sentence that makes tonight transfer, because this is the bit they will meet again:** *"That file names **one** project. In an ordinary repo with one program in it, that is the right answer forever — you press F5 once, it writes this, and it never asks you again. It only had to ask me because this folder has ten programs in it, one for every week we have done"*
+- [ ] 💡 **So say what their own repo does, out loud:** *"your project repo has exactly one program in it. You will press F5 there, pick the debugger once, and never see that list at all"*
+- [ ] 💡 **And the repoint, in one line:** *"when that config is aimed at the wrong week, open `launch.json` and change the week in it — or delete the `.vscode` folder and press F5 again"*
 - [ ] ⚠️ **If it stops nowhere**, the language server is asleep rather than the breakpoint being wrong — same fix, `Developer: Reload Window`, then <kbd>F5</kbd> again
 
 - [ ] 🎞️ **GO TO SLIDE 6** — *Step into the constructor*

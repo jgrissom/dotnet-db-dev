@@ -77,7 +77,9 @@ dotnet-db-coursework/      ← your VS Code window, all semester
 > [!TIP]
 > **Reload the window now, before you start.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**.
 >
-> VS Code worked out which projects exist **when you opened the folder**, and `week-05` did not exist then. Reloading takes five seconds and saves you two things: red squiggles on perfectly good code, and — in Task 2 — a debugger that cannot find this week's project. **Reload the window; it is the one that reliably clears both.**
+> **Here's why, because it's worth knowing rather than just doing.** VS Code worked out what was in this folder **when you opened it** — and `week-05` wasn't there then; you copied it in a minute ago. Reloading is how it finds out.
+>
+> It saves you two things: red squiggles on code that's perfectly fine, and — in Task 2 — a debugger that can't find this week's project. **Anything that appears in a folder after VS Code opened it, VS Code learns about late.** That's true of any project you ever work on, not just this one.
 
 > [!IMPORTANT]
 > **Two folders, not four — same as last week.** Your homework lives in your **project repo**, in its own window. [`homework.md`](../homework.md) picks up there, and this lab is the worked example for it.
@@ -213,6 +215,12 @@ dotnet test week-05/Lab.Checks
 >
 > ⚠️ **Then a project list appears, and it is genuinely hard to read — type `week-05` to filter it.** Every entry is the project name followed by its **full path**, which runs off the end of the box, and by now you have **eight** of them: a `Lab` in every week, and a `Homework` in weeks 1–3 as well. They look identical until you narrow them. **Typing `week-05` leaves exactly one.**
 > *(No `week-05` in the list at all? You skipped the window reload in Setup — do that now and try again.)*
+>
+> **Look at your Explorer afterwards: a `.vscode` folder has appeared.** VS Code wrote it — `launch.json` says what to debug, `tasks.json` says to build it first. **It names one project**, which is why it had to ask you: this folder has eight programs in it, one or two for every week you've done.
+>
+> ⭐ **That is worth knowing because your own repo is not like this one.** Your **project repo** has exactly one program in it, so when you debug your own work you'll press <kbd>F5</kbd>, pick the debugger once, and **never see that list at all** — VS Code writes the file and that's the end of it. The list is the price of keeping a whole semester in one folder.
+>
+> **And when it's pointed at the wrong week:** open `.vscode/launch.json` and change the week in it, or delete the `.vscode` folder and press <kbd>F5</kbd> again.
 >
 > Now expand `this` in the **Variables** pane each time it stops. `this` is a different caller every time, and the line moves that one's number and nobody else's. [The full drill is in the notes.](../lecture-notes.md#the-debugger-and-what-it-is-actually-for) Take the breakpoint off and <kbd>Shift</kbd>+<kbd>F5</kbd> when you're done.
 
