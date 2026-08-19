@@ -157,6 +157,12 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   git checkout -b how-many-are-there
   ```
 
+- [ ] **And save the week before changing a line of it.** Silent — this is the commit the lab asks them for in its very first step, so it happens here first
+
+  ```bash
+  git add . && git commit -m "week 5: the board, carried forward"
+  ```
+
 ---
 
 ## 2 · The tally that belongs to nobody *(slides 2–3)*
