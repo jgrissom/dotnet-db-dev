@@ -15,6 +15,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-05/demo/script.html) and confirm the top line says *day 234*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** Week 5's board is up, with the crew's trip tally on it. Say nothing about it
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 4 left it, with `week-01/` through `week-04/` in it
+- [ ] ⚠️ **Run `dotnet run --project week-04/Haldane` once before class.** §1 now opens by running it as the refresher, so it has to build on the night — a cold NuGet cache restoring Spectre in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-05/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it
 - [ ] ⚠️ **Prove the debugger works before the room arrives, because §4 is the payoff and it is the only beat that needs the editor.** Put a breakpoint anywhere in last week's `week-04/Haldane/Program.cs`, press <kbd>F5</kbd>, answer whichever pickers appear, and confirm it stops. Then take the breakpoint off. **If it will not stop, run `Developer: Reload Window` from the Command Palette** — see *What could go wrong* in the lesson plan
 - [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station of your own"*
@@ -23,7 +24,30 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ## 1 · Where we finished last week
 
-- [ ] **Make this week's folder.** No commentary — they have watched this four times
+- [ ] 🎯 **First, last week — running, before anything is made.** *"Before we start: this is where we got to, and it was a week ago"*
+
+  ```bash
+  dotnet run --project week-04/Haldane
+  ```
+
+- [ ] **Press Enter without typing anything.** The same keystroke the room watched last week
+
+  ```
+  Correction - new back-by for Reyes:
+  ┌───────┬───────────┬─────────┬──────────┬────────┐
+  │ TIME  │ NAME      │ REASON  │ EXPECTED │ STATUS │
+  ├───────┼───────────┼─────────┼──────────┼────────┤
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │
+  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │
+  └───────┴───────────┴─────────┴──────────┴────────┘
+  2 people outside.
+  ```
+
+- [ ] 📖 **Three things, fast — this is a refresher, not a re-teach:** *"the board. The duty officer correcting a return time. And I just hit Enter on that prompt with nothing typed — and Reyes still says 14:45, because the property refused it"*
+- [ ] 💡 **That is the whole of last week in about forty seconds**, and it is the state tonight starts from. **Don't linger** — if somebody wants the reasoning again it is in the notes
+
+- [ ] **Now make this week's folder.** No commentary — they have watched this four times
 
   ```bash
   dotnet new console -o week-05/Haldane
@@ -105,7 +129,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 **Nothing in it is new — say so.** *"That is the board exactly as we left it last time. Two things are different, and neither is code you have not seen: the date, and the first line"*
 - [ ] 📖 **Point at `AnsiConsole.Clear()`.** *"New habit from tonight: the console clears itself down before it draws anything. A duty board that starts halfway down a build log is not a duty board"*
-- [ ] 💡 **And what is NOT in it:** last week's correction prompt. *"It did its job last time. If it were still here, every single run tonight would stop and wait for me to type a time"* — the door it went through is still in `SignOut.cs` and stays there
+- [ ] 💡 **And what is NOT in it — the prompt you just used.** *"The correction has gone. It did its job, and if I left it in, every single run tonight would stop and wait for me to type a time"* ⚠️ **Say the next part, because it is the bit that matters:** *"the door that correction went through is still there — the property that refused the blank. That is in `SignOut.cs`, it stays all term, and all I have taken away is the thing that was asking"*
 
 - [ ] **Add the package** — the board needs it, same as every week since three
 

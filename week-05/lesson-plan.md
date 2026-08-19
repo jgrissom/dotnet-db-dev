@@ -56,6 +56,7 @@ By the end of this session, students can:
 - `lecture-notes.md` on your second screen
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-05/demo/script.html))
 - **The instructor demo repo**, where week 4 left it — `week-01/` … `week-04/` in it, clean, and `main` up to date after last week's merge
+- ⚠️ **Week 4's project has to RUN**, not just exist — §1 opens by running it as the refresher. One `dotnet run --project week-04/Haldane` before class warms the restore
 - ⚠️ **Delete `week-05/` from the demo repo if you've rehearsed** — `dotnet new` refuses to overwrite
 - ⚠️ **A debugger you have watched stop, tonight, before the room arrives.** §0 has the drill; it is the only beat in the week that depends on the editor rather than the terminal
 
@@ -63,18 +64,18 @@ By the end of this session, students can:
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 10 min | **Where we finished last week** *(demo §1)*. `week-05/Haldane` by command; all three files carried forward with one `cp`. `AnsiConsole.Clear()` goes in, last week's correction prompt comes out. Run — the board they know. |
-| 0:10 | 22 min | 💥 **The tally that belongs to nobody** *(slides 2–3, demo §2)*. `CrewMember`, then `SignOut` holds a person instead of a name. TRIPS column: 1, 1, 1 — correct. Then the day's total → **CS0120** → 🎯 **ask for hands** → `static` → **CS0176** → do what it says → **3, 3, 3, zero warnings**. Let it sit. |
-| 0:32 | 10 min | **☕ Break** |
-| 0:42 | 18 min | **What `static` actually says** *(slides 4–5, demo §3)*. One copy, belonging to the class. Take it off. The day's total is a fact about the *crew*, so a `foreach` earns it. 🎯 **The total was always 3** — it was the per-person numbers that lied. |
-| 1:00 | 25 min | 🎯 **Step into it** *(slides 6–7, demo §4)*. Breakpoint in the constructor, <kbd>F5</kbd>, Variables, `this`. Three objects, three sets of fields. Then `GoesOut()` and which one moves. |
-| 1:25 | 15 min | **When `static` is right** *(slide 8, demo §5)*. `Conditions` since week 1; `Console.WriteLine` several hundred times and never a `new Console()`. The test, said out loud. **No code.** |
-| 1:40 | 10 min | **☕ Break** |
-| 1:50 | 25 min | 💥 **Two names, one object** *(slides 9–10, demo §6)*. The muster, on a copy, marks everybody in — and the real board reads `0 people outside.` with two people on the ice. Then what a copy actually copies, and the muster made read-only. |
-| 2:15 | 20 min | **Nothing at all** *(slides 11–12, demo §7)*. `Find` returns `CrewMember?`. Build → **CS8602**, one warning. Run with `Reyes` → fine. Run with `Reyez` → **NullReferenceException**. The `if`, and back to 0 warnings. |
-| 2:35 | 5 min | **Lab launch** *(slide 13, demo §8)*. Done is defined on their machine: a switchboard that can tell three people apart. |
-| 2:40 | 50 min | **Lab: the switchboard** *(slide 13 stays up)*. **In-class target: 5 green.** Circulate hard at Task 1 and Task 4. |
-| 3:30 | 15 min | **Wrap-up** *(slide 14, demo §9)*. `static` · instance · a reference · `null`. Two URLs in Canvas. Week 6 tease: **one list, one loop, four different kinds of thing.** |
+| 0:00 | 12 min | **Where we finished last week** *(demo §1)*. 🎯 **Open by RUNNING week 4** — one command, Enter on the correction prompt, and Reyes still says 14:45. Forty seconds, and it is a refresher rather than a re-teach. Then `week-05/Haldane` by command, week 4's two classes carried forward, `Program.cs` pasted whole. Run — the board they know. |
+| 0:12 | 22 min | 💥 **The tally that belongs to nobody** *(slides 2–3, demo §2)*. `CrewMember`, then `SignOut` holds a person instead of a name. TRIPS column: 1, 1, 1 — correct. Then the day's total → **CS0120** → 🎯 **ask for hands** → `static` → **CS0176** → do what it says → **3, 3, 3, zero warnings**. Let it sit. |
+| 0:34 | 10 min | **☕ Break** |
+| 0:44 | 18 min | **What `static` actually says** *(slides 4–5, demo §3)*. One copy, belonging to the class. Take it off. The day's total is a fact about the *crew*, so a `foreach` earns it. 🎯 **The total was always 3** — it was the per-person numbers that lied. |
+| 1:02 | 25 min | 🎯 **Step into it** *(slides 6–7, demo §4)*. Breakpoint in the constructor, <kbd>F5</kbd>, Variables, `this`. Three objects, three sets of fields. Then `GoesOut()` and which one moves. |
+| 1:27 | 15 min | **When `static` is right** *(slide 8, demo §5)*. `Conditions` since week 1; `Console.WriteLine` several hundred times and never a `new Console()`. The test, said out loud. **No code.** |
+| 1:42 | 10 min | **☕ Break** |
+| 1:52 | 25 min | 💥 **Two names, one object** *(slides 9–10, demo §6)*. The muster, on a copy, marks everybody in — and the real board reads `0 people outside.` with two people on the ice. Then what a copy actually copies, and the muster made read-only. |
+| 2:17 | 20 min | **Nothing at all** *(slides 11–12, demo §7)*. `Find` returns `CrewMember?`. Build → **CS8602**, one warning. Run with `Reyes` → fine. Run with `Reyez` → **NullReferenceException**. The `if`, and back to 0 warnings. |
+| 2:37 | 5 min | **Lab launch** *(slide 13, demo §8)*. Done is defined on their machine: a switchboard that can tell three people apart. |
+| 2:42 | 50 min | **Lab: the switchboard** *(slide 13 stays up)*. **In-class target: 5 green.** Circulate hard at Task 1 and Task 4. |
+| 3:32 | 13 min | **Wrap-up** *(slide 14, demo §9)*. `static` · instance · a reference · `null`. Two URLs in Canvas. Week 6 tease: **one list, one loop, four different kinds of thing.** |
 
 > [!NOTE]
 > **The table sums to exactly 225 minutes.** If the night runs long, §5 compresses to its slide and §4's Call Stack aside drops. **Do not take it from the lab**, and do not take it from §2 — the break is the week.
