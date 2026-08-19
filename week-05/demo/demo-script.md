@@ -103,9 +103,9 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   AnsiConsole.MarkupLine($"[{Dim}]{stillOut} people outside.[/]");
   ```
 
-- [ ] 📖 **Nothing in it is new — say so.** *"That is Tuesday's board, exactly as we left it. Two things are different and neither is code you have not seen: the date, and the first line"*
+- [ ] 📖 **Nothing in it is new — say so.** *"That is the board exactly as we left it last time. Two things are different, and neither is code you have not seen: the date, and the first line"*
 - [ ] 📖 **Point at `AnsiConsole.Clear()`.** *"New habit from tonight: the console clears itself down before it draws anything. A duty board that starts halfway down a build log is not a duty board"*
-- [ ] 💡 **And what is NOT in it:** last week's correction prompt. *"It did its job on Tuesday. If it were still here, every single run tonight would stop and wait for me to type a time"* — the door it went through is still in `SignOut.cs` and stays there
+- [ ] 💡 **And what is NOT in it:** last week's correction prompt. *"It did its job last time. If it were still here, every single run tonight would stop and wait for me to type a time"* — the door it went through is still in `SignOut.cs` and stays there
 
 - [ ] **Add the package** — the board needs it, same as every week since three
 
