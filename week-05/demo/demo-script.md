@@ -362,7 +362,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   ```
 
 - [ ] 🎯 **Now the question the whole segment turns on:** *"so where does the day's total go? It is a real thing the duty officer wants. It just is not a fact about **a** crew member"*
-- [ ] *"It is a fact about the crew. So it gets worked out from the crew"*
+- [ ] *"The day's total is a fact about the crew. So it gets worked out from the crew"*
 
 - [ ] **Replace the `trips logged today` line** in `Program.cs` with the loop that earns it
 
