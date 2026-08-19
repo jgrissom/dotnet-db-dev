@@ -77,7 +77,7 @@ dotnet-db-coursework/      ← your VS Code window, all semester
 > [!TIP]
 > **Reload the window now, before you start.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**.
 >
-> VS Code worked out which projects exist **when you opened the folder**, and `week-05` did not exist then. Reloading takes five seconds and saves you two things: red squiggles on perfectly good code, and — in Task 2 — a debugger that cannot find this week's project. **`.NET: Restart Language Server` looks like the right command and does not fix it.**
+> VS Code worked out which projects exist **when you opened the folder**, and `week-05` did not exist then. Reloading takes five seconds and saves you two things: red squiggles on perfectly good code, and — in Task 2 — a debugger that cannot find this week's project. **Reload the window; it is the one that reliably clears both.**
 
 > [!IMPORTANT]
 > **Two folders, not four — same as last week.** Your homework lives in your **project repo**, in its own window. [`homework.md`](../homework.md) picks up there, and this lab is the worked example for it.
