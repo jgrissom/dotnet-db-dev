@@ -151,11 +151,14 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   2 people outside.
   ```
 
-- [ ] **Start the branch.** Silent — no line. Week 4 said nothing goes straight to `main` again, so nothing does
+- [ ] 🎯 **Start the branch, and say it as you type it** — *"before I touch anything: a branch for tonight's work. Same as week 4 — nothing goes straight to `main` any more, and that goes for your project too"*
 
   ```bash
   git checkout -b how-many-are-there
   ```
+
+- [ ] ⚠️ **And one sentence they have not heard before, because it changed this week:** *"the commits I count on your homework are the ones on **this week's branch**. Commit straight to `main` and they do not count — and there is no pull request to merge either. Branch first, every week"*
+- [ ] 💡 **Fifteen seconds, then stop.** Week 4 taught branch → pull request → merge and this is not a re-teach — the *only* new fact is what gets counted. If somebody asks how branches work, it is in week 4's notes
 
 - [ ] **And save the week before changing a line of it.** Silent — this is the commit the lab asks them for in its very first step, so it happens here first
 
