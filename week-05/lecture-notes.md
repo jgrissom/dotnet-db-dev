@@ -436,7 +436,7 @@ Most of you have set a breakpoint before. Tonight it does a job some of us have 
 **The drill:**
 
 1. Click the **gutter** — the narrow strip left of the line numbers — beside a line. A red dot appears.
-2. Press <kbd>F5</kbd>, and choose **C#** if it asks which debugger.
+2. Press <kbd>F5</kbd>. If it asks which debugger, choose **`.NET 5+ and .NET Core`**.
 3. **A project list appears — type the week to filter it.** Every entry is the project name followed by its **full path**, and you have a `Lab` in every week, so they look the same until you narrow them: type `week-05` and only this week's are left.
 4. It stops **on** the line, and that line **has not run yet**.
 5. Expand `this` in the **Variables** pane, top of the **Run and Debug** view.

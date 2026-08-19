@@ -416,7 +416,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] *"Most of you have set a breakpoint before. Tonight it does a job some of us have never used it for — not finding a bug, just watching an object come into existence"*
 
 - [ ] **Open `week-05/Haldane/CrewMember.cs` and click in the gutter** — the narrow strip left of the line numbers — **beside `Name = name;`.** A red dot appears
-- [ ] **Press <kbd>F5</kbd>**, then **C#** when it asks which debugger
+- [ ] **Press <kbd>F5</kbd>**, then **`.NET 5+ and .NET Core`** when it asks which debugger. ⚠️ **Not `C#`** — that entry exists in the extension but is not what this list offers you
 - [ ] ⚠️ **The project list is the fiddly part, and there is a trick: TYPE `week-05` TO FILTER IT.** Every entry reads `Haldane (/Users/…/week-05/Haldane/Haldane.csproj)` — the name first, then the **full path**, which runs off the end of the box. **You have a `Haldane` in every week by now and they all look identical.** The path is part of the entry, so typing narrows it: **`week-05` leaves only this week's** — one entry, in the demo repo. If more than one survives, add the project name: `05/Hal`. Then <kbd>Enter</kbd>
 - [ ] 💡 **Say nothing about this to the room** — it is a picker, not a lesson. But **do not fumble it**, because it is the first ten seconds of the payoff segment
 - [ ] ⚠️ **If tonight's project is not in the list at all**, the reload in §1 did not happen or did not take — Command Palette → `Developer: Reload Window` and try again. **The list only ever holds projects the editor knew about when it last loaded**

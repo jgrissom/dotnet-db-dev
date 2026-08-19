@@ -209,7 +209,7 @@ dotnet test week-05/Lab.Checks
 **2 / 5.**
 
 > [!TIP]
-> **Two minutes with the debugger, and it's worth them.** Click the gutter beside `CallsTonight++` in `Calls()` — the narrow strip left of the line numbers — and press <kbd>F5</kbd>. Choose **C#** if it asks which debugger.
+> **Two minutes with the debugger, and it's worth them.** Click the gutter beside `CallsTonight++` in `Calls()` — the narrow strip left of the line numbers — and press <kbd>F5</kbd>. Choose **`.NET 5+ and .NET Core`** if it asks which debugger.
 >
 > ⚠️ **Then a project list appears, and it is genuinely hard to read — type `week-05` to filter it.** Every entry is the project name followed by its **full path**, which runs off the end of the box, and by now you have **eight** of them: a `Lab` in every week, and a `Homework` in weeks 1–3 as well. They look identical until you narrow them. **Typing `week-05` leaves exactly one.**
 > *(No `week-05` in the list at all? You skipped the window reload in Setup — do that now and try again.)*
