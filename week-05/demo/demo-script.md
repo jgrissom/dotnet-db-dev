@@ -137,6 +137,14 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   dotnet add week-05/Haldane package Spectre.Console --version 0.57.2
   ```
 
+- [ ] ⚠️ **Now reload the window, and do it here rather than discovering you needed it in §4.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
+
+  ```
+  Developer: Reload Window
+  ```
+
+- [ ] 💡 **Why, so it does not look like superstition:** the editor learned which projects exist **when the window opened**, and `week-05/Haldane` did not exist then. Until it rescans, <kbd>F5</kbd>'s project list simply does not contain tonight's project — **and §4 is the payoff.** It also wakes IntelliSense up for the new files, which is the same staleness wearing a different hat. Say nothing about it; it takes five seconds
+
 - [ ] **Run it.** The board they know, minus the prompt
 
   ```bash
@@ -411,7 +419,8 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] **Press <kbd>F5</kbd>**, then **C#** when it asks which debugger
 - [ ] ⚠️ **The project list is the fiddly part, and there is a trick: TYPE `week-05` TO FILTER IT.** Every entry reads `Haldane (/Users/…/week-05/Haldane/Haldane.csproj)` — the name first, then the **full path**, which runs off the end of the box. **You have a `Haldane` in every week by now and they all look identical.** The path is part of the entry, so typing narrows it: `week-05` leaves this week's two, and `05/Hal` leaves exactly one. Then <kbd>Enter</kbd>
 - [ ] 💡 **Say nothing about this to the room** — it is a picker, not a lesson. But **do not fumble it**, because it is the first ten seconds of the payoff segment
-- [ ] ⚠️ **If nothing stops**, the language server is asleep rather than the breakpoint being wrong — Command Palette → `Developer: Reload Window`, then <kbd>F5</kbd> again
+- [ ] ⚠️ **If tonight's project is not in the list at all**, the reload in §1 did not happen or did not take — Command Palette → `Developer: Reload Window` and try again. **The list only ever holds projects the editor knew about when it last loaded**
+- [ ] ⚠️ **If it stops nowhere**, the language server is asleep rather than the breakpoint being wrong — same fix, `Developer: Reload Window`, then <kbd>F5</kbd> again
 
 - [ ] 🎞️ **GO TO SLIDE 6** — *Step into the constructor*
 - [ ] 🎯 **It has stopped on the line, and the line has not run yet.** Point at the **Variables** pane at the top of the **Run and Debug** view, and expand `this`

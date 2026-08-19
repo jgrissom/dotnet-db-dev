@@ -61,7 +61,7 @@ The `.` on the end means **right here** — the top of your repo. Nothing to fin
 
 </details>
 
-It appears in your VS Code Explorer immediately — nothing to reopen:
+It appears in your VS Code Explorer immediately — the folder is there and you can open the files:
 
 ```
 dotnet-db-coursework/      ← your VS Code window, all semester
@@ -73,6 +73,11 @@ dotnet-db-coursework/      ← your VS Code window, all semester
    ├─ Lab/                 ← the switchboard — tonight's work happens in here
    └─ Lab.Checks/          ← the lab's checks — read-only, never edit
 ```
+
+> [!TIP]
+> **Reload the window now, before you start.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**.
+>
+> VS Code worked out which projects exist **when you opened the folder**, and `week-05` did not exist then. Reloading takes five seconds and saves you two things: red squiggles on perfectly good code, and — in Task 2 — a debugger that cannot find this week's project. **`.NET: Restart Language Server` looks like the right command and does not fix it.**
 
 > [!IMPORTANT]
 > **Two folders, not four — same as last week.** Your homework lives in your **project repo**, in its own window. [`homework.md`](../homework.md) picks up there, and this lab is the worked example for it.
@@ -206,7 +211,7 @@ dotnet test week-05/Lab.Checks
 > [!TIP]
 > **Two minutes with the debugger, and it's worth them.** Click the gutter beside `CallsTonight++` in `Calls()` — the narrow strip left of the line numbers — and press <kbd>F5</kbd>. Choose **C#** if it asks which debugger.
 >
-> ⚠️ **Then a project list appears, and it is hard to read — type `week-05` to filter it.** Every entry is the project name followed by its full path, and you have a `Lab` in every week folder, so they all look the same until you narrow them. `week-05` leaves this week's; pick **Lab**.
+> ⚠️ **Then a project list appears, and it is hard to read — type `week-05` to filter it.** *(No `week-05` in it at all? You skipped the window reload in Setup — do it now.)* Every entry is the project name followed by its full path, and you have a `Lab` in every week folder, so they all look the same until you narrow them. `week-05` leaves this week's; pick **Lab**.
 >
 > Now expand `this` in the **Variables** pane each time it stops. `this` is a different caller every time, and the line moves that one's number and nobody else's. [The full drill is in the notes.](../lecture-notes.md#the-debugger-and-what-it-is-actually-for) Take the breakpoint off and <kbd>Shift</kbd>+<kbd>F5</kbd> when you're done.
 
@@ -414,6 +419,8 @@ dotnet run --project week-05/Lab
 | Dorothy goes up by two for one call | `Asks` is calling `Calls()` as well as `Take`. One rule, one place. |
 | ASKED FOR stays `-` after a request | `Asks` isn't storing the song, or `Favourite` is still the shipped `=> null`. |
 | Breakpoints never stop | Command Palette → **`Developer: Reload Window`**, then <kbd>F5</kbd>. `.NET: Restart Language Server` does not fix it. |
+| <kbd>F5</kbd>'s project list has no `week-05` in it | The editor learned which projects exist when you opened the folder, and this week's did not exist yet. **`Developer: Reload Window`.** |
+| Red squiggles on code you just copied in | Same cause, same fix. The compiler is the witness — if `dotnet build week-05/Lab` is clean, the editor is just behind. |
 | `dotnet test` passes but the board still looks wrong | Run the program, not just the checks. The checks never look at `Program.cs`, and half of tonight is only visible on the switchboard. |
 | Not sure what `static` was even doing | [What `static` actually says](../lecture-notes.md#what-static-actually-says) — one copy for the whole program, and why that broke the board. |
 | Not sure why `null` is allowed here at all | [Nothing at all](../lecture-notes.md#nothing-at-all) — the `?`, and the deal it makes with the compiler. |
