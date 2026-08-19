@@ -346,7 +346,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ## 3 · What `static` actually says *(slides 4–5)*
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *What `static` actually says* · 📖 *"It is not a fix. It is not a way to quiet the compiler down. It says one thing: this member belongs to the class, not to any one thing made from it. One copy, made once, alive as long as the program runs"*
+- [ ] 🎞️ **GO TO SLIDE 4** — *What `static` actually says* · 📖 *"Static is not a fix. It is not a way to quiet the compiler down. It says one thing: this member belongs to the class, not to any one thing made from it. One copy, made once, alive as long as the program runs"*
 - [ ] 🎞️ **GO TO SLIDE 5** — *One copy, or one each* · *"Three crew members. Without `static`, three counters. With `static`, one counter and three people taking turns adding to it"*
 
 - [ ] **Take it off.** In `CrewMember.cs`, back to
