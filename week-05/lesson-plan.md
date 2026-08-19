@@ -3,7 +3,7 @@
 **Topic:** `static` vs. instance — what that word was actually doing — composition, reference vs. value, `null` and nullable reference types, and the debugger's earned slot.
 **Session length:** 3h 45m
 
-> The night is one question with three answers. Every variable they have is a **name**; what is on the other end of it is either one thing that is theirs, one thing somebody else is holding too, or **nothing at all**. They have written all three since their first C# course and never once been made to look at the difference — and each one costs a wrong number on a duty board tonight.
+> The night is one question with three answers. Every variable is a **name**; on the other end of it is an object nothing else is holding, the *same* object something else is holding too, or **nothing at all**. Students have written all three since their first C# course and have never once been made to look at the difference — and tonight each one costs a wrong number on the duty board.
 
 ## 🎯 The payoff moment — the demo's
 

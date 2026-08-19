@@ -1,6 +1,6 @@
 # Week 5 — How Many Are There?
 
-Every variable they have written is a **name**. This week is about what is on the other end of it — one thing that is theirs, one thing somebody else is holding too, or **nothing at all**. Three answers they have used since their first C# course without ever being made to look at the difference, and each one costs a wrong number on a duty board tonight: a trip tally that belongs to nobody, a muster that clears two people off the ice, and a crash at −39 over one mistyped letter. Then the debugger, finally earned.
+Every variable is a **name**, and this week is about what is on the other end of it: an object nothing else is holding, the *same* object something else is holding too, or **nothing at all**. Students have written all three since their first C# course without once being made to look at the difference — and tonight each one costs a number on the duty board. A trip tally that belongs to nobody. A muster that clears two people off the ice who are still out there. A crash at −39 over one mistyped letter. Then the debugger, finally earned.
 
 ## Use in this order
 
