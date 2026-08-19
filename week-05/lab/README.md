@@ -204,7 +204,11 @@ dotnet test week-05/Lab.Checks
 **2 / 5.**
 
 > [!TIP]
-> **Two minutes with the debugger, and it's worth them.** Click the gutter beside `CallsTonight++` in `Calls()`, press <kbd>F5</kbd> (choose **C#**, then **week-05/Lab** if it asks), and expand `this` in the **Variables** pane each time it stops. `this` is a different caller every time, and the line moves that one's number and nobody else's. [The full drill is in the notes.](../lecture-notes.md#the-debugger-and-what-it-is-actually-for) Take the breakpoint off and <kbd>Shift</kbd>+<kbd>F5</kbd> when you're done.
+> **Two minutes with the debugger, and it's worth them.** Click the gutter beside `CallsTonight++` in `Calls()` — the narrow strip left of the line numbers — and press <kbd>F5</kbd>. Choose **C#** if it asks which debugger.
+>
+> ⚠️ **Then a project list appears, and it is hard to read — type `week-05` to filter it.** Every entry is the project name followed by its full path, and you have a `Lab` in every week folder, so they all look the same until you narrow them. `week-05` leaves this week's; pick **Lab**.
+>
+> Now expand `this` in the **Variables** pane each time it stops. `this` is a different caller every time, and the line moves that one's number and nobody else's. [The full drill is in the notes.](../lecture-notes.md#the-debugger-and-what-it-is-actually-for) Take the breakpoint off and <kbd>Shift</kbd>+<kbd>F5</kbd> when you're done.
 
 **Green? Commit it:**
 

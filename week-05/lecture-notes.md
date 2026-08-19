@@ -436,10 +436,11 @@ Most of you have set a breakpoint before. Tonight it does a job some of us have 
 **The drill:**
 
 1. Click the **gutter** — the narrow strip left of the line numbers — beside a line. A red dot appears.
-2. Press <kbd>F5</kbd>. If VS Code asks which debugger, choose **C#**; if it asks which project, choose the one you want to run.
-3. It stops **on** the line, and that line **has not run yet**.
-4. Expand `this` in the **Variables** pane, top of the **Run and Debug** view.
-5. <kbd>F10</kbd> steps over one line · <kbd>F5</kbd> continues · <kbd>Shift</kbd>+<kbd>F5</kbd> stops.
+2. Press <kbd>F5</kbd>, and choose **C#** if it asks which debugger.
+3. **A project list appears — type the week to filter it.** Every entry is the project name followed by its **full path**, and you have a `Lab` in every week, so they look the same until you narrow them: type `week-05` and only this week's are left.
+4. It stops **on** the line, and that line **has not run yet**.
+5. Expand `this` in the **Variables** pane, top of the **Run and Debug** view.
+6. <kbd>F10</kbd> steps over one line · <kbd>F5</kbd> continues · <kbd>Shift</kbd>+<kbd>F5</kbd> stops.
 
 Put the breakpoint on `Name = name;` inside `CrewMember`'s constructor and you get this:
 
