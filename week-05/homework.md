@@ -49,6 +49,9 @@ You already have the sealed half from last week — a property with [no public s
 
 **Add a public method on your record that changes that property.** Call it whatever your topic calls it — `Visit`, `Play`, `Ride`, `Check`, `Sighted`, `Restored`. **I never look at the name**; the check tries every public method you have and watches what moves.
 
+> [!TIP]
+> **One verb is usually enough, and the opposite one usually isn't a verb at all.** If your record counts something, the count moves when the thing *happens* — there's rarely an un-happening to write. [The station's own version of this](lecture-notes.md#so-where-is-signin) is worth two minutes if you're wondering whether you need a second method.
+
 ```csharp
 public int TimesVisited { get; private set; }
 

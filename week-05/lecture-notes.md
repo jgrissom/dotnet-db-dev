@@ -207,6 +207,27 @@ The last line of the constructor is the interesting one. **Signing somebody out 
 > [!NOTE]
 > Hold on to this shape. In **week 12** *"a sign-out belongs to a crew member"* stops being a field on an object and becomes a relationship between two tables — and it is the same sentence either way.
 
+### So where is `SignIn`?
+
+There isn't one, and the reason is this week's subject rather than an oversight.
+
+**`SignOut` is not a verb — it is a thing.** One line on the board: a record that somebody went outside, at a time, for a reason. You do not un-write a record. When they come back you do not make a second one; you **finish** the one that is already there, which is what `Back()` does:
+
+```csharp
+// inside SignOut
+public bool IsBack { get; private set; }
+
+public void Back()
+{
+    IsBack = true;
+}
+```
+
+And `CrewMember` needs no `ComesBack()` either. Their trip was counted **on the way out**, and coming back does not change how many times they went.
+
+> [!IMPORTANT]
+> **Two objects, two different facts, and each owns the one it can answer for.** The crew member's tally moves when they *leave*; the sign-out's status moves when they *return*. Neither can move the other's — which is `private set` from last week doing the work, one week on and across two classes.
+
 ---
 
 ## Two names, one object

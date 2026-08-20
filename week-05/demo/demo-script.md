@@ -184,6 +184,9 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"Last line. Signing somebody out **is** the trip — so there is no way to put a row on this board without the count moving, and no way to move the count without a row"*
 
+- [ ] 💡 **Somebody will ask where `SignIn` is — the board now has a `GoesOut()` and a `Back()` and no symmetry between them. The answer is thirty seconds and it is tonight's subject:** *"`SignOut` is not a verb. It is a thing — one line on the board, a record that somebody went outside. You do not un-write a record. When they come back you do not make a second one; you finish the one that is already there, and that is `Back()`"*
+- [ ] 💡 **If they push — why no `ComesBack()` on the crew member:** *"their trip was counted on the way out. Coming back does not change how many times they went. Two objects, two different facts: the person's tally moves when they leave, and the sign-out's status moves when they return"*
+
 - [ ] **Back in `Program.cs`.** Under the `// ── the board` banner, select the **four lines** from `List<SignOut> outside` down to the last `outside.Add(...)`, and paste this over them
 
   ```csharp
