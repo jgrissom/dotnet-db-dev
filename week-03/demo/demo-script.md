@@ -550,14 +550,14 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   └───────┴───────────┴─────────┴──────────┘
   4 people outside.
   ```
-- [ ] 🎯 **There he is, at 14:57 — and the desk is still open.** *"That's a working duty console. Somebody went outside, and the board knows"*
+- [ ] 🎯 **There he is on the board — a fourth row — and the desk is still open.** *"That's a working duty console. Somebody went outside, and the board knows"*
 - [ ] **Stay in it — press `w` and look up `Reyes`.** The board redraws underneath
   ```
     Reyes - general technician
   ```
 - [ ] 🎯 **The point of the last ninety seconds, said once:** *"I have signed somebody out and looked somebody up without restarting anything. That is the thing the crew would actually use"*
 - [ ] **Then press `q`**
-  - 💡 **Where 14:57 came from, because somebody will ask and the obvious answer is wrong:** the program has **no clock** — the time is hard-coded inside `SignSomebodyOut`, exactly like the three rows above it. It is *not* the current time. **14:57 is tonight's fictional "now"**: it's when Achterberg signed out in §3, and it's the timestamp on the duty console that was up on the projector as they walked in (`as at 14:57`). ⚠️ **Don't volunteer it** — it costs a beat and adds nothing to the list. **If asked:** *"I typed it. The board can't see a clock — asking it for the time is a fourth prompt that teaches nothing tonight"*
+  - 💡 **Two times on that row, and only one of them is yours — so somebody will ask, and the obvious answer is wrong.** `16:30` is the back-by you typed. `14:57` is the time out, and the program has **no clock** — it is hard-coded inside `SignSomebodyOut`, exactly like the three rows above it. It is *not* the current time. **14:57 is tonight's fictional "now"**: it's when Achterberg signed out in §3, and it's the timestamp on the duty console that was up on the projector as they walked in (`as at 14:57`). ⚠️ **Don't volunteer it** — it costs a beat and adds nothing to the list. **If asked:** *"I typed it. The board can't see a clock — asking it for the time is a fourth prompt that teaches nothing tonight"*
 
 ### The drop
 
