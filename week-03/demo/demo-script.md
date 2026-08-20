@@ -51,7 +51,8 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   cp ~/Repos/dotnet-db-dev-answer-keys/week-02/demo-starter/Haldane/*.cs week-02/Haldane/
   ```
   - 💡 **The answer key is the source of truth, not your own repo** — and those files are **class-ready**, so nothing you copy in can put a spoiler on the projector. The instructor notes live beside them in `demo-starter/NOTES.md`
-  - ⚠️ **No `week-02/Haldane` at all?** Make it first — `dotnet new console -o week-02/Haldane`, then `dotnet add week-02/Haldane package Spectre.Console --version 0.57.2` — then run the copy above
+  - ⚠️ **No `week-02/Haldane` at all?** Make it first — `dotnet new console -o week-02/Haldane` — then run the copy above. **No package**: Spectre arrives in week 3, and week 2's Haldane is plain `Console.WriteLine`
+  - 💡 **Only `Conditions.cs` is actually needed tonight** — §2 creates `week-03/Haldane` from scratch and copies that one file across. Restoring the whole folder is just cheaper than picking one out
 - [ ] **Open the hosted cue sheet and check it matches the markdown.** The published page is a *build* — it lags a push by a couple of minutes and can fail outright, leaving the previous version up with no warning at all. **Stale or won't load? Read `demo-script.md` from the clone instead** — the markdown is always right, and all you lose is the checkboxes and the Copy buttons
 - [ ] **Rehearse the whole thing once (≈25 min).** §3's shear and §6's re-run are the two beats you want in your hands rather than your head
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** VS Code open on **`~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework`** — the top, exactly where week 2's class left it
