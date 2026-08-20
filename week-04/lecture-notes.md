@@ -36,11 +36,20 @@ Nothing is wrong with it. It compiles, it runs, the board draws.
 Now: the station has a correction to make. Reyes radioed in — the vent is worse than it looked, she'll be another half hour. The duty officer types the new time in, and the program stores it:
 
 ```csharp
-// inside Program.cs
-Console.Write("Correction - new back-by for Reyes: ");
+// inside Program.cs, in the AmendABackBy() the desk calls when you press `a`
+Console.Write("  Whose back-by is changing: ");
+string name = Console.ReadLine() ?? "";
+Console.Write("  New back-by: ");
 string newTime = Console.ReadLine() ?? "";
 
-outside[1].Expected = newTime;
+foreach (SignOut s in outside)
+{
+    if (s.Name == name)
+    {
+        s.Expected = newTime;
+        return;
+    }
+}
 ```
 
 The duty officer, wearing gloves, at −39, hits Enter a beat early. `newTime` is `""`.
@@ -92,7 +101,7 @@ Three things to notice, and the third is the one that matters:
 
 1. **`_expected` is the *backing field*.** The underscore isn't syntax — it's just the usual way C# programmers write "this is the private one behind a property." The compiler doesn't care.
 2. **`value` is a keyword.** Inside a `set`, `value` is whatever was on the right of the `=`. You never declare it; it's just there.
-3. **Nothing outside changed.** `outside[1].Expected = newTime;` is the *exact same line* it was before. It reads like a field, it's written like a field — and now a method runs on the way in.
+3. **Nothing outside changed.** `s.Expected = newTime;` is the *exact same line* it was before. It reads like a field, it's written like a field — and now a method runs on the way in.
 
 Run the same blank correction against that version:
 

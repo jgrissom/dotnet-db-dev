@@ -56,7 +56,8 @@ It has been on that board all term.
 Reyes radios in. She'll be another half hour.
 
 ```csharp
-outside[1].Expected = newTime;
+// inside AmendABackBy()
+s.Expected = newTime;
 ```
 
 The duty officer is wearing gloves.
@@ -122,7 +123,8 @@ public string Expected
 ## The caller never noticed
 
 ```csharp
-outside[1].Expected = newTime;
+// inside AmendABackBy()
+s.Expected = newTime;
 ```
 
 **The same line as before.**

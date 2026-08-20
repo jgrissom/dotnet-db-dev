@@ -470,7 +470,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
               break;
 
           default:
-              AnsiConsole.MarkupLine($"[{Dim}]Two buttons on this desk. That wasn't one.[/]");
+              AnsiConsole.MarkupLine($"[{Dim}]That wasn't one of the buttons.[/]");
               break;
       }
 

@@ -7,7 +7,7 @@
 
 ## 🎯 The payoff moment — the demo's
 
-**A typo that becomes a compile error while they watch.** In §4 the instructor "fixes a misspelled name" — `outside[0].Name = "Okonkow";` — which compiles, runs, and quietly renames *the wrong person*, because index 0 is Lindqvist. Nobody in the room notices at first; that's the point.
+**A typo that becomes a compile error while they watch.** In §4 the instructor "fixes a misspelled name" — `outside[2].Name = "Okonkow";` — which compiles, runs, and quietly renames *the wrong person*, because index 2 is Lindqvist, not Okonkwo. Nobody in the room notices at first; that's the point.
 
 Then `Name` becomes `{ get; }`, the build is run again, and the line that was fine ninety seconds ago is:
 
@@ -63,10 +63,10 @@ By the end of this session, students can:
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 12 min | **The class you already write** *(slide 2, demo §1)*. `SignOut` on screen — *"tell me what's wrong with it."* **Nothing is.** Then `week-04/Haldane` by command, both files carried forward, banner and readings pasted and run. |
-| 0:12 | 23 min | 💥 **A correction, at −39** *(slides 3–4, demo §2)*. The board pasted and run. Then the correction — one line writing into a public field. Typed `15:15` works; **Enter-only wipes Reyes's return time and nothing complains.** The count still says three. Let it sit. |
+| 0:00 | 12 min | **The class you already write** *(slide 2, demo §1)*. `SignOut` on screen — *"tell me what's wrong with it."* **Nothing is.** Then `week-04/Haldane` by command, **all three files carried forward** and one date edited — last week's desk running, with nothing written tonight. |
+| 0:12 | 23 min | 💥 **A correction, at −39** *(slides 3–4, demo §2)*. The desk gains an `[a]mend` action — one line writing into a public field. Typed `15:15` works; **Enter-only wipes Reyes's return time and nothing complains.** The count still says three. Let it sit. |
 | 0:35 | 10 min | **☕ Break** |
-| 0:45 | 27 min | **A door instead of a hole** *(slides 5–7, demo §3)*. Private field, property, `value`, the `if`. 🎯 **Point at the unchanged caller** — `outside[1].Expected = newTime;`, character for character. Re-run with the same keystrokes: the blank never happens. |
+| 0:45 | 27 min | **A door instead of a hole** *(slides 5–7, demo §3)*. Private field, property, `value`, the `if`. 🎯 **Point at the unchanged caller** — `s.Expected = newTime;` inside `AmendABackBy`, character for character. Re-run with the same keystrokes: the blank never happens. |
 | 1:12 | 22 min | 🎯 **Some things should never change** *(slide 8, demo §4)*. The "helpful typo" that renames Lindqvist. Then `{ get; }`, then `dotnet build` → **CS0200**, and deleting the line is the fix. |
 | 1:34 | 21 min | **Only the station says you came back** *(slide 9, demo §5)*. `IsBack { get; private set; }` and `Back()`. STATUS column, and the count becomes *people not back* rather than *rows*. |
 | 1:55 | 10 min | **☕ Break** |

@@ -39,33 +39,10 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   dotnet new console -o week-04/Haldane
   ```
 
-- [ ] **Carry both files forward.** Nothing is edited; last week's work just makes the trip
+- [ ] **Carry last week forward — all three files.** *"Everything the desk was last time, moved across in one line"*
 
   ```bash
-  cp week-03/Haldane/Conditions.cs week-03/Haldane/SignOut.cs week-04/Haldane/
-  ```
-
-- [ ] 📖 **Open `week-04/Haldane/SignOut.cs` and leave it on screen.** *"Four public fields and a constructor. That is the whole class"*
-
-- [ ] **Paste the banner and the readings line** — select the whole of `week-04/Haldane/Program.cs` (`⌘A`) and paste over it. The two lines `dotnet new` wrote are the SDK's, not ours
-
-  ```csharp
-  using Spectre.Console;
-
-  const string Amber = "#e8b04b";
-  const string Dim = "#6c7b78";
-  const string Fg = "#c8d3cf";
-  const string Cold = "#7fb2d4";
-
-  AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
-  AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
-  AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 233[/]");
-  AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
-  AnsiConsole.WriteLine();
-
-  AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]-39.0 C[/]   "
-      + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(-39.0, false)}[/]");
-  AnsiConsole.WriteLine();
+  cp week-03/Haldane/Conditions.cs week-03/Haldane/SignOut.cs week-03/Haldane/Program.cs week-04/Haldane/
   ```
 
 - [ ] **Add the package** — the board needs it, same as last week
@@ -74,67 +51,97 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   dotnet add week-04/Haldane package Spectre.Console --version 0.57.2
   ```
 
-- [ ] **Run it.** Banner, one readings line, nothing else yet
+- [ ] ⚠️ **Reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`** — VS Code learned this folder's projects when it opened, and `week-04` did not exist then
+
+  ```
+  Developer: Reload Window
+  ```
+
+- [ ] **One edit, in `week-04/Haldane/Program.cs`.** <kbd>⌘F</kbd> for **`day 226`** — one hit, in the banner. Make it **`day 233`**
+- [ ] 💡 *"A week has passed on the ice"*
+
+- [ ] **Run it.** The desk they built last time, working
 
   ```bash
   dotnet run --project week-04/Haldane
+  ```
+
+  ```
+  ┌───────┬───────────┬─────────┬──────────┐
+  │ TIME  │ NAME      │ REASON  │ EXPECTED │
+  ├───────┼───────────┼─────────┼──────────┤
+  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │
+  └───────┴───────────┴─────────┴──────────┘
+  3 people outside.
+
+  [o]ut  [w]ho  [q]uit:
+  ```
+
+- [ ] 🎯 **Press `q` and say what just happened, because it is the week's premise:** *"that is last week's program. I have not written a line tonight — I copied three files and changed a date. From here on, this is one program that grows, which is exactly what your own project is about to be"*
+- [ ] 📖 **Then open `week-04/Haldane/SignOut.cs` and leave it on screen.** *"Four public fields and a constructor. That is the whole class, and it has been on that board since last week"*
+
+- [ ] **Start the branch.** Silent — the habit, not a lesson
+
+  ```bash
+  git checkout -b board-that-defends-itself
+  ```
+
+- [ ] **And save the week before changing a line of it.** Silent
+
+  ```bash
+  git add . && git commit -m "week 4: the desk, carried forward"
   ```
 
 ---
 
 ## 2 · A correction, and what it costs *(slides 3–4)*
 
-- [ ] **Paste the board — three people out** — at the end of `Program.cs`, under the readings line
+- [ ] 🎞️ **GO TO SLIDE 3** — *A correction, at −39* · *"Reyes gets on the radio. The vent is worse than it looked, she'll be another half hour. The duty officer has to change her return time — and right now the desk has no button for that"*
+
+- [ ] **Add the action.** In `week-04/Haldane/Program.cs`, <kbd>⌘F</kbd> for **`void LookSomebodyUp`** — one hit. Paste this **directly above it**
 
   ```csharp
-  List<SignOut> outside = new List<SignOut>();
-  outside.Add(new SignOut("09:05", "Lindqvist", "FUEL", "10:30"));
-  outside.Add(new SignOut("14:20", "Reyes", "DIG OUT", "14:45"));
-  outside.Add(new SignOut("14:20", "Okonkwo", "MET RUN", "15:00"));
-
-  var board = new Table()
-      .Border(TableBorder.Square)
-      .BorderColor(Color.FromHex("#1e2529"))
-      .AddColumn($"[{Dim}]TIME[/]")
-      .AddColumn($"[{Dim}]NAME[/]")
-      .AddColumn($"[{Dim}]REASON[/]")
-      .AddColumn($"[{Dim}]EXPECTED[/]");
-
-  foreach (SignOut s in outside)
+  void AmendABackBy()
   {
-      board.AddRow(
-          $"[{Dim}]{Markup.Escape(s.Time)}[/]",
-          $"[{Fg}]{Markup.Escape(s.Name)}[/]",
-          $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
-          $"[{Dim}]{Markup.Escape(s.Expected)}[/]");
+      Console.Write("  Whose back-by is changing: ");
+      string name = Console.ReadLine() ?? "";
+      Console.Write("  New back-by: ");
+      string newTime = Console.ReadLine() ?? "";
+
+      foreach (SignOut s in outside)
+      {
+          if (s.Name == name)
+          {
+              s.Expected = newTime;
+              return;
+          }
+      }
+
+      AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");
   }
 
-  AnsiConsole.Write(board);
-  AnsiConsole.MarkupLine($"[{Dim}]{outside.Count} people outside.[/]");
   ```
 
-- [ ] **Run it.** The board they know, three rows, `3 people outside.`
+- [ ] 📖 *"Find her row, write the new time in. This is the line some of us would write"* — and point at it: `s.Expected = newTime;`
 
-  ```bash
-  dotnet run --project week-04/Haldane
-  ```
-
-- [ ] 🎞️ **GO TO SLIDE 3** — *A correction, at −39* · *"Reyes gets on the radio. The vent is worse than it looked, she'll be another half hour. The duty officer has to change her return time"*
-
-- [ ] **Paste the correction** — directly above the `var board = new Table()` line, so it happens before the board is drawn
+- [ ] **Then wire it to a key.** <kbd>⌘F</kbd> for **`case "w":`** — one hit. Paste this directly above it
 
   ```csharp
-  Console.Write("Correction - new back-by for Reyes: ");
-  string newTime = Console.ReadLine() ?? "";
+          case "a":
+              AmendABackBy();
+              break;
 
-  outside[1].Expected = newTime;
-
-  AnsiConsole.WriteLine();
   ```
 
-- [ ] 📖 *"One line. Reach into the record and write the new time in. This is the line some of us would write"*
+- [ ] **And put it on the desk.** <kbd>⌘F</kbd> for **`[o]ut  [w]ho`** — one hit. Make that line read
 
-- [ ] **Run it and type `15:15`** — the ordinary case, and it works
+  ```csharp
+      Console.Write("[o]ut  [a]mend  [w]ho  [q]uit: ");
+  ```
+
+- [ ] **Run it.** Press `a`, amend **Reyes** to **15:15** — the ordinary case, and it works
 
   ```bash
   dotnet run --project week-04/Haldane
@@ -144,30 +151,19 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   │ 14:20 │ Reyes     │ DIG OUT │ 15:15    │
   ```
 
-- [ ] 💥 **Now run it again — and this time press Enter without typing anything.** *"Gloves. Minus thirty-nine. You hit Enter a beat early"*
-
-  ```bash
-  dotnet run --project week-04/Haldane
-  ```
-
-- [ ] 🎞️ **GO TO SLIDE 4** — *Nothing happened* · 🎯 **ask, then shut up:** *"what went wrong?"* — and let it hang. The answer is nothing. *"No exception, no warning, no squiggle"*
+- [ ] 💥 **Stay in the program — press `a` again, `Reyes` again, and this time press Enter without typing a time.** *"Gloves. Minus thirty-nine. You hit Enter a beat early"*
 
   ```
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │
-  │ 14:20 │ Reyes     │ DIG OUT │          │
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │
+  │ 14:20 │ Reyes     │ DIG OUT │          │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │
   └───────┴───────────┴─────────┴──────────┘
   3 people outside.
   ```
 
+- [ ] 🎞️ **GO TO SLIDE 4** — *Nothing happened* · 🎯 **ask, then shut up:** *"what went wrong?"* — and let it hang. The answer is nothing. *"No exception, no warning, no squiggle"*
 - [ ] 🎯 **The consequence, in station terms, said slowly:** *"the board still says three people are outside. It is perfectly happy. And it has quietly thrown away the only fact that would have told anybody Reyes is late"*
-- [ ] ⚠️ **Do not fix it yet.** Let it sit on screen while you start §3
-
-- [ ] **Start the branch that fixes it.** Silent — no line, this is the habit arriving, not a lesson
-
-  ```bash
-  git checkout -b board-that-defends-itself
-  ```
+- [ ] ⚠️ **Do not fix it yet, and do not quit the program.** The desk is still sitting there with a blank in it — leave it on screen while you start §3
 
 ---
 
@@ -196,9 +192,9 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 📖 **Three things, and name them in this order** — *"`_expected` is the private one; the underscore is just how people write it. `value` is a keyword — inside a `set` it's whatever was on the right of the equals, and you never declare it. And the `if` is the entire point: that `set` is a method, and the `if` runs inside it on the way in"*
 
-- [ ] 🎞️ **GO TO SLIDE 7** — *The caller never noticed* · 🎯 **point at the unchanged line in `Program.cs`:** *"look at what did **not** change. `outside[1].Expected = newTime;` — the same line it was before I edited `SignOut.cs`, character for character. It still reads like a field and it's still written like a field"*
+- [ ] 🎞️ **GO TO SLIDE 7** — *The caller never noticed* · 🎯 **point at the unchanged line inside `AmendABackBy`:** *"look at what did **not** change. `s.Expected = newTime;` — the same line it was before I edited `SignOut.cs`, character for character. It still reads like a field and it's still written like a field"*
 
-- [ ] **Run it, Enter-only again.** The same keystrokes as the break, and now:
+- [ ] **Run it, and do exactly what broke it.** Press `a`, `Reyes`, then Enter without typing a time
 
   ```bash
   dotnet run --project week-04/Haldane
@@ -223,10 +219,10 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 🎯 **Set the trap first.** *"While I'm in here — I noticed a typo in Okonkwo's name last week. I'll just fix it"*
 
-- [ ] **Paste the typo** — in `Program.cs`, directly under the `outside.Add(...)` block
+- [ ] **Paste the typo.** <kbd>⌘F</kbd> for **`"Lindqvist", "FUEL"`** — one hit, the last of the three seeded rows. Paste this on the line below it
 
   ```csharp
-  outside[0].Name = "Okonkow";
+  outside[2].Name = "Okonkow";
   ```
 
 - [ ] **Run it.** It compiles, it runs, and **the wrong person is now on the ice**
@@ -264,7 +260,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   error CS0200: Property or indexer 'SignOut.Name' cannot be assigned to -- it is read only
   ```
 
-- [ ] 🎯 **Delete the `outside[0].Name = "Okonkow";` line.** *"The compile error is the fix. Not a code review, not somebody noticing — the compiler simply will not build a program that rewrites who was outside"*
+- [ ] 🎯 **Delete the `outside[2].Name = "Okonkow";` line.** *"The compile error is the fix. Not a code review, not somebody noticing — the compiler simply will not build a program that rewrites who was outside"*
 
 - [ ] **Run it.** Clean board, right names
 
@@ -295,38 +291,72 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *`private set`* · 🎯 **the sentence of the night:** *"public on the property, private on the setter. Anybody can read it. **Nobody** outside this class can write it — so there is no line you can write, anywhere in this program, that claims somebody came back who didn't"*
 
-- [ ] **Paste the sign-in and the status column.** Two edits: put this above `var board = new Table()`
+- [ ] **Now the action it exists for.** <kbd>⌘F</kbd> for **`void LookSomebodyUp`** — one hit. Paste this directly above it
 
   ```csharp
-  outside[0].Back();
-  ```
-
-- [ ] **...and add the column** — one more `.AddColumn` on the end of the `board` chain, and one more argument on the end of `AddRow`
-
-  ```csharp
-      .AddColumn($"[{Dim}]STATUS[/]");
-  ```
-
-  ```csharp
-          s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]");
-  ```
-
-- [ ] **Replace the count line** — `outside.Count` is now the wrong question. At the bottom of `Program.cs`, in place of the `MarkupLine` with `outside.Count` in it
-
-  ```csharp
-  int stillOut = 0;
-  foreach (SignOut s in outside)
+  void MarkSomebodyBack()
   {
-      if (!s.IsBack)
+      Console.Write("  Who's back: ");
+      string name = Console.ReadLine() ?? "";
+
+      foreach (SignOut s in outside)
       {
-          stillOut++;
+          if (s.Name == name && !s.IsBack)
+          {
+              s.Back();
+              return;
+          }
       }
+
+      AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");
   }
 
-  AnsiConsole.MarkupLine($"[{Dim}]{stillOut} people outside.[/]");
   ```
 
-- [ ] **Run it, Enter-only.** *"Two people outside. And the only reason that number is true is that nothing can lie about it"*
+- [ ] **Wire it to a key.** <kbd>⌘F</kbd> for **`case "w":`** — one hit. Paste this directly above it
+
+  ```csharp
+          case "b":
+              MarkSomebodyBack();
+              break;
+
+  ```
+
+- [ ] **And on the desk.** <kbd>⌘F</kbd> for **`[o]ut  [a]mend`** — one hit. Make that line read
+
+  ```csharp
+      Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [q]uit: ");
+  ```
+
+- [ ] 🎯 **Say what just became impossible:** *"there is now exactly one way anybody comes back — somebody at this desk presses `b`. No line anywhere else in the program can claim it"*
+
+- [ ] **A STATUS column, so the board shows it.** <kbd>⌘F</kbd> for **`]EXPECTED[/]");`** — one hit. Make it read
+
+  ```csharp
+          .AddColumn($"[{Dim}]EXPECTED[/]")
+          .AddColumn($"[{Dim}]STATUS[/]");
+  ```
+
+- [ ] **And a cell to fill it.** <kbd>⌘F</kbd> for **`Escape(s.Expected)}[/]");`** — one hit. Make it read
+
+  ```csharp
+              $"[{Dim}]{Markup.Escape(s.Expected)}[/]",
+              s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]");
+  ```
+
+- [ ] **Replace the count** — `outside.Count` is now the wrong question. <kbd>⌘F</kbd> for **`{outside.Count} people outside`** — one hit. Replace **that whole line** with
+
+  ```csharp
+      int stillOut = 0;
+      foreach (SignOut s in outside)
+      {
+          if (!s.IsBack) { stillOut++; }
+      }
+
+      AnsiConsole.MarkupLine($"[{Dim}]{stillOut} people outside.[/]");
+  ```
+
+- [ ] **Run it. Press `b` and bring Lindqvist in.** *"Two people outside. And the only reason that number is true is that nothing can lie about it"*
 
   ```bash
   dotnet run --project week-04/Haldane
