@@ -53,83 +53,11 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   dotnet new console -o week-05/Haldane
   ```
 
-- [ ] **Carry last week's two classes forward.** Nothing is edited; they just make the trip
+- [ ] **Carry last week forward — all three files.** Nothing is edited yet; last week's work just makes the trip
 
   ```bash
-  cp week-04/Haldane/Conditions.cs week-04/Haldane/SignOut.cs week-05/Haldane/
+  cp week-04/Haldane/Conditions.cs week-04/Haldane/SignOut.cs week-04/Haldane/Program.cs week-05/Haldane/
   ```
-
-- [ ] **Now the board itself.** Select the whole of `week-05/Haldane/Program.cs` (`⌘A`) and paste this over it
-
-  ```csharp
-  using Spectre.Console;
-
-  AnsiConsole.Clear();
-
-  const string Amber = "#e8b04b";
-  const string Dim = "#6c7b78";
-  const string Fg = "#c8d3cf";
-  const string Cold = "#7fb2d4";
-
-  AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
-  AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
-  AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 234[/]");
-  AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
-  AnsiConsole.WriteLine();
-
-  AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]-39.0 C[/]   "
-      + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(-39.0, false)}[/]");
-  AnsiConsole.WriteLine();
-
-  // ── the board ──────────────────────────────────────────────────────────────
-
-  List<SignOut> outside = new List<SignOut>();
-  outside.Add(new SignOut("09:05", "Lindqvist", "FUEL", "10:30"));
-  outside.Add(new SignOut("14:20", "Reyes", "DIG OUT", "14:45"));
-  outside.Add(new SignOut("14:20", "Okonkwo", "MET RUN", "15:00"));
-
-  // Lindqvist is in from the fuel line.
-
-  outside[0].Back();
-
-  // ── the board, rendered ────────────────────────────────────────────────────
-
-  var board = new Table()
-      .Border(TableBorder.Square)
-      .BorderColor(Color.FromHex("#1e2529"))
-      .AddColumn($"[{Dim}]TIME[/]")
-      .AddColumn($"[{Dim}]NAME[/]")
-      .AddColumn($"[{Dim}]REASON[/]")
-      .AddColumn($"[{Dim}]EXPECTED[/]")
-      .AddColumn($"[{Dim}]STATUS[/]");
-
-  foreach (SignOut s in outside)
-  {
-      board.AddRow(
-          $"[{Dim}]{Markup.Escape(s.Time)}[/]",
-          $"[{Fg}]{Markup.Escape(s.Name)}[/]",
-          $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
-          $"[{Dim}]{Markup.Escape(s.Expected)}[/]",
-          s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]");
-  }
-
-  AnsiConsole.Write(board);
-
-  int stillOut = 0;
-  foreach (SignOut s in outside)
-  {
-      if (!s.IsBack)
-      {
-          stillOut++;
-      }
-  }
-
-  AnsiConsole.MarkupLine($"[{Dim}]{stillOut} people outside.[/]");
-  ```
-
-- [ ] 📖 **Nothing in it is new — say so.** *"That is the board exactly as we left it last time. Two things are different, and neither is code you have not seen: the date, and the first line"*
-- [ ] 📖 **Point at `AnsiConsole.Clear()`.** *"New habit from tonight: the console clears itself down before it draws anything. A duty board that starts halfway down a build log is not a duty board"*
-- [ ] 💡 **And what is NOT in it — the prompt you just used.** *"The correction has gone. It did its job, and if I left it in, every single run tonight would stop and wait for me to type a time"* ⚠️ **Say the next part, because it is the bit that matters:** *"the door that correction went through is still there — the property that refused the blank. That is in `SignOut.cs`, it stays all term, and all I have taken away is the thing that was asking"*
 
 - [ ] **Add the package** — the board needs it, same as every week since three
 
@@ -137,7 +65,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   dotnet add week-05/Haldane package Spectre.Console --version 0.57.2
   ```
 
-- [ ] ⚠️ **Now reload the window, and do it here rather than discovering you needed it in §4.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
+- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
 
   ```
   Developer: Reload Window
@@ -146,6 +74,33 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 📖 **Say why — thirty seconds, and they need it because they hit the same thing in the lab.** *"VS Code worked out which projects live in this folder when I opened it. This week's folder did not exist then — I made it four minutes ago. So it does not know about it yet, and reloading is how it finds out"*
 - [ ] 🎯 **Then the part that transfers:** *"you will do exactly this reload in the lab tonight, straight after you copy your week in. Anything that appears in a folder after VS Code opened it, VS Code learns about late"*
 - [ ] 💡 **It also wakes IntelliSense on the new files** — the same staleness wearing a different hat. Worth a sentence if squiggles show up on good code later
+
+- [ ] **Open `week-05/Haldane/Program.cs`.** *"Last week's board, moved across whole. Three small changes and it is tonight's"* — **each one has an exact place to look, so none of this is a hunt**
+
+- [ ] **1 of 3 — the new habit.** It goes on its own line directly under `using Spectre.Console;`, which is the **first line of the file**
+
+  ```csharp
+  AnsiConsole.Clear();
+  ```
+
+- [ ] 📖 *"New habit from tonight: the console clears itself down before it draws anything. A duty board that starts halfway down a build log is not a duty board"*
+
+- [ ] **2 of 3 — the date.** <kbd>⌘F</kbd> for **`day 233`** — one hit, in the banner. Make it **`day 234`**
+- [ ] 💡 *"A day has passed"* — and it matches the board they walked in to
+
+- [ ] **3 of 3 — last week's correction prompt comes out.** <kbd>⌘F</kbd> for **`Correction`** — one hit, and it lands on the first of these five lines. **Select them and delete them**
+
+  ```csharp
+  Console.Write("Correction - new back-by for Reyes: ");
+  string newTime = Console.ReadLine() ?? "";
+
+  outside[1].Expected = newTime;
+
+  AnsiConsole.WriteLine();
+  ```
+
+- [ ] 📖 *"That prompt did its job last time. If I leave it in, every single run tonight stops and waits for me to type a time"*
+- [ ] 🎯 **And the part worth saying, because it is the thing that survives:** *"the door that correction went through is still there — the property that refused the blank. That is in `SignOut.cs`, it stays all term, and all I have taken away is the thing that was asking"*
 
 - [ ] **Run it.** The board they know, minus the prompt
 
