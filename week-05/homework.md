@@ -301,12 +301,13 @@ Three moments worth saving, and each one changes a file in `Project/` — they'r
 | `CS8602: Dereference of a possibly null reference` | You used the result of `Find` without asking whether there was one. [Ask, then use it.](lecture-notes.md#asking-before-you-use-it) |
 | `CS8604: Possible null reference argument` | The same thing, one step further out — you handed something that might be nothing to a method or a constructor. [Ask, then use it.](lecture-notes.md#asking-before-you-use-it) |
 | `NullReferenceException` when you run it | The same thing, at runtime. The warning was there at build time. |
-| `CS0120: An object reference is required` | You named the class where you needed one record — `Thing.TimesVisited` instead of `phone.TimesVisited`. It's asking **which one**. |
+| `CS0120: An object reference is required` | You named the class where you needed one record — `Thing.TimesVisited` instead of `item.TimesVisited`. It's asking **which one**. |
 | Every record reports the same number | A `static` field behind the property. [One copy for the whole program](lecture-notes.md#what-static-actually-says) — take the word off. |
 | `Registry.Find exists, but not with the parameters the homework asks for` | It takes **exactly one `string`**, like `NewItem`. If you need more to search by, write a second method with a different name. |
 | `Find handed back a Thing — but not the one on the registry` | It's building a new record instead of returning the one it found. `return item;`, not `return new Thing(item.Name);` |
 | `Find` always turns up the first record | `return null;` is inside the loop. It goes after it. |
 | `Find` throws on an empty registry | It's reaching into the list (`_items[0]`) rather than walking it. |
+| `Find` says nothing is there, but you can see it on the board | C# string comparison is **case-sensitive** — `"fenway"` and `"Fenway Park"` are two different strings, and so are `"Fenway park"` and `"Fenway Park"`. Type it exactly as you added it. **Week 10 has something to say about this.** |
 | `Remove` said true and the count didn't move | It removed from `All()` — a copy — instead of from `_items`. |
 | `Remove` said true for a name nobody has | It isn't checking `Find`'s answer for `null` before it acts. |
 | Checks 2, 3 and 4 all red at once | Fix `Find` first — `Remove` is built on it, so one bug reads as three. |
