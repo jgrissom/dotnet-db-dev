@@ -36,12 +36,12 @@ public class CrewMember
 }
 ```
 
-Three crew members go out once each, and the board is right:
+Three of the six go out once each, and the board is right:
 
 ```
-│ Lindqvist │ back │ 1 │
-│ Reyes     │ OUT  │ 1 │
 │ Okonkwo   │ OUT  │ 1 │
+│ Reyes     │ OUT  │ 1 │
+│ Lindqvist │ OUT  │ 1 │
 ```
 
 Now the duty officer asks for one more number: how many trips has the station logged today? The line that reads best is this one, in `Program.cs`:
@@ -74,10 +74,10 @@ instance reference; qualify it with a type name instead
 So you do what *that* one says too — the column reads `CrewMember.TripsToday` instead of `s.Who.TripsToday` — and it builds. **Zero errors. Zero warnings.**
 
 ```
-│ Lindqvist │ back │ 3 │
-│ Reyes     │ OUT  │ 3 │
 │ Okonkwo   │ OUT  │ 3 │
-2 people outside.
+│ Reyes     │ OUT  │ 3 │
+│ Lindqvist │ OUT  │ 3 │
+3 people outside.
 3 trips logged today.
 ```
 
@@ -245,13 +245,13 @@ foreach (SignOut s in muster)
 ```
 
 ```
-│ Lindqvist │ back │
-│ Reyes     │ back │
 │ Okonkwo   │ back │
+│ Reyes     │ back │
+│ Lindqvist │ back │
 0 people outside.
 ```
 
-Reyes is on the ice. Okonkwo is on the ice. The board has just cleared them both, and the next person to read it has no reason to go looking.
+Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice. The board has just cleared all three, and the next person to read it has no reason to go looking.
 
 ### A copy of the list is not a copy of what is in it
 
@@ -325,6 +325,7 @@ Two things to notice, and they are the section.
 ### `null` is an answer, not a failure
 
 ```csharp
+// inside SignSomebodyOut(), the desk action behind `o`
 CrewMember? who = Find(name.Trim());
 
 outside.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));

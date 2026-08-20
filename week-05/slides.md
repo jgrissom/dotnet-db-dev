@@ -50,9 +50,9 @@ Who has made this one go away by typing `static`?
 ## Three people. One number.
 
 ```
-│ Lindqvist │ back │ 3 │
-│ Reyes     │ OUT  │ 3 │
 │ Okonkwo   │ OUT  │ 3 │
+│ Reyes     │ OUT  │ 3 │
+│ Lindqvist │ OUT  │ 3 │
 ```
 
 Each of them went out **once**.

@@ -525,7 +525,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   ```
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *Two names, one object*
-- [ ] 🎯 **The consequence, and it is the worst one the station has:** *"nobody is outside. Reyes is on the ice. Okonkwo is on the ice. The board has just cleared them both, and the next person to read it has no reason to go looking"*
+- [ ] 🎯 **The consequence, and it is the worst one the station has:** *"nobody is outside. Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice. The board has just cleared all three, and the next person to read it has no reason to go looking"*
 
 - [ ] 🎞️ **GO TO SLIDE 10** — *A copy of the list is not a copy of the records*
 - [ ] 📖 *"`new List<SignOut>(outside)` is a copy. It is a real one — a second list, its own length, and emptying it would leave the board alone. What it copied is the **list**. What is in it is the same three sign-outs"*
@@ -575,7 +575,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ## 7 · Nothing at all *(slides 11–12)*
 
-- [ ] *"One more, and it is the one that has been sitting in this program since the first segment. Somebody else is heading out"*
+- [ ] *"One more, and it has been sitting in this program since the crew list went in. Somebody else is heading out"*
 
 - [ ] **Run it, and sign Bhatt out** — press `o`, then **Bhatt**, **COMMS**, back by **16:30**
 
@@ -590,7 +590,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   4 trips logged today.
   ```
 
-- [ ] 📖 *"Bhatt is on the winter crew, the desk found him, and the day's total went up. That is the search from the first segment doing its job"*
+- [ ] 📖 *"Bhatt is on the winter crew, the desk found him, and the day's total went up. That is the search I wrote when the crew arrived, doing its job"*
 
 - [ ] 💥 **Stay in the program. Press `o` again — and this time type `Reyez`.** *"The duty officer is wearing gloves — it's minus thirty-nine. They miss by one letter"* — **COMMS**, back by **17:00**
 
@@ -608,7 +608,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *`CrewMember` and `CrewMember?`*
 
-- [ ] **Make the search hand its answer back.** In `Program.cs`, <kbd>⌘F</kbd> for **`foreach (CrewMember c in crew)`** — **one hit, inside `SignSomebodyOut`**. Select from there down to its closing `}` and paste this over it
+- [ ] **Make the search hand its answer back.** In `Program.cs`, <kbd>⌘F</kbd> for **`c.Name == name.Trim()`** — one hit, inside `SignSomebodyOut`. ⚠️ **Don't search for the `foreach` line itself — §3 put an identical one inside `DrawBoard`.** **Select the whole `foreach` around it**, from `foreach (CrewMember c in crew)` down to its closing `}`, and paste this over it
 
   ```csharp
       CrewMember? who = Find(name.Trim());
