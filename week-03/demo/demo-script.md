@@ -442,35 +442,127 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 - [ ] *"One last thing, and then we're done with the board. Right now every person on it is typed into my source code. That's not a duty console — that's a poster"*
 - [ ] ⚠️ **First, delete the `Achterberg` line from the list — this is required, not tidying.** He was typed in back in §3 to break the columns, and he has done that job. 📖 **One sentence as you delete him:** *"and this one I typed in myself to make a mess. A real one is about to sign out at the same time"*
   - ⚠️ **Skip it and every number after this point is wrong**: the sign-out run reads `5 people outside.` instead of `4`, the re-run reads `4` instead of `3`, and **slide 13 shows neither**. The list must be back to Okonkwo, Reyes and Lindqvist — the three §6 names out loud
-- [ ] Paste **above the board block** — the line starting `var board = new Table()`, which lost its semicolon when you painted it in §4. 📖 **Talk it through** — *"ask three questions, put the answers on the board"*:
-  ```csharp
-  Console.Write("Sign out - name: ");
-  string name = Console.ReadLine() ?? "";
-  Console.Write("Reason (MET RUN / DIG OUT / FUEL / FIELD / COMMS / WALK): ");
-  string reason = Console.ReadLine() ?? "";
-  Console.Write("Back by: ");
-  string expected = Console.ReadLine() ?? "";
+- [ ] 🎯 **Now the part that makes it a console.** *"This program asks its questions once and then stops. A duty officer does not sign one person out and go home — so the last thing tonight is a desk you can actually work at"*
 
-  if (!string.IsNullOrWhiteSpace(name))
+- [ ] **Select from `var board = new Table()` down to the very end of the file, and paste this over the lot.** It is everything the board already did and everything the lookup already did, moved into three functions, plus the loop that drives them
+
+  ```csharp
+  DrawBoard();
+
+  while (true)
   {
-      outside.Add(new SignOut("14:57", name.Trim(), reason.Trim(), expected.Trim()));
+      Console.Write("[o]ut  [w]ho  [q]uit: ");
+      string? key = Console.ReadLine();
+
+      if (key == null || key.Trim().ToLower() == "q")
+      {
+          break;
+      }
+
+      switch (key.Trim().ToLower())
+      {
+          case "o":
+              SignSomebodyOut();
+              break;
+
+          case "w":
+              LookSomebodyUp();
+              break;
+
+          default:
+              AnsiConsole.MarkupLine($"[{Dim}]Two buttons on this desk. That wasn't one.[/]");
+              break;
+      }
+
+      AnsiConsole.WriteLine();
+      DrawBoard();
   }
 
-  AnsiConsole.WriteLine();
+  void SignSomebodyOut()
+  {
+      Console.Write("  Name: ");
+      string name = Console.ReadLine() ?? "";
+      Console.Write("  Reason (MET RUN / DIG OUT / FUEL / FIELD / COMMS / WALK): ");
+      string reason = Console.ReadLine() ?? "";
+      Console.Write("  Back by: ");
+      string expected = Console.ReadLine() ?? "";
+
+      if (!string.IsNullOrWhiteSpace(name))
+      {
+          outside.Add(new SignOut("14:57", name.Trim(), reason.Trim(), expected.Trim()));
+      }
+  }
+
+  void LookSomebodyUp()
+  {
+      Console.Write("  Look somebody up: ");
+      string who = (Console.ReadLine() ?? "").Trim();
+
+      if (roles.TryGetValue(who, out string? role))
+      {
+          Console.WriteLine($"  {who} - {role}");
+      }
+      else
+      {
+          Console.WriteLine($"  No '{who}' on this station. {roles.Count} people on the crew list.");
+      }
+  }
+
+  void DrawBoard()
+  {
+      var board = new Table()
+          .Border(TableBorder.Square)
+          .BorderColor(Color.FromHex("#1e2529"))
+          .AddColumn($"[{Dim}]TIME[/]")
+          .AddColumn($"[{Dim}]NAME[/]")
+          .AddColumn($"[{Dim}]REASON[/]")
+          .AddColumn($"[{Dim}]EXPECTED[/]");
+
+      foreach (SignOut s in outside)
+      {
+          board.AddRow(
+              $"[{Dim}]{Markup.Escape(s.Time)}[/]",
+              $"[{Fg}]{Markup.Escape(s.Name)}[/]",
+              $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
+              $"[{Dim}]{Markup.Escape(s.Expected)}[/]");
+      }
+
+      AnsiConsole.Write(board);
+      AnsiConsole.MarkupLine($"[{Dim}]{outside.Count} people outside.[/]");
+      AnsiConsole.WriteLine();
+  }
   ```
-  - 💡 **The `if` is week 2, in one sentence:** *"somebody who typed nothing didn't sign out"*
-- [ ] Run it, and sign **Bhatt** out on a **COMMS** run, back by **16:30**:
+
+- [ ] 📖 **Name the three, and do not teach them** — *"one function draws the board, one signs somebody out, one looks somebody up. Nothing in any of them is new; it is the same code, moved somewhere it can be called more than once"*
+- [ ] 🎯 **Then the loop, in one sentence:** *"draw the board, ask what I want, do it, draw the board again. That is every console any of us has ever used"*
+- [ ] 💡 **The `if` inside `SignSomebodyOut` is week 2, in one sentence:** *"somebody who typed nothing didn't sign out"*
+
+- [ ] **Run it, and sign Bhatt out** — press `o`, then **Bhatt**, **COMMS**, back by **16:30**
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] **There he is on the board, at 14:57.** And the count says **`4 people outside.`** 🎯 *"That's a working duty console. Somebody went outside, and the board knows"*
-  - 💡 **Where 14:57 came from, because somebody will ask and the obvious answer is wrong:** the program has **no clock** — the time is hard-coded in the line you just pasted, exactly like the three rows above it. It is *not* the current time. **14:57 is tonight's fictional "now"**: it's when Achterberg signed out in §3, and it's the timestamp on the duty console that was up on the projector as they walked in (`as at 14:57`). ⚠️ **Don't volunteer it** — it costs a beat and adds nothing to the list. **If asked:** *"I typed it. The board can't see a clock — asking it for the time is a fourth prompt that teaches nothing tonight"*
+  ```
+  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │
+  │ 14:57 │ Bhatt     │ COMMS   │ 16:30    │
+  └───────┴───────────┴─────────┴──────────┘
+  4 people outside.
+  ```
+- [ ] 🎯 **There he is, at 14:57 — and the desk is still open.** *"That's a working duty console. Somebody went outside, and the board knows"*
+- [ ] **Stay in it — press `w` and look up `Reyes`.** The board redraws underneath
+  ```
+    Reyes - general technician
+  ```
+- [ ] 🎯 **The point of the last ninety seconds, said once:** *"I have signed somebody out and looked somebody up without restarting anything. That is the thing the crew would actually use"*
+- [ ] **Then press `q`**
+  - 💡 **Where 14:57 came from, because somebody will ask and the obvious answer is wrong:** the program has **no clock** — the time is hard-coded inside `SignSomebodyOut`, exactly like the three rows above it. It is *not* the current time. **14:57 is tonight's fictional "now"**: it's when Achterberg signed out in §3, and it's the timestamp on the duty console that was up on the projector as they walked in (`as at 14:57`). ⚠️ **Don't volunteer it** — it costs a beat and adds nothing to the list. **If asked:** *"I typed it. The board can't see a clock — asking it for the time is a fourth prompt that teaches nothing tonight"*
 
 ### The drop
 
 - [ ] ⚠️ 🎯 **This is the beat the week exists for. Do not rush it, and do not type anything.**
 - [ ] **Say what you're about to do, because it's a promise being kept:** *"I told you about this in week 1. I'll do it now"*
-- [ ] Run the same program again — **press Enter at all three prompts**, then type any name to look up:
+- [ ] Run the same program again — and this time **press `q` straight away**:
   ```bash
   dotnet run --project week-03/Haldane
   ```
