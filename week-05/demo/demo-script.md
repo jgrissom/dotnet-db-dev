@@ -93,26 +93,93 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **Then the part that transfers:** *"you will do exactly this reload in the lab tonight, straight after you copy your week in. Anything that appears in a folder after VS Code opened it, VS Code learns about late"*
 - [ ] 💡 **It also wakes IntelliSense on the new files** — the same staleness wearing a different hat. Worth a sentence if squiggles show up on good code later
 
-- [ ] **Open `week-05/Haldane/Program.cs`.** *"This is the program we finished with last week. I copied it across and I haven't changed a thing in it. We'll make two small changes, and then it's this week's"* — **both have an exact place to look, so neither is a hunt**
+- [ ] **Open `week-05/Haldane/Program.cs`.** *"This is the program we finished with last week. I copied it across and I haven't changed a thing in it. Three changes and it's this week's"* — **each one has an exact place to look, so none of this is a hunt**
 
-- [ ] **1 of 2 — the new habit.** It goes on its own line directly under `using Spectre.Console;`, which is the **first line of the file**
+- [ ] **1 of 3 — the console learns to redraw itself.** <kbd>⌘F</kbd> for **`void DrawBoard()`** — one hit, near the bottom. **Select that line and the `{` under it**, and paste this over them
 
   ```csharp
-  AnsiConsole.Clear();
+  void DrawBoard()
+  {
+      AnsiConsole.Clear();
+
+      AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
+      AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 240[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
+      AnsiConsole.WriteLine();
+
+      AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]-41.5 C[/]   "
+          + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(-41.5, false)}[/]");
+      AnsiConsole.WriteLine();
+
   ```
 
-- [ ] 📖 *"From tonight, the console clears the screen before it draws anything. A duty board that starts halfway down a build log isn't a duty board"*
+- [ ] 📖 *"From tonight the console wipes the screen and draws itself from the top — banner, conditions, board — every single time. A duty board that starts halfway down a build log isn't a duty board"*
+- [ ] 💡 **The date moved on a week in that block too** — *"and a week has passed on the ice"*. It matches the board they walked in to
 
-- [ ] **2 of 2 — the date.** <kbd>⌘F</kbd> for **`day 233`** — one hit, in the banner. Make it **`day 240`**
-- [ ] 💡 *"A week has passed on the ice"* — and it matches the board they walked in to
+- [ ] **Run it.** Nothing looks different yet — that is the point of the next change
 
-- [ ] **Run it.** The desk they know, a week on
+  ```bash
+  dotnet run --project week-05/Haldane
+  ```
+
+- [ ] **Press `q`**
+
+- [ ] **2 of 3 — the desk waits before it repaints.** <kbd>⌘F</kbd> for **`That wasn't one of the buttons`** — one hit, the loop's `default:`. Below it the loop ends with `AnsiConsole.WriteLine();` and `DrawBoard();`. **Select those two lines** and paste this over them
+
+  ```csharp
+      AnsiConsole.WriteLine();
+
+      Console.Write("  [Enter] ");
+      Console.ReadLine();
+
+      DrawBoard();
+  ```
+
+- [ ] 🎯 **Say why the pause is there, because without it the feature is a bug:** *"the screen is about to get wiped every time I do something. So whatever the desk just told me has to stay up until I've read it. That's what the Enter is for"*
+
+- [ ] **Run it. Press `w`, look up `Reyes`, and read the answer before you press Enter**
 
   ```bash
   dotnet run --project week-05/Haldane
   ```
 
   ```
+    Reyes - general technician
+
+    [Enter]
+  ```
+
+
+- [ ] 🎯 **Then press Enter and let them watch it happen:** *"and the board comes back at the top, exactly where it was"*
+- [ ] **Press `q`**
+
+- [ ] **3 of 3 — the old header comes out.** It is still up there printing a banner that gets wiped a millisecond later. <kbd>⌘F</kbd> for **`// The week-1 banner`** — one hit. **Select from there down to and including the blank line after `Safe to go out`**, and paste this over the lot — the two `const` lines buried in the middle of it are the only part that has to survive
+
+  ```csharp
+  const string Fg = "#c8d3cf";
+  const string Cold = "#7fb2d4";
+  ```
+
+- [ ] 📖 *"That block ran once, at startup, and the first repaint wiped it. The banner lives in the redraw now, so it's there all night"*
+
+- [ ] **Run it.** The desk they know, a week on, and now it stays put
+
+  ```bash
+  dotnet run --project week-05/Haldane
+  ```
+
+  ```
+  ========================================================
+    HALDANE STATION - DUTY CONSOLE
+    nearest neighbour: 512 km - winter crew - day 240
+  ========================================================
+
+  Outside: -41.5 C   Safe to go out: True
+
+  ┌───────┬───────────┬─────────┬──────────┬────────┐
+  │ TIME  │ NAME      │ REASON  │ EXPECTED │ STATUS │
+  ├───────┼───────────┼─────────┼──────────┼────────┤
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │
   │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │
   │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │
