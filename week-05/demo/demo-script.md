@@ -14,6 +14,12 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-05/demo/script.html) and confirm the top line says *day 234*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** Week 5's board is up, with the crew's trip tally on it. Say nothing about it
+- [ ] ⚠️ **Put week 4's folder back to its finished state — §1 copies out of it.** Whatever you did to it while rehearsing, this makes tonight's carry-forward correct:
+  ```bash
+  cp ~/Repos/dotnet-db-dev-answer-keys/week-04/demo-starter/Haldane/*.cs week-04/Haldane/
+  ```
+  - 💡 **The answer key is the source of truth, not your own repo** — and those files are **class-ready**, so nothing you copy in can put a spoiler on the projector. The instructor notes live beside them in `demo-starter/NOTES.md`
+  - ⚠️ **No `week-04/Haldane` at all?** Make it first — `dotnet new console -o week-04/Haldane`, then `dotnet add week-04/Haldane package Spectre.Console --version 0.57.2` — then run the copy above
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 4 left it, with `week-01/` through `week-04/` in it
 - [ ] ⚠️ **Run `dotnet run --project week-04/Haldane` once before class.** §1 now opens by running it as the refresher, so it has to build on the night — a cold NuGet cache restoring Spectre in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-05/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it

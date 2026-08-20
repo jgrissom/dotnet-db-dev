@@ -46,14 +46,12 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   rm -rf ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework/week-03
   ```
-- [ ] ⚠️ **Check week 2's Haldane is actually there — §2 copies a file out of it.** This should print `Conditions.cs`:
+- [ ] ⚠️ **Put week 2's folder back to its finished state — §2 copies `Conditions.cs` out of it.** Whatever you did to it while rehearsing, this makes tonight's carry-forward correct:
   ```bash
-  ls ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework/week-02/Haldane/Conditions.cs
+  cp ~/Repos/dotnet-db-dev-answer-keys/week-02/demo-starter/Haldane/*.cs week-02/Haldane/
   ```
-  **Missing?** Rebuild just enough for tonight's `cp` to work (~30 seconds) — the demo never looks inside week-02 again:
-  ```bash
-  cd ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework && dotnet new console -o week-02/Haldane && cp ~/Repos/dotnet-db-dev-answer-keys/week-02/demo-starter/Haldane/Conditions.cs week-02/Haldane/
-  ```
+  - 💡 **The answer key is the source of truth, not your own repo** — and those files are **class-ready**, so nothing you copy in can put a spoiler on the projector. The instructor notes live beside them in `demo-starter/NOTES.md`
+  - ⚠️ **No `week-02/Haldane` at all?** Make it first — `dotnet new console -o week-02/Haldane`, then `dotnet add week-02/Haldane package Spectre.Console --version 0.57.2` — then run the copy above
 - [ ] **Open the hosted cue sheet and check it matches the markdown.** The published page is a *build* — it lags a push by a couple of minutes and can fail outright, leaving the previous version up with no warning at all. **Stale or won't load? Read `demo-script.md` from the clone instead** — the markdown is always right, and all you lose is the checkboxes and the Copy buttons
 - [ ] **Rehearse the whole thing once (≈25 min).** §3's shear and §6's re-run are the two beats you want in your hands rather than your head
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** VS Code open on **`~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework`** — the top, exactly where week 2's class left it

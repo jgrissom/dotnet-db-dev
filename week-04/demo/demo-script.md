@@ -14,6 +14,12 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-04/demo/script.html) and confirm the top line says *day 233*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** Week 4's board is up. Say nothing about it
+- [ ] ⚠️ **Put week 3's folder back to its finished state — §1 copies out of it.** Whatever you did to it while rehearsing, this makes tonight's carry-forward correct:
+  ```bash
+  cp ~/Repos/dotnet-db-dev-answer-keys/week-03/demo-starter/Haldane/*.cs week-03/Haldane/
+  ```
+  - 💡 **The answer key is the source of truth, not your own repo** — and those files are **class-ready**, so nothing you copy in can put a spoiler on the projector. The instructor notes live beside them in `demo-starter/NOTES.md`
+  - ⚠️ **No `week-03/Haldane` at all?** Make it first — `dotnet new console -o week-03/Haldane`, then `dotnet add week-03/Haldane package Spectre.Console --version 0.57.2` — then run the copy above
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 3 left it, with `week-01/` through `week-03/` in it
 - [ ] ⚠️ **Delete `week-04/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it
 - [ ] **A browser tab signed in to GitHub**, on the demo repo. §7 opens a real pull request in front of them
