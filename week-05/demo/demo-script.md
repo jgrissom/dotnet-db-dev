@@ -93,7 +93,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **Then the part that transfers:** *"you will do exactly this reload in the lab tonight, straight after you copy your week in. Anything that appears in a folder after VS Code opened it, VS Code learns about late"*
 - [ ] 💡 **It also wakes IntelliSense on the new files** — the same staleness wearing a different hat. Worth a sentence if squiggles show up on good code later
 
-- [ ] **Open `week-05/Haldane/Program.cs`.** *"Last week's desk, moved across whole. Two small changes and it is tonight's"* — **both have an exact place to look, so neither is a hunt**
+- [ ] **Open `week-05/Haldane/Program.cs`.** *"This is the program we finished with last week. I copied it across and I haven't changed a thing in it. We'll make two small changes, and then it's this week's"* — **both have an exact place to look, so neither is a hunt**
 
 - [ ] **1 of 2 — the new habit.** It goes on its own line directly under `using Spectre.Console;`, which is the **first line of the file**
 
@@ -101,7 +101,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   AnsiConsole.Clear();
   ```
 
-- [ ] 📖 *"New habit from tonight: the console clears itself down before it draws anything. A duty board that starts halfway down a build log is not a duty board"*
+- [ ] 📖 *"From tonight, the console clears the screen before it draws anything. A duty board that starts halfway down a build log isn't a duty board"*
 
 - [ ] **2 of 2 — the date.** <kbd>⌘F</kbd> for **`day 233`** — one hit, in the banner. Make it **`day 234`**
 - [ ] 💡 *"A day has passed"* — and it matches the board they walked in to
@@ -122,7 +122,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   [o]ut  [a]mend  [b]ack  [w]ho  [q]uit:
   ```
 
-- [ ] **Press `q`**, and say the premise while it is on screen: *"second week running that I have started by copying last week and changing a date. That is what a program that lives somewhere looks like, and it is what yours is doing too"*
+- [ ] **Press `q`**, and say the premise while it is on screen: *"That's the second week in a row I've started by copying last week's program and changing a couple of lines. That's what it looks like when a program lives somewhere, instead of being written again from scratch every week — and it's what yours is doing too"*
 
 - [ ] 🎯 **Start the branch, and say it as you type it** — *"before I touch anything: a branch for tonight's work. Same as week 4 — nothing goes straight to `main` any more, and that goes for your project too"*
 
