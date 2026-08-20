@@ -13,7 +13,7 @@ This is the hinge week. From here, every homework extends **this same program**:
 
 ## Part 1 — Pick your topic
 
-Take the ideas you brought and [pick one](lecture-notes.md#picking-a-topic). **Pick the odd one.** A registry of every payphone still standing in your county is a better project than a registry of products, it is much more fun to present in week 16, and nobody else in the room will have it.
+Take the ideas you brought and [pick one](lecture-notes.md#picking-a-topic). **Pick the odd one.** A registry of every claw machine you have lost money to is a better project than a registry of products, it is much more fun to present in week 16, and nobody else in the room will have it.
 
 > [!IMPORTANT]
 > **One hard constraint, and it comes due in week 12.** Your topic has to be able to grow a **second, related thing** — not another list, but something that *belongs to* one of your records.
@@ -25,7 +25,7 @@ Take the ideas you brought and [pick one](lecture-notes.md#picking-a-topic). **P
 > | Topic | Each one has many… |
 > |---|---|
 > | Lighthouses | **visits** — the date, what the light was doing |
-> | Payphones | **checks** — when you found it, whether the handset was attached |
+> | Claw machines | **attempts** — the date, what you were going for, how much you fed it |
 > | Albums | **tracks** |
 > | Trails | **hikes** — the date, the weather, how long it took |
 > | Arcade cabinets | **high scores** — who, when, how many |
@@ -43,7 +43,7 @@ This is your **second** repo, and unlike your coursework repo it is **public** �
 > [!NOTE]
 > **Push before you write anything.** If your git identity or GitHub login has a problem, you meet it now with nothing on the line, rather than at 11pm holding finished work you can't submit.
 
-**1. Make it on GitHub.** New repository → name it after your topic (`payphones`, `lighthouse-log`, whatever) → **Public** → **don't** add a README, .gitignore or licence. You want it empty.
+**1. Make it on GitHub.** New repository → name it after your topic (`claw-machines`, `lighthouse-log`, whatever) → **Public** → **don't** add a README, .gitignore or licence. You want it empty.
 
 **2. Make the folder, and open it in its own window.** Same move you used in week 1 to make `dotnet-db-coursework` — VS Code makes the folder for you:
 
@@ -83,7 +83,7 @@ cp -r ../dotnet-db-starters/project/week-04/Project.Checks .
 Your repo now looks like this, and it's the shape it keeps all semester:
 
 ```
-payphones/              ← the top of your project repo
+claw-machines/          ← the top of your project repo
 ├─ Project/             ← your program
 ├─ Project.Checks/      ← my checks — read-only, never edit
 └─ .gitignore
@@ -98,7 +98,7 @@ git commit -m "The project, empty"
 ```
 
 ```bash
-git remote add origin https://github.com/YOU/payphones.git
+git remote add origin https://github.com/YOU/claw-machines.git
 git push -u origin main
 ```
 

@@ -255,7 +255,7 @@ Pick something you'd actually want to look at a list of. The oddest topics are t
 > | Your topic | The second thing, in week 12 |
 > |---|---|
 > | Lighthouses | a **visit** — when you went, what the light was doing |
-> | Every payphone still standing | a **check** — the date, whether the handset was attached |
+> | Every claw machine you have lost money to | an **attempt** — the date, what you were going for, how much you fed it |
 > | Albums | a **track** |
 > | Trails | a **hike** — the date, the weather, how long it took |
 >

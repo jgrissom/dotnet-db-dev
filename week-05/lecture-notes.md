@@ -405,13 +405,13 @@ The same shape, in the registry your own project has:
 
 ```csharp
 // Project/Registry.cs
-public Payphone? Find(string corner)
+public ClawMachine? Find(string spot)
 {
-    foreach (Payphone phone in _items)
+    foreach (ClawMachine machine in _items)
     {
-        if (phone.Corner == corner)
+        if (machine.Spot == spot)
         {
-            return phone;
+            return machine;
         }
     }
 
@@ -419,7 +419,7 @@ public Payphone? Find(string corner)
 }
 ```
 
-`Payphone` is my example — yours is whatever your topic is made of. **What matters is that it hands back the record itself, not a new one built from the same name.** A copy is a dead end: everything you do through it lands on an object nothing else is looking at, and the one in the registry never moves.
+`ClawMachine` is my example — yours is whatever your topic is made of. **What matters is that it hands back the record itself, not a new one built from the same name.** A copy is a dead end: everything you do through it lands on an object nothing else is looking at, and the one in the registry never moves.
 
 > [!NOTE]
 > **`Find` compares against the same fact `NewItem` is handed.** `NewItem(string name)` takes a name and puts it somewhere on your record; `Find` has to look at that same property, whatever you called it.
@@ -430,9 +430,9 @@ And once you can find one, you can take it off — which is where the `null` has
 
 ```csharp
 // inside the same Registry class, under Find
-public bool Remove(string corner)
+public bool Remove(string spot)
 {
-    Payphone? found = Find(corner);
+    ClawMachine? found = Find(spot);
 
     if (found == null)
     {

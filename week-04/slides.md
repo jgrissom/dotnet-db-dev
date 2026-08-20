@@ -218,7 +218,7 @@ Lighthouses have many **visits**.
 
 Albums have many **tracks**.
 
-Payphones have many **checks**.
+Claw machines have many **attempts**.
 
 ⚠️ **Can't finish it? Pick another topic — tonight.**
 
