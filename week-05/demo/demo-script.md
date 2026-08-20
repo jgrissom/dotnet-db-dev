@@ -88,7 +88,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] **2 of 3 — the date.** <kbd>⌘F</kbd> for **`day 233`** — one hit, in the banner. Make it **`day 234`**
 - [ ] 💡 *"A day has passed"* — and it matches the board they walked in to
 
-- [ ] **3 of 3 — last week's correction prompt comes out.** <kbd>⌘F</kbd> for **`Correction`** — one hit, and it lands on the first of these five lines. **Select them and delete them**
+- [ ] **3 of 3 — last week's correction prompt comes out.** <kbd>⌘F</kbd> for **`Correction`** — one hit, and it lands on the first line of the block below. **Select from there down to and including the `AnsiConsole.WriteLine();`, and delete the lot**
 
   ```csharp
   Console.Write("Correction - new back-by for Reyes: ");
@@ -475,7 +475,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 *"`muster[1]` and `outside[1]` are two names for one record. Write through either name and there is only one thing there to write to"*
 - [ ] 💡 **Collect last week honestly, because it was not wrong:** *"last week, `All()` handing back a copy is what stopped anybody emptying the board, and it still does. Tonight is the other half of the sentence — a copy of the list protects the list, and it protects nothing inside it"*
 
-- [ ] **Fix it: the muster reads, it does not write.** Select the five lines from `foreach (SignOut s in muster)` down to its closing `}` and delete them — the `List<SignOut> muster = ...` line above stays
+- [ ] **Fix it: the muster reads, it does not write.** Select from `foreach (SignOut s in muster)` down to its closing `}` and delete it — **the `List<SignOut> muster = ...` line above stays**
 - [ ] **Then paste this at the very bottom of `Program.cs`**
 
   ```csharp
