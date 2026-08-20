@@ -48,10 +48,18 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```
 - [ ] ⚠️ **Put week 2's folder back to its finished state — §2 copies `Conditions.cs` out of it.** Whatever you did to it while rehearsing, this makes tonight's carry-forward correct:
   ```bash
-  cp ~/Repos/dotnet-db-dev-answer-keys/week-02/demo-starter/Haldane/*.cs week-02/Haldane/
+  cd ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework \
+    && cp ~/Repos/dotnet-db-dev-answer-keys/week-02/demo-starter/Haldane/*.cs week-02/Haldane/
   ```
   - 💡 **The answer key is the source of truth, not your own repo** — and those files are **class-ready**, so nothing you copy in can put a spoiler on the projector. The instructor notes live beside them in `demo-starter/NOTES.md`
-  - ⚠️ **No `week-02/Haldane` at all?** Make it first — `dotnet new console -o week-02/Haldane` — then run the copy above. **No package**: Spectre arrives in week 3, and week 2's Haldane is plain `Console.WriteLine`
+  - ⚠️ **No `week-02/Haldane` at all?** Make it first, from the same place — **no package**, because Spectre arrives in week 3 and week 2's Haldane is plain `Console.WriteLine`:
+
+    ```bash
+    cd ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework \
+      && dotnet new console -o week-02/Haldane
+    ```
+
+    Then run the copy above.
   - 💡 **Only `Conditions.cs` is actually needed tonight** — §2 creates `week-03/Haldane` from scratch and copies that one file across. Restoring the whole folder is just cheaper than picking one out
 - [ ] **Open the hosted cue sheet and check it matches the markdown.** The published page is a *build* — it lags a push by a couple of minutes and can fail outright, leaving the previous version up with no warning at all. **Stale or won't load? Read `demo-script.md` from the clone instead** — the markdown is always right, and all you lose is the checkboxes and the Copy buttons
 - [ ] **Rehearse the whole thing once (≈25 min).** §3's shear and §6's re-run are the two beats you want in your hands rather than your head
