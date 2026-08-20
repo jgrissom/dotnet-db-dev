@@ -1,6 +1,6 @@
 # Week 5 Demo — How Many Are There? 🧊
 
-**Haldane Station · duty console · day 234**
+**Haldane Station · duty console · day 240**
 
 Tonight the room finds out what a word they have all typed was actually doing. Then they watch an object get built, one field at a time, and find out that a copy of a list is not a copy of what is in it.
 
@@ -12,7 +12,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ## 0 · Before class
 
-- [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-05/demo/script.html) and confirm the top line says *day 234*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
+- [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-05/demo/script.html) and confirm the top line says *day 240*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** Week 5's board is up, with the crew's trip tally on it. Say nothing about it
 - [ ] ⚠️ **Put week 4's folder back to its finished state — §1 copies out of it.** Whatever you did to it while rehearsing, this makes tonight's carry-forward correct:
   ```bash
@@ -103,10 +103,10 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"From tonight, the console clears the screen before it draws anything. A duty board that starts halfway down a build log isn't a duty board"*
 
-- [ ] **2 of 2 — the date.** <kbd>⌘F</kbd> for **`day 233`** — one hit, in the banner. Make it **`day 234`**
-- [ ] 💡 *"A day has passed"* — and it matches the board they walked in to
+- [ ] **2 of 2 — the date.** <kbd>⌘F</kbd> for **`day 233`** — one hit, in the banner. Make it **`day 240`**
+- [ ] 💡 *"A week has passed on the ice"* — and it matches the board they walked in to
 
-- [ ] **Run it.** The desk they know, one day on
+- [ ] **Run it.** The desk they know, a week on
 
   ```bash
   dotnet run --project week-05/Haldane
