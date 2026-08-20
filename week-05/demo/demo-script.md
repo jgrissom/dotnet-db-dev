@@ -29,6 +29,12 @@ Tonight the room finds out what a word they have all typed was actually doing. T
     ```
 
     Then run the copy above.
+- [ ] **Commit the restore before you start — it always shows up as changes, and that is expected.** The answer key's files carry explanatory comments the cue sheet never types, so the copy above rewrites yours with an annotated version: **comments and blank lines only, never logic.** Commit it on `main` so tonight's first commit is tonight's work and nothing else
+
+  ```bash
+  git add . && git commit -m "week 4 demo, restored from the answer key"
+  ```
+
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 4 left it, with `week-01/` through `week-04/` in it
 - [ ] ⚠️ **Run `dotnet run --project week-04/Haldane` once before class.** §1 now opens by running it as the refresher, so it has to build on the night — a cold NuGet cache restoring Spectre in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-05/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it

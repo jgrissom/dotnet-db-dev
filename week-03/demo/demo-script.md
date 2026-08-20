@@ -61,6 +61,12 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 
     Then run the copy above.
   - 💡 **Only `Conditions.cs` is actually needed tonight** — §2 creates `week-03/Haldane` from scratch and copies that one file across. Restoring the whole folder is just cheaper than picking one out
+- [ ] **Commit the restore before you start — it always shows up as changes, and that is expected.** The answer key's files carry explanatory comments the cue sheet never types, so the copy above rewrites yours with an annotated version: **comments and blank lines only, never logic.** Commit it on `main` so tonight's first commit is tonight's work and nothing else
+
+  ```bash
+  git add . && git commit -m "week 2 demo, restored from the answer key"
+  ```
+
 - [ ] **Open the hosted cue sheet and check it matches the markdown.** The published page is a *build* — it lags a push by a couple of minutes and can fail outright, leaving the previous version up with no warning at all. **Stale or won't load? Read `demo-script.md` from the clone instead** — the markdown is always right, and all you lose is the checkboxes and the Copy buttons
 - [ ] **Rehearse the whole thing once (≈25 min).** §3's shear and §6's re-run are the two beats you want in your hands rather than your head
 - [ ] **Teaching profile in VS Code; close every other folder and tab.** VS Code open on **`~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework`** — the top, exactly where week 2's class left it

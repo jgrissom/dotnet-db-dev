@@ -29,6 +29,12 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
     ```
 
     Then run the copy above.
+- [ ] **Commit the restore before you start — it always shows up as changes, and that is expected.** The answer key's files carry explanatory comments the cue sheet never types, so the copy above rewrites yours with an annotated version: **comments and blank lines only, never logic.** Commit it on `main` so tonight's first commit is tonight's work and nothing else
+
+  ```bash
+  git add . && git commit -m "week 3 demo, restored from the answer key"
+  ```
+
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 3 left it, with `week-01/` through `week-03/` in it
 - [ ] ⚠️ **Delete `week-04/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it
 - [ ] **A browser tab signed in to GitHub**, on the demo repo. §7 opens a real pull request in front of them
