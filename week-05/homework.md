@@ -299,6 +299,7 @@ Three moments worth saving, and each one changes a file in `Project/` — they'r
 |---|---|
 | `CS8603: Possible null return` | Your `Find` returns `null` but its type has no `?`. It's `Thing?`, not `Thing`. [The question mark is the whole point.](lecture-notes.md#nothing-at-all) |
 | `CS8602: Dereference of a possibly null reference` | You used the result of `Find` without asking whether there was one. [Ask, then use it.](lecture-notes.md#asking-before-you-use-it) |
+| `CS8604: Possible null reference argument` | The same thing, one step further out — you handed something that might be nothing to a method or a constructor. [Ask, then use it.](lecture-notes.md#asking-before-you-use-it) |
 | `NullReferenceException` when you run it | The same thing, at runtime. The warning was there at build time. |
 | `CS0120: An object reference is required` | You named the class where you needed one record — `Thing.TimesVisited` instead of `phone.TimesVisited`. It's asking **which one**. |
 | Every record reports the same number | A `static` field behind the property. [One copy for the whole program](lecture-notes.md#what-static-actually-says) — take the word off. |

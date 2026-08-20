@@ -14,9 +14,9 @@ this.Name        null
 this.TripsToday  0
 ```
 
-`new` made the box; the constructor fills it. One <kbd>F10</kbd> and `Name` becomes `"Lindqvist"`. Continue, and it stops on the same line again with `Name` back to `null` — **not the same object reset, a different object with its own fields.**
+`new` made the box; the constructor fills it. One <kbd>F10</kbd> and `Name` becomes `"Okonkwo"`. Continue, and it stops on the same line again with `Name` back to `null` — **not the same object reset, a different object with its own fields.**
 
-Then the breakpoint moves to `TripsToday++` and stops three times, with `this` a different crew member each time.
+Then the breakpoint moves to `TripsToday++` and stops once for each of the three already outside, with `this` a different crew member each time.
 
 ⚠️ **That last part is the whole point and it is why the debugger belongs in this week rather than any other:** twenty minutes earlier the room watched `static` make three people share one number. Now they can *see* which number a line moves, and why.
 
@@ -64,15 +64,15 @@ By the end of this session, students can:
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 12 min | **Where we finished last week** *(demo §1)*. 🎯 **Open by RUNNING week 4** — one command, Enter on the correction prompt, and Reyes still says 14:45. Forty seconds, and it is a refresher rather than a re-teach. Then `week-05/Haldane` by command, week 4's two classes carried forward, `Program.cs` pasted whole. Run — the board they know. |
-| 0:12 | 22 min | 💥 **The tally that belongs to nobody** *(slides 2–3, demo §2)*. `CrewMember`, then `SignOut` holds a person instead of a name. TRIPS column: 1, 1, 1 — correct. Then the day's total → **CS0120** → 🎯 **ask for hands** → `static` → **CS0176** → do what it says → **3, 3, 3, zero warnings**. Let it sit. |
+| 0:00 | 10 min | **Where we finished last week** *(demo §1)*. 🎯 **Open by RUNNING week 4** — press `a`, `Reyes`, Enter on an empty time, and she still says 14:45. Forty seconds, and it is a refresher rather than a re-teach. Then `week-05/Haldane` by command, **all three files carried forward** and two small edits — `AnsiConsole.Clear()` and the date. Run — the desk they know, one day on. |
+| 0:10 | 24 min | 💥 **The tally that belongs to nobody** *(slides 2–3, demo §2)*. `CrewMember`, then `SignOut` holds a person instead of a name — which breaks the build everywhere a name ever went on that board, and four edits clear it. TRIPS column: 1, 1, 1 — correct. Then the day's total → **CS0120** → 🎯 **ask for hands** → `static` → **CS0176** → do what it says → **3, 3, 3, zero warnings**. Let it sit. |
 | 0:34 | 10 min | **☕ Break** |
 | 0:44 | 18 min | **What `static` actually says** *(slides 4–5, demo §3)*. One copy, belonging to the class. Take it off. The day's total is a fact about the *crew*, so a `foreach` earns it. 🎯 **The total was always 3** — it was the per-person numbers that lied. 💡 **The loop is deliberately tedious** — nine lines for three numbers, and week 9 collapses it. |
-| 1:02 | 25 min | 🎯 **Step into it** *(slides 6–7, demo §4)*. Breakpoint in the constructor, <kbd>F5</kbd>, Variables, `this`. Three objects, three sets of fields. Then `GoesOut()` and which one moves. 💡 **Plus ~1 min on the `.vscode` VS Code writes** — and why their own project repo never shows the project list. |
+| 1:02 | 25 min | 🎯 **Step into it** *(slides 6–7, demo §4)*. Breakpoint in the constructor, <kbd>F5</kbd>, Variables, `this`. Six objects, six sets of fields — narrate the first three and <kbd>F5</kbd> through the rest. Then `GoesOut()` and which one moves. 💡 **Plus ~1 min on the `.vscode` VS Code writes** — and why their own project repo never shows the project list. |
 | 1:27 | 15 min | **When `static` is right** *(slide 8, demo §5)*. `Conditions` since week 1; `Console.WriteLine` several hundred times and never a `new Console()`. The test, said out loud. **No code.** |
 | 1:42 | 10 min | **☕ Break** |
 | 1:52 | 25 min | 💥 **Two names, one object** *(slides 9–10, demo §6)*. The muster, on a copy, marks everybody in — and the real board reads `0 people outside.` with two people on the ice. Then what a copy actually copies, and the muster made read-only. |
-| 2:17 | 20 min | **Nothing at all** *(slides 11–12, demo §7)*. `Find` returns `CrewMember?`. Build → **CS8602**, one warning. Run with `Reyes` → fine. Run with `Reyez` → **NullReferenceException**. The `if`, and back to 0 warnings. |
+| 2:17 | 20 min | **Nothing at all** *(slides 11–12, demo §7)*. 💥 **Opens on a silent failure** — signing out `Reyez` does nothing at all, and nobody is told. Then `Find` returns `CrewMember?`. Build → **CS8604**, one warning. Run with `Reyes` → fine. Run with `Reyez` → **NullReferenceException**. The `if`, and back to 0 warnings. 🎯 **Silence, then a crash, then a sentence.** |
 | 2:37 | 5 min | **Lab launch** *(slide 13, demo §8)*. Done is defined on their machine: a switchboard that can tell three people apart. |
 | 2:42 | 50 min | **Lab: the switchboard** *(slide 13 stays up)*. **In-class target: 5 green.** Circulate hard at Task 1 and Task 4. |
 | 3:32 | 13 min | **Wrap-up** *(slide 14, demo §9)*. `static` · instance · a reference · `null`. Two URLs in Canvas. Week 6 tease: **one list, one loop, four different kinds of thing.** |

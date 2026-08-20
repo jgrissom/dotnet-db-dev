@@ -422,6 +422,7 @@ dotnet run --project week-05/Lab
 | `CS0103: The name '_calls' does not exist` | You deleted the field but something still reads it. `CallsTonight` and `Calls()` should both name the property now. |
 | `CS8603: Possible null return` | Your `Find` returns `null` but its type has no `?`. It's `Caller?`, not `Caller`. |
 | `CS8602: Dereference of a possibly null reference` | You used something that might be nothing without asking first. [Ask, then use it](../lecture-notes.md#asking-before-you-use-it) — and it is [a warning, not an error](../lecture-notes.md#the-warning-that-was-already-there), so it builds and still crashes. |
+| `CS8604: Possible null reference argument` | The same thing, one step further out — you handed something that might be nothing to a method or a constructor. [Ask, then use it](../lecture-notes.md#asking-before-you-use-it). |
 | `NullReferenceException` when you press `r` | `Take` handed back nothing. It returns `Caller`, not `Caller?` — there is always a caller by the time it's done, because it makes one when it has to. |
 | `Find` only ever turns up the first caller | `return null;` is inside the loop. It goes after it. |
 | The board grows a second Dorothy every time she rings | `Take` isn't asking `Find` first, or it's adding a caller and returning a different one. Make it once, `Add` that one, return that same one. |

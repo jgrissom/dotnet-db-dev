@@ -36,22 +36,19 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   dotnet run --project week-04/Haldane
   ```
 
-- [ ] **Press Enter without typing anything.** The same keystroke the room watched last week
+- [ ] **Press `a`, then `Reyes`, then Enter without typing a time.** The exact keystroke the room watched fail, and then watched stop failing
 
   ```
-  Correction - new back-by for Reyes:
-  ┌───────┬───────────┬─────────┬──────────┬────────┐
-  │ TIME  │ NAME      │ REASON  │ EXPECTED │ STATUS │
-  ├───────┼───────────┼─────────┼──────────┼────────┤
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │
   └───────┴───────────┴─────────┴──────────┴────────┘
-  2 people outside.
+  3 people outside.
   ```
 
-- [ ] 📖 **Three things, fast — this is a refresher, not a re-teach:** *"the board. The duty officer correcting a return time. And I just hit Enter on that prompt with nothing typed — and Reyes still says 14:45, because the property refused it"*
+- [ ] 📖 **Three things, fast — this is a refresher, not a re-teach:** *"the board. A desk you work at, four things it can do. And I just amended Reyes's return time to nothing at all — and she still says 14:45, because the property refused it"*
 - [ ] 💡 **That is the whole of last week in about forty seconds**, and it is the state tonight starts from. **Don't linger** — if somebody wants the reasoning again it is in the notes
+- [ ] **Press `q` to close the desk**
 
 - [ ] **Now make this week's folder.** No commentary — they have watched this four times
 
@@ -81,9 +78,9 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **Then the part that transfers:** *"you will do exactly this reload in the lab tonight, straight after you copy your week in. Anything that appears in a folder after VS Code opened it, VS Code learns about late"*
 - [ ] 💡 **It also wakes IntelliSense on the new files** — the same staleness wearing a different hat. Worth a sentence if squiggles show up on good code later
 
-- [ ] **Open `week-05/Haldane/Program.cs`.** *"Last week's board, moved across whole. Three small changes and it is tonight's"* — **each one has an exact place to look, so none of this is a hunt**
+- [ ] **Open `week-05/Haldane/Program.cs`.** *"Last week's desk, moved across whole. Two small changes and it is tonight's"* — **both have an exact place to look, so neither is a hunt**
 
-- [ ] **1 of 3 — the new habit.** It goes on its own line directly under `using Spectre.Console;`, which is the **first line of the file**
+- [ ] **1 of 2 — the new habit.** It goes on its own line directly under `using Spectre.Console;`, which is the **first line of the file**
 
   ```csharp
   AnsiConsole.Clear();
@@ -91,36 +88,26 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"New habit from tonight: the console clears itself down before it draws anything. A duty board that starts halfway down a build log is not a duty board"*
 
-- [ ] **2 of 3 — the date.** <kbd>⌘F</kbd> for **`day 233`** — one hit, in the banner. Make it **`day 234`**
+- [ ] **2 of 2 — the date.** <kbd>⌘F</kbd> for **`day 233`** — one hit, in the banner. Make it **`day 234`**
 - [ ] 💡 *"A day has passed"* — and it matches the board they walked in to
 
-- [ ] **3 of 3 — last week's correction prompt comes out.** <kbd>⌘F</kbd> for **`Correction`** — one hit, and it lands on the first line of the block below. **Select from there down to and including the `AnsiConsole.WriteLine();`, and delete the lot**
-
-  ```csharp
-  Console.Write("Correction - new back-by for Reyes: ");
-  string newTime = Console.ReadLine() ?? "";
-
-  outside[1].Expected = newTime;
-
-  AnsiConsole.WriteLine();
-  ```
-
-- [ ] 📖 *"That prompt did its job last time. If I leave it in, every single run tonight stops and waits for me to type a time"*
-- [ ] 🎯 **And the part worth saying, because it is the thing that survives:** *"the door that correction went through is still there — the property that refused the blank. That is in `SignOut.cs`, it stays all term, and all I have taken away is the thing that was asking"*
-
-- [ ] **Run it.** The board they know, minus the prompt
+- [ ] **Run it.** The desk they know, one day on
 
   ```bash
   dotnet run --project week-05/Haldane
   ```
 
   ```
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │
   └───────┴───────────┴─────────┴──────────┴────────┘
-  2 people outside.
+  3 people outside.
+
+  [o]ut  [a]mend  [b]ack  [w]ho  [q]uit:
   ```
+
+- [ ] **Press `q`**, and say the premise while it is on screen: *"second week running that I have started by copying last week and changing a date. That is what a program that lives somewhere looks like, and it is what yours is doing too"*
 
 - [ ] 🎯 **Start the branch, and say it as you type it** — *"before I touch anything: a branch for tonight's work. Same as week 4 — nothing goes straight to `main` any more, and that goes for your project too"*
 
@@ -134,7 +121,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] **And save the week before changing a line of it.** Silent — this is the commit the lab asks them for in its very first step, so it happens here first
 
   ```bash
-  git add . && git commit -m "week 5: the board, carried forward"
+  git add . && git commit -m "week 5: the desk, carried forward"
   ```
 
 ---
@@ -166,7 +153,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"Nothing new in it. A name set once, a count only this class can move, and the one method that moves it — that is all of last week, applied to a person instead of a sign-out"*
 
-- [ ] **Now `SignOut.cs`, and this is the interesting edit.** Replace the `public string Name { get; }` line with
+- [ ] **Now `SignOut.cs`, and this is the interesting edit.** <kbd>⌘F</kbd> for **`public string Name { get; }`** — one hit. Replace that line with
 
   ```csharp
       public CrewMember Who { get; }
@@ -174,7 +161,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎯 **Say why, because this is the beat and not the typing:** *"the board has been storing a person's name. A name is a string, and a string cannot carry a trip count. So the board stops holding a name and starts holding the person"*
 
-- [ ] **And the constructor, in the same file** — replace the whole existing constructor with this
+- [ ] **And the constructor, in the same file.** <kbd>⌘F</kbd> for **`public SignOut(`** — one hit. Replace the whole constructor with this
 
   ```csharp
       public SignOut(string time, CrewMember who, string reason, string expected)
@@ -193,66 +180,111 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 💡 **Somebody will ask where `SignIn` is — the board now has a `GoesOut()` and a `Back()` and no symmetry between them. The answer is thirty seconds and it is tonight's subject:** *"`SignOut` is not a verb. It is a thing — one line on the board, a record that somebody went outside. You do not un-write a record. When they come back you do not make a second one; you finish the one that is already there, and that is `Back()`"*
 - [ ] 💡 **If they push — why no `ComesBack()` on the crew member:** *"their trip was counted on the way out. Coming back does not change how many times they went. Two objects, two different facts: the person's tally moves when they leave, and the sign-out's status moves when they return"*
 
-- [ ] **Back in `Program.cs`.** Under the `// ── the board` banner, select the **four lines** from `List<SignOut> outside` down to the last `outside.Add(...)`, and paste this over them
+- [ ] ⚠️ **Now the build is broken, and the size of the list is the segment.** *"I changed one property on one class. Everything that ever put a name on that board has just stopped compiling — say what the count says"* — **run it and read the list**
+
+  ```bash
+  dotnet build week-05/Haldane
+  ```
+
+- [ ] 💡 **Don't dwell on the errors themselves** — there are only two complaints in there, each said several times: *cannot convert from `string` to `CrewMember`* where a row is made, and *`SignOut` does not contain a definition for `Name`* where one is read. **The point is the reach**, and that four edits will clear the lot
+
+- [ ] **1 of 4 — the crew, and the three rows.** In `Program.cs`, <kbd>⌘F</kbd> for **`List<SignOut> outside`** — one hit. Select from there down to the last `outside.Add(...)` and paste this over the lot
 
   ```csharp
   List<CrewMember> crew = new List<CrewMember>();
-  CrewMember lindqvist = new CrewMember("Lindqvist");
-  CrewMember reyes = new CrewMember("Reyes");
+
   CrewMember okonkwo = new CrewMember("Okonkwo");
-  crew.Add(lindqvist);
-  crew.Add(reyes);
+  CrewMember reyes = new CrewMember("Reyes");
+  CrewMember lindqvist = new CrewMember("Lindqvist");
+
   crew.Add(okonkwo);
+  crew.Add(reyes);
+  crew.Add(lindqvist);
+  crew.Add(new CrewMember("Moretti"));
+  crew.Add(new CrewMember("Bhatt"));
+  crew.Add(new CrewMember("Nakamura"));
 
   List<SignOut> outside = new List<SignOut>();
-  outside.Add(new SignOut("09:05", lindqvist, "FUEL", "10:30"));
-  outside.Add(new SignOut("14:20", reyes, "DIG OUT", "14:45"));
   outside.Add(new SignOut("14:20", okonkwo, "MET RUN", "15:00"));
+  outside.Add(new SignOut("14:20", reyes, "DIG OUT", "14:45"));
+  outside.Add(new SignOut("09:05", lindqvist, "FUEL", "10:30"));
   ```
 
-- [ ] **Now the table, in one go.** Under the `// ── the board, rendered` banner, select everything from `var board = new Table()` down to the closing `}` of the `foreach` under it, and paste this over the lot
+- [ ] 📖 *"Six people on the winter crew, and three of them are already outside. The rows do not hold names any more — they hold three of those six"*
+
+- [ ] **2 of 4 — the board's NAME cell.** <kbd>⌘F</kbd> for **`Markup.Escape(s.Name)`** — one hit, inside `DrawBoard`. Make it read
 
   ```csharp
-  var board = new Table()
-      .Border(TableBorder.Square)
-      .BorderColor(Color.FromHex("#1e2529"))
-      .AddColumn($"[{Dim}]TIME[/]")
-      .AddColumn($"[{Dim}]NAME[/]")
-      .AddColumn($"[{Dim}]REASON[/]")
-      .AddColumn($"[{Dim}]EXPECTED[/]")
-      .AddColumn($"[{Dim}]STATUS[/]")
-      .AddColumn($"[{Dim}]TRIPS[/]");
-
-  foreach (SignOut s in outside)
-  {
-      board.AddRow(
-          $"[{Dim}]{Markup.Escape(s.Time)}[/]",
-          $"[{Fg}]{Markup.Escape(s.Who.Name)}[/]",
-          $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
-          $"[{Dim}]{Markup.Escape(s.Expected)}[/]",
-          s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]",
-          $"[{Fg}]{s.Who.TripsToday}[/]");
-  }
+              $"[{Fg}]{Markup.Escape(s.Who.Name)}[/]",
   ```
 
-- [ ] 📖 **Two things changed in that block and both are worth naming** — *"a TRIPS column on the end, and the NAME cell now reads `s.Who.Name` instead of `s.Name`. The board goes through the person to get the name"*
+- [ ] 📖 *"The board goes through the person to get the name"*
 
-- [ ] **Run it.** Everybody has been out once, and that is true
+- [ ] **3 of 4 and 4 of 4 — the two searches.** <kbd>⌘F</kbd> for **`s.Name == name`** — **two hits**, one in `AmendABackBy` and one in `MarkSomebodyBack`. Make both read `s.Who.Name == name`
+- [ ] 💡 *"Same edit, twice. Every place that used to ask a sign-out its name now asks the person on it"*
+
+- [ ] **Build again.** *"Four edits, and the list is down to one — and this last one is a different kind of problem"*
+
+  ```bash
+  dotnet build week-05/Haldane
+  ```
+
+  ```
+  error CS1503: Argument 2: cannot convert from 'string' to 'CrewMember'
+  ```
+
+- [ ] 🎯 **This is `SignSomebodyOut`, and it is worth ten seconds because it is honest:** *"the duty officer types a name at the desk. A typed name is a string. The board wants a person — so somewhere, something has to turn one into the other"*
+
+- [ ] **<kbd>⌘F</kbd> for `Still load-bearing`** — one hit, a comment in `SignSomebodyOut`. **Select from that comment down to the closing `}` of the `if` beneath it**, and paste this over the lot
+
+  ```csharp
+      foreach (CrewMember c in crew)
+      {
+          if (c.Name == name.Trim())
+          {
+              outside.Add(new SignOut("14:57", c, reason.Trim(), expected.Trim()));
+              return;
+          }
+      }
+  ```
+
+- [ ] 📖 *"Walk the crew, find the one with that name, put them on the board. Six people, so at worst it looks at six"*
+- [ ] 💡 **The blank-name guard went with it, and that is fine:** *"it was there to stop an empty name putting a blank row on the board. Nobody on this station is called nothing, so the search refuses it now"*
+
+- [ ] **Now the TRIPS column.** <kbd>⌘F</kbd> for **`]STATUS[/]");`** — one hit, inside `DrawBoard`. Make it read
+
+  ```csharp
+          .AddColumn($"[{Dim}]STATUS[/]")
+          .AddColumn($"[{Dim}]TRIPS[/]");
+  ```
+
+- [ ] **And the cell for it.** <kbd>⌘F</kbd> for **`$"[{Cold}]OUT[/]");`** — one hit. Make it read
+
+  ```csharp
+              s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]",
+              $"[{Fg}]{s.Who.TripsToday}[/]");
+  ```
+
+- [ ] **Run it.** Everybody on the board has been out once, and that is true
 
   ```bash
   dotnet run --project week-05/Haldane
   ```
 
   ```
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 1     │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 1     │
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 1     │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 1     │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │ 1     │
+  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
+  3 people outside.
   ```
 
-- [ ] 💥 **Now the last thing the duty officer asked for.** *"One number at the bottom: how many trips has the station logged today?"* Paste it in `Program.cs` directly under the `people outside.` line
+- [ ] **Press `q`**
+
+- [ ] 💥 **Now the last thing the duty officer asked for.** *"One number at the bottom: how many trips has the station logged today?"* <kbd>⌘F</kbd> for **`people outside.[/]");`** — one hit, inside `DrawBoard`. Paste this on the line below it
 
   ```csharp
-  AnsiConsole.MarkupLine($"[{Dim}]{CrewMember.TripsToday} trips logged today.[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]{CrewMember.TripsToday} trips logged today.[/]");
   ```
 
 - [ ] **Build it**
@@ -288,10 +320,10 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"Now the board is complaining. And it is telling me exactly what to type"*
 
-- [ ] **In `Program.cs`, do what it says.** It is the **last line of `AddRow`** — the one that currently reads `$"[{Fg}]{s.Who.TripsToday}[/]");`. Replace that one line with
+- [ ] **In `Program.cs`, do what it says.** <kbd>⌘F</kbd> for **`{s.Who.TripsToday}`** — one hit, the last line of `AddRow`. Make it read
 
   ```csharp
-          $"[{Fg}]{CrewMember.TripsToday}[/]");
+              $"[{Fg}]{CrewMember.TripsToday}[/]");
   ```
 
 - [ ] 🎯 **Before you run it — ask, then shut up:** *"the board builds now. What is it going to say?"* Let it hang
@@ -303,18 +335,18 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   ```
 
   ```
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 3     │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 3     │
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 3     │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 3     │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │ 3     │
   └───────┴───────────┴─────────┴──────────┴────────┴───────┘
-  2 people outside.
+  3 people outside.
   3 trips logged today.
   ```
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *Three people. One number*
 - [ ] 🎯 **The consequence, in station terms, said slowly:** *"Okonkwo has been outside once today. The board says three. And the bottom line — three trips logged today — is right, which is what makes this worse than a crash: one of those numbers is true and three of them are lies, and they all came from the same field"*
 - [ ] 🎯 *"Zero errors. Zero warnings. Two compiler messages got me here and I did what both of them asked"*
-- [ ] ⚠️ **Do not fix it yet.** Leave it on screen and go to §3
+- [ ] ⚠️ **Do not fix it yet.** Press `q`, leave it on screen, and go to §3
 
 ---
 
@@ -329,25 +361,25 @@ Tonight the room finds out what a word they have all typed was actually doing. T
       public int TripsToday { get; private set; }
   ```
 
-- [ ] **And put the board's cell back.** Same line as before — the **last line of `AddRow`**, now reading `$"[{Fg}]{CrewMember.TripsToday}[/]");`. Back to
+- [ ] **And put the board's cell back.** <kbd>⌘F</kbd> for **`{Fg}]{CrewMember.TripsToday}`** — one hit, the last line of `AddRow`. Back to
 
   ```csharp
-          $"[{Fg}]{s.Who.TripsToday}[/]");
+              $"[{Fg}]{s.Who.TripsToday}[/]");
   ```
 
 - [ ] 🎯 **Now the question the whole segment turns on:** *"so where does the day's total go? It is a real thing the duty officer wants. It just is not a fact about **a** crew member"*
 - [ ] *"The day's total is a fact about the crew. So it gets worked out from the crew"*
 
-- [ ] **Replace the `trips logged today` line** in `Program.cs` with the loop that earns it
+- [ ] **Replace the `trips logged today` line** with the loop that earns it. <kbd>⌘F</kbd> for **`trips logged today`** — one hit, inside `DrawBoard`
 
   ```csharp
-  int tripsToday = 0;
-  foreach (CrewMember c in crew)
-  {
-      tripsToday += c.TripsToday;
-  }
+      int tripsToday = 0;
+      foreach (CrewMember c in crew)
+      {
+          tripsToday += c.TripsToday;
+      }
 
-  AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");
   ```
 
 - [ ] 💡 **Nine lines to add up three numbers, and do not apologise for it — the tedium is the point.** *"Yes, this is a lot of typing to add up three numbers. Hold on to that feeling: in week 9 this entire loop becomes one line, and you will like that line considerably more for having written this one"*
@@ -359,14 +391,15 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   ```
 
   ```
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 1     │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 1     │
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 1     │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 1     │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │ 1     │
   └───────┴───────────┴─────────┴──────────┴────────┴───────┘
-  2 people outside.
+  3 people outside.
   3 trips logged today.
   ```
 
+- [ ] **Press `q`**
 - [ ] 🎯 **Point at the last line, because this is the part that lands:** *"three. The day's total said three before the break as well. That number was never wrong — it was the only true thing on the screen. What `static` broke was the three numbers that were supposed to be about people"*
 
 - [ ] **Save it.** Silent
@@ -401,18 +434,18 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   ```
 
 - [ ] 📖 *"That is a crew member with no name. The object exists — it has an address, it has fields — and not one of its facts is true yet. `new` made the box; the constructor is what fills it"*
-- [ ] **Press <kbd>F10</kbd>** (Step Over). `Name` becomes `"Lindqvist"` in the pane
+- [ ] **Press <kbd>F10</kbd>** (Step Over). `Name` becomes `"Okonkwo"` in the pane
 - [ ] 🎯 *"There. That is an object being built, one fact at a time. We have all written a lot of constructors, and most of us have never watched one run"*
 
 - [ ] **Press <kbd>F5</kbd> to continue.** It stops in the same constructor again
 - [ ] 🎯 **This is the one to slow down on:** *"same line, same file — and look at `this`. Name is null again. TripsToday is zero again. This is not the same object with its fields reset. It is a **different object**, and it has its own"*
-- [ ] **<kbd>F5</kbd> once more** for Okonkwo, then leave it running
+- [ ] **<kbd>F5</kbd> once more** for Lindqvist. *"Six on the winter crew, so it will do this three more times"* — <kbd>F5</kbd> through the rest without narrating them
 
 - [ ] **Now the second breakpoint.** Click the gutter beside `TripsToday++;` in `GoesOut()`
 - [ ] **<kbd>F5</kbd>.** It stops there — expand `this` again
 
   ```
-  this.Name        "Lindqvist"
+  this.Name        "Okonkwo"
   this.TripsToday  0
   ```
 
@@ -420,7 +453,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] **<kbd>F10</kbd>.** `TripsToday` goes to 1
 - [ ] 🎯 *"One line of code, `TripsToday++`, and it just moved exactly one crew member's counter. Which one? The one `this` is pointing at"*
 - [ ] **<kbd>F5</kbd>.** It stops again, and `this` is Reyes, on zero
-- [ ] 🎯 **The line the whole segment is for:** *"three objects, three counters, and you can see which one moves. That is the difference the word `static` was hiding from you twenty minutes ago"*
+- [ ] 🎯 **The line the whole segment is for:** *"six objects, six counters, and you can see which one moves. That is the difference the word `static` was hiding from you twenty minutes ago"*
 
 - [ ] 💡 **If there is time, expand the Call Stack** below Variables: `GoesOut` was called from `SignOut`'s constructor, which was called from the program. *"One object reaching into another. That is the `Who` I put on `SignOut` in the first segment"*
 
@@ -446,34 +479,40 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ## 6 · Two names, one object *(slides 9–10)*
 
-- [ ] *"End of watch. Before the duty officer hands over, they walk the board and account for everybody on it"*
+- [ ] *"End of watch. The desk closes, and before the duty officer hands over they walk the board and account for everybody on it"*
 - [ ] 📖 *"And they work off a copy — because last week we learned to hand out copies, and a copy is scratch paper. Nothing on the real board can get hurt"*
 
-- [ ] **Paste the muster** in `Program.cs`, directly above the `// ── the board, rendered` comment
+- [ ] **This goes after the desk closes.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut`** — one hit. Paste this **directly above it**, so it runs the moment the loop lets go
 
   ```csharp
+  // ── end of watch ───────────────────────────────────────────────────────────
+
   List<SignOut> muster = new List<SignOut>(outside);
 
   foreach (SignOut s in muster)
   {
       s.Back();
   }
+
+  DrawBoard();
+
   ```
 
-- [ ] 🎯 **Ask, then shut up:** *"that marks everybody back, on the copy. What does the real board say?"*
+- [ ] 🎯 **Ask, then shut up:** *"that marks everybody back, on the copy. What does the real board say?"* Let it hang
 
-- [ ] **Run it**
+- [ ] **Run it and press `q` straight away** — the watch ends with all three still outside
 
   ```bash
   dotnet run --project week-05/Haldane
   ```
 
   ```
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 1     │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ back   │ 1     │
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ back   │ 1     │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ back   │ 1     │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 1     │
   └───────┴───────────┴─────────┴──────────┴────────┴───────┘
   0 people outside.
+  3 trips logged today.
   ```
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *Two names, one object*
@@ -484,13 +523,12 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 *"`muster[1]` and `outside[1]` are two names for one record. Write through either name and there is only one thing there to write to"*
 - [ ] 💡 **Collect last week honestly, because it was not wrong:** *"last week, `All()` handing back a copy is what stopped anybody emptying the board, and it still does. Tonight is the other half of the sentence — a copy of the list protects the list, and it protects nothing inside it"*
 
-- [ ] **Fix it: the muster reads, it does not write.** Select from `foreach (SignOut s in muster)` down to its closing `}` and delete it — **the `List<SignOut> muster = ...` line above stays**
-- [ ] **Then paste this at the very bottom of `Program.cs`**
+- [ ] **Fix it: the muster reads, it does not write.** <kbd>⌘F</kbd> for **`foreach (SignOut s in muster)`** — one hit. **Select from there down to and including the `DrawBoard();` below it**, and paste this over the lot — **the `List<SignOut> muster = ...` line above stays**
 
   ```csharp
   AnsiConsole.WriteLine();
-
   AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");
+
   foreach (SignOut s in muster)
   {
       if (!s.IsBack)
@@ -501,19 +539,21 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   }
   ```
 
-- [ ] **Run it**
+- [ ] **Run it, press `q`**
 
   ```bash
   dotnet run --project week-05/Haldane
   ```
 
   ```
-  2 people outside.
+  3 people outside.
   3 trips logged today.
 
+  [o]ut  [a]mend  [b]ack  [w]ho  [q]uit:
   Muster - still to account for:
-    Reyes - DIG OUT, due 14:45
     Okonkwo - MET RUN, due 15:00
+    Reyes - DIG OUT, due 14:45
+    Lindqvist - FUEL, due 10:30
   ```
 
 - [ ] **Save it.** Silent
@@ -526,23 +566,48 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ## 7 · Nothing at all *(slides 11–12)*
 
-- [ ] *"One more. Somebody else is heading out, and the duty officer types their name"*
+- [ ] *"One more, and it is the one that has been sitting in this program since the first segment. Somebody else is heading out"*
 
-- [ ] **Paste this at the bottom of `Program.cs`** — the prompt and the lookup
+- [ ] **Run it, and sign Bhatt out** — press `o`, then **Bhatt**, **COMMS**, back by **16:30**
 
-  ```csharp
-  AnsiConsole.WriteLine();
-  Console.Write("Who's heading out? ");
-  string name = Console.ReadLine() ?? "";
-
-  CrewMember? who = Find(name);
-  who.GoesOut();
-
-  AnsiConsole.MarkupLine($"[{Fg}]{Markup.Escape(who.Name)}[/] "
-      + $"[{Dim}]- that's trip {who.TripsToday} today.[/]");
+  ```bash
+  dotnet run --project week-05/Haldane
   ```
 
-- [ ] **And the search, on the very last line of the file** — a local function, so it has to sit at the bottom
+  ```
+  │ 14:57 │ Bhatt     │ COMMS   │ 16:30    │ OUT    │ 1     │
+  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
+  4 people outside.
+  4 trips logged today.
+  ```
+
+- [ ] 📖 *"Bhatt is on the winter crew, the desk found him, and the day's total went up. That is the search from the first segment doing its job"*
+
+- [ ] 💥 **Stay in the program. Press `o` again — and this time type `Reyez`.** *"Gloves. Minus thirty-nine. One letter"* — **COMMS**, back by **17:00**
+
+  ```
+  │ 14:57 │ Bhatt     │ COMMS   │ 16:30    │ OUT    │ 1     │
+  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
+  4 people outside.
+  4 trips logged today.
+  ```
+
+- [ ] 🎯 **Ask, then shut up:** *"what happened?"* — and let it hang. **The answer is nothing.** No row, no message, no error. The board is exactly as it was
+- [ ] 🎯 **Say what that costs, in station terms:** *"somebody stood at this desk, said where they were going and when they would be back, and walked out the door. The board has no idea. That is worse than a crash — a crash would at least have told me"*
+- [ ] 📖 **Then name the cause, and it is in the code they watched go in:** *"the search walks the crew looking for that name. It does not find it. And then the loop just… ends. Nobody ever asked it what it found"*
+- [ ] **Press `q`**
+
+- [ ] 🎞️ **GO TO SLIDE 11** — *`CrewMember` and `CrewMember?`*
+
+- [ ] **Make the search hand its answer back.** In `Program.cs`, <kbd>⌘F</kbd> for **`foreach (CrewMember c in crew)`** — **one hit, inside `SignSomebodyOut`**. Select from there down to its closing `}` and paste this over it
+
+  ```csharp
+      CrewMember? who = Find(name.Trim());
+
+      outside.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));
+  ```
+
+- [ ] **And the search itself, on the very last line of the file** — a local function, so it has to sit at the bottom
 
   ```csharp
   CrewMember? Find(string wanted)
@@ -568,7 +633,8 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   ```
 
   ```
-  warning CS8602: Dereference of a possibly null reference.
+  warning CS8604: Possible null reference argument for parameter 'who' in
+  'SignOut.SignOut(string time, CrewMember who, string reason, string expected)'.
 
       1 Warning(s)
       0 Error(s)
@@ -578,46 +644,48 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 *"One warning. Week 2 said the compiler talks to you long before it stops you — and this one is talking about something that has not happened yet"*
 - [ ] ⚠️ **Do not fix it.** Run it first
 
-- [ ] **Run it and type `Reyes`.** It works perfectly
+- [ ] **Run it and sign `Reyes` out** — press `o`, then **Reyes**, **WALK**, back by **17:00**. It works perfectly
 
   ```bash
   dotnet run --project week-05/Haldane
   ```
 
   ```
-  Who's heading out? Reyes - that's trip 2 today.
+  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 1     │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 2     │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │ 1     │
+  │ 14:57 │ Reyes     │ WALK    │ 17:00    │ OUT    │ 2     │
+  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
+  4 people outside.
+  4 trips logged today.
   ```
 
-- [ ] 💥 **Run it again — and this time type `Reyez`.** *"Gloves. Minus thirty-nine. One letter"*
+- [ ] 💡 **Worth one second, no more:** Reyes now has **two** rows and a trip count of **2**, on both of them. *"One person, one counter, two sign-outs pointing at her"* — the same sentence as §6, from the other side
 
-  ```bash
-  dotnet run --project week-05/Haldane
-  ```
+- [ ] 💥 **Press `o` again and type `Reyez`.** *"Same typo as before. Watch what it does now"*
 
   ```
-  Who's heading out? Unhandled exception. System.NullReferenceException:
-  Object reference not set to an instance of an object.
+  Unhandled exception. System.NullReferenceException: Object reference not
+  set to an instance of an object.
+     at SignOut..ctor(String time, CrewMember who, String reason, String expected)
   ```
 
-- [ ] 🎞️ **GO TO SLIDE 11** — *`CrewMember` and `CrewMember?`*
-- [ ] 📖 *"`Find` looked, nobody on station is called Reyez, and it handed back nothing. Then the next line asked that nothing to go outside"*
+- [ ] 📖 *"`Find` looked, nobody on station is called Reyez, and it handed back nothing. Then the board took that nothing and asked it to go outside"*
 - [ ] 🎯 *"`null` is not a failure and it is not a bug. It is an answer, and it is the true one. The bug is asking it a question"*
+- [ ] 🎯 **And the honest comparison, because this is the beat:** *"ten minutes ago the same typo did nothing at all and I never found out. Now it takes the desk off the air in front of everybody. Which of those would you rather have at minus thirty-nine?"*
 - [ ] 🎞️ **GO TO SLIDE 12** — *The warning that was already there* · *"and the compiler said so at build time, in the quietest possible voice, about a crash that had not happened yet"*
 
-- [ ] **The fix.** Replace the `who.GoesOut();` line and the `MarkupLine` under it with this
+- [ ] **The fix.** <kbd>⌘F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit. Replace **that one line** with
 
   ```csharp
-  if (who == null)
-  {
-      AnsiConsole.MarkupLine($"[{Amber}]Nobody on station by that name. Nothing logged.[/]");
-  }
-  else
-  {
-      who.GoesOut();
-
-      AnsiConsole.MarkupLine($"[{Fg}]{Markup.Escape(who.Name)}[/] "
-          + $"[{Dim}]- that's trip {who.TripsToday} today.[/]");
-  }
+      if (who == null)
+      {
+          AnsiConsole.MarkupLine($"[{Amber}]  Nobody on station by that name. Nothing logged.[/]");
+      }
+      else
+      {
+          outside.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));
+      }
   ```
 
 - [ ] **Build it.** The warning is gone, and it is gone for a reason
@@ -633,15 +701,18 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎯 *"Inside that `else`, the compiler knows `who` cannot be null — because I asked. That is the whole deal it is offering: tell me it might be nothing, then check, and I will stop nagging you"*
 
-- [ ] **Run it and type `Reyez` again**
+- [ ] **Run it, press `o` and type `Reyez` one last time**
 
   ```bash
   dotnet run --project week-05/Haldane
   ```
 
   ```
-  Who's heading out? Nobody on station by that name. Nothing logged.
+    Nobody on station by that name. Nothing logged.
   ```
+
+- [ ] 🎯 **Three behaviours, one typo, and say them in order:** *"silence. Then a crash. Then a sentence that tells the duty officer what happened. That last one is the only one you can work at"*
+- [ ] **Press `q`**
 
 - [ ] **Save it.** Silent
 

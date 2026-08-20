@@ -107,7 +107,7 @@ That is the whole difference, and it is the whole bug. With the word on, `GoesOu
 > [!IMPORTANT]
 > **`CS0120` is not the compiler recommending `static`. It is the compiler asking *which one did you mean*?**
 >
-> `CrewMember.TripsToday` names the class. There are three crew members and the class does not know which of them you had in mind — so it asks. **Nearly always the answer is to name one**, not to abolish the lot of them.
+> `CrewMember.TripsToday` names the class. There are six crew members and the class does not know which of them you had in mind — so it asks. **Nearly always the answer is to name one**, not to abolish the lot of them.
 
 ### Where the day's total actually goes
 
@@ -325,8 +325,9 @@ Two things to notice, and they are the section.
 ### `null` is an answer, not a failure
 
 ```csharp
-CrewMember? who = Find(name);
-who.GoesOut();
+CrewMember? who = Find(name.Trim());
+
+outside.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));
 ```
 
 Type `Reyes` and it works. Type `Reyez` — gloves, minus thirty-nine, one letter — and:
@@ -334,16 +335,18 @@ Type `Reyes` and it works. Type `Reyez` — gloves, minus thirty-nine, one lette
 ```
 Unhandled exception. System.NullReferenceException: Object reference not set
 to an instance of an object.
+   at SignOut..ctor(String time, CrewMember who, String reason, String expected)
 ```
 
-`Find` did nothing wrong. It looked, nobody on station is called Reyez, and it said so. **The bug is asking that nothing to go outside.**
+`Find` did nothing wrong. It looked, nobody on station is called Reyez, and it said so. **The bug is handing that nothing to the board** — which puts it on a row and then asks it to go outside, because that is what `SignOut`'s constructor does.
 
 ### The warning that was already there
 
 That program built. It built with **one warning**:
 
 ```
-warning CS8602: Dereference of a possibly null reference.
+warning CS8604: Possible null reference argument for parameter 'who' in
+'SignOut.SignOut(string time, CrewMember who, string reason, string expected)'.
 
     1 Warning(s)
     0 Error(s)
@@ -359,8 +362,8 @@ Week 2 said the compiler talks to you long before it stops you. This is the same
 ### Asking before you use it
 
 ```csharp
-// in Program.cs, where the bare version was
-CrewMember? who = Find(name);
+// inside SignSomebodyOut(), where the bare version was
+CrewMember? who = Find(name.Trim());
 
 if (who == null)
 {
@@ -368,8 +371,7 @@ if (who == null)
 }
 else
 {
-    who.GoesOut();
-    AnsiConsole.MarkupLine($"{who.Name} - that's trip {who.TripsToday} today.");
+    outside.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));
 }
 ```
 
@@ -503,6 +505,7 @@ Then move the breakpoint to `TripsToday++` inside `GoesOut()` and continue three
 | Every object reports the same number | A `static` field behind an instance property. One copy for the whole program — take the word off and give each object its own. |
 | `NullReferenceException: Object reference not set to an instance of an object` | You used something that turned out to be nothing. Look for the last thing that could have handed you a `null` — usually a `Find`-shaped method — and check it before you use it. |
 | `CS8602: Dereference of a possibly null reference` | The same crash, before it happens. Something is declared with a `?` and you used it without asking. This is a warning and not an error, so it will build and it will still crash. |
+| `CS8604: Possible null reference argument` | The same thing, one step further out — you handed something that might be nothing to a method or a constructor, which is what the demo's board did. |
 | `CS8600: Converting null literal or possible null value to non-nullable type` | You put a possibly-null value into a variable that promised not to be null. Either add the `?` to the variable's type, or deal with the null with `??`. |
 | `CS8603: Possible null return` | Your method's return type has no `?` but one path returns `null`. If nothing-at-all is a legitimate answer, the type wants the question mark: `CrewMember?`. |
 | `Find` always hands back the first record, or crashes on an empty list | `return null;` is inside the loop instead of after it, or the method reaches into the list (`_items[0]`) rather than walking it. |
