@@ -133,7 +133,9 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
   ```
 
-- [ ] 📖 *"Find her row, write the new time in. This is the line some of us would write"* — and point at it: `s.Expected = newTime;`
+- [ ] 📖 **Nothing to change here — talk the paste through in one sentence:** *"ask who, ask for the new time, walk the board, find her row, write it in"*
+- [ ] 🎯 **Then put the cursor on `s.Expected = newTime;` and leave it there.** *"That is the line. A correction comes in over the radio, and we reach into the record and set the field. Some of us would write exactly that"*
+- [ ] 💡 **Why that one line gets the attention, and it is the only reason to dwell:** §3's payoff is that it keeps working untouched after `Expected` stops being a field. Nothing else in this method matters tonight
 
 - [ ] **Then wire it to a key.** <kbd>⌘F</kbd> for **`case "w":`** — one hit. Paste this directly above it
 
@@ -201,7 +203,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 📖 **Three things, and name them in this order** — *"`_expected` is the private one; the underscore is just how people write it. `value` is a keyword — inside a `set` it's whatever was on the right of the equals, and you never declare it. And the `if` is the entire point: that `set` is a method, and the `if` runs inside it on the way in"*
 
-- [ ] 🎞️ **GO TO SLIDE 7** — *The caller never noticed* · 🎯 **point at the unchanged line inside `AmendABackBy`:** *"look at what did **not** change. `s.Expected = newTime;` — the same line it was before I edited `SignOut.cs`, character for character. It still reads like a field and it's still written like a field"*
+- [ ] 🎞️ **GO TO SLIDE 7** — *The caller never noticed* · 🎯 **point at what did *not* change** — the line on the slide is the one still sitting in `AmendABackBy`: *"that is character for character what I typed before I touched `SignOut.cs`. It still reads like a field and it's still written like a field"*
 
 - [ ] **Run it, and do exactly what broke it.** Press `a`, `Reyes`, then Enter without typing a time
 
