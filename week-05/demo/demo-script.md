@@ -592,7 +592,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"Bhatt is on the winter crew, the desk found him, and the day's total went up. That is the search from the first segment doing its job"*
 
-- [ ] 💥 **Stay in the program. Press `o` again — and this time type `Reyez`.** *"Gloves. Minus thirty-nine. One letter"* — **COMMS**, back by **17:00**
+- [ ] 💥 **Stay in the program. Press `o` again — and this time type `Reyez`.** *"The duty officer is wearing gloves — it's minus thirty-nine. They miss by one letter"* — **COMMS**, back by **17:00**
 
   ```
   │ 14:57 │ Bhatt     │ COMMS   │ 16:30    │ OUT    │ 1     │
