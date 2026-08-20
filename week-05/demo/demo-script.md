@@ -125,20 +125,39 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] **Press `q`**
 
-- [ ] **2 of 3 — the desk waits before it repaints.** <kbd>⌘F</kbd> for **`That wasn't one of the buttons`** — one hit, the loop's `default:`. Below it the loop ends with `AnsiConsole.WriteLine();` and `DrawBoard();`. **Select those two lines** and paste this over them
+- [ ] **2 of 3 — the loop stops redrawing, and the actions take it over.** <kbd>⌘F</kbd> for **`That wasn't one of the buttons`** — one hit, the loop's `default:`. Below the switch the loop ends with `AnsiConsole.WriteLine();` and `DrawBoard();`. **Select those two lines** and paste this over them
 
   ```csharp
       AnsiConsole.WriteLine();
-
-      Console.Write("  [Enter] ");
-      Console.ReadLine();
-
-      DrawBoard();
   ```
 
-- [ ] 🎯 **Say why the pause is there, because without it the feature is a bug:** *"the screen is about to get wiped every time I do something. So whatever the desk just told me has to stay up until I've read it. That's what the Enter is for"*
+- [ ] 🎯 **Say what that just broke, because it is the setup:** *"the board doesn't redraw at all now. Nothing I do gets me a fresh screen"*
 
-- [ ] **Run it. Press `w`, look up `Reyes`, and read the answer before you press Enter**
+- [ ] **Now give it back, three times — only where the board actually changed.** <kbd>⌘F</kbd> for **`s.Expected = newTime;`** — one hit, in `AmendABackBy`. Put `DrawBoard();` on the line under it
+
+  ```csharp
+              s.Expected = newTime;
+              DrawBoard();
+  ```
+
+- [ ] **<kbd>⌘F</kbd> for `s.Back();`** — one hit, in `MarkSomebodyBack`. Same again
+
+  ```csharp
+              s.Back();
+              DrawBoard();
+  ```
+
+- [ ] **<kbd>⌘F</kbd> for `outside.Add(new SignOut("14:57"`** — one hit, in `SignSomebodyOut`. Same again
+
+  ```csharp
+          outside.Add(new SignOut("14:57", name.Trim(), reason.Trim(), expected.Trim()));
+          DrawBoard();
+  ```
+
+- [ ] 🎯 **Now say the rule, because it is the whole design and it is one sentence:** *"the board redraws when the board changed. An action that only tells me something — a lookup, or a refusal — leaves its answer sitting there until I do something else"*
+- [ ] 💡 **No key to press, nothing to dismiss.** The three that change data wipe and repaint; the three that just report don't
+
+- [ ] **Run it. Press `w`, look up `Reyes`, and notice the answer stays put. Then press `o` and sign `Bhatt` out — `COMMS`, back by `16:30`**
 
   ```bash
   dotnet run --project week-05/Haldane
@@ -146,12 +165,9 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
   ```
     Reyes - general technician
-
-    [Enter]
   ```
 
-
-- [ ] 🎯 **Then press Enter and let them watch it happen:** *"and the board comes back at the top, exactly where it was"*
+- [ ] 🎯 **Then, as the board comes back with Bhatt on it:** *"that one changed the board, so the board redrew"*
 - [ ] **Press `q`**
 
 - [ ] **3 of 3 — the old header comes out.** It is still up there printing a banner that gets wiped a millisecond later. **Select the whole block between two comments — from `// The week-1 banner` down to and including `// ── the board itself`** — and paste this over the lot. The two `const` lines buried in the middle of it are the only part that has to survive
@@ -327,6 +343,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
           if (c.Name == name.Trim())
           {
               outside.Add(new SignOut("14:57", c, reason.Trim(), expected.Trim()));
+              DrawBoard();
               return;
           }
       }
@@ -769,6 +786,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
       else
       {
           outside.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));
+          DrawBoard();
       }
   ```
 
