@@ -162,7 +162,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   │ 14:20 │ Reyes     │ DIG OUT │ 15:15    │
   ```
 
-- [ ] 💥 **Stay in the program — press `a` again, `Reyes` again, and this time press Enter without typing a time.** *"Gloves. Minus thirty-nine. You hit Enter a beat early"*
+- [ ] 💥 **Stay in the program — press `a` again, `Reyes` again, and this time press Enter without typing a time.** *"The duty officer is wearing gloves — it's minus thirty-nine. They hit Enter a beat early"*
 
   ```
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │
