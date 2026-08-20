@@ -154,7 +154,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **Then press Enter and let them watch it happen:** *"and the board comes back at the top, exactly where it was"*
 - [ ] **Press `q`**
 
-- [ ] **3 of 3 — the old header comes out.** It is still up there printing a banner that gets wiped a millisecond later. <kbd>⌘F</kbd> for **`// The week-1 banner`** — one hit. **Select from there down to and including the blank line after `Safe to go out`**, and paste this over the lot — the two `const` lines buried in the middle of it are the only part that has to survive
+- [ ] **3 of 3 — the old header comes out.** It is still up there printing a banner that gets wiped a millisecond later. <kbd>⌘F</kbd> for **`// The week-1 banner`** — one hit. **Select from there down to and including the `AnsiConsole.WriteLine();` that follows the `Safe to go out` line**, and paste this over the lot — the two `const` lines buried in the middle of it are the only part that has to survive
 
   ```csharp
   const string Fg = "#c8d3cf";
