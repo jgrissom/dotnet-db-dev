@@ -620,28 +620,35 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] *"End of watch. The desk closes, and before the duty officer hands over they walk the board and account for everybody on it"*
 - [ ] 📖 *"And they work off a copy — because last week we learned to hand out copies, and a copy is scratch paper. Nothing on the real board can get hurt"*
 
-- [ ] **This goes after the desk closes.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut`** — one hit. Paste this **directly above it**, so it runs the moment the loop lets go
+- [ ] **The desk already has a function per action; this is one more.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut`** — one hit. Paste this **directly above it** — the call first, then the function
 
   ```csharp
+  EndOfWatch();
+
   // ── end of watch ───────────────────────────────────────────────────────────
-
-  List<SignOut> muster = new List<SignOut>(outside);
-
-  foreach (SignOut s in outside)
+  // The desk is closed. Account for everybody on the board.
+  void EndOfWatch()
   {
-      if (s.IsBack)
+      // A copy, because the next loop CROSSES NAMES OFF — and removing from the real
+      // board would delete the sign-out rather than account for it.
+      List<SignOut> muster = new List<SignOut>(outside);
+
+      foreach (SignOut s in outside)
       {
-          muster.Remove(s);
+          if (s.IsBack)
+          {
+              muster.Remove(s);
+          }
       }
-  }
 
-  AnsiConsole.WriteLine();
-  AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");
+      AnsiConsole.WriteLine();
+      AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");
 
-  foreach (SignOut s in muster)
-  {
-      AnsiConsole.MarkupLine($"[{Fg}]  {Markup.Escape(s.Who.Name)}[/] "
-          + $"[{Dim}]- {Markup.Escape(s.Reason)}, due {Markup.Escape(s.Expected)}[/]");
+      foreach (SignOut s in muster)
+      {
+          AnsiConsole.MarkupLine($"[{Fg}]  {Markup.Escape(s.Who.Name)}[/] "
+              + $"[{Dim}]- {Markup.Escape(s.Reason)}, due {Markup.Escape(s.Expected)}[/]");
+      }
   }
 
   ```
