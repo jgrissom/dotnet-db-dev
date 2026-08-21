@@ -125,7 +125,7 @@ foreach (CrewMember c in crew)
 `3` — the same three it said before. That number was never wrong. What `static` broke was the three that were supposed to be about people.
 
 > [!NOTE]
-> That loop is nine lines of doing-it-by-hand, and in **week 9** it becomes `crew.Sum(c => c.TripsToday)` — one line. Write the loop now; you will appreciate the one line more for having written it.
+> That is a whole loop of doing-it-by-hand, and in **week 9** it becomes `crew.Sum(c => c.TripsToday)` — one line. Write the loop now; you will appreciate the one line more for having written it.
 
 ---
 
