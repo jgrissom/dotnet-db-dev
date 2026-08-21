@@ -839,7 +839,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 💡 **Worth one second, no more:** Reyes now has **two** rows and a trip count of **2**, on both of them. *"One person, one counter, two sign-outs pointing at her"* — the same sentence as §6, from the other side
 
-- [ ] 💥 **Press `o` again and type `Reyez`.** *"Same typo as before. Watch what it does now"*
+- [ ] 💥 **Press `o` again — `Reyez`, then **COMMS**, back by **17:00**.** *"Same typo as before. Watch what it does now"* ⚠️ **It asks for all three before anything goes wrong** — `Find` does not run until the last answer is in
 
   ```
   Unhandled exception. System.NullReferenceException: Object reference not
@@ -879,7 +879,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎯 *"Inside that `else`, the compiler knows `who` cannot be null — because I asked. That is the whole deal it is offering: tell me it might be nothing, then check, and I will stop nagging you"*
 
-- [ ] **Run it, press `o` and type `Reyez` one last time**
+- [ ] **Run it, press `o` and type `Reyez` one last time** — **COMMS**, back by **17:00**
 
   ```bash
   dotnet run --project week-05/Haldane
