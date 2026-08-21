@@ -688,8 +688,10 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **Nothing is wrong yet, and that is the point.** *"So it's scratch paper. I can scribble on it"*
 - [ ] ⚠️ **This code is finished and it never changes again.** Everything from here happens in the debugger, on a program that is already correct — **what breaks is a belief, not the code**
 
-- [ ] **Breakpoint.** <kbd>⌘F</kbd> for **`Muster - still to account for`** — one hit. Put the breakpoint on **that line**: the copy has just been made and nothing has been touched
+- [ ] **Breakpoint.** <kbd>⌘F</kbd> for **`List<SignOut> muster`** — one hit, inside `EndOfWatch()`. Put the breakpoint on **that line**
+- [ ] ⚠️ **It has to be that line and not a later one.** The cross-off loop runs immediately after it, and once that has finished the muster is settled — marking people back after it changes nothing you can see
 - [ ] **<kbd>F5</kbd>, then press `q` at the desk.** ⚠️ **The muster runs after the desk closes**, so nothing reaches the breakpoint until you quit
+- [ ] **Click `Step Over` once.** The breakpoint stops *before* its line runs, so the copy does not exist yet — one step and it does
 
 - [ ] **In the Run and Debug view, add two Watch expressions** — the **WATCH** section, `+`, one each
 
