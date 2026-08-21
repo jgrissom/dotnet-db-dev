@@ -781,6 +781,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
       CrewMember? who = Find(name.Trim());
 
       outside.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));
+      DrawBoard();
   ```
 
 - [ ] **And the search itself, on the very last line of the file** — a local function, so it has to sit at the bottom
