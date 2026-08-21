@@ -102,7 +102,7 @@ The word is the whole difference.
 You have never written `new Console()`.
 
 > **Is there exactly one of these, ever? → `static`.**
-> **Is it a fact about one thing? → never.**
+> **Is it a fact about one thing? → never `static`.**
 
 ---
 

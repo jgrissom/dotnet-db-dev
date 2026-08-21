@@ -610,7 +610,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎞️ **GO TO SLIDE 6** — *When `static` is right*
 - [ ] 🎯 **The bigger one, and it is on their screens every day:** *"`Console.WriteLine`. Several hundred times this term. Not one of you has ever written `new Console()` — because there is one console. That is the whole reason it is static"*
 - [ ] *"Same for `int.TryParse` from week 2, and `Math.Round`. Rules, not things"*
-- [ ] 🎯 **The test, and it is the sentence to take home:** *"is there exactly one of this thing, ever, in the whole program? Then static. Is it a fact about one particular thing? Then never"*
+- [ ] 🎯 **The test, and it is the sentence to take home:** *"is there exactly one of this thing, ever, in the whole program? Then `static` is right. Is it a fact about one particular thing? Then `static` is wrong — every time"*
 - [ ] ⚠️ **And the trap, in one line:** *"the compiler asking for `static` is not the compiler recommending it. `CS0120` means **which one did you mean**? Nearly always the answer is to name one — not to abolish the lot of them"*
 
 ---

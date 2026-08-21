@@ -162,7 +162,7 @@ Several hundred `Console.WriteLine` calls this term, and not one `new Console()`
 > **The test, and it is the sentence to take home:**
 >
 > **Is there exactly one of these, ever, in the whole program? → `static`.**
-> **Is it a fact about one particular thing? → never.**
+> **Is it a fact about one particular thing? → never `static`.**
 
 A count of how many trips *Reyes* has made is a fact about Reyes. A rule for whether it is safe to go outside is not about anybody.
 
