@@ -568,31 +568,32 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   ```
 
 - [ ] 📖 *"That is a crew member with no name. It has an address, it has fields — and not one of its facts is true yet"*
-- [ ] **Press <kbd>F10</kbd>** (Step Over). `Name` becomes `"Okonkwo"` in the pane
+- [ ] **Click `Step Over` on the debug toolbar.** `Name` becomes `"Okonkwo"` in the pane
+- [ ] 💡 **Use the toolbar, not the key, for every step from here** — the room cannot see you press <kbd>F10</kbd>, and they can see you click
 - [ ] 🎯 *"There. That is an object being built, one fact at a time. We have all written a lot of constructors, and most of us have never watched one run"*
 
 - [ ] 🎯 **The sentence they take home, now that they have watched it:** *"`new` made the box. The constructor is what fills it — and for one line there, the object existed before a single one of its facts was true"*
 
-- [ ] **Press <kbd>F5</kbd> to continue.** It stops in the same constructor again
+- [ ] **Click `Continue`.** It stops in the same constructor again
 - [ ] 🎯 **This is the one to slow down on:** *"same line, same file — and look at `this`. Name is null again. TripsToday is zero again. This is not the same object with its fields reset. It is a **different object**, and it has its own"*
-- [ ] **<kbd>F5</kbd> once more** for Lindqvist. *"Six on the winter crew, so it will do this three more times"* — <kbd>F5</kbd> through the rest without narrating them
+- [ ] **`Continue` once more** for Lindqvist. *"Six on the winter crew, so it will do this three more times"* — click through the rest without narrating them
 
 - [ ] **Now the second breakpoint.** Click the gutter beside `TripsToday++;` in `GoesOut()`
-- [ ] **<kbd>F5</kbd>.** It stops there — expand `this` again
+- [ ] **`Continue`.** It stops there — expand `this` again
 
   ```
   this.Name        "Okonkwo"
   this.TripsToday  0
   ```
 
-- [ ] **<kbd>F10</kbd>.** `TripsToday` goes to 1
+- [ ] **`Step Over`.** `TripsToday` goes to 1
 - [ ] 🎯 *"One line of code, `TripsToday++`, and it just moved exactly one crew member's counter. Which one? The one `this` is pointing at"*
-- [ ] **<kbd>F5</kbd>.** It stops again, and `this` is Reyes, on zero
+- [ ] **`Continue`.** It stops again, and `this` is Reyes, on zero
 - [ ] 🎯 **The line the whole segment is for:** *"six objects, six counters, and you can see which one moves. That is the difference the word `static` was hiding from you twenty minutes ago"*
 
 - [ ] 💡 **If there is time, expand the Call Stack** below Variables: `GoesOut` was called from `SignOut`'s constructor, which was called from the program. *"One object reaching into another. That is the `Who` I put on `SignOut` in the first segment"*
 
-- [ ] **Take both breakpoints off** (click the red dots) and **<kbd>Shift</kbd>+<kbd>F5</kbd>** to stop
+- [ ] **Take both breakpoints off** (click the red dots) and click **`Stop`** on the debug toolbar
 - [ ] 💡 **Say the standing offer once:** *"from tonight, when a value is not what you think it is, this is faster than adding a `Console.WriteLine`. It is in the homework's Stuck section for exactly that"*
 
 ---

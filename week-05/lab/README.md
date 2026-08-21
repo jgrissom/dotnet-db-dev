@@ -213,7 +213,7 @@ dotnet test week-05/Lab.Checks
 > [!TIP]
 > **Two minutes with the debugger, and it's worth them.** Click the gutter beside `CallsTonight++` in `Calls()` — the narrow strip left of the line numbers — and press <kbd>F5</kbd>. Choose **`.NET 5+ and .NET Core`** if it asks which debugger.
 >
-> ⚠️ **Then a project list appears, and it is genuinely hard to read — type `week-05` to filter it.** Every entry is the project name followed by its **full path**, which runs off the end of the box, and by now you have **eight** of them: a `Lab` in every week, and a `Homework` in weeks 1–3 as well. They look identical until you narrow them. **Typing `week-05` leaves exactly one.**
+> ⚠️ **Then a project list appears, and it is genuinely hard to read — type `week-05` to filter it.** Every entry is the project name followed by its **full path**, which runs off the end of the box, and by now you have one for every week you have done — a `Lab` in each, and a `Homework` in weeks 1–3 as well. They look identical until you narrow them. **Typing `week-05` leaves exactly one.**
 > *(No `week-05` in the list at all? You skipped the window reload in Setup — do that now and try again.)*
 >
 > **Look at your Explorer afterwards: a `.vscode` folder has appeared.** VS Code wrote it — `launch.json` says what to debug, `tasks.json` says to build it first. **It names one project**, which is why it had to ask you: this folder has eight programs in it, one or two for every week you've done.
@@ -222,7 +222,9 @@ dotnet test week-05/Lab.Checks
 >
 > **And when it's pointed at the wrong week:** delete the `.vscode` folder and press <kbd>F5</kbd> again — it names the week in two places, so editing it by hand is two chances to get it wrong.
 >
-> Now expand `this` in the **Variables** pane each time it stops. `this` is a different caller every time, and the line moves that one's number and nobody else's. [The full drill is in the notes.](../lecture-notes.md#the-debugger-and-what-it-is-actually-for) Take the breakpoint off and <kbd>Shift</kbd>+<kbd>F5</kbd> when you're done.
+> **A small debug toolbar appears while it is stopped** — `Continue` runs to the next breakpoint, `Step Over` runs one line, `Stop` ends it. The keys do the same, if you prefer: <kbd>F5</kbd>, <kbd>F10</kbd>, <kbd>Shift</kbd>+<kbd>F5</kbd>.
+>
+> Now expand `this` in the **Variables** pane each time it stops. `this` is a different caller every time, and the line moves that one's number and nobody else's. [The full drill is in the notes.](../lecture-notes.md#the-debugger-and-what-it-is-actually-for) Take the breakpoint off and click `Stop` when you're done.
 
 **Green? Commit it:**
 

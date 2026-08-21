@@ -465,7 +465,7 @@ Most of you have set a breakpoint before. Tonight it does a job some of us have 
    - ⚠️ **Not there at all?** VS Code learned what was in this folder when you opened it, and that week arrived later. Command Palette → **`Developer: Reload Window`**.
 4. It stops **on** the line, and that line **has not run yet**.
 5. Expand `this` in the **Variables** pane, top of the **Run and Debug** view.
-6. <kbd>F10</kbd> steps over one line · <kbd>F5</kbd> continues · <kbd>Shift</kbd>+<kbd>F5</kbd> stops.
+6. A small **debug toolbar** appears while it is stopped: `Step Over` runs one line, `Continue` runs to the next breakpoint, `Stop` ends it. The keys do the same — <kbd>F10</kbd>, <kbd>F5</kbd>, <kbd>Shift</kbd>+<kbd>F5</kbd>.
 
 Put the breakpoint on `Name = name;` inside `CrewMember`'s constructor and you get this:
 
