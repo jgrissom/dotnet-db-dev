@@ -731,7 +731,6 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] ⚠️ **Say what it means for their project, in one line, because it is the only part they can act on:** *"so `All()` stops somebody deleting your records. It does not stop them changing one"*
 
 - [ ] **Take the breakpoint off and click `Stop`**
-- [ ] 💡 **Nothing to undo.** *"The program on screen is the same program I pasted ten minutes ago, and it was right the whole time"*
 
 - [ ] **Save it.** Silent
 
