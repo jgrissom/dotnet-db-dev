@@ -627,16 +627,21 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
   List<SignOut> muster = new List<SignOut>(outside);
 
+  foreach (SignOut s in outside)
+  {
+      if (s.IsBack)
+      {
+          muster.Remove(s);
+      }
+  }
+
   AnsiConsole.WriteLine();
   AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");
 
   foreach (SignOut s in muster)
   {
-      if (!s.IsBack)
-      {
-          AnsiConsole.MarkupLine($"[{Fg}]  {Markup.Escape(s.Who.Name)}[/] "
-              + $"[{Dim}]- {Markup.Escape(s.Reason)}, due {Markup.Escape(s.Expected)}[/]");
-      }
+      AnsiConsole.MarkupLine($"[{Fg}]  {Markup.Escape(s.Who.Name)}[/] "
+          + $"[{Dim}]- {Markup.Escape(s.Reason)}, due {Markup.Escape(s.Expected)}[/]");
   }
 
   ```
@@ -654,7 +659,26 @@ Tonight the room finds out what a word they have all typed was actually doing. T
     Lindqvist - FUEL, due 10:30
   ```
 
-- [ ] 🎯 **Nothing is wrong yet, and that is the point.** *"Three people out, three names on the muster. Now — it's a copy. So I can scribble on it"*
+- [ ] 📖 **Name why it is a copy, because that is the part that matters:** *"the muster crosses names off as people are accounted for. You cannot cross a name off the real board — removing a sign-out does not mean somebody came home, it means the row never existed. So the officer works on a copy"*
+
+- [ ] **Run it again, and this time bring Lindqvist in first.** Press `b`, then **Lindqvist**, then `q`
+
+  ```bash
+  dotnet run --project week-05/Haldane
+  ```
+
+  ```
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 1     │
+  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
+  2 people outside.
+
+  Muster - still to account for:
+    Okonkwo - MET RUN, due 15:00
+    Reyes - DIG OUT, due 14:45
+  ```
+
+- [ ] 🎯 **Point at both halves of that screen:** *"crossed off the muster — and still on the board, three rows, exactly where he was. I removed him from the copy and the board never noticed. That is a real copy"*
+- [ ] 🎯 **Nothing is wrong yet, and that is the point.** *"So it's scratch paper. I can scribble on it"*
 - [ ] ⚠️ **This code is finished and it never changes again.** Everything from here happens in the debugger, on a program that is already correct — **what breaks is a belief, not the code**
 
 - [ ] **Breakpoint.** <kbd>⌘F</kbd> for **`Muster - still to account for`** — one hit. Put the breakpoint on **that line**: the copy has just been made and nothing has been touched

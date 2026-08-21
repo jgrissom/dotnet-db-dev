@@ -235,10 +235,18 @@ And `CrewMember` needs no `ComesBack()` either. Their trip was counted **on the 
 End of watch. The duty officer takes a copy of the board and walks it, marking people off as they are accounted for. It is a copy, so nothing on the real board can get hurt:
 
 ```csharp
-// the muster, at end of watch. This code is correct and it stays correct —
-// what follows is done from the DEBUGGER, on a program that is already right.
+// the muster, at end of watch. It crosses names off as people are accounted
+// for — which is WHY it needs a copy: removing a sign-out from the real board
+// would not mean somebody came home, it would mean the row never existed.
 List<SignOut> muster = new List<SignOut>(outside);
+
+foreach (SignOut s in outside)
+{
+    if (s.IsBack) { muster.Remove(s); }
+}
 ```
+
+Cross a name off and the board does not notice — **that is a real copy**, and it is the half most people never get shown. This code is correct and it stays correct; what follows is done from the **debugger**, on a program that is already right.
 
 Stop on that line and mark up the copy from the Debug Console, the way a duty
 officer ticks names off scratch paper:
