@@ -382,6 +382,22 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   3 people outside.
   ```
 
+- [ ] **Stay in it and prove the tally actually moves.** Press `b` and bring **Lindqvist** in. Then press `o` and send him straight back out — **FUEL**, back by **18:00**
+
+  ```
+  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 1     │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 1     │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 2     │
+  │ 14:57 │ Lindqvist │ FUEL    │ 18:00    │ OUT    │ 2     │
+  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
+  3 people outside.
+  4 trips logged today.
+  ```
+
+- [ ] 📖 **Three things in that board, and say the first two:** *"Lindqvist has been out twice today and the other two have been out once — so the count belongs to a person, and it moves. And four rows on the board, but three people outside, because one of those rows is closed"*
+- [ ] 💡 **The third one is `2` appearing on BOTH Lindqvist rows — one counter, two sign-outs pointing at him.** ⚠️ **Don't teach it here**; §6 collects it. If somebody spots it, agree and move on
+- [ ] ⚠️ **This run is the evidence for the break that follows** — the room needs to have seen three different numbers before `static` collapses them into one
+
 - [ ] **Press `q`**
 
 - [ ] 💥 **Now the last thing the duty officer asked for.** *"One number at the bottom: how many trips has the station logged today?"* <kbd>⌘F</kbd> for **`people outside.[/]");`** — one hit, inside `DrawBoard`. Paste this on the line below it
