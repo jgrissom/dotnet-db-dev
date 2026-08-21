@@ -220,7 +220,7 @@ dotnet test week-05/Lab.Checks
 >
 > ⭐ **That is worth knowing because your own repo is not like this one.** Your **project repo** has exactly one program in it, so when you debug your own work you'll press <kbd>F5</kbd>, pick the debugger once, and **never see that list at all** — VS Code writes the file and that's the end of it. The list is the price of keeping a whole semester in one folder.
 >
-> **And when it's pointed at the wrong week:** open `.vscode/launch.json` and change the week in it, or delete the `.vscode` folder and press <kbd>F5</kbd> again.
+> **And when it's pointed at the wrong week:** delete the `.vscode` folder and press <kbd>F5</kbd> again — it names the week in two places, so editing it by hand is two chances to get it wrong.
 >
 > Now expand `this` in the **Variables** pane each time it stops. `this` is a different caller every time, and the line moves that one's number and nobody else's. [The full drill is in the notes.](../lecture-notes.md#the-debugger-and-what-it-is-actually-for) Take the breakpoint off and <kbd>Shift</kbd>+<kbd>F5</kbd> when you're done.
 

@@ -490,7 +490,7 @@ Then move the breakpoint to `TripsToday++` inside `GoesOut()` and continue three
 >
 > **And it asked you which project**, because this folder holds a whole semester — a program for every week you have done. ⭐ **Your own project repo holds exactly one**, so there you press <kbd>F5</kbd>, pick the debugger once, and never see that list again. **The list is the price of keeping sixteen weeks in one folder, not something the debugger normally does.**
 >
-> When the config ends up aimed at the wrong week, open `.vscode/launch.json` and change the week in it — or delete the folder and press <kbd>F5</kbd> again to have it rewritten.
+> When the config ends up aimed at the wrong week, **delete the `.vscode` folder and press <kbd>F5</kbd> again** — it names the week in **two** places (`program` and `cwd`), and changing only one gives you the right program running in the wrong folder, which you will not notice until something reads a file. Editing it by hand works too, if you change both. Press <kbd>F5</kbd> again to have it rewritten.
 
 > [!TIP]
 > **From now on, when a value is not what you think it is, this is faster than adding a `Console.WriteLine`** — and unlike a print, it shows you everything on the object rather than the one thing you thought to ask for. Weeks 10 and 11 assume you have it.
