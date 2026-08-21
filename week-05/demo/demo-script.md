@@ -723,7 +723,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **The consequence, and it is the worst one the station has:** *"nothing. Nobody left to account for. Okonkwo is on the ice, Reyes is on the ice, Lindqvist is on the ice — and the one list whose whole job is to catch that has just reported all clear"*
 - [ ] 📖 **Say what did NOT happen, because that is where the lie is:** *"nobody walked through that door. Nobody pressed `b`. I marked up a photocopy, and the record it was a photocopy OF changed underneath me"*
 
-- [ ] 🎞️ **GO TO SLIDE 7** — *Two names, one object* · 🎯 **the slide lands it once they have seen it:** *"two lists. One set of records. Write through either name and there is only one thing there to write to"*
+- [ ] 🎞️ **GO TO SLIDE 7** — *Two names, one object* · 🎯 **the slide lands it once they have seen it:** *"two lists pointing at one set of records. Change the records in one list and you change them in both"*
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *A copy of the list is not a copy of the records*
 - [ ] 📖 *"`new List<SignOut>(outside)` is a copy, and a real one — a second list with its own length. Empty it, add to it, and the board never notices. What it copied is the **list**. What is in it is the same three sign-outs"*
