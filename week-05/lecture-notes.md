@@ -488,7 +488,7 @@ Then move the breakpoint to `TripsToday++` inside `GoesOut()` and continue three
 >
 > **VS Code writes you a `.vscode` folder** — `launch.json` (what to debug) and `tasks.json` (build it first). You didn't write those and you should keep them; it's how the editor remembers.
 >
-> **And it asked you which project**, because this folder holds a whole semester — eight programs by now. ⭐ **Your own project repo holds exactly one**, so there you press <kbd>F5</kbd>, pick the debugger once, and never see that list again. **The list is the price of keeping sixteen weeks in one folder, not something the debugger normally does.**
+> **And it asked you which project**, because this folder holds a whole semester — a program for every week you have done. ⭐ **Your own project repo holds exactly one**, so there you press <kbd>F5</kbd>, pick the debugger once, and never see that list again. **The list is the price of keeping sixteen weeks in one folder, not something the debugger normally does.**
 >
 > When the config ends up aimed at the wrong week, open `.vscode/launch.json` and change the week in it — or delete the folder and press <kbd>F5</kbd> again to have it rewritten.
 
