@@ -235,7 +235,7 @@ And `CrewMember` needs no `ComesBack()` either. Their trip was counted **on the 
 End of watch. The duty officer takes a copy of the board and walks it, marking people off as they are accounted for. It is a copy, so nothing on the real board can get hurt:
 
 ```csharp
-// in Program.cs, before the board is drawn
+// in Program.cs, at end of watch — after the desk closes
 List<SignOut> muster = new List<SignOut>(outside);
 
 foreach (SignOut s in muster)
@@ -251,7 +251,7 @@ foreach (SignOut s in muster)
 0 people outside.
 ```
 
-Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice. The board has just cleared all three, and the next person to read it has no reason to go looking.
+Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice — **nobody walked through the door.** `Back()` is meant to record somebody reporting in, and not one of them did; the duty officer only read down a list. The board has just cleared all three, and the next person to read it has no reason to go looking.
 
 ### A copy of the list is not a copy of what is in it
 

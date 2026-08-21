@@ -638,7 +638,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎯 **Ask, then shut up:** *"that marks everybody back, on the copy. What does the real board say?"* Let it hang
 
-- [ ] **Run it and press `q` straight away** — the watch ends with all three still outside
+- [ ] **Run it. Say "watch the board" — then press `q`.** The change happens in place, and watching it happen *is* the beat
 
   ```bash
   dotnet run --project week-05/Haldane
@@ -653,8 +653,9 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   3 trips logged today.
   ```
 
-- [ ] 🎯 **Point at the two lines that disagree, on the board, before you explain anything.** Put the cursor on the STATUS column, then on the count: *"every row says `back`. The count says nobody is outside"*
-- [ ] ⚠️ **This is the beat, and it is easy to skate past** — the room has to SEE `0 people outside.` sitting under three rows that all say `back`, while three people are still on the ice. **Let it sit for a second before the next line**
+- [ ] 🎯 **Say what did NOT happen, because that is where the lie is:** *"nobody walked through that door. Nobody pressed `b`. Last week we agreed there is exactly one way anybody comes back — somebody at this desk marks them in. All I did was read down a copy of the muster list, and the board cleared every person on it"*
+- [ ] ⚠️ **This is the beat and it is easy to skate past.** The board is not self-contradictory — three `back` rows and `0 people outside` agree with each other perfectly. **What is wrong is the board against the world**, and the only evidence for that is what the room watched: three `OUT`s a second ago, and nobody signed in since
+- [ ] 💡 **If somebody asks how we know they are still out there — that is the right question, and the answer is the lesson:** *"because nothing brought them in. Reading a list is not somebody reporting back"*
 
 - [ ] 🎯 **Then the consequence, and it is the worst one the station has:** *"nobody is outside. Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice. The board has just cleared all three, and the next person to read it has no reason to go looking"*
 
