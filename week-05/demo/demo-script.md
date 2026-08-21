@@ -727,7 +727,8 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *A copy of the list is not a copy of the records*
 - [ ] 📖 *"`new List<SignOut>(outside)` is a copy, and a real one — a second list with its own length. Empty it, add to it, and the board never notices. What it copied is the **list**. What is in it is the same three sign-outs"*
-- [ ] 💡 **Collect last week honestly, because it was not wrong:** *"last week, `All()` handing back a copy is what stopped anybody emptying the board, and it still does. Tonight is the other half of the sentence — a copy of the list protects the list, and it protects nothing inside it"*
+- [ ] 💡 **Collect last week honestly — and re-supply it, because this one is from their HOMEWORK, not from anything they watched.** *"Some of you will remember writing this last week without being told why: your `Registry.All()` hands back a copy of its list, so nothing outside your program can empty your registry. That was right, and it still works. Tonight is the other half of the sentence — a copy of the list protects the list, and it protects nothing inside it"*
+- [ ] ⚠️ **Say what it means for their project, in one line, because it is the only part they can act on:** *"so `All()` stops somebody deleting your records. It does not stop them changing one"*
 
 - [ ] **Take the breakpoint off and click `Stop`**
 - [ ] 💡 **Nothing to undo.** *"The program on screen is the same program I pasted ten minutes ago, and it was right the whole time"*
