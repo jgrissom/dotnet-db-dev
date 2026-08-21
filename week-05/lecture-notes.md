@@ -253,6 +253,16 @@ foreach (SignOut s in muster)
 
 Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice — **nobody walked through the door.** `Back()` is meant to record somebody reporting in, and not one of them did; the duty officer only read down a list. The board has just cleared all three, and the next person to read it has no reason to go looking.
 
+> [!TIP]
+> **Don't take this on trust — the debugger will tell you.** Put a breakpoint on the `s.Back();` inside the muster loop, press <kbd>F5</kbd>, and press `q` to close the desk so the muster runs. Then add two **Watch** expressions:
+>
+> ```
+> outside == muster           false
+> outside[0] == muster[0]     true
+> ```
+>
+> Two different lists. The same sign-out sitting in both of them. Neither `List<T>` nor your record overloads `==`, so that is plain object identity — and it is exactly the question a `Console.WriteLine` cannot answer.
+
 ### A copy of the list is not a copy of what is in it
 
 `new List<SignOut>(outside)` **is** a real copy. A second list, its own length — empty it and the board is untouched. That is exactly what it was for last week.

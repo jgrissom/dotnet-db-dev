@@ -661,6 +661,22 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *Two names, one object* · 🎯 **the slide lands it once they have seen it:** *"a loop over a copy — and the board lost every person on it"*
 
+- [ ] 🎯 **Don't explain it — show it.** *"You watched me change a copy. Let's find out what a copy actually is"*
+
+- [ ] **Breakpoint.** <kbd>⌘F</kbd> for **`foreach (SignOut s in muster)`** — one hit. Put the breakpoint on the **`s.Back();`** on the line beneath it, so it stops before a single record has been touched
+- [ ] **<kbd>F5</kbd>, then press `q` at the desk.** ⚠️ **The muster runs after the desk closes**, so nothing reaches the breakpoint until you quit
+- [ ] **In the Run and Debug view, add two Watch expressions** — the **WATCH** section, `+`, one each
+
+  ```
+  outside == muster
+  outside[0] == muster[0]
+  ```
+
+- [ ] 🎯 **Read the two answers out, and let that be the whole explanation:** *"`false` — they are two different lists. `true` — and that is the same sign-out, sitting in both of them"*
+- [ ] 💡 **Neither is a method call or a trick** — `List<T>` and `SignOut` both leave `==` alone, so it is asking plain object identity. **Verified: `false`, then `true`**
+- [ ] 💡 **If there is time, add a third watch — `outside[0].IsBack` — and click `Step Over` once.** It flips to `true`: the write went through the copy and landed on the board, live
+- [ ] **Take the breakpoint off and click `Stop`**
+
 - [ ] 🎞️ **GO TO SLIDE 8** — *A copy of the list is not a copy of the records*
 - [ ] 📖 *"`new List<SignOut>(outside)` is a copy. It is a real one — a second list, its own length, and emptying it would leave the board alone. What it copied is the **list**. What is in it is the same three sign-outs"*
 - [ ] 🎯 *"`muster[1]` and `outside[1]` are two names for one record. Write through either name and there is only one thing there to write to"*

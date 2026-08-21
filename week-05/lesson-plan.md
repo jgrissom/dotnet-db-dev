@@ -69,9 +69,9 @@ By the end of this session, students can:
 | 0:38 | 10 min | **☕ Break** |
 | 0:48 | 18 min | **What `static` actually says** *(slides 4–5, demo §3)*. One copy, belonging to the class. Take it off. The day's total is a fact about the *crew*, so a `foreach` earns it. 🎯 **The total was always 3** — it was the per-person numbers that lied. 💡 **The loop is deliberately tedious** — a whole loop for three numbers, and week 9 collapses it. |
 | 1:06 | 25 min | 🎯 **Step into it** *(no slides — the debugger is the visual, demo §4)*. Breakpoint in the constructor, <kbd>F5</kbd>, Variables, `this`. Six objects, six sets of fields — narrate the first three and <kbd>F5</kbd> through the rest. Then `GoesOut()` and which one moves. 💡 **Plus ~1 min on the `.vscode` VS Code writes** — and why their own project repo never shows the project list. |
-| 1:31 | 14 min | **When `static` is right** *(slide 6, demo §5)*. `Conditions` since week 1; `Console.WriteLine` several hundred times and never a `new Console()`. The test, said out loud. **No code.** |
-| 1:45 | 10 min | **☕ Break** |
-| 1:55 | 22 min | 💥 **Two names, one object** *(slides 7–8, demo §6)*. The muster, on a copy, marks everybody in — and the real board reads `0 people outside.` with all three still on the ice. Then what a copy actually copies, and the muster made read-only. |
+| 1:31 | 11 min | **When `static` is right** *(slide 6, demo §5)*. `Conditions` since week 1; `Console.WriteLine` several hundred times and never a `new Console()`. The test, said out loud. **No code.** |
+| 1:42 | 10 min | **☕ Break** |
+| 1:52 | 25 min | 💥 **Two names, one object** *(slides 7–8, demo §6)*. The muster, on a copy, marks everybody in — and the real board reads `0 people outside.` with all three still on the ice. Then what a copy actually copies, and the muster made read-only. |
 | 2:17 | 20 min | **Nothing at all** *(slides 9–10, demo §7)*. 💥 **Opens on a silent failure** — signing out `Reyez` does nothing at all, and nobody is told. Then `Find` returns `CrewMember?`. Build → **CS8604**, one warning. Run with `Reyes` → fine. Run with `Reyez` → **NullReferenceException**. The `if`, and back to 0 warnings. 🎯 **Silence, then a crash, then a sentence.** |
 | 2:37 | 5 min | **Lab launch** *(slide 11, demo §8)*. Done is defined on their machine: a switchboard that can tell three people apart. |
 | 2:42 | 50 min | **Lab: the switchboard** *(slide 11 stays up)*. **In-class target: 5 green.** Circulate hard at Task 1 and Task 4. |
