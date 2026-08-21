@@ -653,8 +653,12 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   3 trips logged today.
   ```
 
-- [ ] 🎞️ **GO TO SLIDE 7** — *Two names, one object*
-- [ ] 🎯 **The consequence, and it is the worst one the station has:** *"nobody is outside. Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice. The board has just cleared all three, and the next person to read it has no reason to go looking"*
+- [ ] 🎯 **Point at the two lines that disagree, on the board, before you explain anything.** Put the cursor on the STATUS column, then on the count: *"every row says `back`. The count says nobody is outside"*
+- [ ] ⚠️ **This is the beat, and it is easy to skate past** — the room has to SEE `0 people outside.` sitting under three rows that all say `back`, while three people are still on the ice. **Let it sit for a second before the next line**
+
+- [ ] 🎯 **Then the consequence, and it is the worst one the station has:** *"nobody is outside. Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice. The board has just cleared all three, and the next person to read it has no reason to go looking"*
+
+- [ ] 🎞️ **GO TO SLIDE 7** — *Two names, one object* · 🎯 **the slide lands it once they have seen it:** *"one line, on a copy, and the board lost every person on it"*
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *A copy of the list is not a copy of the records*
 - [ ] 📖 *"`new List<SignOut>(outside)` is a copy. It is a real one — a second list, its own length, and emptying it would leave the board alone. What it copied is the **list**. What is in it is the same three sign-outs"*

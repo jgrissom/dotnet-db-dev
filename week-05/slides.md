@@ -120,7 +120,7 @@ foreach (SignOut s in muster) { s.Back(); }
 0 people outside.
 ```
 
-**Two of them are still out there.**
+**All three of them are still out there.**
 
 ---
 
