@@ -480,7 +480,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
       public int TripsToday { get; private set; }
   ```
 
-- [ ] **And put the board's cell back.** <kbd>⌘F</kbd> for **`{Fg}]{CrewMember.TripsToday}`** — one hit, the last line of `AddRow`. Back to
+- [ ] **And put the board's cell back.** <kbd>⌘F</kbd> for **`CrewMember.TripsToday`** — ⚠️ **two hits.** You want the one **inside `AddRow`**, not the `trips logged today` line below it — that one comes out next. Back to
 
   ```csharp
               $"[{Fg}]{s.Who.TripsToday}[/]");
