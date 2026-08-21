@@ -110,14 +110,15 @@ You have never written `new Console()`.
 
 ## Two names, one object
 
-```csharp
-List<SignOut> muster = new List<SignOut>(outside);
-
-foreach (SignOut s in muster) { s.Back(); }
+```
+outside == muster           false
+outside[0] == muster[0]     true
 ```
 
+Mark up the copy, and the original changes.
+
 ```
-0 people outside.
+Muster - still to account for:
 ```
 
 **All three of them are still out there.**

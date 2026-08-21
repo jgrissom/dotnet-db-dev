@@ -627,64 +627,6 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
   List<SignOut> muster = new List<SignOut>(outside);
 
-  foreach (SignOut s in muster)
-  {
-      s.Back();
-  }
-
-  DrawBoard();
-
-  ```
-
-- [ ] 🎯 **Ask, then shut up:** *"that marks everybody back, on the copy. What does the real board say?"* Let it hang
-
-- [ ] **Run it. Say "watch the board" — then press `q`.** The change happens in place, and watching it happen *is* the beat
-
-  ```bash
-  dotnet run --project week-05/Haldane
-  ```
-
-  ```
-  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ back   │ 1     │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ back   │ 1     │
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 1     │
-  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
-  0 people outside.
-  3 trips logged today.
-  ```
-
-- [ ] 🎯 **Say what did NOT happen, because that is where the lie is:** *"nobody walked through that door. Nobody pressed `b`. Last week we agreed there is exactly one way anybody comes back — somebody at this desk marks them in. All I did was read down a copy of the muster list, and the board cleared every person on it"*
-- [ ] ⚠️ **This is the beat and it is easy to skate past.** The board is not self-contradictory — three `back` rows and `0 people outside` agree with each other perfectly. **What is wrong is the board against the world**, and the only evidence for that is what the room watched: three `OUT`s a second ago, and nobody signed in since
-- [ ] 💡 **If somebody asks how we know they are still out there — that is the right question, and the answer is the lesson:** *"because nothing brought them in. Reading a list is not somebody reporting back"*
-
-- [ ] 🎯 **Then the consequence, and it is the worst one the station has:** *"nobody is outside. Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice. The board has just cleared all three, and the next person to read it has no reason to go looking"*
-
-- [ ] 🎞️ **GO TO SLIDE 7** — *Two names, one object* · 🎯 **the slide lands it once they have seen it:** *"a loop over a copy — and the board lost every person on it"*
-
-- [ ] 🎯 **Don't explain it — show it.** *"You watched me change a copy. Let's find out what a copy actually is"*
-
-- [ ] **Breakpoint.** <kbd>⌘F</kbd> for **`foreach (SignOut s in muster)`** — one hit. Put the breakpoint on the **`s.Back();`** on the line beneath it, so it stops before a single record has been touched
-- [ ] **<kbd>F5</kbd>, then press `q` at the desk.** ⚠️ **The muster runs after the desk closes**, so nothing reaches the breakpoint until you quit
-- [ ] **In the Run and Debug view, add two Watch expressions** — the **WATCH** section, `+`, one each
-
-  ```
-  outside == muster
-  outside[0] == muster[0]
-  ```
-
-- [ ] 🎯 **Read the two answers out, and let that be the whole explanation:** *"`false` — they are two different lists. `true` — and that is the same sign-out, sitting in both of them"*
-- [ ] 💡 **Neither is a method call or a trick** — `List<T>` and `SignOut` both leave `==` alone, so it is asking plain object identity. **Verified: `false`, then `true`**
-- [ ] 💡 **If there is time, add a third watch — `outside[0].IsBack` — and click `Step Over` once.** It flips to `true`: the write went through the copy and landed on the board, live
-- [ ] **Take the breakpoint off and click `Stop`**
-
-- [ ] 🎞️ **GO TO SLIDE 8** — *A copy of the list is not a copy of the records*
-- [ ] 📖 *"`new List<SignOut>(outside)` is a copy. It is a real one — a second list, its own length, and emptying it would leave the board alone. What it copied is the **list**. What is in it is the same three sign-outs"*
-- [ ] 🎯 *"`muster[1]` and `outside[1]` are two names for one record. Write through either name and there is only one thing there to write to"*
-- [ ] 💡 **Collect last week honestly, because it was not wrong:** *"last week, `All()` handing back a copy is what stopped anybody emptying the board, and it still does. Tonight is the other half of the sentence — a copy of the list protects the list, and it protects nothing inside it"*
-
-- [ ] **Fix it: the muster reads, it does not write.** <kbd>⌘F</kbd> for **`foreach (SignOut s in muster)`** — one hit. **Select from there down to and including the `DrawBoard();` below it**, and paste this over the lot — **the `List<SignOut> muster = ...` line above stays**
-
-  ```csharp
   AnsiConsole.WriteLine();
   AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");
 
@@ -696,24 +638,66 @@ Tonight the room finds out what a word they have all typed was actually doing. T
               + $"[{Dim}]- {Markup.Escape(s.Reason)}, due {Markup.Escape(s.Expected)}[/]");
       }
   }
+
   ```
 
-- [ ] **Run it, press `q`**
+- [ ] **Run it and press `q`.** The muster does its job
 
   ```bash
   dotnet run --project week-05/Haldane
   ```
 
   ```
-  3 people outside.
-  3 trips logged today.
-
-  [o]ut  [a]mend  [b]ack  [w]ho  [q]uit:
   Muster - still to account for:
     Okonkwo - MET RUN, due 15:00
     Reyes - DIG OUT, due 14:45
     Lindqvist - FUEL, due 10:30
   ```
+
+- [ ] 🎯 **Nothing is wrong yet, and that is the point.** *"Three people out, three names on the muster. Now — it's a copy. So I can scribble on it"*
+- [ ] ⚠️ **This code is finished and it never changes again.** Everything from here happens in the debugger, on a program that is already correct — **what breaks is a belief, not the code**
+
+- [ ] **Breakpoint.** <kbd>⌘F</kbd> for **`Muster - still to account for`** — one hit. Put the breakpoint on **that line**: the copy has just been made and nothing has been touched
+- [ ] **<kbd>F5</kbd>, then press `q` at the desk.** ⚠️ **The muster runs after the desk closes**, so nothing reaches the breakpoint until you quit
+
+- [ ] **In the Run and Debug view, add two Watch expressions** — the **WATCH** section, `+`, one each
+
+  ```
+  outside == muster
+  outside[0] == muster[0]
+  ```
+
+- [ ] 🎯 **Read the two answers out, and let that be the whole explanation:** *"`false` — they are two different lists. `true` — and that is the same sign-out, sitting in both of them"*
+- [ ] 💡 **Neither is a method call or a trick** — `List<T>` and `SignOut` both leave `==` alone, so it is asking plain object identity. **Verified: `false`, then `true`**
+
+- [ ] 💥 **Now scribble on the copy, live.** In the **Debug Console** at the bottom, one line at a time. *"Ticking people off my scratch list"*
+
+  ```
+  muster[0].Back()
+  muster[1].Back()
+  muster[2].Back()
+  ```
+
+- [ ] 💡 **Each one answers `Expression has been evaluated and has no value`** — that is what a `void` method says. It ran
+- [ ] 🎯 **Ask, then shut up:** *"I have not touched the board. I have only marked up a copy. What is the muster about to print?"* Let it hang
+
+- [ ] **Click `Continue`**
+
+  ```
+  Muster - still to account for:
+  ```
+
+- [ ] 🎯 **The consequence, and it is the worst one the station has:** *"nothing. Nobody left to account for. Okonkwo is on the ice, Reyes is on the ice, Lindqvist is on the ice — and the one list whose whole job is to catch that has just reported all clear"*
+- [ ] 📖 **Say what did NOT happen, because that is where the lie is:** *"nobody walked through that door. Nobody pressed `b`. I marked up a photocopy, and the record it was a photocopy OF changed underneath me"*
+
+- [ ] 🎞️ **GO TO SLIDE 7** — *Two names, one object* · 🎯 **the slide lands it once they have seen it:** *"two lists. One set of records. Write through either name and there is only one thing there to write to"*
+
+- [ ] 🎞️ **GO TO SLIDE 8** — *A copy of the list is not a copy of the records*
+- [ ] 📖 *"`new List<SignOut>(outside)` is a copy, and a real one — a second list with its own length. Empty it, add to it, and the board never notices. What it copied is the **list**. What is in it is the same three sign-outs"*
+- [ ] 💡 **Collect last week honestly, because it was not wrong:** *"last week, `All()` handing back a copy is what stopped anybody emptying the board, and it still does. Tonight is the other half of the sentence — a copy of the list protects the list, and it protects nothing inside it"*
+
+- [ ] **Take the breakpoint off and click `Stop`**
+- [ ] 💡 **Nothing to undo.** *"The program on screen is the same program I pasted ten minutes ago, and it was right the whole time"*
 
 - [ ] **Save it.** Silent
 
