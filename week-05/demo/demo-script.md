@@ -852,7 +852,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **And the honest comparison, because this is the beat:** *"ten minutes ago the same typo did nothing at all and I never found out. Now it takes the desk off the air in front of everybody. Which of those would you rather have at minus thirty-nine?"*
 - [ ] 🎞️ **GO TO SLIDE 10** — *The warning that was already there* · *"and the compiler said so at build time, in the quietest possible voice, about a crash that had not happened yet"*
 
-- [ ] **The fix.** <kbd>⌘F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit. Replace **that one line** with
+- [ ] **The fix.** <kbd>⌘F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit. Replace **that line and the `DrawBoard();` under it** with
 
   ```csharp
       if (who == null)
