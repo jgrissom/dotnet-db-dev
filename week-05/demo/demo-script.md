@@ -391,8 +391,9 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   │ 14:57 │ Lindqvist │ FUEL    │ 18:00    │ OUT    │ 2     │
   └───────┴───────────┴─────────┴──────────┴────────┴───────┘
   3 people outside.
-  4 trips logged today.
   ```
+
+- [ ] 💡 **No day-total line yet** — that is the very next thing, and it is what breaks
 
 - [ ] 📖 **Three things in that board, and say the first two:** *"Lindqvist has been out twice today and the other two have been out once — so the count belongs to a person, and it moves. And four rows on the board, but three people outside, because one of those rows is closed"*
 - [ ] 💡 **The third one is `2` appearing on BOTH Lindqvist rows — one counter, two sign-outs pointing at him.** ⚠️ **Don't teach it here**; §6 collects it. If somebody spots it, agree and move on
@@ -520,6 +521,21 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] **Press `q`**
 - [ ] 🎯 **Point at the last line, because this is the part that lands:** *"three. The day's total said three before the break as well. That number was never wrong — it was the only true thing on the screen. What `static` broke was the three numbers that were supposed to be about people"*
+
+- [ ] **Stay in it and do the same two keystrokes as before the break.** Press `b` for **Lindqvist**, then `o` to send him back out — **FUEL**, back by **18:00**
+
+  ```
+  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 1     │
+  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 1     │
+  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ back   │ 2     │
+  │ 14:57 │ Lindqvist │ FUEL    │ 18:00    │ OUT    │ 2     │
+  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
+  3 people outside.
+  4 trips logged today.
+  ```
+
+- [ ] 🎯 **Say what that proves, because the total alone does not prove it:** *"two for Lindqvist, one each for the other two, four for the day. Ten minutes ago every row on this board read the same number no matter who it was. That is the fix, and that is the only way to see it"*
+- [ ] **Press `q`**
 
 - [ ] **Save it.** Silent
 
