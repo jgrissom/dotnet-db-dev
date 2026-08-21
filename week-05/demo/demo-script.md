@@ -560,7 +560,6 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 💡 **And the repoint, in one line — steer them to the delete:** *"when that config is aimed at the wrong week, delete the `.vscode` folder and press F5 again. It names the week in two places, so editing it by hand is two chances to get it wrong"*
 - [ ] ⚠️ **If it stops nowhere**, the language server is asleep rather than the breakpoint being wrong — same fix, `Developer: Reload Window`, then <kbd>F5</kbd> again
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *Step into the constructor*
 - [ ] 🎯 **It has stopped on the line, and the line has not run yet.** Point at the **Variables** pane at the top of the **Run and Debug** view, and expand `this`
 
   ```
@@ -568,9 +567,11 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   this.TripsToday  0
   ```
 
-- [ ] 📖 *"That is a crew member with no name. The object exists — it has an address, it has fields — and not one of its facts is true yet. `new` made the box; the constructor is what fills it"*
+- [ ] 📖 *"That is a crew member with no name. It has an address, it has fields — and not one of its facts is true yet"*
 - [ ] **Press <kbd>F10</kbd>** (Step Over). `Name` becomes `"Okonkwo"` in the pane
 - [ ] 🎯 *"There. That is an object being built, one fact at a time. We have all written a lot of constructors, and most of us have never watched one run"*
+
+- [ ] 🎞️ **GO TO SLIDE 6** — *Step into the constructor* · 🎯 **the sentence they take home, now that they have watched it:** *"`new` made the box. The constructor is what fills it — and for one line there, the object existed before a single one of its facts was true"*
 
 - [ ] **Press <kbd>F5</kbd> to continue.** It stops in the same constructor again
 - [ ] 🎯 **This is the one to slow down on:** *"same line, same file — and look at `this`. Name is null again. TripsToday is zero again. This is not the same object with its fields reset. It is a **different object**, and it has its own"*
@@ -584,11 +585,10 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   this.TripsToday  0
   ```
 
-- [ ] 🎞️ **GO TO SLIDE 7** — *Which one is `this`?*
 - [ ] **<kbd>F10</kbd>.** `TripsToday` goes to 1
 - [ ] 🎯 *"One line of code, `TripsToday++`, and it just moved exactly one crew member's counter. Which one? The one `this` is pointing at"*
 - [ ] **<kbd>F5</kbd>.** It stops again, and `this` is Reyes, on zero
-- [ ] 🎯 **The line the whole segment is for:** *"six objects, six counters, and you can see which one moves. That is the difference the word `static` was hiding from you twenty minutes ago"*
+- [ ] 🎞️ **GO TO SLIDE 7** — *Which one is `this`?* · 🎯 **the line the whole segment is for, said to the slide:** *"six objects, six counters, and you can see which one moves. That is the difference the word `static` was hiding from you twenty minutes ago"*
 
 - [ ] 💡 **If there is time, expand the Call Stack** below Variables: `GoesOut` was called from `SignOut`'s constructor, which was called from the program. *"One object reaching into another. That is the `Who` I put on `SignOut` in the first segment"*
 
