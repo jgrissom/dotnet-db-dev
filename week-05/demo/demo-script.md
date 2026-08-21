@@ -325,6 +325,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 💡 *"Same edit, twice. Every place that used to ask a sign-out its name now asks the person on it"*
 
 - [ ] **Build again.** *"Four edits, and the list is down to one — and this last one is a different kind of problem"*
+- [ ] ⚠️ **More than one left? An edit didn't take, and the code says which** — `CS1061` in `DrawBoard` is the NAME cell, `CS1061` in `AmendABackBy` or `MarkSomebodyBack` is one of the two searches *(that `⌘F` has **two** hits and it is easy to replace only the first)*, `CS1503` on the seeded rows is the crew block. **The one that should still be there is `CS1503` inside `SignSomebodyOut`**
 
   ```bash
   dotnet build week-05/Haldane
