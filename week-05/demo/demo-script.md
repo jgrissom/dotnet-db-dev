@@ -545,7 +545,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ---
 
-## 4 · Step into it *(slides 6–7)*
+## 4 · Step into it
 
 - [ ] *"Most of you have set a breakpoint before. Tonight it does a job some of us have never used it for — not finding a bug, just watching an object come into existence"*
 
@@ -571,7 +571,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] **Press <kbd>F10</kbd>** (Step Over). `Name` becomes `"Okonkwo"` in the pane
 - [ ] 🎯 *"There. That is an object being built, one fact at a time. We have all written a lot of constructors, and most of us have never watched one run"*
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *Step into the constructor* · 🎯 **the sentence they take home, now that they have watched it:** *"`new` made the box. The constructor is what fills it — and for one line there, the object existed before a single one of its facts was true"*
+- [ ] 🎯 **The sentence they take home, now that they have watched it:** *"`new` made the box. The constructor is what fills it — and for one line there, the object existed before a single one of its facts was true"*
 
 - [ ] **Press <kbd>F5</kbd> to continue.** It stops in the same constructor again
 - [ ] 🎯 **This is the one to slow down on:** *"same line, same file — and look at `this`. Name is null again. TripsToday is zero again. This is not the same object with its fields reset. It is a **different object**, and it has its own"*
@@ -588,7 +588,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] **<kbd>F10</kbd>.** `TripsToday` goes to 1
 - [ ] 🎯 *"One line of code, `TripsToday++`, and it just moved exactly one crew member's counter. Which one? The one `this` is pointing at"*
 - [ ] **<kbd>F5</kbd>.** It stops again, and `this` is Reyes, on zero
-- [ ] 🎞️ **GO TO SLIDE 7** — *Which one is `this`?* · 🎯 **the line the whole segment is for, said to the slide:** *"six objects, six counters, and you can see which one moves. That is the difference the word `static` was hiding from you twenty minutes ago"*
+- [ ] 🎯 **The line the whole segment is for:** *"six objects, six counters, and you can see which one moves. That is the difference the word `static` was hiding from you twenty minutes ago"*
 
 - [ ] 💡 **If there is time, expand the Call Stack** below Variables: `GoesOut` was called from `SignOut`'s constructor, which was called from the program. *"One object reaching into another. That is the `Who` I put on `SignOut` in the first segment"*
 
@@ -597,14 +597,14 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ---
 
-## 5 · When `static` is right *(slide 8)*
+## 5 · When `static` is right *(slide 6)*
 
 - [ ] *"So is `static` a mistake? No — and two of the things you have used all term are static, correctly"*
 
 - [ ] **Open `week-05/Haldane/Conditions.cs`.** Week 1's file, unchanged since the first night
 - [ ] 🎯 *"`public static class Conditions`. Static since week one, and it is right — because there is nothing to have one of. It has no facts. It is a rule. You have never written `new Conditions()` and you never will"*
 
-- [ ] 🎞️ **GO TO SLIDE 8** — *When `static` is right*
+- [ ] 🎞️ **GO TO SLIDE 6** — *When `static` is right*
 - [ ] 🎯 **The bigger one, and it is on their screens every day:** *"`Console.WriteLine`. Several hundred times this term. Not one of you has ever written `new Console()` — because there is one console. That is the whole reason it is static"*
 - [ ] *"Same for `int.TryParse` from week 2, and `Math.Round`. Rules, not things"*
 - [ ] 🎯 **The test, and it is the sentence to take home:** *"is there exactly one of this thing, ever, in the whole program? Then static. Is it a fact about one particular thing? Then never"*
@@ -612,7 +612,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ---
 
-## 6 · Two names, one object *(slides 9–10)*
+## 6 · Two names, one object *(slides 7–8)*
 
 - [ ] *"End of watch. The desk closes, and before the duty officer hands over they walk the board and account for everybody on it"*
 - [ ] 📖 *"And they work off a copy — because last week we learned to hand out copies, and a copy is scratch paper. Nothing on the real board can get hurt"*
@@ -650,10 +650,10 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   3 trips logged today.
   ```
 
-- [ ] 🎞️ **GO TO SLIDE 9** — *Two names, one object*
+- [ ] 🎞️ **GO TO SLIDE 7** — *Two names, one object*
 - [ ] 🎯 **The consequence, and it is the worst one the station has:** *"nobody is outside. Okonkwo is on the ice. Reyes is on the ice. Lindqvist is on the ice. The board has just cleared all three, and the next person to read it has no reason to go looking"*
 
-- [ ] 🎞️ **GO TO SLIDE 10** — *A copy of the list is not a copy of the records*
+- [ ] 🎞️ **GO TO SLIDE 8** — *A copy of the list is not a copy of the records*
 - [ ] 📖 *"`new List<SignOut>(outside)` is a copy. It is a real one — a second list, its own length, and emptying it would leave the board alone. What it copied is the **list**. What is in it is the same three sign-outs"*
 - [ ] 🎯 *"`muster[1]` and `outside[1]` are two names for one record. Write through either name and there is only one thing there to write to"*
 - [ ] 💡 **Collect last week honestly, because it was not wrong:** *"last week, `All()` handing back a copy is what stopped anybody emptying the board, and it still does. Tonight is the other half of the sentence — a copy of the list protects the list, and it protects nothing inside it"*
@@ -699,7 +699,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ---
 
-## 7 · Nothing at all *(slides 11–12)*
+## 7 · Nothing at all *(slides 9–10)*
 
 - [ ] *"One more, and it has been sitting in this program since the crew list went in. Somebody else is heading out"*
 
@@ -732,7 +732,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 📖 **Then name the cause, and it is in the code they watched go in:** *"the search walks the crew looking for that name. It does not find it. And then the loop just… ends. Nobody ever asked it what it found"*
 - [ ] **Press `q`**
 
-- [ ] 🎞️ **GO TO SLIDE 11** — *`CrewMember` and `CrewMember?`*
+- [ ] 🎞️ **GO TO SLIDE 9** — *`CrewMember` and `CrewMember?`*
 
 - [ ] **Make the search hand its answer back.** In `Program.cs`, <kbd>⌘F</kbd> for **`c.Name == name.Trim()`** — one hit, inside `SignSomebodyOut`. ⚠️ **Don't search for the `foreach` line itself — §3 put an identical one inside `DrawBoard`.** **Select the whole `foreach` around it**, from `foreach (CrewMember c in crew)` down to its closing `}`, and paste this over it
 
@@ -808,7 +808,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 📖 *"`Find` looked, nobody on station is called Reyez, and it handed back nothing. Then the board took that nothing and asked it to go outside"*
 - [ ] 🎯 *"`null` is not a failure and it is not a bug. It is an answer, and it is the true one. The bug is asking it a question"*
 - [ ] 🎯 **And the honest comparison, because this is the beat:** *"ten minutes ago the same typo did nothing at all and I never found out. Now it takes the desk off the air in front of everybody. Which of those would you rather have at minus thirty-nine?"*
-- [ ] 🎞️ **GO TO SLIDE 12** — *The warning that was already there* · *"and the compiler said so at build time, in the quietest possible voice, about a crash that had not happened yet"*
+- [ ] 🎞️ **GO TO SLIDE 10** — *The warning that was already there* · *"and the compiler said so at build time, in the quietest possible voice, about a crash that had not happened yet"*
 
 - [ ] **The fix.** <kbd>⌘F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit. Replace **that one line** with
 
@@ -864,18 +864,18 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 ---
 
-## 8 · Hand off *(slide 13)*
+## 8 · Hand off *(slide 11)*
 
-- [ ] 🎞️ **GO TO SLIDE 13** — *Lab: the switchboard*. Leave it up for the whole lab
+- [ ] 🎞️ **GO TO SLIDE 11** — *Lab: the switchboard*. Leave it up for the whole lab
 - [ ] *"KDXR. Two new files, five checks, one of them green when you start"*
 - [ ] 🎯 **Define done on their machine, not yours:** *"Dorothy has rung four times tonight, Bex once, Teodoro once. Your switchboard says all three of them have called six times. You're done when it can tell three people apart, and when typing a name nobody has does not take the desk off the air"*
 - [ ] ⚠️ **Say the homework out loud now:** *"your project gets a `Find` this week — and the interesting half is what it hands back when there isn't one"*
 
 ---
 
-## 9 · Wrap *(slide 14)*
+## 9 · Wrap *(slide 12)*
 
-- [ ] 🎞️ **GO TO SLIDE 14** — *Tonight, in one picture*
+- [ ] 🎞️ **GO TO SLIDE 12** — *Tonight, in one picture*
 - [ ] **Four beats, and stop:** **`static`** — one copy for the whole program · **instance** — one each, and `this` says which · **a reference** — a name for an object, and two names can point at one · **`null`** — a name for nothing at all
 - [ ] 💡 **The one-line version, if only one thing survives the drive home:** *"every variable you have is a name. The question this week asked is what is on the other end of it — one thing, the same thing somebody else is holding, or nothing"*
 - [ ] *"Two URLs in Canvas again. Coursework and project"*

@@ -91,37 +91,6 @@ The word is the whole difference.
 
 ---
 
-<!-- _footer: '🖥️ Demo §4 · watch one get built' -->
-
-## Step into the constructor
-
-Breakpoint on `Name = name;` · **F5**
-
-Before the line runs:
-
-```
-this.Name        null
-this.TripsToday  0
-```
-
-**The object exists before any of its facts do.**
-
----
-
-<!-- _footer: '🖥️ Demo §4 · which one moved' -->
-
-## Which one is `this`?
-
-`TripsToday++` inside `GoesOut()`.
-
-Stop there three times and `this` is a
-
-different crew member every time.
-
-**That is what the word `static` was hiding.**
-
----
-
 <!-- _footer: '🖥️ Demo §5 · where it is right' -->
 
 ## When `static` is right
