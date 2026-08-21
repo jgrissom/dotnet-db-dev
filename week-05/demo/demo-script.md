@@ -310,7 +310,8 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   outside.Add(new SignOut("09:05", lindqvist, "FUEL", "10:30"));
   ```
 
-- [ ] 📖 *"Six people on the winter crew, and three of them are already outside. The rows do not hold names any more — they hold three of those six"*
+- [ ] 📖 **Name the asymmetry before anybody has to ask about it** — *"six on the winter crew. Three of them get a variable of their own, because the rows underneath have to point at those exact people — `okonkwo` up here and `okonkwo` on the row are one object with two names on it. The other three just go straight onto the list, because nothing else needs to reach them"*
+- [ ] 💡 **That is tonight's whole question arriving in the seed data** — a variable is a name, and you only need one when something else has to refer to the same thing. **Don't teach it here**; §6 collects it properly with the muster
 
 - [ ] **2 of 4 — the board's NAME cell.** <kbd>⌘F</kbd> for **`Markup.Escape(s.Name)`** — one hit, inside `DrawBoard`. Make it read
 
