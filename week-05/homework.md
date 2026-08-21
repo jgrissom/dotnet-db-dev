@@ -230,6 +230,13 @@ dotnet run --project Project
 dotnet test Project.Checks
 ```
 
+> [!TIP]
+> **While you're in here, press <kbd>F5</kbd> once.** Put a breakpoint in `Registry.Find` — click the gutter beside the `if` — and run it. Choose **`.NET 5+ and .NET Core`** if it asks which debugger, and **`Project`** if it asks which project.
+>
+> **Notice how short that was.** In class the project list ran to eight entries, because the coursework repo holds a program for every week you have done. This repo holds your program and my checks, and nothing else — so there is nothing to hunt through.
+>
+> A `.vscode` folder appears when you do — VS Code writing down what to debug. You didn't write it and you don't have to touch it. **Nothing here is graded; it's thirty seconds so that the first time you actually need it, you've already done it once.**
+
 ---
 
 ## Part 6 — The pull request
