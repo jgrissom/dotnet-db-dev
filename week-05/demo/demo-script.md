@@ -549,7 +549,9 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] *"Most of you have set a breakpoint before. Tonight it does a job some of us have never used it for — not finding a bug, just watching an object come into existence"*
 
-- [ ] **Open `week-05/Haldane/CrewMember.cs` and click in the gutter** — the narrow strip left of the line numbers — **beside `Name = name;`.** A red dot appears
+- [ ] **Open `week-05/Haldane/CrewMember.cs` and set both breakpoints now**, while the whole class is on screen. Click in the gutter — the narrow strip left of the line numbers — **beside `Name = name;`**, and again **beside `TripsToday++;`**. Two red dots
+- [ ] 📖 *"Two dots in one small class: one where a crew member gets made, one where their count moves. That is the whole segment"*
+- [ ] ⚠️ **Both of them, before you start.** With one breakpoint you have to add the second at exactly the right moment, and a single click too many runs straight past every `GoesOut()` to the desk prompt — from where the only way back is to stop and start again
 - [ ] **Press <kbd>F5</kbd>**, then **`.NET 5+ and .NET Core`** when it asks which debugger. ⚠️ **Not `C#`** — that entry exists in the extension but is not what this list offers you
 - [ ] ⚠️ **The project list is the fiddly part, and there is a trick: TYPE `week-05` TO FILTER IT.** Every entry reads `Haldane (/Users/…/week-05/Haldane/Haldane.csproj)` — the name first, then the **full path**, which runs off the end of the box. **You have a `Haldane` in every week by now and they all look identical.** The path is part of the entry, so typing narrows it: **`week-05` leaves only this week's** — one entry, in the demo repo. If more than one survives, add the project name: `05/Hal`. Then <kbd>Enter</kbd>
 - [ ] ⚠️ **If tonight's project is not in the list at all**, the reload in §1 did not happen or did not take — Command Palette → `Developer: Reload Window` and try again. **The list only ever holds projects the editor knew about when it last loaded**
@@ -576,10 +578,10 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] **Click `Continue`.** It stops in the same constructor again
 - [ ] 🎯 **This is the one to slow down on:** *"same line, same file — and look at `this`. Name is null again. TripsToday is zero again. This is not the same object with its fields reset. It is a **different object**, and it has its own"*
-- [ ] **`Continue` once more** for Lindqvist. *"Six on the winter crew, so it will do this three more times"* — click through the rest without narrating them
+- [ ] **`Continue` once more** for Lindqvist
 
-- [ ] **Now the second breakpoint.** Click the gutter beside `TripsToday++;` in `GoesOut()`
-- [ ] **`Continue`.** It stops there — expand `this` again
+- [ ] **Keep clicking `Continue` until the line it stops on changes.** *"Six on the winter crew, so it does the constructor three more times"* — don't narrate those three
+- [ ] **When it changes you are in `GoesOut()`** — expand `this` again
 
   ```
   this.Name        "Okonkwo"
