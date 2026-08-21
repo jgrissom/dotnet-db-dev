@@ -773,7 +773,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 📖 **Then name the cause, and it is in the code they watched go in:** *"the search walks the crew looking for that name. It does not find it. And then the loop just… ends. Nobody ever asked it what it found"*
 - [ ] **Press `q`**
 
-- [ ] 🎞️ **GO TO SLIDE 9** — *`CrewMember` and `CrewMember?`*
+- [ ] 🎞️ **GO TO SLIDE 9** — *`CrewMember` and `CrewMember?`* · 🎯 **name the gap, then the thing that fills it:** *"that loop had no way to tell me it found nothing. Every method any of us has written so far promises something comes back — and this one cannot keep that promise. One question mark changes what is being promised: `CrewMember` means there is one. `CrewMember?` means there might not be"*
 
 - [ ] **Make the search hand its answer back.** In `Program.cs`, <kbd>⌘F</kbd> for **`c.Name == name.Trim()`** — one hit, inside `SignSomebodyOut`. ⚠️ **Don't search for the `foreach` line itself — §3 put an identical one inside `DrawBoard`.** **Select the whole `foreach` around it**, from `foreach (CrewMember c in crew)` down to its closing `}`, and paste this over it
 
@@ -800,7 +800,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   }
   ```
 
-- [ ] 📖 **Name the return type, because it is the whole segment:** *"`CrewMember?`, with a question mark. Every other method we have written promises something comes back. This one walks the crew, and if nobody is called that, the honest answer is nothing at all"*
+- [ ] 📖 **Point at where `return null;` sits, because that is the part people get wrong:** *"after the loop, not inside it. Inside, it gives up on the first crew member whose name doesn't match — and that is the single most common bug in this shape. It looks completely reasonable on the page"*
 
 - [ ] **Build it — and read the output, not the editor**
 
