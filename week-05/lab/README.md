@@ -269,7 +269,7 @@ public Caller? Find(string name)
 It also hands back **the caller it found**, never a new one with the same name. [A copy is a dead end](../lecture-notes.md#two-names-one-object): every call taken through it lands on a record nobody is looking at.
 
 > [!NOTE]
-> **Don't bother running the shift after this one — nothing will look different.** You've written `Find`, and nothing calls it yet. That's Task 4's job, and writing a method and wiring it in are two separate acts.
+> **The shift won't look any different yet — you've written `Find`, and nothing calls it.** Writing a method and wiring it in are two separate acts, and that's Task 4's job. Task 4 opens by showing you what *not wired in* actually costs, so leave the running to it.
 
 **Just the checks this time:**
 
@@ -291,9 +291,30 @@ week 5 lab: the switchboard finds a regular
 
 **Check:** `Check4_TheDeskTakesACallFromAnybody`
 
+**Watch it fail first.** Run the shift, press `r`, type `Dorothy`, then `q`:
+
+```bash
+dotnet run --project week-05/Lab
+```
+
+```
+  Line 1: Dorothy asks for Nightjar
+
+╭─────────┬───────┬───────────╮
+│ CALLER  │ CALLS │ ASKED FOR │
+├─────────┼───────┼───────────┤
+│ Dorothy │ 4     │ -         │
+│ Bex     │ 1     │ -         │
+│ Teodoro │ 1     │ -         │
+╰─────────┴───────┴───────────╯
+3 on the switchboard.
+```
+
+**The desk says Dorothy asked for Nightjar. The board says she didn't.** Her count hasn't moved, `ASKED FOR` is still `-`, and there are still three people on the switchboard. The request went somewhere and it wasn't here.
+
 Still in `Lab/Switchboard.cs`. `Take` is the one door for *"somebody is on the line"*, and it has to work for both kinds of caller.
 
-It ships as `return new Caller(name);` — a brand-new stranger every single time, which is why a request never lands on the board.
+It ships as `return new Caller(name);` — a brand-new stranger every single time. That stranger is never put on the board, so `Asks` writes the song onto an object nobody is holding, and it is rubbish the moment the method returns. **That is what you just watched.**
 
 Write it so that:
 
