@@ -220,7 +220,7 @@ dotnet test week-05/Lab.Checks
 >
 > ⭐ **That is worth knowing because your own repo is not like this one.** Your **project repo** has exactly one program in it, so when you debug your own work you'll press <kbd>F5</kbd>, pick the debugger once, and **never see that list at all** — VS Code writes the file and that's the end of it. The list is the price of keeping a whole semester in one folder.
 >
-> **And when it's pointed at the wrong week:** delete the `.vscode` folder and press <kbd>F5</kbd> again — it names the week in two places, so editing it by hand is two chances to get it wrong.
+> **And when it's pointed at the wrong week:** delete the `.vscode` folder and press <kbd>F5</kbd> again — `launch.json` alone names the week in two places (`program` and `cwd`), and `tasks.json` names the project on top of that, so editing them by hand is more chances to get it wrong than it looks.
 >
 > **A small debug toolbar appears while it is stopped** — `Continue` runs to the next breakpoint, `Step Over` runs one line, `Stop` ends it. The keys do the same, if you prefer: <kbd>F5</kbd>, <kbd>F10</kbd>, <kbd>Shift</kbd>+<kbd>F5</kbd>.
 >
