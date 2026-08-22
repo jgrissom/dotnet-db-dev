@@ -2,9 +2,9 @@
 
 It's 3 AM at **KDXR 88.1, "The Owl."** Last week the desk learned to protect a cart — one playable thing, one song or jingle or ad, short for the *cartridge* of looped tape it used to arrive on. Tonight it has to tell three **people** apart.
 
-The switchboard is the panel the calls come in on — one line per person who has rung tonight, and how many times. Dorothy has rung four times, the way she does. Bex once, for the one artist she ever asks for. Teodoro once, at 03:20, for Junie.
+The switchboard is the panel the calls come in on — one line per person who has rung tonight, and how many times. Dorothy has rung three times, the way she does. Bex once, for the one artist she ever asks for. Teodoro once, at 03:20, for Junie.
 
-The board says all three of them have called **six** times.
+The board says all three of them have called **five** times.
 
 **Time:** ~50 minutes in class — **target tonight: all five green, and a switchboard that can count.**
 
@@ -143,14 +143,14 @@ Type a DJ name, then press `c` to redraw the switchboard, then `q`.
 ╭─────────┬───────┬───────────╮
 │ CALLER  │ CALLS │ ASKED FOR │
 ├─────────┼───────┼───────────┤
-│ Dorothy │ 6     │ -         │
-│ Bex     │ 6     │ -         │
-│ Teodoro │ 6     │ -         │
+│ Dorothy │ 5     │ -         │
+│ Bex     │ 5     │ -         │
+│ Teodoro │ 5     │ -         │
 ╰─────────┴───────┴───────────╯
 3 on the switchboard.
 ```
 
-**Six each.** `Program.cs` seeds the night before the shift starts and you can read the calls for yourself: Dorothy four times, Bex once, Teodoro once. That's six calls between three people, and every row is reporting all of them.
+**Five each.** `Program.cs` seeds the night before the shift starts and you can read the calls for yourself: Dorothy three times, Bex once, Teodoro once. That's five calls between three people, and every row is reporting all of them.
 
 Now open `Lab/Caller.cs` and read the top of it. The count is behind a `static` field — one number for the whole program, [exactly like the crew tally on the demo's board](../lecture-notes.md#the-word-you-have-been-typing-to-make-the-error-go-away).
 
@@ -199,14 +199,14 @@ dotnet run --project week-05/Lab
 ╭─────────┬───────┬───────────╮
 │ CALLER  │ CALLS │ ASKED FOR │
 ├─────────┼───────┼───────────┤
-│ Dorothy │ 4     │ -         │
+│ Dorothy │ 3     │ -         │
 │ Bex     │ 1     │ -         │
 │ Teodoro │ 1     │ -         │
 ╰─────────┴───────┴───────────╯
 3 on the switchboard.
 ```
 
-**Three people, three numbers.** Same six calls, same seed data, one word deleted.
+**Three people, three numbers.** Same five calls, same seed data, one word deleted.
 
 **Then the checks:**
 
@@ -303,7 +303,7 @@ dotnet run --project week-05/Lab
 ╭─────────┬───────┬───────────╮
 │ CALLER  │ CALLS │ ASKED FOR │
 ├─────────┼───────┼───────────┤
-│ Dorothy │ 4     │ -         │
+│ Dorothy │ 3     │ -         │
 │ Bex     │ 1     │ -         │
 │ Teodoro │ 1     │ -         │
 ╰─────────┴───────┴───────────╯
@@ -336,7 +336,7 @@ dotnet run --project week-05/Lab
 ╭─────────┬───────┬───────────╮
 │ CALLER  │ CALLS │ ASKED FOR │
 ├─────────┼───────┼───────────┤
-│ Dorothy │ 5     │ -         │
+│ Dorothy │ 4     │ -         │
 │ Bex     │ 1     │ -         │
 │ Teodoro │ 1     │ -         │
 │ Ray     │ 1     │ -         │
@@ -344,7 +344,7 @@ dotnet run --project week-05/Lab
 4 on the switchboard.
 ```
 
-**Dorothy went to 5 and Ray appeared on 1.** One method, two completely different nights, and the `if` is the only thing telling them apart.
+**Dorothy went to 4 and Ray appeared on 1.** One method, two completely different nights, and the `if` is the only thing telling them apart.
 
 **Then the checks:**
 
@@ -386,7 +386,7 @@ dotnet run --project week-05/Lab
 ╭─────────┬───────┬─────────────╮
 │ CALLER  │ CALLS │ ASKED FOR   │
 ├─────────┼───────┼─────────────┤
-│ Dorothy │ 5     │ Nightjar    │
+│ Dorothy │ 4     │ Nightjar    │
 │ Bex     │ 1     │ -           │
 │ Teodoro │ 1     │ -           │
 │ Ray     │ 1     │ Slack Water │
