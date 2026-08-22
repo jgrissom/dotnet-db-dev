@@ -181,8 +181,6 @@ public void Calls()
 
 **The shape is one you already have.** `Lab/Song.cs` — in this week's folder, shipped finished — holds `PlaysTonight` and `Play()`, which is this with different names. Read those two members before you start; don't change anything in there.
 
-<!-- [The notes show that same pair twice, with the word `static` and without it](../lecture-notes.md#what-static-actually-says) — **you want the one without it.** That choice is the whole task. -->
-
 > [!WARNING]
 > **The property keeps its name and the method keeps its name** — `CallsTonight` and `Calls()` are what the shift and the checks read by. What changes is where the number lives: [the word is the difference](../lecture-notes.md#what-static-actually-says), not the punctuation.
 
