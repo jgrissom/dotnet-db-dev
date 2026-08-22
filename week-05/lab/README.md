@@ -160,7 +160,7 @@ Now open `Lab/Caller.cs` and read the top of it. The count is behind a `static` 
 
 **Check:** `Check2_EveryCallerKeepsTheirOwnCount`
 
-Open `Lab/Caller.cs`. Three members ship there — the field, the property that reads it, and the method that moves it — and all three come out:
+Open `Lab/Caller.cs`. Three members ship there — the field, the property that reads it, and the method that moves it:
 
 ```csharp
 private static int _calls;
@@ -173,15 +173,18 @@ public void Calls()
 }
 ```
 
-Replace them with [the shape you already wrote last week for `PlaysTonight`](../lecture-notes.md#what-static-actually-says) — a property anybody can read and nobody outside the class can write, and a method that is the only thing that moves it. **It's in your own `week-04/Lab/Song.cs` if you want to look at it.**
+**Each one needs something different, and only one of them actually goes:**
 
-Two things the check is exact about, because they're what the shift reads by:
+- **`_calls` — delete it.** An instance property brings a field of its own, one per object, so a `_calls` left behind is just the bug with a property in front of it.
+- **`CallsTonight` — rewrite it.** Right now it reads the shared number. It needs to hold its own: readable by anybody, writable by nobody outside the class. It keeps its name and it stays an `int`.
+- **`Calls()` — keep it, and change one line.** The signature is already right; you are not writing a new method. Its body is the only thing left pointing at a field that no longer exists, so it adds one to the property instead.
 
-- the property is called **`CallsTonight`**, it's an `int`, and it has **no public setter**
-- the method is called **`Calls()`**, and it **adds one** rather than setting one
+**The shape is one you already have.** `Lab/Song.cs` — in this week's folder, shipped finished — holds `PlaysTonight` and `Play()`, which is this with different names. Read those two members before you start; don't change anything in there.
+
+[The notes show that same pair twice, with the word `static` and without it](../lecture-notes.md#what-static-actually-says) — **you want the one without it.** That choice is the whole task.
 
 > [!WARNING]
-> **Delete the field.** An instance property already has a field of its own — one per object — so a `_calls` left behind is just the bug with a property in front of it. That's the whole lesson: [the word is the difference](../lecture-notes.md#what-static-actually-says), not the punctuation.
+> **The property keeps its name and the method keeps its name** — `CallsTonight` and `Calls()` are what the shift and the checks read by. What changes is where the number lives: [the word is the difference](../lecture-notes.md#what-static-actually-says), not the punctuation.
 
 **Run the shift** — DJ name, then `c`, then `q`:
 
