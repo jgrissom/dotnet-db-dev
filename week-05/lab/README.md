@@ -179,7 +179,12 @@ public void Calls()
 - **`CallsTonight` — rewrite it.** Right now it reads the shared number. It needs to hold its own: readable by anybody, writable by nobody outside the class.
 - **`Calls()` — keep it, and change one line.** The signature is already right; you are not writing a new method. Its body is the only thing left pointing at a field that no longer exists, so it adds one to the property instead.
 
-**The shape is one you already have.** `Lab/Song.cs` — in this week's folder, shipped finished — holds `PlaysTonight` and `Play()`, which is this with different names. Read those two members before you start; don't change anything in there.
+> [!IMPORTANT]
+> **You already have this shape — go and read it before you write anything.**
+>
+> `Lab/Song.cs` ships finished in this week's folder, and it holds `PlaysTonight` and `Play()` — the same property-and-method pair you need here, with different names on it.
+>
+> Open it, read those two members, then come back. Leave the file itself alone.
 
 > [!WARNING]
 > **The property keeps its name and the method keeps its name** — `CallsTonight` and `Calls()` are what the shift and the checks read by. What changes is where the number lives: [the word is the difference](../lecture-notes.md#what-static-actually-says), not the punctuation.
