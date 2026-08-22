@@ -293,7 +293,7 @@ Three moments worth saving, and each one changes a file in `Project/` — they'r
 | 2 | A second merge commit on `main` — this week's branch → pull request → merge |
 
 > [!NOTE]
-> **Your count should climb 2 → 4 → 5**, one part at a time. If you're sitting at 2 after writing `Find`, read the check's message — it names the file and the shape, and the commonest cause is `return null;` inside the loop instead of after it.
+> **Your count should climb 2 → 4 → 5**, one part at a time. If you're sitting at **3** after writing `Find` — finding red, not-finding green — read the check's message. The commonest cause is `return null;` inside the loop instead of after it, and it clears the *not*-finding check by accident: a name nobody has still comes back `null`, just for the wrong reason.
 
 > [!WARNING]
 > **A build failure zeroes all five checks at once.** One missing semicolon reads as "did nothing." Run `dotnet test Project.Checks` before you push, every time.
