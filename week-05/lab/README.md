@@ -370,8 +370,8 @@ Back to `Lab/Caller.cs`, and the ASKED FOR column that has said `-` all night.
 
 Two members, and they ship as `public Song? Favorite => null;` and an empty `Asks`:
 
-- **`Favorite`** — a `Song?`, readable by anybody, writable by nobody outside the class. [A caller that holds a song](../lecture-notes.md#a-class-that-holds-another-class) is the same shape as a sign-out that holds a crew member. A caller who has just rung hasn't asked for anything, and [`null` is the honest answer](../lecture-notes.md#null-is-an-answer-not-a-failure) rather than a made-up song.
-- **`Asks(Song song)`** — one line. Keep the song you were **handed**, not a new one built from it: the song you were handed is the actual cart in the rotation, so its play count is the real one.
+- **`Favorite` — replace the `=> null`.** That arrow doesn't store anything; it *computes* an answer every time somebody reads it, and the answer is always `null`. There is nothing there to assign to, so if you write `Asks` and leave this alone the project won't build. It has to **hold** a song instead — [the same shape you gave `CallsTonight` in Task 2](#task-2-in-full), with `Song?` in front of it: readable by anybody, writable by nobody outside the class. [A caller that holds a song](../lecture-notes.md#a-class-that-holds-another-class) is the same shape as a sign-out that holds a crew member, and a caller who has just rung hasn't asked for anything yet — [`null` is the honest answer](../lecture-notes.md#null-is-an-answer-not-a-failure) rather than a made-up song.
+- **`Asks(Song song)` — fill in the body, one line.** Keep the song you were **handed**, not a new one built from it: the song you were handed is the actual cart in the rotation, so its play count is the real one.
 
 > [!WARNING]
 > **Do not count the call in `Asks`.** `Take` already counted it when it put them on the line — count it again here and every regular goes up by two for one phone call. The check asserts that it doesn't. **One rule, one place.**
@@ -452,6 +452,7 @@ dotnet run --project week-05/Lab
 | `CS0120: An object reference is required` | The opposite — you named the class where you needed one caller. It's asking **which one**. |
 | Every caller shows the same number | The `static` field is still there behind `CallsTonight`. Delete it; an instance property brings its own. |
 | `CS0103: The name '_calls' does not exist` | You deleted the field but something still reads it. `CallsTonight` and `Calls()` should both name the property now. |
+| `CS0200: ... cannot be assigned to -- it is read only` | `Favorite` is still the shipped `=> null`. An `=>` property **computes** its value on every read, so there is nothing to store into and `Asks` cannot assign to it. Give it the shape that *holds* one — the same shape as `CallsTonight`. **This is a build error, so it takes all five checks down with it.** |
 | `CS8603: Possible null return` | Your `Find` returns `null` but its type has no `?`. It's `Caller?`, not `Caller`. |
 | `CS8602: Dereference of a possibly null reference` | You used something that might be nothing without asking first. [Ask, then use it](../lecture-notes.md#asking-before-you-use-it) — and it is [a warning, not an error](../lecture-notes.md#the-warning-that-was-already-there), so it builds and still crashes. |
 | `CS8604: Possible null reference argument` | The same thing, one step further out — you handed something that might be nothing to a method or a constructor. [Ask, then use it](../lecture-notes.md#asking-before-you-use-it). |

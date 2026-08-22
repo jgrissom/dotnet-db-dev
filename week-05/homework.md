@@ -309,6 +309,7 @@ Three moments worth saving, and each one changes a file in `Project/` — they'r
 | `CS8604: Possible null reference argument` | The same thing, one step further out — you handed something that might be nothing to a method or a constructor. [Ask, then use it.](lecture-notes.md#asking-before-you-use-it) |
 | `NullReferenceException` when you run it | The same thing, at runtime. The warning was there at build time. |
 | `CS0120: An object reference is required` | You named the class where you needed one record — `Thing.TimesVisited` instead of `item.TimesVisited`. It's asking **which one**. |
+| `CS0200: ... cannot be assigned to -- it is read only` | The property your verb moves is `{ get; }` or `=> something`, so nothing can write to it — not even the class itself. It needs `{ get; private set; }`: sealed to the outside, movable by your own method. |
 | Every record reports the same number | A `static` field behind the property. [One copy for the whole program](lecture-notes.md#what-static-actually-says) — take the word off. |
 | `Registry.Find exists, but not with the parameters the homework asks for` | It takes **exactly one `string`**, like `NewItem`. If you need more to search by, write a second method with a different name. |
 | `Find handed back a Thing — but not the one on the registry` | It's building a new record instead of returning the one it found. `return item;`, not `return new Thing(item.Name);` |
