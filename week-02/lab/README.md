@@ -352,6 +352,6 @@ You will be. These are real, and the first one closes tonight's loop.
 
 - ⭐ **Make the warning come back.** In `WhereIsRay`, you deleted the day shift's `int.Parse(typed ?? "")`. Retype just that line somewhere — without the `?? ""` — and look at the squiggle: **`CS8604`, warning you about `null`**. That squiggle was pointing at half of tonight's crash all along, on the day shift's original line, and everyone scrolled past it. Read it, believe it, delete the line.
 - **Crash-proof the DJ too.** `Program.cs` reads the DJ's name with `?? "somebody"`. Route it through `CallerName` instead and see what changes when you sign on with a fistful of spaces.
-- **Give the desk opinions.** A request for anything containing `"freebird"` gets `"For {name}: no."` — the check doesn't mind extra behaviour, as long as Dorothy still gets her strings.
+- **Give the desk opinions.** A request for anything containing `"freebird"` gets `"For {name}: no."` — the check doesn't mind extra behavior, as long as Dorothy still gets her strings.
 - **Count Ray down.** When the marker's real, add how many *hours* to the state line at 65 mph. ⚠️ You know exactly what `/` does to two whole numbers — week 1's break, still armed.
 - **Add a method of your own** — `CallerLine.IsRegular(string? name)`, a caller log line, whatever the desk needs. Nothing checks it. That's rather the point.

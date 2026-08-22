@@ -368,9 +368,9 @@ week 5 lab: the desk takes a call from anybody
 
 Back to `Lab/Caller.cs`, and the ASKED FOR column that has said `-` all night.
 
-Two members, and they ship as `public Song? Favourite => null;` and an empty `Asks`:
+Two members, and they ship as `public Song? Favorite => null;` and an empty `Asks`:
 
-- **`Favourite`** — a `Song?`, readable by anybody, writable by nobody outside the class. [A caller that holds a song](../lecture-notes.md#a-class-that-holds-another-class) is the same shape as a sign-out that holds a crew member. A caller who has just rung hasn't asked for anything, and [`null` is the honest answer](../lecture-notes.md#null-is-an-answer-not-a-failure) rather than a made-up song.
+- **`Favorite`** — a `Song?`, readable by anybody, writable by nobody outside the class. [A caller that holds a song](../lecture-notes.md#a-class-that-holds-another-class) is the same shape as a sign-out that holds a crew member. A caller who has just rung hasn't asked for anything, and [`null` is the honest answer](../lecture-notes.md#null-is-an-answer-not-a-failure) rather than a made-up song.
 - **`Asks(Song song)`** — one line. Keep the song you were **handed**, not a new one built from it: the song you were handed is the actual cart in the rotation, so its play count is the real one.
 
 > [!WARNING]
@@ -394,7 +394,7 @@ dotnet run --project week-05/Lab
 4 on the switchboard.
 ```
 
-Bex and Teodoro still read `-`, and that's right — they rang before the shift started and nobody wrote down what they wanted. **The dash is a `null` you can see**, and `Program.cs` draws it with `caller.Favourite?.Title ?? "-"`, which is [both shorthands in one line](../lecture-notes.md#asking-before-you-use-it).
+Bex and Teodoro still read `-`, and that's right — they rang before the shift started and nobody wrote down what they wanted. **The dash is a `null` you can see**, and `Program.cs` draws it with `caller.Favorite?.Title ?? "-"`, which is [both shorthands in one line](../lecture-notes.md#asking-before-you-use-it).
 
 **Then the checks:**
 
@@ -456,7 +456,7 @@ dotnet run --project week-05/Lab
 | `Find` only ever turns up the first caller | `return null;` is inside the loop. It goes after it. |
 | The board grows a second Dorothy every time she rings | `Take` isn't asking `Find` first, or it's adding a caller and returning a different one. Make it once, `Add` that one, return that same one. |
 | Dorothy goes up by two for one call | `Asks` is calling `Calls()` as well as `Take`. One rule, one place. |
-| ASKED FOR stays `-` after a request | `Asks` isn't storing the song, or `Favourite` is still the shipped `=> null`. |
+| ASKED FOR stays `-` after a request | `Asks` isn't storing the song, or `Favorite` is still the shipped `=> null`. |
 | Breakpoints never stop | Command Palette → **`Developer: Reload Window`**, then <kbd>F5</kbd>. `.NET: Restart Language Server` does not fix it. |
 | <kbd>F5</kbd>'s project list has no `week-05` in it | The editor learned which projects exist when you opened the folder, and this week's did not exist yet. **`Developer: Reload Window`.** |
 | Red squiggles on code you just copied in | Same cause, same fix. The compiler is the witness — if `dotnet build week-05/Lab` is clean, the editor is just behind. |

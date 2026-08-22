@@ -502,7 +502,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
       AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");
   ```
 
-- [ ] 💡 **All that, to add up three numbers — and do not apologise for it, the tedium is the point.** *"Yes, this is a lot of typing to add up three numbers. Hold on to that feeling: in week 9 this entire loop becomes one line, and you will like that line considerably more for having written this one"*
+- [ ] 💡 **All that, to add up three numbers — and do not apologize for it, the tedium is the point.** *"Yes, this is a lot of typing to add up three numbers. Hold on to that feeling: in week 9 this entire loop becomes one line, and you will like that line considerably more for having written this one"*
 
 - [ ] **Run it**
 
@@ -889,7 +889,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
     Nobody on station by that name. Nothing logged.
   ```
 
-- [ ] 🎯 **Three behaviours, one typo, and say them in order:** *"silence. Then a crash. Then a sentence that tells the duty officer what happened. That last one is the only one you can work at"*
+- [ ] 🎯 **Three behaviors, one typo, and say them in order:** *"silence. Then a crash. Then a sentence that tells the duty officer what happened. That last one is the only one you can work at"*
 - [ ] **Press `q`**
 
 - [ ] **Save it.** Silent

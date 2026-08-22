@@ -408,11 +408,11 @@ Two shorthands you have already met, now that you know what they are for:
 
 ```csharp
 string name = Console.ReadLine() ?? "";       // week 1: "or use this instead"
-string title = caller.Favourite?.Title ?? "-";
+string title = caller.Favorite?.Title ?? "-";
 ```
 
 - **`??`** — *if the left side is null, use the right side instead.*
-- **`?.`** — *if the left side is null, stop here and the whole thing is null.* `caller.Favourite?.Title` asks for the title only if there is a song to ask.
+- **`?.`** — *if the left side is null, stop here and the whole thing is null.* `caller.Favorite?.Title` asks for the title only if there is a song to ask.
 
 > [!WARNING]
 > **`?.` is not a fix; it is a decision.** It says *"nothing here is fine, carry on"*. Where nothing is **not** fine — a missing person, a record that has to exist — an `if` that says so out loud is the better answer, and a `?.` there just moves the problem somewhere harder to find.

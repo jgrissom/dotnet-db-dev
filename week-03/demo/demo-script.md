@@ -280,8 +280,8 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 ### Now it's the board
 
 - [ ] ⚠️ **This is the week's second payoff and it is not decoration — so paste, run, and let them see it before a word is said about it.** The room has had `dutyconsole.com` on the projector at the start of three sessions; it is about to turn up in the terminal
-- [ ] ⚠️ **Three changes, and you run after every one of them** — the room watches the board assemble itself a piece at a time. **Each colour arrives with the line that uses it**, so every build stays at `0 Warnings`; paste all four up front and `CS0219` puts two on screen
-- [ ] **Under `using Spectre.Console;` — two of the station's colours and week 1's banner.** 📖 **One sentence, no more:** *"week 1's banner. Same four lines — Spectre is drawing them now"*:
+- [ ] ⚠️ **Three changes, and you run after every one of them** — the room watches the board assemble itself a piece at a time. **Each color arrives with the line that uses it**, so every build stays at `0 Warnings`; paste all four up front and `CS0219` puts two on screen
+- [ ] **Under `using Spectre.Console;` — two of the station's colors and week 1's banner.** 📖 **One sentence, no more:** *"week 1's banner. Same four lines — Spectre is drawing them now"*:
   ```csharp
   const string Amber = "#e8b04b";
   const string Dim = "#6c7b78";
@@ -303,7 +303,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
     nearest neighbour: 512 km - winter crew - day 226
   ========================================================
   ```
-- [ ] **Two more colours — straight under `Amber` and `Dim`, so all four sit together:**
+- [ ] **Two more colors — straight under `Amber` and `Dim`, so all four sit together:**
   ```csharp
   const string Fg = "#c8d3cf";
   const string Cold = "#7fb2d4";
@@ -350,7 +350,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] **`TIME NAME REASON EXPECTED` go dim grey** — the same grey as the column headings on the board upstairs. 📖 **Name the markup once, because it is the whole API:** *"square brackets round the text, colour in the front one, slash in the back. That's all Spectre markup is"*
+- [ ] **`TIME NAME REASON EXPECTED` go dim grey** — the same grey as the column headings on the board upstairs. 📖 **Name the markup once, because it is the whole API:** *"square brackets round the text, color in the front one, slash in the back. That's all Spectre markup is"*
 - [ ] **Then the cells. Select the `board.AddRow(...)` line inside the `foreach` and paste over it:**
   ```csharp
       board.AddRow(
@@ -379,7 +379,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] 🎯 **The convergence. Ask it; don't announce it:** *"anybody recognise this?"*
+- [ ] 🎯 **The convergence. Ask it; don't announce it:** *"anybody recognize this?"*
   - ⚠️ **Wait.** The board has been on the projector at the start of three sessions and somebody will get there. **If nobody bites within a few seconds, say it plainly and move on** — it's a gift, not a hinge: *"that's the duty console. The thing that's been up on the screen when you walk in"*
   - 💡 **The honest version of the line, if you want it:** *"the page was built to look like this program. Not the other way round"*
 - [ ] 💡 **Then hand it over and stop — thirty seconds, no tour of the library:** *"all of this is yours to play with in the lab, and **none of it is graded**. No check in this course has ever looked at what your program prints, and that's on purpose"*

@@ -222,7 +222,7 @@ AnsiConsole.Write(board);
 
 **The same three sign-outs as the hand-printed board, plus the one that sheared it.** `DIG OUT VENT 3` fits now, because the column was measured instead of guessed.
 
-Colour and borders come from the same object — `.Border(TableBorder.Rounded)`, `.BorderColor(...)`, and markup like `[#e8b04b]MET RUN[/]` inside a cell. **All of that is yours to play with and none of it is graded.** No check in this course looks at what your program prints.
+Color and borders come from the same object — `.Border(TableBorder.Rounded)`, `.BorderColor(...)`, and markup like `[#e8b04b]MET RUN[/]` inside a cell. **All of that is yours to play with and none of it is graded.** No check in this course looks at what your program prints.
 
 > [!WARNING]
 > **Spectre is for OUTPUT. `Console.ReadLine()` is still how you read input.**

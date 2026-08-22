@@ -171,7 +171,7 @@ AnsiConsole.Write(night);
 Console.WriteLine($"{Station.CallSign()} - {Playlist.SignOff()}");
 ```
 
-**Make it yours.** Borders, colours, a second table for `Regulars` — [none of it is graded](lecture-notes.md#a-table-that-measures), because no check in this course looks at what your program prints.
+**Make it yours.** Borders, colors, a second table for `Regulars` — [none of it is graded](lecture-notes.md#a-table-that-measures), because no check in this course looks at what your program prints.
 
 > [!WARNING]
 > **`Console.ReadLine` reads. `AnsiConsole` draws. Don't swap them.**

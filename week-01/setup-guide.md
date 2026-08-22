@@ -77,7 +77,7 @@ You want something starting with `10.`:
 Open VS Code → the **Extensions** icon in the left bar (four squares) → search **C#** → install the one published by **Microsoft**.
 
 > [!NOTE]
-> **You want `C#`, not `C# Dev Kit`.** The Dev Kit is a separate, licence-encumbered thing we don't use and don't need — everything in this course is done with the `dotnet` command. If it got installed alongside, that's fine, just don't rely on it.
+> **You want `C#`, not `C# Dev Kit`.** The Dev Kit is a separate, license-encumbered thing we don't use and don't need — everything in this course is done with the `dotnet` command. If it got installed alongside, that's fine, just don't rely on it.
 
 **✓ Check.** The extension page says **Installed**, and no error notification appeared in the bottom-right corner.
 

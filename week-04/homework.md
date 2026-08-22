@@ -4,7 +4,7 @@
 
 Last week you were asked to bring two or three ideas for something you'd want to keep a list of. Tonight one of them becomes a program you'll still be working on in December.
 
-This is the hinge week. From here, every homework extends **this same program**: behaviour (5), interfaces (6), tests (7), a save file (8), queries (9), a database (10), full CRUD (11), a second related thing (12), defenses (13). In week 16 you present it.
+This is the hinge week. From here, every homework extends **this same program**: behavior (5), interfaces (6), tests (7), a save file (8), queries (9), a database (10), full CRUD (11), a second related thing (12), defenses (13). In week 16 you present it.
 
 > [!TIP]
 > **Keep [`lecture-notes.md`](lecture-notes.md) open in a second tab.** Every requirement below links to the section that shows it done, and the [troubleshooting section](lecture-notes.md#-troubleshooting) names this week's actual errors.
@@ -43,7 +43,7 @@ This is your **second** repo, and unlike your coursework repo it is **public** �
 > [!NOTE]
 > **Push before you write anything.** If your git identity or GitHub login has a problem, you meet it now with nothing on the line, rather than at 11pm holding finished work you can't submit.
 
-**1. Make it on GitHub.** New repository → name it after your topic (`claw-machines`, `lighthouse-log`, whatever) → **Public** → **don't** add a README, .gitignore or licence. You want it empty.
+**1. Make it on GitHub.** New repository → name it after your topic (`claw-machines`, `lighthouse-log`, whatever) → **Public** → **don't** add a README, .gitignore or license. You want it empty.
 
 **2. Make the folder, and open it in its own window.** Same move you used in week 1 to make `dotnet-db-coursework` — VS Code makes the folder for you:
 

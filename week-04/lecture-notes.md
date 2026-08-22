@@ -243,7 +243,7 @@ You make one with `new Rotation()`, and the list inside it is nobody else's busi
 
 ## Your project starts tonight
 
-From this week the homework is **your own program, on a topic you choose**, and every week from here extends that same program: behaviour (5), interfaces (6), tests (7), a save file (8), queries (9), a database (10), full CRUD (11), a second related table (12), defenses (13). You present it in week 16.
+From this week the homework is **your own program, on a topic you choose**, and every week from here extends that same program: behavior (5), interfaces (6), tests (7), a save file (8), queries (9), a database (10), full CRUD (11), a second related table (12), defenses (13). You present it in week 16.
 
 ### Picking a topic
 

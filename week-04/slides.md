@@ -200,7 +200,7 @@ Your topic. Your records. Your repo — **public**.
 
 Every week from here extends **this same program**:
 
-behaviour · interfaces · tests · a file
+behavior · interfaces · tests · a file
 
 queries · a database · CRUD · a second table
 
