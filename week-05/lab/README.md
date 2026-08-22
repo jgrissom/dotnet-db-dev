@@ -396,6 +396,9 @@ dotnet run --project week-05/Lab
 
 Bex and Teodoro still read `-`, and that's right — they rang before the shift started and nobody wrote down what they wanted. **The dash is a `null` you can see**, and `Program.cs` draws it with `caller.Favorite?.Title ?? "-"`, which is [both shorthands in one line](../lecture-notes.md#asking-before-you-use-it).
 
+> [!NOTE]
+> **One slot, and it holds the most recent request.** Ring the same person twice and the second song replaces the first — the desk remembers what they last asked for, not everything they've ever asked for. A caller holding **one** song is this week's shape, [the same shape as a sign-out holding a crew member](../lecture-notes.md#a-class-that-holds-another-class). **In week 12 each caller gets a request history of their own** — a real one-to-many, in a database, seeded with the people you've known since week 3.
+
 **Then the checks:**
 
 ```bash
