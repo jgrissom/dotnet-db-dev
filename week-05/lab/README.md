@@ -160,7 +160,7 @@ Now open `Lab/Caller.cs` and read the top of it. The count is behind a `static` 
 
 **Check:** `Check2_EveryCallerKeepsTheirOwnCount`
 
-Open `Lab/Caller.cs`. Three lines ship there and all three come out:
+Open `Lab/Caller.cs`. Three members ship there — the field, the property that reads it, and the method that moves it — and all three come out:
 
 ```csharp
 private static int _calls;
