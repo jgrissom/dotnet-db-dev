@@ -1,0 +1,50 @@
+{
+  "week": 6,
+  "total": 20,
+  "_comment": "One source of truth for week 6's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first. The graded repo is the PROJECT repo (D1b); the coursework repo is cloned only for the hygiene sweep, which covers both and scores once.",
+  "checks": {
+    "Check1_YourRecordKeepsThePromise": {
+      "points": 3,
+      "label": "IListed exists, and your record keeps it — a Kind of its own and a Line() that names the record it is about"
+    },
+    "Check2_EachRecordWritesItsOwnLine": {
+      "points": 2,
+      "label": "Two different records write two different lines, and both call themselves the same Kind"
+    },
+    "Check3_TheRegistryKeepsItToo": {
+      "points": 3,
+      "label": "Registry keeps IListed as well — a different Kind, a different Line(), and it is not a kind of record"
+    },
+    "Check4_OneListHoldsThemBoth": {
+      "points": 2,
+      "label": "Registry.Everything() hands back one List<IListed> holding the registry's own line and every record it is actually holding"
+    },
+    "Check5_WeeksFourAndFiveStillHold": {
+      "points": 2,
+      "label": "Weeks 4 and 5 still hold — no public fields, All() still copies, Find and Remove still behave, Topic still says something"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing — even when fed nothing but Enter"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked in NEITHER repo — the .gitignore holding, in both places"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgement call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}
