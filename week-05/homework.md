@@ -37,6 +37,24 @@ Now the branch this week's work happens on:
 git checkout -b find-and-remove
 ```
 
+**Then bring in this week's checks.** They ship in the starters clone and **they are different every week** — last week's cannot see a single thing you write tonight. Pull the clone first:
+
+```bash
+git -C ../dotnet-db-starters pull
+```
+
+Then copy this week's over the top:
+
+```bash
+cp -r ../dotnet-db-starters/project/week-05/Project.Checks .
+```
+
+> [!NOTE]
+> **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
+
+> [!WARNING]
+> **Skip this and every number below is wrong.** Last week's checks report **5 / 5** before you have written a line tonight — because they are testing last week's work, and passing. If `dotnet test` says 5 / 5 at the end of Part 2 instead of 2 / 5, you are running the wrong checks: come back and run the two commands above.
+
 ---
 
 ## Part 2 — Your record does something
@@ -322,6 +340,7 @@ Three moments worth saving, and each one changes a file in `Project/` — they'r
 | A value isn't what you think it is | **Set a breakpoint and look.** [Two minutes with the debugger](lecture-notes.md#the-debugger-and-what-it-is-actually-for) beats twenty with `Console.WriteLine`. |
 | Breakpoints never stop | Command Palette → **`Developer: Reload Window`**, then <kbd>F5</kbd>. |
 | <kbd>F5</kbd>'s project list is unreadable | Every entry is the project name plus its full path, so they look identical. **Type to filter it** — in your project repo there is only one, but in your coursework repo type the week. |
+| **5 / 5 before you've written anything**, or check names you don't recognise | You're running **last week's** checks. [Part 1](#part-1--catch-up-then-branch) copies this week's in — `Check1_YourRecordDoesSomething` is the first of tonight's; `Check1_YouPickedATopic` is last week's. |
 | `Assembly.Load("Project")` failed / no tests ran | The console project isn't called `Project`, or it isn't beside `Project.Checks` at the top of your repo. |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b find-and-remove`, push that. |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
