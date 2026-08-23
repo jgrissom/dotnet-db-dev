@@ -348,6 +348,16 @@ dotnet test Project.Checks
 >
 > A `.vscode` folder appears when you do — VS Code writing down what to debug. You didn't write it and you don't have to touch it. **Nothing here is graded; it's thirty seconds so that the first time you actually need it, you've already done it once.**
 
+**Save it before you push.** This is a whole file's worth of change and `git push` only sends what has been committed:
+
+```bash
+git add .
+git commit -m "A program that shows all of it"
+```
+
+> [!CAUTION]
+> **Skip this one and Part 6 pushes the file you had before.** Everything you just pasted is still sitting on your laptop, uncommitted — the branch on GitHub would stop at Part 4, and it is your own work that goes missing, not mine.
+
 ---
 
 ## Part 6 — The pull request
@@ -375,7 +385,7 @@ git pull
 
 ## Commit as you go
 
-Three moments worth saving, and each one changes a file in `Project/` — they're written into Parts 2, 3 and 4 above, at the point where each thing starts working. **The commits I count are the ones on this week's branch**, so committing straight to `main` costs you twice.
+Four moments worth saving, and each one changes a file in `Project/` — they're written into Parts 2, 3, 4 and 5 above, at the point where each thing starts working. **The last one matters most**: `git push` sends commits, so anything you haven't committed simply doesn't travel. **The commits I count are the ones on this week's branch**, so committing straight to `main` costs you twice.
 
 ---
 
