@@ -251,7 +251,7 @@ dotnet test Project.Checks
 > [!TIP]
 > **While you're in here, press <kbd>F5</kbd> once.** Put a breakpoint in `Registry.Find` — click the gutter beside the `if` — and run it. Choose **`.NET 5+ and .NET Core`** if it asks which debugger, and **`Project`** if it asks which project.
 >
-> **Notice how short that was.** In class the project list was long, because the coursework repo holds a program for every week you have done. This repo holds your program and my checks, and nothing else — so there is nothing to hunt through.
+> **Notice how short that was.** In class the project list runs to a screenful, because the coursework repo holds every project you have copied in since week 1. This one holds two — your program and my checks — so **pick `Project`** and you're in.
 >
 > A `.vscode` folder appears when you do — VS Code writing down what to debug. You didn't write it and you don't have to touch it. **Nothing here is graded; it's thirty seconds so that the first time you actually need it, you've already done it once.**
 
@@ -339,7 +339,7 @@ Three moments worth saving, and each one changes a file in `Project/` — they'r
 | Checks 2, 3 and 4 all red at once | Fix `Find` first — `Remove` is built on it, so one bug reads as three. |
 | A value isn't what you think it is | **Set a breakpoint and look.** [Two minutes with the debugger](lecture-notes.md#the-debugger-and-what-it-is-actually-for) beats twenty with `Console.WriteLine`. |
 | Breakpoints never stop | Command Palette → **`Developer: Reload Window`**, then <kbd>F5</kbd>. |
-| <kbd>F5</kbd>'s project list is unreadable | Every entry is the project name plus its full path, so they look identical. **Type to filter it** — in your project repo there is only one, but in your coursework repo type the week. |
+| <kbd>F5</kbd>'s project list is unreadable | Every entry is the project name plus its full path, so they look identical. **Type to filter it** — in your project repo it is two lines and you want `Project`; in your coursework repo type the week and pick `Lab`. |
 | **5 / 5 before you've written anything**, or check names you don't recognise | You're running **last week's** checks. [Part 1](#part-1--catch-up-then-branch) copies this week's in — `Check1_YourRecordDoesSomething` is the first of tonight's; `Check1_YouPickedATopic` is last week's. |
 | `Assembly.Load("Project")` failed / no tests ran | The console project isn't called `Project`, or it isn't beside `Project.Checks` at the top of your repo. |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b find-and-remove`, push that. |

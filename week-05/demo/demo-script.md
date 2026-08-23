@@ -558,7 +558,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎯 **Point at the Explorer: a `.vscode` folder just appeared.** *"VS Code has written itself two files — that is it remembering how to run this. `launch.json` says what to debug, `tasks.json` says to build it first"*
 - [ ] 🎯 **And the sentence that makes tonight transfer, because this is the bit they will meet again:** *"That file names **one** project. In an ordinary repo with one program in it, that is the right answer forever — you press F5 once, it writes this, and it never asks you again. It only had to ask me because this folder has more than one program in it — one for every week we have done"*
-- [ ] 💡 **So say what their own repo does, out loud:** *"your project repo has exactly one program in it. You will press F5 there, pick the debugger once, and never see that list at all"*
+- [ ] 💡 **So say what their own repo does, out loud:** *"your project repo holds two — your program and my checks — so you get this list there too. Two lines instead of a semester, and `Project` is the one you want"*
 - [ ] 💡 **And the repoint, in one line — steer them to the delete:** *"when that config is aimed at the wrong week, delete the `.vscode` folder and press F5 again. It names the week in two places, so editing it by hand is two chances to get it wrong"*
 - [ ] ⚠️ **If it stops nowhere**, the language server is asleep rather than the breakpoint being wrong — same fix, `Developer: Reload Window`, then <kbd>F5</kbd> again
 

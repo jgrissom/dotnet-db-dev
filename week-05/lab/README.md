@@ -219,12 +219,12 @@ dotnet test week-05/Lab.Checks
 > [!TIP]
 > **Two minutes with the debugger, and it's worth them.** Click the gutter beside `CallsTonight++` in `Calls()` — the narrow strip left of the line numbers — and press <kbd>F5</kbd>. Choose **`.NET 5+ and .NET Core`** if it asks which debugger.
 >
-> ⚠️ **Then a project list appears, and it is genuinely hard to read — type `week-05` to filter it.** Every entry is the project name followed by its **full path**, which runs off the end of the box, and by now you have one for every week you have done — a `Lab` in each, and a `Homework` in weeks 1–3 as well. They look identical until you narrow them. **Typing `week-05` leaves exactly one.**
+> ⚠️ **Then a project list appears, and it is genuinely hard to read — type `week-05` to filter it.** Every entry is the project name followed by its **full path**, which runs off the end of the box, and by now there is one for every week you have done — a `Lab` in each, a `Homework` in weeks 1–3, and the `.Checks` projects beside them. They look identical until you narrow them. **Typing `week-05` cuts it to two — `Lab` and `Lab.Checks`. You want `Lab`.**
 > *(No `week-05` in the list at all? You skipped the window reload in Setup — do that now and try again.)*
 >
-> **Look at your Explorer afterwards: a `.vscode` folder has appeared.** VS Code wrote it — `launch.json` says what to debug, `tasks.json` says to build it first. **It names one project**, which is why it had to ask you: this folder has eight programs in it, one or two for every week you've done.
+> **Look at your Explorer afterwards: a `.vscode` folder has appeared.** VS Code wrote it — `launch.json` says what to debug, `tasks.json` says to build it first. **It names one project**, which is why it had to ask you: this folder holds every project you have copied in since week 1, and the list counts the `.Checks` ones too.
 >
-> ⭐ **That is worth knowing because your own repo is not like this one.** Your **project repo** has exactly one program in it, so when you debug your own work you'll press <kbd>F5</kbd>, pick the debugger once, and **never see that list at all** — VS Code writes the file and that's the end of it. The list is the price of keeping a whole semester in one folder.
+> ⭐ **That is worth knowing because your own repo is far smaller.** Your **project repo** holds **two** — your program and my checks — so you get the same list there, but it is two lines instead of a semester and **`Project` is the one you want**. The scrolling version is the price of keeping a whole semester in one folder.
 >
 > **And when it's pointed at the wrong week:** delete the `.vscode` folder and press <kbd>F5</kbd> again — `launch.json` alone names the week in two places (`program` and `cwd`), and `tasks.json` names the project on top of that, so editing them by hand is more chances to get it wrong than it looks.
 >
