@@ -448,4 +448,4 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b find-and-remove`, push that. |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
 
-**Prev:** [Week 5 Lab — The Switchboard](lab/) · **Next:** Week 6 — Interfaces, and one loop that plays four different things *(coming)*
+**Prev:** [Week 5 Lab — The Switchboard](lab/) · **Next:** [Week 6 — One Loop, Four Kinds of Thing](../week-06/)

@@ -31,6 +31,7 @@ And the cost grows. A third kind of thing is a third list, a third loop, and a t
 There is a way to get them onto one list with what you already know. Every type in C# is an `object` — that is the top of the whole type system, and it is where `ToString()`, `Equals()` and `GetType()` come from.
 
 ```csharp
+// Haldane/Program.cs
 List<object> log = new List<object>();
 
 log.Add(new SignOut("09:05", lindqvist, "FUEL", "10:30"));
@@ -40,6 +41,7 @@ log.Add(new Reading("12:00", -39.8, moretti));
 It compiles. Everything goes in, in the order it happened. And then you try to print it:
 
 ```csharp
+// still Haldane/Program.cs, inside the method that draws the log
 foreach (object entry in log)
 {
     Console.WriteLine(entry);
@@ -93,6 +95,7 @@ A property in an interface is written the way you would write an auto-property, 
 One phrase, after the class name:
 
 ```csharp
+// Haldane/SignOut.cs — the first line of the class, and the only one that moves
 public class SignOut : ILogEntry
 ```
 
@@ -144,6 +147,7 @@ The same thing happens with `Song`. `IScheduleItem` asks for four members and `S
 Now the list can be `List<ILogEntry>`, and the loop can ask:
 
 ```csharp
+// Haldane/Program.cs, inside the method that draws the log
 foreach (ILogEntry entry in log)
 {
     Console.WriteLine($"{entry.Time}  {entry.Kind,-8}  {entry.Line()}");
@@ -218,6 +222,7 @@ A sign-out is a record of a person walking out of a door at forty below. It was 
 Compare it with the registry in your own project, which this week keeps a promise too:
 
 ```csharp
+// Project/Registry.cs — the first line of the class you already have
 public class Registry : IListed
 ```
 
@@ -289,6 +294,7 @@ One loop treating everything the same is the whole trick — right up to the mom
 Haldane's board only shows sign-outs. The log holds three kinds. So:
 
 ```csharp
+// Haldane/Program.cs, at the bottom, beside the other little helpers
 List<SignOut> SignOuts()
 {
     List<SignOut> found = new List<SignOut>();
@@ -354,6 +360,7 @@ public List<IListed> Everything()
 Then `Program.cs` prints the listing with a loop that knows about exactly one thing — the promise:
 
 ```csharp
+// Project/Program.cs
 foreach (IListed thing in registry.Everything())
 {
     Console.WriteLine($"{thing.Kind,-10}{thing.Line()}");

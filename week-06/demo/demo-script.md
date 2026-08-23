@@ -41,7 +41,8 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] ⚠️ **Run `dotnet run --project week-05/Haldane` once before class.** §1 opens by running it, so it has to build on the night — a cold NuGet cache restoring Spectre in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-06/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it
 - [ ] 💡 **No debugger tonight.** Week 5's segment was the earned one and this week doesn't need it — if a value surprises you, §7's wrap points them back at it
-- [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station of your own"*
+- [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station that is not this one"*
+  - ⚠️ **Reworded from weeks 4 and 5, and only here.** Those say *"on a station of your own"*, which stopped being true when the lab started shipping its own files and the student's own thing became the project. **Weeks 4 and 5 still carry the old wording** — it is a one-line sweep whenever you want it, not something week 6 changed under them
 
 ---
 
@@ -262,7 +263,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
     14:35  MET       -41.5 C, taken by Bhatt
   ```
 
-- [ ] 🎯 **This is the beat. Point at the fourth line:** *"that is the thing I did five seconds ago, and it is in the middle of the page. The last line on this log happened two and a half hours before it"*
+- [ ] 🎯 **This is the beat. Point at the fourth line:** *"that is the thing I did five seconds ago, and it is in the middle of the page. The line directly under it happened at midday — three hours earlier"*
 - [ ] 📖 **And the sentence that sets up the whole night:** *"I cannot sort my way out of this, either — there is nothing to sort. They are in two different lists, and the second list does not start until the first one has finished. Every new kind of thing that ever happens on this station is another list, another loop, and another place to forget"*
 - [ ] **Press `q`**
 
@@ -458,7 +459,8 @@ Tonight the console stops being a board and starts being a **log** — and the r
     14:35  MET       -41.5 C, taken by Bhatt
   ```
 
-- [ ] 🎯 **Point at the loop, then at the screen:** *"three lines of printing. Two completely different classes went through it — one of them holds a person and a return time, the other holds a temperature — and that loop cannot name either of them"*
+- [ ] 🎯 **Point at the loop, then at the screen:** *"one `MarkupLine`. Two completely different classes went through it — one of them holds a person and a return time, the other holds a temperature — and that loop cannot name either of them"*
+- [ ] 💡 **Give it its name here, where it is a good thing — not in §6, where it runs out:** *"that has a name, and the name is the least interesting part of it. Polymorphism. One loop, several kinds of thing, and it never asks which is which"*
 - [ ] **Press `q`**
 
 - [ ] **Save it.** Silent
@@ -524,7 +526,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] 🎯 **The payoff, and it is the whole reason this thing exists. Scroll to `DrawLog` and put the cursor in it:** *"nothing. I wrote a new class, I put one on the list, and this loop printed it. This code has not been touched since before the last break, and it has never heard of a fuel check"*
-- [ ] 💡 **The number is a callback and it costs one sentence** — *"four thousand three hundred litres, which some of you may remember dividing by eight hundred in week one"*
+- [ ] 💡 **The number is a callback and it costs one sentence** — *"four thousand three hundred liters, which some of you may remember dividing by eight hundred in week one"*
 - [ ] **Press `q`**
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *A new kind costs one class*

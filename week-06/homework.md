@@ -370,7 +370,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
 | 1 | `bin/` and `obj/` tracked in **neither** repo — the `.gitignore` holding, in both places |
-| 2 | 3+ commits on **this week's branch** 👀 *(meaningful messages are a judgement call)* |
+| 2 | 3+ commits on **this week's branch** 👀 *(meaningful messages are a judgment call)* |
 | 2 | A merge commit on `main` — this week's branch → pull request → merge |
 
 > [!NOTE]
@@ -385,7 +385,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 
 | What you see | What it means |
 |---|---|
-| **5 / 5 before you've written anything**, or check names you don't recognise | You're running **last week's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — `Check1_YourRecordKeepsThePromise` is the first of tonight's; `Check1_YourRecordDoesSomething` is last week's. |
+| **5 / 5 before you've written anything**, or check names you don't recognize | You're running **last week's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — `Check1_YourRecordKeepsThePromise` is the first of tonight's; `Check1_YourRecordDoesSomething` is last week's. |
 | `CS0535: '...' does not implement interface member '...'` | **The good one.** You wrote `: IListed` and haven't written that member yet — one line per thing you still owe. [It's a to-do list.](lecture-notes.md#keeping-a-promise) |
 | `CS0246: The type or namespace name 'IListed' could not be found` | The file isn't there, the interface isn't `public`, or the name is spelled differently from the one you're using. Capital `I`, capital `L`. [The whole declaration is four lines.](lecture-notes.md#an-interface-is-a-promise) |
 | `CS0525: Interfaces cannot contain instance fields` | You wrote `string Kind;` inside the interface instead of `string Kind { get; }`. [An interface holds no data](lecture-notes.md#an-interface-is-a-promise) — only the shape of what you can ask. |

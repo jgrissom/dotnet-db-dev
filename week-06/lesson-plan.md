@@ -44,7 +44,7 @@ By the end of this session, students can:
 2. Say what `List<object>` buys and what it costs.
 3. Declare an interface, and say what each part of the declaration means — `interface`, no bodies, nothing to `new`.
 4. Make an existing class keep an interface, and read `CS0535` as a to-do list.
-5. Recognise a promise a class already keeps, and satisfy it by pointing at a fact it already has.
+5. Recognize a promise a class already keeps, and satisfy it by pointing at a fact it already has.
 6. Write one loop over `List<IThing>` that calls the same member on several different classes.
 7. Say why `SignOut : ILogEntry` is not the same claim as *is a kind of*, and why a class gets one parent and any number of promises.
 8. Use `is` to get back to one specific type, and say when that is the right thing and when it is a smell.

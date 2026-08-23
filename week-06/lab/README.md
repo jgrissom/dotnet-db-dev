@@ -303,7 +303,7 @@ Open `Lab/Ad.cs`. `Sponsor`, `Copy`, `Remaining` and the constructor ship. **Eve
 What each one has to be:
 
 - **`Kind`** — one word, and **not one another kind is already using**. There are four sorts of thing on this hour and four words in that column.
-- **`Cue`** — it has to name the **sponsor**, because an ad the DJ can't attribute is an ad the station runs again for free. Beyond that the wording is yours — though the DJ would quite like to see how many runs are left.
+- **`Cue`** — two things it must carry, and the wording around them is yours. It has to name the **sponsor**, because an ad the DJ can't attribute is an ad the station runs again for free. And it has to show **how many runs are left on the buy** — that is what the desk prints the moment the spot airs, and it is the only thing on the screen that says an airing actually happened.
 - **`Seconds`** — a spot is **thirty seconds**. It has been thirty seconds since radio began, and nothing is handed in for it.
 - **`Play()`** — this is the one that counts the other way. Every airing spends one run off the buy. ⚠️ **It never goes below zero:** a station that owes minus one spot has a bug, so the method asks before it spends.
 
@@ -437,7 +437,8 @@ dotnet run --project week-06/Lab
 1. **A `Jingle`.** Six seconds, no counting, and the station has four of them. One class, and the hour takes it without a single other line changing — [which is the only reason any of this is worth doing](../lecture-notes.md#a-new-kind-costs-one-class).
 2. **`Hour.Songs()`.** Hand back just the songs on the hour, so the desk can list what a caller could ask for. [You need `is` for that](../lecture-notes.md#when-one-kind-is-different), and think about what it returns when there are none.
 3. **The hour is over an hour.** Give `Hour` a `bool Overruns` — more than 3600 seconds and the DJ has a problem. No field behind it.
-4. ⭐ **The one that pays off later:** give `Hour` a `LongestItem()` that hands back the item that runs longest. It returns an `IScheduleItem`, so the caller gets something it can ask three questions and nothing else. In **week 9** that whole loop becomes one line.
+4. ⭐ **Write your own promise.** A caller can request a song. They cannot request an advert, and they certainly cannot request the weather. So: an interface of your own — call it `IRequestable`, one member, whatever a caller needs to be able to ask for by name — and put it on `Song` and on nothing else. [The syntax is four lines and it is all in the notes.](../lecture-notes.md#an-interface-is-a-promise) **This is the one item on this list that is also your homework**, so it is worth the ten minutes: tonight's lab hands you `IScheduleItem` already written, and this week's homework asks you to write one from scratch.
+5. ⭐ **The one that pays off later:** give `Hour` a `LongestItem()` that hands back the item that runs longest. It returns an `IScheduleItem`, so the caller gets something it can ask three questions and nothing else. In **week 9** that whole loop becomes one line.
 
 ## 🆘 Stuck?
 
@@ -450,6 +451,7 @@ dotnet run --project week-06/Lab
 | `CS0525: Interfaces cannot contain instance fields` | You edited `IScheduleItem.cs`. Don't — it ships written. |
 | `CS0144: Cannot create an instance of the abstract type or interface` | You wrote `new IScheduleItem(...)`. [There is nothing there to make.](../lecture-notes.md#an-interface-is-a-promise) |
 | `CS0161: not all code paths return a value` | `Run()` or `TotalSeconds` has a road through it that returns nothing — usually a `return` inside the loop instead of after it. |
+| `CS1002` or `CS1525` where `TotalSeconds` is | You put a loop inside `=> 0`. An `=>` property computes one expression and has no room for statements — it becomes `{ get { ... } }`. [The shape is in the notes.](../lecture-notes.md#a-class-that-holds-a-list-of-a-promise) |
 | `CS0246: The type or namespace name 'IScheduleItem' could not be found` | The spelling. Capital `I`, capital `S`, capital `I` — `IScheduleItem`. |
 | The hour still shows `?` for the songs | `Song.Kind` is still the shipped `"?"`. Both members have to change, not just one. [What each one is for.](../lecture-notes.md#keeping-a-promise) |
 | The clock still says `0:00` | `TotalSeconds` is still the shipped `=> 0`. That's Task 5, and [the shape is in the notes](../lecture-notes.md#a-class-that-holds-a-list-of-a-promise). |
