@@ -226,7 +226,7 @@ dotnet test week-05/Lab.Checks
 >
 > ⭐ **That is worth knowing because your own repo is far smaller.** Your **project repo** holds **two** — your program and my checks — so you get the same list there, but it is two lines instead of a semester and **`Project` is the one you want**. The scrolling version is the price of keeping a whole semester in one folder.
 >
-> **And when it's pointed at the wrong week:** delete the `.vscode` folder and press <kbd>F5</kbd> again — `launch.json` alone names the week in two places (`program` and `cwd`), and `tasks.json` names the project on top of that, so editing them by hand is more chances to get it wrong than it looks.
+> **And when it's pointed at the wrong week:** delete the `.vscode` folder and press <kbd>F5</kbd> again — `launch.json` names the week **twice** (`program` and `cwd`) and `tasks.json` **three times** more, so editing it by hand is five chances to get it wrong.
 >
 > **A small debug toolbar appears while it is stopped** — `Continue` runs to the next breakpoint, `Step Over` runs one line, `Stop` ends it. The keys do the same, if you prefer: <kbd>F5</kbd>, <kbd>F10</kbd>, <kbd>Shift</kbd>+<kbd>F5</kbd>.
 >
