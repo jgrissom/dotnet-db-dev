@@ -87,11 +87,25 @@ public void Visit()
 
 **The other half of this check is `static`, and it costs nothing if you never wrote the word** — [which is not the same as saying the word is bad](lecture-notes.md#when-static-is-right). Calling your verb on one record must leave every *other* record alone. [If a fact about one of your things is `static`](lecture-notes.md#what-static-actually-says), there is one copy for the whole program and every record reports the same number — which is exactly what the switchboard did in the lab.
 
-### Run it, then test it
+### Make it run, then test it
+
+**A method nothing calls has never actually run.** Paste this on the end of `Program.cs` and swap the two names for your own — your verb, and the property it moves:
+
+```csharp
+Console.WriteLine();
+
+// Your verb, on two of your records — watch only one of them move.
+List<Thing> both = registry.All();
+Console.WriteLine($"before:  {both[0].TimesVisited}   {both[1].TimesVisited}");
+both[0].Visit();
+Console.WriteLine($"after:   {both[0].TimesVisited}   {both[1].TimesVisited}");
+```
 
 ```bash
 dotnet run --project Project
 ```
+
+**`before:  0   0`** then **`after:   1   0`.** One moved and the other did not — call `Visit` twice and the first goes to 2 while the second stays put. **That is the half of this check `static` would take away:** put the word on that property and these four lines stop compiling altogether, with `CS0176`, because `both[0]` is a record and the property would belong to the class instead.
 
 ```bash
 dotnet test Project.Checks
@@ -100,6 +114,9 @@ dotnet test Project.Checks
 **2 / 5.** The program tells you whether it's *alive*; the checks tell you whether it's *right*.
 
 The second one is check 5 — last week's doors, still holding. It has been green since you opened the file, and it stays green every week from here.
+
+> [!NOTE]
+> **Already at 2 / 5 before you changed anything?** Then you wrote the verb last week and this part was done before you started. The run above is still worth thirty seconds — it is the first time that method has ever executed.
 
 ```bash
 git add .
@@ -257,7 +274,13 @@ git commit -m "And can take one off the books"
 
 ## Part 5 — A `Program.cs` that shows it
 
-You have been bolting scratch lines onto the end of `Program.cs` for two parts now, and they have done their job. **This replaces all of it with the tidy version** — so select the whole of `Project/Program.cs` (`⌘A`) and paste this over, then make it yours: your record's name, your own facts, your own wording.
+You have been bolting scratch lines onto the end of `Program.cs` for three parts now, and they have done their job. **This replaces all of them with the tidy version**, and it adds three things your scratch lines don't have:
+
+- **your verb runs on a record you looked up** — `Find` it, then move it, which is the two halves of this week meeting
+- **the removal becomes a real question** rather than a hard-coded name — and *that* is what the two "builds and runs" points test, because the grader answers it with nothing but Enter
+- **the list is printed again at the end**, so the removal is something you can see rather than a number going down
+
+Select the whole of `Project/Program.cs` (`⌘A`), paste this over, then make it yours: your record's name, your own facts, your own wording.
 
 ```csharp
 // Project/Program.cs — swap Thing for your record's name and Find/Visit for yours
