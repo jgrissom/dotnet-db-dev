@@ -130,17 +130,54 @@ public Thing? Find(string name)
 > [!WARNING]
 > **Never reach into the list for a record that isn't there.** `return _items[0];` looks like an answer and throws the moment the registry is empty — which, on a real registry, is the first run of the program. [`null` is the answer](lecture-notes.md#null-is-an-answer-not-a-failure), and it is not an embarrassing one.
 
-### Run it, then test it
+### Write it in two goes, so you can watch it fail
+
+**1. Start with the shape only.** It compiles, and it is wrong on purpose:
+
+```csharp
+public Thing? Find(string name)
+{
+    return null;
+}
+```
+
+**2. Give `Program.cs` something to ask.** Paste this on the end of the file — **the only thing to change is the two names in quotes.** The first should be a record you can see on your own list when the program runs; the second should be nonsense nobody has added:
+
+```csharp
+Console.WriteLine();
+
+// One I know is on the registry.
+Thing? known = registry.Find("a name you added above");
+Console.WriteLine(known == null ? "Nothing on file by that name." : "Found it.");
+
+// And one nobody has ever heard of.
+Thing? missing = registry.Find("something I never added");
+Console.WriteLine(missing == null ? "Nothing on file by that name." : "...found something that shouldn't be there.");
+```
+
+**3. Run it:**
 
 ```bash
 dotnet run --project Project
 ```
 
+**Both lines say nothing on file** — including the one your own program printed a few lines earlier, on its own list. **That contradiction is the whole of Part 3:** the registry is holding it and cannot find it.
+
+**4. Now write the loop.** [The worked version is in the notes](lecture-notes.md#finding-one-or-not-finding-one) — mine is claw machines, yours is whatever your topic is made of. Then run the *same* thing again:
+
+```bash
+dotnet run --project Project
+```
+
+The first line finds it. **The second still says nothing on file, and that one is correct** — `Find`'s two jobs side by side, which is why it earns two checks.
+
+**5. Then the checks:**
+
 ```bash
 dotnet test Project.Checks
 ```
 
-**4 / 5** — `Find` earns two checks, one for finding and one for not finding.
+**4 / 5.**
 
 ```bash
 git add .
@@ -166,11 +203,44 @@ public bool Remove(string name)
 > [!WARNING]
 > **Take it off `_items`, not off `All()`.** `All()` hands you a copy of the list, so removing from it removes from the copy and the registry never notices. [A copy of the list is a copy of the list.](lecture-notes.md#a-copy-of-the-list-is-not-a-copy-of-what-is-in-it)
 
-### Run it, then test it
+### Same again — shape first, then the body
+
+**1. The shape only**, wrong on purpose:
+
+```csharp
+public bool Remove(string name)
+{
+    return false;
+}
+```
+
+**2. Give `Program.cs` something to take off.** On the end again — **use the same name you searched for in Part 3**, the one you know is there:
+
+```csharp
+Console.WriteLine();
+Console.WriteLine(registry.Remove("the same name you searched for")
+    ? "Removed."
+    : "Nothing by that name.");
+Console.WriteLine($"{registry.Count} on file.");
+```
+
+**3. Run it:**
 
 ```bash
 dotnet run --project Project
 ```
+
+**"Nothing by that name", and the count doesn't move** — for a record you proved `Find` can see two lines earlier. Same lie, one level up.
+
+**4. Now write the body.** [The worked version is in the notes](lecture-notes.md#taking-one-off-the-books) — eight lines, and the middle three are an `if` that asks before it uses. Run it again:
+
+```bash
+dotnet run --project Project
+```
+
+**"Removed.", and the count drops by one.**
+
+**5. Then the checks:**
 
 ```bash
 dotnet test Project.Checks
@@ -187,7 +257,7 @@ git commit -m "And can take one off the books"
 
 ## Part 5 — A `Program.cs` that shows it
 
-Select the whole of `Project/Program.cs` (`⌘A`) and paste this over it, then make it yours — your record's name, your own facts, your own wording:
+You have been bolting scratch lines onto the end of `Program.cs` for two parts now, and they have done their job. **This replaces all of it with the tidy version** — so select the whole of `Project/Program.cs` (`⌘A`) and paste this over, then make it yours: your record's name, your own facts, your own wording.
 
 ```csharp
 // Project/Program.cs — swap Thing for your record's name and Find/Visit for yours
