@@ -125,7 +125,7 @@ dotnet run --project week-02/Lab
 
 Sign on with your name. The phone lights up: give a caller's name, a request. It lights up again — calls keep coming until you type `q`. **When the caller is `ray`**, the desk asks where he's at instead; answer with a number, like `240`, and his position gets logged. Take three or four calls, then `q` to end the shift.
 
-Works fine — though some of the output is blank or lying. Those are your unwritten methods, same as last week.
+Works fine — though some of the output is blank or lying. **Every caller comes up nameless** (`On the line:` and then nothing), and the on-air line under it is empty too. Those are your unwritten methods, same as last week.
 
 **Now start another shift, and when Ray calls, answer the way Ray actually talks:** `somewhere past the truck stop`. Or `mile two-forty`. Or just press Enter.
 
@@ -165,13 +165,18 @@ Now work a shift and watch it happen:
 dotnet run --project week-02/Lab
 ```
 
-Sign on with your name. Then at *Who's calling?* **press Enter without typing anything**, and do the same at *What do they want to hear?* **Expect:**
+Sign on with your name. Then take two calls. Each call asks two questions — **only the first one matters tonight**, so answer *What do they want to hear?* however you like.
 
-```
-On air: For some night owl: dealer's choice.
-```
+| At *Who's calling?* | Expect |
+|---|---|
+| **press Enter, type nothing** | `On the line: some night owl` |
+| `  Bex  ` — **type the spaces** | `On the line: Bex` |
 
-A minute ago that line had a hole where the name should be. `q` ends the shift.
+**Both of those came up blank a minute ago.** One method, and every caller in the log has a name — including the one who wouldn't give one, and including the one who gave one wrapped in spaces.
+
+⚠️ **The `On air:` line underneath is still empty, and that's correct** — that line is built by `TakeRequest`, which is still returning `""`. It's yours in Task 5.
+
+`q` ends the shift.
 
 Now let the checks agree with you:
 
