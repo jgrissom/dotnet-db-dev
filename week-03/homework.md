@@ -297,7 +297,7 @@ git status
 And what's tracked that never should have been:
 
 ```bash
-git ls-files | grep -E '(^|/)(bin|obj)/'
+git ls-files -i -c --exclude-standard
 ```
 
 `status` should be quiet, and the second command should print **nothing**. If something *did* slip in, [the eviction drill](../week-02/lecture-notes.md#the-eviction-when-its-already-pushed) fixes it in three commands.

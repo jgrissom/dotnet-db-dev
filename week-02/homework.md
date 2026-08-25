@@ -224,10 +224,10 @@ git status
 And what's tracked that never should have been:
 
 ```bash
-git ls-files | grep -E '(^|/)(bin|obj)/'
+git ls-files -i -c --exclude-standard
 ```
 
-`status` should be quiet (or list only tonight's real work), and the second command should print **nothing** — no generated file is tracked anywhere. If something *did* slip in, [the eviction drill from the demo](lecture-notes.md#the-eviction-when-its-already-pushed) fixes it in three commands — that's exactly what it's for.
+`status` should be quiet (or list only tonight's real work), and the second command should print **nothing** — it asks git one question, *is anything committed that my `.gitignore` says to ignore?*, so a `bin/`, an `obj/` or a stray `.user` file would all turn up here. If something *did* slip in, [the eviction drill from the demo](lecture-notes.md#the-eviction-when-its-already-pushed) fixes it in three commands — that's exactly what it's for.
 
 **2. A `README.md` at the repo root** — [who you are, what this is, a line per week](lecture-notes.md#a-readme-for-your-repo). In the Explorer, **click the empty space below the file list first** so it lands at the root, then New File → `README.md`. Then commit it — from the Source Control view if you like; the buttons are the verbs now:
 
