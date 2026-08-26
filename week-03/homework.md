@@ -15,7 +15,9 @@ dotnet test week-03/Lab.Checks
 ```
 
 ```
-Passed!  - Failed: 0, Passed: 5 ...
+Test Run Successful.
+Total tests: 5
+     Passed: 5
 ```
 
 > [!IMPORTANT]
@@ -328,7 +330,9 @@ dotnet test week-03/Homework.Checks
 ```
 
 ```
-Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
+Test Run Successful.
+Total tests: 4
+     Passed: 4
 ```
 
 Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywhere, a README on the front page, and a commit history that says what happened.
