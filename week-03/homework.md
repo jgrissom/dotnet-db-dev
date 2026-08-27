@@ -86,7 +86,7 @@ That's the whole thing. [Nothing was installed on your machine](lecture-notes.md
 
 ### Write it
 
-**4. A `Playlist` class in its own file** — `week-03/Homework/Playlist.cs`, `public`, two collections and three methods. This is the whole file, shapes included — **and the three blanks fail on purpose.** Pasting it as-is leaves you exactly where you already were, at **1 of 4**; the blanks are where your station shows up:
+**4. Create `week-03/Homework/Playlist.cs`** — `public`, two collections and three methods. This is the whole file, shapes included — **and the three blanks fail on purpose.** Pasting it as-is leaves you exactly where you already were, at **1 of 4**; the blanks are where your station shows up. **Each `TODO` below is one task, in order:**
 
 ```csharp
 public static class Playlist
@@ -97,36 +97,31 @@ public static class Playlist
     // Every caller, once, with a count beside them.
     public static Dictionary<string, int> Regulars = new Dictionary<string, int>();
 
+    // TODO — Task 2. Take the call: build the on-air line, and KEEP it.
+    // Task 3 comes back to this method and counts the caller as well.
     public static string Take(string? caller, string? request)
     {
-        return "";   // ← yours. Build the on-air line, KEEP it, count the caller.
-                     //   Blank fails the check, on purpose.
+        return "";   // ← yours. Blank fails check 2, on purpose.
     }
 
+    // TODO — Task 3. How many times has this person rung tonight?
+    // Somebody who has never called has called 0 times — and asking must not crash.
     public static int TimesCalled(string? caller)
     {
-        return 0;   // ← yours. A stranger has called 0 times — without crashing.
+        return 0;   // ← yours. Blank fails check 3, on purpose.
     }
 
+    // TODO — Task 4. The station's last line of the night.
+    // Two shapes: a night when nobody rang, and a night when they did.
     public static string SignOff()
     {
-        return "";   // ← yours. What the station says at the end of the night.
+        return "";   // ← yours. Blank fails check 4, on purpose.
     }
 }
 ```
 
-What each one has to do:
-
-| Method | Returns | Rules |
-|---|---|---|
-| `Take(string? caller, string? request)` | `string` | the line your station puts on air. It must **contain the caller's name and the request**, the name must come [through `Switchboard.CallerName`](../week-02/lecture-notes.md#readline-and-null) (not re-trimmed here), and the line must go **on the end of `Tonight`**. It also [counts the caller in `Regulars`](lecture-notes.md#the-counting-dictionary). Wording is yours; a `null` caller must not crash it |
-| `TimesCalled(string? caller)` | `int` | how many times that person has rung tonight — and **`0` for somebody who never has**, [without throwing](lecture-notes.md#reading-a-key-that-isnt-there-is-a-crash). Same name-cleaning as `Take`, or the same person counts twice |
-| `SignOff()` | `string` | the station's last line of the night. **Two shapes:** something non-blank when nobody called at all, and something *different* when they did — containing how many calls came in, [asked of the list](lecture-notes.md#listt--the-collection-that-grows) rather than counted by hand |
-
 > [!WARNING]
 > **`Regulars` has to be a `Dictionary<string, int>`, and the check enforces the type.** Counting callers with a second list and a loop is a perfectly reasonable instinct and it will not pass — the dictionary *is* this week's outcome. `Tonight` is likewise a `List<string>`.
-
-**The sign-off line is a writing assignment as much as a code one.** You're going to read the quiet one more often than you expect tonight.
 
 **5. `week-03/Homework/Program.cs` opens the line.** Replace the whole file with this. Small on purpose; every decision lives in `Playlist.cs`:
 
@@ -184,9 +179,20 @@ Console.WriteLine($"{Station.CallSign()} - {Playlist.SignOff()}");
 > ```
 > **I run your program by pressing Enter at every prompt and then typing nothing.** This crash never happens when you test by hand and always happens when I run it, and it costs the 2 points for "runs without crashing." [Ask once, answer gracefully](../week-02/lecture-notes.md#ask-once-answer-gracefully) — and no loops that re-ask until the input is valid.
 
-**Every command below runs from your terminal in `dotnet-db-coursework`, naming the week.** Two of them, and you'll use both after every method.
+**Every command below runs from your terminal in `dotnet-db-coursework`, naming the week.** Two of them, and you'll use both after every task — **run first, then test.** A green check ends the step, and a step that's already over doesn't get run.
 
-Watch your program do it:
+| # | Check | What to do |
+|---|---|---|
+| 1 | *(already green)* | Both classes across, the package added. Look at what your station **can't** do yet. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `TheNightIsKept` | Your station starts keeping the calls. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `TheDeskKnowsItsRegulars` | Count the callers — and survive a stranger. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `TheSignOffTellsTheTruth` | The sign-off — two shapes, and one of them is the quiet one. **[Task 4 in full ↓](#task-4-in-full)** |
+
+### Task 1 in full
+
+**Check:** `Check1_TheStationCameForward`
+
+**Nothing to write.** Both classes came across in step 2, so this one is green before you start — and that is the point of running now: **look at everything that isn't.**
 
 ```bash
 dotnet run --project week-03/Homework
@@ -217,7 +223,37 @@ dotnet test week-03/Homework.Checks
 
 **1 of 4** — exactly where the paste left you.
 
-**Do that after every method** — write `Take()`, run, test. Then `TimesCalled()`, run, test. **Three methods, three rounds: 1 → 2 → 3 → 4**, one per round. A check that goes red right after you wrote something tells you exactly where to look. **Run first on purpose:** a green check ends the step, and a step that's already over doesn't get run.
+
+```bash
+dotnet test week-03/Homework.Checks
+```
+
+**1 of 4** — exactly where the paste left you. **Each method you write turns one of those blanks into something.**
+
+### Task 2 in full
+
+**Check:** `Check2_TheNightIsKept`
+
+`Take(string? caller, string? request)` hands back a `string` — the line your station puts on air.
+
+- It must **contain the caller's name and the request**, and the name comes [through `Switchboard.CallerName`](../week-02/lecture-notes.md#readline-and-null) rather than being trimmed again here.
+- The line goes **on the end of `Tonight`** — [that is what a `List<T>` is for](lecture-notes.md#listt--the-collection-that-grows), and it is the whole difference between this week and last.
+- **The wording is yours.** A `null` caller must not crash it.
+
+> [!TIP]
+> **Stuck? Write what you can, then run the checks and *read* check 2.** It takes the line apart one question at a time — whether it came back at all, whether it carries the name and the request, whether the list kept it, and whether a nameless caller survives. **It says something different depending on how far you've got**, so run it again after each change.
+
+```bash
+dotnet run --project week-03/Homework
+```
+
+Dorothy rang twice before you sat down, so the table has rows in it the moment `Take` works.
+
+```bash
+dotnet test week-03/Homework.Checks
+```
+
+**2 of 4.**
 
 **Green? Commit it:**
 
@@ -229,7 +265,54 @@ git add .
 git commit -m "week 3: the night is kept"
 ```
 
-Same two commands again. The program first — it's the half the checks never look at:
+### Task 3 in full
+
+**Check:** `Check3_TheDeskKnowsItsRegulars`
+
+Two halves, and the first one is back inside a method you already wrote.
+
+**First, go back into `Take`** and count the caller as well as keeping the line — [an `if`/`else` on the dictionary](lecture-notes.md#the-counting-dictionary), before it returns. The first time somebody rings there is no number to add to, so there are genuinely two cases.
+
+**Then write `TimesCalled(string? caller)`**, handing back an `int`: how many times that person has rung tonight, and **`0` for somebody who never has** — [without throwing](lecture-notes.md#reading-a-key-that-isnt-there-is-a-crash). Put the name through the same cleaning as `Take`, or the same person counts twice.
+
+> [!TIP]
+> **Stuck? Write what you can, then run the checks and *read* check 3.** It asks about the stranger first — the one who has never rung — then about somebody who has, then whether the count goes up rather than resetting. **It says something different depending on how far you've got**, so run it again after each change.
+
+```bash
+dotnet run --project week-03/Homework
+```
+
+Answer `Dorothy` at the prompt: she rang twice before you sat down, so the line under the table should now read **`(that's call number 3 tonight.)`**
+
+```bash
+dotnet test week-03/Homework.Checks
+```
+
+**3 of 4.**
+
+**Green? Commit it:**
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "week 3: the desk knows its regulars"
+```
+
+### Task 4 in full
+
+**Check:** `Check4_TheSignOffTellsTheTruth`
+
+`SignOff()` hands back a `string` — your station's last line of the night, and it has **two shapes**:
+
+- something non-blank when **nobody called at all**
+- something **different** when they did, carrying how many calls came in — [asked of the list](lecture-notes.md#listt--the-collection-that-grows) rather than counted by hand
+
+**The sign-off line is a writing assignment as much as a code one.** You're going to read the quiet one more often than you expect tonight.
+
+> [!TIP]
+> **Stuck? Write what you can, then run the checks and *read* check 4.** It reads the quiet night first, then the busy one, then whether the two actually differ — a sign-off that says the same thing either way is the one it catches. **It says something different depending on how far you've got**, so run it again after each change.
 
 ```bash
 dotnet run --project week-03/Homework
@@ -249,11 +332,14 @@ dotnet run --project week-03/Homework
 > [!IMPORTANT]
 > **Now run it the way I will run it: press Enter at every prompt and type nothing else.** That is exactly what the grader does. **If your program crashes on that, it scores 0 for "builds and runs" no matter how green your checks are.**
 
+
 Then let the checks have their say:
 
 ```bash
 dotnet test week-03/Homework.Checks
 ```
+
+**4 of 4.** 🎉
 
 **Commit again once it survives everything you threw at it:**
 
@@ -265,7 +351,7 @@ git add .
 git commit -m "week 3: the request line renders"
 ```
 
-### 🌙 6. Then lose it
+### 🌙 Then lose it
 
 **Run it one more time**, and answer with a **different** caller than last time.
 
@@ -309,7 +395,7 @@ git ls-files -i -c --exclude-standard
 
 **2. A `README.md` at the repo root**, saying whose repo this is. You made one in week 2 — adding a `week-03` line to it takes ten seconds and is a good habit.
 
-**3. Three or more commits touching `week-03/Homework/`**, with messages that mean something. ⚠️ **Only commits that change your homework project count** — the ones you made while working through the lab's `RequestLog.cs` don't touch it. **If you followed the steps above you already have three:** station carried forward, the night is kept, the request line renders. I read these.
+**3. Three or more commits touching `week-03/Homework/`**, with messages that mean something. ⚠️ **Only commits that change your homework project count** — the ones you made while working through the lab's `RequestLog.cs` don't touch it. **If you followed the steps above you already have four:** station carried forward, the night is kept, the desk knows its regulars, the request line renders. I read these.
 
 ```bash
 git push
