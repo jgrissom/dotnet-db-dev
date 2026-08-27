@@ -63,10 +63,13 @@ dotnet new console -o Project
 > [!CAUTION]
 > **The project must be called `Project`, exactly.** That's not a suggestion — the checks load your program by that name, and the folder has to sit at the top of your repo. Name your *repo* whatever you like; the project inside it is `Project`.
 
-**4. The `.gitignore`.** [Same four lines you wrote in week 1](../week-01/lecture-notes.md#the-gitignore-written-before-your-first-commit), and this repo gets them before its first commit too:
+**4. The `.gitignore`.** [Same four lines you wrote in week 1](../week-01/lecture-notes.md#the-gitignore-written-before-your-first-commit), and this repo gets them before its first commit too. **New file at the root of this repo, named `.gitignore`** — the whole thing is:
 
-```bash
-printf 'bin/\nobj/\n*.user\n.DS_Store\n' > .gitignore
+```
+bin/
+obj/
+*.user
+.DS_Store
 ```
 
 **5. Bring in the checks.** They ship in the starters clone, and they have to sit *beside* `Project`:
