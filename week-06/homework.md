@@ -53,7 +53,7 @@ cp -r ../dotnet-db-starters/project/week-06/Project.Checks .
 > **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
 
 > [!WARNING]
-> **Skip this and every number below is wrong.** Last week's checks report **5 / 5** before you have written a line tonight — because they are testing last week's work, and passing. If `dotnet test` says 5 / 5 at the end of Part 2 instead of 3 / 5, you are running the wrong checks: come back and run the two commands above.
+> **Skip this and every number below is wrong.** Last week's checks report **5 / 5** before you have written a line tonight — because they are testing last week's work, and passing. If `dotnet test` says 5 / 5 at the end of Task 1 instead of 3 / 5, you are running the wrong checks: come back and run the two commands above.
 
 **Prove it landed:**
 
@@ -65,21 +65,23 @@ dotnet test Project.Checks
 
 ---
 
-## The five checks, and which part turns each one green
+## Part 2 — The code
 
-**Run both after every part, in this order** — the program tells you whether it's *alive*, the checks tell you whether it's *right*, and **the checks never look at `Program.cs`**, which is exactly where the "builds and runs" points live.
+**Run both after every task, in this order** — the program tells you whether it's *alive*, the checks tell you whether it's *right*, and **the checks never look at `Program.cs`**, which is exactly where the "builds and runs" points live.
 
-| # | Check | Where you do it |
+| # | Check | What to do |
 |---|---|---|
-| 1 | `YourRecordKeepsThePromise` | **[Part 2 ↓](#part-2--the-promise-and-your-record-keeps-it)** — your record declares `IListed` and keeps it |
-| 2 | `EachRecordWritesItsOwnLine` | **[Part 2 ↓](#part-2--the-promise-and-your-record-keeps-it)** — and two records write two different lines |
-| 3 | `TheRegistryKeepsItToo` | **[Part 3 ↓](#part-3--and-so-does-the-registry)** — a registry is not a kind of record, and goes on the list anyway |
-| 4 | `OneListHoldsThemBoth` | **[Part 4 ↓](#part-4--one-list-both-kinds)** — `Everything()` hands back one list holding both |
-| 5 | `WeeksFourAndFiveStillHold` | nothing new to write — it re-checks weeks 4 and 5, every week from here |
+| 1 | `YourRecordKeepsThePromise` | Your record declares `IListed` and keeps it. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `EachRecordWritesItsOwnLine` | …and two records write two different lines — **same task.** **[Task 1 in full ↓](#task-1-in-full)** |
+| 3 | `TheRegistryKeepsItToo` | A registry is not a kind of record, and goes on the list anyway. **[Task 2 in full ↓](#task-2-in-full)** |
+| 4 | `OneListHoldsThemBoth` | `Everything()` hands back one list holding both. **[Task 3 in full ↓](#task-3-in-full)** |
+| 5 | `WeeksFourAndFiveStillHold` | **Nothing to write.** It re-checks weeks 4 and 5 and is green before you start — every week from here. |
 
----
+⚠️ **Three tasks, five checks.** Task 1 turns two green at once, because declaring the promise and keeping it are one piece of work, and check 5 was green before you opened the file. Your count climbs **1 → 3 → 4 → 5**.
 
-## Part 2 — The promise, and your record keeps it
+### Task 1 in full
+
+**The promise, and your record keeps it.**
 
 **Checks:** `Check1_YourRecordKeepsThePromise` and `Check2_EachRecordWritesItsOwnLine`
 
@@ -107,7 +109,7 @@ Put it in **`Project/IListed.cs`**. ⚠️ **Three parts of that matter:**
 > [!IMPORTANT]
 > **Nothing else in your record changes.** Not the private fields, not the validating setters from week 4, not the `private set` and the verb from week 5. [Keeping a promise is additive](lecture-notes.md#keeping-a-promise) — you are adding two members to the bottom of a class that already worked.
 
-### Write it in two goes, so you can watch it fail
+#### Write it in two goes, so you can watch it fail
 
 **1. Make the promise, and answer it badly.** This compiles, and it is wrong on purpose:
 
@@ -172,7 +174,9 @@ git commit -m "The records know how to be listed"
 
 ---
 
-## Part 3 — And so does the registry
+### Task 2 in full
+
+**And so does the registry.**
 
 **Check:** `Check3_TheRegistryKeepsItToo`
 
@@ -222,7 +226,9 @@ git commit -m "The registry writes its own heading"
 
 ---
 
-## Part 4 — One list, both kinds
+### Task 3 in full
+
+**One list, both kinds.**
 
 **Check:** `Check4_OneListHoldsThemBoth`
 
@@ -277,7 +283,7 @@ git commit -m "One list holds them both"
 
 ---
 
-## Part 5 — A `Program.cs` that shows it
+## Part 3 — A `Program.cs` that shows it
 
 You have been bolting scratch lines onto the end of `Program.cs` for three parts now, and they have done their job. **This replaces all of them with the tidy version.**
 
@@ -336,11 +342,11 @@ git commit -m "A program that shows all of it"
 ```
 
 > [!CAUTION]
-> **Skip this one and Part 6 pushes the file you had before.** Everything you just pasted is still sitting on your laptop, uncommitted — the branch on GitHub would stop at Part 4, and it is your own work that goes missing, not mine.
+> **Skip this one and Part 4 pushes the file you had before.** Everything you just pasted is still sitting on your laptop, uncommitted — the branch on GitHub would stop at Part 4, and it is your own work that goes missing, not mine.
 
 ---
 
-## Part 6 — The pull request
+## Part 4 — The pull request
 
 ```bash
 git push -u origin the-promise
@@ -394,7 +400,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | 2 | A merge commit on `main` — this week's branch → pull request → merge |
 
 > [!NOTE]
-> **Your count should climb 1 → 3 → 4 → 5**, one part at a time. Two checks land together in Part 2, because writing `Line()` properly answers both of them at once.
+> **Your count should climb 1 → 3 → 4 → 5**, one task at a time. Two checks land together in Task 1, because writing `Line()` properly answers both of them at once.
 
 > [!WARNING]
 > **A build failure zeroes all five checks at once.** One missing semicolon reads as "did nothing." Run `dotnet test Project.Checks` before you push, every time.

@@ -53,25 +53,27 @@ cp -r ../dotnet-db-starters/project/week-05/Project.Checks .
 > **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
 
 > [!WARNING]
-> **Skip this and every number below is wrong.** Last week's checks report **5 / 5** before you have written a line tonight — because they are testing last week's work, and passing. If `dotnet test` says 5 / 5 at the end of Part 2 instead of 2 / 5, you are running the wrong checks: come back and run the two commands above.
+> **Skip this and every number below is wrong.** Last week's checks report **5 / 5** before you have written a line tonight — because they are testing last week's work, and passing. If `dotnet test` says 5 / 5 at the end of Task 1 instead of 2 / 5, you are running the wrong checks: come back and run the two commands above.
 
 ---
 
-## The five checks, and which part turns each one green
+## Part 2 — The code
 
-**Run both after every part, in this order** — the program tells you whether it's *alive*, the checks tell you whether it's *right*, and **the checks never look at `Program.cs`**, which is exactly where the "builds and runs" points live.
+**Run both after every task, in this order** — the program tells you whether it's *alive*, the checks tell you whether it's *right*, and **the checks never look at `Program.cs`**, which is exactly where the "builds and runs" points live.
 
-| # | Check | Where you do it |
+| # | Check | What to do |
 |---|---|---|
-| 1 | `YourRecordDoesSomething` | **[Part 2 ↓](#part-2--your-record-does-something)** — a fact only your own code can move |
-| 2 | `TheRegistryCanFindOne` | **[Part 3 ↓](#part-3--find-and-what-it-says-when-there-isnt-one)** — `Find` hands back the record itself |
-| 3 | `AndNothingWhenThereIsnt` | **[Part 3 ↓](#part-3--find-and-what-it-says-when-there-isnt-one)** — and `null` when nobody matches |
-| 4 | `AndCanTakeOneOffTheBooks` | **[Part 4 ↓](#part-4--remove-which-is-where-the-null-gets-dealt-with)** — `Remove` takes one off, and says whether it did |
-| 5 | `LastWeeksDoorsStillHold` | nothing new to write — it re-checks week 4's work, every week from here |
+| 1 | `YourRecordDoesSomething` | Your record gets a verb of its own. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `TheRegistryCanFindOne` | `Find` hands back the record itself. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `AndNothingWhenThereIsnt` | …and `null` when nobody matches — **same task, second half.** **[Task 2 in full ↓](#task-2-in-full)** |
+| 4 | `AndCanTakeOneOffTheBooks` | `Remove` takes one off, and says whether it did. **[Task 3 in full ↓](#task-3-in-full)** |
+| 5 | `LastWeeksDoorsStillHold` | **Nothing to write.** It re-checks week 4's work and is green before you start — every week from here. |
 
----
+⚠️ **Three tasks, five checks.** Task 2 turns two green at once, because `Find`'s two jobs are one method, and check 5 was green before you opened the file. Your count climbs **2 → 4 → 5**.
 
-## Part 2 — Your record does something
+### Task 1 in full
+
+**Your record does something.**
 
 **Check:** `Check1_YourRecordDoesSomething`
 
@@ -99,11 +101,11 @@ public void Visit()
 > **A sealed property with nothing to move it is decoration.** It promises *"only I change this"* and then nothing ever does. The method is what makes the promise mean something — and it is the only door, which is the point.
 
 > [!NOTE]
-> **If you already wrote one of these last week, this part is already done and the check is already green.** That is the right kind of free: the notes recommended it, you did it, and it counts. Move on to Part 3.
+> **If you already wrote one of these last week, this part is already done and the check is already green.** That is the right kind of free: the notes recommended it, you did it, and it counts. Move on to Task 2.
 
 **The other half of this check is `static`, and it costs nothing if you never wrote the word** — [which is not the same as saying the word is bad](lecture-notes.md#when-static-is-right). Calling your verb on one record must leave every *other* record alone. [If a fact about one of your things is `static`](lecture-notes.md#what-static-actually-says), there is one copy for the whole program and every record reports the same number — which is exactly what the switchboard did in the lab.
 
-### Make it run, then test it
+#### Make it run, then test it
 
 **A method nothing calls has never actually run.** Paste this on the end of `Program.cs` and swap the two names for your own — your verb, and the property it moves:
 
@@ -141,7 +143,9 @@ git commit -m "The record does something"
 
 ---
 
-## Part 3 — `Find`, and what it says when there isn't one
+### Task 2 in full
+
+**`Find`, and what it says when there isn't one.**
 
 **Checks:** `Check2_TheRegistryCanFindOne` and `Check3_AndNothingWhenThereIsnt`
 
@@ -165,7 +169,7 @@ public Thing? Find(string name)
 > [!WARNING]
 > **Never reach into the list for a record that isn't there.** `return _items[0];` looks like an answer and throws the moment the registry is empty — which, on a real registry, is the first run of the program. [`null` is the answer](lecture-notes.md#null-is-an-answer-not-a-failure), and it is not an embarrassing one.
 
-### Write it in two goes, so you can watch it fail
+#### Write it in two goes, so you can watch it fail
 
 **1. Start with the shape only.** It compiles, and it is wrong on purpose:
 
@@ -196,7 +200,7 @@ Console.WriteLine(missing == null ? "Nothing on file by that name." : "...found 
 dotnet run --project Project
 ```
 
-**Both lines say nothing on file** — including the one your own program printed a few lines earlier, on its own list. **That contradiction is the whole of Part 3:** the registry is holding it and cannot find it.
+**Both lines say nothing on file** — including the one your own program printed a few lines earlier, on its own list. **That contradiction is the whole of Task 2:** the registry is holding it and cannot find it.
 
 **4. Now write the loop.** [The worked version is in the notes](lecture-notes.md#finding-one-or-not-finding-one) — mine is claw machines, yours is whatever your topic is made of. Then run the *same* thing again:
 
@@ -221,7 +225,9 @@ git commit -m "The registry can find one, or say there isn't one"
 
 ---
 
-## Part 4 — `Remove`, which is where the `null` gets dealt with
+### Task 3 in full
+
+**`Remove`, which is where the `null` gets dealt with.**
 
 **Check:** `Check4_AndCanTakeOneOffTheBooks`
 
@@ -240,7 +246,7 @@ public bool Remove(string name)
 > [!WARNING]
 > **Take it off `_items`, not off `All()`.** `All()` hands you a copy of the list, so removing from it removes from the copy and the registry never notices. [A copy of the list is a copy of the list.](lecture-notes.md#a-copy-of-the-list-is-not-a-copy-of-what-is-in-it)
 
-### Same again — shape first, then the body
+#### Same again — shape first, then the body
 
 **1. The shape only**, wrong on purpose:
 
@@ -251,7 +257,7 @@ public bool Remove(string name)
 }
 ```
 
-**2. Give `Program.cs` something to take off.** On the end again — **use the same name you searched for in Part 3**, the one you know is there:
+**2. Give `Program.cs` something to take off.** On the end again — **use the same name you searched for in Task 2**, the one you know is there:
 
 ```csharp
 Console.WriteLine();
@@ -292,7 +298,7 @@ git commit -m "And can take one off the books"
 
 ---
 
-## Part 5 — A `Program.cs` that shows it
+## Part 3 — A `Program.cs` that shows it
 
 You have been bolting scratch lines onto the end of `Program.cs` for three parts now, and they have done their job. **This replaces all of them with the tidy version**, and it adds three things your scratch lines don't have:
 
@@ -376,11 +382,11 @@ git commit -m "A program that shows all of it"
 ```
 
 > [!CAUTION]
-> **Skip this one and Part 6 pushes the file you had before.** Everything you just pasted is still sitting on your laptop, uncommitted — the branch on GitHub would stop at Part 4, and it is your own work that goes missing, not mine.
+> **Skip this one and Part 4 pushes the file you had before.** Everything you just pasted is still sitting on your laptop, uncommitted — the branch on GitHub would stop at Task 3, and it is your own work that goes missing, not mine.
 
 ---
 
-## Part 6 — The pull request
+## Part 4 — The pull request
 
 ```bash
 git push -u origin find-and-remove
