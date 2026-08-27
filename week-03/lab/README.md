@@ -315,21 +315,10 @@ week 3 lab: the desk knows its regulars
 
 Who rang the most tonight? The dictionary knows, but it won't just tell you — **you have to walk it.** [The notes show the walk](../lecture-notes.md#walking-a-dictionary): a `foreach` that visits every pair in turn. That version prints them as it goes; yours has to *remember* the best one it has seen.
 
-**Two variables before the loop** — the leading name so far, and the highest count so far — **one comparison inside it**, and the name is what you hand back at the end. That much is the shape:
+**Two variables before the loop** — the leading name so far, and the highest count so far — **one comparison inside it**, and the name is what you hand back at the end.
 
-```csharp
-string best = "nobody yet";
-int most = 0;
-
-foreach (KeyValuePair<string, int> entry in Regulars)
-{
-    // one comparison, and it's yours
-}
-
-return best;
-```
-
-Start `best` at `"nobody yet"` and let the loop overwrite it. **What goes inside the loop is the part you work out** — and if you get stuck there, run the checks: check 4 tells you what it expected and what it got.
+> [!TIP]
+> **Stuck on this one? Write what you can, then run the checks and *read* check 4.** It doesn't only tell you it's red — it tells you what it expected, what it got, and shows you the shape it's looking for. **And it says something different depending on how far you've got**, so run it again after each change rather than saving it for the end.
 
 - **Each item is a pair** — `entry.Key` is the name, `entry.Value` is the count.
 - ⚠️ **Whatever you set that name to *before* the loop is what comes back when nobody has called**, because an empty dictionary means the loop never runs at all. It has to be exactly `"nobody yet"` — and **you'll see that line tonight**, not because you did anything wrong.
