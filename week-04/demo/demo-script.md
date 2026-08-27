@@ -407,7 +407,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 - [ ] *"And every week from here extends that same program. Behavior next week, then interfaces, tests, a save file, queries, a database. In week 16 you present it"*
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Finish this sentence* · 🎯 **ask the room to do it out loud, with their own idea:** *"each one of my ___ has many ___"*
-- [ ] **Take two or three answers.** Anything that can't finish the sentence gets sent back tonight, not in November
+- [ ] **Take two or three answers.** Anything that can't finish the sentence gets sent back tonight, not in week 12
 - [ ] ⚠️ **Sell the odd ones.** *"the strangest project in this room is the one I want to see most. I've read enough lists of products"*
 - [ ] 💡 **The one fixed rule, and it is one class:** *"there's one class in your project whose shape I dictate — `Registry`, with five members. It's how the checks find your code without me knowing a thing about your topic. Everything else is yours"*
 

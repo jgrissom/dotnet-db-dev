@@ -4,7 +4,7 @@
 **Submit via Canvas:** the URL of your **private** `dotnet-db-coursework` repo — same URL as always.
 
 > [!NOTE]
-> **This is your station's last night.** You invented it in week 1, gave it a request line in week 2, and tonight it finally remembers something. **Next week you pick your own topic** — a public repo, a project you extend every week until December. Give this one a decent send-off.
+> **This is your station's last night.** You invented it in week 1, gave it a request line in week 2, and tonight it finally remembers something. **Next week you pick your own topic** — a public repo, a project you extend every week for the rest of the semester. Give this one a decent send-off.
 
 ## Part 1 — Finish the lab (nobody collects this)
 
@@ -467,7 +467,7 @@ Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywher
 
 ## 📖 Reading for next week (~10 min)
 
-**Week 4 is the big one: you pick your own topic**, make a second repo — public, this time — and start the program you'll extend every week until December.
+**Week 4 is the big one: you pick your own topic**, make a second repo — public, this time — and start the program you'll extend every week for the rest of the semester.
 
 - **Come with two or three ideas.** Anything you find interesting: a tea collection, a climbing log, ghost sightings, a fantasy league, the contents of your fridge. The weirder the better — I'd rather grade fifteen odd projects than fifteen libraries.
 - ⚠️ **One rule, and it's the one that bites in week 12:** your topic must be able to grow **a second, related thing.** Albums *and reviews*. Trails *and the times you walked them*. Stations *and the calls they took*. If your idea is only ever one list of one kind of thing, it runs out of road — bring a different one.

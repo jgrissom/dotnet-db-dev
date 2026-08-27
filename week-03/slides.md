@@ -304,4 +304,4 @@ dotnet test week-03/Lab.Checks
 
 <br>
 
-Week 4: your own topic — and a repo you keep until December.
+Week 4: your own topic — and a repo you keep all semester.

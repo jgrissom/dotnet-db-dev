@@ -2,7 +2,7 @@
 
 **20 points · due before next class**
 
-Last week you were asked to bring two or three ideas for something you'd want to keep a list of. Tonight one of them becomes a program you'll still be working on in December.
+Last week you were asked to bring two or three ideas for something you'd want to keep a list of. Tonight one of them becomes a program you'll still be working on in the last week of the semester.
 
 This is the hinge week. From here, every homework extends **this same program**: behavior (5), interfaces (6), tests (7), a save file (8), queries (9), a database (10), full CRUD (11), a second related thing (12), defenses (13). In week 16 you present it.
 
@@ -30,7 +30,7 @@ Take the ideas you brought and [pick one](lecture-notes.md#picking-a-topic). **P
 > | Trails | **hikes** — the date, the weather, how long it took |
 > | Arcade cabinets | **high scores** — who, when, how many |
 >
-> If you can't finish that sentence, **pick a different topic now**. Finding out in November is a bad night.
+> If you can't finish that sentence, **pick a different topic now**. Finding out in week 12 is a bad night.
 
 You'll need a few facts about each record. Three or more — what it's called, and at least two others that make it worth looking up.
 

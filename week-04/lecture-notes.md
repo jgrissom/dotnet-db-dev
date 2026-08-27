@@ -259,7 +259,7 @@ Pick something you'd actually want to look at a list of. The oddest topics are t
 > | Albums | a **track** |
 > | Trails | a **hike** — the date, the weather, how long it took |
 >
-> If you can't finish the sentence *"each one of my things has many ___"*, pick a different topic now rather than in November.
+> If you can't finish the sentence *"each one of my things has many ___"*, pick a different topic now rather than in week 12.
 
 ### The one class whose shape isn't up to you
 

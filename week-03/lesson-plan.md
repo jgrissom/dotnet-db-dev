@@ -23,7 +23,7 @@ KDXR - Nobody called. Not one person.
 
 Four callers they took by hand, the board they watched fill up, and the desk now says the night never happened — **in their own words, which is what makes it land.** It is the demo's beat with the data belonging to them, and it is the reason week 8 and week 10 will feel like answers instead of syntax.
 
-⚠️ **Circulate for the re-run, and say nothing.** The instinct in the room will be *"I broke it"* — the lab README says plainly that they didn't, but a student who reaches that line with you nearby is the one who remembers it in November. **Do not fix anything.** There is nothing to fix, and that is the lesson.
+⚠️ **Circulate for the re-run, and say nothing.** The instinct in the room will be *"I broke it"* — the lab README says plainly that they didn't, but a student who reaches that line with you nearby is the one who still remembers it in week 8, when the log finally gets a file. **Do not fix anything.** There is nothing to fix, and that is the lesson.
 
 ## Learning objectives
 
@@ -63,7 +63,7 @@ By the end of this session, students can:
 | 2:12 | 18 min | 🎯 **Run it again** *(slides 13–14, demo §6)*. ⭐ **The board becomes a desk you work at** — three functions and a loop, then sign Bhatt out and look Reyes up without restarting. Then the drop: nothing typed. `4 people outside` → `3 people outside`. The promise from week 1, collected. Where it gets answered: week 8, week 10. |
 | 2:30 | 5 min | **Lab launch** *(slide 15, demo §7)*. The frame, and "done" defined on **their** machines: after check 5, quit and run it again. |
 | 2:35 | 60 min | **Lab: the night's log** *(slide 15 stays up)*. **In-class target: all five green, then lose the night.** Circulate for **Task 4** — the walk is theirs to write, and it's the one real piece of thinking in the night — and for the Task 5 re-run. |
-| 3:35 | 10 min | **Wrap-up** *(slide 16, demo §8)*. A list is every one · a dictionary is every key · and none of it was written down. Homework: the station's last night. Week 4 tease: **their own topic, and a repo they'll live in until December.** |
+| 3:35 | 10 min | **Wrap-up** *(slide 16, demo §8)*. A list is every one · a dictionary is every key · and none of it was written down. Homework: the station's last night. Week 4 tease: **their own topic, and a repo they'll live in for the rest of the semester.** |
 
 ## Instructor notes
 
