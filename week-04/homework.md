@@ -127,8 +127,11 @@ Two files, both in `Project/`.
 
 **1. Your record.** Here is the shape, with the parts that are yours left open. **Paste this and you have 0 of 5 checks green** — it compiles, it runs, and it earns nothing. The blanks are where your topic shows up, and **each `TODO` below is one task:**
 
+> [!IMPORTANT]
+> ⚠️ **Do not leave it called `Thing`.** Rename the file *and* the class to whatever your topic is actually made of — `BallPark`, `Payphone`, `Lighthouse`, `ClawMachine`. **The checks won't complain either way**, because they find your record through `NewItem` rather than by name — but this is the repo you keep all semester and present in week 16, and a registry of `Thing` is not a project.
+
 ```csharp
-// Project/Thing.cs — rename the file AND the class to whatever your topic is made of
+// Project/Thing.cs — Thing is a PLACEHOLDER. Rename the file and the class.
 public class Thing
 {
     // TODO — Task 2. These three are holes: anything, anywhere, can write
