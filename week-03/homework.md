@@ -279,11 +279,11 @@ Two halves, and the first one is back inside a method you already wrote.
 > [!IMPORTANT]
 > **Read [the notes on the counting dictionary](lecture-notes.md#the-counting-dictionary) and [on reading a key that isn't there](lecture-notes.md#reading-a-key-that-isnt-there-is-a-crash) before you start this one.** Both halves of this task are worked through there, on a station that isn't yours. Tonight is the night they stop being reading and start being something you need.
 
-**First, go back into `Take`** and count the caller as well as keeping the line — [an `if`/`else` on the dictionary](lecture-notes.md#the-counting-dictionary). **It goes after the line is on `Tonight` and before the `return`**, and it counts **`name`** — the cleaned one you already made in move 1, not `caller`. The first time somebody rings there is no number to add to, so there are genuinely two cases.
+**First, go back into `Take`** and count the caller as well as keeping the line — an `if`/`else` on the dictionary. **It goes after the line is on `Tonight` and before the `return`**, and it counts **`name`** — the cleaned one you already made in move 1, not `caller`. The first time somebody rings there is no number to add to, so there are genuinely two cases.
 
-**Then write `TimesCalled(string? caller)`**, handing back an `int`: how many times that person has rung tonight, and **`0` for somebody who never has** — [without throwing](lecture-notes.md#reading-a-key-that-isnt-there-is-a-crash).
+**Then write `TimesCalled(string? caller)`**, handing back an `int`: how many times that person has rung tonight, and **`0` for somebody who never has**, without throwing.
 
-⚠️ **Clean the name here too, and notice the notes' version doesn't show you that.** Its example takes a `name` that has already been through it; yours takes the raw `caller`, so cleaning is the first line of the method. **Store under one spelling and look it up under another and the two never meet** — `"  Dorothy  "` looks up a key that isn't there and comes back `0` for somebody who has rung all night.
+⚠️ **Clean the name in here too** — the notes' example won't show you that, because its parameter arrives already clean. There's a warning under it saying why.
 
 > [!TIP]
 > **Stuck? Write what you can, then run the checks and *read* check 3.** It asks about the stranger first — the one who has never rung — then about somebody who has, then whether the count goes up rather than resetting. **It says something different depending on how far you've got**, so run it again after each change.
