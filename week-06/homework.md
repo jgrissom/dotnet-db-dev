@@ -65,7 +65,23 @@ dotnet test Project.Checks
 
 ---
 
+## The five checks, and which part turns each one green
+
+**Run both after every part, in this order** — the program tells you whether it's *alive*, the checks tell you whether it's *right*, and **the checks never look at `Program.cs`**, which is exactly where the "builds and runs" points live.
+
+| # | Check | Where you do it |
+|---|---|---|
+| 1 | `YourRecordKeepsThePromise` | **[Part 2 ↓](#part-2--the-promise-and-your-record-keeps-it)** — your record declares `IListed` and keeps it |
+| 2 | `EachRecordWritesItsOwnLine` | **[Part 2 ↓](#part-2--the-promise-and-your-record-keeps-it)** — and two records write two different lines |
+| 3 | `TheRegistryKeepsItToo` | **[Part 3 ↓](#part-3--and-so-does-the-registry)** — a registry is not a kind of record, and goes on the list anyway |
+| 4 | `OneListHoldsThemBoth` | **[Part 4 ↓](#part-4--one-list-both-kinds)** — `Everything()` hands back one list holding both |
+| 5 | `WeeksFourAndFiveStillHold` | nothing new to write — it re-checks weeks 4 and 5, every week from here |
+
+---
+
 ## Part 2 — The promise, and your record keeps it
+
+**Checks:** `Check1_YourRecordKeepsThePromise` and `Check2_EachRecordWritesItsOwnLine`
 
 **The interface, and its shape is dictated** — the checks read it, so it is not up to you:
 
@@ -158,6 +174,8 @@ git commit -m "The records know how to be listed"
 
 ## Part 3 — And so does the registry
 
+**Check:** `Check3_TheRegistryKeepsItToo`
+
 Here is the part that is worth the week.
 
 **`Registry` keeps the same promise.** Not your record — the registry itself:
@@ -205,6 +223,8 @@ git commit -m "The registry writes its own heading"
 ---
 
 ## Part 4 — One list, both kinds
+
+**Check:** `Check4_OneListHoldsThemBoth`
 
 **The dictated member, and it is the last one this week:**
 

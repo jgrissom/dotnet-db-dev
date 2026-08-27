@@ -57,7 +57,23 @@ cp -r ../dotnet-db-starters/project/week-05/Project.Checks .
 
 ---
 
+## The five checks, and which part turns each one green
+
+**Run both after every part, in this order** — the program tells you whether it's *alive*, the checks tell you whether it's *right*, and **the checks never look at `Program.cs`**, which is exactly where the "builds and runs" points live.
+
+| # | Check | Where you do it |
+|---|---|---|
+| 1 | `YourRecordDoesSomething` | **[Part 2 ↓](#part-2--your-record-does-something)** — a fact only your own code can move |
+| 2 | `TheRegistryCanFindOne` | **[Part 3 ↓](#part-3--find-and-what-it-says-when-there-isnt-one)** — `Find` hands back the record itself |
+| 3 | `AndNothingWhenThereIsnt` | **[Part 3 ↓](#part-3--find-and-what-it-says-when-there-isnt-one)** — and `null` when nobody matches |
+| 4 | `AndCanTakeOneOffTheBooks` | **[Part 4 ↓](#part-4--remove-which-is-where-the-null-gets-dealt-with)** — `Remove` takes one off, and says whether it did |
+| 5 | `LastWeeksDoorsStillHold` | nothing new to write — it re-checks week 4's work, every week from here |
+
+---
+
 ## Part 2 — Your record does something
+
+**Check:** `Check1_YourRecordDoesSomething`
 
 Right now your record is a set of facts that other code sets. This week it gets a **verb** of its own.
 
@@ -126,6 +142,8 @@ git commit -m "The record does something"
 ---
 
 ## Part 3 — `Find`, and what it says when there isn't one
+
+**Checks:** `Check2_TheRegistryCanFindOne` and `Check3_AndNothingWhenThereIsnt`
 
 **One new member on `Registry`, and its shape is dictated** — the checks call it, so it is not up to you:
 
@@ -204,6 +222,8 @@ git commit -m "The registry can find one, or say there isn't one"
 ---
 
 ## Part 4 — `Remove`, which is where the `null` gets dealt with
+
+**Check:** `Check4_AndCanTakeOneOffTheBooks`
 
 **The second dictated member, same rules:**
 
