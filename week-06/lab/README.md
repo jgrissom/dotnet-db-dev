@@ -102,7 +102,7 @@ week 6: starter
 
 ## Where tonight's work happens
 
-Six files matter, and you should open the first two before you start.
+**Eleven files are in there, and seven of them matter tonight** — open the first two before you start.
 
 | File | What it is |
 |---|---|

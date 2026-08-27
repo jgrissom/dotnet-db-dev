@@ -106,7 +106,7 @@ week 5: starter
 
 ## Where tonight's work happens
 
-Two files, and you should open both before you start.
+**Six files, and you should open the first two before you start** — they're the two you write in.
 
 | File | What it is |
 |---|---|
