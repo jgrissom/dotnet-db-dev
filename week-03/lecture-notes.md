@@ -76,6 +76,26 @@ foreach (string name in outside)
 
 > **`Count` is not a variable you keep updated. It's the list answering a question about itself.** Anywhere you were about to write `int callsTaken = 0;` and `callsTaken++`, ask the collection instead — it already knows, and it can't get out of step with reality.
 
+### Build it once, keep it, hand it back
+
+The examples above put a value straight into the list — a name that already existed. More often the thing worth keeping is one you **just made**, and then it has two jobs: it goes in the list *and* it comes back out to whoever asked.
+
+```csharp
+// Inside a class that has:  public static List<string> Log = new List<string>();
+public static string Record(string? who, string? what)
+{
+    string name = Desk.CleanName(who);          // one method owns the rule
+    string entry = $"{name} - {what}";          // built ONCE
+
+    Log.Add(entry);                             // the list keeps THAT string
+    return entry;                               // and the caller gets the same one
+}
+```
+
+⚠️ **The list keeps the finished line, not the raw ingredient.** `Log.Add(what)` compiles perfectly and stores the wrong thing — the list ends up holding the request instead of the entry, and nothing tells you until something reads it back.
+
+**Name it, store it, return it.** The moment you write the line twice — once for the list and once for the return — you have two places that both know how an entry is spelled, and that is week 1's lesson wearing a third shirt. Give it a variable and use the variable twice.
+
 ### What the angle brackets are for
 
 `List<string>` is a list **of strings**. The type in the brackets is what it's allowed to hold, and it can be a type *you* wrote:

@@ -91,13 +91,18 @@ That's the whole thing. [Nothing was installed on your machine](lecture-notes.md
 ```csharp
 public static class Playlist
 {
-    // Every call, in order.
+    // Every call of the night, in order — each item is the ON-AIR LINE,
+    // the same string Take hands back.
     public static List<string> Tonight = new List<string>();
 
     // Every caller, once, with a count beside them.
     public static Dictionary<string, int> Regulars = new Dictionary<string, int>();
 
-    // TODO — Task 2. Take the call: build the on-air line, and KEEP it.
+    // TODO — Task 2. Three moves, in this order:
+    //   1. clean the caller's name — Switchboard.CallerName already does it,
+    //      and it is the same answer TimesCalled will need in Task 3.
+    //   2. build your on-air line from that name and the request.
+    //   3. put THAT LINE on the end of Tonight, and hand the same line back.
     // Task 3 comes back to this method and counts the caller as well.
     public static string Take(string? caller, string? request)
     {
@@ -237,7 +242,7 @@ dotnet test week-03/Homework.Checks
 `Take(string? caller, string? request)` hands back a `string` — the line your station puts on air.
 
 - It must **contain the caller's name and the request**, and the name comes [through `Switchboard.CallerName`](../week-02/lecture-notes.md#readline-and-null) rather than being trimmed again here.
-- The line goes **on the end of `Tonight`** — [that is what a `List<T>` is for](lecture-notes.md#listt--the-collection-that-grows), and it is the whole difference between this week and last.
+- The line goes **on the end of `Tonight`** — a `List<T>` growing on the end is the whole difference between this week and last. ⚠️ **What goes in is the finished line, not the request** — [build it once, keep it, hand it back](lecture-notes.md#build-it-once-keep-it-hand-it-back).
 - **The wording is yours.** A `null` caller must not crash it.
 
 > [!TIP]
