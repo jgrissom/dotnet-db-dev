@@ -120,15 +120,18 @@ You're on the branch. Everything in Part 4 happens here.
 
 Two files, both in `Project/`.
 
-### Your record
+### Write it
 
-Here is the shape, with the parts that are yours left open. **Paste this and you have 0 of 5 checks green** — it compiles, it runs, and it earns nothing. The blanks are where your topic shows up.
+**1. Your record.** Here is the shape, with the parts that are yours left open. **Paste this and you have 0 of 5 checks green** — it compiles, it runs, and it earns nothing. The blanks are where your topic shows up, and **each `TODO` below is one task:**
 
 ```csharp
 // Project/Thing.cs — rename the file AND the class to whatever your topic is made of
 public class Thing
 {
-    public string Name;      // ← yours: these are holes. Anything can write anything here.
+    // TODO — Task 2. These three are holes: anything, anywhere, can write
+    // anything into them. Close every one into a property.
+    // Task 3 gives one of them a rule; Task 4 seals one shut.
+    public string Name;      // ← yours
     public string Note;
     public int Number;
 
@@ -140,15 +143,9 @@ public class Thing
 }
 ```
 
-That is *exactly* the shape you shipped `Call` in last week. Your job is to close it — and [here is one closed, with the reason beside every decision](lecture-notes.md#and-here-is-the-record-it-hands-back):
+That is *exactly* the shape you shipped `Call` in last week, and [here is one closed, with the reason beside every decision](lecture-notes.md#and-here-is-the-record-it-hands-back).
 
-- **[Every public field becomes a property](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — no public fields left at all. Where the property needs a rule, write the private field and the rule; [where it doesn't, use the short form](lecture-notes.md#the-short-form-for-when-theres-no-rule) — `public string Team { get; set; } = "unknown";`
-- **[At least one property refuses a bad value](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — a name that won't go blank, a count that won't go negative, a year that has to be a year. Refusing means the old value stays; nothing crashes.
-- **[At least one property the outside world can read and cannot write](lecture-notes.md#private-set--the-one-to-slow-down-on)** — `{ get; private set; }`, moved only by a method of yours, or [`{ get; }` set once in the constructor](lecture-notes.md#and-when-it-should-never-change-at-all). Pick the fact your record is the authority on.
-
-### The registry
-
-**[This one class has a fixed shape](lecture-notes.md#the-one-class-whose-shape-isnt-up-to-you)**, because it's how the checks find your code without knowing one word about your topic:
+**2. The registry.** **[This one class has a fixed shape](lecture-notes.md#the-one-class-whose-shape-isnt-up-to-you)**, because it's how the checks find your code without knowing one word about your topic:
 
 ```csharp
 // Project/Registry.cs
@@ -156,7 +153,8 @@ public class Registry
 {
     private readonly List<Thing> _items = new List<Thing>();
 
-    public static string Topic => "your topic here";     // ← yours, in words
+    // TODO — Task 1. Say what your project is about, in words.
+    public static string Topic => "your topic here";     // ← yours
 
     public Thing NewItem(string name) => new Thing(name);
 
@@ -169,12 +167,11 @@ public class Registry
 
     public List<Thing> All()
     {
-        return _items;                                   // ← yours: this should be a COPY
+        // TODO — Task 5. Hand back a COPY, never the list itself.
+        return _items;                                   // ← yours
     }
 }
 ```
-
-The only line in there that isn't boilerplate is `All()` — [it has to hand back a **copy**](lecture-notes.md#the-class-that-holds-the-collection), never `_items` itself.
 
 > [!IMPORTANT]
 > **The six names — `Registry`, `Topic`, `NewItem`, `Add`, `Count`, `All` — are spelled exactly that way, every week, all semester.** Everything else is yours: the class name, the file names, the fields, what your program prints.
@@ -212,9 +209,24 @@ Then make it yours: real records instead of `"the first one"`, and print the fac
 > [!CAUTION]
 > **Ask at most once, and never loop on input.** The grader runs your program with nothing but Enter on the keyboard. A `while` loop waiting for a menu choice hangs it, and a hung program scores zero for running.
 
-### Run it, then test it
 
-**After every one of the three bullets above**, both of these — in this order:
+### The five checks, one at a time
+
+**Both of these after every task, in this order** — the program tells you whether it's *alive*, the checks tell you whether it's *right*. **The checks never look at `Program.cs`**, which is exactly where the "builds and runs" points live.
+
+| # | Check | What to do |
+|---|---|---|
+| 1 | `YouPickedATopic` | Say what your project is about, in words. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `YourRecordKeepsItsDataToItself` | Close every public field into a property. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `SomethingRefusesABadValue` | One property turns nonsense away. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `OnlyYourCodeCanChangeIt` | One fact only your own code can move. **[Task 4 in full ↓](#task-4-in-full)** |
+| 5 | `TheRegistryHoldsRecords` | `All()` hands back a copy. **[Task 5 in full ↓](#task-5-in-full)** |
+
+### Task 1 in full
+
+**Check:** `Check1_YouPickedATopic`
+
+In `Registry.cs`, replace `"your topic here"` with **what your project is actually about, in words** — `"Every payphone still standing in the county"`, not `"payphones"` and not the example from the notes.
 
 ```bash
 dotnet run --project Project
@@ -224,32 +236,120 @@ dotnet run --project Project
 dotnet test Project.Checks
 ```
 
-The program tells you whether it's *alive*; the checks tell you whether it's *right*. They answer different questions, and **the checks never look at `Program.cs`** — which is exactly where the "builds and runs" points live.
+**1 of 5.**
 
-Your count should climb one at a time, in this order:
-
-> **0** (pasted as-is) → **1** topic → **2** fields closed → **3** something refuses → **4** something sealed → **5** `All()` copies
-
-If you're sitting at 2 after doing three of them, something isn't what you think it is — read the check's message, it names the file and the shape.
-
-### Commit as you go
-
-Three moments worth saving, and each one changes a file in `Project/`:
+**Green? Commit it:**
 
 ```bash
 git add .
+```
+
+```bash
 git commit -m "The registry, and a topic"
 ```
 
+
+### Task 2 in full
+
+**Check:** `Check2_YourRecordKeepsItsDataToItself`
+
+**[Every public field becomes a property](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — no public fields left at all. Where a property needs a rule, write the private field and the rule; [where it doesn't, use the short form](lecture-notes.md#the-short-form-for-when-theres-no-rule) — `public string Team { get; set; } = "unknown";`
+
+> [!TIP]
+> **Stuck? Write what you can, then run the checks and *read* check 2.** It names your record and counts what it found — the public fields still open, and how many properties it can see. **It says something different depending on how far you've got**, so run it again after each change.
+
 ```bash
-git add .
-git commit -m "Nothing writes into the record any more"
+dotnet run --project Project
 ```
 
 ```bash
+dotnet test Project.Checks
+```
+
+**2 of 5.**
+
+**Green? Commit it:**
+
+```bash
 git add .
+```
+
+```bash
+git commit -m "Nothing writes into the record any more"
+```
+
+
+### Task 3 in full
+
+**Check:** `Check3_SomethingRefusesABadValue`
+
+**[At least one property refuses a bad value](lecture-notes.md#a-property-is-a-field-with-a-doorman)** — a name that won't go blank, a count that won't go negative, a year that has to be a year.
+
+⚠️ **Refusing means the old value stays.** Nothing crashes, nothing throws — the property simply declines and keeps what it had.
+
+```bash
+dotnet run --project Project
+```
+
+```bash
+dotnet test Project.Checks
+```
+
+**3 of 5.**
+
+### Task 4 in full
+
+**Check:** `Check4_OnlyYourCodeCanChangeIt`
+
+**[At least one property the outside world can read and cannot write](lecture-notes.md#private-set--the-one-to-slow-down-on)** — `{ get; private set; }`, moved only by a method of yours, or [`{ get; }` set once in the constructor](lecture-notes.md#and-when-it-should-never-change-at-all). **Pick the fact your record is the authority on.**
+
+⚠️ **A `private set` with nothing to move it is decoration.** If you seal a number, write the verb that changes it — a count and the method that increments it, not a property nothing ever touches.
+
+```bash
+dotnet run --project Project
+```
+
+```bash
+dotnet test Project.Checks
+```
+
+**4 of 5.**
+
+**Green? Commit it:**
+
+```bash
+git add .
+```
+
+```bash
 git commit -m "The count is the record's own business"
 ```
+
+
+### Task 5 in full
+
+**Check:** `Check5_TheRegistryHoldsRecords`
+
+Back to `Registry.cs`, and the one line in it that isn't boilerplate: **`All()` [has to hand back a **copy**](lecture-notes.md#the-class-that-holds-the-collection)**, never `_items` itself. Return the real list and you have quietly undone the `private` on it — whoever asked can now empty your registry, and `Count` will agree with them.
+
+> [!TIP]
+> **Stuck? Run the checks and *read* check 5.** It asks whether a new registry starts empty, whether adding one makes `Count` say so, and then whether emptying what `All()` handed back changes anything. **That last one is the copy.**
+
+```bash
+dotnet run --project Project
+```
+
+```bash
+dotnet test Project.Checks
+```
+
+**5 of 5.** 🎉
+
+### Commit as you go
+
+**Three of the tasks above hand you a commit message** — take them as they come rather than saving everything to the end.
+
+⚠️ **Only commits that change a file in `Project/` count**, and this week they all do. The rubric reads this repo's history, so a commit at the moment something starts working is worth more than one big one at midnight.
 
 ---
 
