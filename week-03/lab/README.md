@@ -364,6 +364,9 @@ All three are already sitting there waiting to be asked:
 - **`Tonight.Count` is how many calls. `Regulars.Count` is how many people.** [Two collections, two different questions](../lecture-notes.md#list-or-dictionary) — different numbers, in one sentence, which is the whole week in one line of code.
 - **Ask `TheRegular()` for the name** rather than working it out a second time. You already wrote that method.
 
+> [!TIP]
+> **Stuck on this one? Write what you can, then run the checks and *read* check 5.** It looks for the three facts one at a time and names the one your sentence is still missing. **It says something different depending on how far you've got**, so run it again after each change rather than saving it for the end.
+
 **Now work a proper shift.** Take four or five calls — repeat a caller, leave a name blank, put in whatever you like — and end with `q`:
 
 ```bash

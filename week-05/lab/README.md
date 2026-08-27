@@ -325,6 +325,8 @@ Write it so that:
 
 > [!TIP]
 > **The whole method is a `Find`, an `if`, a `Calls()` and a `return`** — and [the worked version of that shape is in the notes](../lecture-notes.md#taking-one-off-the-books), doing the opposite job.
+>
+> **Still stuck? Write what you can, then run the checks and *read* check 4.** It walks the two roads through `Take` one at a time — the regular who is already on the board, then the stranger who isn't — and names the one that's wrong. **It says something different depending on how far you've got**, so run it again after each change.
 
 **Run the shift.** Press `r`, type `Dorothy`, then `r` again and type `Ray`, then `q`:
 
@@ -375,6 +377,9 @@ Two members, and they ship as `public Song? Favorite => null;` and an empty `Ask
 
 > [!WARNING]
 > **Do not count the call in `Asks`.** `Take` already counted it when it put them on the line — count it again here and every regular goes up by two for one phone call. The check asserts that it doesn't. **One rule, one place.**
+
+> [!TIP]
+> **Stuck on this one? Write what you can, then run the checks and *read* check 5.** It checks the shape before the behaviour — that `Favorite` is a property, that nothing outside the class can write it, that a caller who has just rung starts at `null` — and then what `Asks` did with the song. **It says something different depending on how far you've got**, so run it again after each change.
 
 **Run the shift.** `r` / `Dorothy`, then `r` / `Ray`, then `q`:
 

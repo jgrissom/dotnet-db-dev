@@ -182,6 +182,8 @@ Open `Lab/Song.cs`. Everything in it is week 4's, except the last two members, w
 
 > [!TIP]
 > **`Lab/WeatherBed.cs` is the shape, done once.** Four members, one class, no surprises. Read it, then come back — don't copy it, because a weather bed and a song answer completely different things.
+>
+> **Still stuck? Write what you can, then run the checks and *read* check 2.** It goes through the promise one member at a time and names the one that isn't answering yet — `Seconds` and `Play()` included, if they ever stop answering. **It says something different depending on how far you've got**, so run it again after each change.
 
 **Run the shift.** DJ name, then `h`, then `q`:
 
@@ -309,6 +311,8 @@ What each one has to be:
 
 > [!TIP]
 > **Task 3 is the template and this should be quicker.** That is the actual lesson of the week showing up in your own hands — [the first kind of thing is not cheaper this way; the third one is](../lecture-notes.md#a-new-kind-costs-one-class).
+>
+> **Still stuck? Write what you can, then run the checks and *read* check 4.** It takes the four members the promise asks for in turn, then the rule that is easiest to miss — that a buy never goes below zero. **It says something different depending on how far you've got**, so run it again after each change.
 
 > [!IMPORTANT]
 > **Four classes now have a method called `Play()` and all four do something different** — one counts up, one counts down, one sets a flag, one is a song. [The loop that calls it never finds out which is which](../lecture-notes.md#the-same-method-four-different-jobs), and that is the whole point rather than an accident.
@@ -371,6 +375,9 @@ Open `Lab/Hour.cs`. It is `Rotation` and `Switchboard` again — a private list,
 
 > [!NOTE]
 > **Why `Run()` hands back a list of strings instead of printing.** The same reason every week since week 1: [logic goes in a class where a check can call it](../../week-01/lecture-notes.md#where-your-code-has-to-live), and printing stays in `Program.cs`. Check 5 reads those strings.
+
+> [!TIP]
+> **Stuck on this one? Write what you can, then run the checks and *read* check 5.** It takes the total first, then the lines, then whether every kind actually moved rather than just the song — and it is the one that catches reading a `Cue` before you played the item. **It says something different depending on how far you've got**, so run it again after each change.
 
 **Run the shift.** DJ name, then `a`, then `h`, then `q`:
 
