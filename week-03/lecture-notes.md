@@ -346,6 +346,8 @@ public static int TimesCalled(string name)
 
 *(`ContainsKey` followed by `Regulars[name]` is also correct. It looks the key up twice, which nobody will ever notice at this size.)*
 
+> ⚠️ **Look at that parameter: `string name`, already cleaned.** If yours takes the caller **raw** — straight off `Console.ReadLine`, spaces and all — then cleaning it is the first line of the method, exactly as it is wherever you *store* the count. Look up `"  Dorothy  "` in a dictionary whose key is `"Dorothy"` and you get a miss, which reads back as **`0` for somebody who has rung all night**. Store under one spelling, look up under another, and the two never meet.
+
 ### Walking a dictionary
 
 ```csharp
