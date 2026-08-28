@@ -64,12 +64,12 @@ cp -r ../dotnet-db-starters/project/week-05/Project.Checks .
 | # | Check | What to do |
 |---|---|---|
 | 1 | `YourRecordDoesSomething` | Your record gets a verb of its own. **[Task 1 in full ↓](#task-1-in-full)** |
-| 2 | `TheRegistryCanFindOne` | `Find` hands back the record itself. **[Task 2 in full ↓](#task-2-in-full)** |
-| 3 | `AndNothingWhenThereIsnt` | …and `null` when nobody matches — **same task, second half.** **[Task 2 in full ↓](#task-2-in-full)** |
-| 4 | `AndCanTakeOneOffTheBooks` | `Remove` takes one off, and says whether it did. **[Task 3 in full ↓](#task-3-in-full)** |
+| 2 | `TheRegistryCanFindOne` | `Find` hands back the record itself. **[Tasks 2 and 3 in full ↓](#tasks-2-and-3-in-full)** |
+| 3 | `AndNothingWhenThereIsnt` | …and `null` when nobody matches — **same task, second half.** **[Tasks 2 and 3 in full ↓](#tasks-2-and-3-in-full)** |
+| 4 | `AndCanTakeOneOffTheBooks` | `Remove` takes one off, and says whether it did. **[Task 4 in full ↓](#task-4-in-full)** |
 | 5 | `LastWeeksDoorsStillHold` | **Nothing to write.** It re-checks week 4's work and is green before you start — every week from here. |
 
-⚠️ **Three tasks, five checks.** Task 2 turns two green at once, because `Find`'s two jobs are one method, and check 5 was green before you opened the file. Your count climbs **2 → 4 → 5**.
+⚠️ **The task numbers are check numbers.** Tasks 2 and 3 are one piece of work, because `Find`'s two jobs are one method — and **check 5 is green before you start**, so your count runs **1 → 2 → 4 → 5**.
 
 ### Task 1 in full
 
@@ -101,7 +101,7 @@ public void Visit()
 > **A sealed property with nothing to move it is decoration.** It promises *"only I change this"* and then nothing ever does. The method is what makes the promise mean something — and it is the only door, which is the point.
 
 > [!NOTE]
-> **If you already wrote one of these last week, this part is already done and the check is already green.** That is the right kind of free: the notes recommended it, you did it, and it counts. Move on to Task 2.
+> **If you already wrote one of these last week, this part is already done and the check is already green.** That is the right kind of free: the notes recommended it, you did it, and it counts. Move on to Tasks 2 and 3.
 
 **The other half of this check is `static`, and it costs nothing if you never wrote the word** — [which is not the same as saying the word is bad](lecture-notes.md#when-static-is-right). Calling your verb on one record must leave every *other* record alone. [If a fact about one of your things is `static`](lecture-notes.md#what-static-actually-says), there is one copy for the whole program and every record reports the same number — which is exactly what the switchboard did in the lab.
 
@@ -143,7 +143,7 @@ git commit -m "The record does something"
 
 ---
 
-### Task 2 in full
+### Tasks 2 and 3 in full
 
 **`Find`, and what it says when there isn't one.**
 
@@ -200,7 +200,7 @@ Console.WriteLine(missing == null ? "Nothing on file by that name." : "...found 
 dotnet run --project Project
 ```
 
-**Both lines say nothing on file** — including the one your own program printed a few lines earlier, on its own list. **That contradiction is the whole of Task 2:** the registry is holding it and cannot find it.
+**Both lines say nothing on file** — including the one your own program printed a few lines earlier, on its own list. **That contradiction is the whole of this task:** the registry is holding it and cannot find it.
 
 **4. Now write the loop.** [The worked version is in the notes](lecture-notes.md#finding-one-or-not-finding-one) — mine is claw machines, yours is whatever your topic is made of. Then run the *same* thing again:
 
@@ -225,7 +225,7 @@ git commit -m "The registry can find one, or say there isn't one"
 
 ---
 
-### Task 3 in full
+### Task 4 in full
 
 **`Remove`, which is where the `null` gets dealt with.**
 
@@ -257,7 +257,7 @@ public bool Remove(string name)
 }
 ```
 
-**2. Give `Program.cs` something to take off.** On the end again — **use the same name you searched for in Task 2**, the one you know is there:
+**2. Give `Program.cs` something to take off.** On the end again — **use the same name you searched for in Tasks 2 and 3**, the one you know is there:
 
 ```csharp
 Console.WriteLine();
@@ -382,7 +382,7 @@ git commit -m "A program that shows all of it"
 ```
 
 > [!CAUTION]
-> **Skip this one and Part 4 pushes the file you had before.** Everything you just pasted is still sitting on your laptop, uncommitted — the branch on GitHub would stop at Task 3, and it is your own work that goes missing, not mine.
+> **Skip this one and Part 4 pushes the file you had before.** Everything you just pasted is still sitting on your laptop, uncommitted — the branch on GitHub would stop at Task 4, and it is your own work that goes missing, not mine.
 
 ---
 

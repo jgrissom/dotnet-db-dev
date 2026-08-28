@@ -53,7 +53,7 @@ cp -r ../dotnet-db-starters/project/week-06/Project.Checks .
 > **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
 
 > [!WARNING]
-> **Skip this and every number below is wrong.** Last week's checks report **5 / 5** before you have written a line tonight — because they are testing last week's work, and passing. If `dotnet test` says 5 / 5 at the end of Task 1 instead of 3 / 5, you are running the wrong checks: come back and run the two commands above.
+> **Skip this and every number below is wrong.** Last week's checks report **5 / 5** before you have written a line tonight — because they are testing last week's work, and passing. If `dotnet test` says 5 / 5 at the end of Tasks 1 and 2 instead of 3 / 5, you are running the wrong checks: come back and run the two commands above.
 
 **Prove it landed:**
 
@@ -71,15 +71,15 @@ dotnet test Project.Checks
 
 | # | Check | What to do |
 |---|---|---|
-| 1 | `YourRecordKeepsThePromise` | Your record declares `IListed` and keeps it. **[Task 1 in full ↓](#task-1-in-full)** |
-| 2 | `EachRecordWritesItsOwnLine` | …and two records write two different lines — **same task.** **[Task 1 in full ↓](#task-1-in-full)** |
-| 3 | `TheRegistryKeepsItToo` | A registry is not a kind of record, and goes on the list anyway. **[Task 2 in full ↓](#task-2-in-full)** |
-| 4 | `OneListHoldsThemBoth` | `Everything()` hands back one list holding both. **[Task 3 in full ↓](#task-3-in-full)** |
+| 1 | `YourRecordKeepsThePromise` | Your record declares `IListed` and keeps it. **[Tasks 1 and 2 in full ↓](#tasks-1-and-2-in-full)** |
+| 2 | `EachRecordWritesItsOwnLine` | …and two records write two different lines — **same task.** **[Tasks 1 and 2 in full ↓](#tasks-1-and-2-in-full)** |
+| 3 | `TheRegistryKeepsItToo` | A registry is not a kind of record, and goes on the list anyway. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `OneListHoldsThemBoth` | `Everything()` hands back one list holding both. **[Task 4 in full ↓](#task-4-in-full)** |
 | 5 | `WeeksFourAndFiveStillHold` | **Nothing to write.** It re-checks weeks 4 and 5 and is green before you start — every week from here. |
 
-⚠️ **Three tasks, five checks.** Task 1 turns two green at once, because declaring the promise and keeping it are one piece of work, and check 5 was green before you opened the file. Your count climbs **1 → 3 → 4 → 5**.
+⚠️ **The task numbers are check numbers.** Tasks 1 and 2 are one piece of work, because declaring the promise and keeping it go together — and **check 5 is green before you start**, so your count runs **1 → 3 → 4 → 5**.
 
-### Task 1 in full
+### Tasks 1 and 2 in full
 
 **The promise, and your record keeps it.**
 
@@ -174,7 +174,7 @@ git commit -m "The records know how to be listed"
 
 ---
 
-### Task 2 in full
+### Task 3 in full
 
 **And so does the registry.**
 
@@ -226,7 +226,7 @@ git commit -m "The registry writes its own heading"
 
 ---
 
-### Task 3 in full
+### Task 4 in full
 
 **One list, both kinds.**
 
@@ -400,7 +400,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | 2 | A merge commit on `main` — this week's branch → pull request → merge |
 
 > [!NOTE]
-> **Your count should climb 1 → 3 → 4 → 5**, one task at a time. Two checks land together in Task 1, because writing `Line()` properly answers both of them at once.
+> **Your count should climb 1 → 3 → 4 → 5**, one task at a time. Two checks land together in Tasks 1 and 2, because writing `Line()` properly answers both of them at once.
 
 > [!WARNING]
 > **A build failure zeroes all five checks at once.** One missing semicolon reads as "did nothing." Run `dotnet test Project.Checks` before you push, every time.
