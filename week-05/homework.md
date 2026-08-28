@@ -49,6 +49,14 @@ Then copy this week's over the top:
 cp -r ../dotnet-db-starters/project/week-05/Project.Checks .
 ```
 
+**Prove it landed:**
+
+```bash
+dotnet test Project.Checks
+```
+
+**1 / 5.** The one that's green is check 5 — week 4's work, still holding, and it stays green every week from here. **That is where tonight starts**, so every number below counts it.
+
 > [!NOTE]
 > **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
 
@@ -129,7 +137,7 @@ dotnet run --project Project
 dotnet test Project.Checks
 ```
 
-**2 / 5.** The program tells you whether it's *alive*; the checks tell you whether it's *right*.
+**2 / 5 — checks 1 and 5.** Scroll up the check output and you'll see both named. **Checks 2, 3 and 4 are still ahead of you**, which is what the next two sections are.
 
 The second one is check 5 — last week's doors, still holding. It has been green since you opened the file, and it stays green every week from here.
 
@@ -216,7 +224,7 @@ The first line finds it. **The second still says nothing on file, and that one i
 dotnet test Project.Checks
 ```
 
-**4 / 5.**
+**4 / 5 — checks 1, 2, 3 and 5.** Only check 4 left.
 
 ```bash
 git add .

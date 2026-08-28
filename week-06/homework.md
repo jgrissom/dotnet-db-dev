@@ -165,7 +165,7 @@ LIGHTHOUSE  Currituck Beach - 162ft - visited 0x
 dotnet test Project.Checks
 ```
 
-**3 / 5.**
+**3 / 5 — checks 1, 2 and 5.** Checks 3 and 4 are still ahead of you.
 
 ```bash
 git add .
@@ -217,7 +217,7 @@ REGISTRY    Lighthouses of the Outer Banks - 3 on file
 dotnet test Project.Checks
 ```
 
-**4 / 5.**
+**4 / 5 — checks 1, 2, 3 and 5.** Only check 4 left.
 
 ```bash
 git add .
