@@ -789,7 +789,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   log.Add(new Reading("14:35", -41.5, bhatt));
   ```
 
-- [ ] 📖 *"The board is gone. Not hidden, not renamed — there is no list of who is outside in this program any more"*
+- [ ] 📖 *"The board is not gone — it is drawn from the log now. What is gone is the second list: not hidden, not renamed, there is no list of who is outside in this program any more"*
 
 - [ ] **Run it once more, and do exactly the same thing** — `o`, `Moretti`, `WALK`, back by `15:30`
 
