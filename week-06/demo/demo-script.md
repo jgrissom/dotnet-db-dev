@@ -807,7 +807,8 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Ask, when one kind is different*
 
-- [ ] 📖 **The one thing nothing else says — and cut this first if §6 is running long:** *"One of those `if`s is fine. A chain of them — is this one a sign-out, else is it a reading, else is it a fuel check — is the code telling you something: the thing you keep asking about should have been a question on the interface instead"*
+- [ ] 📖 **Point at the slide and say what it is doing:** *"this is how you tell one kind from another when you have to — and here we have to, because the board needs a list of just the sign-outs"*
+- [ ] 💡 **Then the one thing nothing else says — and cut this first if §6 is running long:** *"One of those `if`s is fine. A chain of them — is this one a sign-out, else is it a reading, else is it a fuel check — is the code telling you something: the thing you keep asking about should have been a question on the interface instead"*
 
 - [ ] **One more, and it is the closing beat.** <kbd>⌘F</kbd> for **`Safe to go out`** — one hit, in `DrawBoard`. **Select from the `AnsiConsole.MarkupLine($"[{Dim}]Outside:[/]…` line down to and including the `[/]");` under it**, and paste this over them
 
