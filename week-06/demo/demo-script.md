@@ -845,7 +845,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   }
   ```
 
-- [ ] 💡 *"Same shape, one word different. `is Reading r` instead of `is SignOut s`"*
+- [ ] 💡 **Name the parallel, then point forward** — *"same filter, different type. `SignOuts` asked the log for sign-outs and handed back a list; this one asks it for readings and hands back a single number — `is Reading r` instead of `is SignOut s`. That is the honest way to do it with what you know tonight, and in week nine you will write it in one line"*
 
 - [ ] 🎯 **Run it, press `m`, and have `Moretti` come back with a reading of `-52.4`.** Predict first — *"what is going to change on this board?"*
 
