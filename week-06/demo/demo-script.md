@@ -720,9 +720,11 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 📖 **The one new piece of syntax tonight, and it is worth thirty seconds:** *"`entry is SignOut s`. It asks the entry what it actually turned out to be, and if the answer is yes it hands it to me under a name I can use — `s` is a `SignOut` from there on, so I can ask it about `IsBack` and the promise never mentioned that"*
 - [ ] 🎯 **And the honest limit, which is the point of the segment:** *"this is what polymorphism cannot do for you. One loop treating everything the same is the whole trick — right up to the moment you need the one kind that is different, and then you have to ask"*
+- [ ] 💡 **Nothing to run yet, and say so** — *"I have written it, and not one line in this program calls it. Watch what it costs to change that"*
 
 - [ ] **Now point the board at it.** <kbd>⌘F</kbd> for **`in outside)`** — the editor says **5**. Open Replace (<kbd>⌥⌘F</kbd>), put **`in SignOuts())`** in the replace box, and **Replace All**
 - [ ] 💡 *"Five places asked the board a question. All five of them now ask the log"*
+- [ ] 💡 **Still nothing new on screen, and that is worth naming** — *"the board asks the log now. But the desk still writes a new sign-out to the old list, so nothing has actually moved yet. One more edit"*
 
 - [ ] **The muster's copy, and the comment above it, which has just stopped being true.** <kbd>⌘F</kbd> for **`A copy, because the next loop`** — one hit. **Select from that line down to and including `List<SignOut> muster = new List<SignOut>(outside);`** and paste this over the three
 
@@ -740,29 +742,6 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```csharp
           log.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));
   ```
-
-- [ ] **Then take the board out.** <kbd>⌘F</kbd> for **`SignOut fuelRun`** — one hit. **Select from that line down to and including `log.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
-
-  ```csharp
-  // ── the watch log ──────────────────────────────────────────────────────────
-  // One book. Everything that has happened since the watch started, in the
-  // order it happened — and going outside is only one of the things that
-  // happen here.
-  //
-  // Three different classes are in this list. It holds them because every one
-  // of them keeps ILogEntry's promise, and for no other reason.
-
-  List<ILogEntry> log = new List<ILogEntry>();
-
-  log.Add(new FuelCheck("07:40", 4300));
-  log.Add(new SignOut("09:05", lindqvist, "FUEL", "10:30"));
-  log.Add(new Reading("12:00", -39.8, moretti));
-  log.Add(new SignOut("14:20", okonkwo, "MET RUN", "15:00"));
-  log.Add(new SignOut("14:20", reyes, "DIG OUT", "14:45"));
-  log.Add(new Reading("14:35", -41.5, bhatt));
-  ```
-
-- [ ] 📖 *"The board is gone. Not hidden, not renamed — there is no list of who is outside in this program any more"*
 
 - [ ] **Run it, press `o`, sign `Moretti` out for a `WALK` back by `15:30` again**
 
@@ -787,6 +766,43 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] 🎯 **Point at both:** *"the board and the log cannot disagree any more — and not because I remembered to update both. There is nothing to remember. There is one list, and the board is just the log, filtered"*
+- [ ] **Press `q`**
+
+- [ ] **Then take the board out.** <kbd>⌘F</kbd> for **`SignOut fuelRun`** — one hit. **Select from that line down to and including `log.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
+
+  ```csharp
+  // ── the watch log ──────────────────────────────────────────────────────────
+  // One book. Everything that has happened since the watch started, in the
+  // order it happened — and going outside is only one of the things that
+  // happen here.
+  //
+  // Three different classes are in this list. It holds them because every one
+  // of them keeps ILogEntry's promise, and for no other reason.
+
+  List<ILogEntry> log = new List<ILogEntry>();
+
+  log.Add(new FuelCheck("07:40", 4300));
+  log.Add(new SignOut("09:05", lindqvist, "FUEL", "10:30"));
+  log.Add(new Reading("12:00", -39.8, moretti));
+  log.Add(new SignOut("14:20", okonkwo, "MET RUN", "15:00"));
+  log.Add(new SignOut("14:20", reyes, "DIG OUT", "14:45"));
+  log.Add(new Reading("14:35", -41.5, bhatt));
+  ```
+
+- [ ] 📖 *"The board is gone. Not hidden, not renamed — there is no list of who is outside in this program any more"*
+
+- [ ] **Run it once more, and do exactly the same thing** — `o`, `Moretti`, `WALK`, back by `15:30`
+
+  ```bash
+  dotnet run --project week-06/Haldane
+  ```
+
+  ```
+  4 people outside.
+  4 trips logged today.
+  ```
+
+- [ ] 🎯 **The same board, the same log, the same numbers — and that is the point:** *"I deleted a list and nothing changed. That is not luck. That is how you find out a thing was dead: you stop reading it, you prove nothing moved, and only then do you take it out"*
 - [ ] **Press `q`**
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Ask, when one kind is different*
