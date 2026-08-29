@@ -268,7 +268,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] 🎯 **This is the beat. Point at the fourth line:** *"that is the thing I did five seconds ago, and it is in the middle of the page. The line directly under it happened at midday — three hours earlier"*
-- [ ] 📖 **And the sentence that sets up the whole night:** *"I cannot sort my way out of this, either — there is nothing to sort. They are in two different lists, and the second list does not start until the first one has finished. Every new kind of thing that ever happens on this station is another list, another loop, and another place to forget"*
+- [ ] 🎯 **Set the night up, then hand them the question — and wait:** *"Every new kind of thing that ever happens on this station is another list, another loop, and another place to forget. How can we solve this sorting problem with multiple lists?"*
 - [ ] **Press `q`**
 
 ---
