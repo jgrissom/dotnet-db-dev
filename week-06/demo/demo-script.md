@@ -66,7 +66,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] 📖 **Fast — this is a refresher, not a re-teach:** *"a board, a desk with four things it can do, and a trip count that belongs to a person"*
-- [ ] 🎯 **Then the question the night runs on, and let it sit for a second:** *"so what does this console actually know? It knows who is outside. That is it. Somebody dipped the fuel tank this morning, somebody read the masts at noon, somebody dug a vent out — and this console has never heard of any of it. Everything that happens at this station that isn't a person walking out of a door falls straight on the floor"*
+- [ ] 🎯 **Then the question the night runs on, and let it sit for a second:** *"so what does this console actually know? It knows who is outside. That is it. Somebody dipped the fuel tank this morning, somebody walked out to the masts and read the temperature at noon, somebody dug a vent out — and this console has never heard of any of it. Everything that happens at this station that isn't a person walking out of a door falls straight on the floor"*
 - [ ] **Press `q` to close the desk**
 
 - [ ] **Branch first, and say it as you type it** — *"a branch for tonight, same as every week. Nothing goes straight to `main`, and that goes for your project too"*
