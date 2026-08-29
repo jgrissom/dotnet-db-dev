@@ -810,6 +810,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 📖 **Point at the slide and say what it is doing:** *"this is how you tell one kind from another when you have to — and here we have to, because the board needs a list of just the sign-outs"*
 - [ ] 💡 **Then the one thing nothing else says — and cut this first if §6 is running long:** *"One of those `if`s is fine. A chain of them — is this one a sign-out, else is it a reading, else is it a fuel check — is the code telling you something: the thing you keep asking about should have been a question on the interface instead"*
 
+- [ ] 📖 **Before you paste, point at the top of the board:** *"look at that temperature. `Outside: -41.5`. I typed that into the program in week one and it has been sitting there ever since — nobody measured it, and it has never once changed. Watch where it comes from now"*
 - [ ] **One more, and it is the closing beat.** <kbd>⌘F</kbd> for **`Safe to go out`** — one hit, in `DrawBoard`. **Select from the `AnsiConsole.MarkupLine($"[{Dim}]Outside:[/]…` line down to and including the `[/]");` under it**, and paste this over them
 
   ```csharp
@@ -821,6 +822,8 @@ Tonight the console stops being a board and starts being a **log** — and the r
           + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(latest, false)}[/]");
   ```
 
+- [ ] 💡 **Two lines, and say what each one does** — *"ask the log for the most recent reading, then hand that number to the same week-one method that has been answering this question all along. `IsSafeToGoOut` does not change at all — it just stops being fed a constant"*
+- [ ] 📖 **Say what it does as it goes in:** *"walk the log, and every time you find a reading, remember it. You finish holding the LAST one, because each reading overwrites the one before. And it starts at minus forty-one point five, so the board still has a number to show if nobody has taken a reading yet"*
 - [ ] **And the method it needs.** End of the file (<kbd>⌘↓</kbd>), paste on the bottom
 
   ```csharp
