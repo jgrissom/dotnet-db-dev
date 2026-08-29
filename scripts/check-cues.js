@@ -49,8 +49,14 @@ function slidesOf(file) {
 
 function cuesOf(file) {
   const out = [];
+  const lines = fs.readFileSync(file, "utf8").split("\n");
+  // A checkbox that TALKS to the slide, rather than doing something to the
+  // editor or the terminal. Two house styles carry narration and both count:
+  // riding the cue line after a `·`, or a marked checkbox underneath it.
+  const BOX = /^\s*[-*] \[[ xX]\] /;
+  const NARRATES = /^\s*[-*] \[[ xX]\] (📖|🎯|💡|⚠️|💥)/;
   let sec = null, lo = null, hi = null, beat = false, ln = 0;
-  for (const line of fs.readFileSync(file, "utf8").split("\n")) {
+  for (const line of lines) {
     ln++;
     // Emphasis may be *…* or _…_ — a markdown formatter (Prettier) rewrites one
     // into the other on save, and the sheets must survive that either way.
@@ -61,8 +67,18 @@ function cuesOf(file) {
     m = line.match(/🎞️ \*\*GO TO SLIDE (\d+)\*\* — [*_]([^*_]+)[*_]/);
     // A cue buried mid-line is a cue that gets walked straight past — it has to
     // lead its own checkbox so the eye finds it at the projector.
-    if (m && sec) out.push({ n: +m[1], title: m[2].trim(), sec, lo, hi, beat, ln,
-                             own: /^\s*[-*] \[[ xX]\] 🎞️ \*\*GO TO SLIDE/.test(line) });
+    if (m && sec) {
+      // Everything after the cue's title on the same line — weeks 1-5 put the
+      // spoken run here, after a `·`.
+      const trail = line.slice(m.index + m[0].length).trim();
+      // Otherwise the beat under it has to be the one that talks.
+      let j = ln;                       // ln is 1-based, so this is the NEXT line
+      while (j < lines.length && !BOX.test(lines[j])) j++;
+      out.push({ n: +m[1], title: m[2].trim(), sec, lo, hi, beat, ln,
+                 own: /^\s*[-*] \[[ xX]\] 🎞️ \*\*GO TO SLIDE/.test(line),
+                 talks: trail.length > 1 || (j < lines.length && NARRATES.test(lines[j])),
+                 next: (lines[j] || "").trim().slice(0, 60) });
+    }
   }
   return out;
 }
@@ -97,6 +113,14 @@ for (const wk of fs.readdirSync(root).filter(d => /^week-\d+$/.test(d)).sort()) 
     if (!c.own)
       say(`demo-script.md:${c.ln} buries the slide ${c.n} cue mid-line — a 🎞️ has to `
         + `START its own "- [ ] " checkbox, or it gets missed at the projector.`);
+
+    // 0b — a cue with nothing to say. The sheet's contract is that every 🎞️
+    // means stop, put the slide up and TALK to it; a bare one leaves the
+    // instructor reading the slide aloud, which the room can do faster.
+    if (!c.talks)
+      say(`demo-script.md:${c.ln} cues slide ${c.n} with no line to say. `
+        + `Put the spoken run after the title on the cue line, or in a marked `
+        + `beat under it. Next beat is: "${c.next}"`);
 
     const slide = slides[c.n - 1];
     if (!slide) continue;
@@ -142,4 +166,4 @@ if (!scanned) {
   process.exit(1);
 }
 console.log(`✅ demo cues line up with the decks in ${scanned} week(s) `
-  + `(order, titles, section ranges, footers, cues on their own line)`);
+  + `(order, titles, section ranges, footers, cues on their own line, cues with a line to say)`);

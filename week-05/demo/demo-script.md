@@ -918,7 +918,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 ## 9 · Wrap *(slide 12)*
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Tonight, in one picture*
-- [ ] **Four beats, and stop:** **`static`** — one copy for the whole program · **instance** — one each, and `this` says which · **a reference** — a name for an object, and two names can point at one · **`null`** — a name for nothing at all
+- [ ] 📖 **Four beats, and stop:** **`static`** — one copy for the whole program · **instance** — one each, and `this` says which · **a reference** — a name for an object, and two names can point at one · **`null`** — a name for nothing at all
 - [ ] 💡 **The one-line version, if only one thing survives the drive home:** *"every variable you have is a name. The question this week asked is what is on the other end of it — one thing, the same thing somebody else is holding, or nothing"*
 - [ ] *"Two URLs in Canvas again. Coursework and project"*
 - [ ] 💡 **Next week:** *"the switchboard you just built holds callers. Next week it holds a song, a station ident, an advert and a weather bed — in one list, in one loop, and none of them are the same kind of thing"*

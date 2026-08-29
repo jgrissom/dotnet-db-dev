@@ -456,6 +456,6 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 ## 9 · Wrap *(slide 15)*
 
 - [ ] 🎞️ **GO TO SLIDE 15** — *Tonight, in one picture*
-- [ ] **Three beats, and stop:** **a field** — anything can say anything · **a property** — somebody at the door decides what gets in · **`private set`** — the record is the authority on itself
+- [ ] 📖 **Three beats, and stop:** **a field** — anything can say anything · **a property** — somebody at the door decides what gets in · **`private set`** — the record is the authority on itself
 - [ ] *"Two URLs in Canvas this week. Your coursework repo, same as always — and your project repo, which is new, and public"*
 - [ ] 💡 **Next week:** *"`static` — the word some of us add to make the red squiggle go away. Next week you find out what it actually costs you"*
