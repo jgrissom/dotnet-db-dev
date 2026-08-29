@@ -144,7 +144,7 @@ public class FuelCheck : ILogEntry
 ```
 
 The loop that printed that has not been touched
-since two segments ago.
+since the promise landed.
 
 ---
 

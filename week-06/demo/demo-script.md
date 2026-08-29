@@ -245,7 +245,11 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 🎞️ **GO TO SLIDE 2** — *Two lists, two loops*
 
+- [ ] 📖 **Say the thing the slide cannot:** *"Two loops, and both of them are correct. Nothing is broken, nothing is misspelled — and that is what makes it hard. There is no bug on this slide to find"*
+
 - [ ] 🎞️ **GO TO SLIDE 3** — *You cannot sort your way out*
+
+- [ ] 📖 **Plant the sorting idea — it gets collected at the terminal in a minute:** *"And you cannot sort your way out of it. Not because sorting is hard, but because there is nothing to sort — two lists, one after the other, and the second does not start until the first has finished"*
 
 - [ ] **Back to the terminal, and make it worse — with something real.** Run it, press `o`, and sign **Moretti** out for a `WALK`, back by `15:30`
 
@@ -340,7 +344,11 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 🎞️ **GO TO SLIDE 4** — *`object` promises nothing*
 
+- [ ] 📖 **Name the trade:** *"So I got the one thing I asked for. The log is in time order. And it cost me everything I knew about what was on it"*
+
 - [ ] 🎞️ **GO TO SLIDE 5** — *An interface is a promise*
+
+- [ ] 📖 **Frame it and hand off — the explanation lands at the editor:** *"So here is the idea, and it is one idea. Not a list of things that are the same — a list of things that promise the same. Let's go and write it"*
 
 - [ ] **Back to the editor. New file, `week-06/Haldane/ILogEntry.cs`.** Paste the whole thing
 
@@ -530,6 +538,8 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] **Press `q`**
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *A new kind costs one class*
+
+- [ ] 📖 **Name what it cost:** *"A whole new kind of thing on the log. One new class, one line to put it on there, and nothing that already worked had to change"*
 
 - [ ] **One more, and this time the log grows while they watch.** In `Program.cs`, <kbd>⌘F</kbd> for **`void AmendABackBy()`** — one hit. Paste this **above** it
 
@@ -748,6 +758,8 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] **Press `q`**
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *Ask, when one kind is different*
+
+- [ ] 📖 **The one thing nothing else says — and cut this first if §6 is running long:** *"That `if` is the escape hatch. You want it to be rare — every one you write is you saying the promise was not quite enough"*
 
 - [ ] **One more, and it is the closing beat.** <kbd>⌘F</kbd> for **`Safe to go out`** — one hit, in `DrawBoard`. **Select from the `AnsiConsole.MarkupLine($"[{Dim}]Outside:[/]…` line down to and including the `[/]");` under it**, and paste this over them
 
