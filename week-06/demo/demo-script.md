@@ -373,6 +373,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 📖 **The definition, and it is the sentence of the night:** *"`interface`, not `class`. There are no bodies in there and there is nothing to make one of. It is a list of what a thing has to be able to answer — and it says nothing whatsoever about what that thing is"*
 - [ ] 💡 **The `I` is a convention, not a rule** — *"the `I` on the front is just something C# programmers do so you can tell at a glance. The compiler could not care less"*
+- [ ] 📖 **Then walk the three, because so far they have only heard the syntax:** *"three things, and that is the whole promise. `Time` — when it happened. `Kind` — one word for what sort of thing it was: MET, SIGN OUT, FUEL. And `Line()` — the rest of the line, handed back as a string. Not printed. Returned — the loop does the printing"*
 
 - [ ] **Now `SignOut.cs`, and this is one phrase.** <kbd>⌘F</kbd> for **`public class SignOut`** — one hit. Make the line read
 
@@ -468,7 +469,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] 🎯 **Point at the loop, then at the screen:** *"one `MarkupLine`. Two completely different classes went through it — one of them holds a person and a return time, the other holds a temperature — and that loop cannot name either of them"*
-- [ ] 💡 **Give it its name here, where it is a good thing — not in §6, where it runs out:** *"that has a name, and the name is the least interesting part of it. Polymorphism. One loop, several kinds of thing, and it never asks which is which"*
+- [ ] 💡 **Give it its name here, where it is a good thing — not in §6, where it runs out:** *"that has a name, and the name is the least interesting part of it. Polymorphism. One loop, several kinds of thing, it never asks which is which — and every one of them answered differently. That is the point"*
 - [ ] **Press `q`**
 
 - [ ] **Save it.** Silent
