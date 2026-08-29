@@ -129,7 +129,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 ## 2 · The log that isn't a log *(slides 2–3)*
 
-- [ ] 📖 *"So let's write down the rest of it. Somebody reads the masts twice a day, and that reading is a fact about this station that nothing here is keeping"*
+- [ ] 📖 *"Sign-outs are the only thing this console writes down. So let's write down the rest — somebody reads the masts twice a day, and that reading is a fact about this station the program keeps nowhere"*
 
 - [ ] **New file, `week-06/Haldane/Reading.cs`.** Paste the whole class
 
