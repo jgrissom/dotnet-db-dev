@@ -613,7 +613,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 ---
 
-## 5 · A promise is not a parent *(slides 8–9)*
+## 5 · A promise is not a parent *(slides 8–10)*
 
 **No code in this segment. Two files already on screen do all the work.**
 
@@ -628,9 +628,18 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 💡 **If somebody asks about `abstract class` — thirty seconds, and do not open an editor:** *"there is a way to say 'is a kind of' in C#, and it is a real tool with real uses. It is also a much bigger promise: you inherit somebody else's fields and behavior along with it, and you only get one. Interfaces are the small promise, and the small promise is the one you want most of the time"*
 - [ ] 🎯 **The test, and this is the thing to leave them with:** *"when you are staring at two classes wondering whether they belong together, do not ask what they are. Ask what somebody needs them to DO — and if the answer is the same sentence for both, that sentence is your interface"*
 
+- [ ] 🎞️ **GO TO SLIDE 10** — *Four words, three of them yours*
+
+- [ ] 🎯 **Ask for hands first and pitch from what comes back — do not assume either way:** *"who wrote a class last semester that inherited from another one?"* — **and wait**
+- [ ] 📖 **Then the map. This is a retrospective, not a lecture** — *"there are four words people use about this kind of code, and you have built three of them already without anybody saying them out loud"*
+- [ ] 📖 **One beat per line on the slide, and keep them moving** — *"Encapsulation — week four. `Expected` has a setter that refuses a blank, so nothing outside the class can put rubbish in it. You wrote that three weeks ago"* · *"Abstraction — tonight. That loop knows three questions and nothing whatsoever about what it is holding"* · *"Polymorphism — also tonight, and we have already named it. `Line()` doing three different jobs while the loop cannot tell them apart"*
+- [ ] 🎯 **The fourth one is the point, so slow down for it:** *"and inheritance is the one you have not used, in six weeks. That is not an accident. It is a real tool — but you reach for the small promise first, and for a parent only when you have shared behaviour to hand down. That is the whole judgment call, and now you have the four words for it"*
+- [ ] 💡 **If somebody asks how abstraction differs from encapsulation, answer it operationally and move on** — *"encapsulation is about what gets IN. Abstraction is about what the caller has to KNOW"* · ⚠️ **do not let this one run**, it is a genuinely muddy distinction and it will eat the segment
+- [ ] ⚠️ **Running long? This is the beat to shorten** — drop the hands question and the abstraction aside and say the four lines straight off the slide. **Nothing later in the night depends on it**
+
 ---
 
-## 6 · The board is a question you ask the log *(slides 10–11)*
+## 6 · The board is a question you ask the log *(slides 11–12)*
 
 - [ ] 📖 *"One thing left, and it has been sitting in this program since the log existed"*
 
@@ -661,7 +670,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 📖 **The cause, in one sentence:** *"there are two lists in this program holding the same things, and when I sign somebody out I only remember to tell one of them. I wrote that method three weeks ago and it has been quietly wrong since the moment the log existed"*
 - [ ] **Press `q`**
 
-- [ ] 🎞️ **GO TO SLIDE 10** — *Two lists. One of them forgot*
+- [ ] 🎞️ **GO TO SLIDE 11** — *Two lists. One of them forgot*
 
 - [ ] 📖 **And rule out the cheap fix out loud, because somebody is about to suggest it:** *"I could add the missing line. Then next week there is a third place, and a fourth. The board and the log hold the same sign-outs — one of them has to go, and it is not going to be the log"*
 
@@ -757,7 +766,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 🎯 **Point at both:** *"the board and the log cannot disagree any more, and it is not because I am being careful. It is because there is only one list, and the board is a question I ask it"*
 - [ ] **Press `q`**
 
-- [ ] 🎞️ **GO TO SLIDE 11** — *Ask, when one kind is different*
+- [ ] 🎞️ **GO TO SLIDE 12** — *Ask, when one kind is different*
 
 - [ ] 📖 **The one thing nothing else says — and cut this first if §6 is running long:** *"That `if` is the escape hatch. You want it to be rare — every one you write is you saying the promise was not quite enough"*
 
@@ -820,9 +829,9 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 ---
 
-## 7 · Hand off *(slide 12)*
+## 7 · Hand off *(slide 13)*
 
-- [ ] 🎞️ **GO TO SLIDE 12** — *Lab: the hour*
+- [ ] 🎞️ **GO TO SLIDE 13** — *Lab: the hour*
 
 - [ ] 📖 *"Your turn, and it is the same idea in a place where it matters more. An hour of radio is not songs. It is songs, and the station ID you are legally required to run, and the ads somebody paid for, and the forecast. Four different kinds of thing, one hour, one loop"*
 - [ ] 🎯 **Define done on their machine:** *"you are done when you press `a` at the desk and six things go out over the air in a row — and one of them counts up, one counts down, and the loop that ran them cannot tell you which is which"*
@@ -830,9 +839,9 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 ---
 
-## 8 · Wrap *(slide 13)*
+## 8 · Wrap *(slide 14)*
 
-- [ ] 🎞️ **GO TO SLIDE 13** — *Tonight, in one picture*
+- [ ] 🎞️ **GO TO SLIDE 14** — *Tonight, in one picture*
 
 - [ ] 📖 **Four sentences, and then stop** — *"a class says what a thing is. An interface says what it can answer. One list holds anything that answers, and one loop is all it takes. And when you need the one kind that is different, you ask"*
 - [ ] 🎯 **The forward line, and it is a real promise:** *"the log is one list, in order, and it is the record of this watch. Next time you shut the program down it is gone — and in week eight it stops being gone"*

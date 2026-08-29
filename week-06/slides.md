@@ -176,6 +176,20 @@ That is the language saying:
 
 ---
 
+<!-- _footer: '🖥️ Demo §5 · a promise is not a parent' -->
+
+## Four words, three of them yours
+
+**Encapsulation** — week 4. `Expected` refuses a blank.
+
+**Abstraction** — tonight. The loop knows three questions.
+
+**Polymorphism** — tonight. `Line()`, three different jobs.
+
+**Inheritance** — the one you have not used.
+
+---
+
 <!-- _footer: '🖥️ Demo §6 · the board is a question' -->
 
 ## Two lists. One of them forgot.

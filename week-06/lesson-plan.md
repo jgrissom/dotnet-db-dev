@@ -71,14 +71,14 @@ By the end of this session, students can:
 | 0:53 | 30 min | 💥 **One list, and it can tell you nothing** *(slides 4–6, demo §3)*. `List<object>` — one list, in order, zero warnings, and the log prints `SignOut / Reading / SignOut`. Then `ILogEntry`, `: ILogEntry`, and 🎯 **the build before a single member is written**: two `CS0535`s, and `Time` is not one of them. One word changes `object` to the promise. |
 | 1:23 | 20 min | 🎯 **The third kind** *(slide 7, demo §4)*. `FuelCheck`, one seed line, run — **and `DrawLog` is untouched.** Ask *"what do I have to change to make this print?"* before running it. Then `[m]et`, and a reading typed in live. |
 | 1:43 | 10 min | **☕ Break** |
-| 1:53 | 12 min | **A promise is not a parent** *(slides 8–9, demo §5)*. **No code.** Two files already on screen. One parent, as many promises as you like — and the test to leave them with: *don't ask what they are, ask what somebody needs them to do.* |
-| 2:05 | 32 min | 💥 **The board is a question you ask the log** *(slides 10–11, demo §6)*. Sign somebody out: the board says four, the log has never heard of her. 🎯 **Ask the room to count the log's sign-outs before you say anything.** Then `is`, one Replace All, the board list deleted, and the headline temperature starts coming off the log — `-52.4` flips `Safe to go out` to `False`. |
-| 2:37 | 5 min | **Lab launch** *(slide 12, demo §7)*. Done is defined on their machine: press `a` and six things go out in a row. |
-| 2:42 | 50 min | **Lab: the hour** *(slide 12 stays up)*. **In-class target: 5 green.** Circulate hard at Task 2 and Task 5. |
-| 3:32 | 13 min | **Wrap-up** *(slide 13, demo §8)*. Class · interface · one list · `is`. Two URLs in Canvas, and **say the checks-copy line out loud**. Week 8 tease: the log stops being gone. |
+| 1:53 | 20 min | **A promise is not a parent** *(slides 8–10, demo §5)*. **No code.** Two files already on screen. One parent, as many promises as you like — and the test to leave them with: *don't ask what they are, ask what somebody needs them to do.* Then **the four words**, as a retrospective: they have built encapsulation, abstraction and polymorphism already, and **inheritance is the one they have not used in six weeks** — which is a choice, not a gap. 🎯 **Ask for hands** on inheritance first. |
+| 2:13 | 27 min | 💥 **The board is a question you ask the log** *(slides 11–12, demo §6)*. Sign somebody out: the board says four, the log has never heard of her. 🎯 **Ask the room to count the log's sign-outs before you say anything.** Then `is`, one Replace All, the board list deleted, and the headline temperature starts coming off the log — `-52.4` flips `Safe to go out` to `False`. |
+| 2:40 | 5 min | **Lab launch** *(slide 13, demo §7)*. Done is defined on their machine: press `a` and six things go out in a row. |
+| 2:45 | 50 min | **Lab: the hour** *(slide 13 stays up)*. **In-class target: 5 green.** Circulate hard at Task 2 and Task 5. |
+| 3:35 | 10 min | **Wrap-up** *(slide 14, demo §8)*. Class · interface · one list · `is`. Two URLs in Canvas, and **say the checks-copy line out loud**. Week 8 tease: the log stops being gone. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes.** If the night runs long, §5 loses its `abstract class` aside and §6 loses the `LatestCelsius` beat. **Do not take it from the lab**, and do not take it from §3 — the `object` break is what makes the rest of the night mean anything.
+> **The table sums to exactly 225 minutes.** If the night runs long, **§5's four-word map is shortened, not dropped** — skip the hands question and the abstraction aside and read the four lines straight off slide 10 — then §5 loses its `abstract class` aside and §6 loses the `LatestCelsius` beat. **Do not take it from the lab**, and do not take it from §3 — the `object` break is what makes the rest of the night mean anything.
 
 ## Instructor notes
 
