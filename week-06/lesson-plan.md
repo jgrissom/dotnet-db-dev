@@ -15,7 +15,7 @@
 12:00  MET       -39.8 C, taken by Moretti
 ```
 
-Then the cursor goes into `DrawLog` and stays there: *"nothing. I wrote a new class, I put one on the list, and this loop printed it. It has not been touched since before the last break, and it has never heard of a fuel check."*
+Then the cursor goes into `DrawLog` and stays there: *"nothing. I wrote a new class, I put one on the list, and this loop printed it. I have not touched this loop since the promise landed, and it has never heard of a fuel check."*
 
 ⚠️ **The set-up is what makes it land, so protect §3.** Twenty minutes earlier the same loop printed `SignOut / Reading / SignOut` — five class names, zero errors, zero warnings. The room has to have seen `object` fail before the promise means anything.
 

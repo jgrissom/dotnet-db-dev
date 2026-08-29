@@ -525,7 +525,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
     14:35  MET       -41.5 C, taken by Bhatt
   ```
 
-- [ ] 🎯 **The payoff, and it is the whole reason this thing exists. Scroll to `DrawLog` and put the cursor in it:** *"nothing. I wrote a new class, I put one on the list, and this loop printed it. This code has not been touched since before the last break, and it has never heard of a fuel check"*
+- [ ] 🎯 **The payoff, and it is the whole reason this thing exists. Scroll to `DrawLog` and put the cursor in it:** *"nothing. I wrote a new class, I put one on the list, and this loop printed it. I have not touched this loop since the promise landed, and it has never heard of a fuel check"*
 - [ ] 💡 **The number is a callback and it costs one sentence** — *"four thousand three hundred liters, which some of you may remember dividing by eight hundred in week one"*
 - [ ] **Press `q`**
 
@@ -622,7 +622,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 ## 6 · The board is a question you ask the log *(slides 10–11)*
 
-- [ ] 📖 *"One thing left, and it has been sitting in this program since the coffee"*
+- [ ] 📖 *"One thing left, and it has been sitting in this program since the log existed"*
 
 - [ ] **Run it, press `o`, and sign `Moretti` out for a `WALK`, back by `15:30`**
 
