@@ -226,7 +226,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
       DrawLog();
   ```
 
-- [ ] 🎯 **Predict before it runs, and ask for an answer:** *"the log is going to have five lines on it. What order will they be in?"* — **and wait**
+- [ ] 🎯 **Predict before it runs, and ask for an answer:** *"the log is going to have five lines on it — three sign-outs and two meteorological readings. Do we have any idea what order they will be in?"* — **and wait**
 
   ```bash
   dotnet run --project week-06/Haldane
