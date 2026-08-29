@@ -835,6 +835,6 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 🎞️ **GO TO SLIDE 13** — *Tonight, in one picture*
 
 - [ ] 📖 **Four sentences, and then stop** — *"a class says what a thing is. An interface says what it can answer. One list holds anything that answers, and one loop is all it takes. And when you need the one kind that is different, you ask"*
-- [ ] 🎯 **The forward line, and it is a real promise:** *"the log is one list, in order, and it is the whole record of this watch. Next time you shut the program down it is gone — and in week eight it stops being gone"*
+- [ ] 🎯 **The forward line, and it is a real promise:** *"the log is one list, in order, and it is the record of this watch. Next time you shut the program down it is gone — and in week eight it stops being gone"*
 - [ ] **Homework: two URLs in Canvas, coursework repo first, project repo second**
 - [ ] ⚠️ **Say the checks line out loud, because it cost people last week** — *"your project's checks are different every week. Part 1 copies this week's in. Skip it and last week's will happily tell you five out of five before you have written anything"*
