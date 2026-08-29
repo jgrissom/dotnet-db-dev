@@ -476,6 +476,21 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 🎯 **Point at the loop, then at the screen:** *"one `MarkupLine`. Two completely different classes went through it — one of them holds a person and a return time, the other holds a temperature — and that loop cannot name either of them"*
 - [ ] 💡 **Give it its name here, where it is a good thing — not in §6, where it runs out:** *"that has a name, and the name is the least interesting part of it. Polymorphism. One loop, several kinds of thing, it never asks which is which — and every one of them answered differently. That is the point"*
+
+- [ ] **One more before you close it — the desk is still running. Press `b`, then `Reyes`, and look at the LOG, not the board**
+
+  ```
+  Watch log:
+    09:05  SIGN OUT  Lindqvist - FUEL, due 10:30
+    12:00  MET       -39.8 C, taken by Moretti
+    14:20  SIGN OUT  Okonkwo - MET RUN, due 15:00
+    14:20  SIGN OUT  Reyes - DIG OUT, back
+    14:35  MET       -41.5 C, taken by Bhatt
+  ```
+
+- [ ] 🎯 **Then the distinction, and keep it clear of the one you just made:** *"that is not a fourth kind of thing, and it is not the loop being clever. That is the same sign-out, answering the same question, differently — because something happened to it. `due 14:45` became `back`, and `DrawLog` has no idea any of that took place"*
+- [ ] 💡 **This collects the `Line()` claim from a few minutes ago** — the sheet said a sign-out knows something nothing else does. **Now they have watched it happen** instead of being told
+- [ ] 💡 **If somebody asks why a line stamped `14:20` says `back`, that is a good question and the answer plants §6** — *"the log records the trip. The board records what is true now. Hold on to that"*
 - [ ] **Press `q`**
 
 - [ ] **Save it.** Silent
