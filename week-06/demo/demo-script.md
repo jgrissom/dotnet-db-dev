@@ -215,7 +215,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   }
   ```
 
-- [ ] 📖 **Say what it is before it runs** — *"two lists, so two loops. Each one knows exactly what it is looking at, so each one can lay its own line out properly"*
+- [ ] 📖 **Say what it is before it runs** — *"Two lists, so two loops. The first is holding sign-outs, so it can reach for a reason and a due time. The second is holding readings, so it can reach for a temperature and who took it. Each loop was told what is in it — which is why each line comes out right"*
 
 - [ ] **And call it from the board.** <kbd>⌘F</kbd> for **`trips logged today`** — one hit, near the bottom of `DrawBoard`. **Select that line and the `AnsiConsole.WriteLine();` directly under it**, and paste this over them
 
