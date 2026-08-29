@@ -475,7 +475,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] 🎯 **Point at the loop, then at the screen:** *"one `MarkupLine`. Two completely different classes went through it — one of them holds a person and a return time, the other holds a temperature — and that loop cannot name either of them"*
-- [ ] 💡 **Give it its name here, where it is a good thing — not in §6, where it runs out:** *"that has a name, and the name is the least interesting part of it. Polymorphism. One loop, different kinds of things, it never asks which is which — and every one of them answered differently. That is the point"*
+- [ ] 💡 **Give it its name here, where it is a good thing — not in §6, where it runs out:** *"that has a name, and the name is the least interesting part of it. Polymorphism. One loop, different kinds of things, it never asks which is which — and every one of them answered differently. That is the point: it doesn't matter how each one answers, as long as the promise is kept"*
 
 - [ ] **One more before you close it — the desk is still running. Press `b`, then `Reyes`, and look at the LOG, not the board**
 
