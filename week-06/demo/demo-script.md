@@ -785,7 +785,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
     14:57  SIGN OUT  Moretti - WALK, due 15:30
   ```
 
-- [ ] 🎯 **Point at both:** *"the board and the log cannot disagree any more, and it is not because I am being careful. It is because there is only one list, and the board is a question I ask it"*
+- [ ] 🎯 **Point at both:** *"the board and the log cannot disagree any more — and not because I remembered to update both. There is nothing to remember. There is one list, and the board is just the log, filtered"*
 - [ ] **Press `q`**
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Ask, when one kind is different*
