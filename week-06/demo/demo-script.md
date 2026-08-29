@@ -733,6 +733,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] 💡 *"That was last week's copy, and it is free now — `SignOuts` builds a fresh list every time you ask, so there is nothing left to protect"*
+- [ ] 💡 **And the other half, because it is what makes `[b]ack` work at all** — *"the list is new every time. The records inside it are not — they are the same objects that are sitting on the log. Crossing a name off this list cannot touch the log. Calling `Back()` on one of these records absolutely does, and that is week five, still true"*
 
 - [ ] **And the one that caused all this.** <kbd>⌘F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit, inside `SignSomebodyOut`. Make it read
 
