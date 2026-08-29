@@ -420,7 +420,13 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 📖 *"And `Line` is the interesting one, because a sign-out knows something nothing else does — whether they came back. Its line reads differently depending, and nothing outside this class has to know that"*
 
-- [ ] **Same two moves in `Reading.cs`.** <kbd>⌘F</kbd> for **`public class Reading`** — one hit. Make it read `public class Reading : ILogEntry`, then paste this inside the class, above its closing `}`
+- [ ] **Same two moves in `Reading.cs`.** <kbd>⌘F</kbd> for **`public class Reading`** — one hit. Make the line read
+
+  ```csharp
+  public class Reading : ILogEntry
+  ```
+
+- [ ] **Then paste these two inside the class, above its closing `}`**
 
   ```csharp
 
