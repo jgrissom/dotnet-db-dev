@@ -137,7 +137,7 @@ Nothing to write. Work a shift and look at it.
 dotnet run --project week-06/Lab
 ```
 
-Type a DJ name, then press `h` to redraw the hour. **Leave the shift running** — there is one more key to press in a moment.
+Type a DJ name. The hour draws itself — **leave the shift running**, there is one more key to press in a moment.
 
 ```
 ── 04:00 - the hour ───────────────────────────────────────────
@@ -185,7 +185,7 @@ Open `Lab/Song.cs`. Everything in it is week 4's, except the last two members, w
 >
 > **Still stuck? Write what you can, then run the checks and *read* check 2.** It goes through the promise one member at a time and names the one that isn't answering yet — `Seconds` and `Play()` included, if they ever stop answering. **It says something different depending on how far you've got**, so run it again after each change.
 
-**Run the shift.** DJ name, then `h`, then `q`:
+**Run the shift.** Type a DJ name, look at the hour, then `q`:
 
 ```bash
 dotnet run --project week-06/Lab
@@ -260,7 +260,7 @@ Three things in there are worth a second before you move on:
 
 **Then turn it on.** In `Lab/Program.cs`, find the line that starts `// hour.Add(new StationId` and take the `//` off the front. That is the only edit you make to that file in this task.
 
-**Run the shift** — DJ name, `h`, `q`:
+**Run the shift** — type a DJ name, look at the hour, then `q`:
 
 ```bash
 dotnet run --project week-06/Lab
@@ -319,7 +319,7 @@ What each one has to be:
 
 **Then turn it on**, same as last time: in `Lab/Program.cs`, take the `//` off the line that starts `// hour.Add(new Ad`.
 
-**Run the shift** — DJ name, `h`, `q`:
+**Run the shift** — type a DJ name, look at the hour, then `q`:
 
 ```bash
 dotnet run --project week-06/Lab
