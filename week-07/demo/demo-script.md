@@ -334,16 +334,9 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Read the error list off the screen — don't count it, point at it:** *"every one of those lines is a place in `Program.cs` still calling the old names. The compiler just wrote the moving checklist for me. We work down it"*
 
-- [ ] **The two desk actions that answer back.** <kbd>⌘F</kbd> for **`void AmendABackBy()`** — one hit. **Select the whole function — from that line down to and including the `}` directly above `void MarkSomebodyBack()`** — and paste this over it
+- [ ] **The two desk actions that answer back — and the prompts are staying put, so don't select them.** <kbd>⌘F</kbd> for **`void AmendABackBy()`** — one hit. **Leave the four lines under it alone.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** — and paste this over them
 
   ```csharp
-  void AmendABackBy()
-  {
-      Console.Write("  Whose back-by is changing: ");
-      string name = Console.ReadLine() ?? "";
-      Console.Write("  New back-by: ");
-      string newTime = Console.ReadLine() ?? "";
-
       if (watch.AmendBackBy(name, newTime))
       {
           DrawBoard();
@@ -352,19 +345,14 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       {
           AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");
       }
-  }
   ```
 
-- [ ] 📖 *"The prompts stay here — a class doesn't talk to people. The loop and the decision went to `Watch`, and what comes back is a yes or a no: week two's `TryParse` deal, on a method of our own"*
+- [ ] 📖 **Put the cursor at the top of the method, on the prompts, and leave it there — the point is what did NOT move:** *"Look at the top of that method. The two prompts and the two `ReadLine`s have not been touched — I did not select them and I did not paste over them, and they will still be sitting there in week sixteen. Asking a human a question is this file's job. What left is underneath: the loop that hunted through the sign-outs for the right one, and the decision about which one to write the new time on. That is the rule, and that is all of the rule — the thinking goes to the class, the talking stays here"*
+- [ ] 📖 **Then the return value, because it is new:** *"And notice what comes back — a yes or a no. The desk asks `Watch` to amend a time and finds out whether it worked, which is week two's `TryParse` deal turning up on a method of our own"*
 
-- [ ] **Same for mark-back.** <kbd>⌘F</kbd> for **`void MarkSomebodyBack()`** — one hit. **Select from that line down to and including the `}` directly above `void LookSomebodyUp()`** and paste this over it
+- [ ] **Same again for mark-back — same two lines, same restraint.** <kbd>⌘F</kbd> for **`void MarkSomebodyBack()`** — one hit. **The prompt above stays.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** and paste this over them
 
   ```csharp
-  void MarkSomebodyBack()
-  {
-      Console.Write("  Who's back: ");
-      string name = Console.ReadLine() ?? "";
-
       if (watch.MarkBack(name))
       {
           DrawBoard();
@@ -373,8 +361,9 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       {
           AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");
       }
-  }
   ```
+
+- [ ] 💡 **Don't narrate that one** — it is the same move, and the room should feel it is the same move
 
 - [ ] **The sign-out itself.** <kbd>⌘F</kbd> for **`log.Add(new SignOut("14:57"`** — one hit. Make that line read
 
