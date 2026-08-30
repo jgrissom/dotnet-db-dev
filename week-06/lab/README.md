@@ -368,7 +368,7 @@ Open `Lab/Hour.cs`. It is `Rotation` and `Switchboard` again — a private list,
 
 **`Run()`** — put the hour on air. This is the one the whole night has been for:
 
-- **Make a `List<string>` to fill.** It ships handing back an empty one built inside the `return`, and there is nowhere to put a line in that. [Make it, fill it in the loop, hand it back](../lecture-notes.md#a-class-that-holds-a-list-of-a-promise) — three steps, always that order.
+- **Make a `List<string>` to fill.** It ships handing back an empty one built inside the `return`, and there is nowhere to put a line in that. [Make it, fill it in the loop, hand it back](../lecture-notes.md#making-a-list-to-hand-back) — three steps, always that order.
 - **Walk the items and `Play()` each one** — every kind counts an airing differently and this loop will never find out how.
 - **Add one line per item to your list**, and hand the list back at the end. The shape is the item's `Kind`, then `" - "`, then its `Cue`:
 

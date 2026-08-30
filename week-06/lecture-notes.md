@@ -211,6 +211,8 @@ public int TotalSeconds
 
 Nothing in there knows what a song is.
 
+### Making a list to hand back
+
 A loop that builds something to hand back reads the same way, with one extra
 move at the front: **make the list before you walk, not in the `return`.**
 
