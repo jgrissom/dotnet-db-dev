@@ -447,6 +447,8 @@ dotnet run --project week-06/Lab
 4. ⭐ **Write your own promise.** A caller can request a song. They cannot request an advert, and they certainly cannot request the weather. So: an interface of your own — call it `IRequestable`, one member, whatever a caller needs to be able to ask for by name — and put it on `Song` and on nothing else. [The syntax is four lines and it is all in the notes.](../lecture-notes.md#an-interface-is-a-promise) **This is the one item on this list that is also your homework**, so it is worth the ten minutes: tonight's lab hands you `IScheduleItem` already written, and this week's homework asks you to write one from scratch.
 5. ⭐ **The one that pays off later:** give `Hour` a `LongestItem()` that hands back the item that runs longest. It returns an `IScheduleItem`, so the caller gets something it can ask three questions and nothing else. In **week 9** that whole loop becomes one line.
 
+6. 🔊 **Record your own ident.** The station has a voice — press `a` and you will hear it. It lives at `week-06/Lab/kdxr.wav`, and it is yours to replace: record eight seconds of your own station saying its own name, save it over that file, and run the shift again. ⚠️ **It has to be a `.wav`** — an `.mp3` plays on a Mac and throws on Windows. Nothing checks this and nothing ever will.
+
 ## 🆘 Stuck?
 
 | What you see | What it means |
