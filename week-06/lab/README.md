@@ -137,7 +137,7 @@ Nothing to write. Work a shift and look at it.
 dotnet run --project week-06/Lab
 ```
 
-Type a DJ name, then press `h` to redraw the hour, then `q`.
+Type a DJ name, then press `h` to redraw the hour. **Leave the shift running** — there is one more key to press in a moment.
 
 ```
 ── 04:00 - the hour ───────────────────────────────────────────
@@ -162,7 +162,7 @@ Now press `a` — *put the hour on air*:
 [r]equest  [h]our  [a]ir  [c] switchboard  [q]uit: a
 ```
 
-Nothing happens. Nothing goes out.
+Nothing happens. Nothing goes out. **Now press `q`.**
 
 **Open `Lab/IScheduleItem.cs` and read it before you go any further.** It ships written, it is three questions long, and [it is the only reason any of tonight works](../lecture-notes.md#an-interface-is-a-promise). Then open `Lab/WeatherBed.cs`, which is the one class in the folder that already answers all three — [that is why it is the only row on the hour that says anything](../lecture-notes.md#keeping-a-promise).
 
