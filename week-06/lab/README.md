@@ -300,7 +300,7 @@ week 6 lab: the ident is an item too
 
 Pham's Bakery bought **three runs** tonight. Somebody paid for those, so the desk has to know how many are left.
 
-Open `Lab/Ad.cs`. `Sponsor`, `Copy`, `Remaining` and the constructor ship. **Everything else is yours, and it is the same two steps as the ident** — the promise, then the four members.
+Open `Lab/Ad.cs`. `Sponsor`, `Copy`, `Remaining` and the constructor ship. **Everything else is yours, and it is the same two steps as the ident: keep the promise — `: IScheduleItem` after the class name — then write the four members below.**
 
 What each one has to be:
 
