@@ -334,7 +334,9 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Read the error list off the screen — don't count it, point at it:** *"every one of those lines is a place in `Program.cs` still calling the old names. The compiler just wrote the moving checklist for me. We work down it"*
 
-- [ ] **The two desk actions that answer back — and the prompts are staying put, so don't select them.** <kbd>⌘F</kbd> for **`void AmendABackBy()`** — one hit. **Leave the four lines under it alone.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** — and paste this over them
+- [ ] 🎯 **First, read the old shape while it is still on screen.** <kbd>⌘F</kbd> for **`void AmendABackBy()`** — one hit. Put the cursor on `DrawBoard();` inside the loop, then on the amber `Nobody outside by that name` line under it: *"Two things can happen in this method. We find her, we write the new time, we redraw the board — that is this line, in here. Or the loop runs out and nobody by that name is outside — that is this line, down here. Watch where those two end up"*
+
+- [ ] **Now the edit — and the prompts are staying put, so don't select them.** Still in `AmendABackBy`. **Leave the four lines under it alone.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** — and paste this over them
 
   ```csharp
       if (watch.AmendBackBy(name, newTime))
@@ -347,8 +349,11 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       }
   ```
 
-- [ ] 📖 **Put the cursor at the top of the method, on the prompts, and leave it there — the point is what did NOT move:** *"Look at the top of that method. The two prompts and the two `ReadLine`s have not been touched — I did not select them and I did not paste over them, and they will still be sitting there in week sixteen. Asking a human a question is this file's job. What left is underneath: the loop that hunted through the sign-outs for the right one, and the decision about which one to write the new time on. That is the rule, and that is all of the rule — the thinking goes to the class, the talking stays here"*
-- [ ] 📖 **Then the return value, because it is new:** *"And notice what comes back — a yes or a no. The desk asks `Watch` to amend a time and finds out whether it worked, which is week two's `TryParse` deal turning up on a method of our own"*
+- [ ] 📖 **Point at the `if`, then at the `else`:** *"Those two endings were both already in this method. Redrawing the board was buried in the middle of the search — three lines ago it sat inside the loop. Saying nobody is outside was stranded underneath it, and the only way to reach it was for the loop to run out. Taking the search away is what let them come and sit next to each other, which is what they always were: the two things that can happen"*
+
+- [ ] 🎯 **Then the `bool`, and this is the part to slow down for. Put the cursor on `watch.AmendBackBy(name, newTime)`:** *"And now look at why that method hands back true or false. In the old version, `return` was doing two jobs at once — it stopped the looking, and it meant we found her. Both, in one word. The moment the loop moves into `Watch`, `return` can only do the first job: it stops the loop in there. So the news has to travel back some other way, and the way it travels is a yes or a no. That is week two's `TryParse` deal, turning up on a method of our own"*
+
+- [ ] 📖 **Last, the half that did not move — cursor at the top of the method, on the prompts:** *"And notice what I did not select. The two prompts and the two `ReadLine`s are untouched, because asking a human a question is this file's job and always will be"*
 
 - [ ] **Same again for mark-back — same two lines, same restraint.** <kbd>⌘F</kbd> for **`void MarkSomebodyBack()`** — one hit. **The prompt above stays.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** and paste this over them
 
