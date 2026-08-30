@@ -288,7 +288,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 
   AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
   AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
-  AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 226[/]");
+  AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 226[/]");
   AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
   AnsiConsole.WriteLine();
   ```
@@ -300,7 +300,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```
   ========================================================
     HALDANE STATION - DUTY CONSOLE
-    nearest neighbour: 512 km - winter crew - day 226
+    nearest neighbor: 512 km - winter crew - day 226
   ========================================================
   ```
 - [ ] **Two more colors — straight under `Amber` and `Dim`, so all four sit together:**
@@ -350,7 +350,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] **`TIME NAME REASON EXPECTED` go dim grey** — the same grey as the column headings on the board upstairs. 📖 **Name the markup once, because it is the whole API:** *"square brackets round the text, color in the front one, slash in the back. That's all Spectre markup is"*
+- [ ] **`TIME NAME REASON EXPECTED` go dim gray** — the same gray as the column headings on the board upstairs. 📖 **Name the markup once, because it is the whole API:** *"square brackets round the text, color in the front one, slash in the back. That's all Spectre markup is"*
 - [ ] **Then the cells. Select the `board.AddRow(...)` line inside the `foreach` and paste over it:**
   ```csharp
       board.AddRow(
@@ -363,7 +363,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] 💥 **This is the one that lands** — the **reasons go amber**, the names go pale, the times and due-backs drop into grey. **The board stops being a table and starts being the duty console.** Let it sit before the next paste
+- [ ] 💥 **This is the one that lands** — the **reasons go amber**, the names go pale, the times and due-backs drop into gray. **The board stops being a table and starts being the duty console.** Let it sit before the next paste
   - 💡 **`Markup.Escape` only if somebody asks**, and one sentence: in §6 a human types into these cells, and a stray `[` would be read as markup instead of text
 - [ ] **Last, the count. Select `Console.WriteLine($"{outside.Count} people outside.");` under `AnsiConsole.Write(board);` and paste over it:**
   ```csharp
@@ -374,7 +374,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
   ```bash
   dotnet run --project week-03/Haldane
   ```
-- [ ] **The count drops into grey too, and the board gets a blank line under it.** That is the whole console, finished
+- [ ] **The count drops into gray too, and the board gets a blank line under it.** That is the whole console, finished
 - [ ] Run it:
   ```bash
   dotnet run --project week-03/Haldane
@@ -576,7 +576,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 
 - [ ] ⚠️ 🎯 **This is the beat the week exists for. Do not rush it, and do not type anything.**
 - [ ] **Say what you're about to do, because it's a promise being kept:** *"I told you about this in week 1. I'll do it now"*
-- [ ] Run the same program again — and this time **press `q` straight away**:
+- [ ] Run the same program again — and this time **press `q` right away**:
   ```bash
   dotnet run --project week-03/Haldane
   ```

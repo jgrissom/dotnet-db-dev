@@ -2,7 +2,7 @@
 
 It's 4 AM at **KDXR 88.1, "The Owl."** The rotation is loaded, the switchboard is yours, and in about a minute the station is legally obliged to say its own call letters out loud.
 
-An hour of radio is not songs. It's a song, then the **station ID**, then the **ad** Pham's Bakery paid for, then the **forecast** read over a music bed — and then more songs. Four different kinds of thing, one hour, in order, adding up to sixty minutes.
+An hour of radio is not songs. It's a song, then the **station ID**, then the **ad** Pham's Bakery paid for, then the **forecast** read over a music bed — and then more songs. Four different kinds of things, one hour, in order, adding up to sixty minutes.
 
 Tonight the desk gets an hour it can actually run. Right now it has one item on it that knows what it is, and a clock that says nothing is scheduled.
 
@@ -308,7 +308,7 @@ Open `Lab/Ad.cs`. `Sponsor`, `Copy`, `Remaining` and the constructor ship. **Eve
 
 What each one has to be:
 
-- **`Kind`** — one word, and **not one another kind is already using**. There are four sorts of thing on this hour and four words in that column.
+- **`Kind`** — one word, and **not one another kind is already using**. There are four sorts of things on this hour and four words in that column.
 - **`Cue`** — two things it must carry, and the wording around them is yours. It has to name the **sponsor**, because an ad the DJ can't attribute is an ad the station runs again for free. And it has to show **how many runs are left on the buy** — that is what the desk prints the moment the spot airs, and it is the only thing on the screen that says an airing actually happened.
 - **`Seconds`** — a spot is **thirty seconds**. It has been thirty seconds since radio began, and nothing is handed in for it.
 - **`Play()`** — this is the one that counts the other way. Every airing spends one run off the buy. ⚠️ **It never goes below zero:** a station that owes minus one spot has a bug, so the method asks before it spends.
@@ -473,7 +473,7 @@ dotnet run --project week-06/Lab
 | The ident or the ad never appears | The `hour.Add(...)` line in `Program.cs` is still commented out. Tasks 3 and 4 each turn one on. |
 | Pham's Bakery says `-1 left` | `Play()` is spending a run it doesn't have. Ask before you spend — [each kind counts its own way](../lecture-notes.md#the-same-method-four-different-jobs), and this is the one that counts down. |
 | The ON AIR line shows the ad's count *before* it aired | You read `Cue` before calling `Play()`. Swap the two lines. |
-| Two kinds of item share a word in the KIND column | Four sorts of thing, four words — [that column is what the one loop prints](../lecture-notes.md#one-list-one-loop). The check says which two collided. |
+| Two kinds of items share a word in the KIND column | Four sorts of things, four words — [that column is what the one loop prints](../lecture-notes.md#one-list-one-loop). The check says which two collided. |
 | `dotnet test` passes but the hour still looks wrong | Run the program, not just the checks. The checks never look at `Program.cs`, and most of tonight is only visible on the hour. |
 | Breakpoints never stop | Command Palette → **`Developer: Reload Window`**, then <kbd>F5</kbd>. `.NET: Restart Language Server` does not fix it. |
 | <kbd>F5</kbd>'s project list has no `week-06` in it | The editor learned which projects exist when you opened the folder, and this week's did not exist yet. **`Developer: Reload Window`.** |
@@ -488,4 +488,4 @@ dotnet run --project week-06/Lab
 > git commit -m "week 6 lab: a song knows how to be scheduled"
 > ```
 
-**Prev:** [Week 5 Lab — The Switchboard](../../week-05/lab/) · **Next:** [Week 6 Homework — Two Kinds of Row](../homework.md)
+**Prev:** [Week 5 Lab — The Switchboard](../../week-05/lab/) · **Next:** [Week 6 Homework — Two Kinds of Rows](../homework.md)

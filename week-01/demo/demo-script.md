@@ -146,7 +146,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");
-  Console.WriteLine("  nearest neighbour: 512 km");
+  Console.WriteLine("  nearest neighbor: 512 km");
   Console.WriteLine("========================================");
   Console.WriteLine();
   ```
@@ -223,14 +223,14 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 - [ ] Paste the generator block. ⚠️ **The bug is already in it — `int burnPerHour` — and that is exactly the point: nothing here looks wrong.** 📖 **Talk it through as if it were fine** — *"the fuel, divided by the burn rate, into a double"* — and say nothing about the types:
   ```csharp
-  int fuelLitres = 4300;
+  int fuelLiters = 4300;
   int burnPerHour = 800;
 
-  double hoursOfFuel = fuelLitres / burnPerHour;
+  double hoursOfFuel = fuelLiters / burnPerHour;
   Console.WriteLine($"Generator fuel: {hoursOfFuel} hours remaining.");
   Console.WriteLine();
   ```
-- [ ] **Predict, hands up:** *"4300 litres, 800 an hour. What prints?"* — the room will say five point something
+- [ ] **Predict, hands up:** *"4300 liters, 800 an hour. What prints?"* — the room will say five point something
 - [ ] ⚠️ **Break 2 — the payoff. Do not announce it.** Just run it:
   ```bash
   dotnet run --project week-01/Haldane
@@ -310,7 +310,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```bash
   git status
   ```
-- [ ] 🎯 **Sit on the oddity — this is a notice-then-explain beat, so don't answer it yourself:** *"one line. For a folder with dozens of files in it. And the badge over there says something completely different. Anything strike you as odd?"* Let it hang, then explain: **git summarises an untracked folder as a single line rather than listing what is inside it.** To see the lot:
+- [ ] 🎯 **Sit on the oddity — this is a notice-then-explain beat, so don't answer it yourself:** *"one line. For a folder with dozens of files in it. And the badge over there says something completely different. Anything strike you as odd?"* Let it hang, then explain: **git summarizes an untracked folder as a single line rather than listing what is inside it.** To see the lot:
   ```bash
   git status -u
   ```

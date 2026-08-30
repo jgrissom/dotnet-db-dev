@@ -40,7 +40,7 @@
     "commits": {
       "points": 2,
       "minimum": 3,
-      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgement call)"
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgment call)"
     },
     "mergedPr": {
       "points": 2,

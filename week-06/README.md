@@ -1,4 +1,4 @@
-# Week 6 — One Loop, Four Kinds of Thing
+# Week 6 — One Loop, Four Kinds of Things
 
 Every list students have written since week 3 has held exactly one type, and it has never cost them anything. Tonight it costs twice: a duty log that cannot be read down because it is really two lists, and then one list that holds everything and can say nothing about any of it. The answer is a kind of type they have never written — no bodies, nothing to make — and by the end of the lab one `foreach` is putting a song, a station ident, an advert and a weather bed on air.
 
@@ -9,7 +9,7 @@ Every list students have written since week 3 has held exactly one type, and it 
 | Prep | 🗓️&nbsp;[lesson-⁠plan.md](lesson-plan.md) | Timed 3h45 agenda + instructor notes |
 | Prep&nbsp;/⁠&nbsp;in-⁠class&nbsp;script | 📖&nbsp;[lecture-⁠notes.md](lecture-notes.md) | Full lecture content, the interface syntax, **troubleshooting appendix** |
 | Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck (GFM, one slide per `##`) — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-06/) (arrow keys, `F` for fullscreen) |
-| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *One loop, four kinds of thing* — a log that isn't a log, a list that promises nothing, and a board that turns out to be a question; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-06/demo/script.html) |
+| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *One loop, four kinds of things* — a log that isn't a log, a list that promises nothing, and a board that turns out to be a question; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-06/demo/script.html) |
 | In&nbsp;class,&nbsp;last&nbsp;50&nbsp;min | 🧪&nbsp;[lab/⁠](lab/) | *The hour* — 5 checks, 1/5 green out of the box, and four classes that go on air from one loop (answer key in the private repo) |
 | With&nbsp;the&nbsp;homework | ✅&nbsp;[starters&nbsp;repo⁠](https://github.com/jgrissom/dotnet-db-starters) | The lab folder, and **`project/week-06/Project.Checks`** — the checks the grader runs against your own project, byte-for-byte |
 | Assigned&nbsp;at&nbsp;wrap-⁠up | 📤&nbsp;[homework.md](homework.md) | An interface, two classes that keep it, and one list that holds both (20 pts) |

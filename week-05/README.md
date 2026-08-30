@@ -37,4 +37,4 @@ And they can set a breakpoint, step, and read an object's fields as it is built 
 - **VS Code open on the demo repo\'s top**, exactly where week 4 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — week 5\'s board adds the crew\'s trip tally
 
-**Prev:** [Week 4 — OOP With a Reason, and the Semester Project](../week-04/) · **Next:** [Week 6 — One Loop, Four Kinds of Thing](../week-06/)
+**Prev:** [Week 4 — OOP With a Reason, and the Semester Project](../week-04/) · **Next:** [Week 6 — One Loop, Four Kinds of Things](../week-06/)

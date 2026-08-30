@@ -33,6 +33,20 @@ jobs:
         run: node scripts/check-emphasis.js .
       - name: Every homework scaffolds its own commits
         run: node scripts/check-commit-points.js .
+      # The course is written in plain American English. This was a RULE for
+      # months and drifted anyway — 54 files, a week title, and the banner
+      # Haldane prints on the projector every week. A rule with no command
+      # behind it is a rule nobody can run.
+      #
+      # ⚠️ Only THIS repo is checked out here. The keys, the starters and
+      # dutyconsole carry check messages and boards too — run it across all
+      # four locally before a handover:
+      #   node scripts/check-americanisms.js ../dotnet-db-dev-answer-keys \
+      #        ../dotnet-db-starters ../dutyconsole .
+      - name: Plain American English (patterns self-test, then scan)
+        run: |
+          node scripts/check-americanisms.js --selftest
+          node scripts/check-americanisms.js .
       # Step 0 of the closing checklist, here so it cannot be skipped. It FAILS
       # on a countable falling to zero, a missing CLI-fallback block, TODO — Task
       # N out of order, or a timing table that isn't 225 with no drift.

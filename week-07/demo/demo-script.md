@@ -60,7 +60,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   Outside: -43.1 C   Safe to go out: True
   ```
 
-- [ ] 📖 **Fast — this is a refresher, not a re-teach:** *"a log that takes three different kinds of thing, a board that is just the log filtered, and a headline temperature that comes off the last reading anybody took"*
+- [ ] 📖 **Fast — this is a refresher, not a re-teach:** *"a log that takes three different kinds of things, a board that is just the log filtered, and a headline temperature that comes off the last reading anybody took"*
 - [ ] 🎯 **Then the question the night runs on, and let it sit:** *"here is what I want to know tonight. This console keeps the record a search party would use. How do I know what it says is TRUE? Not 'it compiles' — week one killed that idea. Not 'it looks right on the projector' — you're about to see what that's worth. How do I KNOW?"*
 - [ ] **Press `q` to close the desk**
 
@@ -99,7 +99,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] **Open `week-07/Haldane/Program.cs`, and move the date on.** <kbd>⌘F</kbd> for **`day 247`** — one hit. Make it read
 
   ```csharp
-      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 254[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 254[/]");
   ```
 
 - [ ] **Run it** — the desk they know, one week on

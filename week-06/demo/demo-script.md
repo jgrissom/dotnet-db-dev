@@ -1,8 +1,8 @@
-# Week 6 Demo — One Loop, Four Kinds of Thing 🧊
+# Week 6 Demo — One Loop, Four Kinds of Things 🧊
 
 **Haldane Station · duty console · day 247**
 
-Tonight the console stops being a board and starts being a **log** — and the room finds out what it costs to put four different kinds of thing on one list, and what it costs not to.
+Tonight the console stops being a board and starts being a **log** — and the room finds out what it costs to put four different kinds of things on one list, and what it costs not to.
 
 > **The shape of the night:** a log that isn't in time order → one list that can tell you nothing → a promise → a third kind of thing that costs one class → and a board that turns out to be a question.
 
@@ -75,7 +75,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   git checkout -b the-promise
   ```
 
-- [ ] 💡 **Five seconds, then stop.** Week 5 already said the new part out loud *(the commits counted are the ones on this week's branch)* and this is not a re-teach — it is a habit being modelled
+- [ ] 💡 **Five seconds, then stop.** Week 5 already said the new part out loud *(the commits counted are the ones on this week's branch)* and this is not a re-teach — it is a habit being modeled
 
 - [ ] **Now make this week's folder.** No commentary — they have watched this five times
 
@@ -108,7 +108,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] **Open `week-06/Haldane/Program.cs`, and move the date on.** <kbd>⌘F</kbd> for **`day 240`** — one hit. Make it read
 
   ```csharp
-      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 247[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 247[/]");
   ```
 
 - [ ] **Run it** — the desk they know, one week on
@@ -655,7 +655,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 🎯 **Ask for hands first and pitch from what comes back — do not assume either way:** *"who wrote a class last semester that inherited from another one?"* — **and wait**
 - [ ] 📖 **Then the map. This is a retrospective, not a lecture** — *"there are four words people use about this kind of code, and you have built three of them already without anybody saying them out loud"*
 - [ ] 📖 **One beat per line on the slide, and keep them moving** — *"Encapsulation — week four. `Expected` has a setter that refuses a blank, so nothing outside the class can put rubbish in it. You wrote that three weeks ago"* · *"Abstraction — tonight. That loop knows three questions and nothing whatsoever about what it is holding"* · *"Polymorphism — also tonight, and we have already named it. `Line()` doing three different jobs while the loop cannot tell them apart"*
-- [ ] 🎯 **The fourth one is the point, so slow down for it:** *"and inheritance is the one you have not used, in six weeks. That is not an accident. It is a real tool — but you reach for the small promise first, and for a parent only when you have shared behaviour to hand down. That is the whole judgment call, and now you have the four words for it"*
+- [ ] 🎯 **The fourth one is the point, so slow down for it:** *"and inheritance is the one you have not used, in six weeks. That is not an accident. It is a real tool — but you reach for the small promise first, and for a parent only when you have shared behavior to hand down. That is the whole judgment call, and now you have the four words for it"*
 - [ ] 💡 **If somebody asks how abstraction differs from encapsulation, answer it operationally and move on** — *"encapsulation is about what gets IN. Abstraction is about what the caller has to KNOW"* · ⚠️ **do not let this one run**, it is a genuinely muddy distinction and it will eat the segment
 - [ ] ⚠️ **Running long? This is the beat to shorten** — drop the hands question and the abstraction aside and say the four lines straight off the slide. **Nothing later in the night depends on it**
 
@@ -876,7 +876,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 🎞️ **GO TO SLIDE 13** — *Lab: the hour*
 
-- [ ] 📖 *"Your turn, and it is the same idea in a place where it matters more. An hour of radio is not songs. It is songs, and the station ID you are legally required to run, and the ads somebody paid for, and the forecast. Four different kinds of thing, one hour, one loop"*
+- [ ] 📖 *"Your turn, and it is the same idea in a place where it matters more. An hour of radio is not songs. It is songs, and the station ID you are legally required to run, and the ads somebody paid for, and the forecast. Four different kinds of things, one hour, one loop"*
 - [ ] 🎯 **Define done on their machine:** *"you are done when you press `a` at the desk and six things go out over the air in a row — and one of them counts up, one counts down, and the loop that ran them cannot tell you which is which"*
 - [ ] 💡 **Point at Setup step 3 and the window reload** — same as last week, and it is the reason <kbd>F5</kbd> will find this week's project
 

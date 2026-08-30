@@ -444,7 +444,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
 | 1 | `bin/` and `obj/` tracked in **neither** repo — the `.gitignore` holding, in both places |
-| 2 | 3+ commits on **this week's branch** 👀 *(meaningful messages are a judgement call)* |
+| 2 | 3+ commits on **this week's branch** 👀 *(meaningful messages are a judgment call)* |
 | 2 | A second merge commit on `main` — this week's branch → pull request → merge |
 
 > [!NOTE]
@@ -477,9 +477,9 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | A value isn't what you think it is | **Set a breakpoint and look.** [Two minutes with the debugger](lecture-notes.md#the-debugger-and-what-it-is-actually-for) beats twenty with `Console.WriteLine`. |
 | Breakpoints never stop | Command Palette → **`Developer: Reload Window`**, then <kbd>F5</kbd>. |
 | <kbd>F5</kbd>'s project list is unreadable | Every entry is the project name plus its full path, so they look identical. **Type to filter it** — in your project repo it is two lines and you want `Project`; in your coursework repo type the week and pick `Lab`. |
-| **5 / 5 before you've written anything**, or check names you don't recognise | You're running **last week's** checks. [Part 1](#part-1--catch-up-then-branch) copies this week's in — `Check2_YourRecordDoesSomething` is the first of tonight's; `Check1_YouPickedATopic` is last week's. |
+| **5 / 5 before you've written anything**, or check names you don't recognize | You're running **last week's** checks. [Part 1](#part-1--catch-up-then-branch) copies this week's in — `Check2_YourRecordDoesSomething` is the first of tonight's; `Check1_YouPickedATopic` is last week's. |
 | `Assembly.Load("Project")` failed / no tests ran | The console project isn't called `Project`, or it isn't beside `Project.Checks` at the top of your repo. |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b find-and-remove`, push that. |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
 
-**Prev:** [Week 5 Lab — The Switchboard](lab/) · **Next:** [Week 6 — One Loop, Four Kinds of Thing](../week-06/)
+**Prev:** [Week 5 Lab — The Switchboard](lab/) · **Next:** [Week 6 — One Loop, Four Kinds of Things](../week-06/)

@@ -406,7 +406,7 @@ That last one is the step everybody forgets. The merge happened on GitHub; your 
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
 | 1 | `bin/` and `obj/` tracked in **neither** repo — the `.gitignore` holding, in both places |
-| 2 | 3+ commits in the project repo 👀 *(meaningful messages are a judgement call)* |
+| 2 | 3+ commits in the project repo 👀 *(meaningful messages are a judgment call)* |
 | 2 | A merge commit on `main` — the branch → pull request → merge round trip, done once |
 
 > [!WARNING]

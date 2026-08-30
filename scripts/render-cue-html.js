@@ -8,10 +8,10 @@
 // projector, in a room whose wifi is a known risk. Highlighting here bakes
 // <span class="hljs-…"> straight into the published HTML, so the page needs
 // no CDN, no runtime JS and no second origin that can fail on its own. The
-// colours are plain CSS in export-slides.yml, matching the deck's.
+// colors are plain CSS in export-slides.yml, matching the deck's.
 //
 // Fences with no language stay untouched on purpose — the sheets use bare
-// fences for EXPECTED OUTPUT (terminal text, commit messages), and colouring
+// fences for EXPECTED OUTPUT (terminal text, commit messages), and coloring
 // those as if they were source would be a lie about what they are.
 const { Marked } = require("marked");
 const { markedHighlight } = require("marked-highlight");

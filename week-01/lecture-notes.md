@@ -183,10 +183,10 @@ Those are very different promises, and the gap between them is enormous. `int / 
 ⚠️ **This is the one habit that will silently give you a wrong answer this week**, and it is worth reading even though you've divided numbers in C# before — most people meet this once, fix it by trial and error, and never get told what actually happened.
 
 ```csharp
-int fuelLitres = 4300;
+int fuelLiters = 4300;
 int burnPerHour = 800;
 
-double hoursOfFuel = fuelLitres / burnPerHour;
+double hoursOfFuel = fuelLiters / burnPerHour;
 Console.WriteLine($"Generator fuel: {hoursOfFuel} hours remaining.");
 ```
 
@@ -339,7 +339,7 @@ dotnet-db-coursework/     ← your VS Code window. git lives HERE. So does your 
 
 ### The gitignore, written before your first commit
 
-Run `git init`, then `git status`, and you get one line: `week-01/`. That is git being tidy — **it summarises an untracked folder rather than listing what is inside it** — and it is hiding the problem. Ask for all of it:
+Run `git init`, then `git status`, and you get one line: `week-01/`. That is git being tidy — **it summarizes an untracked folder rather than listing what is inside it** — and it is hiding the problem. Ask for all of it:
 
 ```bash
 git status -u

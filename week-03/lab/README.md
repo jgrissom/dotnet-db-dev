@@ -400,7 +400,7 @@ week 3 lab: the shift adds up
 
 ### 🌙 Then do one more thing
 
-**Run it again. Type `q` straight away — take no calls at all.**
+**Run it again. Type `q` right away — take no calls at all.**
 
 ```bash
 dotnet run --project week-03/Lab

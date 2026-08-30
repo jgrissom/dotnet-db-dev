@@ -1,6 +1,6 @@
 # Week 6 — Lesson Plan
 
-**Topic:** Interfaces and polymorphism — one list holding four kinds of thing, one loop asking all of them the same questions, and the honest limit of that idea.
+**Topic:** Interfaces and polymorphism — one list holding four kinds of things, one loop asking all of them the same questions, and the honest limit of that idea.
 **Session length:** 3h 45m
 
 > Students have written a list of one type every week since week 3, and it has never cost them anything. Tonight it does, twice: a duty log that cannot be read down because it is really two lists, and then a single list that holds everything and can tell them nothing. The answer is a kind of type they have never written — one with no bodies in it and nothing to make.

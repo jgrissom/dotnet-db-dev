@@ -182,7 +182,7 @@ dotnet run --project week-02/Homework
 ⚠️ **Row three is the one worth two points.** Read on:
 
 > [!IMPORTANT]
-> **Now run it the way I will run it: press Enter at every prompt and type nothing else.** That is exactly what the grader does — it answers each question with a bare newline and then stops typing. **If your program crashes on that, it scores 0 for "builds and runs" no matter how green your checks are.** A program that only survives sensible answers has not been tested; it's been humoured.
+> **Now run it the way I will run it: press Enter at every prompt and type nothing else.** That is exactly what the grader does — it answers each question with a bare newline and then stops typing. **If your program crashes on that, it scores 0 for "builds and runs" no matter how green your checks are.** A program that only survives sensible answers has not been tested; it's been humored.
 
 If anything does crash, [the appendix names it](lecture-notes.md#appendix-troubleshooting).
 

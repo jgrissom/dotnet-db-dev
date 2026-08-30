@@ -233,10 +233,10 @@ Program.cs(13,26): error CS0029: ...
 ## What the compiler cannot catch
 
 ```csharp
-int fuelLitres = 4300;
+int fuelLiters = 4300;
 int burnPerHour = 800;
 
-double hours = fuelLitres / burnPerHour;   // 5
+double hours = fuelLiters / burnPerHour;   // 5
 ```
 
 <br>

@@ -104,7 +104,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
       AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
       AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
-      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbour: 512 km - winter crew - day 240[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 240[/]");
       AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
       AnsiConsole.WriteLine();
 
@@ -190,7 +190,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   ```
   ========================================================
     HALDANE STATION - DUTY CONSOLE
-    nearest neighbour: 512 km - winter crew - day 240
+    nearest neighbor: 512 km - winter crew - day 240
   ========================================================
 
   Outside: -41.5 C   Safe to go out: True

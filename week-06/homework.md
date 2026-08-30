@@ -1,4 +1,4 @@
-# Week 6 Homework — Two Kinds of Row 🗂️
+# Week 6 Homework — Two Kinds of Rows 🗂️
 
 **20 points · due before next class**
 
@@ -422,7 +422,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | `Registry.Everything() hands back a List<Thing>` | The type in the angle brackets is the point. It's `List<IListed>` — [that is what lets it hold two different classes](lecture-notes.md#one-list-one-loop). |
 | `Everything() handed back the records and nothing else` | `listing.Add(this);` is missing. [The heading is a row too.](lecture-notes.md#everything-the-registry-has-to-show) |
 | Every row on the listing says the same thing | `Line()` is built out of something fixed rather than out of the object it's running on. Read the properties of [the thing you're inside](lecture-notes.md#everything-the-registry-has-to-show). |
-| `Registry` and your record report the same `Kind` | Two sorts of thing, two words — and [they are not two kinds of the same thing](lecture-notes.md#a-promise-is-not-a-parent). That column is how somebody reading the listing tells one row from another. |
+| `Registry` and your record report the same `Kind` | Two sorts of things, two words — and [they are not two kinds of the same thing](lecture-notes.md#a-promise-is-not-a-parent). That column is how somebody reading the listing tells one row from another. |
 | `Line()` doesn't name the record | It has to include the name `NewItem` was handed — whatever property you put it in. |
 | The listing is missing your records | `Everything()` is adding `this` and forgetting the `foreach` over the private list. |
 | Checks 1 and 2 both red | Fix `Line()` first — check 2 is built on the same method, so one bug reads as two. |

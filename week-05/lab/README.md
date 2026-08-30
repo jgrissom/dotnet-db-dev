@@ -312,7 +312,7 @@ dotnet run --project week-05/Lab
 
 **The desk says Dorothy asked for Nightjar. The board says she didn't.** Her count hasn't moved, `ASKED FOR` is still `-`, and there are still three people on the switchboard. The request went somewhere and it wasn't here.
 
-Still in `Lab/Switchboard.cs`. `Take` is the one door for *"somebody is on the line"*, and it has to work for both kinds of caller.
+Still in `Lab/Switchboard.cs`. `Take` is the one door for *"somebody is on the line"*, and it has to work for both kinds of callers.
 
 It ships as `return new Caller(name);` — a brand-new stranger every single time. That stranger is never put on the board, so `Asks` writes the song onto an object nobody is holding, and it is rubbish the moment the method returns. **That is what you just watched.**
 
@@ -379,7 +379,7 @@ Two members, and they ship as `public Song? Favorite => null;` and an empty `Ask
 > **Do not count the call in `Asks`.** `Take` already counted it when it put them on the line — count it again here and every regular goes up by two for one phone call. The check asserts that it doesn't. **One rule, one place.**
 
 > [!TIP]
-> **Stuck on this one? Write what you can, then run the checks and *read* check 5.** It checks the shape before the behaviour — that `Favorite` is a property, that nothing outside the class can write it, that a caller who has just rung starts at `null` — and then what `Asks` did with the song. **It says something different depending on how far you've got**, so run it again after each change.
+> **Stuck on this one? Write what you can, then run the checks and *read* check 5.** It checks the shape before the behavior — that `Favorite` is a property, that nothing outside the class can write it, that a caller who has just rung starts at `null` — and then what `Asks` did with the song. **It says something different depending on how far you've got**, so run it again after each change.
 
 **Run the shift.** `r` / `Dorothy`, then `r` / `Ray`, then `q`:
 

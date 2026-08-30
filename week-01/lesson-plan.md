@@ -90,7 +90,7 @@ By the end of this session, students can:
 | The room is verified and bored by 0:25 | Take the break early, start §3 at 0:35, and **bank the time in §7 and the lab.** Don't pad the recap. |
 | `dotnet --version` says "command not found" | The terminal was open during install. Close it **completely** and reopen. Nine in ten. |
 | Someone has .NET 8 or 9 from their last course | Install 10 alongside; they coexist. If `dotnet --version` still reports the old one, restart the machine. |
-| A machine is locked down and won't install | Pair them with a neighbour for tonight; everything in §3–§6 is watchable. Sort the machine before week 2. |
+| A machine is locked down and won't install | Pair them with a neighbor for tonight; everything in §3–§6 is watchable. Sort the machine before week 2. |
 | The C# extension won't download on class wifi | They can still do the whole lab from the terminal. `dotnet` is the tool; the extension is comfort. |
 | Nobody notices the `5` in break 2 | Ask *"is that right?"* — never *"that's wrong."* If it's still silent, put the real number up: *"4300 over 800. What is that actually?"* |
 | The lab is finished by 3:15 | Point at the *Done early?* list — it's real work, not busywork, and the "break something deliberately" item is the one worth doing. |

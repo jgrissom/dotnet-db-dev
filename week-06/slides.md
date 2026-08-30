@@ -25,7 +25,7 @@ style: |
 
 <!-- _paginate: false -->
 
-# Week 6 — One Loop, Four Kinds of Thing
+# Week 6 — One Loop, Four Kinds of Things
 
 .NET Database Development · Week 6 of 16
 

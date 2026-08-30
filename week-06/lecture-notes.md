@@ -346,7 +346,7 @@ Two things worth being clear about:
 
 ## Everything the registry has to show
 
-Your own project's listing has two kinds of row on it: the records, and the heading. The registry is the one object in the program that knows what to put in the heading, so it writes its own line:
+Your own project's listing has two kinds of rows on it: the records, and the heading. The registry is the one object in the program that knows what to put in the heading, so it writes its own line:
 
 ```csharp
 // Project/Registry.cs — the two members that keep the promise
