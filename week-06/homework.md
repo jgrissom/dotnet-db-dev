@@ -61,7 +61,7 @@ cp -r ../dotnet-db-starters/project/week-06/Project.Checks .
 dotnet test Project.Checks
 ```
 
-**1 / 5.** The one that's green is check 5 — weeks 4 and 5, still holding, and it stays green every week from here.
+**1 / 5.** The one that's green is check 1 — weeks 4 and 5, still holding, and it stays green every week from here.
 
 ---
 
@@ -71,19 +71,19 @@ dotnet test Project.Checks
 
 | # | Check | What to do |
 |---|---|---|
-| 1 | `YourRecordKeepsThePromise` | Your record declares `IListed` and keeps it. **[Tasks 1 and 2 in full ↓](#tasks-1-and-2-in-full)** |
-| 2 | `EachRecordWritesItsOwnLine` | …and two records write two different lines — **same task.** **[Tasks 1 and 2 in full ↓](#tasks-1-and-2-in-full)** |
-| 3 | `TheRegistryKeepsItToo` | A registry is not a kind of record, and goes on the list anyway. **[Task 3 in full ↓](#task-3-in-full)** |
-| 4 | `OneListHoldsThemBoth` | `Everything()` hands back one list holding both. **[Task 4 in full ↓](#task-4-in-full)** |
-| 5 | `WeeksFourAndFiveStillHold` | **Nothing to write.** It re-checks weeks 4 and 5 and is green before you start — every week from here. |
+| 1 | `WeeksFourAndFiveStillHold` | **Nothing to write.** It re-checks weeks 4 and 5 and is green before you start — every week from here. |
+| 2 | `YourRecordKeepsThePromise` | Your record declares `IListed` and keeps it. **[Tasks 2 and 3 in full ↓](#tasks-2-and-3-in-full)** |
+| 3 | `EachRecordWritesItsOwnLine` | …and two records write two different lines — **same task.** **[Tasks 2 and 3 in full ↓](#tasks-2-and-3-in-full)** |
+| 4 | `TheRegistryKeepsItToo` | A registry is not a kind of record, and goes on the list anyway. **[Task 4 in full ↓](#task-4-in-full)** |
+| 5 | `OneListHoldsThemBoth` | `Everything()` hands back one list holding both. **[Task 5 in full ↓](#task-5-in-full)** |
 
-⚠️ **The task numbers are check numbers.** Tasks 1 and 2 are one piece of work, because declaring the promise and keeping it go together — and **check 5 is green before you start**, so your count runs **1 → 3 → 4 → 5**.
+⚠️ **The task numbers are check numbers**, so the number you finish is the number you see. **Check 1 is green before you start** — it re-checks weeks 4 and 5 — and Tasks 2 and 3 are one piece of work, because declaring the promise and keeping it go together. Your count runs **1 → 3 → 4 → 5**.
 
-### Tasks 1 and 2 in full
+### Tasks 2 and 3 in full
 
 **The promise, and your record keeps it.**
 
-**Checks:** `Check1_YourRecordKeepsThePromise` and `Check2_EachRecordWritesItsOwnLine`
+**Checks:** `Check2_YourRecordKeepsThePromise` and `Check3_EachRecordWritesItsOwnLine`
 
 **The interface, and its shape is dictated** — the checks read it, so it is not up to you:
 
@@ -165,7 +165,7 @@ LIGHTHOUSE  Currituck Beach - 162ft - visited 0x
 dotnet test Project.Checks
 ```
 
-**3 / 5 — checks 1, 2 and 5.** Checks 3 and 4 are still ahead of you.
+**3 / 5 — checks 1, 2 and 3.** Checks 4 and 5 are still ahead of you.
 
 ```bash
 git add .
@@ -174,11 +174,11 @@ git commit -m "The records know how to be listed"
 
 ---
 
-### Task 3 in full
+### Task 4 in full
 
 **And so does the registry.**
 
-**Check:** `Check3_TheRegistryKeepsItToo`
+**Check:** `Check4_TheRegistryKeepsItToo`
 
 Here is the part that is worth the week.
 
@@ -217,7 +217,7 @@ REGISTRY    Lighthouses of the Outer Banks - 3 on file
 dotnet test Project.Checks
 ```
 
-**4 / 5 — checks 1, 2, 3 and 5.** Only check 4 left.
+**4 / 5 — checks 1, 2, 3 and 4.** Only check 5 left.
 
 ```bash
 git add .
@@ -226,11 +226,11 @@ git commit -m "The registry writes its own heading"
 
 ---
 
-### Task 4 in full
+### Task 5 in full
 
 **One list, both kinds.**
 
-**Check:** `Check4_OneListHoldsThemBoth`
+**Check:** `Check5_OneListHoldsThemBoth`
 
 **The dictated member, and it is the last one this week:**
 
@@ -388,11 +388,11 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 
 | Points | What |
 |---|---|
+| 2 | Weeks 4 and 5 still hold — no public fields, `All()` still copies, `Find` and `Remove` still behave, `Topic` still says something |
 | 3 | `IListed` exists, and your record keeps it — a `Kind` of its own and a `Line()` that names the record it is about |
 | 2 | Two different records write two different lines, and both call themselves the same `Kind` |
 | 3 | `Registry` keeps `IListed` as well — a different `Kind`, a different `Line()`, and it is not a kind of record |
 | 2 | `Registry.Everything()` hands back one `List<IListed>` holding the registry's own line and every record it is actually holding |
-| 2 | Weeks 4 and 5 still hold — no public fields, `All()` still copies, `Find` and `Remove` still behave, `Topic` still says something |
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
 | 1 | `bin/` and `obj/` tracked in **neither** repo — the `.gitignore` holding, in both places |
@@ -400,7 +400,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | 2 | A merge commit on `main` — this week's branch → pull request → merge |
 
 > [!NOTE]
-> **Your count should climb 1 → 3 → 4 → 5**, one task at a time. Two checks land together in Tasks 1 and 2, because writing `Line()` properly answers both of them at once.
+> **Your count should climb 1 → 3 → 4 → 5**, one task at a time. Two checks land together in Tasks 2 and 3, because writing `Line()` properly answers both of them at once.
 
 > [!WARNING]
 > **A build failure zeroes all five checks at once.** One missing semicolon reads as "did nothing." Run `dotnet test Project.Checks` before you push, every time.
@@ -411,7 +411,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 
 | What you see | What it means |
 |---|---|
-| **5 / 5 before you've written anything**, or check names you don't recognize | You're running **last week's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — `Check1_YourRecordKeepsThePromise` is the first of tonight's; `Check1_YourRecordDoesSomething` is last week's. |
+| **5 / 5 before you've written anything**, or check names you don't recognize | You're running **last week's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — `Check2_YourRecordKeepsThePromise` is the first of tonight's; `Check2_YourRecordDoesSomething` is last week's. |
 | `CS0535: '...' does not implement interface member '...'` | **The good one.** You wrote `: IListed` and haven't written that member yet — one line per thing you still owe. [It's a to-do list.](lecture-notes.md#keeping-a-promise) |
 | `CS0246: The type or namespace name 'IListed' could not be found` | The file isn't there, the interface isn't `public`, or the name is spelled differently from the one you're using. Capital `I`, capital `L`. [The whole declaration is four lines.](lecture-notes.md#an-interface-is-a-promise) |
 | `CS0525: Interfaces cannot contain instance fields` | You wrote `string Kind;` inside the interface instead of `string Kind { get; }`. [An interface holds no data](lecture-notes.md#an-interface-is-a-promise) — only the shape of what you can ask. |

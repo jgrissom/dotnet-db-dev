@@ -3,25 +3,25 @@
   "total": 20,
   "_comment": "One source of truth for week 5's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first. The graded repo is the PROJECT repo (D1b); the coursework repo is cloned only for the hygiene sweep, which covers both and scores once.",
   "checks": {
-    "Check1_YourRecordDoesSomething": {
+    "Check1_LastWeeksDoorsStillHold": {
+      "points": 2,
+      "label": "Week 4 still holds — no public fields, All() still copies, Topic still says something"
+    },
+    "Check2_YourRecordDoesSomething": {
       "points": 2,
       "label": "A method of yours moves a fact nothing outside the class can write — and it moves it on THAT record only"
     },
-    "Check2_TheRegistryCanFindOne": {
+    "Check3_TheRegistryCanFindOne": {
       "points": 3,
       "label": "Registry.Find(name) hands back the record itself, not a copy of it"
     },
-    "Check3_AndNothingWhenThereIsnt": {
+    "Check4_AndNothingWhenThereIsnt": {
       "points": 3,
       "label": "Find hands back null for a name nobody has — no crash, and nothing changed"
     },
-    "Check4_AndCanTakeOneOffTheBooks": {
+    "Check5_AndCanTakeOneOffTheBooks": {
       "points": 2,
       "label": "Registry.Remove(name) takes that one record off and says whether it did"
-    },
-    "Check5_LastWeeksDoorsStillHold": {
-      "points": 2,
-      "label": "Week 4 still holds — no public fields, All() still copies, Topic still says something"
     }
   },
   "repo": {

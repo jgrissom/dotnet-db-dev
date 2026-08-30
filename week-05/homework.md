@@ -55,7 +55,7 @@ cp -r ../dotnet-db-starters/project/week-05/Project.Checks .
 dotnet test Project.Checks
 ```
 
-**1 / 5.** The one that's green is check 5 — week 4's work, still holding, and it stays green every week from here. **That is where tonight starts**, so every number below counts it.
+**1 / 5.** The one that's green is check 1 — week 4's work, still holding, and it stays green every week from here. **That is where tonight starts**, so every number below counts it.
 
 > [!NOTE]
 > **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
@@ -71,19 +71,19 @@ dotnet test Project.Checks
 
 | # | Check | What to do |
 |---|---|---|
-| 1 | `YourRecordDoesSomething` | Your record gets a verb of its own. **[Task 1 in full ↓](#task-1-in-full)** |
-| 2 | `TheRegistryCanFindOne` | `Find` hands back the record itself. **[Tasks 2 and 3 in full ↓](#tasks-2-and-3-in-full)** |
-| 3 | `AndNothingWhenThereIsnt` | …and `null` when nobody matches — **same task, second half.** **[Tasks 2 and 3 in full ↓](#tasks-2-and-3-in-full)** |
-| 4 | `AndCanTakeOneOffTheBooks` | `Remove` takes one off, and says whether it did. **[Task 4 in full ↓](#task-4-in-full)** |
-| 5 | `LastWeeksDoorsStillHold` | **Nothing to write.** It re-checks week 4's work and is green before you start — every week from here. |
+| 1 | `LastWeeksDoorsStillHold` | **Nothing to write.** It re-checks week 4's work and is green before you start — every week from here. |
+| 2 | `YourRecordDoesSomething` | Your record gets a verb of its own. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `TheRegistryCanFindOne` | `Find` hands back the record itself. **[Tasks 3 and 4 in full ↓](#tasks-3-and-4-in-full)** |
+| 4 | `AndNothingWhenThereIsnt` | …and `null` when nobody matches — **same task, second half.** **[Tasks 3 and 4 in full ↓](#tasks-3-and-4-in-full)** |
+| 5 | `AndCanTakeOneOffTheBooks` | `Remove` takes one off, and says whether it did. **[Task 5 in full ↓](#task-5-in-full)** |
 
-⚠️ **The task numbers are check numbers.** Tasks 2 and 3 are one piece of work, because `Find`'s two jobs are one method — and **check 5 is green before you start**, so your count runs **1 → 2 → 4 → 5**.
+⚠️ **The task numbers are check numbers**, so the number you finish is the number you see. **Check 1 is green before you start** — it re-checks week 4 — and Tasks 3 and 4 are one piece of work, because `Find`'s two jobs are one method. Your count runs **1 → 2 → 4 → 5**.
 
-### Task 1 in full
+### Task 2 in full
 
 **Your record does something.**
 
-**Check:** `Check1_YourRecordDoesSomething`
+**Check:** `Check2_YourRecordDoesSomething`
 
 Right now your record is a set of facts that other code sets. This week it gets a **verb** of its own.
 
@@ -137,7 +137,7 @@ dotnet run --project Project
 dotnet test Project.Checks
 ```
 
-**2 / 5 — checks 1 and 5.** Scroll up the check output and you'll see both named. **Checks 2, 3 and 4 are still ahead of you**, which is what the next two sections are.
+**2 / 5 — checks 1 and 2.** Scroll up the check output and you'll see both named. **Checks 3, 4 and 5 are still ahead of you**, which is what the next two sections are.
 
 The second one is check 5 — last week's doors, still holding. It has been green since you opened the file, and it stays green every week from here.
 
@@ -151,11 +151,11 @@ git commit -m "The record does something"
 
 ---
 
-### Tasks 2 and 3 in full
+### Tasks 3 and 4 in full
 
 **`Find`, and what it says when there isn't one.**
 
-**Checks:** `Check2_TheRegistryCanFindOne` and `Check3_AndNothingWhenThereIsnt`
+**Checks:** `Check3_TheRegistryCanFindOne` and `Check4_AndNothingWhenThereIsnt`
 
 **One new member on `Registry`, and its shape is dictated** — the checks call it, so it is not up to you:
 
@@ -224,7 +224,7 @@ The first line finds it. **The second still says nothing on file, and that one i
 dotnet test Project.Checks
 ```
 
-**4 / 5 — checks 1, 2, 3 and 5.** Only check 4 left.
+**4 / 5 — checks 1, 2, 3 and 4.** Only check 5 left.
 
 ```bash
 git add .
@@ -233,11 +233,11 @@ git commit -m "The registry can find one, or say there isn't one"
 
 ---
 
-### Task 4 in full
+### Task 5 in full
 
 **`Remove`, which is where the `null` gets dealt with.**
 
-**Check:** `Check4_AndCanTakeOneOffTheBooks`
+**Check:** `Check5_AndCanTakeOneOffTheBooks`
 
 **The second dictated member, same rules:**
 
@@ -436,11 +436,11 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 
 | Points | What |
 |---|---|
+| 2 | Week 4 still holds — no public fields, `All()` still copies, `Topic` still says something |
 | 2 | A method of yours moves a fact nothing outside the class can write — and it moves it on **that** record only |
 | 3 | `Registry.Find(name)` hands back the record itself, not a copy of it |
 | 3 | `Find` hands back `null` for a name nobody has — no crash, and nothing changed |
 | 2 | `Registry.Remove(name)` takes that one record off and says whether it did |
-| 2 | Week 4 still holds — no public fields, `All()` still copies, `Topic` still says something |
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
 | 1 | `bin/` and `obj/` tracked in **neither** repo — the `.gitignore` holding, in both places |
@@ -448,7 +448,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | 2 | A second merge commit on `main` — this week's branch → pull request → merge |
 
 > [!NOTE]
-> **Your count should climb 2 → 4 → 5**, one part at a time. If you're sitting at **3** after writing `Find` — finding red, not-finding green — read the check's message. The commonest cause is `return null;` inside the loop instead of after it, and it clears the *not*-finding check by accident: a name nobody has still comes back `null`, just for the wrong reason.
+> **Your count should climb 1 → 2 → 4 → 5**, one part at a time. If you're sitting at **3** after writing `Find` — finding red, not-finding green — read the check's message. The commonest cause is `return null;` inside the loop instead of after it, and it clears the *not*-finding check by accident: a name nobody has still comes back `null`, just for the wrong reason.
 
 > [!WARNING]
 > **A build failure zeroes all five checks at once.** One missing semicolon reads as "did nothing." Run `dotnet test Project.Checks` before you push, every time.
@@ -477,7 +477,7 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | A value isn't what you think it is | **Set a breakpoint and look.** [Two minutes with the debugger](lecture-notes.md#the-debugger-and-what-it-is-actually-for) beats twenty with `Console.WriteLine`. |
 | Breakpoints never stop | Command Palette → **`Developer: Reload Window`**, then <kbd>F5</kbd>. |
 | <kbd>F5</kbd>'s project list is unreadable | Every entry is the project name plus its full path, so they look identical. **Type to filter it** — in your project repo it is two lines and you want `Project`; in your coursework repo type the week and pick `Lab`. |
-| **5 / 5 before you've written anything**, or check names you don't recognise | You're running **last week's** checks. [Part 1](#part-1--catch-up-then-branch) copies this week's in — `Check1_YourRecordDoesSomething` is the first of tonight's; `Check1_YouPickedATopic` is last week's. |
+| **5 / 5 before you've written anything**, or check names you don't recognise | You're running **last week's** checks. [Part 1](#part-1--catch-up-then-branch) copies this week's in — `Check2_YourRecordDoesSomething` is the first of tonight's; `Check1_YouPickedATopic` is last week's. |
 | `Assembly.Load("Project")` failed / no tests ran | The console project isn't called `Project`, or it isn't beside `Project.Checks` at the top of your repo. |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b find-and-remove`, push that. |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |

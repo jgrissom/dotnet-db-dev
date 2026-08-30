@@ -3,25 +3,25 @@
   "total": 20,
   "_comment": "One source of truth for week 6's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. If a number changes it changes HERE first. The graded repo is the PROJECT repo (D1b); the coursework repo is cloned only for the hygiene sweep, which covers both and scores once.",
   "checks": {
-    "Check1_YourRecordKeepsThePromise": {
+    "Check1_WeeksFourAndFiveStillHold": {
+      "points": 2,
+      "label": "Weeks 4 and 5 still hold — no public fields, All() still copies, Find and Remove still behave, Topic still says something"
+    },
+    "Check2_YourRecordKeepsThePromise": {
       "points": 3,
       "label": "IListed exists, and your record keeps it — a Kind of its own and a Line() that names the record it is about"
     },
-    "Check2_EachRecordWritesItsOwnLine": {
+    "Check3_EachRecordWritesItsOwnLine": {
       "points": 2,
       "label": "Two different records write two different lines, and both call themselves the same Kind"
     },
-    "Check3_TheRegistryKeepsItToo": {
+    "Check4_TheRegistryKeepsItToo": {
       "points": 3,
       "label": "Registry keeps IListed as well — a different Kind, a different Line(), and it is not a kind of record"
     },
-    "Check4_OneListHoldsThemBoth": {
+    "Check5_OneListHoldsThemBoth": {
       "points": 2,
       "label": "Registry.Everything() hands back one List<IListed> holding the registry's own line and every record it is actually holding"
-    },
-    "Check5_WeeksFourAndFiveStillHold": {
-      "points": 2,
-      "label": "Weeks 4 and 5 still hold — no public fields, All() still copies, Find and Remove still behave, Topic still says something"
     }
   },
   "repo": {
