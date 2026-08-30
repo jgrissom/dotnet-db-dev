@@ -97,7 +97,7 @@ By the end of this session, students can:
 - **The demo commits four times, silently**, and the first is immediately after the branch, before a line of the week is changed — the same thing the lab's Setup asks of them. Then the log keeping a promise (§3), the third kind (§4), and the board becoming a question (§6). **One push, at the end of §6.**
 - **The branch is spoken, briefly.** Five seconds — *nothing goes straight to `main`, and that goes for your project too*. ⚠️ **Shorter than week 5's**, deliberately: week 5 carried a genuinely new fact *(the commits counted are the ones on the branch)* and this week carries none, so narrating it further would be re-teaching a habit they already have.
 - ⚠️ **Say the checks-copy line at the wrap and mean it.** Week 5 shipped without a checks-copy step and a student doing the whole homework against last week's checks sees **5 / 5 at every checkpoint**. Week 6's Part 1 fixes it, and the line to say is *"skip that step and last week's checks will happily tell you you're done."*
-- **The lab's Task 2 is where the demo's idea happens to them** — a class they finished a fortnight ago keeping a promise it had never heard of. Circulate then, and again at Task 5, which is the only task with two loops in it.
+- **The lab's Task 2 is where the demo's idea happens to them** — a class they finished two weeks ago keeping a promise it had never heard of. Circulate then, and again at Task 5, which is the only task with two loops in it.
 
 ## What could go wrong
 
