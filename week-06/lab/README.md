@@ -369,7 +369,7 @@ Open `Lab/Hour.cs`. It is `Rotation` and `Switchboard` again — a private list,
 **`Run()`** — put the hour on air. This is the one the whole night has been for:
 
 - Walk the items. **`Play()` each one** — every kind counts an airing differently and this loop will never find out how.
-- Add **one line per item** to the list you hand back, so the desk can print it. The shape is the item's `Kind`, then `" - "`, then its `Cue`:
+- **Make a `List<string>` first** — it ships handing back an empty one built inside the `return`, and there is nowhere to put a line in that. Then add **one line per item** to it as you go, and hand that list back at the end. The shape is the item's `Kind`, then `" - "`, then its `Cue`:
 
   ```
   SONG - Nightjar - The Lamplighters
@@ -406,7 +406,7 @@ Press `h` and look at the clock:
 6 items - 14:57 on the clock.
 ```
 
-**Fourteen minutes and fifty-three seconds of radio**, added up by a loop that has never heard of a song, an ad, an ident or a forecast.
+**Fourteen minutes and fifty-seven seconds of radio**, added up by a loop that has never heard of a song, an ad, an ident or a forecast.
 
 **Then the checks:**
 
