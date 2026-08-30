@@ -222,7 +222,7 @@ week 6 lab: a song knows how to be scheduled
 
 **Check:** `Check3_TheIdentIsAnItemToo`
 
-At the top of every hour, this station has to say its own call letters out loud. That takes eight seconds and it is not a song — so it is a class of its own, and its entire job is to keep the promise.
+At the top of every hour, this station has to say its own call letters out loud. That takes twelve seconds and it is not a song — so it is a class of its own, and its entire job is to keep the promise.
 
 Open `Lab/StationId.cs`. `Words` and the constructor ship; the rest is this:
 
@@ -238,7 +238,7 @@ public class StationId : IScheduleItem
 
     public string Cue => Words;
 
-    public int Seconds => 8;
+    public int Seconds => 12;
 
     public StationId(string words)
     {
@@ -255,7 +255,7 @@ public class StationId : IScheduleItem
 Three things in there are worth a second before you move on:
 
 - **`: IScheduleItem` after the class name is the promise being made.** [Build the project the moment you have typed it and before you write a member](../lecture-notes.md#keeping-a-promise) — the compiler answers with one `CS0535` per thing you still owe, which is the most useful to-do list you will get tonight.
-- **`Seconds => 8` is worked out, not stored.** Nothing is handed in for it and nothing needs to be. [The hour never asks where the number came from](../lecture-notes.md#a-new-kind-costs-one-class) — same shape as `Length` in week 4.
+- **`Seconds => 12` is worked out, not stored.** Nothing is handed in for it and nothing needs to be. [The hour never asks where the number came from](../lecture-notes.md#a-new-kind-costs-one-class) — same shape as `Length` in week 4.
 - **`Cue => Words` is one fact under two names.** [The ident already knew what it says](../lecture-notes.md#a-promise-you-already-keep); the property just points at it.
 
 **Then turn it on.** In `Lab/Program.cs`, find the line that starts `// hour.Add(new StationId` and take the `//` off the front. That is the only edit you make to that file in this task.
@@ -267,7 +267,7 @@ dotnet run --project week-06/Lab
 ```
 
 ```
-│ IDENT   │ KDXR 88.1, The Owl                           │ 0:08   │
+│ IDENT   │ KDXR 88.1, The Owl                           │ 0:12   │
 │ SONG    │ Nightjar - The Lamplighters                  │ 3:47   │
 │ SONG    │ Slack Water - Marguerite Vance               │ 4:12   │
 │ WEATHER │ clear, four below, wind out of the northwest │ 0:45   │
@@ -326,7 +326,7 @@ dotnet run --project week-06/Lab
 ```
 
 ```
-│ IDENT   │ KDXR 88.1, The Owl                           │ 0:08   │
+│ IDENT   │ KDXR 88.1, The Owl                           │ 0:12   │
 │ SONG    │ Nightjar - The Lamplighters                  │ 3:47   │
 │ AD      │ Pham's Bakery - "open at five" (3 left)      │ 0:30   │
 │ SONG    │ Slack Water - Marguerite Vance               │ 4:12   │
@@ -399,7 +399,7 @@ dotnet run --project week-06/Lab
 Press `h` and look at the clock:
 
 ```
-6 items - 14:53 on the clock.
+6 items - 14:57 on the clock.
 ```
 
 **Fourteen minutes and fifty-three seconds of radio**, added up by a loop that has never heard of a song, an ad, an ident or a forecast.
@@ -447,7 +447,7 @@ dotnet run --project week-06/Lab
 4. ⭐ **Write your own promise.** A caller can request a song. They cannot request an advert, and they certainly cannot request the weather. So: an interface of your own — call it `IRequestable`, one member, whatever a caller needs to be able to ask for by name — and put it on `Song` and on nothing else. [The syntax is four lines and it is all in the notes.](../lecture-notes.md#an-interface-is-a-promise) **This is the one item on this list that is also your homework**, so it is worth the ten minutes: tonight's lab hands you `IScheduleItem` already written, and this week's homework asks you to write one from scratch.
 5. ⭐ **The one that pays off later:** give `Hour` a `LongestItem()` that hands back the item that runs longest. It returns an `IScheduleItem`, so the caller gets something it can ask three questions and nothing else. In **week 9** that whole loop becomes one line.
 
-6. 🔊 **Record your own ident.** The station has a voice — press `a` and you will hear it. It lives at `week-06/Lab/kdxr.wav`, and it is yours to replace: record eight seconds of your own station saying its own name, save it over that file, and run the shift again. ⚠️ **It has to be a `.wav`** — an `.mp3` plays on a Mac and throws on Windows. Nothing checks this and nothing ever will.
+6. 🔊 **Record your own ident.** The station has a voice — press `a` and you will hear it. It lives at `week-06/Lab/kdxr.wav`, and it is yours to replace: record your own station saying its own name, save it over that file, and run the shift again. If yours runs longer or shorter than twelve seconds, change `Seconds` to match — the number on the board should tell the truth. ⚠️ **It has to be a `.wav`** — an `.mp3` plays on a Mac and throws on Windows. Nothing checks this and nothing ever will.
 
 ## 🆘 Stuck?
 
