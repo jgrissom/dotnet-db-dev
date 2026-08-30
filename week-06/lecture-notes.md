@@ -211,6 +211,28 @@ public int TotalSeconds
 
 Nothing in there knows what a song is.
 
+A loop that builds something to hand back reads the same way, with one extra
+move at the front: **make the list before you walk, not in the `return`.**
+
+```csharp
+// inside Hour
+public List<string> Cues()
+{
+    List<string> cues = new List<string>();
+
+    foreach (IScheduleItem item in _items)
+    {
+        cues.Add(item.Cue);
+    }
+
+    return cues;
+}
+```
+
+Three steps, and they are always in this order: make the list, fill it in the
+loop, hand it back. A method that ends `return new List<string>();` has skipped
+the first one — there is nowhere to put anything.
+
 ---
 
 ## A promise is not a parent
