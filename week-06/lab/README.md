@@ -200,6 +200,10 @@ dotnet run --project week-06/Lab
 4 items - 0:00 on the clock.
 ```
 
+
+> [!NOTE]
+> **Yours may not read exactly like that, and that is fine.** From here the `Kind` and `Cue` wording is yours to choose, so the blocks in this lab show *one* way of saying it — the one the answer key happens to use. **No check compares your wording to it.** What the checks ask is that the words are there at all, that no two kinds use the same one, and that the cue carries the facts the desk needs. If your rows say something different and the count still goes up, you are right and the block is just a different DJ.
+
 **Three rows lit up and you did not touch the code that draws them.** That loop is in `Program.cs`, it has never heard of a song, and it did not change.
 
 **Then the checks:**
