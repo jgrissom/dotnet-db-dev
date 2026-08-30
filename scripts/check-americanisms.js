@@ -16,6 +16,14 @@
 // that actually leak (-our, -ise, -re, doubled-l past tense, -t past tense)
 // plus the specific words that have already cost something. False positives
 // are worse than a short list — see ALLOW below for the escape hatch.
+//
+// ⚠️ NEVER a blanket `ise`→`ize` or a bare prefix. The .NET Web course proved
+// why: `advertise`, `exercise`, `promise`, `precise`, `comprise`, `realistic`,
+// `analysis` and `paralysis` are all correct American English that share a
+// prefix with a British form. Every pattern here is a WHOLE WORD with \b on
+// both ends, and the fixture in selftest() holds those words to prove it.
+// Two more that are correct and must never be "fixed": `dialogue` for speech
+// (only a UI *dialog* box loses the -ue), and `Spectre` (the library).
 
 const fs = require("fs");
 const path = require("path");
@@ -35,6 +43,17 @@ const EXTS = [".md", ".cs", ".html", ".json", ".yml", ".yaml", ".css", ".js"];
 const ALLOW = {
   // "Greyhound": "a proper noun in week N's seed data",
 };
+
+// Inline escape hatch. A line carrying this marker is skipped.
+//
+// It exists for ONE case and should stay rare: prose that QUOTES a British
+// form in order to name it as wrong — this rule's own entry in CLAUDE.md, a
+// handover that lists what a sweep found, a memory that records the feedback.
+// Documentation of a defect necessarily contains the defect.
+//
+// ⚠️ It is NOT for "I'd rather keep this one". That is what ALLOW is for, and
+// ALLOW makes you write the reason down.
+const IGNORE_MARKER = "americanisms:allow";
 
 // [pattern, what to write instead]. Case-insensitive; \b on both ends unless
 // the pattern says otherwise.
@@ -62,6 +81,7 @@ const RULES = [
   [/\borganise(s|d)?\b/gi, "organize"],
   [/\borganisation(s)?\b/gi, "organization"],
   [/\brealise(s|d)?\b/gi, "realize"],
+  [/\brealisation\b/gi, "realization"],
   [/\bemphasise(s|d)?\b/gi, "emphasize"],
   [/\bsummarise(s|d)?\b/gi, "summarize"],
   [/\bprioritise(s|d)?\b/gi, "prioritize"],
@@ -104,7 +124,37 @@ const RULES = [
   [/\bspelt\b/gi, "spelled"],
   [/\bburnt\b/gi, "burned"],
   [/\bdreamt\b/gi, "dreamed"],
-  [/\bknelt\b/gi, "kneeled"],
+
+  // ── families the .NET WEB course's own sweeps learned the hard way ───────
+  // (its CLAUDE.md, 2026-08-22/24: two hand sweeps reached "zero" and survivors
+  // turned up two days later — "a survivor is a signal about the list.")
+  [/\bserialise(s|d)?\b/gi, "serialize"],
+  [/\bserialisation\b/gi, "serialization"],
+  [/\bcapitalise(s|d)?\b/gi, "capitalize"],
+  [/\bcapitalisation\b/gi, "capitalization"],
+  [/\bmemoris(e|es|ed|ing)\b/gi, "memorize"],
+  [/\b\w*labelled\b/gi, "labeled (also mislabelled → mislabeled)"],
+  [/\bnormalise(s|d)?\b/gi, "normalize"],
+  [/\bstandardise(s|d)?\b/gi, "standardize"],
+  [/\butilise(s|d)?\b/gi, "utilize"],
+  [/\bvisualise(s|d)?\b/gi, "visualize"],
+  [/\binitialise(s|d)?\b/gi, "initialize"],
+  [/\boptimise(s|d)?\b/gi, "optimize"],
+  [/\bauthorise(s|d)?\b/gi, "authorize"],
+  [/\bsynchronise(s|d)?\b/gi, "synchronize"],
+  [/\bfinalise(s|d)?\b/gi, "finalize"],
+  [/\bitemise(s|d)?\b/gi, "itemize"],
+  [/\bstorey(s)?\b/gi, "story/stories (a building's floor)"],
+  [/\bmoulding(s)?\b/gi, "molding"],
+  [/\bmould(s|ed|y)?\b/gi, "mold"],
+  [/\bcatalogue(s|d)?\b/gi, "catalog"],
+  [/\blicence(s)?\b/gi, "license"],
+  [/\btheatre(s)?\b/gi, "theater"],
+  [/\bcalibre(s)?\b/gi, "caliber"],
+  [/\barmour(s|ed)?\b/gi, "armor"],
+  [/\bvapour(s)?\b/gi, "vapor"],
+  [/\bharbour(s|ed)?\b/gi, "harbor"],
+  [/\bparlour(s)?\b/gi, "parlor"],
 
   // ── vocabulary and idiom ─────────────────────────────────────────────────
   [/\bgrey(s|ed|ing)?\b/gi, "gray"],
@@ -139,6 +189,7 @@ function scan(dirs) {
       scanned++;
       const lines = fs.readFileSync(file, "utf8").split("\n");
       lines.forEach((line, i) => {
+        if (line.includes(IGNORE_MARKER)) return;
         for (const [re, better] of RULES) {
           re.lastIndex = 0;
           let m;
@@ -166,6 +217,9 @@ function selftest() {
     "They practice it. A judgment call. The program ran while I waited.",
     "Pick a different topic now — a different tone, toward the end.",
     "queue, unique, technique, Spectre.Console, initialize, serialize",
+    "advertise exercise promise precise comprise merchandise surprise franchise",
+    "expertise otherwise enterprise realistic realism analysis analyst paralysis",
+    "dialogue dialogues cataloged gray grayed center centered enrolled leapt knelt",
   ].join("\n");
 
   let bad = 0;

@@ -95,7 +95,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   ```bash
   git commit -m "Week 2: uplink config"
   ```
-- [ ] 🎯 **Now the realisation. Say it flatly, no theatre:** *"…that file has the station's password in it. And I just put it in the repo"*
+- [ ] 🎯 **Now the realization. Say it flatly, no theater:** *"…that file has the station's password in it. And I just put it in the repo"*
 - [ ] 💡 **Name the habit that would have stopped it — one sentence, no command:** *"`git status` before a commit would have shown me exactly what I was about to add. It's ten seconds and I didn't do it, and neither will you, which is why the rest of this matters"* ⚠️ **Don't run it here** — the commit is made, so the tree is clean and it proves nothing; and running it *before* the commit hands the room the answer and kills the beat
 
 #### Case 1 — it never left your machine

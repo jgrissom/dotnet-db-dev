@@ -380,7 +380,7 @@ That last `pull` is the one people forget. The merge happened on GitHub; your la
 > **Use "Merge pull request", not "Squash and merge" or "Rebase and merge".** All three are legitimate and you'll meet the others at work — but only the plain merge leaves a **merge commit**, which is what the grader reads out of your repo to see that you did the round trip.
 
 > [!NOTE]
-> **A pull request on your own repo, with nobody to review it, is not theatre.** It's a place to read your own diff before it's permanent — which catches more than you'd think — and in week 15 it's where code review happens.
+> **A pull request on your own repo, with nobody to review it, is not theater.** It's a place to read your own diff before it's permanent — which catches more than you'd think — and in week 15 it's where code review happens.
 
 ---
 
