@@ -37,4 +37,4 @@ And they can use `is` to get back to the one kind that is different — and say 
 - **VS Code open on the demo repo's top**, exactly where week 5 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — week 6's board carries the watch log
 
-**Prev:** [Week 5 — How Many Are There?](../week-05/) · **Next:** Week 7 — Unit Testing, and the Checks Stop Being Magic *(coming)*
+**Prev:** [Week 5 — How Many Are There?](../week-05/) · **Next:** [Week 7 — Unit Testing, and the Checks Stop Being Magic](../week-07/)

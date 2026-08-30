@@ -1,0 +1,55 @@
+{
+  "week": 7,
+  "total": 20,
+  "_comment": "One source of truth for week 7's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. NEW this week: `suite` says which test run scores an item — 'checks' is `dotnet test Project.Checks` (canonical, replaced wholesale by the grader), 'tests' is `dotnet test Project.Tests` (the student's OWN suite, run as-is — the homework dictates these four fact names), and 'both' needs the name green in the two runs at once. The graded repo is the PROJECT repo (D1b); the coursework repo is cloned only for the hygiene sweep.",
+  "checks": {
+    "Check1_WeeksFourToSixStillHold": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Weeks 4-6 still hold — Topic, no public fields, All() copies, Find and Remove behave, IListed kept by record and registry, Everything() intact"
+    },
+    "Check2_AddingGrowsTheCount": {
+      "points": 2,
+      "suite": "tests",
+      "label": "Your test: adding two records grows Count to 2 — written by you, green in your own suite"
+    },
+    "Check3_FindHandsBackTheRecordItHolds": {
+      "points": 2,
+      "suite": "tests",
+      "label": "Your test: Find hands back the very record the registry is holding — Assert.Same, not a lookalike"
+    },
+    "Check4_RemovingAStrangerSaysNo": {
+      "points": 2,
+      "suite": "tests",
+      "label": "Your test: removing a name nobody has returns false and removes nothing"
+    },
+    "Check5_TheSameNameCannotRegisterTwice": {
+      "points": 4,
+      "suite": "both",
+      "label": "The same name cannot register twice — your test proves it AND my check agrees the guard is really in Add"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing — even when fed nothing but Enter"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked in NEITHER repo — the .gitignore holding, in both places"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgment call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}

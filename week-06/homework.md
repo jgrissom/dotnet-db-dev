@@ -432,4 +432,4 @@ Four moments worth saving, and each one changes a file in `Project/` — they're
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b the-promise`, push that. |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
 
-**Prev:** [Week 6 Lab — The Hour](lab/) · **Next:** Week 7 — Unit testing, and the checks stop being magic *(coming)*
+**Prev:** [Week 6 Lab — The Hour](lab/) · **Next:** [Week 7 — Unit Testing, and the Checks Stop Being Magic](../week-07/)
