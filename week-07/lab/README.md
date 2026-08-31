@@ -216,7 +216,7 @@ dotnet run --project week-07/Lab
 7 items - 19:9 on the clock.
 ```
 
-**There it is.** `19:9`. Nineteen minutes and *nine* seconds, printed as though it were nineteen minutes and ninety. Press `q`.
+**There it is.** `19:9`. Every LENGTH on the board above it reads `m:ss` — two digits after the colon. This one has one, and a length the DJ has to squint at is a length that gets read wrong on air. Press `q`.
 
 ⚠️ **Notice what it took to see it.** Slack Water is 4:12, and adding it happened to push the total onto a seconds value under ten. **Request song `1` or `3` instead and the clock looks perfect** — the bug is still there, and the screen says nothing. You found this one by being lucky. **A test does not need luck; it asks the same question every single time.**
 
@@ -259,7 +259,7 @@ The `:00` is the whole repair — *at least two digits, pad with a zero.* The mi
 7 items - 19:09 on the clock.
 ```
 
-**Nineteen oh nine.** One character, and the desk stops lying about its own hour.
+**`19:09`.** One character, and the clock is back to `m:ss` like everything else on the board.
 
 **Yours, green:**
 
