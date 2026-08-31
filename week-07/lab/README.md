@@ -206,9 +206,21 @@ dotnet run --project week-07/Lab
 6 items - 14:57 on the clock.
 ```
 
-**Nothing is wrong with it.** Every length on tonight's hour happens to have two-digit seconds, so the broken clock has nothing to show. Press `q`.
+**Nothing is wrong with it.** Every length there happens to land on two-digit seconds, so the broken clock has nothing to show.
 
-But ten minutes and five seconds now prints as `10:5`, which a tired DJ reads as ten-fifty. **This is the bug the board can never show you** — and the only instrument that can is the one you are about to write.
+**Now take one request.** Still in the shift: press `r`, caller `Dorothy`, song **`2`** — then press `h` and read the clock at the bottom:
+
+```
+  Line 1: Dorothy asks for Slack Water
+```
+
+```
+7 items - 19:9 on the clock.
+```
+
+**There it is.** `19:9`. Nineteen minutes and *nine* seconds, printed as though it were nineteen minutes and ninety. Press `q`.
+
+⚠️ **Notice what it took to see it.** Slack Water is 4:12, and adding it happened to push the total onto a seconds value under ten. **Request song `1` or `3` instead and the clock looks perfect** — the bug is still there, and the screen says nothing. You found this one by being lucky. **A test does not need luck; it asks the same question every single time.**
 
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 2` comment.** Yours to write, and here is the spec:
 
@@ -241,7 +253,13 @@ Actual:   "10:5"
 
 The `:00` is the whole repair — *at least two digits, pad with a zero.* The minutes deliberately don't get one, which is why `0:45` still reads `0:45`.
 
-**Run the shift again** — and this is the point of the task: **the hour looks exactly the way it did before.** The board never asked a one-digit-seconds question all night. Only your test did.
+**Run the shift again and do exactly the same thing** — `r`, `Dorothy`, song `2`, then `h`:
+
+```
+7 items - 19:09 on the clock.
+```
+
+**Nineteen oh nine.** One character, and the desk stops lying about its own hour.
 
 **Yours, green:**
 

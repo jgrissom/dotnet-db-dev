@@ -15,7 +15,7 @@
 
 ## 🎯 The payoff moment — the lab's
 
-**Their own red, against a bug the board hid.** Task 2's clock bug is invisible on the shift — every length the board happens to show has two-digit seconds, so the screen looks perfect all night. Their four-line fact feeds the clock `605` and it objects instantly:
+**Their own red, against a bug they could only see by being lucky.** Task 2's clock bug hides on the shift as loaded — every length happens to land on two-digit seconds. The lab has them surface it by taking one request: song **2** pushes the hour to 1149 seconds and the clock reads `19:9`. ⚠️ **Song 1 or 3 and it looks perfect** — which is the whole point, and it is why their fact feeds the clock `605` rather than hoping. It objects instantly:
 
 ```
 Assert.Equal() Failure: Strings differ
@@ -23,7 +23,7 @@ Expected: "10:05"
 Actual:   "10:5"
 ```
 
-**A test asks questions the screen never asks** — that is the moment the lab exists for, and it is theirs, at their own keyboard, before any fix. The commonest wrong reflex to catch while circulating: fixing the line first and never seeing the red.
+**A test asks the same question every time; the screen only shows what you happened to do** — that is the moment the lab exists for, and it is theirs, at their own keyboard, before any fix. The commonest wrong reflex to catch while circulating: fixing the line first and never seeing the red.
 
 ## Learning objectives
 
