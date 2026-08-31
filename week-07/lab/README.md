@@ -498,11 +498,22 @@ A station that says one thing on air and logs another has a records problem — 
 
 The order lives in `Hour.Run()` — the one loop that puts the hour on air.
 
-**Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 5` comment:**
+**Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 5` comment.**
 
-- Scene: an `Hour` holding one `Ad` with a **three-run** buy.
-- Do: `hour.Run()`, and keep the `List<string>` it hands back.
-- Check: [`Assert.Contains`](../lecture-notes.md#the-assert-family) — the first line back should show the buy **after** the airing: `"(2 left)"`.
+⚠️ **This scene is bigger than the last three, and that is the only hard part.** It needs two objects wired together, and it keeps what a method hands back. [The notes work the same shape through on your own registry](../lecture-notes.md#asserting-on-something-a-method-hands-back). **Here are the first two moves — the check is yours:**
+
+```csharp
+Hour hour = new Hour();
+Ad ad = new Ad("Pham's Bakery", "open at five", runs: 3);
+hour.Add(ad);
+
+List<string> aired = hour.Run();
+```
+
+- **`aired[0]` is the line the desk printed for the ad** — the first and only thing on this hour. Square brackets, same as every `List<T>` since week 3.
+- **Check it with [`Assert.Contains`](../lecture-notes.md#the-assert-family)** — substring first, whole string second.
+- **Which substring?** The buy was three and the ad has just aired once. You watched it print `(3 left)` a minute ago. Decide what that line *should* say, and assert on that.
+- Name it after the rule it proves. Mine is `TheDeskPrintsWhatAired`; yours doesn't have to be.
 
 **Run yours — red** (`Assert.Contains() Failure: Sub-string not found`).
 

@@ -131,6 +131,37 @@ Assert.Contains("(2 left)", aired[0]);
 - **`Assert.Same(expected, actual)`** — the identity question: are these **the same object**, not two lookalikes with the same values? This is week 5's `==`-on-references as an assert, and it is exactly the question to ask of a method like `Find` or `Take` that promises to hand back *the* record rather than a copy.
 - **`Assert.Contains(part, whole)`** — a substring must appear. For lines built for humans, where pinning the entire wording would break every time the wording improves.
 
+
+### Asserting on something a method hands back
+
+The facts above ask an object about itself. Often the thing you want to check is
+what a method **returned** — a list, and one entry in it. The three moves do not
+change; the scene just has more than one object in it.
+
+```csharp
+// Project.Tests/RegistryTests.cs — mine is payphones
+[Fact]
+public void TheListingShowsTheRecord()
+{
+    Registry registry = new Registry();
+    registry.Add(registry.NewItem("Route 9 at the feed store"));
+
+    List<IListed> listing = registry.Everything();
+
+    Assert.Contains("Route 9", listing[1].Line());
+}
+```
+
+Three things worth naming, because they are the parts that trip people up:
+
+- **The scene is two objects, wired together.** A registry, a record, and the
+  `Add` that puts one inside the other. Nothing works until they are connected.
+- **Keep what the method hands back.** `List<IListed> listing = ...` — you cannot
+  assert on something you did not hold on to.
+- **Index into it to reach one entry.** `listing[1]` is the second thing in the
+  list; `listing[0]` is the first. That is the same square-bracket indexing you
+  have used on a `List<T>` since week 3.
+
 ---
 
 ## Reading a failure
