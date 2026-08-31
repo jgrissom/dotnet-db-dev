@@ -351,11 +351,11 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Point at the `if`, then at the `else`:** *"Those two endings were both already in this method. Redrawing the board was buried in the middle of the search — three lines ago it sat inside the loop. Saying nobody is outside was stranded underneath it, and the only way to reach it was for the loop to run out. Taking the search away is what let them come and sit next to each other, which is what they always were: the two things that can happen"*
 
-- [ ] 🎯 **Then the `bool`, and this is the part to slow down for. Put the cursor on `watch.AmendBackBy(name, newTime)`:** *"And now look at why that method hands back true or false. In the old version, `return` was doing two jobs at once — it stopped the looking, and it meant we found her. Both, in one word. The moment the loop moves into `Watch`, `return` can only do the first job: it stops the loop in there. So the news has to travel back some other way, and the way it travels is a yes or a no. That is week two's `TryParse` deal, turning up on a method of our own"*
+- [ ] 🎯 **Then the `bool`, and this is the part to slow down for. Put the cursor on `watch.AmendBackBy(name, newTime)`:** *"And now look at why that method hands back true or false. In the old version, `return` was doing two jobs at once — it stopped the looking, and it meant we found her. Both, in one word. The moment the loop moves into `Watch`, `return` can only do the first job: it stops the loop in there. So the news has to travel back some other way, and the way it travels is a yes or a no."*
 
 - [ ] 📖 **Last, the half that did not move — cursor at the top of the method, on the prompts:** *"And notice what I did not select. The two prompts and the two `ReadLine`s are untouched, because asking a human a question is this file's job and always will be"*
 
-- [ ] **Same again for mark-back — same two lines, same restraint.** <kbd>⌘F</kbd> for **`void MarkSomebodyBack()`** — one hit. **The prompt above stays.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** and paste this over them
+- [ ] *"Same again for mark-back — same two lines, same restraint."* <kbd>⌘F</kbd> for **`void MarkSomebodyBack()`** — one hit. **The prompt above stays.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** and paste this over them
 
   ```csharp
       if (watch.MarkBack(name))
@@ -367,8 +367,6 @@ Tonight the console gets caught keeping two wrong records — and the room finds
           AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");
       }
   ```
-
-- [ ] 💡 **Don't narrate that one** — it is the same move, and the room should feel it is the same move
 
 - [ ] **The sign-out itself.** <kbd>⌘F</kbd> for **`log.Add(new SignOut("14:57"`** — one hit. Make that line read
 
