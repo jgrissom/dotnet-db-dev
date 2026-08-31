@@ -168,7 +168,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *How long does a fix stay fixed?*
 
-- [ ] 📖 *"Now — I can fix both of these tonight, and I will. Here is the question I actually care about: how do I know they're still fixed in week ten? This program changes every single week. You watched me rewrite half of it last week. A fix I checked by hand tonight is a fix nobody has checked since tonight"*
+- [ ] 📖 *"Now — I can fix both of these tonight, and I will. Here is the question I actually care about: how do I know they're still fixed in week ten? This program changes every single week. You watched me rewrite half of it last week. If the only check is me trying it by hand tonight, then tonight is the last time anybody checks"*
 - [ ] 🎯 **Let the room propose it, then price it:** *"run the program and try it? Sure. That's what we just did — sign him out twice, mark her back, amend, read the board. Two minutes, at the keyboard, by a person. Every run. Every week. For every rule this program has. Nobody does that, and I have eleven weeks of evidence"* — **and stop there. Do not say what the evidence is yet**
 - [ ] 📖 **The idea, plainly:** *"what I want is a program whose job is to check MY program — asks the same questions every time, in under a second, and complains when an answer changes. That exists. You have been graded by one since week one"*
 
@@ -428,12 +428,12 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   4 people outside.
   ```
 
-- [ ] 📖 **Flat:** *"same desk, same board, same wrong answer. That is what a good move looks like: nothing changed, including the bugs. What did change is that every one of those rules is a public method on a class now, so anything that references this program can call it by name. That is the whole reason we moved them"*
+- [ ] 📖 **Flat:** *"Same desk, same board, same wrong answer. That is what I wanted. A move should not change how the program behaves, and this one did not — the bugs are still here too. What moved is where the rules live. The rules are public methods on a class now, and any other project can call them by name. That is the only reason we moved them"*
 - [ ] **Press `q`**
 
 - [ ] 🎞️ **GO TO SLIDE 6** — *Now something can call them*
 
-- [ ] 📖 **One sentence, collecting six weeks:** *"the rule since week one was: logic goes in a class where a check can call it. Every homework you've done obeyed it. Tonight you watched what it costs to disobey it — a rule you cannot test — and what it costs to comply: nothing. The program is identical"*
+- [ ] 📖 **Collecting six weeks, and say it slowly:** *"Week one I told you to put your logic in a class, so that a check can call it. You have done that in every homework since. Tonight you saw why. The rule about signing somebody out was sitting in `Program.cs`, and no test could reach it there. We moved it into a class, and the program still does exactly what it did before. Moving it cost us nothing"*
 
 - [ ] **Save it.** Silent
 
@@ -500,7 +500,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   </Project>
   ```
 
-- [ ] 💡 **Ten seconds, not a lecture:** *"same versions the template gave us, minus a coverage tool we don't need this term, plus the one setting that lists every test by name — you have been reading that setting's output since week one"*
+- [ ] 💡 **Ten seconds, not a lecture:** *"Same versions the template gave us. I took out a coverage tool we do not need this term, and I added one setting: it lists every test by name, passed and failed. You have been reading that setting's output since week one"*
 
 - [ ] **One more small file. New file, `week-07/Haldane.Tests/Directory.Build.rsp`** — paste the whole thing
 
@@ -562,7 +562,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *You've been reading tests all semester*
 
-- [ ] 🎯 **The reveal. Bring up the browser tab — `dotnet-db-starters`, week 6's `HourChecks.cs` — beside the editor, and scroll it slowly:** *"this is the file that graded your lab last week. A class. Methods with `[Fact]` over them. `Assert` after `Assert`. It is this same kind of project, down to the csproj settings — I have been calling them checks since week one because that is what they are to you, and the word the rest of the world uses is unit tests. There is no magic in this file, and as of tonight there is no line of it you cannot read"*
+- [ ] 🎯 **The reveal. Bring up the browser tab — `dotnet-db-starters`, week 6's `HourChecks.cs` — beside the editor, and scroll it slowly:** *"this is the file that graded your lab last week. A class. Methods with `[Fact]` over them. `Assert` after `Assert`. It is this same kind of project, down to the csproj settings. I have called them checks since week one, because that is what they are to you. The rest of the world calls them unit tests. There is no magic in this file. As of tonight, there is not a line of it you cannot read"*
 - [ ] 📖 **Collect the promise by quoting it:** *"week one, first night, I told you: there's a file in tonight's lab that grades you, and in week seven you find out it isn't magic — and you write one. It's week seven"*
 - [ ] 💡 **And the header of that very file has been saying so for a week** — point at it: *"read the last line of the comment at the top. 'That is what an interface is, and it is what a check is. Week 7.' It was posted"*
 
@@ -897,7 +897,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎞️ **GO TO SLIDE 13** — *Tonight, in one picture*
 
-- [ ] 📖 **Four sentences, then stop** — *"a test is a method with `[Fact]` over it, and a check is a test. It calls your class the way any caller would — which is why logic lives in classes. Red first proves the test; green after proves the fix. And a test you never delete is the only fix that stays fixed"*
+- [ ] 📖 **Six short sentences, then stop** — *"A test is a method with `[Fact]` over it, and a check is a test. It calls your class the same way anything else calls it, and that is why we put logic in classes. Write the test first and watch it fail — that proves the test can see the bug. Then fix the code and watch it pass — that proves the fix works. Then keep the test. It runs every time from now on, so the bug cannot come back quietly"*
 - [ ] 🎯 **The forward line:** *"one thing the suite cannot save us from yet: press `q` and the whole log is still gone. Every reading, every sign-out, every night — gone at quit, since week three. Next week it stops being gone"*
 - [ ] **Homework: two URLs in Canvas, coursework repo first, project repo second**
 - [ ] ⚠️ **Say the checks line out loud, with this week's twist** — *"Part 1 copies this week's checks in, same as always — and this week's checks are TWO, not five. If `dotnet test Project.Checks` shows five checks, you are running last week's. The other three points moved somewhere better: into tests you write yourself"*
