@@ -6,7 +6,7 @@ Your project has been graded by a test project since week 4, and tonight you fou
 
 Notice what you do *not* have to do first: the demo spent a whole segment [moving Haldane's rules out of `Program.cs`](lecture-notes.md#move-it-dont-fix-it) before anything could be tested. Your `Registry` was born a class in week 4 — born testable — so tonight goes straight to the tests.
 
-The rule: [**the same name cannot register twice.**](lecture-notes.md#the-registrys-new-rule) Try it right now if you like — call `Add` twice with the same name and your `Count` goes to 2 for one real thing. Nothing in weeks 4–6 ever stopped it. You'll prove that with a red test before you fix it, which is [the whole discipline of the week](lecture-notes.md#red-then-green).
+The rule: [**the same name cannot register twice.**](lecture-notes.md#the-registrys-new-rule) Call `Add` twice with the same name and your `Count` says 2 for one real thing — and nothing anywhere tells you. Nothing in weeks 4–6 ever stopped it. You'll prove that with a red test before you fix it, which is [the whole discipline of the week](lecture-notes.md#red-then-green).
 
 > [!TIP]
 > **Keep [`lecture-notes.md`](lecture-notes.md) open in a second tab.** Every requirement below links to the section that shows it done, and the [troubleshooting section](lecture-notes.md#-troubleshooting) names this week's actual errors.
@@ -190,11 +190,11 @@ git commit -m "The project gets a suite of its own"
 
 Week 5's rule, now pinned by you: `Find` hands back **the record the registry is holding** — never a fresh one with the same values. The lab's Task 4 was this exact question about the switchboard, and it is [`Assert.Same`'s whole job](lecture-notes.md#the-assert-family).
 
-Under your first fact, same file:
+Under your first fact, in `Project.Tests/RegistryTests.cs`. [Same three moves as Task 2](lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer):
 
-- Scene: a fresh registry, and **keep a variable** for one record — `var depot = registry.NewItem(...)` — then `Add` it.
-- Do: `Find` it, by the same name.
-- Check: `Assert.Same(depot, found);` — expected first.
+- **Set the scene.** A fresh registry, and **keep a variable** for one record — `var depot = registry.NewItem(...)` — then `Add` it. You cannot compare against a record you did not hold on to.
+- **Do the thing.** `Find` it, by the same name.
+- **Check the answer.** [`Assert.Same(depot, found)`](lecture-notes.md#the-assert-family) — expected first. Not `Assert.Equal`: [this is the identity question](lecture-notes.md#the-assert-family), and a lookalike with the same values would pass a value comparison.
 
 **Run yours** — **2 passed** — then falsify-and-restore (swap `Assert.Same` for a `Assert.Same(registry.NewItem("..."), found)`-style wrong expectation, watch it object, put it back).
 
@@ -213,9 +213,11 @@ git commit -m "Find hands back the record it holds"
 
 Week 5's other rule: `Remove` on a name nobody has says `false` and takes nothing off the books.
 
-- Scene: a registry with one record in it.
-- Do: `Remove` a name that is definitely not on file.
-- Check: [`Assert.False`](lecture-notes.md#the-assert-family) on what came back — **and** `Assert.Equal` that `Count` still says 1. Two asserts, because *saying no* and *doing nothing* are two different promises.
+In `Project.Tests/RegistryTests.cs`, under Task 3's fact. [Three moves again](lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer):
+
+- **Set the scene.** A registry with one record in it.
+- **Do the thing.** `Remove` a name that is definitely not on file.
+- **Check the answer.** [`Assert.False`](lecture-notes.md#the-assert-family) on what came back — **and** `Assert.Equal` that `Count` still says 1. Two asserts, because *saying no* and *doing nothing* are two different promises, and a `Remove` that returned `false` while quietly deleting something would pass the first one.
 
 **Run yours** — **3 passed.**
 
@@ -234,7 +236,7 @@ git commit -m "Removing a stranger says no"
 
 Now the fact your registry will fail honestly. [The new rule](lecture-notes.md#the-registrys-new-rule): registering the same name twice leaves **one** record on the books.
 
-**1. Write the fact first:**
+**1. Write the fact first**, in `Project.Tests/RegistryTests.cs`, under the other three:
 
 - Scene: a fresh registry.
 - Do: `Add(registry.NewItem("..."))` **twice, with the identical name.**
