@@ -535,14 +535,14 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       [Fact]
       public void MinusFiftyIsTheLine()
       {
-          Assert.True(Conditions.IsSafeToGoOut(-49.9, false));
-          Assert.False(Conditions.IsSafeToGoOut(-50.0, false));
-          Assert.False(Conditions.IsSafeToGoOut(-10.0, true));
+          Assert.True(Conditions.IsSafeToGoOut(celsius: -49.9, blizzard: false));
+          Assert.False(Conditions.IsSafeToGoOut(celsius: -50.0, blizzard: false));
+          Assert.False(Conditions.IsSafeToGoOut(celsius: -10.0, blizzard: true));
       }
   }
   ```
 
-- [ ] 📖 **Read it as three sentences, not as syntax:** *"at minus forty-nine point nine, you can go out. At exactly minus fifty, you cannot. In a blizzard, you cannot, whatever the number says. `IsSafeToGoOut` is the first method this console ever had — week one, night one — and until this moment, the minus-fifty line existed in exactly one place: inside the method. Now the rule is written down where a machine re-asks it"*
+- [ ] 📖 **Read it as three sentences, not as syntax:** *"I put the parameter names in front of both arguments, so you can read each line without going and looking the method up. Now the three claims. At minus forty-nine point nine, you can go out. At exactly minus fifty, you cannot. In a blizzard, you cannot, whatever the number says. `IsSafeToGoOut` is the first method this console ever had — week one, night one — and until this moment, the minus-fifty line existed in exactly one place: inside the method. Now the rule is written down where a machine re-asks it"*
 
 - [ ] **Run it**
 
@@ -697,9 +697,9 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       [Fact]
       public void MinusFiftyIsTheLine()
       {
-          Assert.True(Conditions.IsSafeToGoOut(-49.9, false));
-          Assert.False(Conditions.IsSafeToGoOut(-50.0, false));
-          Assert.False(Conditions.IsSafeToGoOut(-10.0, true));
+          Assert.True(Conditions.IsSafeToGoOut(celsius: -49.9, blizzard: false));
+          Assert.False(Conditions.IsSafeToGoOut(celsius: -50.0, blizzard: false));
+          Assert.False(Conditions.IsSafeToGoOut(celsius: -10.0, blizzard: true));
       }
 
       [Fact]
