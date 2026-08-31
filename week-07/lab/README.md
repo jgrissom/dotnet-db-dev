@@ -249,13 +249,34 @@ week 7 lab: the clock pads its seconds
 
 You saw this one on air in Task 1: `(-1 left)`. Pham's Bakery bought three runs; the update decided the guard in `Ad.Play()` was *redundant* — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Ad.cs`. You wrote that guard yourself in week 6. Tonight you prove it mattered before you put it back.
 
-**Write the fact**, under `TODO — Task 3`:
+**Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 3` comment.**
 
-- Scene: an `Ad` with a **one-run** buy — `new Ad("Pham's Bakery", "open at five", 1)`.
-- Do: `Play()` it **twice** — one airing it can pay for, one it can't.
-- Check: `Assert.Equal` — where is `Remaining` allowed to stop?
+⚠️ **This one needs all three moves, and Task 2 did not.** Task 2's asserts stood on their own, because `Broadcast.Clock` is `static` — there was nothing to make first. Here you make an object, keep it in a variable, do something to it twice, and then ask it a question. [That is the ordinary shape of a test](../lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer), and every fact you write from here looks like this one.
 
-**Run yours — red** (`Expected: 0`, `Actual: -1`). Then put the guard back: an airing only spends a run [if there's a run to spend](../lecture-notes.md#red-then-green) — and check 3's message has the exact line if you want it.
+- **Set the scene.** One `Ad` with a **one-run** buy, in a variable, so you can ask it about itself afterwards:
+
+  ```csharp
+  Ad ad = new Ad("Pham's Bakery", "open at five", 1);
+  ```
+
+- **Do the thing.** Play it **twice** — one airing the buy can pay for, and one it cannot.
+- **Check the answer.** [`Assert.Equal`](../lecture-notes.md#the-assert-family), expected first. `Remaining` is a public property you can read. After two airings on a one-run buy it should be **0**: a buy stops at zero and never goes negative.
+- Name it after the rule it proves. Mine is `ABuyStopsAtZero`; yours doesn't have to be.
+
+**Run yours, and expect red:**
+
+```bash
+dotnet test week-07/Lab.Tests
+```
+
+```
+Expected: 0
+Actual:   -1
+```
+
+**Minus one.** The station is one spot in debt to Pham's Bakery, and nothing on the board ever said so.
+
+**Now put the guard back** — an airing only spends a run [if there is a run to spend](../lecture-notes.md#red-then-green). If you want the exact line, run my checks and read check 3.
 
 **Run the shift** — DJ name, then `a` five times, then `q`:
 
@@ -302,7 +323,7 @@ The sneakiest one. The update made `Take` hand out *fresh copies* of callers, "s
 
 Right now, when Dorothy rings: her call is counted on a ghost, her request is remembered by the ghost, and the ghost is thrown away. The desk still prints `Line 1: Dorothy asks for …` — everything *looks* fine while the board quietly stops learning.
 
-**Write the fact**, under `TODO — Task 4`:
+**Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** Same three moves as Task 3:
 
 - Scene: a fresh `Switchboard`, and a `Caller` you keep a variable for — `var dorothy = new Caller("Dorothy");` — added to the board.
 - Do: `Take("Dorothy")`, and keep what comes back.
