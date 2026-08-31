@@ -704,7 +704,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   dotnet test week-07/Haldane.Tests
   ```
 
-- [ ] **The desk should say no out loud too — and again, the prompts stay.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut()`** — one hit. **Leave everything down to the `Find` alone.** Select from **`if (who == null)`** down to and including the **`}` that closes the method** — a two-branch decision becomes a three-branch one — and paste this over it
+- [ ] **The desk should say no out loud too — and again, the prompts stay.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut()`** — one hit. **Leave everything down to the `Find` alone.** Then select the whole `if` — from **`if (who == null)`** down to and including the **`}` that closes its `else`** — and paste this over it. A two-branch decision becomes a three-branch one
 
   ```csharp
       if (who == null)
@@ -722,7 +722,6 @@ Tonight the console gets caught keeping two wrong records — and the room finds
           AnsiConsole.MarkupLine($"[{Amber}]  {Markup.Escape(who.Name)} is already outside. "
               + "One trip at a time.[/]");
       }
-  }
   ```
 
 - [ ] **Run the desk and try the break — `o`, `Okonkwo`, `DIG OUT`, `15:30`**
