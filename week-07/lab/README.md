@@ -187,7 +187,28 @@ dotnet test week-07/Lab.Tests
 
 **Check:** `Check2_TheClockPadsItsSeconds`
 
-The update *simplified* `Broadcast.Clock` — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Broadcast.cs` to see the line. Ten minutes and five seconds now prints as `10:5`, which a tired DJ reads as ten-fifty. **The board never shows it**, because everything on tonight's hour happens to have two-digit seconds. This is the bug only a test can see.
+The update *simplified* `Broadcast.Clock` — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Broadcast.cs` to see the line.
+
+**First, look for the damage.** Run the shift, type a DJ name, and read the LENGTH column:
+
+```bash
+dotnet run --project week-07/Lab
+```
+
+```
+│ IDENT   │ KDXR 88.1, The Owl                           │ 0:12   │
+│ SONG    │ Nightjar - The Lamplighters                  │ 3:47   │
+│ AD      │ Pham's Bakery - "open at five" (3 left)      │ 0:30   │
+│ SONG    │ Slack Water - Marguerite Vance               │ 4:12   │
+│ WEATHER │ clear, four below, wind out of the northwest │ 0:45   │
+│ SONG    │ Long Way Round - The Ferrymen                │ 5:31   │
+╰─────────┴──────────────────────────────────────────────┴────────╯
+6 items - 14:57 on the clock.
+```
+
+**Nothing is wrong with it.** Every length on tonight's hour happens to have two-digit seconds, so the broken clock has nothing to show. Press `q`.
+
+But ten minutes and five seconds now prints as `10:5`, which a tired DJ reads as ten-fifty. **This is the bug the board can never show you** — and the only instrument that can is the one you are about to write.
 
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 2` comment.** Yours to write, and here is the spec:
 
@@ -209,15 +230,18 @@ Actual:   "10:5"
 
 **Red, for the right reason** — [read the failure like a sentence](../lecture-notes.md#reading-a-failure): which rule, expected versus actual. If yours is green, it's asking an easy question — feed it `605`.
 
-**Now fix the line** — the format spec the update deleted is `:00`: at least two digits, pad with zero. If you get stuck, run my checks and *read check 2*; it hands you the line.
+**Now the fix.** The update deleted a format spec. In `Lab/Broadcast.cs`, make `Clock` read:
 
-**Run the shift** — DJ name, look at the hour, `q`:
-
-```bash
-dotnet run --project week-07/Lab
+```csharp
+    public static string Clock(int seconds)
+    {
+        return $"{seconds / 60}:{seconds % 60:00}";
+    }
 ```
 
-**Nothing looks different — and that's correct.** The board never asked a one-digit-seconds question all night; only your test did. That is the entire argument for owning a test suite.
+The `:00` is the whole repair — *at least two digits, pad with a zero.* The minutes deliberately don't get one, which is why `0:45` still reads `0:45`.
+
+**Run the shift again** — and this is the point of the task: **the hour looks exactly the way it did before.** The board never asked a one-digit-seconds question all night. Only your test did.
 
 **Yours, green:**
 
@@ -247,7 +271,21 @@ week 7 lab: the clock pads its seconds
 
 **Check:** `Check3_ABuyNeverGoesBelowZero`
 
-You saw this one on air in Task 1: `(-1 left)`. Pham's Bakery bought three runs; the update decided the guard in `Ad.Play()` was *redundant* — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Ad.cs`. You wrote that guard yourself in week 6. Tonight you prove it mattered before you put it back.
+The update decided the guard in `Ad.Play()` was *redundant* — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Ad.cs`. You wrote that guard yourself in week 6. Tonight you prove it mattered before you put it back.
+
+**First, watch it happen.** Run the shift, type a DJ name, then press `a` **five times**, watching the AD line each time:
+
+```bash
+dotnet run --project week-07/Lab
+```
+
+```
+  ON AIR  AD - Pham's Bakery - "open at five" (1 left)
+  ON AIR  AD - Pham's Bakery - "open at five" (0 left)
+  ON AIR  AD - Pham's Bakery - "open at five" (-1 left)
+```
+
+Pham's Bakery bought three spots and the station just aired five. Press `q`.
 
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 3` comment.**
 
@@ -276,9 +314,19 @@ Actual:   -1
 
 **Minus one.** Pham's Bakery bought one spot and the station just aired two — a free ad nobody paid for. You saw this on the board back in Task 1, but only because you pressed `a` five times and happened to be reading the right line. Your test asks every single time, in about a millisecond.
 
-**Now put the guard back** — an airing only spends a run [if there is a run to spend](../lecture-notes.md#red-then-green). If you want the exact line, run my checks and read check 3.
+**Now the fix.** An airing only spends a run [if there is a run to spend](../lecture-notes.md#red-then-green). In `Lab/Ad.cs`, make `Play` read:
 
-**Run the shift** — DJ name, then `a` five times, then `q`:
+```csharp
+    public void Play()
+    {
+        if (Remaining > 0)
+        {
+            Remaining--;
+        }
+    }
+```
+
+**Run the shift again** — same keys, `a` five times:
 
 ```bash
 dotnet run --project week-07/Lab
@@ -289,7 +337,7 @@ dotnet run --project week-07/Lab
   ON AIR  AD - Pham's Bakery - "open at five" (0 left)
 ```
 
-The buy runs out and *stays* out.
+The buy runs out and *stays* out. No more free spots.
 
 **Yours, green:**
 
@@ -321,7 +369,21 @@ week 7 lab: a buy never goes below zero
 
 The sneakiest one. The update made `Take` hand out *fresh copies* of callers, "so nothing outside can mess with the board" — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Switchboard.cs`. That is week 5's copy lesson [applied in exactly the wrong place](../lecture-notes.md#the-assert-family): `All()` copies the **list** so nobody can empty the board; `Take` must hand back **the caller** so the call lands on the person who made it.
 
-Right now, when Dorothy rings: her call is counted on a ghost, her request is remembered by the ghost, and the ghost is thrown away. The desk still prints `Line 1: Dorothy asks for …` — everything *looks* fine while the board quietly stops learning.
+**First, watch the board fail to learn.** Run the shift, DJ name, then `r`, caller `Dorothy`, song `2`, then `c`:
+
+```bash
+dotnet run --project week-07/Lab
+```
+
+```
+│ CALLER  │ CALLS │ ASKED FOR │
+├─────────┼───────┼───────────┤
+│ Dorothy │ 3     │ -         │
+│ Bex     │ 1     │ -         │
+│ Teodoro │ 1     │ -         │
+```
+
+The desk printed `Line 1: Dorothy asks for Slack Water` a second ago — and her row still says **3 calls** and **no song**. Her call was counted on a ghost, her request was remembered by the ghost, and the ghost was thrown away. Press `q`.
 
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** Same three moves as Task 3:
 
@@ -329,9 +391,29 @@ Right now, when Dorothy rings: her call is counted on a ghost, her request is re
 - Do: `Take("Dorothy")`, and keep what comes back.
 - Check: **`Assert.Same(dorothy, took)`** — [the identity question](../lecture-notes.md#the-assert-family): the very object on the board, not a lookalike. Add `Assert.Equal(1, dorothy.CallsTonight);` if you want the consequence pinned too — with the bug, *her* count never moved.
 
-**Run yours — red** (`Assert.Same() Failure`). Then fix `Take`: ask `Find` first, and only make-and-add a caller when `Find` comes back empty — the shape you wrote in week 5, and check 4's message walks it.
+**Run yours — red** (`Assert.Same() Failure: Values are not the same instance`).
 
-**Run the shift** — DJ name, then `r`, caller `Dorothy`, song `2`, then `c`, then `q`:
+**Now the fix.** `Take` asks `Find` first, and only makes a caller when `Find` comes back empty — the shape you wrote in week 5. In `Lab/Switchboard.cs`, make `Take` read:
+
+```csharp
+    public Caller Take(string name)
+    {
+        Caller? caller = Find(name);
+
+        if (caller == null)
+        {
+            caller = new Caller(name);
+            Add(caller);
+        }
+
+        caller.Calls();
+        return caller;
+    }
+```
+
+Both roads end in the same place, which is why `Calls()` sits after the `if` rather than inside one branch of it.
+
+**Run the shift again** — same keys: `r`, `Dorothy`, song `2`, then `c`:
 
 ```bash
 dotnet run --project week-07/Lab
@@ -371,17 +453,43 @@ week 7 lab: take hands back the caller on the board
 
 **Check:** `Check5_TheDeskPrintsWhatActuallyAired`
 
-Last week you were warned about this exact bug and you dodged it: *play the item, then read its cue.* The update un-dodged it — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Hour.cs`. `Run()` now reads each cue *before* the item airs, so the desk prints `(3 left)` on the air while its own books say two. A station that says one thing on air and logs another is a station with a records problem — same disease as Haldane's board tonight, different building.
+Last week you were warned about this exact bug and you dodged it: *play the item, then read its cue.* The update un-dodged it — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Hour.cs`.
 
-**Write the fact**, under `TODO — Task 5`:
+**First, put the hour on air and read two lines.** DJ name, then `a`:
+
+```bash
+dotnet run --project week-07/Lab
+```
+
+```
+  ON AIR  IDENT - KDXR 88.1, The Owl
+  ON AIR  SONG - Nightjar - The Lamplighters
+  ON AIR  AD - Pham's Bakery - "open at five" (3 left)
+  ON AIR  SONG - Slack Water - Marguerite Vance
+  ON AIR  WEATHER - clear, four below, wind out of the northwest
+  ON AIR  SONG - Long Way Round - The Ferrymen
+```
+
+**Two things there are lies.** The ad went out and the log says `3 left` — the spot it just aired is not counted. And the weather bed has been read on air, but its line doesn't say `(read)`. Both for the same reason: the desk wrote down each cue *before* the item played. Press `q`.
+
+A station that says one thing on air and logs another has a records problem — the same disease as Haldane's board tonight, in a different building.
+
+**Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 5` comment:**
 
 - Scene: an `Hour` holding one `Ad` with a **three-run** buy.
 - Do: `hour.Run()`, and keep the `List<string>` it hands back.
 - Check: [`Assert.Contains`](../lecture-notes.md#the-assert-family) — the first line back should show the buy **after** the airing: `"(2 left)"`.
 
-**Run yours — red** (`Sub-string not found`). Then swap the two lines in `Run()` back into week 6's order: play first, then speak.
+**Run yours — red** (`Assert.Contains() Failure: Sub-string not found`).
 
-**Run the shift** — DJ name, then `a`, then `q`:
+**Now the fix.** Swap the two lines back into week 6's order — play first, then speak. In `Lab/Hour.cs`, inside `Run()`'s loop:
+
+```csharp
+            item.Play();
+            aired.Add($"{item.Kind} - {item.Cue}");
+```
+
+**Run the shift again** — DJ name, then `a`:
 
 ```bash
 dotnet run --project week-07/Lab
