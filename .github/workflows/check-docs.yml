@@ -43,6 +43,12 @@ jobs:
       # four locally before a handover:
       #   node scripts/check-americanisms.js ../dotnet-db-dev-answer-keys \
       #        ../dotnet-db-starters ../dutyconsole .
+      # A REVIEW SURFACE, not a gate — it always exits 0. Judging whether a
+      # spoken line is a riddle is human work; what is automated is that the
+      # numbers exist, so the pass cannot be claimed without them. A judgment
+      # check that fails the build gets silenced, and then nobody reads.
+      - name: Spoken lines — long sentences and semicolons (numbers for the handover)
+        run: node scripts/check-spoken.js .
       - name: Plain American English (patterns self-test, then scan)
         run: |
           node scripts/check-americanisms.js --selftest

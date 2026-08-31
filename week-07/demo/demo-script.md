@@ -428,7 +428,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   4 people outside.
   ```
 
-- [ ] 📖 **Flat:** *"Same desk, same board, same wrong answer. That is what I wanted. A move should not change how the program behaves, and this one did not — the bugs are still here too. What moved is where the rules live. The rules are public methods on a class now, and any other project can call them by name. That is the only reason we moved them"*
+- [ ] 📖 **Flat:** *"Same desk, same board, same wrong answer. That is what I wanted. A move should not change how the program behaves, and this one did not — the bugs are still here too. The rules live somewhere else now. They are public methods on a class, and any other project can call them by name. That is the only reason we moved them"*
 - [ ] **Press `q`**
 
 - [ ] 🎞️ **GO TO SLIDE 6** — *Now something can call them*
@@ -453,7 +453,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   dotnet new xunit -o week-07/Haldane.Tests
   ```
 
-- [ ] 📖 *"`xunit` is a template like `console` is a template. xUnit is the library it wires up — the most ordinary test library in .NET. This is not course equipment; it is what the industry runs"*
+- [ ] 📖 *"`xunit` is a template like `console` is a template. xUnit is the library it wires up — the most ordinary test library in .NET. This is not course equipment. It is what the industry runs"*
 
 - [ ] **Point it at the desk**
 
@@ -511,7 +511,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   -tl:off
   ```
 
-- [ ] 💡 *"housekeeping — it stops the build tool double-reporting failures. Your lab checks carry the identical file; go look sometime"*
+- [ ] 💡 *"housekeeping — it stops the build tool double-reporting failures. Your lab checks carry the identical file. Go look sometime"*
 
 - [ ] **Delete `week-07/Haldane.Tests/UnitTest1.cs`** — right-click it in the Explorer → **Delete**. The template's empty page; ours gets a real name
 
@@ -563,7 +563,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] 🎞️ **GO TO SLIDE 8** — *You've been reading tests all semester*
 
 - [ ] 🎯 **The reveal. Bring up the browser tab — `dotnet-db-starters`, week 6's `HourChecks.cs` — beside the editor, and scroll it slowly:** *"this is the file that graded your lab last week. A class. Methods with `[Fact]` over them. `Assert` after `Assert`. It is this same kind of project, down to the csproj settings. I have called them checks since week one, because that is what they are to you. The rest of the world calls them unit tests. There is no magic in this file. As of tonight, there is not a line of it you cannot read"*
-- [ ] 📖 **Collect the promise by quoting it:** *"week one, first night, I told you: there's a file in tonight's lab that grades you, and in week seven you find out it isn't magic — and you write one. It's week seven"*
+- [ ] 📖 **Collect the promise by quoting it:** *"Week one, first night, I told you this. There is a file in tonight's lab that grades you. In week seven you find out it is not magic, and you write one. It is week seven"*
 - [ ] 💡 **And the header of that very file has been saying so for a week** — point at it: *"read the last line of the comment at the top. 'That is what an interface is, and it is what a check is. Week 7.' It was posted"*
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *Make it fail once*
@@ -785,7 +785,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *Test the rule, not the line*
 
-- [ ] 📖 **Same discipline, less narration — the room knows the drill now:** *"Reyes's amend. Test first, red first. And this scene takes more setting up, because the bug only shows when somebody has a FINISHED trip and an open one — so the test has to build that little history: out, back, out again"*
+- [ ] 📖 **Same discipline, less narration — the room knows the drill now:** *"Reyes's amend. Test first, red first. And this scene takes more setting up. The bug only shows when somebody has a finished trip and an open one at the same time. So the test has to build that little history first: out, back, out again"*
 
 - [ ] **In `WatchTests.cs`, paste this at the bottom of the class — above the last `}`**
 
@@ -887,7 +887,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Lab: the update*
 
-- [ ] 📖 *"Your turn — and at KDXR it's worse than two bugs. The station's scheduler software took an update overnight, and the update 'improved' four things. The checks caught all four before the morning show did. Your job is what mine was tonight: for each one, write your own test, watch it go red against the real bug, then fix the line and watch both go green"*
+- [ ] 📖 *"Your turn — and at KDXR it's worse than two bugs. The station's scheduler software took an update overnight, and the update 'improved' four things. The checks caught all four before the morning show did. Your job is the same as mine was tonight. For each one: write your own test, watch it go red against the real bug, then fix the line and watch both go green"*
 - [ ] 🎯 **Define done on their machine:** *"you are done when `dotnet test week-07/Lab.Checks` says five out of five, your own `Lab.Tests` file has a fact per bug, and the desk behaves when you work a shift"*
 - [ ] 💡 **Name the new folder out loud** — *"the week's folder has three projects in it now: the desk, my checks, and `Lab.Tests` — which is yours. The first test project in this course that belongs to you"*
 
