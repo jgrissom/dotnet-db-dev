@@ -804,6 +804,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
               if (s.Who.Name == name && !s.IsBack)
   ```
 
+- [ ] 📖 *"The only change here is adding the check on `IsBack` — in other words, we will not amend the expected return time for someone who has already returned."*
+
 - [ ] **Run the whole suite**
 
   ```bash
