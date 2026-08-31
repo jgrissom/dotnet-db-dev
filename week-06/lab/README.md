@@ -311,7 +311,7 @@ What each one has to be:
 - **`Kind`** — one word, and **not one another kind is already using**. There are four sorts of things on this hour and four words in that column.
 - **`Cue`** — two things it must carry, and the wording around them is yours. It has to name the **sponsor**, because an ad the DJ can't attribute is an ad the station runs again for free. And it has to show **how many runs are left on the buy** — that is what the desk prints the moment the spot airs, and it is the only thing on the screen that says an airing actually happened.
 - **`Seconds`** — a spot is **thirty seconds**. It has been thirty seconds since radio began, and nothing is handed in for it.
-- **`Play()`** — this is the one that counts the other way. Every airing spends one run off the buy. ⚠️ **It never goes below zero:** a station that owes minus one spot has a bug, so the method asks before it spends.
+- **`Play()`** — this is the one that counts the other way. Every airing spends one run off the buy. ⚠️ **It never goes below zero:** a negative count would mean the station aired more spots than the sponsor bought, so the method asks before it spends.
 
 > [!TIP]
 > **Task 3 is the template and this should be quicker.** That is the actual lesson of the week showing up in your own hands — [the first kind of thing is not cheaper this way; the third one is](../lecture-notes.md#a-new-kind-costs-one-class).
