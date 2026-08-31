@@ -256,7 +256,7 @@ You saw this one on air in Task 1: `(-1 left)`. Pham's Bakery bought three runs;
 - **Set the scene.** One `Ad` with a **one-run** buy, in a variable, so you can ask it about itself afterwards:
 
   ```csharp
-  Ad ad = new Ad("Pham's Bakery", "open at five", 1);
+  Ad ad = new Ad("Pham's Bakery", "open at five", runs: 1);
   ```
 
 - **Do the thing.** Play it **twice** — one airing the buy can pay for, and one it cannot.
