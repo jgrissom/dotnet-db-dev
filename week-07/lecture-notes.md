@@ -273,6 +273,7 @@ The **bodies are yours** — your type, your property names, your values. The di
 
 | What you see | What it means |
 |---|---|
+| **Red squiggles under `Assert` or `[Fact]` — but `dotnet test` runs fine** | **The editor, not your code.** VS Code worked out which projects exist when you opened the window, and the test project did not exist then. Command Palette → **`Developer: Reload Window`**. ⚠️ `.NET: Restart Language Server` does **not** fix it. The compiler is the witness here: if `dotnet test` is happy, believe it. |
 | `CS0246: The type or namespace name 'FactAttribute' could not be found` — **blamed on your app's csproj** | The test project is *inside* the app folder, so the app is trying to compile the test files. A folder is a project or a container, never both — move `Project.Tests` up beside `Project`. |
 | `CS0246: 'Fact'` or `'Xunit'` not found, blamed on the **test** project | The csproj lost its packages or the `<Using Include="Xunit" />`. Paste the whole csproj block from these notes over yours. |
 | `CS0246: The type or namespace name 'Registry' could not be found` — in the test project | No `ProjectReference`. `dotnet add Project.Tests reference Project`, or check the csproj's last ItemGroup. |

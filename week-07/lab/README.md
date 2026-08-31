@@ -13,7 +13,7 @@ Your job is what the demo did to the duty board: for each broken rule, **write y
 
 ## Setup
 
-Three steps, all from the **one VS Code window you keep all semester** — open on `dotnet-db-coursework`, the top of your repo.
+Four steps, all from the **one VS Code window you keep all semester** — open on `dotnet-db-coursework`, the top of your repo.
 
 **1. Confirm your coursework window is open.** If VS Code is already showing `dotnet-db-coursework` from last week — done, skip to step 2. Otherwise: **File → Open Folder → `dotnet-db-coursework` → Open.**
 
@@ -73,10 +73,12 @@ dotnet-db-coursework/      ← your VS Code window, all semester
    └─ Lab.Checks/          ← my checks — read-only, and finally readable
 ```
 
-> [!TIP]
-> **Reload the window now, before you start.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**.
->
-> VS Code worked out what was in this folder **when you opened it** — and `week-07` wasn't there then. Reloading is how it finds out. It saves you red squiggles on code that's perfectly fine, and a debugger that can't find this week's project.
+**4. Reload the window — and this week it matters more than usual.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**.
+
+VS Code worked out what was in this folder **when you opened it**, and `week-07` wasn't there then. This week that missing folder includes **a whole new project** — `Lab.Tests` — so until you reload, `Assert` and `[Fact]` come up as red squiggles in a file that is perfectly fine.
+
+> [!CAUTION]
+> **`.NET: Restart Language Server` does not fix this. Only a window reload does.** If the squiggles are there but `dotnet test` runs, believe `dotnet test`.
 
 > [!IMPORTANT]
 > **Your homework lives in your project repo, in its own window** — [`homework.md`](../homework.md) picks up there, and this lab is the worked example for it: tonight you practice writing tests on my bugs, and the homework has you write them on your own registry.
@@ -594,6 +596,7 @@ dotnet run --project week-07/Lab
 | `MSB1003: Specify which project` | You're at the top of your repo and didn't name the week. `dotnet test week-07/Lab.Tests`. |
 | **Your fact is green against the bug** | It asserts a value the bug answers correctly — the clock's `893`. [Feed it the value that hurts](../lecture-notes.md#what-a-test-cannot-see), and see it red once before you fix anything. |
 | `dotnet test week-07/Lab.Tests` says **0 tests** — or 1 when you've written more | A fact is missing its `[Fact]`, or has parameters. [A fact takes nothing and returns nothing.](../lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer) |
+| **Red squiggles under `Assert` or `[Fact]` — but `dotnet test` runs fine** | **The editor, not your code.** VS Code worked out which projects exist when you opened the window, and the test project did not exist then. Command Palette → **`Developer: Reload Window`**. ⚠️ `.NET: Restart Language Server` does **not** fix it. The compiler is the witness here: if `dotnet test` is happy, believe it. |
 | `CS0246: 'Fact'` or `'FactAttribute'` could not be found | You're writing in the wrong file — probably a `Lab/` file. Your facts live in `Lab.Tests/DeskTests.cs`, where the packages are. |
 | A failure where **Expected** is obviously the broken value | Your `Assert.Equal` arguments are swapped — [expected comes first](../lecture-notes.md#the-assert-family), and [the failure message is the product](../lecture-notes.md#reading-a-failure). It passes and fails at the right times either way; it just reports backwards. |
 | `Assert.Same() Failure: Values are not the same instance` | **The good red** in Task 4 — that's the ghost, [caught by the identity question](../lecture-notes.md#the-assert-family). If you're seeing it *after* your fix, `Take` still builds a `new Caller` on the found path. |

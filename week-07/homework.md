@@ -102,7 +102,12 @@ dotnet add Project.Tests reference Project
 
 [The first makes an ordinary test project from an ordinary template; the second lets it see your classes.](lecture-notes.md#a-test-project)
 
-**2. Trim the template.** Open `Project.Tests/Project.Tests.csproj`, select the whole file (`⌘A`), and paste this over it — [the notes say what each line is doing there](lecture-notes.md#the-csproj-trimmed):
+**2. Reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**.
+
+> [!IMPORTANT]
+> **Do this before you open anything in the new folder.** VS Code worked out which projects exist when you opened this window, and `Project.Tests` did not exist then — so until you reload, `Assert` and `[Fact]` come up as red squiggles in a file that is perfectly fine. ⚠️ **`.NET: Restart Language Server` does not fix it. Only a window reload does.**
+
+**3. Trim the template.** Open `Project.Tests/Project.Tests.csproj`, select the whole file (`⌘A`), and paste this over it — [the notes say what each line is doing there](lecture-notes.md#the-csproj-trimmed):
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -133,7 +138,7 @@ dotnet add Project.Tests reference Project
 </Project>
 ```
 
-**3. Two small housekeeping moves:**
+**4. Two small housekeeping moves:**
 
 - **New file `Project.Tests/Directory.Build.rsp`** — paste the whole thing:
 
@@ -146,7 +151,7 @@ dotnet add Project.Tests reference Project
 
 - **Delete `Project.Tests/UnitTest1.cs`** — the template's empty page.
 
-**4. New file `Project.Tests/RegistryTests.cs`.** Paste this **shape**, then write the body — mine is payphones, and [the worked version is in the notes](lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer):
+**5. New file `Project.Tests/RegistryTests.cs`.** Paste this **shape**, then write the body — mine is payphones, and [the worked version is in the notes](lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer):
 
 ```csharp
 namespace Project.Tests;
@@ -165,7 +170,7 @@ public class RegistryTests
 
 ⚠️ **Two different names**, deliberately — after Task 5's guard, two records with the *same* name would be one record, and this fact stays green forever only if it never asks about duplicates.
 
-**5. Run yours:**
+**6. Run yours:**
 
 ```bash
 dotnet test Project.Tests
@@ -173,7 +178,7 @@ dotnet test Project.Tests
 
 **1 passed**, named. A fact that does nothing also passes, so:
 
-**6. [Make it fail once.](lecture-notes.md#make-it-fail-once)** Change your expected count to something false, run it, read the failure — [name, expected, actual](lecture-notes.md#reading-a-failure) — then put the truth back and see green again. **Thirty seconds, and now the green is evidence.** Do this for every born-green fact tonight; I won't repeat the step.
+**7. [Make it fail once.](lecture-notes.md#make-it-fail-once)** Change your expected count to something false, run it, read the failure — [name, expected, actual](lecture-notes.md#reading-a-failure) — then put the truth back and see green again. **Thirty seconds, and now the green is evidence.** Do this for every born-green fact tonight; I won't repeat the step.
 
 ```bash
 git add .
@@ -372,6 +377,7 @@ Five moments worth saving, written into the parts above at the point where each 
 |---|---|
 | **Five checks listed**, or 5 / 5 before you've written anything | You're running **week 6's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — this week lists exactly two: `Check1_WeeksFourToSixStillHold` and `Check5_TheSameNameCannotRegisterTwice`. |
 | Check 5 red in **my** suite after Part 1 | Correct — [it's waiting for Task 5](lecture-notes.md#the-registrys-new-rule), and your own test goes red against the same rule first. |
+| **Red squiggles under `Assert` or `[Fact]` — but `dotnet test` runs fine** | **The editor, not your code.** VS Code worked out which projects exist when you opened the window, and the test project did not exist then. Command Palette → **`Developer: Reload Window`**. ⚠️ `.NET: Restart Language Server` does **not** fix it. The compiler is the witness here: if `dotnet test` is happy, believe it. |
 | `CS0246: 'FactAttribute' could not be found` — blamed on **`Project.csproj`** | `Project.Tests` is *inside* `Project/`. [A folder is a project or a container, never both](lecture-notes.md#-troubleshooting) — move it up beside `Project`, at the repo root. |
 | `CS0246: The type or namespace name 'Registry' could not be found` — in the test project | No reference. `dotnet add Project.Tests reference Project`, or [check the csproj block's last ItemGroup](lecture-notes.md#the-csproj-trimmed). |
 | `dotnet test Project.Tests` says **0 tests** | No `[Fact]`, or the class isn't `public` — [a fact takes nothing, returns nothing, wears the attribute](lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer). |
