@@ -303,10 +303,10 @@ git commit -m "The same name cannot register twice: red, then green"
 The checks never look at `Program.cs` — and the guard deserves one visible line. Open `Project/Program.cs` and, right after your seed `Add` calls, add a duplicate on purpose plus the line that tells on it — **swap the name for one your program actually seeds**:
 
 ```csharp
-// Week 7's rule, visible: the same name registered twice, refused quietly —
-// and the count is how you can tell it happened at all.
+// Week 7's rule, visible: Add called twice with the same name, and the
+// second one refused. The count is the only thing that tells you.
 registry.Add(registry.NewItem("the second one"));
-Console.WriteLine($"Registered \"the second one\" twice - {registry.Count} on file.");
+Console.WriteLine($"Tried to register \"the second one\" twice - {registry.Count} on file.");
 ```
 
 **Run it and read that line** — the count shouldn't move for the duplicate. This is where the two *builds and runs* points live:
