@@ -130,7 +130,7 @@ week 7: starter
 | # | Check | What to do |
 |---|-------|------------|
 | 1 | *(check 1 is already green)* | Work a shift, read the damage, read the worked fact. No code. **[Task 1 in full ↓](#task-1-in-full)** |
-| 2 | `TheClockPadsItsSeconds` | The bug the board *can't* show you. **[Task 2 in full ↓](#task-2-in-full)** |
+| 2 | `TheClockPadsItsSeconds` | The bug you only see if you get lucky. **[Task 2 in full ↓](#task-2-in-full)** |
 | 3 | `ABuyNeverGoesBelowZero` | The station airs one ad too many. **[Task 3 in full ↓](#task-3-in-full)** |
 | 4 | `TakeHandsBackTheCallerOnTheBoard` | Dorothy's calls land on a ghost. **[Task 4 in full ↓](#task-4-in-full)** |
 | 5 | `TheDeskPrintsWhatActuallyAired` | The station lies about what went out. **[Task 5 in full ↓](#task-5-in-full)** |
@@ -187,8 +187,6 @@ dotnet test week-07/Lab.Tests
 
 **Check:** `Check2_TheClockPadsItsSeconds`
 
-The update *simplified* `Broadcast.Clock` — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Broadcast.cs` to see the line.
-
 **First, look for the damage.** Run the shift, type a DJ name, and read the LENGTH column:
 
 ```bash
@@ -222,6 +220,8 @@ dotnet run --project week-07/Lab
 
 ⚠️ **Notice what it took to see it.** Slack Water is 4:12, and adding it happened to push the total onto a seconds value under ten. **Request song `1` or `3` instead and the clock looks perfect** — the bug is still there, and the screen says nothing. You found this one by being lucky. **A test does not need luck; it asks the same question every single time.**
 
+Every LENGTH cell and that total go through one method — **`Broadcast.Clock`**, which turns a number of seconds into `m:ss`. That is the thing to pin down.
+
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 2` comment.** Yours to write, and here is the spec:
 
 - [`Assert.Equal`](../lecture-notes.md#the-assert-family), expected first. `Broadcast.Clock` is `static`, so [the scene costs nothing](../lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer) — one assert per value you feed it.
@@ -242,7 +242,7 @@ Actual:   "10:5"
 
 **Red, for the right reason** — [read the failure like a sentence](../lecture-notes.md#reading-a-failure): which rule, expected versus actual. If yours is green, it's asking an easy question — feed it `605`.
 
-**Now the fix.** The update deleted a format spec. In `Lab/Broadcast.cs`, make `Clock` read:
+**Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Broadcast.cs` — there is the line, and the update deleted a format spec from it. Make `Clock` read:
 
 ```csharp
     public static string Clock(int seconds)
@@ -289,7 +289,7 @@ week 7 lab: the clock pads its seconds
 
 **Check:** `Check3_ABuyNeverGoesBelowZero`
 
-The update decided the guard in `Ad.Play()` was *redundant* — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Ad.cs`. You wrote that guard yourself in week 6. Tonight you prove it mattered before you put it back.
+Pham's Bakery bought three spots tonight.
 
 **First, watch it happen.** Run the shift, type a DJ name, then press `a` **five times**, watching the AD line each time:
 
@@ -304,6 +304,8 @@ dotnet run --project week-07/Lab
 ```
 
 Pham's Bakery bought three spots and the station just aired five. Press `q`.
+
+The count lives on `Ad`, and the only thing that moves it is `Play()`. You wrote a line in week 6 that stopped exactly this, and the update took it out.
 
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 3` comment.**
 
@@ -332,7 +334,7 @@ Actual:   -1
 
 **Minus one.** Pham's Bakery bought one spot and the station just aired two — a free ad nobody paid for. You saw this on the board back in Task 1, but only because you pressed `a` five times and happened to be reading the right line. Your test asks every single time, in about a millisecond.
 
-**Now the fix.** An airing only spends a run [if there is a run to spend](../lecture-notes.md#red-then-green). In `Lab/Ad.cs`, make `Play` read:
+**Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Ad.cs` — there is the line. An airing only spends a run [if there is a run to spend](../lecture-notes.md#red-then-green). Make `Play` read:
 
 ```csharp
     public void Play()
@@ -385,7 +387,7 @@ week 7 lab: a buy never goes below zero
 
 **Check:** `Check4_TakeHandsBackTheCallerOnTheBoard`
 
-The sneakiest one. The update made `Take` hand out *fresh copies* of callers, "so nothing outside can mess with the board" — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Switchboard.cs`. That is week 5's copy lesson [applied in exactly the wrong place](../lecture-notes.md#the-assert-family): `All()` copies the **list** so nobody can empty the board; `Take` must hand back **the caller** so the call lands on the person who made it.
+The sneakiest one, because the desk looks like it is working.
 
 **First, watch the board fail to learn.** Run the shift, DJ name, then `r`, caller `Dorothy`, song `2`, then `c`:
 
@@ -403,6 +405,8 @@ dotnet run --project week-07/Lab
 
 The desk printed `Line 1: Dorothy asks for Slack Water` a second ago — and her row still says **3 calls** and **no song**. Her call was counted on a ghost, her request was remembered by the ghost, and the ghost was thrown away. Press `q`.
 
+One door handles *"somebody is on the line"* — `Switchboard.Take`. The update made it hand out **fresh copies** of callers, "so nothing outside can mess with the board." That is week 5's copy lesson [applied in exactly the wrong place](../lecture-notes.md#the-assert-family): `All()` copies the **list** so nobody can empty the board; `Take` must hand back **the caller**, so the call lands on the person who made it.
+
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** Same three moves as Task 3:
 
 - Scene: a fresh `Switchboard`, and a `Caller` you keep a variable for — `var dorothy = new Caller("Dorothy");` — added to the board.
@@ -411,7 +415,7 @@ The desk printed `Line 1: Dorothy asks for Slack Water` a second ago — and her
 
 **Run yours — red** (`Assert.Same() Failure: Values are not the same instance`).
 
-**Now the fix.** `Take` asks `Find` first, and only makes a caller when `Find` comes back empty — the shape you wrote in week 5. In `Lab/Switchboard.cs`, make `Take` read:
+**Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Switchboard.cs` — there it is. `Take` asks `Find` first, and only makes a caller when `Find` comes back empty, which is the shape you wrote in week 5. Make `Take` read:
 
 ```csharp
     public Caller Take(string name)
@@ -471,7 +475,7 @@ week 7 lab: take hands back the caller on the board
 
 **Check:** `Check5_TheDeskPrintsWhatActuallyAired`
 
-Last week you were warned about this exact bug and you dodged it: *play the item, then read its cue.* The update un-dodged it — <kbd>⌘F</kbd> for `scheduler update` in `Lab/Hour.cs`.
+Last week you were warned about this exact bug and you dodged it. The update un-dodged it.
 
 **First, put the hour on air and read two lines.** DJ name, then `a`:
 
@@ -492,6 +496,8 @@ dotnet run --project week-07/Lab
 
 A station that says one thing on air and logs another has a records problem — the same disease as Haldane's board tonight, in a different building.
 
+The order lives in `Hour.Run()` — the one loop that puts the hour on air.
+
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 5` comment:**
 
 - Scene: an `Hour` holding one `Ad` with a **three-run** buy.
@@ -500,7 +506,7 @@ A station that says one thing on air and logs another has a records problem — 
 
 **Run yours — red** (`Assert.Contains() Failure: Sub-string not found`).
 
-**Now the fix.** Swap the two lines back into week 6's order — play first, then speak. In `Lab/Hour.cs`, inside `Run()`'s loop:
+**Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Hour.cs` — the two lines are right under it. Swap them back into week 6's order: play first, then speak.
 
 ```csharp
             item.Play();
