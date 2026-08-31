@@ -577,14 +577,18 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   ```
 
   ```
-    Failed Haldane.Tests.WatchTests.MinusFiftyIsTheLine [4 ms]
+    Failed Haldane.Tests.WatchTests.MinusFiftyIsTheLine [1 ms]
     Error Message:
      Assert.True() Failure
   Expected: True
   Actual:   False
+    Stack Trace:
+       at Haldane.Tests.WatchTests.MinusFiftyIsTheLine() in
+       …/week-07/Haldane.Tests/WatchTests.cs:line 14
   ```
 
-- [ ] 📖 **Read the failure like a sentence:** *"the name tells you which rule broke, expected-versus-actual tells you how, and the line number tells you where. You have been reading failures shaped exactly like this since your first red check in week one — now you know who writes them"*
+- [ ] 📖 **Read the failure like a sentence, and point at each part as you name it:** *"Three things, and they are always these three. The name at the top says which rule broke. Expected and actual say how — I claimed true, it came back false. And the last line says where: `WatchTests.cs`, line 14. That is the assert I just made lie. You have been reading failures shaped exactly like this since your first red check in week one. Now you know who writes them"*
+- [ ] 💡 **The path in front of `:line 14` is your machine's, so it will be long** — the part that matters is the file name and the number on the end
 - [ ] **Put the `-49.9` back, run it once more, and see it green before moving on**
 
   ```bash
