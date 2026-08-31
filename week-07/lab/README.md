@@ -2,7 +2,7 @@
 
 It's 4 AM at **KDXR 88.1, "The Owl,"** and something happened while everybody slept: the scheduler software took a vendor update overnight. The release notes say it *improved* four things.
 
-It broke four things. The clock can't spell its own seconds, Pham's Bakery is about to get free airtime the books say the station *owes* them, the switchboard hands the desk a stranger wearing Dorothy's name, and the station reads ad copy on air that doesn't match its own log. **The checks caught all four before the morning show did** — which is what checks are for, and as of tonight you know what they are.
+It broke four things. The clock can't spell its own seconds, Pham's Bakery is about to get airtime nobody paid for, the switchboard hands the desk a stranger wearing Dorothy's name, and the station reads ad copy on air that doesn't match its own log. **The checks caught all four before the morning show did** — which is what checks are for, and as of tonight you know what they are.
 
 Your job is what the demo did to the duty board: for each broken rule, **write your own test first, watch it go red against the real bug, then fix the line and watch everything go green.**
 
@@ -131,7 +131,7 @@ week 7: starter
 |---|-------|------------|
 | 1 | *(check 1 is already green)* | Work a shift, read the damage, read the worked fact. No code. **[Task 1 in full ↓](#task-1-in-full)** |
 | 2 | `TheClockPadsItsSeconds` | The bug the board *can't* show you. **[Task 2 in full ↓](#task-2-in-full)** |
-| 3 | `ABuyNeverGoesBelowZero` | The station owes minus one spot. **[Task 3 in full ↓](#task-3-in-full)** |
+| 3 | `ABuyNeverGoesBelowZero` | The station airs one ad too many. **[Task 3 in full ↓](#task-3-in-full)** |
 | 4 | `TakeHandsBackTheCallerOnTheBoard` | Dorothy's calls land on a ghost. **[Task 4 in full ↓](#task-4-in-full)** |
 | 5 | `TheDeskPrintsWhatActuallyAired` | The station lies about what went out. **[Task 5 in full ↓](#task-5-in-full)** |
 
@@ -274,7 +274,7 @@ Expected: 0
 Actual:   -1
 ```
 
-**Minus one.** The station is one spot in debt to Pham's Bakery, and nothing on the board ever said so.
+**Minus one.** Pham's Bakery bought one spot and the station just aired two — a free ad nobody paid for. You saw this on the board back in Task 1, but only because you pressed `a` five times and happened to be reading the right line. Your test asks every single time, in about a millisecond.
 
 **Now put the guard back** — an airing only spends a run [if there is a run to spend](../lecture-notes.md#red-then-green). If you want the exact line, run my checks and read check 3.
 
