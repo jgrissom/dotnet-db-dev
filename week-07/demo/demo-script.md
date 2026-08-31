@@ -685,33 +685,9 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎯 *"green. Same test, same questions, and now the answer is one. Red, then green — the red proved the test works, the green proves the fix does. From here that test never comes off the suite: if this bug ever creeps back, in week ten, in week fifteen, it gets caught in milliseconds"*
 
-- [ ] **And the test can pin the refusal itself now.** In `WatchTests.cs`, select the whole file (<kbd>⌘A</kbd>) and paste this over it — the only change is inside `NobodyGoesOutTwice`, which now catches the two answers
+- [ ] **And the test can pin the refusal itself now — four lines, and the scene above them does not move.** In `WatchTests.cs`, <kbd>⌘F</kbd> for **`watch.SignOut(okonkwo, "MET RUN", "15:00");`** — one hit. Select from that line down to and including **`Assert.Equal(1, watch.OutsideCount);`** and paste this over them
 
   ```csharp
-  // Haldane's own tests. Written tonight, run forever.
-  //
-  // Same species as every *.Checks project you have run since week 1 —
-  // a class, some facts, and a runner that asks all of them every time.
-  namespace Haldane.Tests;
-
-  public class WatchTests
-  {
-      // The first thing this console ever computed, pinned down at last.
-      // The line is minus fifty, and until tonight it was written down nowhere.
-      [Fact]
-      public void MinusFiftyIsTheLine()
-      {
-          Assert.True(Conditions.IsSafeToGoOut(celsius: -49.9, blizzard: false));
-          Assert.False(Conditions.IsSafeToGoOut(celsius: -50.0, blizzard: false));
-          Assert.False(Conditions.IsSafeToGoOut(celsius: -10.0, blizzard: true));
-      }
-
-      [Fact]
-      public void NobodyGoesOutTwice()
-      {
-          Watch watch = new Watch();
-          CrewMember okonkwo = new CrewMember("Okonkwo");
-
           bool first = watch.SignOut(okonkwo, "MET RUN", "15:00");
           bool second = watch.SignOut(okonkwo, "DIG OUT", "15:30");
 
@@ -719,33 +695,18 @@ Tonight the console gets caught keeping two wrong records — and the room finds
           Assert.False(second);
           Assert.Equal(1, watch.OutsideCount);
           Assert.Equal(1, watch.Count);
-      }
-  }
   ```
 
-- [ ] 📖 *"four claims now: the first sign-out is accepted, the second is refused, one person is outside — and the refused one never reached the log at all. A test grows the same way a program does"*
+- [ ] 📖 *"The scene did not change. Same watch, same man. What changed is what I am checking. Four claims now: the first sign-out is accepted, the second is refused, one person is outside, and the refused one never reached the log at all. A test grows the same way a program does"*
 - [ ] **Run it once more — still green**
 
   ```bash
   dotnet test week-07/Haldane.Tests
   ```
 
-- [ ] **The desk should say no out loud too.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut()`** — one hit. **Select the whole function — from that line down to and including the `}` directly above `void TakeAReading()`** — and paste this over it
+- [ ] **The desk should say no out loud too — and again, the prompts stay.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut()`** — one hit. **Leave everything down to the `Find` alone.** Select from **`if (who == null)`** down to and including the **`}` that closes the method** — a two-branch decision becomes a three-branch one — and paste this over it
 
   ```csharp
-  void SignSomebodyOut()
-  {
-      Console.Write("  Name: ");
-      string name = Console.ReadLine() ?? "";
-      Console.Write("  Reason (MET RUN / DIG OUT / FUEL / FIELD / COMMS / WALK): ");
-      string reason = Console.ReadLine() ?? "";
-      Console.Write("  Back by: ");
-      string expected = Console.ReadLine() ?? "";
-
-      // ⚠️ Still load-bearing for the drop: without it an Enter-only sign-out
-      // puts a blank row on the board, and the re-run comparison shows a ghost.
-      CrewMember? who = Find(name.Trim());
-
       if (who == null)
       {
           AnsiConsole.MarkupLine($"[{Amber}]  Nobody on station by that name. Nothing logged.[/]");
