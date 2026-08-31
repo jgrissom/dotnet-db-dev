@@ -201,7 +201,13 @@ Under your first fact, in `Project.Tests/RegistryTests.cs`. [Same three moves as
 - **Do the thing.** `Find` it, by the same name.
 - **Check the answer.** [`Assert.Same(depot, found)`](lecture-notes.md#the-assert-family) — expected first. Not `Assert.Equal`: [this is the identity question](lecture-notes.md#the-assert-family), and a lookalike with the same values would pass a value comparison.
 
-**Run yours** — **2 passed** — then falsify-and-restore (swap `Assert.Same` for a `Assert.Same(registry.NewItem("..."), found)`-style wrong expectation, watch it object, put it back).
+**Run yours:**
+
+```bash
+dotnet test Project.Tests
+```
+
+**2 passed.** Then falsify-and-restore: swap `Assert.Same` for a wrong expectation — `Assert.Same(registry.NewItem("..."), found)` — watch it object, and put it back.
 
 ```bash
 git add .
@@ -224,7 +230,13 @@ In `Project.Tests/RegistryTests.cs`, under Task 3's fact. [Three moves again](le
 - **Do the thing.** `Remove` a name that is definitely not on file.
 - **Check the answer.** [`Assert.False`](lecture-notes.md#the-assert-family) on what came back — **and** `Assert.Equal` that `Count` still says 1. Two asserts, because *saying no* and *doing nothing* are two different promises, and a `Remove` that returned `false` while quietly deleting something would pass the first one.
 
-**Run yours** — **3 passed.**
+**Run yours:**
+
+```bash
+dotnet test Project.Tests
+```
+
+**3 passed.**
 
 ```bash
 git add .

@@ -257,6 +257,10 @@ The `:00` is the whole repair — *at least two digits, pad with a zero.* The mi
 
 **Run the shift again and do exactly the same thing** — `r`, `Dorothy`, song `2`, then `h`:
 
+```bash
+dotnet run --project week-07/Lab
+```
+
 ```
 7 items - 19:09 on the clock.
 ```
@@ -415,7 +419,19 @@ One door handles *"somebody is on the line"* — `Switchboard.Take`. The update 
 - Do: `Take("Dorothy")`, and keep what comes back.
 - Check: **`Assert.Same(dorothy, took)`** — [the identity question](../lecture-notes.md#the-assert-family): the very object on the board, not a lookalike. Add `Assert.Equal(1, dorothy.CallsTonight);` if you want the consequence pinned too — with the bug, *her* count never moved.
 
-**Run yours — red** (`Assert.Same() Failure: Values are not the same instance`).
+**Run yours, and expect red:**
+
+```bash
+dotnet test week-07/Lab.Tests
+```
+
+```
+  Assert.Same() Failure: Values are not the same instance
+Expected: Caller { CallsTonight = 0, Favorite = null, Name = "Dorothy" }
+Actual:   Caller { CallsTonight = 1, Favorite = null, Name = "Dorothy" }
+```
+
+**Read those two lines.** Same name, same everything — and `CallsTonight` differs, because the call landed on the copy. Two Dorothys.
 
 **Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Switchboard.cs` — there it is. `Take` asks `Find` first, and only makes a caller when `Find` comes back empty, which is the shape you wrote in week 5. Make `Take` read:
 
@@ -517,7 +533,19 @@ List<string> aired = hour.Run();
 - **Which substring?** The buy was three and the ad has just aired once. You watched it print `(3 left)` a minute ago. Decide what that line *should* say, and assert on that.
 - Name it after the rule it proves. Mine is `TheDeskPrintsWhatAired`; yours doesn't have to be.
 
-**Run yours — red** (`Assert.Contains() Failure: Sub-string not found`).
+**Run yours, and expect red:**
+
+```bash
+dotnet test week-07/Lab.Tests
+```
+
+```
+  Assert.Contains() Failure: Sub-string not found
+String:    "AD - Pham's Bakery - "open at five" (3 le"···
+Not found: "(2 left)"
+```
+
+It printed `(3 le`… — the count as it stood *before* the spot aired.
 
 **Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Hour.cs` — the two lines are right under it. Swap them back into week 6's order: play first, then speak.
 
