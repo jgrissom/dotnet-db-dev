@@ -175,7 +175,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] 🎞️ **GO TO SLIDE 4** — *Nothing can call Program.cs*
 
 - [ ] 🎯 **The wall, and it is week 1's rule arriving with a bill:** *"so let's write one. First problem: the rule 'you can't go out twice' lives inside `SignSomebodyOut`, which is a local function in `Program.cs`. Week one, first night, I told you: code in `Program.cs` cannot be called, tested, or graded by anyone. Four weeks of homework have banned logic in your `Program.cs` for exactly this moment. A check is just a caller — and there is nothing here for it to call"*
-- [ ] 📖 **Set up the segment after the break:** *"so before we can test anything, the rules need an address. That's first"*
+- [ ] 📖 **Set up the segment after the break:** *"so before we can test anything, these rules have to become methods on a class. That's first"*
 
 ---
 
@@ -193,7 +193,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   // Every method in here used to be a local function in Program.cs — a real
   // rule, really enforced, and completely out of reach: nothing outside that
   // file could call one. Moving them here changed nothing about what they do.
-  // It gave them an address.
+  // It made them public methods on a class, which is the only shape another
+  // project can call.
   //
   // That is why tonight's tests can exist. A test is just one more caller.
   public class Watch
@@ -313,8 +314,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   // ── the watch ──────────────────────────────────────────────────────────────
   // The log lives in Watch.cs now, along with every rule about what goes on
   // it. This file is down to what it should have been all along: prompts,
-  // paint, and a loop. The rules have an address, and tonight's tests knock
-  // on it.
+  // paint, and a loop. The rules are methods on a class now, so something
+  // other than this file can call them.
 
   Watch watch = new Watch();
 
@@ -427,10 +428,10 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   4 people outside.
   ```
 
-- [ ] 📖 **Flat:** *"same desk, same board, same wrong answer. That is what a good move looks like: nothing changed, including the bugs. Now they have an address — and something can finally knock"*
+- [ ] 📖 **Flat:** *"same desk, same board, same wrong answer. That is what a good move looks like: nothing changed, including the bugs. What did change is that every one of those rules is a public method on a class now, so anything that references this program can call it by name. That is the whole reason we moved them"*
 - [ ] **Press `q`**
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *The watch gets an address*
+- [ ] 🎞️ **GO TO SLIDE 6** — *Now something can call them*
 
 - [ ] 📖 **One sentence, collecting six weeks:** *"the rule since week one was: logic goes in a class where a check can call it. Every homework you've done obeyed it. Tonight you watched what it costs to disobey it — a rule you cannot test — and what it costs to comply: nothing. The program is identical"*
 
@@ -444,7 +445,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ## 4 · A project that asks questions *(slides 7–9)*
 
-- [ ] 📖 *"Now the thing that knocks. It is a project — a whole separate program, whose only job is to ask mine questions"*
+- [ ] 📖 *"Now the thing that calls them. It is a project — a whole separate program, whose only job is to ask mine questions"*
 
 - [ ] **Make it, from the terminal.** A new template — not `console`, and say so as you type it
 
@@ -530,7 +531,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   public class WatchTests
   {
       // The first thing this console ever computed, pinned down at last.
-      // The line is minus fifty, and now that fact has an address too.
+      // The line is minus fifty, and until tonight it was written down nowhere.
       [Fact]
       public void MinusFiftyIsTheLine()
       {
@@ -692,7 +693,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   public class WatchTests
   {
       // The first thing this console ever computed, pinned down at last.
-      // The line is minus fifty, and now that fact has an address too.
+      // The line is minus fifty, and until tonight it was written down nowhere.
       [Fact]
       public void MinusFiftyIsTheLine()
       {

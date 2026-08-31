@@ -6,7 +6,7 @@ Since the first night of this course, one rule has been under everything: **logi
 
 A check — a test — is not magic. It is a **caller**. It makes one of your objects, calls a method on it, and compares what came back with what should have. That is all any `*.Checks` project has ever done to your code.
 
-Which is why code in `Program.cs` cannot be tested by anything: a local function in a top-level program has no address. Nothing outside that file can call it, so nothing outside that file can check it. The demo's duty board kept two wrong records for weeks — a person could sign out twice, and an amended return time could land on a trip that was already over — and no test could be written against either rule, because both rules lived in `Program.cs`.
+Which is why code in `Program.cs` cannot be tested by anything: a local function in a top-level program is not a member of any class, so there is no name another file can use to reach it. Nothing outside that file can call it, so nothing outside that file can check it. The demo's duty board kept two wrong records for weeks — a person could sign out twice, and an amended return time could land on a trip that was already over — and no test could be written against either rule, because both rules lived in `Program.cs`.
 
 Your own project never had this problem. `Registry` was born a class in week 4, which means it was born testable. Tonight it finally gets tested — by you.
 

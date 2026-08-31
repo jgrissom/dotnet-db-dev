@@ -87,7 +87,7 @@ There is nothing here for it to call.
 
 Two acts, kept apart on purpose:
 
-- **move** — same behavior, new address
+- **move** — same behavior, somewhere a test can call it
 - **fix** — new behavior, proven by a test
 
 Do both at once and you never learn
@@ -99,7 +99,7 @@ The bugs ride along. That's the plan.
 
 <!-- _footer: '🖥️ Demo §3 · the move' -->
 
-## The watch gets an address
+## Now something can call them
 
 ```csharp
 public class Watch
@@ -114,7 +114,8 @@ public class Watch
 ```
 
 `Program.cs` keeps the prompts and the paint.
-The **rules** now live where a caller can reach them.
+The rules are **public methods on a class** now —
+the only shape another project can call.
 
 ---
 
