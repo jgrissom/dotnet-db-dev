@@ -405,4 +405,4 @@ Five moments worth saving, written into the parts above at the point where each 
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b red-then-green`, push that. |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
 
-**Prev:** [Week 7 Lab — The Update](lab/) · **Next:** Week 8 — File I/O, and the log stops being gone *(coming)*
+**Prev:** [Week 7 Lab — The Update](lab/) · **Next:** [Week 8 Homework — It Survives the Night](../week-08/homework.md)

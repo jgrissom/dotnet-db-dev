@@ -36,4 +36,4 @@ They can practice the two disciplines the week is really about: **red, then gree
 - **VS Code open on the demo repo's top**, exactly where week 6 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — week 7's board is up
 
-**Prev:** [Week 6 — One Loop, Four Kinds of Things](../week-06/) · **Next:** Week 8 — File I/O, and the Log Stops Being Gone *(coming)*
+**Prev:** [Week 6 — One Loop, Four Kinds of Things](../week-06/) · **Next:** [Week 8 — File I/O, and the Log Stops Being Gone](../week-08/)

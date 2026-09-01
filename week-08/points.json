@@ -1,0 +1,55 @@
+{
+  "week": 8,
+  "total": 20,
+  "_comment": "One source of truth for week 8's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. `suite` says which test run scores an item — 'checks' is `dotnet test Project.Checks` (canonical, replaced wholesale by the grader), 'tests' is `dotnet test Project.Tests` (the student's OWN suite, run as-is and never replaced). NEW this week: the student's dictated fact name carries the WEEK rather than a check number, because that suite is permanent and grows every week — two facts called Check5_something in one file is how the week-7 scheme would have broken. There is no 'both' item this week, which is what lets my checks keep the CheckN_ numbering the task headings depend on. The graded repo is the PROJECT repo (D1b); the coursework repo is cloned only for the hygiene sweep.",
+  "checks": {
+    "Check1_WeeksFourToSevenStillHold": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Weeks 4-7 still hold — Topic, no public fields, All() copies, Find and Remove behave, IListed kept by record and registry, Everything() intact, and Add still refuses a duplicate"
+    },
+    "Check2_TheRegistryWritesItselfDown": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Save(string path) writes a file at the path it was handed, with the records in it"
+    },
+    "Check3_TheRegistrySurvivesARestart": {
+      "points": 3,
+      "suite": "checks",
+      "label": "Load(string path) fills a fresh registry back up — count and Find both — and a missing file is a first run, not a crash"
+    },
+    "Check4_ARecordKeepsItsOwnFacts": {
+      "points": 3,
+      "suite": "checks",
+      "label": "A record's own sealed facts survive the round trip — the private-set trap, closed"
+    },
+    "Week8_TheRegistrySurvivesARestart": {
+      "points": 2,
+      "suite": "tests",
+      "label": "Your test: the registry is still there after a restart — written by you, green in your own suite"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing — even when fed nothing but Enter"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked in NEITHER repo — the .gitignore holding, in both places"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgment call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}
