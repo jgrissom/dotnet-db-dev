@@ -70,7 +70,9 @@ dotnet test week-01/Lab.Checks
 > [!IMPORTANT]
 > **That's a lot of output, and most of it isn't for you.** Every failing check prints its message and then a **stack trace** — the `at Lab.Checks…` lines. Ignore the trace. **The part written for you is the sentence right after the check's name**, and it tells you what's wrong and what to write instead.
 >
-> ⚠️ **And the last line lies a little.** It says `Build failed with 4 error(s)` — but look above it: `Lab succeeded`, `Lab.Checks succeeded`. **Your code built fine.** `dotnet test` reports a failing test as an "error", so "build failed" here means *four checks are still red* — which is exactly where you're supposed to be right now.
+> **Every check is listed, the green ones included, in task order** — so the list reads top to bottom in the same order as the tasks below.
+>
+> ⚠️ **Read the count at the bottom, not the words above it.** The last lines say `Test Run Failed.`, then `Passed: 1` and `Failed: 4`. **Nothing is broken and your code built fine** — `Test Run Failed` only means checks are still red, which is exactly where you're supposed to be right now. **`Passed:` is the number to watch**, and it goes up by one every time you finish a task.
 
 > [!CAUTION]
 > **Every command names its week.** Your terminal always stands at the top of your repo — so it's `dotnet test week-01/Lab.Checks` and `dotnet run --project week-01/Lab`, week first. Forget the week and you'll get `MSB1003` — it just means the command couldn't see a project from the top; add the week and go again.
@@ -224,6 +226,9 @@ Given minutes already broadcast, return how many **hours** that is — including
 The remainder is gone before the `double` ever gets involved — silently, every time. It's the most common silent wrong answer in early C#, which is why it's a whole check.
 
 Run it again:
+
+> [!TIP]
+> **Stuck? Write what you can, then run the checks and *read* check 4.** It doesn't just say you're wrong — it names the call it made, what came back, and the one character that makes the difference. **It says something different depending on how far you've got**, so run it again after each change.
 
 ```bash
 dotnet run --project week-01/Lab

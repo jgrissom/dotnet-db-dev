@@ -242,6 +242,9 @@ What changes is what comes back. Task 3 handed back a `bool`; this one hands bac
 
 **Now run the shift and put it through all three cases** — this is the run tonight is for:
 
+> [!TIP]
+> **Stuck? Write what you can, then run the checks and *read* check 4.** It doesn't just say you're wrong — it names the call it made, what came back, and the shape of the guard it wants. **It says something different depending on how far you've got**, so run it again after each change.
+
 ```bash
 dotnet run --project week-02/Lab
 ```
@@ -286,6 +289,9 @@ The rules, and both are checked:
 💡 **The blank-request guard is Task 2's, reused** — [the same one question that covers all three situations](../lecture-notes.md#readline-and-null). Write it as a full `if`/`else` if you like; if you'd rather have it as a one-line `? :`, that's the conditional operator — an `if`/`else` that fits inside an expression — and it's exactly as correct.
 
 Until now that line has read `On air:` and then nothing — `TakeRequest` returned an empty string. Run it and watch the desk find its voice:
+
+> [!TIP]
+> **Stuck? Write what you can, then run the checks and *read* check 5.** It doesn't just say you're wrong — it names the call it made, what came back, and the shape of the line it wants. **It says something different depending on how far you've got**, so run it again after each change.
 
 ```bash
 dotnet run --project week-02/Lab

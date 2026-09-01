@@ -9,7 +9,7 @@ All five checks green, and the desk survives your worst typing:
 
 ```bash
 dotnet test week-02/Lab.Checks
-# Passed! - Failed: 0, Passed: 5 ...
+# Test Run Successful.   Total tests: 5   Passed: 5
 ```
 
 > [!IMPORTANT]
@@ -66,16 +66,19 @@ git commit -m "week 2: station carried forward"
 
 ### Write it
 
-**3. A `Switchboard` class in its own file** — `week-02/Homework/Switchboard.cs`, `public`, four methods. This is the whole file, shapes included — **and the three blanks in it fail on purpose.** Pasting it as-is leaves two checks red; the blanks are where your station shows up:
+**3. A `Switchboard` class in its own file** — `week-02/Homework/Switchboard.cs`, `public`, four methods. This is the whole file, shapes included — **and the blanks in it fail on purpose.** Pasting it as-is leaves two checks red; the blanks are where your station shows up, and each one says which check it fails:
 
 ```csharp
 public static class Switchboard
 {
+    // TODO — Task 2. This one ships written. Read it: the call sign is CALLED,
+    //   not retyped, which is the only reason it still works after week 1.
     public static string Greeting()
     {
         return $"{Station.CallSign()} request line, what'll it be?";
     }
 
+    // TODO — Task 3. Fails Check3_ACallerCanBeNobody until the blank is filled.
     public static string CallerName(string? typed)
     {
         if (string.IsNullOrWhiteSpace(typed))
@@ -86,11 +89,13 @@ public static class Switchboard
         return typed.Trim();
     }
 
+    // TODO — Task 4. Fails Check4_TheContestCantBeCrashed.
     public static int LuckyCallerNumber()
     {
         return 0;   // ← your contest's number, 1 to 100. Zero fails, on purpose.
     }
 
+    // TODO — Task 4. Fails Check4_TheContestCantBeCrashed.
     public static bool IsWinner(string? typed)
     {
         // Parse what they typed — the tool that never throws — then compare it
@@ -100,37 +105,51 @@ public static class Switchboard
 }
 ```
 
-What each one has to do:
+**Every command in this assignment runs from your terminal in `dotnet-db-coursework`, naming the week.** Each task below gives you both, in the same order every time: **run your program first, then run the checks.** A green check ends the step, and a step that's already over doesn't get run.
 
-| Method | Returns | Rules |
+| # | Check | What to do |
 |---|---|---|
-| `Greeting()` | `string` | how your station answers the phone — must contain **your call sign**, [by calling `Station.CallSign()`](lecture-notes.md#carrying-a-class-forward), not by retyping the letters |
-| `CallerName(string? typed)` | `string` | a real name comes back **trimmed**; `null`, empty or whitespace-only gets **your invented no-name default** — non-blank, same answer for all three, [and it must not crash](lecture-notes.md#readline-and-null) |
-| `LuckyCallerNumber()` | `int` | your contest's winning caller number, **1 to 100** |
-| `IsWinner(string? typed)` | `bool` | `true` only when the typed text parses to exactly your lucky number — [built on `TryParse`](lecture-notes.md#parse-believes-tryparse-asks), so words, blanks and `null` lose **without throwing** |
+| 1 | `TheStationCameForward` | *(already green — you carried `Station.cs` over in **Set it up**)* **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `TheGreetingSaysWhoYouAre` | Paste the shape above. The greeting ships written — read why. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `ACallerCanBeNobody` | Your station's word for a caller who won't say. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `TheContestCantBeCrashed` | The lucky number, and a comparison that can't be crashed. **[Task 4 in full ↓](#task-4-in-full)** |
 
-> [!WARNING]
-> **`IsWinner` works out the winning number from `LuckyCallerNumber()`.** Type the number in twice and the two can disagree — and the check says so by name. Same single-source-of-truth rule as last week's sign-off countdown.
+**The count goes `1 → 2 → 3 → 4`** — you start at 1, because carrying your station forward already earned one.
 
-**The no-name default is a writing assignment as much as a code one.** *"a voice in the dark"*, *"the 2 AM mystery"*, *"caller unknown"* — it's your station's house style. It just can't be blank.
+### Task 1 in full
 
-**Every command in this assignment runs from your terminal in `dotnet-db-coursework`, naming the week.** Two of them, and you'll use both after every method you fill in.
+**Check:** `Check1_TheStationCameForward`
 
-Watch your program do it:
-
-```bash
-dotnet run --project week-02/Homework
-```
-
-Then see what the checks say:
+**Nothing new to write.** You did this in **Set it up**: `Station.cs` is now in `week-02/Homework/`, and your call sign came with it.
 
 ```bash
 dotnet test week-02/Homework.Checks
 ```
 
-**Do that after every method** — write `Greeting()`, run, test. Then `CallerName()`, run, test. **Four methods, four rounds**, and the pasted file starts you at 2 of 4. A check that goes red right after you wrote something tells you exactly where to look. **Run first on purpose:** a green check ends the step, and a step that's already over doesn't get run.
+**1 of 4.** ⚠️ **Still 0?** The copy didn't land — re-read Set it up, step 2. Everything below builds on that file being there.
 
-**Green? Commit it** — you're somewhere solid, and that's when a commit happens:
+### Task 2 in full
+
+**Check:** `Check2_TheGreetingSaysWhoYouAre`
+
+Paste the `Switchboard` shape above into `week-02/Homework/Switchboard.cs`. **`Greeting()` arrives finished** — this task is about reading it, not writing it.
+
+- It must contain **your call sign**, and it gets it [by calling `Station.CallSign()`](lecture-notes.md#carrying-a-class-forward) rather than retyping the letters.
+- ⚠️ **That is the whole reason it still works.** You wrote the call sign once, last week, in another file — and this week's greeting picks it up without knowing what it says. Retype the letters here instead and you now have two places that claim to know your station's name.
+
+```bash
+dotnet run --project week-02/Homework
+```
+
+Still the placeholder — `Program.cs` is replaced further down, once the class it calls exists.
+
+```bash
+dotnet test week-02/Homework.Checks
+```
+
+**2 of 4.**
+
+**Commit it:**
 
 ```bash
 git add .
@@ -139,6 +158,61 @@ git add .
 ```bash
 git commit -m "week 2: switchboard"
 ```
+
+### Task 3 in full
+
+**Check:** `Check3_ACallerCanBeNobody`
+
+`CallerName(string? typed)` returns the name your station puts against a call.
+
+- A real name comes back **trimmed**.
+- `null`, empty, or whitespace-only gets **your invented no-name default** — non-blank, the same answer for all three, [and it must not crash](lecture-notes.md#readline-and-null).
+- **The no-name default is a writing assignment as much as a code one.** *"a voice in the dark"*, *"the 2 AM mystery"*, *"caller unknown"* — it's your station's house style. It just can't be blank.
+
+```bash
+dotnet run --project week-02/Homework
+```
+
+```bash
+dotnet test week-02/Homework.Checks
+```
+
+**3 of 4.**
+
+### Task 4 in full
+
+**Check:** `Check4_TheContestCantBeCrashed`
+
+**Two methods, one check** — a lucky number nobody can win is not a contest.
+
+`LuckyCallerNumber()` returns your contest's winning caller number, **1 to 100**.
+
+`IsWinner(string? typed)` returns `true` only when the typed text parses to exactly that number.
+
+- Build it [on `TryParse`](lecture-notes.md#parse-believes-tryparse-asks), so words, blanks and `null` lose **without throwing**.
+- ⚠️ **`IsWinner` works the winning number out from `LuckyCallerNumber()`.** Type the number in twice and the two can disagree — and the check says so by name. Same single-source-of-truth rule as last week's sign-off countdown.
+
+```bash
+dotnet run --project week-02/Homework
+```
+
+```bash
+dotnet test week-02/Homework.Checks
+```
+
+**4 of 4.**
+
+**Commit it:**
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "week 2: the contest holds"
+```
+
+### Then make it answer
 
 **4. `week-02/Homework/Program.cs` opens the line.** The skeleton ships with a placeholder — replace the whole file with this. Small on purpose; every decision lives in `Switchboard.cs`:
 
@@ -164,7 +238,7 @@ else
 > [!IMPORTANT]
 > **Your program gets run with nobody typing.** The grader answers every prompt by pressing Enter and then goes quiet — so `ReadLine` hands your code empty strings and then `null`. Built like the above, that's fine: a blank caller gets your default, a blank number loses the contest, the program exits cleanly. **[No loops that re-ask until the input is valid](lecture-notes.md#ask-once-answer-gracefully)** — a program that won't take no for an answer never finishes, and 2 of tonight's points are "runs cleanly when fed nothing but Enter."
 
-Same two commands again. The program first — it's the half the checks never look at:
+The program first — it's the half the checks never look at:
 
 ```bash
 dotnet run --project week-02/Homework
@@ -256,7 +330,9 @@ dotnet test week-02/Homework.Checks
 ```
 
 ```
-Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
+Test Run Successful.
+Total tests: 4
+     Passed: 4
 ```
 
 Then look at your repo **on GitHub** the way I will: no `bin/` or `obj/` anywhere, a README on the front page, and a commit history that says what happened.

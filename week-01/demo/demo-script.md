@@ -373,13 +373,13 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
   ```
   → the sign-on. *"Nothing in this course gets deployed — no URL to visit, no server to start. Every program you write runs on your own machine"* ⚠️ **stop there; don't add "and always will"** — from week 10 the *data* lives on the school's server
 - [ ] ⚠️ **Run it from the pre-positioned terminal window. VS Code stays exactly as it is** — this is not *"no VS Code"*, it is **don't open the *solution folder* in it**. Its Explorer would list `Broadcast.cs`, somebody will ask you to open it, and that file is the answers to what they're about to spend fifty minutes on. **A bare terminal shows the result without showing the work**
-- [ ] In that window, both commands, ~60 seconds total — **`Passed! - Failed: 0, Passed: 5`**, then the sign-on. **The `cd` is only needed if you lost the window §0 set up** *(and it assumes `~/Repos`)*:
+- [ ] In that window, both commands, ~60 seconds total — **`Test Run Successful.` — `Passed: 5`**, then the sign-on. **The `cd` is only needed if you lost the window §0 set up** *(and it assumes `~/Repos`)*:
   ```bash
   cd ~/Repos/dotnet-db-dev-answer-keys/week-01/lab/solution
   dotnet test Lab.Checks
   dotnet run --project Lab
   ```
-- [ ] 💡 **Scroll to the summary line instead of reading the build output aloud** — `Passed! - Failed: 0, Passed: 5` is the entire point, and `dotnet test` prints a screen of noise above it. **One number, then move**
+- [ ] 💡 **Scroll to the bottom instead of reading the build output aloud** — the five checks are now listed by name in task order, and `Passed: 5` sits under `Test Run Successful.` **One number, then move**
 - [ ] 🎯 **That `5 / 5` is the answer to §5. Say so, and give it ten seconds of quiet** — ⚠️ **the room has been carrying an unanswered question since the generator break, and this is where it lands. Do not let it play as logistics:** *"an hour ago I divided 4300 by 800, got 5, and the compiler said nothing at all. No error, no warning, no squiggle. It had no opinion about whether my program was right, and it never will. So something else has to. That's this — five of five"*
 - [ ] 🎯 **Then the part that is new to every single person in the room, including whoever found tonight easy:** *"you have all written plenty of code. I don't think any of you has ever had a machine tell you that you were finished. That's what you're about to go and do"* ⚠️ **One sentence, then let them start** — overselling is how this beat dies
 - [ ] 🎯 **Frame it honestly, because the C# is well within them:** *"the code tonight is not hard for you. What's new is the loop — run the checks, read what they say, fix one thing, run again. That loop is the whole course"*

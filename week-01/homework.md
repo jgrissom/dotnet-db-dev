@@ -9,7 +9,7 @@ All five checks green:
 
 ```bash
 dotnet test week-01/Lab.Checks
-# Passed! - Failed: 0, Passed: 5 ...
+# Test Run Successful.   Total tests: 5   Passed: 5
 ```
 
 > [!IMPORTANT]
@@ -108,31 +108,36 @@ dotnet-db-coursework/
 
 ### Write it
 
-**2. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `week-01/Homework/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that's the single most expensive mistake available this week. **This is the whole file's shape, with every answer taken out** — the blanks are where your station shows up:
+**2. [A `Station` class in its own file](lecture-notes.md#where-your-code-has-to-live)** — `week-01/Homework/Station.cs`, `public`, holding five methods. ⚠️ **Its own file, not the bottom of `Program.cs`** — that’s the single most expensive mistake available this week. **This is the whole file’s shape, with every answer taken out** — the blanks are where your station shows up, and each one says which check it fails until you fill it:
 
 ```csharp
 public static class Station
 {
+    // TODO — Task 1. Fails Check1_TheStationHasALegalCallSign.
     public static string CallSign()
     {
         return "";      // ← yours
     }
 
+    // TODO — Task 2. Fails Check2_TheStationHasAHome.
     public static string City()
     {
         return "";      // ← yours
     }
 
-    public static int SignOffHour()
-    {
-        return 0;       // ← yours
-    }
-
+    // TODO — Task 3. Fails Check3_TheSignOnIdentifiesTheStation.
     public static string SignOn()
     {
         return "";      // ← yours
     }
 
+    // TODO — Task 4. SignOffHour is what Check4 measures your countdown against.
+    public static int SignOffHour()
+    {
+        return 0;       // ← yours
+    }
+
+    // TODO — Task 4. Fails Check4_TheClockCountsDownToSignOff.
     public static int MinutesUntilSignOff(int hour, int minute)
     {
         return 0;       // ← yours
@@ -140,25 +145,58 @@ public static class Station
 }
 ```
 
-**Paste that and it builds — and all four checks are red.** That's deliberate, and it's what makes the loop below work: it compiles from the first minute, so you can fill in one method, run the checks, and watch exactly one go green.
+**Paste that and it builds — and all four checks are red.** That’s deliberate, and it’s what makes the loop below work: it compiles from the first minute, so you can fill in one method, run the checks, and watch exactly one go green.
 
-**Every command in this assignment runs from your terminal in `dotnet-db-coursework`, naming the week** — [the one place every command runs from](lecture-notes.md#the-project-not-the-file). Two commands, and you'll use both after every method you write.
+**Every command in this assignment runs from your terminal in `dotnet-db-coursework`, naming the week** — [the one place every command runs from](lecture-notes.md#the-project-not-the-file). Each task below gives you both, in the same order every time: **run your program first, then run the checks.** A green check ends the step, and a step that’s already over doesn’t get run — so look at your own program while you still have a question about it.
 
-Watch your program do it:
+| # | Check | What to do |
+|---|---|---|
+| 1 | `TheStationHasALegalCallSign` | Name your station. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `TheStationHasAHome` | Say where it broadcasts from. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `TheSignOnIdentifiesTheStation` | The line it puts on air — built from your own two methods. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `TheClockCountsDownToSignOff` | The sign-off hour, and the countdown that has to agree with it. **[Task 4 in full ↓](#task-4-in-full)** |
+
+**The count goes `0 → 1 → 2 → 3 → 4`, one per task.** If it stops going up where you expected it to, that’s the check telling you something — read what it says.
+
+### Task 1 in full
+
+**Check:** `Check1_TheStationHasALegalCallSign`
+
+`CallSign()` returns your station’s call sign as a `string`.
+
+- **Four capital letters, starting with K or W.** That’s the real US convention, and the check enforces it.
 
 ```bash
 dotnet run --project week-01/Homework
 ```
 
-Then see what the checks say:
+Nothing has changed on screen yet — `Program.cs` is still the placeholder it shipped as, and you replace it in step 3. The checks are what can see this one.
 
 ```bash
 dotnet test week-01/Homework.Checks
 ```
 
-**Do that after every single method** — fill in `CallSign()`, run, test. Then `City()`, run, test. Four methods, four rounds, and the count goes **0 → 1 → 2 → 3 → 4**. **Run first on purpose:** a green check ends the step, and a step that's already over doesn't get run. A check that goes red right after you wrote something tells you exactly where to look; twenty minutes of writing followed by one test run tells you nothing.
+**1 of 4.**
 
-**When the count stops going up, commit.** You're standing where git lives, so it's two commands and no navigation:
+### Task 2 in full
+
+**Check:** `Check2_TheStationHasAHome`
+
+`City()` returns wherever your station broadcasts from.
+
+- A real town or an invented one — the code is the same either way, and the more specific it is, the better it reads at 3 AM.
+
+```bash
+dotnet run --project week-01/Homework
+```
+
+```bash
+dotnet test week-01/Homework.Checks
+```
+
+**2 of 4.**
+
+**Two green? Commit it:**
 
 ```bash
 git add .
@@ -168,28 +206,68 @@ git add .
 git commit -m "Week 1: station class"
 ```
 
-**Commit whenever you're somewhere solid** — that's the habit, and it's the one every week from here is graded on. Somewhere solid means: the checks went green, or you're about to try something that might not work and you'd like a way back.
+### Task 3 in full
 
-What each one has to do:
+**Check:** `Check3_TheSignOnIdentifiesTheStation`
 
-| Method | Returns | Rules |
-|---|---|---|
-| `CallSign()` | `string` | **four capital letters, starting with K or W** — that's the real US convention, and the check enforces it |
-| `City()` | `string` | wherever your station broadcasts from |
-| `SignOffHour()` | `int` | the morning hour it shuts down, **1 to 12** — a station going off at 5:00 AM returns `5` |
-| `SignOn()` | `string` | must contain **your call sign and your city** — [built by calling your own methods](lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean), not by retyping them |
-| `MinutesUntilSignOff(int hour, int minute)` | `int` | minutes from the given time until **your** sign-off hour. **`hour` is the clock hour and `minute` is the minutes past it** — 2:30 AM arrives as `hour = 2, minute = 30`, and midnight is `(0, 0)`. Not minutes-past-midnight; that's the thing you work out |
+`SignOn()` returns the line your station puts on air.
 
-> [!WARNING]
-> **`MinutesUntilSignOff` has to work out its answer from `SignOffHour()`.** If you type the number in and the two disagree, the check says so by name. A program that contradicts itself is worse than one that's simply wrong.
+- It must contain **your call sign and your city**.
+- ⚠️ **Build it [by calling your own two methods](lecture-notes.md#methods-and-what-the-words-in-front-of-them-mean), not by retyping the text.** Two places that know your station’s name is one place too many — change the call sign later and a hard-coded sign-on quietly starts lying.
+- **The wording around them is yours.**
 
-**Worked through, with my station's 5:00 AM sign-off** — yours will use your own hour:
+```bash
+dotnet run --project week-01/Homework
+```
+
+```bash
+dotnet test week-01/Homework.Checks
+```
+
+**3 of 4.**
+
+### Task 4 in full
+
+**Check:** `Check4_TheClockCountsDownToSignOff`
+
+**Two methods, one check** — the countdown is only meaningful next to the hour it counts to.
+
+`SignOffHour()` returns the morning hour your station shuts down, **1 to 12**. Your station works the overnight shift the way KDXR does: on the air at midnight, off at your sign-off hour — so it’s an early-morning hour, not an evening one. A station going off at 5:00 AM returns `5`.
+
+`MinutesUntilSignOff(int hour, int minute)` returns the minutes from the given time until **your** sign-off hour.
+
+- **`hour` is the clock hour and `minute` is the minutes past it** — 2:30 AM arrives as `hour = 2, minute = 30`, and midnight is `(0, 0)`. Not minutes-past-midnight; that’s the thing you work out.
+- ⚠️ **It has to work its answer out from `SignOffHour()`.** If you type the number in and the two disagree, the check says so by name. A program that contradicts itself is worse than one that’s simply wrong.
+
+**Worked through, with my station’s 5:00 AM sign-off** — yours will use your own hour:
 
 ```
 MinutesUntilSignOff(2, 30)  →  150
 ```
 
 Both times become minutes past midnight, then you subtract: 5:00 is `5 * 60` = 300, and 2:30 is `(2 * 60) + 30` = 150. **300 − 150 = 150.** ⚠️ **Multiply the hour by 60 *before* adding the minutes** — brackets make it obvious, and getting it backwards is off-by-a-multiple-of-59, which the check names for you.
+
+```bash
+dotnet run --project week-01/Homework
+```
+
+```bash
+dotnet test week-01/Homework.Checks
+```
+
+**4 of 4.**
+
+**All four green? Commit it:**
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "Week 1: countdown working"
+```
+
+### Then make it print
 
 **3. `week-01/Homework/Program.cs` prints the sign-on** and a countdown. The starter ships it with a placeholder line — replace the whole file with this. Small on purpose; everything worth checking lives in `Station.cs`:
 
@@ -198,31 +276,29 @@ Console.WriteLine(Station.SignOn());
 Console.WriteLine($"{Station.MinutesUntilSignOff(2, 30)} minutes until sign-off.");
 ```
 
-Same two commands again. The program first — it's the half the checks never look at:
+Same two commands again. The program first — it’s the half the checks never look at:
 
 ```bash
 dotnet run --project week-01/Homework
 ```
 
-**Expect two lines, both wearing your station's name** — I can't print them for you, because they're yours:
+**Expect two lines, both wearing your station’s name** — I can’t print them for you, because they’re yours:
 
 ```
 <YOUR CALL SIGN> … broadcasting from <YOUR CITY>.
 <a number> minutes until sign-off.
 ```
 
-⚠️ **Check that number by hand, once.** Work it out on paper for the time in your `Program.cs` — minutes past midnight, subtracted from your sign-off hour × 60 — and see whether your program agrees. **The check only catches a countdown that disagrees with your *own* `SignOffHour()`**; it can't tell you that you got the arithmetic backwards in both places. Ninety seconds now, or four points later.
+⚠️ **Check that number by hand, once.** Work it out on paper for the time in your `Program.cs` — minutes past midnight, subtracted from your sign-off hour × 60 — and see whether your program agrees. **The check only catches a countdown that disagrees with your *own* `SignOffHour()`**; it can’t tell you that you got the arithmetic backwards in both places. Ninety seconds now, or four points later.
 
 > [!NOTE]
-> **No `Console.ReadLine` this week.** Your program prints and exits. Reading input arrives in week 2 — and there's a reason for the order: I have to *run* your program to grade it, and a program that sits waiting for input nobody types is a program that never finishes.
-
-Then the checks:
+> **No `Console.ReadLine` this week.** Your program prints and exits. Reading input arrives in week 2 — and there’s a reason for the order: I have to *run* your program to grade it, and a program that sits waiting for input nobody types is a program that never finishes.
 
 ```bash
 dotnet test week-01/Homework.Checks
 ```
 
-⚠️ **Run the program too, not just the checks.** **Two of tonight's twenty points are simply "it builds and runs without crashing"** — and a `Station.cs` that satisfies every check can still sit inside a `Program.cs` that throws on line one. The checks never look at `Program.cs`; I do.
+⚠️ **Run the program too, not just the checks.** **Two of tonight’s twenty points are simply “it builds and runs without crashing”** — and a `Station.cs` that satisfies every check can still sit inside a `Program.cs` that throws on line one. The checks never look at `Program.cs`; I do.
 
 **Commit again once it prints your station:**
 
@@ -231,7 +307,7 @@ git add .
 ```
 
 ```bash
-git commit -m "Week 1: countdown working"
+git commit -m "Week 1: the station signs on"
 ```
 
 ## Part 4 — Check it, then push it ✅
@@ -251,7 +327,9 @@ dotnet test week-01/Homework.Checks
 ```
 
 ```
-Passed!  - Failed: 0, Passed: 4, Skipped: 0, Total: 4
+Test Run Successful.
+Total tests: 4
+     Passed: 4
 ```
 
 > [!TIP]
