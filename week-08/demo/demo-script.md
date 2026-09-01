@@ -90,7 +90,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   rm week-08/Haldane.Tests/UnitTest1.cs
   ```
 
-- [ ] 📖 *"Eighth week, and this program has not been written from scratch since week three. The tests come with it — three facts that were true last Tuesday and are still true now."*
+- [ ] 📖 *"Eighth week, and this program has not been written from scratch since week three. The tests come with it — three facts that were true last week and are still true now."*
 
 - [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
 
@@ -708,7 +708,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 *"Your turn, and at KDXR nothing survives the night either. The desk forgets which carts it played and it has never heard of the DJ who was on before you. You will fix both — and for the rotation you get the tool I did by hand, because a rotation is one list of one type."*
 - [ ] 🎯 **Define done on their machine:** *"You are done when `dotnet test week-08/Lab.Checks` says five out of five, and when you quit the shift, start it again, and the desk tells you who had it last."*
-- [ ] 💡 **Name the one that surprises everybody** — *"there is a number in that file that will not come back, and the file will be sitting there with the right value in it. Task four is about why."*
+- [ ] 💡 **Name the one that surprises everybody** — *"the rotation gets written to a file, and there is one number in it that will not come back. The file will be sitting there with the right value in it. Task four is about why."*
 
 ---
 

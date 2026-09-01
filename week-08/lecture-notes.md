@@ -61,6 +61,7 @@ dotnet run --project week-08/Lab      # you are at the top → the file lands at
 And a path that names the week lands beside the week's projects, where you are already looking:
 
 ```csharp
+// at the top of Program.cs — the file's name is this file's business
 const string RotationFile = "week-08/rotation.json";
 ```
 
@@ -78,6 +79,7 @@ So `"rotation.json"` means **two different files** depending on which command yo
 Every method in this course that touches a file takes the path as a parameter:
 
 ```csharp
+// on Rotation, on Registry, on anything that keeps a list worth keeping
 public void Save(string path)      // not: public void Save()
 public void Load(string path)
 ```
@@ -285,6 +287,7 @@ public int TimesVisited { get; private set; }
 The other direction happens too. A property that is *worked out* from the others — a `Length` computed from `Seconds`, a `Cue` built out of a title and an artist — has a public getter, so it goes into the file, where it is redundant at best and a stale second copy at worst.
 
 ```csharp
+// inside Song — the same file the attribute above went into
 [JsonIgnore]
 public string Length => Broadcast.Clock(Seconds);
 ```
