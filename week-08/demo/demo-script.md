@@ -241,8 +241,6 @@ Tonight the station's book survives the program that keeps it — and the room f
   dotnet run --project week-08/Haldane
   ```
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *Readable, and useless*
-
 - [ ] 🎯 **Open `week-08/watch-log.txt` from the Explorer and put it on screen.** Let them look at it for a second before you say anything
 
   ```
@@ -257,6 +255,9 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 📖 *"There it is. The station's day, on disk, and it outlived the program. I can read every line of that."*
 - [ ] 💥 **Then the turn, and ask it as a real question:** *"Now write me the method that reads it back in. Look at the second line. Where does the name stop and the reason start?"*
 - [ ] 🎯 **Let somebody try, then land it:** *"`Lindqvist - FUEL, due 10:30` is a sentence. To get a sign-out back out of that, I have to hunt for a dash. Then a comma. Then the word 'due'. Every one of those is a decision `Line()` made about how to talk to a person. It is allowed to change that wording next week. Then this file stops loading."*
+
+- [ ] 🎞️ **GO TO SLIDE 6** — *Readable, and useless*
+
 - [ ] 📖 **The finding, in one line:** *"A file a human can read and a program cannot is half a save file. I need one where the pieces are still pieces."*
 
 ---
@@ -446,8 +447,6 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 *"Still readable. Every field is still a field."*
 
-- [ ] 🎞️ **GO TO SLIDE 9** — *Still there*
-
 - [ ] 🎯 **Now the moment. Run it again and say nothing until the board is up**
 
   ```bash
@@ -463,6 +462,9 @@ Tonight the station's book survives the program that keeps it — and the room f
   ```
 
 - [ ] 🎯 *"There he is. Same board, new process. Week three's promise, paid."*
+
+- [ ] 🎞️ **GO TO SLIDE 9** — *Still there*
+
 - [ ] 💡 **Then point at the last line, because it proves something the board above it does not:** *"Four trips logged today. That number is the sum of a count each crew member keeps. Nothing in the file says four. If `Load` had built a fresh Okonkwo out of the name in that line, the board would look identical and this line would say zero — I checked. It says four because the log came back holding the same people the station is holding."*
 - [ ] **Press `q`**
 
