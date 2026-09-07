@@ -142,7 +142,8 @@ FUEL|07:40|4300
   the line is before you read it
 - a separator that **cannot appear
   in a field** (a `|`, not a comma)
-- nothing that can be **worked out**
+- nothing the program can **work out
+  for itself** — the trip counts
 
 ---
 

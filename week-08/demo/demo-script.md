@@ -266,7 +266,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *The kind word comes first*
 
-- [ ] 📖 **Off the slide, before the paste:** *"Three decisions. The kind word goes first, so reading a line tells me what it is before I look at any of it. The fields get separated by something that cannot turn up inside a field — a pipe, not a comma, because commas are everywhere in real text. And nothing that can be worked out gets written down."*
+- [ ] 📖 **Off the slide, before the paste:** *"Three decisions. The kind word goes first, so reading a line tells me what it is before I look at any of it. The fields get separated by something that cannot turn up inside a field — a pipe, not a comma, because commas are everywhere in real text. And anything the program can work out for itself stays out of the file. Look at what is missing from that first line: nothing on it says how many trips Lindqvist has made today. The board prints that number every night. It is not in here."*
 
 - [ ] **In `Watch.cs`, replace the save you just wrote.** <kbd>⌘F</kbd> for **`// One line per entry, exactly as the log prints it.`** — one hit. **Select from that line down to and including `File.WriteAllLines(path, lines);` and paste this over it** — the `}` under it stays where it is
 
@@ -317,6 +317,24 @@ Tonight the station's book survives the program that keeps it — and the room f
 
   public class Watch
   ```
+
+- [ ] **Run it and quit — `q`, nothing else. Then open `week-08/watch-log.txt` and put it on screen**
+
+  ```bash
+  dotnet run --project week-08/Haldane
+  ```
+
+  ```
+  FUEL|07:40|4300
+  SIGNOUT|09:05|Lindqvist|FUEL|10:30|out
+  MET|12:00|-39.8|Moretti
+  SIGNOUT|14:20|Okonkwo|MET RUN|15:00|out
+  SIGNOUT|14:20|Reyes|DIG OUT|14:45|out
+  MET|14:35|-41.5|Bhatt
+  ```
+
+- [ ] 📖 *"Still readable. Every field is still a field. Same day, same six lines, and now the pieces are still pieces."*
+- [ ] ⚠️ **Then the thing that just happened quietly, and do not rush it:** *"The sentences are gone. I overwrote them. Nothing asked me and nothing warned me — the old file was in the old format, and this program does not know that format exists. Tonight I could afford to lose it. In week fourteen we do this to data you are not allowed to lose. Then it has a name. It is called a migration."*
 
 - [ ] **Now the way back in. Go to the end of `Watch.cs` (<kbd>⌘↓</kbd>), select the last line — a single `}` — and paste this over it**
 
@@ -370,6 +388,16 @@ Tonight the station's book survives the program that keeps it — and the room f
           }
       }
 
+  
+}
+```
+
+- [ ] 📖 **Walk three things and nothing else. Put the cursor on `line.Split('|')`:** *"`Split` hands back an array. Same square brackets you have used on a list since week three, indexed from zero — field zero is the kind word."*
+- [ ] 🎯 **Then the cursor on `Lookup(crew, field[2])`:** *"The file says the word Okonkwo. The log has to hold the man. Build a fresh crew member out of that name instead and there are two Okonkwos. The station can only see one of them. Every trip the real one made lands on the other. That is week five, and it is the same question `Assert.Same` asks."*
+
+- [ ] **And the lookup itself, which is the one part of tonight you have already written. Go to the end of `Watch.cs` again (<kbd>⌘↓</kbd>), select the last line — a single `}` — and paste this over it**
+
+  ```csharp
       // Week 5's Find, one more time: the person, or nothing at all.
       private static CrewMember? Lookup(List<CrewMember> crew, string name)
       {
@@ -386,8 +414,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   }
   ```
 
-- [ ] 📖 **Walk three things and nothing else. Put the cursor on `line.Split('|')`:** *"`Split` hands back an array. Same square brackets you have used on a list since week three, indexed from zero — field zero is the kind word."*
-- [ ] 🎯 **Then the cursor on `Lookup(crew, field[2])`:** *"The file says the word Okonkwo. The log has to hold the man. Build a fresh crew member out of that name instead and there are two Okonkwos. The station can only see one of them. Every trip the real one made lands on the other. That is week five, and it is the same question `Assert.Same` asks."*
+- [ ] 📖 **One line, then move on:** *"Week five's `Find`, one more time. Walk the crew, hand back the person or hand back nothing."*
 - [ ] 💡 **And the free one — cursor on the `new SignOut(...)` line:** *"Since week five, making a sign-out IS the trip: the constructor calls `GoesOut()`. So loading the file puts every trip count back without a line of code that mentions counting."*
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *One list, one type*
@@ -417,12 +444,6 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 🎯 **Point at the `else`:** *"Those six lines have been the top of this program since week six, and from tonight they almost never run. They are what the station does on a day it has no book — which is one day, ever."*
 
-- [ ] ⚠️ **One thing before it runs, and say why out loud:** *"I changed the format ten minutes ago. The file on disk is in the old one, and this code cannot read a word of it. That is a real thing that happens, and tonight the answer is: throw it away and let the program write a new one. In week fourteen we do it properly, on data you are not allowed to throw away."*
-
-  ```bash
-  rm week-08/watch-log.txt
-  ```
-
 ---
 
 ## 5 · It is still there *(slide 9)*
@@ -445,7 +466,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   SIGNOUT|14:57|Nakamura|WALK|19:40|out
   ```
 
-- [ ] 📖 *"Still readable. Every field is still a field."*
+- [ ] 📖 *"And there is Nakamura, on the end, written exactly the way everything above him is written. That is the last thing this program did before it stopped."*
 
 - [ ] 🎯 **Now the moment. Run it again and say nothing until the board is up**
 
