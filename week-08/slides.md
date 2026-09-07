@@ -58,7 +58,7 @@ Nothing is broken. Week 3 said so.
 
 ```csharp
 [Fact]
-public void ItIsStillThereAfterARestart()
+public void TheLogSurvivesARestart()
 {
     // ...and then what?
 }

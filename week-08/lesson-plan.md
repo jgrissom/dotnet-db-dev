@@ -91,7 +91,7 @@ By the end of this session, students can:
 |---|---|
 | `dotnet new console -o week-08/Haldane` refuses | You rehearsed and left `week-08/` behind. Delete both project folders **and the log file**; §0 says so. |
 | §5's restart shows an empty log | A `week-08/watch-log.txt` from a rehearsal is still there in the old format, so `Load` reads nothing out of it. Delete it and re-run §5's first run. |
-| The log's new line lands at the TOP of the book | Correct, and only visible outside class hours: station time is UTC, so a line stamped `02:47` genuinely belongs before the `07:40` fuel dip. During class (12:30–4:20 Central) it is 17:30–21:20 at the station and new lines land at the bottom. |
+| The log's new line lands somewhere other than the BOTTOM of the book | Correct, and it is the ordered `Add` working. Station time is UTC and the seeded day runs `07:40`–`14:35`, so where a live line lands depends on the hour you are running it: a line stamped `02:47` genuinely belongs before the fuel dip. Nothing to fix — it is the one moment the insert is visible. |
 | A student's file has `-39,8` in it | Their machine's language setting. The demo writes with `CultureInfo.InvariantCulture` for exactly this; the lab uses JSON, which has one number format everywhere. |
 | Somebody asks why not just make the setter public | Because weeks 4 and 5 said no, and the reason has not changed. The attribute changes what the *serializer* may do; the rest of the program still cannot touch it. |
 | Somebody asks what happens if the file is damaged | Honestly: tonight, the line is skipped or the program throws, depending on the damage. **That is week 13**, and §8 says so. Don't build it now. |

@@ -136,6 +136,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   │ 14:57 │ Nakamura  │ WALK    │ 19:40    │ OUT    │ 1     │
   └───────┴───────────┴─────────┴──────────┴────────┴───────┘
   4 people outside.
+  4 trips logged today.
   ```
 
 - [ ] 📖 *"Nakamura is on the ice. Four people out, and the book has seven lines in it."*
@@ -249,8 +250,8 @@ Tonight the station's book survives the program that keeps it — and the room f
   09:05  SIGN OUT  Lindqvist - FUEL, due 10:30
   12:00  MET  -39.8 C, taken by Moretti
   14:20  SIGN OUT  Okonkwo - MET RUN, due 15:00
-  14:20  SIGN OUT  Reyes - DIG OUT, due 14:45
-  14:35  MET       -41.5 C, taken by Bhatt
+  14:20  SIGN OUT  Reyes - DIG OUT, back
+  14:35  MET  -41.5 C, taken by Bhatt
   ```
 
 - [ ] 📖 *"There it is. The station's day, on disk, and it outlived the program. I can read every line of that."*
@@ -556,11 +557,12 @@ Tonight the station's book survives the program that keeps it — and the room f
     14:20  SIGN OUT  Okonkwo - MET RUN, due 15:00
     14:20  SIGN OUT  Reyes - DIG OUT, due 14:45
     14:35  MET       -41.5 C, taken by Bhatt
-    19:12  SIGN OUT  Nakamura - WALK, due 19:40
+    14:57  SIGN OUT  Nakamura - WALK, due 19:40
     19:26  MET       -43.6 C, taken by Moretti
   ```
 
-- [ ] ⚠️ **Those last two times are station time when I ran it — yours will be whatever the clock says.** Nothing else in that block moves
+- [ ] ⚠️ **Only the last line is yours — `19:26` is station time when I ran it.** Nakamura's `14:57` came back off the file and does not move: he was signed out before this program had a clock
+- [ ] 💡 **And your reading lands wherever its own time puts it — which may be in the MIDDLE of this list rather than at the bottom.** Station time is UTC, so that depends on what hour you are running it. Either way it is the ordered `Add` you just pasted, doing its job — and landing mid-list is the only time you will actually watch it work
 - [ ] 📖 *"Real times. And the headline temperature at the top came off the reading I just took, which came off the file."*
 
 - [ ] **Save it.** Silent
@@ -682,7 +684,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   ```
   │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │ 1     │
   │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 1     │
-  │ 19:12 │ Nakamura  │ WALK    │ 19:40    │ OUT    │ 1     │
+  │ 14:57 │ Nakamura  │ WALK    │ 19:40    │ OUT    │ 1     │
   └───────┴───────────┴─────────┴──────────┴────────┴───────┘
   3 people outside.
   ```

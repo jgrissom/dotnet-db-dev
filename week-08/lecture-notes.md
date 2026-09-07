@@ -11,7 +11,7 @@ Week 7 got as close as it is possible to get without one. You can now write down
 ```csharp
 // The test you could not write last week.
 [Fact]
-public void ItIsStillThereAfterARestart()
+public void TheLogSurvivesARestart()
 {
     // ...and then what? There is nowhere for it to still be.
 }
