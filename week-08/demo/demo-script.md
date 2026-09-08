@@ -137,9 +137,18 @@ Tonight the station's book survives the program that keeps it — and the room f
   └───────┴───────────┴─────────┴──────────┴────────┴───────┘
   4 people outside.
   4 trips logged today.
+
+  Watch log:
+    07:40  FUEL      day tank 4300 L
+    09:05  SIGN OUT  Lindqvist - FUEL, due 10:30
+    12:00  MET       -39.8 C, taken by Moretti
+    14:20  SIGN OUT  Okonkwo - MET RUN, due 15:00
+    14:20  SIGN OUT  Reyes - DIG OUT, due 14:45
+    14:35  MET       -41.5 C, taken by Bhatt
+    14:57  SIGN OUT  Nakamura - WALK, due 19:40
   ```
 
-- [ ] 📖 *"Nakamura is on the ice. Four people out, and the book has seven lines in it."*
+- [ ] 📖 *"Nakamura is on the ice. Four people out, and the log book at the bottom of the screen has seven lines in it."*
 - [ ] **Press `q`, and run it again — nothing else**
 
   ```bash
@@ -499,7 +508,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 ## 6 · The station's own clock *(slide 10)*
 
 - [ ] 🎯 **Put the file back on screen and point at the last line:** *"One thing is wrong in that file and it has been wrong since week three. Nakamura signed out at 14:57. So did everybody I have signed out on this program, every week, all term. It is typed into the code."*
-- [ ] 📖 *"That was survivable while nothing could read the log back. It is not survivable in a book."*
+- [ ] 📖 *"That did not matter while the log died with the program. Nobody read it back, so nobody ever saw it. Now it keeps. Every sign-out anybody types at this desk goes into the log book saying 14:57, and it stays there."*
 
 - [ ] **In `Watch.cs`, give the station a clock.** <kbd>⌘F</kbd> for **`private readonly List<ILogEntry> _entries`** — one hit. **Select that one line and paste this over it**
 
