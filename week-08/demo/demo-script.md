@@ -681,7 +681,7 @@ Tonight the station's book survives the program that keeps it — and the room f
       }
   ```
 
-- [ ] 📖 *"Two entries, added late one first. If the order were still an accident, this comes back the way it went in."*
+- [ ] 📖 **Walk it before you run it:** *"Two fuel checks, and I put them in backwards on purpose. The 14:35 one goes in first, then the 07:40 one. Then it checks what order they come out in. If `Add` still just stuck things on the end, position zero would be 14:35 and this goes red. It says 07:40, because something puts the book in order now."*
 
   ```bash
   dotnet test week-08/Haldane.Tests
