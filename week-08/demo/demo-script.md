@@ -427,7 +427,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *One list, one type*
 
-- [ ] 📖 **Thirty seconds, no editor:** *"That is twelve lines of honest work, and it is the right amount for a log with three different kinds of things on it. Most lists are not like that. Most lists are one list of one type — and for those, a library does the whole trip in two lines. It is called a serializer, and you will use one in the lab tonight. I did it by hand first so you know what it is doing for you."*
+- [ ] 📖 **Thirty seconds, no editor:** *"That is about sixty lines of honest work, both directions, and it is the right amount for a log with three different kinds of things on it. Most lists are not like that. Most lists are one list of one type — and for those, a library does the whole trip in two lines. It is called a serializer, and you will use one in the lab tonight. I did it by hand first so you know what it is doing for you."*
 
 - [ ] **Now the loading half in `Program.cs`.** <kbd>⌘F</kbd> for **`watch.Add(new FuelCheck("07:40", 4300));`** — one hit. **Select from that line down to and including `watch.Add(new Reading("14:35", -41.5, bhatt));` and paste this over the lot**
 

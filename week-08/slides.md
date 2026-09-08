@@ -151,8 +151,8 @@ FUEL|07:40|4300
 
 ## One list, one type
 
-Twelve lines by hand, for a log with
-three kinds of things on it.
+Sixty lines by hand, both directions,
+for a log with three kinds of things on it.
 
 Most lists are **one list of one type** —
 and for those it is two lines:
