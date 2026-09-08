@@ -295,6 +295,7 @@ dotnet run --project week-08/Lab
 - **Ask `File.Exists(path)` first, and `return` if it's false.** A desk that has never signed off has no file, and [that is a first night rather than a failure](../lecture-notes.md#a-missing-file-is-not-an-error).
 - **`File.ReadAllText(path)` gives you the text back**; `JsonSerializer.Deserialize<List<Song>>(...)` turns it into songs. The type in the angle brackets is how it knows what to build, and what comes back is `List<Song>?` — nullable, so check it before you use it.
 - ⚠️ **Empty the list before you fill it.** `_songs` already holds the three carts `Program.cs` added. Load on top of them and you get six.
+- **Then [put the loaded songs in the rotation](../lecture-notes.md#jsonserializer-both-directions).** `loaded` is a local variable holding a `List<Song>`; `_songs` is the rotation. Deserializing does not move anything between them — that is still yours to do, and it is the step the whole task is for.
 
 > [!TIP]
 > **Stuck on the shape?** The check's failure message has the two lines in it — run `dotnet test week-08/Lab.Checks` and read check 3.
