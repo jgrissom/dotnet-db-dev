@@ -498,8 +498,6 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 ## 6 · The station's own clock *(slide 10)*
 
-- [ ] 🎞️ **GO TO SLIDE 10** — *The station's own clock*
-
 - [ ] 🎯 **Put the file back on screen and point at the last line:** *"One thing is wrong in that file and it has been wrong since week three. Nakamura signed out at 14:57. So did everybody I have signed out on this program, every week, all term. It is typed into the code."*
 - [ ] 📖 *"That was survivable while nothing could read the log back. It is not survivable in a book."*
 
@@ -520,6 +518,10 @@ Tonight the station's book survives the program that keeps it — and the room f
           return DateTime.UtcNow.ToString("HH:mm", CultureInfo.InvariantCulture);
       }
   ```
+
+- [ ] 🎞️ **GO TO SLIDE 10** — *The station's own clock*
+
+- [ ] 📖 **Off the slide, and it is the whole reason that line says `UtcNow`:** *"`DateTime.Now` is this machine's clock. `DateTime.UtcNow` is the world's. Haldane keeps UTC, and a lot of Antarctic stations do. Down there every meridian is a few hundred meters away, so a local time zone is a choice rather than a fact. The station runs on one clock. It is not the clock of whichever laptop is sitting on the desk tonight."*
 
 - [ ] **Use it.** <kbd>⌘F</kbd> for **`Add(new SignOut("14:57"`** — one hit. Make that line read
 
