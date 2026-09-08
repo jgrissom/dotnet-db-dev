@@ -160,7 +160,7 @@ dotnet run --project week-08/Lab
 3 carts loaded.
 ```
 
-**Every cart has been out once.** Press `q` to end the shift — and now start it again, and press `t` before you do anything else:
+**Every cart has been out once.** Press `q` to end the shift — then start it again and go straight to the carts: **DJ name, then `t`**:
 
 ```bash
 dotnet run --project week-08/Lab
@@ -276,7 +276,7 @@ week 8 lab: the rotation is written down
 
 **Check:** `Check3_TheRotationComesBack`
 
-**First, watch the file get ignored.** You have a `week-08/rotation.json` with play counts in it. Start the shift and press `t` before anything else:
+**First, watch the file get ignored.** You have a `week-08/rotation.json` with play counts in it. Start the shift and go straight to the carts: **DJ name, then `t`**:
 
 ```bash
 dotnet run --project week-08/Lab
@@ -299,7 +299,7 @@ dotnet run --project week-08/Lab
 > [!TIP]
 > **Stuck on the shape?** The check's failure message has the two lines in it — run `dotnet test week-08/Lab.Checks` and read check 3.
 
-**Run the shift and press `t`.**
+**Run the shift and look at the carts: DJ name, then `t`.**
 
 ```bash
 dotnet run --project week-08/Lab
@@ -313,7 +313,7 @@ dotnet run --project week-08/Lab
     "Title": "Owl Hours",
 ```
 
-**Now run it again and press `t`:**
+**Now run it again — DJ name, then `t`:**
 
 ```bash
 dotnet run --project week-08/Lab
@@ -353,7 +353,7 @@ The one that surprises everybody. **Write the test first on this one** — the s
 rm week-08/rotation.json
 ```
 
-**Then run the shift**, press `a` to air the hour, press `t`, then `q`:
+**Then run the shift** — DJ name, then `a` to air the hour, then `t`, then `q`:
 
 ```bash
 dotnet run --project week-08/Lab
@@ -369,7 +369,7 @@ dotnet run --project week-08/Lab
     "PlaysTonight": 1,
 ```
 
-**And now run the shift again and press `t`:**
+**And now run the shift again — DJ name, then `t`:**
 
 ```bash
 dotnet run --project week-08/Lab
@@ -429,7 +429,7 @@ rm week-08/rotation.json
 dotnet run --project week-08/Lab
 ```
 
-**Then run it again and press `t`:**
+**Then run it again — DJ name, then `t`:**
 
 ```bash
 dotnet run --project week-08/Lab
