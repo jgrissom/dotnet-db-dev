@@ -385,14 +385,47 @@ dotnet run --project week-08/Lab
 
 **Zero — with the right answer sitting in the file.** Everything else came back. The title came back. The length came back. Press `q`.
 
-**Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** Yours, and [the three moves are the ones you know](../lecture-notes.md#testing-something-that-touches-a-file):
+**Write the fact down — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** [The three moves are the ones you know](../lecture-notes.md#testing-something-that-touches-a-file), and tonight's subject is the file, not the fact — so here it is:
 
-- **Set the scene.** A `Song`, played twice, in a `Rotation` — `song.Play()` twice, or air it through the hour, whichever you prefer.
-- **Do the thing.** `Save` to a scratch path, then `Load` into a **new** `Rotation`. [The scratch path is one line](../lecture-notes.md#so-hand-the-path-in), and the second `Rotation` is the whole point: loading into the one that just saved proves nothing.
-- **Check the answer.** `Assert.Equal` — what should `PlaysTonight` say? The rotation hands its carts back through `All()`, so the one you saved is `reopened.All()[0]`.
-- Name it after the rule it proves. Mine is `ACartRemembersItsPlays`; yours doesn't have to be.
+```csharp
+    [Fact]
+    public void ACartRemembersItsPlays()
+    {
+        // Set the scene: a cart aired twice, in a rotation.
+        string path = Path.Combine(Path.GetTempPath(), "kdxr-mine-rotation.json");
+        File.Delete(path);
 
-**Run yours, and expect red:**
+        Song nightjar = new Song("Nightjar", "The Lamplighters", 227);
+        nightjar.Play();
+        nightjar.Play();
+
+        Rotation rotation = new Rotation();
+        rotation.Add(nightjar);
+
+        // Do the thing: write it out, then read it into a SECOND rotation.
+        // Loading into the one that just saved would prove nothing — it
+        // already holds the cart.
+        rotation.Save(path);
+
+        Rotation reopened = new Rotation();
+        reopened.Load(path);
+
+        // Check the answer.
+        Assert.Equal(1, reopened.Count);
+        Assert.Equal(2, reopened.All()[0].PlaysTonight);
+    }
+```
+
+Three things in it are worth a second before you run it:
+
+- **`File.Delete(path)` first.** A file left over from the last run would let this pass without saving anything. Deleting a file that isn't there does nothing and throws nothing.
+- **The scratch path.** `dotnet test` runs from inside `bin/Debug/net10.0` and `dotnet run` runs from the top of your repo, so [the path is handed in](../lecture-notes.md#so-hand-the-path-in) and this never goes near `week-08/rotation.json`.
+- **The second `Rotation` is the whole point.** It holds nothing and reads the same file — which is quitting the desk and starting it again, without quitting.
+
+> [!IMPORTANT]
+> **Run it before you touch `Song.cs`.** This one is written to fail, and watching it fail is the task. A green here means you fixed something before you saw what was broken.
+
+**Run it, and expect red:**
 
 ```bash
 dotnet test week-08/Lab.Tests
