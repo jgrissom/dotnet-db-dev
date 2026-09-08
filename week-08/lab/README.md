@@ -387,9 +387,9 @@ dotnet run --project week-08/Lab
 
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** Yours, and [the three moves are the ones you know](../lecture-notes.md#testing-something-that-touches-a-file):
 
-- **Set the scene.** A `Song`, played twice, in a `Rotation`. `Play()` is on the interface, so `((IScheduleItem)song).Play();` — or add it through the hour, whichever you prefer.
+- **Set the scene.** A `Song`, played twice, in a `Rotation` — `song.Play()` twice, or air it through the hour, whichever you prefer.
 - **Do the thing.** `Save` to a scratch path, then `Load` into a **new** `Rotation`. [The scratch path is one line](../lecture-notes.md#so-hand-the-path-in), and the second `Rotation` is the whole point: loading into the one that just saved proves nothing.
-- **Check the answer.** `Assert.Equal` — what should `PlaysTonight` say?
+- **Check the answer.** `Assert.Equal` — what should `PlaysTonight` say? The rotation hands its carts back through `All()`, so the one you saved is `reopened.All()[0]`.
 - Name it after the rule it proves. Mine is `ACartRemembersItsPlays`; yours doesn't have to be.
 
 **Run yours, and expect red:**
