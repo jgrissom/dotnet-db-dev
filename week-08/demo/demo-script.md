@@ -532,11 +532,13 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 **Off the slide, and it is the whole reason that line says `UtcNow`:** *"`DateTime.Now` is this machine's clock. `DateTime.UtcNow` is the world's. Haldane keeps UTC, and a lot of Antarctic stations do. Down there every meridian is a few hundred meters away, so a local time zone is a choice rather than a fact. The station runs on one clock. It is not the clock of whichever laptop is sitting on the desk tonight."*
 
-- [ ] **Use it.** <kbd>⌘F</kbd> for **`Add(new SignOut("14:57"`** — one hit. Make that line read
+- [ ] **Use it — and TWO things change on this line, not one.** <kbd>⌘F</kbd> for **`Add(new SignOut("14:57"`** — one hit. It currently reads `_entries.Add(new SignOut("14:57", who, reason, expected));`. The time becomes the clock, **and the `_entries.` on the front comes off** — so a sign-out goes through this class's own `Add` instead of straight at the list. **Select the whole line and make it read**
 
   ```csharp
           Add(new SignOut(Now(), who, reason, expected));
   ```
+
+- [ ] 💡 **Instructor note, nothing to say yet: that second change does nothing right now.** `Add` still only appends, so the program behaves identically. It is the line that makes the ordering three beats from now reach the desk at all — without it, every sign-out you type would keep landing at the bottom whatever its time said
 
 - [ ] **And the reading, in `Program.cs`.** <kbd>⌘F</kbd> for **`watch.Add(new Reading("15:02"`** — one hit. Make that line read
 
