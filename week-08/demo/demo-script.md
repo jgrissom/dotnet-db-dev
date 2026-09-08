@@ -598,7 +598,8 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] ⚠️ **Only the last line is yours — `19:26` is station time when I ran it.** Nakamura's `14:57` came back off the file and does not move: he was signed out before this program had a clock
 - [ ] 💡 **And your reading lands wherever its own time puts it — which may be in the MIDDLE of this list rather than at the bottom.** Station time is UTC, so that depends on what hour you are running it. Either way it is the ordered `Add` you just pasted, doing its job — and landing mid-list is the only time you will actually watch it work
-- [ ] 📖 *"Real times. And the headline temperature at the top came off the reading I just took, which came off the file."*
+- [ ] 📖 **Real times — and then point at the headline temperature:** *"That number is the latest reading in the book. Until a minute ago that meant whichever reading went in last. The book is in time order now, so it means the latest one by the clock. Those were the same thing all term because everything arrived in order."*
+- [ ] ⚠️ **Whether that number MOVES depends on the hour you are running it, and both ways are correct.** In class your reading is later than the seeded `14:35`, so the headline becomes yours. Rehearsing earlier in the day it correctly stays at `-41.5` — Bhatt's `14:35` really is the latest reading, and your line went in above it. **That is the ordering working, not a bug**
 
 - [ ] **Save it.** Silent
 
