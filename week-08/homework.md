@@ -170,7 +170,7 @@ Check 3 went green, so the records survive. **Now look at what came back inside 
 dotnet test Project.Checks
 ```
 
-**2. Then go and look at the file.** Whatever your program saved to — open it. **The value is in there.** That is the part worth sitting with for a second: nothing failed to write, and nothing failed to read the file. The number is on disk, in plain sight, and the object came back without it.
+**2. Then go and look at the file the check just wrote.** Its message ends with the full path — open that. *(Your own program has not saved anything yet; that happens in Part 3. This is the check's own scratch file, in the folder your system keeps for them.)* **The value is in there.** That is the part worth sitting with for a second: nothing failed to write, and nothing failed to read the file. The number is on disk, in plain sight, and the object came back without it.
 
 **3. The reason, and it is one sentence:** [a serializer writes every property it can READ, and reads back only the ones it can WRITE](lecture-notes.md#what-the-serializer-will-not-read-back). The property week 5 had you seal — `{ get; private set; }`, the count or the state your record is the authority on — has no public setter, so it goes out and never comes home.
 
