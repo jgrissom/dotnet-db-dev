@@ -100,8 +100,8 @@ were standing**, not from where the code is.
 
 | typed at the top of your repo | runs in |
 |---|---|
-| `dotnet run --project week-08/Lab` | the top |
-| `dotnet test week-08/Lab.Checks` | `bin/Debug/net10.0` |
+| `dotnet run --project week-08/Haldane` | the top |
+| `dotnet test week-08/Haldane.Tests` | `bin/Debug/net10.0` |
 
 Same name. **Two different files.**
 
