@@ -613,7 +613,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *The fact you could not write*
 
-- [ ] 📖 *"An hour ago I said there was one thing the suite could not ask. Let's ask it."*
+- [ ] 📖 **Say what it is going to prove before they read it:** *"An hour ago I said there was one thing this suite could not ask, because there was nothing to call. Now there is. This one saves a sign-out and reads it back. Then it asks three things about what came home. Is the entry there at all? Did its fields survive the trip? And is it holding the same person the station is holding, or a copy wearing his name?"*
 
 - [ ] **In `week-08/Haldane.Tests/WatchTests.cs`, paste this at the bottom of the class — above the last `}`**
 
