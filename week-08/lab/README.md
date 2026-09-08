@@ -300,7 +300,7 @@ dotnet run --project week-08/Lab
 > [!TIP]
 > **Stuck on the shape?** The check's failure message has the two lines in it — run `dotnet test week-08/Lab.Checks` and read check 3.
 
-**Run the shift and look at the carts: DJ name, then `t`.**
+**Run the shift and look at the carts: DJ name, then `t`, then `q`.**
 
 ```bash
 dotnet run --project week-08/Lab
@@ -308,7 +308,10 @@ dotnet run --project week-08/Lab
 
 **Nothing looks different — and that is not a failure.** The file holds the same three carts the program already had, so loading them changes nothing you can see. (The play counts are a different story and they are Task 4's.)
 
-**So prove it is really reading the file.** Open `week-08/rotation.json`, change the first `"Title"` to something else, and save:
+**So prove it is really reading the file — with the desk closed.** Open `week-08/rotation.json`, change the first `"Title"` to something else, and save:
+
+> [!CAUTION]
+> **Sign off before you touch the file.** Pressing `q` writes the rotation back out, so an edit made while the shift is still running is overwritten the moment you quit — and the run below then shows the OLD title, which looks exactly like a `Load` that isn't working.
 
 ```json
     "Title": "Owl Hours",
@@ -541,8 +544,8 @@ dotnet run --project week-08/Lab
 
 - Air the hour four times over three separate shifts. Does `PLAYED` add up across all of them?
 - **Delete `week-08/rotation.json` while the desk is closed**, then run it. What happens, and is that the right thing to happen?
-- **Open `week-08/rotation.json` and change a `"Seconds"` to `0`.** Run it and press `t`. Did the length change? [Look at `Song.Seconds` and work out why not](../lecture-notes.md#what-the-serializer-will-not-read-back) — a setter that refuses nonsense refuses it whoever is asking, including a file.
-- **Open `week-08/air-log.txt` and add a line by hand.** Run the desk. It believes you. That is the honest half of tonight, and it is what week 10 is for.
+- **Open `week-08/rotation.json` while the desk is closed and change a `"Seconds"` to `0`.** Run it and press `t`. Did the length change? [Look at `Song.Seconds` and work out why not](../lecture-notes.md#what-the-serializer-will-not-read-back) — a setter that refuses nonsense refuses it whoever is asking, including a file.
+- **Open `week-08/air-log.txt` while the desk is closed and add a line by hand.** Run the desk. It believes you. That is the honest half of tonight, and it is what week 10 is for.
 - **Falsify your Task 4 fact** — [make it lie](../../week-07/lecture-notes.md#make-it-fail-once), run your suite, read the failure, put it back.
 
 ## ⭐ Done early?
