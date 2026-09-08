@@ -307,7 +307,7 @@ Tonight the station's book survives the program that keeps it — and the room f
           File.WriteAllLines(path, lines);
   ```
 
-- [ ] 📖 *"`is` again — week six, asking each entry what it actually turned out to be. Three kinds, three shapes of line."*
+- [ ] 📖 *"We use entry `is` to find out what it actually turned out to be. Three kinds, Signout, Reading, and FuelCheck."*
 - [ ] **That needs one import.** <kbd>⌘F</kbd> for **`public class Watch`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
@@ -387,10 +387,8 @@ Tonight the station's book survives the program that keeps it — and the room f
               }
           }
       }
-
-  
-}
-```
+  }
+  ```
 
 - [ ] 📖 **Walk three things and nothing else. Put the cursor on `line.Split('|')`:** *"`Split` hands back an array. Same square brackets you have used on a list since week three, indexed from zero — field zero is the kind word."*
 - [ ] 🎯 **Then the cursor on `Lookup(crew, field[2])`:** *"The file says the word Okonkwo. The log has to hold the man. Build a fresh crew member out of that name instead and there are two Okonkwos. The station can only see one of them. Every trip the real one made lands on the other. That is week five, and it is the same question `Assert.Same` asks."*
@@ -398,6 +396,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] **And the lookup itself, which is the one part of tonight you have already written. Go to the end of `Watch.cs` again (<kbd>⌘↓</kbd>), select the last line — a single `}` — and paste this over it**
 
   ```csharp
+
       // Week 5's Find, one more time: the person, or nothing at all.
       private static CrewMember? Lookup(List<CrewMember> crew, string name)
       {
