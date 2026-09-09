@@ -103,8 +103,6 @@ You never write the type. The list already knows it.
 | `FirstOrDefault` · `LastOrDefault` · `MaxBy` · `MinBy` | one **thing**, or nothing |
 
 **The right-hand column is the one that matters.**
-A word that hands back a sequence can have another
-word after it. One that hands back a number cannot.
 
 ---
 
