@@ -130,11 +130,9 @@ You never write the type. The list already knows it.
 
 - `Watch.Add` — **inserts** at a worked-out position
 - `Watch.Save` / `Load` — **makes** things
-- `Hour.Run` — **airs** the hour on the way past
-- `Registry.Everything()` — there *is* a one-liner,
-  and it reads worse
 
-**A one-liner is not the goal.**
+**A one-liner is not the goal, especially when it
+makes the code harder to read.**
 
 ---
 
