@@ -58,10 +58,12 @@ Tonight seven loops the room has watched get written come out, the tests never m
   dotnet run --project week-08/Haldane
   ```
 
-- [ ] **Press `m`, and have `Bhatt` phone in a reading of `-42.4`.** The log grows a line and the headline number moves
+- [ ] **Press `m`, and have `Bhatt` phone in a reading of `-42.4`.** A line goes on the log — that half always happens
+- [ ] ⚠️ **Whether the HEADLINE temperature moves depends on the hour you are running this, and both ways are correct.** The book is kept in time order and the headline is the last reading *in the book* — so a reading stamped later than the seeded `14:35` becomes the headline, and one stamped earlier lands **above** it and the headline stays at `-41.5`. **Say the mechanism, never predict the number.** *(Measured both ways: at 20:49 it moves to `-42.4`; at 09:12 it stays at `-41.5` and the new line sits second in the log.)*
+  - 💡 **One sentence to the room if the clock allows, and it is last week's lesson still paying** — *"The headline is the last reading in the book, and the book is kept in time order. So whether the one I just took becomes the headline depends on what time it is at the station."* **Skip it if §1 is running long; nothing later tonight depends on it**
 - [ ] **Press `q` to close the desk**
 
-- [ ] 🎯 **Then the promise, and name the weeks it was made in** — *"Six times since week three I have told you that a loop you were writing would become one line in week nine. Tonight is week nine."*
+- [ ] 🎯 **Then the promise, and name the weeks it was made in** — *"Several times since week three I have told you that a loop you were writing would become one line in week nine. Tonight is week nine."*
 
 - [ ] **Branch first, and say it as you type it** — *"a branch for tonight, same as every week. Nothing goes straight to `main`, and that goes for your project too"*
 

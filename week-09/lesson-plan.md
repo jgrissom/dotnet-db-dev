@@ -62,7 +62,7 @@ By the end of this session, students can:
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 15 min | **Where we finished last week** *(demo §1)*. Run week 8, take a reading, then name the six weeks that promised tonight. Branch, `week-09/Haldane`, the suite carried forward, the date. 🎯 **Say "five tests" out loud and ask them to hold it.** |
+| 0:00 | 15 min | **Where we finished last week** *(demo §1)*. Run week 8, take a reading, then collect the promise the room has been hearing since week 3. Branch, `week-09/Haldane`, the suite carried forward, the date. 🎯 **Say "five tests" out loud and ask them to hold it.** |
 | 0:15 | 28 min | 🎯 **The promise, collected** *(slides 2–4, demo §2)*. `LatestCelsius`: read the method out loud, replace it with one line, run the board, **run the suite**. Then the shape and the lambda, then `SignOuts` and `OutsideCount`. |
 | 0:43 | 10 min | **☕ Break** |
 | 0:53 | 30 min | **Six more of the same shape** *(slides 5–7, demo §3)*. `Any`, two `FirstOrDefault`s, `Lookup`, then `Program.cs` — `crew.Sum` (week 5's spoken promise) and `Find`. What an empty sequence does to you, and what stays a loop. |
@@ -80,7 +80,7 @@ By the end of this session, students can:
 ## Instructor notes
 
 - 🎯 **§1's "five tests" is a setup, not filler.** Say the number, ask them to hold it, and then say it again after every collapse in §2 and §3. The whole evening's argument is that the number never moves.
-- ⚠️ **Collect the promise by naming the weeks.** Six of them: 3, 4, 5, 6, 7, 8. It is the most-repeated promise in the course and the room will remember at least two of them.
+- ⚠️ **Collect the promise, and do not recite the list.** The sheet says *"several times since week three"* on purpose. The weeks are 3, 4, 5, 6, 7 and 8 — that is for you, not for saying out loud, because naming all six turns a payoff into a roll-call. It is the most-repeated promise in the course and the room will remember at least two of them unprompted.
 - ⚠️ ⚠️ **§2's `OutsideCount` edit is the one selection tonight that needs care.** It replaces a whole property, so the selection ends on **the second of the two `}` in a row**. Every other edit in §2 and §3 runs statement-to-statement.
 - 💡 **§3 is deliberately repetitive and should be paced that way.** Explain the first `FirstOrDefault`; for the second, ask what goes there and wait. Three of the six need no commentary at all.
 - ⚠️ **The `?.` and `??` in `LatestCelsius` are worth thirty seconds even when the clock is tight.** They are the single most common way the lab goes wrong tonight, and check 1's failure message says so — but a room that has seen it once reads that message much faster.
@@ -100,6 +100,7 @@ By the end of this session, students can:
 
 | If | Then |
 |---|---|
+| §1's reading does not move the headline temperature | **Correct, and it is the ordered `Add` working.** The headline is the last reading *in the book*, and the book is in time order — so a reading stamped earlier than the seeded `14:35` lands above it. Measured: `20:49` moves it to `-42.4`, `09:12` leaves it at `-41.5`. ⚠️ **The cue sheet says the mechanism rather than predicting the number**, and off-hours rehearsal is the only time you will see the insert work. |
 | `dotnet new console -o week-09/Haldane` refuses | You rehearsed and left `week-09/` behind. Delete both project folders and the log file — but ⚠️ **not `season.txt`**, or §5 has nothing to open. §0 makes that distinction. |
 | §5 says the met book isn't there | `season.txt` was never copied in, or `rm -rf week-09` took it. §0's copy line, again. |
 | The met book's numbers differ from this sheet's | Somebody regenerated `season.txt`. The committed file is the source of truth; `demo-starter/tools/make-season.py` reproduces it. |
