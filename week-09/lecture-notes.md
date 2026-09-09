@@ -316,7 +316,7 @@ List<SignOut> muster = watch.SignOuts().Where(s => !s.IsBack).ToList();
 | Stays a loop | Because |
 |---|---|
 | `Watch.Add` | it **inserts** at a position it worked out. A query answers a question; it does not rearrange the thing it was asked about. |
-| `Watch.Save` | it walks three different kinds of things and writes a different line for each — an `if`/`else` chain wherever you put it, and [the one-line version is worse in a way you can point at](#the-one-liner-that-writes-a-blank-line). |
+| `Watch.Save` | it walks three different kinds of things and writes a different line for each — an `if`/`else` chain wherever you put it, and [the one-line version is worse in a way that is not a matter of taste](#the-one-liner-that-writes-a-blank-line). |
 | `Watch.Load` | every line through it **makes** something and puts it on the log. |
 | `Hour.Run` | it **airs** the hour on the way past. A `Select` could build the same strings, and it would have to call `Play()` inside the lambda to do it — so the station would go out over the transmitter as a side effect of somebody asking a question. |
 

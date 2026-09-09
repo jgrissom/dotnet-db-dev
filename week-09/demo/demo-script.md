@@ -373,11 +373,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *What stays a loop*
 - [ ] 📖 **The test, in one sentence** — *"A query asks. A loop can do. `Add` puts something in at a position it worked out. `Save` and `Load` make things. None of those is a question."*
-- [ ] **Back to `Watch.cs` for the one worth arguing about — the deck is done for now.** <kbd>⌘F</kbd> for **`public void Save(string path)`** — one hit. **Nothing to change here.** Put the cursor on the `else if (entry is FuelCheck f)` line and leave it there
-- [ ] 💡 **Say what the one-liner is, and that you wrote it** — *"There is a one-line spelling of this method. I wrote it. It is a `Select` with a `switch` inside it, and it compiles."*
-- [ ] 🎯 **Then point at the thing that is not on the screen** — *"Look at the end of this chain. An `if`, two `else if`s, and then nothing. No `else`. An entry this method does not recognize gets skipped, and that is deliberate. A `switch` has to answer for every case, so the one-line version needs one more branch on the end that says: anything else, write an empty string. The day somebody adds a fourth kind of log entry, that version puts a blank line in the file and never mentions it."*
-- [ ] 💡 **Land it in one sentence** — *"So the loop stays. A one-liner is not the goal."*
-- [ ] 💡 **And where the argument continues, because it is their homework** — *"`Everything` in your own project is the same argument, and the notes have both one-line spellings of it written out."*
+- [ ] 💡 **One sentence on the last one, then move on** — *"That last one does have a one-line spelling, and it reads worse. A one-liner is not the goal, especially when it makes the code harder to read."*
 
 - [ ] **Save it. Silent — no push yet**
 
