@@ -219,12 +219,14 @@ Tonight seven loops the room has watched get written come out, the tests never m
 - [ ] 📖 *"The arrow reads as goes to. So this whole line is: add up the crew, and the thing to add up about each one is their trips today."*
 - [ ] 💡 **The one thing worth saying about the name** — *"The `c` is a name I picked for one crew member at a time. I never write the type, because the compiler already knows what is in the list."*
 
-- [ ] **Back in `Watch.cs`, and the next one is the same shape.** <kbd>⌘F</kbd> for **`public List<SignOut> SignOuts()`** — one hit. **Select from `List<SignOut> found = new List<SignOut>();` down to and including `return found;`, and paste this over it**
+- [ ] **Back in `Watch.cs`, and the next one is the same shape — this one goes straight to the arrow.** <kbd>⌘F</kbd> for **`public List<SignOut> SignOuts()`** — one hit. **Select the whole method — from that line down to and including the `}` under `return found;` — and paste this over it**
 
   ```csharp
-          return _entries.OfType<SignOut>().ToList();
+      public List<SignOut> SignOuts() =>
+          _entries.OfType<SignOut>().ToList();
   ```
 
+- [ ] 💡 *"Same arrow as the last one. The whole method is one expression, so the braces go too."*
 - [ ] 📖 **Name what came out, and what the `ToList` is for** — *"A new list, a loop, an `is`, an `Add` and a `return` — gone. And the `ToList` on the end is not decoration. Without it this hands back instructions for finding the sign-outs instead of a list of them. Hold on to that. It is the last thing we do before the break."*
 
 - [ ] **One more, and it is a property rather than a method.** <kbd>⌘F</kbd> for **`public int OutsideCount`** — one hit. **Select from that line down to and including the `}` that closes the property — the second of the two `}` in a row under `return outside;`** — and paste this over it

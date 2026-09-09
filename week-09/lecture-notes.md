@@ -227,13 +227,11 @@ IScheduleItem? it = _items.MaxBy(item => item.Seconds);   // the THING
 
 ### OfType — the ones that turned out to be a certain kind
 
-Week 6 gave you a list that holds four different classes, and `is` was how you asked one what it turned out to be. This is that loop, from Haldane's `Watch.cs`:
+Week 6 gave you a list that holds four different classes, and `is` was how you asked one what it turned out to be. Here is that loop from Haldane's `Watch.cs`, with the loop taken out of it:
 
 ```csharp
-    public List<SignOut> SignOuts()
-    {
-        return _entries.OfType<SignOut>().ToList();
-    }
+    public List<SignOut> SignOuts() =>
+        _entries.OfType<SignOut>().ToList();
 ```
 
 Twelve lines — a new list, a `foreach`, an `if (entry is SignOut s)`, an `Add` and a `return` — replaced by the type in the angle brackets. It keeps them **in the order it found them**, which is what makes `SignOuts()[0]` still mean the row it meant last week.
