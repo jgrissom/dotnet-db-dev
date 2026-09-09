@@ -331,7 +331,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
       AnsiConsole.MarkupLine($"[{Dim}]{crew.Sum(c => c.TripsToday)} trips logged today.[/]");
   ```
 
-- [ ] 🎯 **Collect it by name — this one was a spoken promise** — *"I wrote that loop in front of you in week five. What I said at the time was that it is a lot of typing to add up three numbers, and to hold on to that feeling. This is the line."*
+- [ ] 🎯 **Collect it by name — this one was a spoken promise** — *"I wrote that loop in front of you in week five. What I said at the time was that it is a lot of typing to add up three numbers."*
 
 - [ ] **And the search, one more time.** <kbd>⌘F</kbd> for **`CrewMember? Find(string wanted)`** — one hit. **Select from that line down to and including the `}` under `return null;` — a blank line follows it, so there is only one — and paste this over it**
 
