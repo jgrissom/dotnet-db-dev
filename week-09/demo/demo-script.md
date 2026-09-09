@@ -157,9 +157,8 @@ Tonight seven loops the room has watched get written come out, the tests never m
           return _entries.OfType<Reading>().LastOrDefault()?.Celsius ?? -41.5;
   ```
 
-- [ ] 📖 **Talk the line through, left to right** — *"Take the entries. Keep the ones that turned out to be a reading — that is `OfType`, and it is the `is Reading r` that used to be in the `if`. Take the last of those. Ask it for its Celsius. And if there wasn't one, minus forty-one point five."*
+- [ ] 📖 **Talk the line through, left to right** — *"Start with all of the entries. Keep only the ones that turned out to be a reading — that is `OfType<Reading>`, replaces the `is Reading` that used to be in the `if` statement. `LastOrDefault` returns the last one. Convert it to Celsius. And if there wasn't one, use minus forty-one point five instead."*
 - [ ] 💡 **Point at what is still there** — *"The method is still shaped like a method. Braces, and a `return`. All that changed is what is between them."*
-- [ ] 💡 **Point at the two operators and name what they replaced** — *"The question mark before the dot means don't ask a nothing for its Celsius. The two question marks mean and if it was nothing, use this instead. That is exactly what the first line of the old method was doing when it set minus forty-one point five before the loop."*
 
 - [ ] **Run it. The board first, because the board is what the room can check**
 
