@@ -323,7 +323,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
        Passed: 5
   ```
 
-- [ ] 💡 *"Five. Still five. Four more methods gone, and I have not looked at the board once while doing it."*
+- [ ] 💡 *"Five. Still five. Four more loops out of four methods, and I have not looked at the board once while doing it."*
 
 - [ ] **Now `Program.cs`, and this is week five's, spoken out loud back then.** <kbd>⌘F</kbd> for **`int tripsToday = 0;`** — one hit. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");`, and paste this over it**
 
