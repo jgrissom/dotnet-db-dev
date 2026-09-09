@@ -395,7 +395,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
   IEnumerable<SignOut>? takenMuster = null;
   ```
 
-- [ ] 💡 **Say why it starts as nothing** — *"The line I nearly wrote here takes the muster right away. That would take one the moment the program starts, and a duty officer takes a muster when they want one. So this starts as nothing."*
+- [ ] 💡 **Say why it starts as nothing** — *"A duty officer takes a muster when they want one. So this starts as nothing."*
 
 - [ ] **Now the key.** <kbd>⌘F</kbd> for **`Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [q]uit: ");`** — one hit. Make that line read
 
