@@ -397,13 +397,13 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 - [ ] 💡 **Say why it starts as nothing** — *"A duty officer takes a muster when they want one. So this starts as nothing."*
 
-- [ ] **Now the key.** <kbd>⌘F</kbd> for **`Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [q]uit: ");`** — one hit. Make that line read
+- [ ] **Now the key.** <kbd>⌘F</kbd> for **`Console.Write("[o]ut`** — one hit. Make that whole line read
 
   ```csharp
       Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [u] muster  [q]uit: ");
   ```
 
-- [ ] **And the case.** <kbd>⌘F</kbd> for **`            TakeAReading();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
+- [ ] **And the case.** <kbd>⌘F</kbd> for **`TakeAReading();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
 
   ```csharp
               TakeAReading();
@@ -651,13 +651,13 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 - [ ] 🎯 **Land it, and it is a small thing that is worth the thirty seconds** — *"That number is not in this program any more. It comes off the last line of the met book, which is the last thing anybody wrote down. If somebody goes out tomorrow and writes a line, the console knows what day it is without me touching it."*
 - [ ] ⚠️ **Then the honest half, because they will ask** — *"And there is no cheap way to read the last line of a file. To find it, the program walked all fifty thousand lines. Nothing in a text file says where the last line starts. Hold on to that. It is the next segment."*
 
-- [ ] **The key.** <kbd>⌘F</kbd> for **`[u] muster  [q]uit: ");`** — one hit. Make that line read
+- [ ] **The key.** <kbd>⌘F</kbd> for **`[u] muster`** — one hit. Make that line read
 
   ```csharp
       Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [u] muster  [s]eason  [q]uit: ");
   ```
 
-- [ ] **And the case.** <kbd>⌘F</kbd> for **`            TheMuster();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
+- [ ] **And the case.** <kbd>⌘F</kbd> for **`TheMuster();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
 
   ```csharp
               TheMuster();
