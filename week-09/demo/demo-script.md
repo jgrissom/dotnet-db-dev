@@ -158,6 +158,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
   ```
 
 - [ ] 📖 **Talk the line through, left to right** — *"Take the entries. Keep the ones that turned out to be a reading — that is `OfType`, and it is the `is Reading r` that used to be in the `if`. Take the last of those. Ask it for its Celsius. And if there wasn't one, minus forty-one point five."*
+- [ ] 💡 **Point at what is still there** — *"The method is still shaped like a method. Braces, and a `return`. All that changed is what is between them."*
 - [ ] 💡 **Point at the two operators and name what they replaced** — *"The question mark before the dot means don't ask a nothing for its Celsius. The two question marks mean and if it was nothing, use this instead. That is exactly what the first line of the old method was doing when it set minus forty-one point five before the loop."*
 
 - [ ] **Run it. The board first, because the board is what the room can check**
@@ -189,6 +190,28 @@ Tonight seven loops the room has watched get written come out, the tests never m
 
 - [ ] 🎯 **Land it plainly. One idea per sentence** — *"I deleted eleven lines of a working program. Five tests still pass. I did not have to read the rest of this file to know that was safe — I ran a command and it told me. That is what last week's homework bought you."*
 
+- [ ] 🎯 **Now a second, smaller change — and it is a different KIND of change.** *"That is one statement in a method whose whole body is that statement. C# lets you say that without the ceremony."*
+- [ ] **Select the whole method — the four lines from `public double LatestCelsius()` down to and including the `}` under the return — and paste this over them**
+
+  ```csharp
+      public double LatestCelsius() =>
+          _entries.OfType<Reading>().LastOrDefault()?.Celsius ?? -41.5;
+  ```
+
+- [ ] ⚠️ ⚠️ **NAME THE ARROW, because tonight introduces a different one and they are spelled the same** — *"That arrow is not tonight's arrow. You have had this one since week four: `Kind` arrow `"MET"`. `Count` arrow `_entries.Count`. It means this member is one expression. The arrow you are about to meet lives inside the brackets and it means something else."*
+- [ ] 📖 **Then the check that matters** — *"And nothing about the program changed. Nothing at all."*
+
+  ```bash
+  dotnet test week-09/Haldane.Tests
+  ```
+
+  ```
+  Total tests: 5
+       Passed: 5
+  ```
+
+- [ ] 💡 *"Same five. That is twice now."*
+
 - [ ] 🎞️ **GO TO SLIDE 3** — *One shape, every time*
 - [ ] 📖 *"Three parts. The list, the word, and the question. Every single thing tonight is that."*
 
@@ -211,6 +234,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
   ```
 
 - [ ] 📖 *"A counter, a loop, an `if` and a plus-plus. Now it says what it counts: the sign-outs where the person is not back."*
+- [ ] ⚠️ **Point at the line and count the arrows out loud — there are two and they are different** — *"The first one is the member: this property is one expression. The second one is inside the brackets, and that is the one from the slide. Same symbol, two jobs, and you will see them together all night."*
 - [ ] **Run the tests. Nothing to look at on the board this time**
 
   ```bash

@@ -48,6 +48,21 @@ So the whole line reads: **"add up the crew, and the thing to add up about each 
 
 Once you can read that, you can read all of them, because they are all the same three parts. That is the entire syntax load of tonight.
 
+⚠️ **There is a SECOND `=>` in C# and it means something else entirely.** You have had it since week 4:
+
+```csharp
+public string Kind => "MET";                 // the member is one expression
+public int Count => _entries.Count;
+```
+
+That one says *this member's whole body is the expression after the arrow*. It has nothing to do with lambdas. **The two turn up on one line all the time**, and once you have seen it named it stops being confusing:
+
+```csharp
+public int TotalSeconds => _items.Sum(item => item.Seconds);
+//                     ↑                   ↑
+//              the member                 the question asked of each item
+```
+
 > [!NOTE]
 > **You have written a lambda before and it wasn't called that.** Week 5's debugger slot had you type expressions into the Watch panel; week 8's `JsonSerializerOptions { WriteIndented = true }` was an object built inline. This is the same instinct — code in an argument position — with a name.
 

@@ -233,6 +233,8 @@ dotnet test week-09/Lab.Tests
 
 [`Sum` takes the list and the thing to add up about each one](../lecture-notes.md#sum-count-and-average--one-number-out-of-many). `item` is a name you pick; the compiler already knows what is in the list. **If the `=>` is new, [read one out loud first](../lecture-notes.md#reading-a-lambda-out-loud)** — it takes thirty seconds and it is the only new syntax tonight.
 
+⚠️ **There are TWO arrows on that line and they mean different things.** The first one says *this property is one expression* — you have had that since week 4, in `Kind => "SONG"`. The second is inside the brackets and it is tonight's. [Both are named in the notes](../lecture-notes.md#reading-a-lambda-out-loud), and it is worth thirty seconds now rather than confusion at Task 3.
+
 **2 — `Lab/Switchboard.cs`, `TheRegular()`.** Week 3's, and [the one to slow down on](../lecture-notes.md#on-an-empty-sequence). Replace the body with:
 
 ```csharp
