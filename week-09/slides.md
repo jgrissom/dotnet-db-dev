@@ -184,6 +184,8 @@ book.Max(r => r.Day)
 book.Average(r => r.Celsius)
 book.MinBy(r => r.Celsius)
 book.Count(r => r.Celsius < -50)
+book.Count(r => r.TakenBy == "Moretti")
+book.Where(r => r.Celsius < -60).OrderBy(r => r.Celsius).Take(5).ToList()
 ```
 
 **Nobody was going to write a loop** to find out
