@@ -157,7 +157,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
           return _entries.OfType<Reading>().LastOrDefault()?.Celsius ?? -41.5;
   ```
 
-- [ ] 📖 **Talk the line through, left to right** — *"Start with all of the entries. Keep only the ones that turned out to be a reading — that is `OfType<Reading>`, replaces the `is Reading` that used to be in the `if` statement. `LastOrDefault` returns the last one. Convert it to Celsius. And if there wasn't one, use minus forty-one point five instead."*
+- [ ] 📖 **Talk the line through, left to right** — *"Start with all of the entries. Keep only the ones that turned out to be a reading — that is `OfType<Reading>`, replaces the `is Reading` that used to be in the `if` statement. `LastOrDefault` returns the last one. Ask for its Celsius. And if there wasn't one, use minus forty-one point five instead."*
 - [ ] 💡 **Point at what is still there** — *"The method is still shaped like a method. Braces, and a `return`. All that changed is what is between them."*
 
 - [ ] **Run it. The board first, because the board is what the room can check**
@@ -189,7 +189,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
 
 - [ ] 🎯 **Land it plainly. One idea per sentence** — *"I deleted eleven lines of a working program. Five tests still pass. I did not have to read the rest of this file to know that was safe — I ran a command and it told me. That is what last week's homework bought you."*
 
-- [ ] 🎯 **Now a second, smaller change — and it is a different KIND of change.** *"That is one statement in a method whose whole body is that statement. C# lets you say that without the ceremony."*
+- [ ] 🎯 **Now a second, smaller change — and it is a different KIND of change.** *"That is one statement in a method whose whole body is that statement. C# lets you simplify that even further."*
 - [ ] **Select the whole method — the four lines from `public double LatestCelsius()` down to and including the `}` under the return — and paste this over them**
 
   ```csharp
