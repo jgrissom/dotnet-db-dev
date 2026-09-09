@@ -360,7 +360,8 @@ Tonight nine loops the room has watched get written come out, the tests never mo
   3 trips logged today.
   ```
 
-- [ ] **Press `w` and look up `Reyes`, then `b` and mark her back, then `q`** — every action still works
+- [ ] **Press `w`, look up `Reyes`, then `q`** — the search you just rewrote, still finding her
+- [ ] ⚠️ **Do not mark anybody back here.** `b` is written to the log the moment the desk closes, and §4 needs all three still on the ice — a muster of three is the whole break. `MarkBack` gets exercised in §4 anyway
 - [ ] 🎯 **Then the count, and read it off the screen rather than claiming it** — *"Every loop in these two files that was only asking a question is gone. Look at the diff — lines inserted compared to lines deleted."*
 
   ```bash
