@@ -316,11 +316,63 @@ List<SignOut> muster = watch.SignOuts().Where(s => !s.IsBack).ToList();
 | Stays a loop | Because |
 |---|---|
 | `Watch.Add` | it **inserts** at a position it worked out. A query answers a question; it does not rearrange the thing it was asked about. |
-| `Watch.Save` | it walks three different kinds of things and writes a different line for each — an `if`/`else` chain wherever you put it. |
+| `Watch.Save` | it walks three different kinds of things and writes a different line for each — an `if`/`else` chain wherever you put it, and [the one-line version is worse in a way you can point at](#the-one-liner-that-writes-a-blank-line). |
 | `Watch.Load` | every line through it **makes** something and puts it on the log. |
 | `Hour.Run` | it **airs** the hour on the way past. A `Select` could build the same strings, and it would have to call `Play()` inside the lambda to do it — so the station would go out over the transmitter as a side effect of somebody asking a question. |
 
-⚠️ **`Registry.Everything()` stays a loop too, and it is the most interesting one**, because there *is* a LINQ spelling — `Prepend`, or a `Concat` off a one-item list — and every one of them is harder to read than an `Add` and a `foreach`. **A one-liner is not the goal. Saying the thing plainly is.**
+### The one-liner that writes a blank line
+
+`Watch.Save` walks the log and writes a different line for each kind of entry. There **is** a one-line spelling, and it compiles:
+
+```csharp
+File.WriteAllLines(path, _entries.Select(e => e switch
+{
+    SignOut s => $"SIGNOUT|{s.Time}|{s.Who.Name}|{s.Reason}|{s.Expected}|"
+        + (s.IsBack ? "back" : "out"),
+    Reading r => $"MET|{r.Time}|"
+        + r.Celsius.ToString("0.0", CultureInfo.InvariantCulture)
+        + $"|{r.TakenBy.Name}",
+    FuelCheck f => $"FUEL|{f.Time}|{f.Liters}",
+    _ => ""
+}));
+```
+
+**Read the last arm.** The `if`/`else if` chain in `Save` has no `else`, so an entry it does not recognize is skipped and nothing is written. A `switch` expression is not allowed to do that — it has to answer for every case — so the one-line version is forced to invent an answer, and `_ => ""` puts a **blank line** in the file. The day something new implements `ILogEntry`, the loop stays quiet and the one-liner corrupts the log.
+
+That is not a matter of taste. **The two versions do different things**, and the shorter one does the worse thing silently.
+
+### Everything, and the one-liner that reads worse
+
+`Registry.Everything()` hands back the registry's own line, then one line per record. It stays a loop — and it is the most interesting of the five, because unlike the others there really is a one-line spelling. Two of them. This is what ships:
+
+```csharp
+public List<IListed> Everything()
+{
+    List<IListed> listing = new List<IListed>();
+    listing.Add(this);
+
+    foreach (var item in _items)      // your own record type
+    {
+        listing.Add(item);
+    }
+
+    return listing;
+}
+```
+
+And these both do the same job in one line:
+
+```csharp
+// Prepend — but every record has to change type before this will compile
+public List<IListed> Everything() =>
+    _items.Cast<IListed>().Prepend(this).ToList();
+
+// Concat — build a list holding one thing, so as not to build a list
+public List<IListed> Everything() =>
+    new List<IListed> { this }.Concat(_items).ToList();
+```
+
+All three hand back the same things in the same order, and the registry is first in all three. The loop is the one you can still read a year from now. **A one-liner is not the goal. Saying the thing plainly is.**
 
 ## Querying a file, and what it costs
 

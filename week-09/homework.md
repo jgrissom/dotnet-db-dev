@@ -243,8 +243,10 @@ git commit -m "Find comes back empty-handed: my own fact"
 
 - **`Find`** — a `foreach` that walks and returns. That is [`FirstOrDefault`](lecture-notes.md#firstordefault--the-one-or-nothing-at-all), and you just watched what happens if you pick the wrong word.
 - **`Load`** — a `foreach` that fills one list from another. That is `AddRange`, and ⚠️ **the `Clear()` above it stays.**
-- **`Everything()`** — and this one **should stay a loop.** There is a LINQ spelling of it and [it reads worse](lecture-notes.md#what-should-stay-a-loop). A one-liner is not the goal.
+- **`Everything()`** — and this one **should stay a loop.** There is a LINQ spelling of it and [it reads worse](lecture-notes.md#everything-and-the-one-liner-that-reads-worse). A one-liner is not the goal.
 - ⚠️ **And if your `Program.cs` has a loop that CHANGES something on each record**, leave that alone too — [a query asks, and a lambda that does something is not a question](lecture-notes.md#select--turning-each-one-into-something-else).
+
+💡 **The sharpest version of this argument is Haldane's, not yours.** `Watch.Save` stays a loop because [the one-line version has to answer for a kind of entry it has never met — and what it answers is a blank line in the file](lecture-notes.md#the-one-liner-that-writes-a-blank-line). Your own `Save` is a `JsonSerializer` call with no loop in it, so there is nothing to collapse there.
 
 **Nothing scores this either way, and I am telling you that rather than pretending otherwise** — a collapsed `Find` and a `foreach` behave identically, so no check can tell them apart. **What check 1 can tell you is whether you broke anything**, which is the only reason it is safe to try. Run it before and after:
 
