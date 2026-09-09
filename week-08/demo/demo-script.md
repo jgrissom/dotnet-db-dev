@@ -601,6 +601,8 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 📖 **Real times — and then point at the headline temperature:** *"That number is the latest reading in the book. Until a minute ago that meant whichever reading went in last. The book is in time order now, so it means the latest one by the clock. Those were the same thing all term because everything arrived in order."*
 - [ ] ⚠️ **Whether that number MOVES depends on the hour you are running it, and both ways are correct.** In class your reading is later than the seeded `14:35`, so the headline becomes yours. Rehearsing earlier in the day it correctly stays at `-41.5` — Bhatt's `14:35` really is the latest reading, and your line went in above it. **That is the ordering working, not a bug**
 
+- [ ] 💡 **One line, and it plants next week — point at the banner, not at the code** — *"The time on this console is real now. The DAY is not: `day 261` is typed into this program, and I change it by hand every week. Hold on to that."* **Ten seconds, then move on — nothing tonight fixes it**
+
 - [ ] **Save it.** Silent
 
   ```bash

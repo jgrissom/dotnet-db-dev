@@ -164,11 +164,11 @@ Instructions run again every time you look.
 ## A season of weather
 
 ```
-95|22:05|-68.6|Nakamura
-96|07:41|-61.2|Moretti
+102|22:05|-68.6|Nakamura
+103|07:41|-61.2|Moretti
 ```
 
-**50,000 readings. 250 days. One text file.**
+**50,000 readings. 268 days. One text file.**
 
 Somebody walked out to the masts and read a
 number off an instrument. Every time.

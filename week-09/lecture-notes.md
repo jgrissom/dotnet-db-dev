@@ -313,7 +313,7 @@ List<SignOut> muster = watch.SignOuts().Where(s => !s.IsBack).ToList();
 
 ## Querying a file, and what it costs
 
-Haldane's met book holds every temperature anybody has written down since the station opened: **50,000 readings over 250 days**, in a text file, one line each.
+Haldane's met book holds every temperature anybody has written down since the station opened: **50,000 readings over 268 days**, in a text file, one line each.
 
 Reading it is nothing new — same shape as week 8's `Watch.Load`:
 

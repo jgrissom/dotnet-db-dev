@@ -113,6 +113,8 @@ Tonight seven loops the room has watched get written come out, the tests never m
       AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 268[/]");
   ```
 
+- [ ] 💡 **Name it as you do it — this is the last time it happens** — *"I have typed that number in by hand every week since week three. The station has a clock. It has a log. It has a file of every reading anybody has ever taken. And the one thing it cannot tell you is what day it is, because that lives in the source code. Remember this line."*
+
 - [ ] **And the log file's name.** <kbd>⌘F</kbd> for **`week-08/watch-log.txt`** — one hit. Make that line read
 
   ```csharp
@@ -507,7 +509,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
 - [ ] 📖 **Introduce the file as furniture, not as a feature** — *"Somebody walks out to the masts and reads the temperature off an instrument. That is a MET run, and it is most of why anybody leaves this building. Every one of those readings has been written down since the station opened."*
 
 - [ ] **Open `week-09/season.txt` in the editor.** Let them look at it for a second
-- [ ] 📖 **Say what it is and let the size do the work** — *"Same idea as the watch log — fields with a pipe between them. Day, time, temperature, and who went out for it. Two hundred and fifty days of it."*
+- [ ] 📖 **Say what it is and let the size do the work** — *"Same idea as the watch log — fields with a pipe between them. Day, time, temperature, and who went out for it. Every day the station has been open."*
 - [ ] 💡 **Then read the count off the editor's own status bar rather than claiming a number** — *"Say what the editor says."*
 - [ ] ⚠️ **Close it again.** A 50,000-line file open in an editor is a scrolling hazard for the rest of the night
 
@@ -539,10 +541,42 @@ Tonight seven loops the room has watched get written come out, the tests never m
 - [ ] **New file `week-09/Haldane/Season.cs`**
 
   ```csharp
+  // The met book, read off disk.
+  //
+  // Same shape as Watch.Load: one line per reading, fields kept apart by a
+  // character that cannot appear in a field. Nothing new this week — which is
+  // the point. The file was already something this program could read. What
+  // week 9 adds is what you can ASK once it is in your hands.
+  //
+  // ⚠️ Read() STAYS A LOOP. It makes fifty thousand objects and puts them in a
+  // list; that is doing, not asking. It is also the whole cost of the evening,
+  // and §6 is where the room finds that out.
   using System.Globalization;
 
   public static class Season
   {
+      // What day of the season it is: the day on the last line anybody wrote.
+      //
+      // ⚠️ The station does not keep the date in its head, and it is NOT typed
+      // into this program. Until week 9 it was — a literal in the banner, edited
+      // by hand every week — which is how the console came to be showing day 268
+      // while its own met book stopped at 250. A number the program can work out
+      // is a number the program should work out.
+      //
+      // ⚠️ And there is no cheap way to do this. Reading the LAST line of a text
+      // file means walking the whole file, because nothing in it says where the
+      // last line starts. Measured: 1.6-2.2 ms for the lazy read against 1.3 ms
+      // for reading the whole thing. That is §6's argument, arriving early and
+      // for free — even "what day is it" costs the entire book.
+      public static int LatestDay(string path)
+      {
+          string? last = File.ReadLines(path).LastOrDefault();
+
+          return last != null && int.TryParse(last.Split('|')[0], out int day)
+              ? day
+              : 1;
+      }
+
       public static List<SeasonReading> Read(string path)
       {
           List<SeasonReading> book = new List<SeasonReading>();
@@ -575,6 +609,25 @@ Tonight seven loops the room has watched get written come out, the tests never m
   string metBook = "week-09/season.txt";
   ```
 
+- [ ] 🎯 **Now the line from §1.** <kbd>⌘F</kbd> for **`string metBook`** — one hit — **and paste this directly under it**
+
+  ```csharp
+
+  // What day of the season it is — read off the last line of the met book
+  // rather than typed into this file. Every week until tonight, that number
+  // was a literal in the banner and I changed it by hand.
+  int day = Season.LatestDay(metBook);
+  ```
+
+- [ ] 🎯 **And now delete the literal.** <kbd>⌘F</kbd> for **`winter crew - day 268`** — one hit. Make that line read
+
+  ```csharp
+      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day {day}[/]");
+  ```
+
+- [ ] 🎯 **Land it, and it is a small thing that is worth the thirty seconds** — *"That number is not in this program any more. It comes off the last line of the met book, which is the last thing anybody wrote down. If somebody goes out tomorrow and writes a line, the console knows what day it is without me touching it."*
+- [ ] ⚠️ **Then the honest half, because they will ask** — *"And there is no cheap way to read the last line of a file. To find it, the program walked all fifty thousand lines. Nothing in a text file says where the last line starts. Hold on to that. It is the next segment."*
+
 - [ ] **The key.** <kbd>⌘F</kbd> for **`[u] muster  [q]uit: ");`** — one hit. Make that line read
 
   ```csharp
@@ -595,7 +648,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
 - [ ] **Then the report.** <kbd>⌘F</kbd> for **`void DrawBoard()`** — one hit — **and paste this directly ABOVE that line**
 
   ```csharp
-  // Six questions about two hundred and fifty days of weather. Six lines.
+  // Six questions about the whole season. Six lines.
   //
   // Then the last three lines of it, which are the honest half of the evening:
   // what it cost to be able to ask any of them.
@@ -652,19 +705,19 @@ Tonight seven loops the room has watched get written come out, the tests never m
 
   ```
     MET BOOK - the season so far
-    50,000 readings over 250 days
+    50,000 readings over 268 days
 
     season average        -43.1 C
-    coldest               -68.6 C on day 95 at 22:05, taken by Nakamura
-    below -50             14,820 readings
+    coldest               -68.6 C on day 102 at 22:05, taken by Nakamura
+    below -50             14,834 readings
     Moretti took          16,996 of them
 
     the five coldest readings in the book:
-      day 95   22:05  -68.6 C  Nakamura
-      day 128  23:32  -68.3 C  Moretti
-      day 109  05:45  -68.0 C  Okonkwo
-      day 146  20:32  -68.0 C  Lindqvist
-      day 118  07:07  -67.7 C  Reyes
+      day 102  22:05  -68.6 C  Nakamura
+      day 137  23:32  -68.3 C  Moretti
+      day 156  20:32  -68.1 C  Lindqvist
+      day 117  05:45  -68.0 C  Okonkwo
+      day 126  07:07  -67.7 C  Reyes
   ```
 
 - [ ] 🎞️ **GO TO SLIDE 10** — *Six questions, six lines*

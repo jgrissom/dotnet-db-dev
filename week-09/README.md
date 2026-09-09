@@ -29,7 +29,7 @@ They can also say what every one of those does to an **empty** sequence — and 
 
 `Where` hands back **instructions**, not a list. §4 takes a muster of who is outside, marks somebody back, and reads the same muster again — **and a name has gone**. `ToList()` is what makes an answer out of a recipe, and week 5 is why the copy did not save them.
 
-Then §6 asks the station's met book — **50,000 readings over 250 days** — six questions in six lines, and prints the bill:
+Then §6 asks the station's met book — **50,000 readings over 268 days** — six questions in six lines, and prints the bill:
 
 ```
 reading the file       8 ms for all 50,000 lines
