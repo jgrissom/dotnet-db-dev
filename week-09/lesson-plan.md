@@ -16,7 +16,7 @@ Total tests: 5
 
 The line to land is about the tests, not about the brevity:
 
-> *"I deleted eleven lines of a working program. Five tests still pass. I did not have to read the rest of this file to know that was safe — I ran a command and it told me. That is what last week's homework bought you."*
+> *"I deleted eleven lines of a working program. The board still reads minus forty-one point five. Five tests still pass. That is not proof that nothing broke — a suite only knows the things somebody wrote down. It is five things I did not have to go and check by hand, and before week seven I had none of them."*
 
 ⚠️ **Run the suite BEFORE the edit as well as after**, and say the number out loud both times. A green run after a change means nothing to a room that did not watch it be green before.
 

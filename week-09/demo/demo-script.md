@@ -188,7 +188,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
        Passed: 5
   ```
 
-- [ ] 🎯 **Land it plainly. One idea per sentence** — *"I deleted eleven lines of a working program. Five tests still pass. I did not have to read the rest of this file to know that was safe — I ran a command and it told me. That is what last week's homework bought you."*
+- [ ] 🎯 **Land it plainly. One idea per sentence** — *"I deleted eleven lines of a working program. The board still reads minus forty-one point five. Five tests still pass. That is not proof that nothing broke — a suite only knows the things somebody wrote down. It is five things I did not have to go and check by hand, and before week seven I had none of them."*
 
 - [ ] 🎯 **Now a second, smaller change — and it is a different KIND of change.** *"That is one statement in a method whose whole body is that statement. C# lets you simplify that even further."*
 - [ ] **Select the whole method — the four lines from `public double LatestCelsius()` down to and including the `}` under the return — and paste this over them**
@@ -248,7 +248,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
        Passed: 5
   ```
 
-- [ ] 💡 **Ask for hands rather than asserting anything** — *"Who has ever deleted working code and then had to go and read the whole file to find out what they broke?"* — then stop and let them answer
+- [ ] 💡 **Ask for hands rather than asserting anything** — *"Who has changed something in a program, and then gone clicking through the rest of it to check nothing else broke?"* — then stop and let them answer
 
 ---
 
