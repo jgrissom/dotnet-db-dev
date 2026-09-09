@@ -510,6 +510,8 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 book.Average(r =&gt; r.Celsius)
 book.MinBy(r =&gt; r.Celsius)
 book.Count(r =&gt; r.Celsius &lt; <span class="hljs-number">-50</span>)
+book.Count(r =&gt; r.TakenBy == <span class="hljs-string">&quot;Moretti&quot;</span>)
+book.Where(r =&gt; r.Celsius &lt; <span class="hljs-number">-60</span>).OrderBy(r =&gt; r.Celsius).Take(<span class="hljs-number">5</span>).ToList()
 </code></pre>
 <p><strong>Nobody was going to write a loop</strong> to find out<br />
 how many readings this season were below −50.</p>
