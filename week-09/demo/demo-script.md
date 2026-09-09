@@ -158,6 +158,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
   ```
 
 - [ ] 📖 **Talk the line through, left to right** — *"Start with all of the entries. Keep only the ones that turned out to be a reading — that is `OfType<Reading>`, replaces the `is Reading` that used to be in the `if` statement. `LastOrDefault` returns the last one. Ask for its Celsius. And if there wasn't one, use minus forty-one point five instead."*
+- [ ] 💡 **Name the question mark before the dot — it is the single most common way tonight's lab goes wrong** — *"`LastOrDefault` can come back with nothing at all. The question mark before the dot means don't ask a nothing for its Celsius."*
 - [ ] 💡 **Point at what is still there** — *"The method is still shaped like a method. Braces, and a `return`. All that changed is what is between them."*
 
 - [ ] **Run it. The board first, because the board is what the room can check**
