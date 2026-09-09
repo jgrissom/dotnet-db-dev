@@ -146,7 +146,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
 
 - [ ] **Open `week-09/Haldane/Watch.cs`.** <kbd>⌘F</kbd> for **`public double LatestCelsius()`** — one hit
 - [ ] 🎯 **Read the method out loud — what it does, not its syntax** — *"Start at minus forty-one point five. Walk every entry on the log. If it turns out to be a reading, remember its temperature. Hand back whatever you were holding at the end. A whole method, to find the newest temperature on the board."*
-- [ ] 💡 **Then the receipt** — *"I wrote this in front of you in week six, and I said then that in week nine you would write it in one line. I have had three weeks to think about whether that was true."*
+- [ ] 💡 **Then the receipt** — *"I wrote this in front of you in week six, and I said then that in week nine you would write it in one line. so, I've had 3 weeks to get that right."*
 
 - [ ] 🎞️ **GO TO SLIDE 2** — *A method, and a line*
 - [ ] 📖 *"That is the same method twice. Nothing about what it does is different."*
