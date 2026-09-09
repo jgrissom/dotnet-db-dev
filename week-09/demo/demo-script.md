@@ -305,10 +305,11 @@ Tonight seven loops the room has watched get written come out, the tests never m
           return true;
   ```
 
-- [ ] **And the last one in this file.** <kbd>⌘F</kbd> for **`Lookup(List<CrewMember>`** — one hit. **Select from `foreach (CrewMember c in crew)` down to and including `return null;`, and paste this over it**
+- [ ] ⚠️ **And the last one in this file — read the whole instruction before you select.** <kbd>⌘F</kbd> for **`Lookup(List<CrewMember>`** — one hit. **Select from that line down to and including the `}` that closes the method — the FIRST of the two `}` in a row under `return null;`. The second one closes the class and stays. Paste this over it**
 
   ```csharp
-          return crew.FirstOrDefault(c => c.Name == name);
+      private static CrewMember? Lookup(List<CrewMember> crew, string name) =>
+          crew.FirstOrDefault(c => c.Name == name);
   ```
 
 - [ ] **Run the tests**
@@ -332,10 +333,11 @@ Tonight seven loops the room has watched get written come out, the tests never m
 
 - [ ] 🎯 **Collect it by name — this one was a spoken promise** — *"I wrote that loop in front of you in week five. What I said at the time was that it is a lot of typing to add up three numbers, and to hold on to that feeling. This is the line."*
 
-- [ ] **And the search, one more time.** <kbd>⌘F</kbd> for **`CrewMember? Find(string wanted)`** — one hit. **Select from `foreach (CrewMember c in crew)` down to and including `return null;`, and paste this over it**
+- [ ] **And the search, one more time.** <kbd>⌘F</kbd> for **`CrewMember? Find(string wanted)`** — one hit. **Select from that line down to and including the `}` under `return null;` — a blank line follows it, so there is only one — and paste this over it**
 
   ```csharp
-      return crew.FirstOrDefault(c => c.Name == wanted);
+  CrewMember? Find(string wanted) =>
+      crew.FirstOrDefault(c => c.Name == wanted);
   ```
 
 - [ ] **Run the program, and look at the whole board this time**

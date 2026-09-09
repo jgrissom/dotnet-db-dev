@@ -184,10 +184,8 @@ That whole `if` was a `foreach` with a `return false` in the middle of it. `Any`
 This is the shape of every search you have written since week 5 — the whole method, from Haldane's `Program.cs`:
 
 ```csharp
-    public CrewMember? Find(string wanted)
-    {
-        return crew.FirstOrDefault(c => c.Name == wanted);
-    }
+CrewMember? Find(string wanted) =>
+    crew.FirstOrDefault(c => c.Name == wanted);
 ```
 
 Six lines to one. And the `?` on the return type is not new — it was there before, because the method could always come back empty-handed.
@@ -358,21 +356,22 @@ public static class Season
 }
 ```
 
-**What is new is what you can ask once it is in your hands.** Six questions, six lines, over fifty thousand rows — these all sit inside one method in `Program.cs`, with `book` already read:
+**What is new is what you can ask once it is in your hands.** Six questions, six lines, over fifty thousand rows — these all sit inside one method in `Program.cs`, with `book` already read. The first line is not one of the six: `book.Count` is the list's own property, the same one you have used since week 3, and it asks nothing.
 
 ```csharp
-int readings      = book.Count;
-int days          = book.Max(r => r.Day);
-double average    = book.Average(r => r.Celsius);
-SeasonReading? cold = book.MinBy(r => r.Celsius);
-int belowTheLine  = book.Count(r => r.Celsius < -50);
+int readings = book.Count;
+int days = book.Max(r => r.Day);
+double average = book.Average(r => r.Celsius);
+SeasonReading coldest = book.MinBy(r => r.Celsius)!;
+int belowTheLine = book.Count(r => r.Celsius < -50);
+int moretti = book.Count(r => r.TakenBy == "Moretti");
 List<SeasonReading> worst = book.Where(r => r.Celsius < -60)
     .OrderBy(r => r.Celsius)
     .Take(5)
     .ToList();
 ```
 
-Not one of those is a loop you would have enjoyed writing, and the fifth one — *how many readings below fifty below* — is a question nobody would have asked at all last week. Not because it is hard. Because it was never worth the loop.
+Not one of those is a loop you would have enjoyed writing, and one of them — *how many readings below fifty below* — is a question nobody would have asked at all last week. Not because it is hard. Because it was never worth the loop.
 
 ### And then the bill
 
