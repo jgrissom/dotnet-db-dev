@@ -61,7 +61,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
 - [ ] **Press `m`, and have `Bhatt` phone in a reading of `-42.4`.** The log grows a line and the headline number moves
 - [ ] **Press `q` to close the desk**
 
-- [ ] 🎯 **Then the promise, and name the weeks it was made in** — *"Six times since week three I have told you that a loop you were writing would become one line in week nine. Week three, week four, week five, week six, week seven, week eight. Tonight is week nine."*
+- [ ] 🎯 **Then the promise, and name the weeks it was made in** — *"Six times since week three I have told you that a loop you were writing would become one line in week nine. Tonight is week nine."*
 
 - [ ] **Branch first, and say it as you type it** — *"a branch for tonight, same as every week. Nothing goes straight to `main`, and that goes for your project too"*
 
