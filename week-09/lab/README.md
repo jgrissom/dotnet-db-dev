@@ -2,12 +2,12 @@
 
 It's 4 AM at **KDXR 88.1, "The Owl,"** and the desk knows more than it can say. It has the carts, it has the hour, it has every call that came in — and if the DJ asks *"what haven't we played yet?"* there is no answer, because nobody was ever going to write a loop for it.
 
-Tonight you write seven answers. And you start by **deleting seven loops that already work.**
+Tonight you write seven answers. And you start by **rewriting seven methods that already work.**
 
 **Time:** ~50 minutes in class — **target tonight: all five checks green, and a screen that fills itself in.**
 
 > [!IMPORTANT]
-> **Task 1 turns nothing green, and that is the whole point of it.** You will delete seven working loops and the check count will sit exactly where it started. **Your own test suite is how you find out it worked.** That is what [last week's ⭐ *Done early?* item promised you](../../week-08/lab/README.md): *your suite is how you'll prove the one-liners do the same job.*
+> **Task 1 turns nothing green, and that is the whole point of it.** You will rewrite seven methods that already work, and the check count will sit exactly where it started. **Your own test suite is how you find out it worked.** That is what [last week's ⭐ *Done early?* item promised you](../../week-08/lab/README.md): *your suite is how you'll prove the one-liners do the same job.*
 
 > [!NOTE]
 > **Missed a week?** You're not behind. Every file ships finished, the loops you are replacing are all in front of you whether you wrote them or not, and nothing tonight depends on remembering last week's code.
@@ -132,7 +132,7 @@ week 9: starter
 
 💡 **Tonight's whole vocabulary is [one table — the words, and what each one hands back](../lecture-notes.md#the-words-you-need-tonight)**, and every one of them is [the same three parts read the same way](../lecture-notes.md#reading-a-lambda-out-loud).
 
-💡 **The new screen is `[n]` — the night's numbers.** Seven lines. Four of them answer already, because four of tonight's methods work perfectly and are about to be deleted anyway. The other three are blank, and each task fills one in.
+💡 **The new screen is `[n]` — the night's numbers.** Seven lines. Four of them answer already, because four of tonight's methods work perfectly and are about to be rewritten anyway. The other three are blank, and each task fills one in.
 
 ## The tasks
 
@@ -140,7 +140,7 @@ week 9: starter
 
 | # | Check | What to do |
 |---|-------|------------|
-| 1 | *(check 1 is already green — and has to stay that way)* | Write one fact, then delete seven working loops. **[Task 1 in full ↓](#task-1-in-full)** |
+| 1 | *(check 1 is already green — and has to stay that way)* | Write one fact, then rewrite seven methods that already work. **[Task 1 in full ↓](#task-1-in-full)** |
 | 2 | `TheDeskFindsALongCart` | Something long enough to cover the news. **[Task 2 in full ↓](#task-2-in-full)** |
 | 3 | `TheDeskKnowsWhatHasNotBeenOut` | The carts nobody has aired tonight. **[Task 3 in full ↓](#task-3-in-full)** |
 | 4 | `TheDeskKnowsWhatItPlayedMost` | What the desk worked hardest. **[Task 4 in full ↓](#task-4-in-full)** |
@@ -221,9 +221,9 @@ dotnet test week-09/Lab.Tests
 
 **4 passed.** It went green immediately, **and that is not a mistake.** It describes code that already works. It is not there to catch anything — it is there so that in about ten minutes you can delete that code and know.
 
-#### Now the seven loops
+#### Now the seven methods
 
-[The notes open with the receipt](../lecture-notes.md#thirty-lines-become-one): every one of these was promised to you as one line, in the week you wrote it. Work down the list. **The first four are written out; the last three are the same lines with different nouns.**
+[The notes open with the receipt](../lecture-notes.md#thirty-lines-become-one): every one of these was promised to you as one line, in the week you wrote it. Six of them are loops; `LastShift` walks an array to reach its last item, which is the same job done a different way. Work down the list. **The first four are written out; the last three are the same lines with different nouns.**
 
 **1 — `Lab/Hour.cs`, `TotalSeconds`.** Week 7's. Replace the whole property with:
 
@@ -295,7 +295,7 @@ dotnet test week-09/Lab.Checks
 **Commit it:**
 
 ```
-week 9 lab: seven loops, gone
+week 9 lab: seven methods, one line each
 ```
 
 ---
@@ -582,7 +582,7 @@ dotnet run --project week-09/Lab
 >
 > ```bash
 > git add .
-> git commit -m "week 9 lab: seven loops, gone"
+> git commit -m "week 9 lab: seven methods, one line each"
 > ```
 
 **Prev:** [Week 8 Lab — The Log Book](../../week-08/lab/) · **Next:** [Week 9 Homework — Three Questions](../homework.md)

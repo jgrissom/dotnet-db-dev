@@ -2,7 +2,7 @@
 
 **Haldane Station · duty console · day 268**
 
-Tonight seven loops the room has watched get written come out, the tests never move, and then the met book gets asked six questions it has never been asked.
+Tonight nine loops the room has watched get written come out, the tests never move, and then the met book gets asked six questions it has never been asked.
 
 > **The shape of the night:** a promise from week six, paid → six more of the same shape → 💥 a muster that loses a name → a season of weather, queried → and what that cost.
 
@@ -361,7 +361,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
   ```
 
 - [ ] **Press `w` and look up `Reyes`, then `b` and mark her back, then `q`** — every action still works
-- [ ] 🎯 **Then the count, and read it off the screen rather than claiming it** — *"Seven methods. Look at the diff - lines inserted compared to lines deleted."*
+- [ ] 🎯 **Then the count, and read it off the screen rather than claiming it** — *"Every loop in these two files that was only asking a question is gone. Look at the diff — lines inserted compared to lines deleted."*
 
   ```bash
   git diff --stat
@@ -382,7 +382,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
 - [ ] **Save it. Silent — no push yet**
 
   ```bash
-  git add . && git commit -m "week 9: seven loops, gone"
+  git add . && git commit -m "week 9: nine loops, gone"
   ```
 
 ---
@@ -848,7 +848,7 @@ Tonight seven loops the room has watched get written come out, the tests never m
 ## 7 · Hand off *(slide 12)*
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Lab: the night's numbers*
-- [ ] 📖 **Say what is different about tonight's lab, because it is genuinely different** — *"Your first task is to delete seven working loops, and no check goes green when you do. The count stays where it started. Your own test suite is how you find out it worked."*
+- [ ] 📖 **Say what is different about tonight's lab, because it is genuinely different** — *"Your first task is to rewrite seven methods that already work, and no check goes green when you do. The count stays where it started. Your own test suite is how you find out it worked."*
 - [ ] 💡 **Then what the checks are for** — *"Then four questions the desk could not ask before tonight. Which cart is long enough to cover the news. What has not been out yet. What got worked hardest. And what is coming up, without putting any of it on the air."*
 - [ ] ⚠️ **And the one warning worth giving out loud** — *"When you write a `MaxBy`, ask yourself what it does on an empty list. That is check one going red, and it will be the most common thing in the room tonight."*
 - [ ] **Slide 12 stays up for the lab**

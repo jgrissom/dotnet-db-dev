@@ -22,7 +22,7 @@ The line to land is about the tests, not about the brevity:
 
 ## 🎯 The payoff moment — the lab's
 
-**Task 1, and it is the first task in this course whose success looks like nothing happening.** Students write one fact, delete seven working loops across four files, and then:
+**Task 1, and it is the first task in this course whose success looks like nothing happening.** Students write one fact, rewrite seven methods across four files — six loops and one array walk — and then:
 
 ```
 dotnet test week-09/Lab.Checks     →  1 / 5 — exactly where they started

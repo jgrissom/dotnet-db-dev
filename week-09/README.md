@@ -9,7 +9,7 @@ The most heavily pre-promised week in the course comes due. Since week 3, six se
 | Prep | 🗓️&nbsp;[lesson-⁠plan.md](lesson-plan.md) | Timed 3h45 agenda + instructor notes |
 | Prep&nbsp;/⁠&nbsp;in-⁠class&nbsp;script | 📖&nbsp;[lecture-⁠notes.md](lecture-notes.md) | Full lecture content, every word with what it hands back, **troubleshooting appendix** |
 | Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck (GFM, one slide per `##`) — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-09/) (arrow keys, `F` for fullscreen) |
-| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *Thirty lines become one* — seven loops out, a muster that loses a name, a season queried; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-09/demo/script.html) |
+| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *Thirty lines become one* — nine loops out, a muster that loses a name, a season queried; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-09/demo/script.html) |
 | In&nbsp;class,&nbsp;last&nbsp;50&nbsp;min | 🧪&nbsp;[lab/⁠](lab/) | *The night's numbers* — 5 checks, 1/5 out of the box, and a first task that turns nothing green (answer key in the private repo) |
 | With&nbsp;the&nbsp;homework | ✅&nbsp;[starters&nbsp;repo⁠](https://github.com/jgrissom/dotnet-db-starters) | The lab folder, and **`project/week-09/Project.Checks`** — the checks the grader runs against your own project, byte-for-byte |
 | Assigned&nbsp;at&nbsp;wrap-⁠up | 📤&nbsp;[homework.md](homework.md) | Three questions on your own registry, and a fact that gives permission (20 pts) |
@@ -23,7 +23,7 @@ They can also say what every one of those does to an **empty** sequence — and 
 **And two things a query must never do.** `OrderBy` sorts a *copy*, so a registry keeps the order records arrived in and the save file is not quietly rewritten. And a lambda that changes something on the way past has turned a question into an action — which is why `Hour.Run` and `Watch.Save` stay loops, and why a one-liner is not the goal.
 
 > [!IMPORTANT]
-> **The week's own payoff is a number that does not move.** Seven working loops come out of the demo and about forty lines out of the lab, and the test count sits still through all of it. **Week 7 promised exactly this** — *"your tests will be how you prove the one-liners do the same job"* — and this is where it is collected. The lab's Task 1 turns nothing green on purpose.
+> **The week's own payoff is a number that does not move.** Nine working loops come out of the demo and about forty lines out of the lab, and the test count sits still through all of it. **Week 7 promised exactly this** — *"your tests will be how you prove the one-liners do the same job"* — and this is where it is collected. The lab's Task 1 turns nothing green on purpose.
 
 ## 💥 And then the honest half
 
