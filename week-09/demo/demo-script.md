@@ -373,7 +373,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *What stays a loop*
 - [ ] 📖 **The test, in one sentence** — *"A query asks. A loop can do. `Add` puts something in at a position it worked out. `Save` and `Load` make things. None of those is a question."*
-- [ ] 💡 **One sentence on `Registry.Everything()`, then move on** — *"`Everything` on your own registry does have a one-line spelling, and it reads worse. A one-liner is not the goal, especially when it makes the code harder to read."*
+- [ ] 💡 **One sentence, then move on** — *"`Save` does have a one-line spelling. I have written it, and it reads worse. A one-liner is not the goal, especially when it makes the code harder to read."*
 
 - [ ] **Save it. Silent — no push yet**
 
