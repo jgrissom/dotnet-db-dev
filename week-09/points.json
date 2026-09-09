@@ -1,0 +1,55 @@
+{
+  "week": 9,
+  "total": 20,
+  "_comment": "One source of truth for week 9's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. `suite` says which test run scores an item — 'checks' is `dotnet test Project.Checks` (canonical, replaced wholesale by the grader), 'tests' is `dotnet test Project.Tests` (the student's OWN suite, run as-is and never replaced). The dictated student fact carries the WEEK rather than a check number, per week 8's change — Week9_FindComesBackEmptyHanded — and week 7's four CheckN_ facts are still left alone. There is no 'both' item, which is what lets my checks keep the CheckN_ numbering the homework's task headings depend on. Check 3 is the heaviest item in the week on purpose: it is the only one that catches a Sorted() which reorders the registry in place, and that is the week's central trap. Check 1 stays at 2 like every came-forward check, even though it does more work this week — it is the safety net for a rewrite the student is invited to make, and a student who makes no rewrite still earns it. The graded repo is the PROJECT repo (D1b); the coursework repo is cloned only for the hygiene sweep.",
+  "checks": {
+    "Check1_WeeksFourToEightStillHold": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Weeks 4-8 still hold — Topic, no public fields, All() copies, Find and Remove behave (including the empty-handed answer), IListed kept by record and registry, Everything() intact, Add refuses a duplicate, and Save/Load still round-trip"
+    },
+    "Check2_TheRegistryHandsBackItsNames": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Names() hands back one name per record, in the order they were added"
+    },
+    "Check3_TheRegistryComesBackInOrder": {
+      "points": 4,
+      "suite": "checks",
+      "label": "Sorted() hands back every record in order by name — and leaves the registry's own order alone"
+    },
+    "Check4_TheRegistryFindsEveryMatch": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Matching(term) hands back every record whose name contains the term, in order, and an empty list when none do"
+    },
+    "Week9_FindComesBackEmptyHanded": {
+      "points": 2,
+      "suite": "tests",
+      "label": "Your test: Find hands back the record it holds, and null for a name nobody has — written by you, green in your own suite"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programRuns": {
+      "points": 2,
+      "label": "The program builds and runs without crashing — even when fed nothing but Enter"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked in NEITHER repo — the .gitignore holding, in both places"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgment call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}

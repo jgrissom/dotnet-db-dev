@@ -372,4 +372,4 @@ Five moments worth saving, written into the parts above at the point where each 
 | A value isn't what you think it is | **Set a breakpoint and look** — [week 5's drill](../week-05/lecture-notes.md#the-debugger-and-what-it-is-actually-for), and a `path` variable is exactly the kind of thing to put in the Variables pane. |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b the-log-book`, push that. |
 
-**Prev:** [Week 8 Lab — The Log Book](lab/) · **Next:** Week 9 — LINQ, and thirty lines become one *(coming)*
+**Prev:** [Week 8 Lab — The Log Book](lab/) · **Next:** [Week 9 — Three Questions](../week-09/homework.md)

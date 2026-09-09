@@ -37,4 +37,4 @@ And they meet the trap that costs an evening: **a serializer writes every proper
 - **VS Code open on the demo repo's top**, exactly where week 7 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — week 8's board is up, and it is the first one that shows an amended line and the standing order behind it
 
-**Prev:** [Week 7 — Unit Testing, and the Checks Stop Being Magic](../week-07/) · **Next:** Week 9 — LINQ, and Thirty Lines Become One *(coming)*
+**Prev:** [Week 7 — Unit Testing, and the Checks Stop Being Magic](../week-07/) · **Next:** [Week 9 — LINQ, and Thirty Lines Become One](../week-09/)
