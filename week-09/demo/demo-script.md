@@ -444,6 +444,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 - [ ] 📖 **Read it through, and do not flag anything as wrong** — *"Press `u` once and it takes a muster. Press it again and it reads back the one it took. Everybody outside, not back, written down."*
 
+- [ ] ⚠️ **Delete the `.vscode` folder first, before anything else.** VS Code wrote it back in week 5 and it names **week 5's** project — leave it there and <kbd>F5</kbd> launches that desk instead of tonight's. It has no muster, so `u` is not one of its keys. The folder regenerates the moment you launch again
 - [ ] ⚠️ **This one runs under the debugger, so set it up before you launch.** Three breakpoints, all in `Program.cs`
   - <kbd>⌘F</kbd> for **`takenMuster = watch.SignOuts()`** — one hit. **Click on the word `IsBack`** so the caret is inside it, then <kbd>Shift</kbd>+<kbd>F9</kbd>. ⚠️ **Check the BREAKPOINTS panel: the row must show a line AND a two-digit column.** A column of 9 means it landed at the start of the line and it will stop once instead of once per person
   - <kbd>⌘F</kbd> for **`The muster, as taken`** — one hit. Gutter breakpoint
