@@ -444,23 +444,56 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 - [ ] 📖 **Read it through, and do not flag anything as wrong** — *"Press `u` once and it takes a muster. Press it again and it reads back the one it took. Everybody outside, not back, written down."*
 
-- [ ] **Run it. Press `u`**
+- [ ] ⚠️ **This one runs under the debugger, so set it up before you launch.** Three breakpoints, all in `Program.cs`
+  - <kbd>⌘F</kbd> for **`takenMuster = watch.SignOuts()`** — one hit. **Click on the word `IsBack`** so the caret is inside it, then <kbd>Shift</kbd>+<kbd>F9</kbd>. ⚠️ **Check the BREAKPOINTS panel: the row must show a line AND a two-digit column.** A column of 9 means it landed at the start of the line and it will stop once instead of once per person
+  - <kbd>⌘F</kbd> for **`The muster, as taken`** — one hit. Gutter breakpoint
+  - <kbd>⌘F</kbd> for **`foreach (SignOut s in takenMuster)`** — one hit. Gutter breakpoint
+- [ ] **Then two Watch expressions** — Run and Debug view, the **WATCH** section, `+`, one each
 
-  ```bash
-  dotnet run --project week-09/Haldane
+  ```
+  s.Who.Name
+  s.IsBack
   ```
 
+- [ ] 💡 **They read `not available` until the first stop inside the question. That is correct and worth ignoring out loud** — *"those two are blank because we are not inside the question yet."*
+- [ ] **<kbd>F5</kbd>**, then `.NET 5+ and .NET Core` if it asks, then **type `09/Hal`** in the project list to narrow it to one. Don't narrate the picker
+- [ ] 💡 **Colors are gone under the debugger and the board is still readable.** Say nothing about it
+
+- [ ] **Press `u`.** It stops inside the question, once per person. **A line at each one — read the Watch rows out**
+  - 💥 **Stop 1** — `"Lindqvist"` `false` — *"Lindqvist. Is he back? No. So he goes on the muster."*
+  - 💥 **Stop 2** — `"Okonkwo"` `false` — *"Okonkwo. Is he back? No. He goes on it too."*
+  - 💥 **Stop 3** — `"Reyes"` `false` — *"Reyes. Is she back? No. That is three people on the muster."*
+- [ ] <kbd>F5</kbd> **and let it print.** ⚠️ **The time is your clock, not this one — say what the screen says**
+
   ```
-    Muster taken at 22:47 - 3 unaccounted for.
+    Muster taken at 18:12 - 3 unaccounted for.
   ```
 
-- [ ] 🎯 **Three. Say the names off the board so the room is holding them** — *"Lindqvist, Okonkwo, Reyes. Three people on the ice, written down."*
-- [ ] **Now press `b` and mark `Okonkwo` back.** The board redraws — two people outside
+- [ ] 🎯 **Say what the room just watched, because it is the thing they will need in a minute** — *"That question got asked three times — once for each person on the sign-out list. Remember that it asked."*
+- [ ] 🎯 **Then the names, so they are holding them** — *"Lindqvist, Okonkwo, Reyes. Three people on the ice, written down."*
+- [ ] **Now press `b` and mark `Okonkwo` back.** The board redraws — two people outside. Nothing stops; that is not the query
 - [ ] 📖 **Ask before pressing anything, and wait** — *"Okonkwo is in. The muster I took two minutes ago has three names on it. What does it say now?"*
-- [ ] 💥 **Press `u`**
+- [ ] 📖 **Then the framing, and it is why this one is worth running slowly** — *"I am not taking another muster. I am looking at the one I already took."*
+
+- [ ] 💥 **Press `u`. A line at every stop — there are eight of them and each one is worth a sentence**
+  - 💥 **Stop 1 — `The muster, as taken`** *(Watch rows say `not available`)* — *"This line is about to ask the muster how many people are on it. It has not asked yet."*
+  - 💥 **Stop 2** — `"Lindqvist"` `false` — *"Lindqvist. Is he back? No. Same answer he gave the first time."*
+  - 💥 **Stop 3** — `"Okonkwo"` **`true`** — ⚠️ **stop and let them look** — *"Okonkwo. Is he back? Yes. His `IsBack` was false two minutes ago and it is true now. I never touched the muster."*
+  - 💥 **Stop 4** — `"Reyes"` `false` — *"Reyes. Is she back? No. So two people answered no, and two is what this line is about to print."*
+- [ ] 🎯 **Say it as the loop it is, before the number prints** — *"Same list, same walk, second time through. We got to Okonkwo and his `IsBack` is true now, so he does not make it into the answer."*
+- [ ] <kbd>F5</kbd>
 
   ```
     The muster, as taken - 2 unaccounted for:
+  ```
+
+- [ ] 💥 **Stop 5 — the `foreach`** — *"Different line. The counting is finished. This one is about to print the names."*
+- [ ] 🎯 **Then predict it out loud and let it happen** — *"To print the names it has to walk the sign-out list a second time. Watch."*
+  - 💥 **Stops 6, 7, 8** — `"Lindqvist"`, `"Okonkwo"`, `"Reyes"` — *"The same three people, in the same order. Every one of them asked again, for a muster that was already counted."*
+- [ ] 🎯 **The mechanism, and this is the half that makes the fix obvious** — *"One line counted them. The next line listed them. That is two questions, so the list got walked twice. If this were a list of people I would walk it once. Because it is an instruction, every look means another walk."*
+- [ ] <kbd>F5</kbd> **to the end**
+
+  ```
       Lindqvist - FUEL, due 10:30
       Reyes - DIG OUT, due 14:45
   ```
