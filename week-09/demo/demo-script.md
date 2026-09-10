@@ -456,7 +456,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
   s.IsBack
   ```
 
-- [ ] 💡 **They read `not available` until the first stop inside the question. That is correct and worth ignoring out loud** — *"those two are blank because we are not inside the question yet."*
+- [ ] 💡 **Until the first stop inside the question both rows read `error CS0103: The name 's' does not exist in the current context`. Do not apologize for it — it is the right answer** — *"`s` is the person being asked about. Right now we are not inside the question, so there is no person. That error is the pane telling the truth."*
 - [ ] **<kbd>F5</kbd>**, then `.NET 5+ and .NET Core` if it asks, then **type `09/Hal`** in the project list to narrow it to one. Don't narrate the picker
 - [ ] 💡 **Colors are gone under the debugger and the board is still readable.** Say nothing about it
 
@@ -477,7 +477,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 - [ ] 📖 **Then the framing, and it is why this one is worth running slowly** — *"I am not taking another muster. I am looking at the one I already took."*
 
 - [ ] 💥 **Press `u`. A line at every stop — there are eight of them and each one is worth a sentence**
-  - 💥 **Stop 1 — `The muster, as taken`** *(Watch rows say `not available`)* — *"This line is about to ask the muster how many people are on it. It has not asked yet."*
+  - 💥 **Stop 1 — `The muster, as taken`** *(both Watch rows go back to `error CS0103`)* — *"This line is about to ask the muster how many people are on it. It has not asked yet — look at the watches, there is no person here."*
   - 💥 **Stop 2** — `"Lindqvist"` `false` — *"Lindqvist. Is he back? No. Same answer he gave the first time."*
   - 💥 **Stop 3** — `"Okonkwo"` **`true`** — ⚠️ **stop and let them look** — *"Okonkwo. Is he back? Yes. His `IsBack` was false two minutes ago and it is true now. I never touched the muster."*
   - 💥 **Stop 4** — `"Reyes"` `false` — *"Reyes. Is she back? No. So two people answered no, and two is what this line is about to print."*
@@ -488,7 +488,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
     The muster, as taken - 2 unaccounted for:
   ```
 
-- [ ] 💥 **Stop 5 — the `foreach`** — *"Different line. The counting is finished. This one is about to print the names."*
+- [ ] 💥 **Stop 5 — the `foreach`** *(the watches go back to `error CS0103`)* — *"Different line, and no person again. The counting is finished. This one is about to print the names."*
 - [ ] 🎯 **Then predict it out loud and let it happen** — *"To print the names it has to walk the sign-out list a second time. Watch."*
   - 💥 **Stops 6, 7, 8** — `"Lindqvist"`, `"Okonkwo"`, `"Reyes"` — *"The same three people, in the same order. Every one of them asked again, for a muster that was already counted."*
 - [ ] 🎯 **The mechanism, and this is the half that makes the fix obvious** — *"One line counted them. The next line listed them. That is two questions, so the list got walked twice. If this were a list of people I would walk it once. Because it is an instruction, every look means another walk."*
