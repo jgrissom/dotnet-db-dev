@@ -136,25 +136,6 @@ makes the code harder to read.**
 
 ---
 
-<!-- _footer: '🖥️ Demo §4 · the muster that lost a name' -->
-
-## A query is a recipe
-
-```csharp
-var muster = watch.SignOuts().Where(s => !s.IsBack);
-// 3 unaccounted for
-
-watch.MarkBack("Okonkwo");
-// the muster, as taken - 2 unaccounted for
-```
-
-`Where` handed back **instructions**, not a list.
-Instructions run again every time you look.
-
-**A muster is a record of a moment.** `.ToList()`
-
----
-
 <!-- _footer: '🖥️ Demo §5 · a season of weather' -->
 
 ## A season of weather
@@ -196,15 +177,33 @@ worth the loop — so the question never got asked.
 
 <!-- _footer: '🖥️ Demo §6 · what it cost' -->
 
+## A query is a recipe
+
+```csharp
+IEnumerable<SeasonReading> book = Season.Read(metBook);
+```
+
+- reading the file: **0 ms** · the book in memory: **0.0 MB**
+- then **seven reads** of the same file: the count, and one for each of the six questions
+
+`Read` handed back **instructions**, not readings.
+Instructions run again every time you ask.
+
+**A method that hands back a query ends it with** `.ToList()`
+
+---
+
+<!-- _footer: '🖥️ Demo §6 · what it cost' -->
+
 ## What it cost
 
 ```
-the book, in memory    11.8 MB from a 1.1 MB file
+the book, in memory    12.3 MB from a 1.1 MB file
 ```
 
 - getting the list cost **more than every question**
 - it read **all** 50,000 to answer any one
-- **ten times the file**, held, to ask six questions
+- **more than ten times the file**, held, to ask six questions
 
 That is *one* season. Haldane opened in 1994.
 

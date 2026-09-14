@@ -2,9 +2,9 @@
 
 **Haldane Station · duty console · day 268**
 
-Tonight nine loops the room has watched get written come out, the tests never move, and then the met book gets asked six questions it has never been asked.
+Tonight ten loops the room has watched get written come out, the tests never move, and then the met book gets asked six questions it has never been asked.
 
-> **The shape of the night:** a promise from week six, paid → six more of the same shape → 💥 a muster that loses a name → a season of weather, queried → and what that cost.
+> **The shape of the night:** a promise from week six, paid → six more of the same shape → the end-of-watch muster in one line → a season of weather, queried → 💥 and what that cost: the same file, read seven times.
 
 **Total: ~137 minutes across the evening**, in the timing table's segments.
 
@@ -43,8 +43,8 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 8 left it
 - [ ] ⚠️ **Run `dotnet run --project week-08/Haldane` once before class.** §1 opens by running it, so it has to build on the night
-- [ ] 💡 **The times in this sheet's output blocks are MINE.** Every log line the desk stamps tonight is station time — UTC — and the muster stamps one too. Nothing else in the blocks moves
-- [ ] 💡 ⚠️ **§5 and §6 print three cost figures and TWO OF THEM WILL DIFFER ON YOUR MACHINE.** The read time and the query time move by a few milliseconds every single run. **Say what the screen says.** The memory figure — *11.8 MB from a 1.1 MB file* — was stable across every run and it is the one carrying the argument
+- [ ] 💡 **The times in this sheet's output blocks are MINE.** Every log line the desk stamps tonight is station time, UTC. Nothing else in the blocks moves
+- [ ] 💡 ⚠️ **§6 prints three cost figures, twice, and the millisecond ones WILL DIFFER ON YOUR MACHINE.** They move by a few milliseconds every run. **Say what the screen says.** The memory figure is stable — *0.0 MB* before the fix and *12.3 MB from a 1.1 MB file* after — and it is the one carrying the argument
 - [ ] 💡 **The debugger comes out tonight, to show something no printed output can.** ⚠️ **A query in the Watch panel RUNS when the panel evaluates it** — so never add a Watch on a query variable, or it quietly re-runs every time the pane refreshes
 - [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station that is not this one"*
 
@@ -227,7 +227,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
   ```
 
 - [ ] 💡 *"Same arrow as the last one. The whole method is one expression, so the braces go too."*
-- [ ] 📖 **Name what came out, and what the `ToList` is for** — *"A new list, a loop, an `is`, an `Add` and a `return` — gone. And the `ToList` on the end is not decoration. Without it this hands back instructions for finding the sign-outs instead of a list of them. Hold on to that. It is the last thing we do before the break."*
+- [ ] 📖 **Name what came out, and what the `ToList` is for** — *"A new list, a loop, an `is`, an `Add` and a `return` — gone. And the `ToList` on the end is not decoration. Without it this hands back instructions for finding the sign-outs instead of a list of them. Later tonight the met book shows what that costs."*
 
 - [ ] **One more, and it is a property rather than a method.** <kbd>⌘F</kbd> for **`public int OutsideCount`** — one hit. **Select from that line down to and including the `}` that closes the property — the second of the two `}` in a row under `return outside;`** — and paste this over it
 
@@ -361,7 +361,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
   ```
 
 - [ ] **Press `w`, look up `Reyes`, then `q`** — the search you just rewrote, still finding her
-- [ ] ⚠️ **Do not mark anybody back here.** `b` is written to the log the moment the desk closes, and §4 needs all three still on the ice — a muster of three is the whole break. `MarkBack` gets exercised in §4 anyway
+- [ ] ⚠️ **Do not mark anybody back here.** `b` is written to the log the moment the desk closes, and §4's end-of-watch muster expects all three still on the ice
 - [ ] 🎯 **Then the count, and read it off the screen rather than claiming it** — *"Every loop in these two files that was only asking a question is gone. Look at the diff — lines inserted compared to lines deleted."*
 
   ```bash
@@ -384,175 +384,41 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 ---
 
-## 4 · 💥 The muster that lost a name *(slide 8)*
+## 4 · End of watch, in one line
 
-- [ ] 📖 **Set it up as a thing the station does, not as a feature** — *"A muster is a list of who is still outside, written down at the moment you asked. The desk cannot take one yet. It is going to take about eight lines."*
+- [ ] 📖 **Say where it came from** — *"The muster at the end of the watch has been in this program since week five. It is one more loop that only asks a question."*
 
-- [ ] **In `Program.cs`. <kbd>⌘F</kbd> for `// ── the desk ───`** — one hit — **and paste this directly under that comment block, above `DrawBoard();`**
-
-  ```csharp
-  // The muster the duty officer has written down, if they have taken one.
-  // Nothing until [u] is pressed.
-  IEnumerable<SignOut>? takenMuster = null;
-  ```
-
-- [ ] 💡 **Say why it starts as nothing** — *"A duty officer takes a muster when they want one. So this starts as nothing."*
-
-- [ ] **Now the key.** <kbd>⌘F</kbd> for **`Console.Write("[o]ut`** — one hit. Make that whole line read
+- [ ] **In `Program.cs`, <kbd>⌘F</kbd> for `// watch.SignOuts() builds a fresh list`** — one hit. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");`, and paste this over it**
 
   ```csharp
-      Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [u] muster  [q]uit: ");
-  ```
-
-- [ ] **And the case.** <kbd>⌘F</kbd> for **`TakeAReading();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
-
-  ```csharp
-              TakeAReading();
-              break;
-
-          case "u":
-              TheMuster();
-              break;
-  ```
-
-- [ ] **Then the method itself.** <kbd>⌘F</kbd> for **`void SignSomebodyOut()`** — one hit — **and paste this directly ABOVE that line**
-
-  ```csharp
-  // Take a muster, or read back the one already taken.
-  void TheMuster()
-  {
-      if (takenMuster == null)
-      {
-          takenMuster = watch.SignOuts().Where(s => !s.IsBack);
-
-          AnsiConsole.MarkupLine($"[{Amber}]  Muster taken at {Watch.Now()} - "
-              + $"{takenMuster.Count()} unaccounted for.[/]");
-          return;
-      }
-
-      AnsiConsole.MarkupLine($"[{Amber}]  The muster, as taken - "
-          + $"{takenMuster.Count()} unaccounted for:[/]");
-
-      foreach (SignOut s in takenMuster)
-      {
-          AnsiConsole.MarkupLine($"[{Fg}]    {Markup.Escape(s.Who.Name)}[/] "
-              + $"[{Dim}]- {Markup.Escape(s.Reason)}, due {Markup.Escape(s.Expected)}[/]");
-      }
-  }
-
-  ```
-
-- [ ] 📖 **Read it through, and do not flag anything as wrong** — *"Press `u` once and it takes a muster. Press it again and it reads back the one it took. Everybody outside, not back, written down."*
-
-- [ ] ⚠️ **Delete the `.vscode` folder first, before anything else.** VS Code wrote it back in week 5 and it names **week 5's** project — leave it there and <kbd>F5</kbd> launches that desk instead of tonight's. It has no muster, so `u` is not one of its keys. The folder regenerates the moment you launch again
-- [ ] ⚠️ **This one runs under the debugger, so set it up before you launch.** Three breakpoints, all in `Program.cs`
-  - <kbd>⌘F</kbd> for **`takenMuster = watch.SignOuts()`** — one hit. **Put the cursor just to the left of `!s.IsBack`** — directly before the `!` — then <kbd>Shift</kbd>+<kbd>F9</kbd>. ⚠️ **Clicking inside the word `IsBack` does not work.** ⚠️ **Check the BREAKPOINTS panel: the row must read column `51`** — the `!` — **and that number depends on your indent width.** The line sits two levels deep, so at four spaces per level the `!` is column 51; at two spaces per level it would be column 47. What matters is that the column lands on the `!`, not the number itself. A column of `9` means it landed at the start of the line and it will stop once instead of once per person
-  - <kbd>⌘F</kbd> for **`The muster, as taken`** — one hit. Gutter breakpoint
-  - <kbd>⌘F</kbd> for **`foreach (SignOut s in takenMuster)`** — one hit. Gutter breakpoint
-- [ ] **Then two Watch expressions** — Run and Debug view, the **WATCH** section, `+`, one each
-
-  ```
-  s.Who.Name
-  s.IsBack
-  ```
-
-- [ ] 💡 **Until the first stop inside the question both rows read either `not available` or `error CS0103: The name 's' does not exist in the current context` — you will see both. Do not apologize for either — it is the right answer** — *"`s` is the person being asked about. Right now we are not inside the question, so there is no person. That error is the pane telling the truth."*
-- [ ] **<kbd>F5</kbd>**, then `.NET 5+ and .NET Core` if it asks, then **type `09/Hal`** in the project list to narrow it to one. Don't narrate the picker
-- [ ] 💡 **Colors are gone under the debugger and the board is still readable.** Say nothing about it
-
-- [ ] **Press `u`.** It stops inside the question, once per person. **A line at each one — read the Watch rows out**
-  - 💥 **Stop 1** — `"Lindqvist"` `false` — *"Lindqvist. Is he back? No. So he goes on the muster."*
-  - 💥 **Stop 2** — `"Okonkwo"` `false` — *"Okonkwo. Is he back? No. He goes on it too."*
-  - 💥 **Stop 3** — `"Reyes"` `false` — *"Reyes. Is she back? No. That is three people on the muster."*
-- [ ] <kbd>F5</kbd> **and let it print.** ⚠️ **The time is your clock, not this one — say what the screen says**
-
-  ```
-    Muster taken at 18:12 - 3 unaccounted for.
-  ```
-
-- [ ] 🎯 **Say what the room just watched, because it is the thing they will need in a minute** — *"That question got asked three times — once for each person on the sign-out list."*
-- [ ] 🎯 **Then the names, so they are holding them** — *"Lindqvist, Okonkwo, Reyes. Three people on the ice, written down."*
-- [ ] **Now press `b` and mark `Okonkwo` back.** The board redraws — two people outside. Nothing stops; that is not the query
-- [ ] 📖 **Ask before pressing anything, and wait** — *"Okonkwo is in. The muster I took two minutes ago has three names on it. What does it say now?"*
-- [ ] 📖 **Then the framing, and it is why this one is worth running slowly** — *"I am not taking another muster. I am looking at the one I already took."*
-
-- [ ] 💥 **Press `u`. A line at every stop — there are eight of them and each one is worth a sentence**
-  - 💥 **Stop 1 — `The muster, as taken`** *(both Watch rows go back to `not available` or `error CS0103`)* — *"This line is about to ask the muster how many people are on it. It has not asked yet — look at the watches, there is no person here."*
-  - 💥 **Stop 2** — `"Lindqvist"` `false` — *"Lindqvist. Is he back? No. Same answer he gave the first time."*
-  - 💥 **Stop 3** — `"Okonkwo"` **`true`** — ⚠️ **stop and let them look** — *"Okonkwo. Is he back? Yes. His `IsBack` was false two minutes ago and it is true now. I never touched the muster."*
-  - 💥 **Stop 4** — `"Reyes"` `false` — *"Reyes. Is she back? No. So two people answered no, and two is what this line is about to print."*
-- [ ] 🎯 **Say it as the loop it is, before the number prints** — *"Same list, same walk, second time through. We got to Okonkwo and his `IsBack` is true now, so he does not make it into the answer."*
-- [ ] <kbd>F5</kbd>
-
-  ```
-    The muster, as taken - 2 unaccounted for:
-  ```
-
-- [ ] 💥 **Stop 5 — the `foreach`** *(the watches go back to `not available` or `error CS0103`)* — *"Different line, and no person again. The counting is finished. This one is about to print the names."*
-- [ ] 🎯 **Then predict it out loud and let it happen** — *"To print the names it has to walk the sign-out list a second time. Watch."*
-  - 💥 **Stops 6, 7, 8** — `"Lindqvist"`, `"Okonkwo"`, `"Reyes"` — *"The same three people, in the same order. Every one of them asked again, for a muster that was already counted."*
-- [ ] 🎯 **The mechanism, and this is the half that makes the fix obvious** — *"One line counted them. The next line listed them. That is two questions, so the list got walked twice. If this were a list of people I would walk it once. Because it is an instruction, every look means another walk."*
-- [ ] <kbd>F5</kbd> **to the end**
-
-  ```
-      Lindqvist - FUEL, due 10:30
-      Reyes - DIG OUT, due 14:45
-  ```
-
-- [ ] 💥 **Let it sit. Then be precise about what happened rather than about what is wrong** — *"Okonkwo is gone from a list I wrote down before he came back. Nothing touched that variable. I did not reassign it."*
-- [ ] **Stop the debugger with <kbd>Shift</kbd>+<kbd>F5</kbd>, not `q`.** Under the debugger `q` throws as it tries to save the log
-
-- [ ] 🎞️ **GO TO SLIDE 8** — *A query is a recipe*
-- [ ] 🎯 **The explanation, and it is a mechanism rather than a principle** — *"`Where` did not hand me a list of people. It handed me the instruction walk that list and keep the ones who are not back. The instruction is what got stored, and it runs again every single time anybody looks at it. So when I asked it for a count the second time, it went and looked again — and by then Okonkwo was back."*
-- [ ] 💡 **Then the consequence in station terms** — *"That is fine for most questions. It is not fine for a muster. A muster is a record of a moment, and a record that changes afterwards is not a record."*
-
-- [ ] ⚠️ **The fix is two edits and neither is clever.** <kbd>⌘F</kbd> for **`IEnumerable<SignOut>? takenMuster = null;`** — one hit. Make that line read
-
-  ```csharp
-  List<SignOut>? takenMuster = null;
-  ```
-
-- [ ] **And the line that fills it.** <kbd>⌘F</kbd> for **`takenMuster = watch.SignOuts().Where(s => !s.IsBack);`** — one hit. Make that line read
-
-  ```csharp
-          takenMuster = watch.SignOuts().Where(s => !s.IsBack).ToList();
-  ```
-
-- [ ] ⚠️ **Two `Count()` calls now object, and that is the compiler being useful.** <kbd>⌘F</kbd> for **`takenMuster.Count()`** — two hits. Change both to **`takenMuster.Count`**, without the brackets
-- [ ] 💡 **Say why it complained** — *"A list already knows how many things are in it, so it has a `Count` you read rather than a `Count` you call. The compiler just told us the type changed."*
-
-- [ ] **Run it, and do exactly the same three things: `u`, then `b` and `Okonkwo`, then `u`**
-
-  ```bash
-  dotnet run --project week-09/Haldane
-  ```
-
-  ```
-    Muster taken at 22:52 - 3 unaccounted for.
-    The muster, as taken - 3 unaccounted for:
-      Lindqvist - FUEL, due 10:30
-      Okonkwo - MET RUN, due 15:00
-      Reyes - DIG OUT, due 14:45
-  ```
-
-- [ ] 🎯 **Land it** — *"Three, and it stays three. `ToList` ran the instruction once, then and there, and kept the answer."*
-
-- [ ] **And now the muster that has been in this file since week five.** <kbd>⌘F</kbd> for **`List<SignOut> muster = watch.SignOuts();`** — one hit. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");`, and paste this over it**
-
-  ```csharp
+      // The sign-outs, keeping the ones who are not back.
       List<SignOut> muster = watch.SignOuts().Where(s => !s.IsBack).ToList();
 
       AnsiConsole.WriteLine();
       AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");
   ```
 
-- [ ] 📖 **Say what came out, and that it is the same question** — *"A copy of the sign-outs, and a loop that crossed the returned ones off the copy. It is the same question the `[u]` key asks, so it is the same line — and it needs the same `ToList` for the same reason."*
-- [ ] ⚠️ **And the part that connects it to week five, because it is the half nobody expects** — *"`SignOuts` was already handing back a copy of the list. The copy did not save me. A copied list holds the same records, and `IsBack` lives on the record."*
-- [ ] **Press `q`**
+- [ ] 📖 **Say what came out** — *"A copy of the sign-outs, and a loop that crossed the returned ones off the copy. Now it is one line: the sign-outs, keeping the ones who are not back."*
+- [ ] 💡 **And why the `ToList` is there** — *"The variable says `List`. `Where` does not hand back a list, so `ToList` makes one. What `Where` hands back instead is the met book's problem, later tonight."*
+
+- [ ] **Run it, and press `q` to close the desk**
+
+  ```bash
+  dotnet run --project week-09/Haldane
+  ```
+
+  ```
+  Muster - still to account for:
+    Lindqvist - FUEL, due 10:30
+    Okonkwo - MET RUN, due 15:00
+    Reyes - DIG OUT, due 14:45
+  ```
+
+- [ ] 💡 *"The same three names it printed before the change."*
 - [ ] **Save it. Silent**
 
   ```bash
-  git add . && git commit -m "week 9: the muster is a record"
+  git add . && git commit -m "week 9: end of watch in one line"
   ```
 
 ---
@@ -561,9 +427,9 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 ---
 
-## 5 · A season of weather *(slides 9–10)*
+## 5 · A season of weather *(slides 8–9)*
 
-- [ ] 🎞️ **GO TO SLIDE 9** — *A season of weather*
+- [ ] 🎞️ **GO TO SLIDE 8** — *A season of weather*
 - [ ] 📖 **Introduce the file as furniture, not as a feature** — *"Somebody walks out to the masts and reads the temperature off an instrument. That is a MET run, and it is most of why anybody leaves this building. Every one of those readings has been written down since the station opened."*
 
 - [ ] **Open `week-09/season.txt` in the editor.** Let them look at it for a second
@@ -601,31 +467,13 @@ Tonight nine loops the room has watched get written come out, the tests never mo
   ```csharp
   // The met book, read off disk.
   //
-  // Same shape as Watch.Load: one line per reading, fields kept apart by a
-  // character that cannot appear in a field. Nothing new this week — which is
-  // the point. The file was already something this program could read. What
-  // week 9 adds is what you can ASK once it is in your hands.
-  //
-  // ⚠️ Read() STAYS A LOOP. It makes fifty thousand objects and puts them in a
-  // list; that is doing, not asking. It is also the whole cost of the evening,
-  // and §6 is where the room finds that out.
+  // Same file shape as Watch.Load: one line per reading, fields kept apart by a
+  // character that cannot appear in a field.
   using System.Globalization;
 
   public static class Season
   {
       // What day of the season it is: the day on the last line anybody wrote.
-      //
-      // ⚠️ The station does not keep the date in its head, and it is NOT typed
-      // into this program. Until week 9 it was — a literal in the banner, edited
-      // by hand every week — which is how the console came to be showing day 268
-      // while its own met book stopped at 250. A number the program can work out
-      // is a number the program should work out.
-      //
-      // ⚠️ And there is no cheap way to do this. Reading the LAST line of a text
-      // file means walking the whole file, because nothing in it says where the
-      // last line starts. Measured: 1.6-2.2 ms for the lazy read against 1.3 ms
-      // for reading the whole thing. That is §6's argument, arriving early and
-      // for free — even "what day is it" costs the entire book.
       public static int LatestDay(string path)
       {
           string? last = File.ReadLines(path).LastOrDefault();
@@ -635,29 +483,32 @@ Tonight nine loops the room has watched get written come out, the tests never mo
               : 1;
       }
 
-      public static List<SeasonReading> Read(string path)
+      // Every line of the book, turned into a reading.
+      public static IEnumerable<SeasonReading> Read(string path) =>
+          File.ReadLines(path)
+              .Select(ReadLine)
+              .OfType<SeasonReading>();
+
+      // One line of the book as a reading, or null when the line is not one.
+      private static SeasonReading? ReadLine(string line)
       {
-          List<SeasonReading> book = new List<SeasonReading>();
+          string[] field = line.Split('|');
 
-          foreach (string line in File.ReadAllLines(path))
+          if (field.Length == 4
+              && int.TryParse(field[0], out int day)
+              && double.TryParse(field[2], NumberStyles.Float,
+                  CultureInfo.InvariantCulture, out double celsius))
           {
-              string[] field = line.Split('|');
-
-              if (field.Length == 4
-                  && int.TryParse(field[0], out int day)
-                  && double.TryParse(field[2], NumberStyles.Float,
-                      CultureInfo.InvariantCulture, out double celsius))
-              {
-                  book.Add(new SeasonReading(day, field[1], celsius, field[3]));
-              }
+              return new SeasonReading(day, field[1], celsius, field[3]);
           }
 
-          return book;
+          return null;
       }
   }
   ```
 
-- [ ] 📖 **Name it as last week's, and say it stays a loop** — *"This is week eight. Split the line, check the fields, make the thing, put it on the list. It stays a loop because it is making fifty thousand objects, and making is not asking."*
+- [ ] 📖 **Say what `Read` does, one piece at a time** — *"`ReadLine` is week eight: split the line, check the fields, make a reading. `Read` is tonight: every line of the file, turned into a reading, keeping only the lines that really are readings."*
+- [ ] 💡 **And why it is not a loop, before somebody asks** — *"`Watch.Load` stays a loop, because it puts entries into the watch. This one only hands readings back."*
 
 - [ ] **Now the questions. In `Program.cs`, <kbd>⌘F</kbd> for `string logFile` — one hit — and paste this directly under that line**
 
@@ -686,16 +537,16 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 - [ ] 🎯 **Land it, and it is a small thing that is worth the thirty seconds** — *"That number is not in this program any more. It comes off the last line of the met book, which is the last thing anybody wrote down. If somebody goes out tomorrow and writes a line, the console knows what day it is without me touching it."*
 - [ ] ⚠️ **Then the honest half, because they will ask** — *"And there is no cheap way to read the last line of a file. To find it, the program walked all fifty thousand lines. Nothing in a text file says where the last line starts. Hold on to that. It is the next segment."*
 
-- [ ] **The key.** <kbd>⌘F</kbd> for **`[u] muster`** — one hit. Make that line read
+- [ ] **The key.** <kbd>⌘F</kbd> for **`Console.Write("[o]ut`** — one hit. Make that whole line read
 
   ```csharp
-      Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [u] muster  [s]eason  [q]uit: ");
+      Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [s]eason  [q]uit: ");
   ```
 
-- [ ] **And the case.** <kbd>⌘F</kbd> for **`TheMuster();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
+- [ ] **And the case.** <kbd>⌘F</kbd> for **`TakeAReading();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
 
   ```csharp
-              TheMuster();
+              TakeAReading();
               break;
 
           case "s":
@@ -713,12 +564,12 @@ Tonight nine loops the room has watched get written come out, the tests never mo
   void TheMetBook()
   {
 
-      List<SeasonReading> book = Season.Read(metBook);
+      IEnumerable<SeasonReading> book = Season.Read(metBook);
 
 
       // Six questions. Every one of them is the same shape: the sequence, and
       // what to ask of each thing in it.
-      int readings = book.Count;
+      int readings = book.Count();
       int days = book.Max(r => r.Day);
       double average = book.Average(r => r.Celsius);
       SeasonReading coldest = book.MinBy(r => r.Celsius)!;
@@ -778,7 +629,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
       day 126  07:07  -67.7 C  Reyes
   ```
 
-- [ ] 🎞️ **GO TO SLIDE 10** — *Six questions, six lines*
+- [ ] 🎞️ **GO TO SLIDE 9** — *Six questions, six lines*
 - [ ] 🎯 **Point at the count, not at the cleverness** — *"Six answers. Fifty thousand readings. Six lines of code."*
 - [ ] 💡 **And the last one is the only one tonight with more than one word in it** — *"Below minus sixty, then in order, then stop at five. One line, and each step hands the next one a sequence to work on. That is the whole of what the middle column on that slide was for."*
 - [ ] 💡 **Then the two the room should notice, and let them find the second** — *"Moretti is the met tech, so of course she took a third of them. And look who took the coldest reading of the season: the chef, at ten at night, in midwinter."*
@@ -787,18 +638,17 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
 ---
 
-## 6 · 💥 What it cost *(slide 11)*
+## 6 · 💥 What it cost *(slides 10–11)*
 
 - [ ] 📖 **Ask before you measure anything, and let somebody guess** — *"That was fifty thousand rows. How long do you think it took?"*
-- [ ] 💡 *"Nobody is going to be impressed by the answer, and that is the point of the segment."*
 
-- [ ] **In `TheMetBook`, <kbd>⌘F</kbd> for `List<SeasonReading> book = Season.Read(metBook);`** — one hit. **Select that one line and paste this over it**
+- [ ] **In `TheMetBook`, <kbd>⌘F</kbd> for `IEnumerable<SeasonReading> book = Season.Read(metBook);`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
       long beforeRead = GC.GetTotalMemory(true);
       System.Diagnostics.Stopwatch clock = System.Diagnostics.Stopwatch.StartNew();
 
-      List<SeasonReading> book = Season.Read(metBook);
+      IEnumerable<SeasonReading> book = Season.Read(metBook);
 
       long readMs = clock.ElapsedMilliseconds;
       long held = GC.GetTotalMemory(true) - beforeRead;
@@ -845,16 +695,85 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 
   ```
     what that cost:
-      reading the file     9 ms for all 50,000 lines
-      asking the questions 5.5 ms
-      the book, in memory  11.8 MB from a 1.1 MB file
+      reading the file     0 ms for all 50,000 lines
+      asking the questions 58.0 ms
+      the book, in memory  0.0 MB from a 1.1 MB file
   ```
 
-- [ ] ⚠️ **Read the two millisecond figures off YOUR screen, not off this sheet or the slide.** They move every run, which is why the slide carries only the memory line
-- [ ] 🎯 **Then the three facts, one at a time, in this order**
-  - 📖 *"Reading the file cost more than all six questions put together. The queries are not the expensive part. Getting the list is."*
-  - 📖 *"It read all fifty thousand lines to answer every one of them. To find the single coldest reading in the season, it built fifty thousand objects."*
-  - 💥 *"And a file that is one point one megabytes on disk is eleven point eight megabytes once it is in the program. Ten times bigger, held for as long as I want to keep asking questions."*
+- [ ] ⚠️ **Read the millisecond figures off YOUR screen.** The query time moves every run. The `0 ms` and the `0.0 MB` do not
+- [ ] 💥 **Read the first line and the last line out, and stop** — *"Reading fifty thousand lines took no time at all. And the book takes up no memory."*
+- [ ] 📖 **Ask, and wait** — *"How can reading a file take no time?"*
+- [ ] 🎯 **Then say you are going to find out rather than tell them** — *"Let me stop the program inside the part that reads a line, and see when that actually happens."*
+- [ ] **Press `q`**
+
+- [ ] ⚠️ **Delete the `.vscode` folder first.** VS Code wrote it back in week 5 and it names week 5's project — leave it there and <kbd>F5</kbd> launches that desk instead of tonight's
+- [ ] **<kbd>F5</kbd>**, then `.NET 5+ and .NET Core` if it asks, then **type `09/Hal`** in the project list. Don't narrate the picker
+- [ ] ⚠️ **It stops at once with a `FileNotFoundException` on `week-09/season.txt`, and that is expected.** The debugger starts the program from the project folder, where there is no `week-09/`. **<kbd>Shift</kbd>+<kbd>F5</kbd>, open `.vscode/launch.json`, and change the `"cwd"` line to read**
+
+  ```json
+              "cwd": "${workspaceFolder}",
+  ```
+
+  - 💡 **Only if somebody asks** — *"Every command tonight runs from the top of the repo. That line tells the debugger to start from there too."*
+
+- [ ] **The breakpoint.** In `Season.cs`, <kbd>⌘F</kbd> for **`string[] field = line.Split('|');`** — one hit. Click the gutter on that line
+- [ ] 📖 **Say what that line is** — *"This line runs once for every line of the book. That is fifty thousand times, every time the file is read."*
+- [ ] 📖 **Then the problem with a plain breakpoint** — *"A plain breakpoint here would stop fifty thousand times. So I am going to tell it to wait."*
+- [ ] **Right-click the red dot → Edit Breakpoint… → change the dropdown to Hit Count → type `>= 50000` → Enter**
+- [ ] 💡 **Name the feature, because it is new tonight** — *"That is a hit count. The breakpoint stays quiet until this line has run fifty thousand times."*
+- [ ] **One Watch expression** — Run and Debug view, **WATCH**, `+`: `line`. ⚠️ **Not `book`** — the Watch pane runs a query when it evaluates one, and that would read the file again on its own
+
+- [ ] **<kbd>F5</kbd>, and press `s` at the desk.** It takes a few seconds before it stops
+- [ ] 💡 *"It is reading fifty thousand lines before it stops."*
+- [ ] 💥 **Stop 1** — Watch `line` reads `268|16:03|-24.2|Lindqvist` — *"Day two hundred sixty-eight. That is the last line in the book. It has read all fifty thousand."*
+- [ ] 🎯 **Call Stack: click the `Program.cs` frame** — it highlights `int readings = book.Count();` — *"And it read them to count them: how many readings are in the book."*
+- [ ] **Continue** (<kbd>F5</kbd>)
+- [ ] 💥 **Stop 2, straight after** — `line` reads `1|16:14|-26.7|Reyes` — ⚠️ **stop and let them look** — *"Day one. The first line of the book, again. It went back to the top of the file."*
+- [ ] 🎯 **Call Stack again** — it highlights `int days = book.Max(r => r.Day);` — *"This time for the next question: the latest day. Counting read the whole book, and this question started reading it all over again."*
+- [ ] 🎯 **Then say what that means for every question** — *"The count, and then six questions. Every one of them goes back to the top of the file. That is seven reads: three hundred fifty thousand lines, to answer questions about fifty thousand."*
+- [ ] **Untick the breakpoint in the BREAKPOINTS panel, Continue**, and let the report print
+- [ ] **Stop the debugger with <kbd>Shift</kbd>+<kbd>F5</kbd>**
+
+- [ ] 🎞️ **GO TO SLIDE 10** — *A query is a recipe*
+- [ ] 🎯 **The explanation, and it is a mechanism rather than a principle** — *"`Read` did not hand back fifty thousand readings. It handed back instructions: go through the file and turn each line into a reading. Nothing ran until somebody asked a question. Then every question ran those instructions again, from the top of the file."*
+- [ ] 💡 **And why the first run's numbers looked like that** — *"That is why reading took no time and the book took no memory. Nothing had been read yet. The cost moved into the questions."*
+
+- [ ] ⚠️ **The fix is two edits in `Season.cs`.** <kbd>⌘F</kbd> for **`public static IEnumerable<SeasonReading> Read(string path) =>`** — one hit. Make that line read
+
+  ```csharp
+      public static List<SeasonReading> Read(string path) =>
+  ```
+
+- [ ] **Then the end of the query.** <kbd>⌘F</kbd> for **`.OfType<SeasonReading>();`** — one hit. Make that line read
+
+  ```csharp
+              .OfType<SeasonReading>()
+              .ToList();
+  ```
+
+- [ ] 📖 **Say the rule** — *"`ToList` reads the file once, right now, and keeps the readings. A method that hands a query to somebody else ends it with `ToList`."*
+
+- [ ] **Run it and press `s`**
+
+  ```bash
+  dotnet run --project week-09/Haldane
+  ```
+
+  ```
+    what that cost:
+      reading the file     10 ms for all 50,000 lines
+      asking the questions 5.0 ms
+      the book, in memory  12.3 MB from a 1.1 MB file
+  ```
+
+- [ ] 🎯 **All three numbers have flipped. Read them one at a time**
+  - 📖 *"Reading takes time now, because it actually reads the file."*
+  - 📖 *"Asking is fast now, because the questions ask a list that is already in memory."*
+  - 📖 *"And the book takes twelve megabytes, because the program is holding every reading."*
+- [ ] 💡 **Then the trade** — *"So `ToList` is a trade. Read the file once and hold all of it, or hold none of it and read the file again for every question."*
+- [ ] 🎯 **Then the two facts that stay true either way**
+  - 📖 *"Reading the file still costs more than all the questions put together. The queries are not the expensive part. Getting the list is."*
+  - 📖 *"And a file that is one point one megabytes on disk is twelve point three megabytes once it is in the program. More than ten times bigger, held for as long as I want to keep asking questions."*
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *What it cost*
 - [ ] 🎯 **Then hand them the arithmetic instead of doing it** — *"That is one season. Haldane has been open since nineteen ninety-four."* — and stop

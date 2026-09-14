@@ -9,7 +9,7 @@ The most heavily pre-promised week in the course comes due. Since week 3, six se
 | Prep | 🗓️&nbsp;[lesson-⁠plan.md](lesson-plan.md) | Timed 3h45 agenda + instructor notes |
 | Prep&nbsp;/⁠&nbsp;in-⁠class&nbsp;script | 📖&nbsp;[lecture-⁠notes.md](lecture-notes.md) | Full lecture content, every word with what it hands back, **troubleshooting appendix** |
 | Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck (GFM, one slide per `##`) — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-09/) (arrow keys, `F` for fullscreen) |
-| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *Thirty lines become one* — nine loops out, a muster that loses a name, a season queried; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-09/demo/script.html) |
+| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *Thirty lines become one* — ten loops out, including the end-of-watch muster, a season queried and read seven times; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-09/demo/script.html) |
 | In&nbsp;class,&nbsp;last&nbsp;50&nbsp;min | 🧪&nbsp;[lab/⁠](lab/) | *The night's numbers* — 5 checks, 1/5 out of the box, and a first task that turns nothing green (answer key in the private repo) |
 | With&nbsp;the&nbsp;homework | ✅&nbsp;[starters&nbsp;repo⁠](https://github.com/jgrissom/dotnet-db-starters) | The lab folder, and **`project/week-09/Project.Checks`** — the checks the grader runs against your own project, byte-for-byte |
 | Assigned&nbsp;at&nbsp;wrap-⁠up | 📤&nbsp;[homework.md](homework.md) | Three questions on your own registry, and a fact that gives permission (20 pts) |
@@ -23,21 +23,27 @@ They can also say what every one of those does to an **empty** sequence — and 
 **And two things a query must never do.** `OrderBy` sorts a *copy*, so a registry keeps the order records arrived in and the save file is not quietly rewritten. And a lambda that changes something on the way past has turned a question into an action — which is why `Hour.Run` and `Watch.Save` stay loops, and why a one-liner is not the goal.
 
 > [!IMPORTANT]
-> **The week's own payoff is a number that does not move.** Nine working loops come out of the demo and about forty lines out of the lab, and the test count sits still through all of it. **Week 7 promised exactly this** — *"your tests will be how you prove the one-liners do the same job"* — and this is where it is collected. The lab's Task 1 turns nothing green on purpose.
+> **The week's own payoff is a number that does not move.** Ten working loops come out of the demo and about forty lines out of the lab, and the test count sits still through all of it. **Week 7 promised exactly this** — *"your tests will be how you prove the one-liners do the same job"* — and this is where it is collected. The lab's Task 1 turns nothing green on purpose.
 
 ## 💥 And then the honest half
 
-`Where` hands back **instructions**, not a list. §4 takes a muster of who is outside, marks somebody back, and reads the same muster again — **and a name has gone**. `ToList()` is what makes an answer out of a recipe, and week 5 is why the copy did not save them.
-
-Then §6 asks the station's met book — **50,000 readings over 268 days** — six questions in six lines, and prints the bill:
+§6 asks the station's met book — **50,000 readings over 268 days** — six questions in six lines, and prints the bill. The first time, it is too good to be true:
 
 ```
-reading the file       8 ms for all 50,000 lines
+reading the file       0 ms for all 50,000 lines
+asking the questions   58.0 ms
+the book, in memory    0.0 MB from a 1.1 MB file
+```
+
+`Season.Read` handed back **instructions**, not readings, so nothing had been read yet. A **hit-count breakpoint** on the line that reads one line of the book stops at hit 50,000 on the *last* line — and one Continue later, on the *first* line again. Every question reads the whole file from the top: seven reads, 350,000 lines. `ToList()` makes it one read, and all three numbers flip:
+
+```
+reading the file       10 ms for all 50,000 lines
 asking the questions   5.0 ms
-the book, in memory    11.8 MB from a 1.1 MB file
+the book, in memory    12.3 MB from a 1.1 MB file
 ```
 
-⚠️ **This is deliberately not a speed beat, and it must not be built as one.** At this size a file is *fast* — the argument is **work and memory**: it read all 50,000 lines to answer a question about one, and a 1.1 MB file is ten times bigger once it is in the program. That is true on any machine, and a stopwatch race is not.
+⚠️ **This is deliberately not a speed beat, and it must not be built as one.** At this size a file is *fast* — the argument is **work and memory**: without `ToList()` the file is read again for every question, and with it a 1.1 MB file is more than ten times bigger once it is in the program. That is true on any machine, and a stopwatch race is not.
 
 **That is where the week's forward promise is made, in as many words:** *querying a file is going to stop being good enough.* Week 10 moves it; week 12 collects it.
 

@@ -47,7 +47,7 @@ By the end of this session, students can:
 8. State the limit of querying a file: it must be read in full to answer anything, and it costs memory proportional to the whole of it.
 
 > [!NOTE]
-> **Objectives 3, 5 and 6 are the three that bite**, and all three are measurable rather than matters of taste. If the night runs short, protect §2's payoff and §4's break — and let §5 lose the five-coldest list.
+> **Objectives 3, 5 and 6 are the three that bite**, and all three are measurable rather than matters of taste. If the night runs short, protect §2's payoff and §6's break — and let §5 lose the five-coldest list.
 
 ## Materials
 
@@ -66,16 +66,16 @@ By the end of this session, students can:
 | 0:15 | 28 min | 🎯 **The promise, collected** *(slides 2–4, demo §2)*. `LatestCelsius`: read the method out loud, replace it with one line, run the board, **run the suite**. Then the shape and the lambda, then `SignOuts` and `OutsideCount`. |
 | 0:43 | 10 min | **☕ Break** |
 | 0:53 | 30 min | **Six more of the same shape** *(slides 5–7, demo §3)*. `Any`, two `FirstOrDefault`s, `Lookup`, then `Program.cs` — `crew.Sum` (week 5's spoken promise) and `Find`. What an empty sequence does to you, and what stays a loop. |
-| 1:23 | 18 min | 💥 **The muster that lost a name** *(slide 8, demo §4)*. `[u]` takes a muster, `b` marks Okonkwo back, `u` again — and the muster says 2. `ToList()`. |
-| 1:41 | 10 min | **☕ Break** |
-| 1:51 | 28 min | **A season of weather** *(slides 9–10, demo §5)*. The met book on screen, `SeasonReading` and `Season.Read` pasted, then six questions in six lines over 50,000 rows. |
-| 2:19 | 16 min | 💥 **What it cost** *(slide 11, demo §6)*. The stopwatch and the memory figure. 🎯 **The promise made: querying a file is going to stop being good enough.** |
+| 1:23 | 8 min | **End of watch, in one line** *(demo §4)*. Week 5's muster becomes one line; the `ToList` is there because the variable is a list. |
+| 1:31 | 10 min | **☕ Break** |
+| 1:41 | 28 min | **A season of weather** *(slides 8–9, demo §5)*. The met book on screen, `SeasonReading` and `Season.Read` pasted — as a query, with no `ToList()` — then six questions in six lines over 50,000 rows. Every answer is right. |
+| 2:09 | 26 min | 💥 **What it cost** *(slides 10–11, demo §6)*. The stopwatch says reading took `0 ms` and the book holds `0.0 MB`. A **hit-count breakpoint** stops on the last line of the book and then on the first: every question reads the file again. `ToList()`, and all three numbers flip. 🎯 **The promise made: querying a file is going to stop being good enough.** |
 | 2:35 | 5 min | **Lab launch** *(slide 12, demo §7)*. Task 1 turns nothing green; the suite is how you know. |
 | 2:40 | 50 min | **Lab: the night's numbers** *(slide 12 stays up)*. **In-class target: 5 green.** Circulate at Task 1 (`MaxBy` with no `?.`) and Task 4 (`List.Sort`). |
 | 3:30 | 15 min | **Wrap-up** *(slide 13, demo §8)*. Two URLs, the checks-copy line — **four checks this week** — and a normal one-week due date. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes.** If the night runs long, **§5 is the segment to shorten** — drop the five-coldest list and keep the four headline answers, which is all §6 needs. **Do not take it from §2** (the payoff), **from §4** (the break), or from the lab.
+> **The table sums to exactly 225 minutes.** If the night runs long, **§5 is the segment to shorten** — drop the five-coldest list and keep the four headline answers, which is all §6 needs. **Do not take it from §2** (the payoff), **from §6** (the break), or from the lab.
 
 ## Instructor notes
 
@@ -84,14 +84,15 @@ By the end of this session, students can:
 - ⚠️ ⚠️ **§2's `OutsideCount` edit is the one selection tonight that needs care.** It replaces a whole property, so the selection ends on **the second of the two `}` in a row**. Every other edit in §2 and §3 runs statement-to-statement.
 - 💡 **§3 is deliberately repetitive and should be paced that way.** Explain the first `FirstOrDefault`; for the second, ask what goes there and wait. Three of the six need no commentary at all.
 - ⚠️ **The `?.` and `??` in `LatestCelsius` are worth thirty seconds even when the clock is tight.** They are the single most common way the lab goes wrong tonight, and check 1's failure message says so — but a room that has seen it once reads that message much faster.
-- 🎯 **§4's break needs the pause.** Take the muster, mark Okonkwo back, and then **ask what it will say before pressing `u`**. Let somebody answer. The point lands about four times harder when the room has committed to "three".
-- ⚠️ **§4's explanation is a mechanism, not a principle.** *"`Where` handed me the instruction, not the list, and the instruction runs again every time anybody looks at it."* Do not reach for a metaphor; the room is already holding a surprise.
-- 💡 **The half of §4 nobody expects is week 5's.** `SignOuts()` already hands back a *copy of the list* — and the copy did not help, because a copied list holds the same records. Thirty seconds, and it connects two weeks.
-- ⚠️ ⚠️ **§6 IS NOT A SPEED BEAT, and building it as one would falsify itself on screen.** Measured: 50,000 lines read in **8–24 ms**. The argument is **work and memory** — it read all 50,000 to answer a question about one, and a 1.1 MB file became 11.8 MB of program. Both of those are true on any machine.
+- 🎯 **§6's break needs the pause.** After the first run, read `0 ms` and `0.0 MB` out and **ask how reading a file can take no time** — before you touch the debugger. The room should be puzzled first.
+- ⚠️ ⚠️ **§6 runs under the debugger, and the setup should not happen for the first time in front of the room.** Delete `.vscode`, set `"cwd": "${workspaceFolder}"` in the regenerated `launch.json`, then the gutter breakpoint in `Season.ReadLine` with **Hit Count `>= 50000`**. **Rehearse it once before class** — the `cwd` step in particular has not been run on the real Haldane program yet.
+- 💡 **The hit count is the new tool tonight, so name it.** A plain breakpoint on that line would stop 50,000 times; the hit count is the answer to that, and the room has just watched why it is needed.
+- ⚠️ **§6's explanation is a mechanism, not a principle.** *"`Read` handed back instructions, and every question ran them again from the top of the file."* Do not reach for a metaphor; the room is already holding a surprise.
+- ⚠️ ⚠️ **§6 IS NOT A SPEED BEAT, and building it as one would falsify itself on screen.** Measured: 50,000 lines read in **8–24 ms**. The argument is **work and memory** — it read all 50,000 to answer a question about one, and a 1.1 MB file became 12.3 MB of program. Both of those are true on any machine.
 - 💡 **The two millisecond figures move every run and the slide deliberately does not carry them.** Read yours off the screen. The memory figure was stable across every run and it is the one to land.
 - 🎯 **§6's closing arithmetic is theirs, not yours.** *"That is one season. Haldane has been open since 1994."* Then stop.
 - ⚠️ **Say the P6 promise in as many words** — *"querying a file is going to stop being good enough"* — because week 12 collects it by name.
-- **The demo commits four times, silently**, and the first is immediately after the carry-forward. Then the collapses (§3), the muster (§4), and the met book (§6) with the push.
+- **The demo commits four times, silently**, and the first is immediately after the carry-forward. Then the collapses (§3), the end-of-watch muster (§4), and the met book (§6) with the push.
 - **The branch is spoken, briefly** — five seconds, nothing new this week.
 - ⚠️ **Say the due date normally.** Last week was the term's only two-week homework; students who were told that twice will assume this one is too.
 - 💡 **The lab's Task 3 is where a run instruction matters more than usual**: they must press `n` *before* airing the hour, or `never been out` reads `-` and the task looks broken. The doc says so in bold; say it again at the hand-off if you have ten seconds.
@@ -104,8 +105,10 @@ By the end of this session, students can:
 | `dotnet new console -o week-09/Haldane` refuses | You rehearsed and left `week-09/` behind. Delete both project folders and the log file — but ⚠️ **not `season.txt`**, or §5 has nothing to open. §0 makes that distinction. |
 | §5 says the met book isn't there | `season.txt` was never copied in, or `rm -rf week-09` took it. §0's copy line, again. |
 | The met book's numbers differ from this sheet's | Somebody regenerated `season.txt`. The committed file is the source of truth; `demo-starter/tools/make-season.py` reproduces it. |
-| The muster break shows 3 both times | The `.ToList()` is already there. §4 pastes the raw query first **on purpose** — check you did not paste the fixed version. |
-| The muster break throws instead of shrinking | Something is calling `First()` rather than iterating. The break is about the count changing, not about a crash. |
+| §6's first run already shows about 10 ms and 12.3 MB | The `.ToList()` is already in `Season.Read`. §5 pastes it without on purpose — check you did not paste the fixed version. |
+| <kbd>F5</kbd> stops at once with `FileNotFoundException` | Expected until `"cwd"` in `.vscode/launch.json` reads `"${workspaceFolder}"`. The debugger starts in the project folder, where `week-09/season.txt` does not exist. |
+| The breakpoint stops on the first line of the book, not the last | The hit count is `50001` rather than `>= 50000`. Both prove the second read, but only `>= 50000` shows the last line first. |
+| The breakpoint stops only once | `.ToList()` is already in `Season.Read`, so the file is read once. That is the fixed state, not a fault. |
 | A collapse makes a test go red | **That is the segment working**, and it is worth saying so out loud rather than fixing it quietly. Read the failure, then fix it. |
 | Somebody asks why `Everything()` doesn't collapse | Because the one-line version reads worse. Slide 7 says it, and it is the honest answer rather than a dodge. |
 | Somebody asks about `First` vs `FirstOrDefault` performance | They are the same. The difference is what happens when there is nothing, and that is the only difference. |

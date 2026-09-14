@@ -277,37 +277,48 @@ That is what `string best = "nobody yet";` above the loop was for. Delete the lo
 
 ### A query is a recipe, not an answer
 
-This is the surprise of the week, and it is worth meeting on purpose:
+This is the surprise of the week, and it is worth meeting on purpose. Here is `Season.Read` the way it is first written tonight — every line of the file, turned into a reading:
 
 ```csharp
-// Inside Program.cs, at the end of the watch.
-List<SignOut> outside = watch.SignOuts();
-var muster = outside.Where(s => !s.IsBack);      // ← no ToList()
-
-Console.WriteLine(muster.Count());               // 2
-watch.MarkBack("Okonkwo");
-Console.WriteLine(muster.Count());               // 1
+// Season.cs, inside the Season class.
+public static IEnumerable<SeasonReading> Read(string path) =>
+    File.ReadLines(path)
+        .Select(ReadLine)
+        .OfType<SeasonReading>();
 ```
 
-**Nothing touched `muster` and it answered differently.** Because `muster` is not a list of people — it is *the instruction "walk that list and keep the ones who aren't back"*, and it carries out that instruction every single time anybody looks at it.
+It works. Every answer the met book gives is correct. But put a stopwatch round the call and measure the memory it holds, and the report looks wrong:
 
-That is called **deferred execution**, and it is the honest reading of `Where`: it hands back a *plan*, and the plan runs when somebody asks.
+```
+  what that cost:
+    reading the file     0 ms for all 50,000 lines
+    asking the questions 58.0 ms
+    the book, in memory  0.0 MB from a 1.1 MB file
+```
 
-Most of the time that costs nothing. **Here it is a real bug**, because a muster is supposed to be a record of who was unaccounted for at the moment the desk closed. A record that changes afterwards is not a record.
+**Reading fifty thousand lines took no time, and the book takes no memory.** That is because `Read` did not read anything. It handed back *the instruction* "go through the file and turn each line into a reading" — and that instruction runs **every single time anybody asks it something**. `TheMetBook` counts the readings and then asks six questions, so the whole file is read from the top **seven times**: 350,000 lines, to answer questions about 50,000.
 
-The same line, in the same place, with nine characters on the end:
+That is called **deferred execution**, and it is the honest reading of `Select`, `Where`, `OrderBy` and `Take`: they hand back a *plan*, and the plan runs when somebody asks.
+
+The same method, ending in `.ToList()`, with the return type that says so:
 
 ```csharp
-// Program.cs, in EndOfWatch.
-List<SignOut> muster = watch.SignOuts().Where(s => !s.IsBack).ToList();
+// Season.cs, inside the Season class.
+public static List<SeasonReading> Read(string path) =>
+    File.ReadLines(path)
+        .Select(ReadLine)
+        .OfType<SeasonReading>()
+        .ToList();
 ```
 
-`ToList()` runs the plan **once**, now, and keeps the answer. The type in front of it tells you it worked: `List<SignOut>`, not `var`.
+`ToList()` runs the plan **once**, now, and keeps the answer. All three numbers flip: reading takes about 10 ms because it really reads the file, asking takes about 5 ms because the questions ask a list already in memory, and the book holds 12.3 MB.
+
+⚠️ **Your milliseconds will differ.** The `0 ms` and the `0.0 MB` will not, and nor will the 12.3 MB.
 
 > [!IMPORTANT]
-> **The rule for this course: a method that hands a query to somebody else ends it with `ToList()`.** Inside one method, where you build a query and use it immediately, leaving it off is fine and saves a copy. Handing a recipe across a method boundary is how you ship a bug that only appears when the underlying list changes.
+> **The rule for this course: a method that hands a query to somebody else ends it with `ToList()`.** Inside one method, where you build a query and use it right away, leaving it off is fine and saves a copy. Handing a recipe across a method boundary is how you ship something that quietly does its work again every time it is asked.
 
-⚠️ **This is week 5's lesson at a higher altitude.** `watch.SignOuts()` already hands back a *copy of the list* — but the records in it are the same records, so `MarkBack` reaches them. A copied list does not protect you from a query that re-reads it.
+⚠️ **`ToList()` is a trade, not a free fix.** Read the file once and hold all of it, or hold none of it and read the file again for every question. For a book you are about to ask seven things, holding it wins.
 
 ## What should stay a loop
 
@@ -378,40 +389,42 @@ All three hand back the same things in the same order, and the registry is first
 
 Haldane's met book holds every temperature anybody has written down since the station opened: **50,000 readings over 268 days**, in a text file, one line each.
 
-Reading it is nothing new — same shape as week 8's `Watch.Load`:
+Reading **one line** is week 8's `Watch.Load` again. Reading the **whole book** is a query that ends in `ToList()` — [a query is a recipe](#a-query-is-a-recipe-not-an-answer) is why that ending matters:
 
 ```csharp
-// Season.cs, complete.
+// Season.cs — the reading half of it. LatestDay is the other half.
 using System.Globalization;
 
 public static class Season
 {
-    public static List<SeasonReading> Read(string path)
+    public static List<SeasonReading> Read(string path) =>
+        File.ReadLines(path)
+            .Select(ReadLine)
+            .OfType<SeasonReading>()
+            .ToList();
+
+    // One line of the book as a reading, or null when the line is not one.
+    private static SeasonReading? ReadLine(string line)
     {
-        List<SeasonReading> book = new List<SeasonReading>();
+        string[] field = line.Split('|');
 
-        foreach (string line in File.ReadAllLines(path))
+        if (field.Length == 4
+            && int.TryParse(field[0], out int day)
+            && double.TryParse(field[2], NumberStyles.Float,
+                CultureInfo.InvariantCulture, out double celsius))
         {
-            string[] field = line.Split('|');
-
-            if (field.Length == 4
-                && int.TryParse(field[0], out int day)
-                && double.TryParse(field[2], NumberStyles.Float,
-                    CultureInfo.InvariantCulture, out double celsius))
-            {
-                book.Add(new SeasonReading(day, field[1], celsius, field[3]));
-            }
+            return new SeasonReading(day, field[1], celsius, field[3]);
         }
 
-        return book;
+        return null;
     }
 }
 ```
 
-**What is new is what you can ask once it is in your hands.** Six questions, six lines, over fifty thousand rows — these all sit inside one method in `Program.cs`, with `book` already read. The first line is not one of the six: `book.Count` is the list's own property, the same one you have used since week 3, and it asks nothing.
+**What is new is what you can ask once it is in your hands.** Six questions, six lines, over fifty thousand rows — these all sit inside one method in `Program.cs`, with `book` already read. The first line is not one of the six: `book.Count()` counts the readings, and it is the only line here with no question in the brackets.
 
 ```csharp
-int readings = book.Count;
+int readings = book.Count();
 int days = book.Max(r => r.Day);
 double average = book.Average(r => r.Celsius);
 SeasonReading coldest = book.MinBy(r => r.Celsius)!;
@@ -431,16 +444,16 @@ Here is the part that is worth more than the six lines. Ask the program what it 
 
 ```
   what that cost:
-    reading the file     8 ms for all 50,000 lines
+    reading the file     10 ms for all 50,000 lines
     asking the questions 5.0 ms
-    the book, in memory  11.8 MB from a 1.1 MB file
+    the book, in memory  12.3 MB from a 1.1 MB file
 ```
 
 Three facts, and the last one is the one to sit with:
 
 1. **Reading the file cost more than every question put together.** The queries are not the expensive part. *Getting the list* is.
 2. **It read all fifty thousand lines to answer any of them.** To find the single coldest reading in the season, it built fifty thousand objects.
-3. **A 1.1 MB file became 11.8 MB of program.** Ten times bigger, held for as long as you want to keep asking questions.
+3. **A 1.1 MB file became 12.3 MB of program.** More than ten times bigger, held for as long as you want to keep asking questions.
 
 ⚠️ **The numbers on your own machine will differ, and the shape will not.** That ratio is the point, not the milliseconds.
 
