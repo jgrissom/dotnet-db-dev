@@ -141,14 +141,14 @@ makes the code harder to read.**
 ## A season of weather
 
 ```
-102|22:05|-68.6|Nakamura
-103|07:41|-61.2|Moretti
+130|02:39|-46.6|AWS
+130|02:42|-46.7|Okonkwo
 ```
 
 **50,000 readings. 268 days. One text file.**
 
-Somebody walked out to the masts and read a
-number off an instrument. Every time.
+The AWS writes a line every eight minutes.
+Twice a day, somebody checks it by hand.
 
 Nothing has ever asked it anything.
 
@@ -198,7 +198,7 @@ Instructions run again every time you ask.
 ## What it cost
 
 ```
-the book, in memory    12.3 MB from a 1.1 MB file
+the book, in memory    11.8 MB from a 0.9 MB file
 ```
 
 - getting the list cost **more than every question**

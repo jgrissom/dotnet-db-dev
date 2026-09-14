@@ -56,7 +56,7 @@ By the end of this session, students can:
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-09/demo/script.html))
 - **The instructor demo repo**, where week 8 left it — `week-01/` … `week-08/` in it, clean, `main` up to date after last week's merge
 - ⚠️ **Week 8's project has to RUN** — §1 opens by running it
-- ⚠️ ⚠️ **`week-09/season.txt` has to be in place before class.** It is 50,000 lines and 1.1 MB, the demo never types it, and **§5 and §6 cannot run without it.** §0 has the one-line copy
+- ⚠️ ⚠️ **`week-09/season.txt` has to be in place before class.** It is 50,000 lines and 0.9 MB, the demo never types it, and **§5 and §6 cannot run without it.** §0 has the one-line copy
 
 ## Timed agenda
 
@@ -88,7 +88,7 @@ By the end of this session, students can:
 - ⚠️ ⚠️ **§6 runs under the debugger, and the setup should not happen for the first time in front of the room.** Delete `.vscode`, set `"cwd": "${workspaceFolder}"` in the regenerated `launch.json`, then the gutter breakpoint in `Season.ReadLine` with **Hit Count `>= 50000`**. **Rehearse it once before class** — the `cwd` step in particular has not been run on the real Haldane program yet.
 - 💡 **The hit count is the new tool tonight, so name it.** A plain breakpoint on that line would stop 50,000 times; the hit count is the answer to that, and the room has just watched why it is needed.
 - ⚠️ **§6's explanation is a mechanism, not a principle.** *"`Read` handed back instructions, and every question ran them again from the top of the file."* Do not reach for a metaphor; the room is already holding a surprise.
-- ⚠️ ⚠️ **§6 IS NOT A SPEED BEAT, and building it as one would falsify itself on screen.** Measured: 50,000 lines read in **8–24 ms**. The argument is **work and memory** — it read all 50,000 to answer a question about one, and a 1.1 MB file became 12.3 MB of program. Both of those are true on any machine.
+- ⚠️ ⚠️ **§6 IS NOT A SPEED BEAT, and building it as one would falsify itself on screen.** Measured: 50,000 lines read in **8–24 ms**. The argument is **work and memory** — it read all 50,000 to answer a question about one, and a 0.9 MB file became 11.8 MB of program. Both of those are true on any machine.
 - 💡 **The two millisecond figures move every run and the slide deliberately does not carry them.** Read yours off the screen. The memory figure was stable across every run and it is the one to land.
 - 🎯 **§6's closing arithmetic is theirs, not yours.** *"That is one season. Haldane has been open since 1994."* Then stop.
 - ⚠️ **Say the P6 promise in as many words** — *"querying a file is going to stop being good enough"* — because week 12 collects it by name.
@@ -105,7 +105,7 @@ By the end of this session, students can:
 | `dotnet new console -o week-09/Haldane` refuses | You rehearsed and left `week-09/` behind. Delete both project folders and the log file — but ⚠️ **not `season.txt`**, or §5 has nothing to open. §0 makes that distinction. |
 | §5 says the met book isn't there | `season.txt` was never copied in, or `rm -rf week-09` took it. §0's copy line, again. |
 | The met book's numbers differ from this sheet's | Somebody regenerated `season.txt`. The committed file is the source of truth; `demo-starter/tools/make-season.py` reproduces it. |
-| §6's first run already shows about 10 ms and 12.3 MB | The `.ToList()` is already in `Season.Read`. §5 pastes it without on purpose — check you did not paste the fixed version. |
+| §6's first run already shows about 9 ms and 11.8 MB | The `.ToList()` is already in `Season.Read`. §5 pastes it without on purpose — check you did not paste the fixed version. |
 | <kbd>F5</kbd> stops at once with `FileNotFoundException` | Expected until `"cwd"` in `.vscode/launch.json` reads `"${workspaceFolder}"`. The debugger starts in the project folder, where `week-09/season.txt` does not exist. |
 | The breakpoint stops on the first line of the book, not the last | The hit count is `50001` rather than `>= 50000`. Both prove the second read, but only `>= 50000` shows the last line first. |
 | The breakpoint stops only once | `.ToList()` is already in `Season.Read`, so the file is read once. That is the fixed state, not a fault. |

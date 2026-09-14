@@ -31,25 +31,25 @@ They can also say what every one of those does to an **empty** sequence — and 
 
 ```
 reading the file       0 ms for all 50,000 lines
-asking the questions   58.0 ms
-the book, in memory    0.0 MB from a 1.1 MB file
+asking the questions   53.3 ms
+the book, in memory    0.0 MB from a 0.9 MB file
 ```
 
 `Season.Read` handed back **instructions**, not readings, so nothing had been read yet. A **hit-count breakpoint** on the line that reads one line of the book stops at hit 50,000 on the *last* line — and one Continue later, on the *first* line again. Every question reads the whole file from the top: seven reads, 350,000 lines. `ToList()` makes it one read, and all three numbers flip:
 
 ```
-reading the file       10 ms for all 50,000 lines
-asking the questions   5.0 ms
-the book, in memory    12.3 MB from a 1.1 MB file
+reading the file       9 ms for all 50,000 lines
+asking the questions   5.3 ms
+the book, in memory    11.8 MB from a 0.9 MB file
 ```
 
-⚠️ **This is deliberately not a speed beat, and it must not be built as one.** At this size a file is *fast* — the argument is **work and memory**: without `ToList()` the file is read again for every question, and with it a 1.1 MB file is more than ten times bigger once it is in the program. That is true on any machine, and a stopwatch race is not.
+⚠️ **This is deliberately not a speed beat, and it must not be built as one.** At this size a file is *fast* — the argument is **work and memory**: without `ToList()` the file is read again for every question, and with it a 0.9 MB file is more than ten times bigger once it is in the program. That is true on any machine, and a stopwatch race is not.
 
 **That is where the week's forward promise is made, in as many words:** *querying a file is going to stop being good enough.* Week 10 moves it; week 12 collects it.
 
 ## 📋 Before class, don't forget
 
-- ⚠️ ⚠️ **`week-09/season.txt` must be in the demo repo before class** — 50,000 lines, 1.1 MB, and **§5 and §6 cannot run without it.** The demo never types it; §0 has the copy line
+- ⚠️ ⚠️ **`week-09/season.txt` must be in the demo repo before class** — 50,000 lines, 0.9 MB, and **§5 and §6 cannot run without it.** The demo never types it; §0 has the copy line
 - ⚠️ **Delete `week-09/` if you've rehearsed** — both projects **and `watch-log.txt`**, but ⚠️ **not `season.txt`**
 - ⚠️ **`main` up to date in the demo repo** — §1 carries week 8 forward, so last week's merge needs to be pulled
 - ⚠️ **Run `dotnet run --project week-08/Haldane` once before class** — §1 opens by running it

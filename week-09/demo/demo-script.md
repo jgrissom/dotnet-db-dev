@@ -29,7 +29,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   rm -rf week-09
   ```
 
-- [ ] ⚠️ ⚠️ **NEW THIS WEEK, AND §5 CANNOT RUN WITHOUT IT: put the met book in place.** It is 50,000 lines and 1.1 MB, and the demo never types it — in the station's world it has been kept by hand since the season opened
+- [ ] ⚠️ ⚠️ **NEW THIS WEEK, AND §5 CANNOT RUN WITHOUT IT: put the met book in place.** It is 50,000 lines and 0.9 MB, and the demo never types it — in the station's world it is simply the met book, written by the instrument on the mast and checked by hand twice a day
 
   ```bash
   mkdir -p week-09 && cp ~/Repos/dotnet-db-dev-answer-keys/week-09/demo-starter/season.txt week-09/
@@ -44,7 +44,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 8 left it
 - [ ] ⚠️ **Run `dotnet run --project week-08/Haldane` once before class.** §1 opens by running it, so it has to build on the night
 - [ ] 💡 **The times in this sheet's output blocks are MINE.** Every log line the desk stamps tonight is station time, UTC. Nothing else in the blocks moves
-- [ ] 💡 ⚠️ **§6 prints three cost figures, twice, and the millisecond ones WILL DIFFER ON YOUR MACHINE.** They move by a few milliseconds every run. **Say what the screen says.** The memory figure is stable — *0.0 MB* before the fix and *12.3 MB from a 1.1 MB file* after — and it is the one carrying the argument
+- [ ] 💡 ⚠️ **§6 prints three cost figures, twice, and the millisecond ones WILL DIFFER ON YOUR MACHINE.** They move by a few milliseconds every run. **Say what the screen says.** The memory figure is stable — *0.0 MB* before the fix and *11.8 MB from a 0.9 MB file* after — and it is the one carrying the argument
 - [ ] 💡 **The debugger comes out tonight, to show something no printed output can.** ⚠️ **A query in the Watch panel RUNS when the panel evaluates it** — so never add a Watch on a query variable, or it quietly re-runs every time the pane refreshes
 - [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station that is not this one"*
 
@@ -113,7 +113,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 268[/]");
   ```
 
-- [ ] 💡 **Name it as you do it — this is the last time it happens** — *"I have typed that number in by hand every week since week three. The station has a clock. It has a log. It has a file of every reading anybody has ever taken. And the one thing it cannot tell you is what day it is, because that lives in the source code. Remember this line."*
+- [ ] 💡 **Name it as you do it — this is the last time it happens** — *"I have typed that number in by hand every week since week three. The station has a clock. It has a log. It has a file of every reading the station has ever taken. And the one thing it cannot tell you is what day it is, because that lives in the source code. Remember this line."*
 
 - [ ] **And the log file's name.** <kbd>⌘F</kbd> for **`week-08/watch-log.txt`** — one hit. Make that line read
 
@@ -430,10 +430,10 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 ## 5 · A season of weather *(slides 8–9)*
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *A season of weather*
-- [ ] 📖 **Introduce the file as furniture, not as a feature** — *"Somebody walks out to the masts and reads the temperature off an instrument. That is a MET run, and it is most of why anybody leaves this building. Every one of those readings has been written down since the station opened."*
+- [ ] 📖 **Introduce the file as furniture, not as a feature** — *"There is an instrument on the mast: the automatic weather station, AWS in the book. It writes down the temperature every eight minutes, day and night, however cold it gets. And at least twice a day somebody walks out to the masts and reads the temperature by hand, to check the instrument is telling the truth. That is a MET run. Every one of those readings has been written down since the station opened."*
 
 - [ ] **Open `week-09/season.txt` in the editor.** Let them look at it for a second
-- [ ] 📖 **Say what it is and let the size do the work** — *"Same idea as the watch log — fields with a pipe between them. Day, time, temperature, and who went out for it. Every day the station has been open."*
+- [ ] 📖 **Say what it is and let the size do the work** — *"Same idea as the watch log — fields with a pipe between them. Day, time, temperature, and who took it: a crew member, or AWS. Every day the station has been open."*
 - [ ] 💡 **Then read the count off the editor's own status bar rather than claiming a number** — *"Say what the editor says."*
 - [ ] ⚠️ **Close it again.** A 50,000-line file open in an editor is a scrolling hazard for the rest of the night
 
@@ -447,7 +447,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       public string Time { get; }
       public double Celsius { get; }
 
-      // A NAME, not a CrewMember. The met book is paper.
+      // A name, or AWS. The met book is paper.
       public string TakenBy { get; }
 
       public SeasonReading(int day, string time, double celsius, string takenBy)
@@ -617,22 +617,22 @@ Tonight ten loops the room has watched get written come out, the tests never mov
     50,000 readings over 268 days
 
     season average        -43.1 C
-    coldest               -68.6 C on day 102 at 22:05, taken by Nakamura
-    below -50             14,834 readings
-    Moretti took          16,996 of them
+    coldest               -70.3 C on day 130 at 19:47, taken by AWS
+    below -50             14,811 readings
+    Moretti took          179 of them
 
     the five coldest readings in the book:
-      day 102  22:05  -68.6 C  Nakamura
-      day 137  23:32  -68.3 C  Moretti
-      day 156  20:32  -68.1 C  Lindqvist
-      day 117  05:45  -68.0 C  Okonkwo
-      day 126  07:07  -67.7 C  Reyes
+      day 130  19:47  -70.3 C  AWS
+      day 158  01:30  -68.8 C  AWS
+      day 144  16:09  -68.1 C  AWS
+      day 98   09:24  -67.6 C  AWS
+      day 129  06:09  -67.6 C  AWS
   ```
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *Six questions, six lines*
 - [ ] 🎯 **Point at the count, not at the cleverness** — *"Six answers. Fifty thousand readings. Six lines of code."*
 - [ ] 💡 **And the last one is the only one tonight with more than one word in it** — *"Below minus sixty, then in order, then stop at five. One line, and each step hands the next one a sequence to work on. That is the whole of what the middle column on that slide was for."*
-- [ ] 💡 **Then the two the room should notice, and let them find the second** — *"Moretti is the met tech, so of course she took a third of them. And look who took the coldest reading of the season: the chef, at ten at night, in midwinter."*
+- [ ] 💡 **Then the two the room should notice, and let them find the second** — *"Moretti is the met tech, so of course she took a third of the hand readings. Now look at the name on the coldest reading of the season: AWS. Nobody was outside at minus seventy. That is the standing order working."*
 - [ ] ⚠️ **Do not skip this one — it is the honest sell** — *"Nobody was going to write a loop to find out how many readings this season were below minus fifty. Not because it is hard. Because it was never worth the loop. So the question never got asked."*
 - [ ] **Press `q`**
 
@@ -696,8 +696,8 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   ```
     what that cost:
       reading the file     0 ms for all 50,000 lines
-      asking the questions 58.0 ms
-      the book, in memory  0.0 MB from a 1.1 MB file
+      asking the questions 53.3 ms
+      the book, in memory  0.0 MB from a 0.9 MB file
   ```
 
 - [ ] ⚠️ **Read the millisecond figures off YOUR screen.** The query time moves every run. The `0 ms` and the `0.0 MB` do not
@@ -725,10 +725,10 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] **<kbd>F5</kbd>, and press `s` at the desk.** It takes a few seconds before it stops
 - [ ] 💡 *"It is reading fifty thousand lines before it stops."*
-- [ ] 💥 **Stop 1** — Watch `line` reads `268|16:03|-24.2|Lindqvist` — *"Day two hundred sixty-eight. That is the last line in the book. It has read all fifty thousand."*
+- [ ] 💥 **Stop 1** — Watch `line` reads `268|23:56|-19.1|AWS` — *"Day two hundred sixty-eight. That is the last line in the book. It has read all fifty thousand."*
 - [ ] 🎯 **Call Stack: click the `Program.cs` frame** — it highlights `int readings = book.Count();` — *"And it read them to count them: how many readings are in the book."*
 - [ ] **Continue** (<kbd>F5</kbd>)
-- [ ] 💥 **Stop 2, straight after** — `line` reads `1|16:14|-26.7|Reyes` — ⚠️ **stop and let them look** — *"Day one. The first line of the book, again. It went back to the top of the file."*
+- [ ] 💥 **Stop 2, straight after** — `line` reads `1|00:03|-26.7|AWS` — ⚠️ **stop and let them look** — *"Day one. The first line of the book, again. It went back to the top of the file."*
 - [ ] 🎯 **Call Stack again** — it highlights `int days = book.Max(r => r.Day);` — *"This time for the next question: the latest day. Counting read the whole book, and this question started reading it all over again."*
 - [ ] 🎯 **Then say what that means for every question** — *"The count, and then six questions. Every one of them goes back to the top of the file. That is seven reads: three hundred fifty thousand lines, to answer questions about fifty thousand."*
 - [ ] **Untick the breakpoint in the BREAKPOINTS panel, Continue**, and let the report print
@@ -761,19 +761,19 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
   ```
     what that cost:
-      reading the file     10 ms for all 50,000 lines
-      asking the questions 5.0 ms
-      the book, in memory  12.3 MB from a 1.1 MB file
+      reading the file     9 ms for all 50,000 lines
+      asking the questions 5.3 ms
+      the book, in memory  11.8 MB from a 0.9 MB file
   ```
 
 - [ ] 🎯 **All three numbers have flipped. Read them one at a time**
   - 📖 *"Reading takes time now, because it actually reads the file."*
   - 📖 *"Asking is fast now, because the questions ask a list that is already in memory."*
-  - 📖 *"And the book takes twelve megabytes, because the program is holding every reading."*
+  - 📖 *"And the book takes almost twelve megabytes, because the program is holding every reading."*
 - [ ] 💡 **Then the trade** — *"So `ToList` is a trade. Read the file once and hold all of it, or hold none of it and read the file again for every question."*
 - [ ] 🎯 **Then the two facts that stay true either way**
   - 📖 *"Reading the file still costs more than all the questions put together. The queries are not the expensive part. Getting the list is."*
-  - 📖 *"And a file that is one point one megabytes on disk is twelve point three megabytes once it is in the program. More than ten times bigger, held for as long as I want to keep asking questions."*
+  - 📖 *"And a file that is under one megabyte on disk is almost twelve megabytes once it is in the program. More than ten times bigger, held for as long as I want to keep asking questions."*
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *What it cost*
 - [ ] 🎯 **Then hand them the arithmetic instead of doing it** — *"That is one season. Haldane has been open since nineteen ninety-four."* — and stop

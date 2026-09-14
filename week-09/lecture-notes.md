@@ -292,8 +292,8 @@ It works. Every answer the met book gives is correct. But put a stopwatch round 
 ```
   what that cost:
     reading the file     0 ms for all 50,000 lines
-    asking the questions 58.0 ms
-    the book, in memory  0.0 MB from a 1.1 MB file
+    asking the questions 53.3 ms
+    the book, in memory  0.0 MB from a 0.9 MB file
 ```
 
 **Reading fifty thousand lines took no time, and the book takes no memory.** That is because `Read` did not read anything. It handed back *the instruction* "go through the file and turn each line into a reading" — and that instruction runs **every single time anybody asks it something**. `TheMetBook` counts the readings and then asks six questions, so the whole file is read from the top **seven times**: 350,000 lines, to answer questions about 50,000.
@@ -311,9 +311,9 @@ public static List<SeasonReading> Read(string path) =>
         .ToList();
 ```
 
-`ToList()` runs the plan **once**, now, and keeps the answer. All three numbers flip: reading takes about 10 ms because it really reads the file, asking takes about 5 ms because the questions ask a list already in memory, and the book holds 12.3 MB.
+`ToList()` runs the plan **once**, now, and keeps the answer. All three numbers flip: reading takes about 9 ms because it really reads the file, asking takes about 5 ms because the questions ask a list already in memory, and the book holds 11.8 MB.
 
-⚠️ **Your milliseconds will differ.** The `0 ms` and the `0.0 MB` will not, and nor will the 12.3 MB.
+⚠️ **Your milliseconds will differ.** The `0 ms` and the `0.0 MB` will not, and nor will the 11.8 MB.
 
 > [!IMPORTANT]
 > **The rule for this course: a method that hands a query to somebody else ends it with `ToList()`.** Inside one method, where you build a query and use it right away, leaving it off is fine and saves a copy. Handing a recipe across a method boundary is how you ship something that quietly does its work again every time it is asked.
@@ -444,16 +444,16 @@ Here is the part that is worth more than the six lines. Ask the program what it 
 
 ```
   what that cost:
-    reading the file     10 ms for all 50,000 lines
-    asking the questions 5.0 ms
-    the book, in memory  12.3 MB from a 1.1 MB file
+    reading the file     9 ms for all 50,000 lines
+    asking the questions 5.3 ms
+    the book, in memory  11.8 MB from a 0.9 MB file
 ```
 
 Three facts, and the last one is the one to sit with:
 
 1. **Reading the file cost more than every question put together.** The queries are not the expensive part. *Getting the list* is.
 2. **It read all fifty thousand lines to answer any of them.** To find the single coldest reading in the season, it built fifty thousand objects.
-3. **A 1.1 MB file became 12.3 MB of program.** More than ten times bigger, held for as long as you want to keep asking questions.
+3. **A 0.9 MB file became 11.8 MB of program.** More than ten times bigger, held for as long as you want to keep asking questions.
 
 ⚠️ **The numbers on your own machine will differ, and the shape will not.** That ratio is the point, not the milliseconds.
 
