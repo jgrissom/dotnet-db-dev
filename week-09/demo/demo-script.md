@@ -460,7 +460,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   }
   ```
 
-- [ ] 📖 **One sentence and move on** — *"Four facts and a constructor. It answers nothing about itself, because tonight every question comes from outside."*
+- [ ] 📖 **Say what the class is for, then move on** — *"This class holds one line of the met book. A line has four parts: the day, the time, the temperature, and who took the reading. The constructor fills in all four when the line is read. The class does not answer any questions itself. Tonight every question about the season is asked in `Program.cs`."*
 
 - [ ] **New file `week-09/Haldane/Season.cs`**
 
