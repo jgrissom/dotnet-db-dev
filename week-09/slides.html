@@ -376,7 +376,7 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 makes the code harder to read.</strong></p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §3 · six more of the same shape</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §4 · the muster that lost a name" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §5 · a season of weather" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -393,7 +393,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="8" style="--class:invert;--paginate:true;--footer:🖥️ Demo §4 · the muster that lost a name;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="8" style="--class:invert;--paginate:true;--footer:🖥️ Demo §5 · a season of weather;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -411,17 +411,15 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="13">
-<h2 id="a-query-is-a-recipe">A query is a recipe</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp"><span class="hljs-keyword">var</span> muster = watch.SignOuts().Where(s =&gt; !s.IsBack);
-<span class="hljs-comment">// 3 unaccounted for</span>
-
-watch.MarkBack(<span class="hljs-string">&quot;Okonkwo&quot;</span>);
-<span class="hljs-comment">// the muster, as taken - 2 unaccounted for</span>
+<h2 id="a-season-of-weather">A season of weather</h2>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>102|22:05|-68.6|Nakamura
+103|07:41|-61.2|Moretti
 </code></pre>
-<p><code>Where</code> handed back <strong>instructions</strong>, not a list.<br />
-Instructions run again every time you look.</p>
-<p><strong>A muster is a record of a moment.</strong> <code>.ToList()</code></p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §4 · the muster that lost a name</footer>
+<p><strong>50,000 readings. 268 days. One text file.</strong></p>
+<p>Somebody walked out to the masts and read a<br />
+number off an instrument. Every time.</p>
+<p>Nothing has ever asked it anything.</p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §5 · a season of weather</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §5 · a season of weather" data-theme="gaia" data-style="section pre {
   background: #151b23;
@@ -458,17 +456,21 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="13">
-<h2 id="a-season-of-weather">A season of weather</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>102|22:05|-68.6|Nakamura
-103|07:41|-61.2|Moretti
+<h2 id="six-questions-six-lines">Six questions, six lines</h2>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp">book.Max(r =&gt; r.Day)
+book.Average(r =&gt; r.Celsius)
+book.MinBy(r =&gt; r.Celsius)
+book.Count(r =&gt; r.Celsius &lt; <span class="hljs-number">-50</span>)
+book.Count(r =&gt; r.TakenBy == <span class="hljs-string">&quot;Moretti&quot;</span>)
+book.Where(r =&gt; r.Celsius &lt; <span class="hljs-number">-60</span>).OrderBy(r =&gt; r.Celsius).Take(<span class="hljs-number">5</span>).ToList()
 </code></pre>
-<p><strong>50,000 readings. 268 days. One text file.</strong></p>
-<p>Somebody walked out to the masts and read a<br />
-number off an instrument. Every time.</p>
-<p>Nothing has ever asked it anything.</p>
+<p><strong>Nobody was going to write a loop</strong> to find out<br />
+how many readings this season were below −50.</p>
+<p>Not because it is hard. Because it was never<br />
+worth the loop — so the question never got asked.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §5 · a season of weather</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §5 · a season of weather" data-theme="gaia" data-style="section pre {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §6 · what it cost" data-theme="gaia" data-style="section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -485,7 +487,7 @@ section pre .hljs-number, section pre .hljs-literal { color: #79c0ff; }
 section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
-" lang="C" class="invert" data-marpit-pagination="10" style="--class:invert;--paginate:true;--footer:🖥️ Demo §5 · a season of weather;--theme:gaia;--style:section pre {
+" lang="C" class="invert" data-marpit-pagination="10" style="--class:invert;--paginate:true;--footer:🖥️ Demo §6 · what it cost;--theme:gaia;--style:section pre {
   background: #151b23;
   border-radius: 8px;
 }
@@ -503,19 +505,17 @@ section pre .hljs-built_in { color: #ffa657; }
 section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="13">
-<h2 id="six-questions-six-lines">Six questions, six lines</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp">book.Max(r =&gt; r.Day)
-book.Average(r =&gt; r.Celsius)
-book.MinBy(r =&gt; r.Celsius)
-book.Count(r =&gt; r.Celsius &lt; <span class="hljs-number">-50</span>)
-book.Count(r =&gt; r.TakenBy == <span class="hljs-string">&quot;Moretti&quot;</span>)
-book.Where(r =&gt; r.Celsius &lt; <span class="hljs-number">-60</span>).OrderBy(r =&gt; r.Celsius).Take(<span class="hljs-number">5</span>).ToList()
+<h2 id="a-query-is-a-recipe">A query is a recipe</h2>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp">IEnumerable&lt;SeasonReading&gt; book = Season.Read(metBook);
 </code></pre>
-<p><strong>Nobody was going to write a loop</strong> to find out<br />
-how many readings this season were below −50.</p>
-<p>Not because it is hard. Because it was never<br />
-worth the loop — so the question never got asked.</p>
-<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §5 · a season of weather</footer>
+<ul>
+<li>reading the file: <strong>0 ms</strong> · the book in memory: <strong>0.0 MB</strong></li>
+<li>then <strong>seven reads</strong> of the same file: the count, and one for each of the six questions</li>
+</ul>
+<p><code>Read</code> handed back <strong>instructions</strong>, not readings.<br />
+Instructions run again every time you ask.</p>
+<p><strong>A method that hands back a query ends it with</strong> <code>.ToList()</code></p>
+<footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §6 · what it cost</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §6 · what it cost" data-theme="gaia" data-style="section pre {
   background: #151b23;
@@ -553,12 +553,12 @@ section pre .hljs-name { color: #7ee787; }
 section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 ;" data-marpit-pagination-total="13">
 <h2 id="what-it-cost">What it cost</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>the book, in memory    11.8 MB from a 1.1 MB file
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>the book, in memory    12.3 MB from a 1.1 MB file
 </code></pre>
 <ul>
 <li>getting the list cost <strong>more than every question</strong></li>
 <li>it read <strong>all</strong> 50,000 to answer any one</li>
-<li><strong>ten times the file</strong>, held, to ask six questions</li>
+<li><strong>more than ten times the file</strong>, held, to ask six questions</li>
 </ul>
 <p>That is <em>one</em> season. Haldane opened in 1994.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §6 · what it cost</footer>
