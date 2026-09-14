@@ -500,7 +500,8 @@ Tonight nine loops the room has watched get written come out, the tests never mo
   ```
 
 - [ ] 💥 **Let it sit. Then be precise about what happened rather than about what is wrong** — *"Okonkwo is gone from a list I wrote down before he came back. Nothing touched that variable. I did not reassign it."*
-- [ ] **Press `q`**
+- [ ] **Press `q`.** ⚠️ **Under the debugger this throws `System.IO.DirectoryNotFoundException` as the desk closes. That is expected — don't chase it.** The log is saved to `week-09/watch-log.txt`, a path counted from the top of the repo, and the debugger starts the program from a different folder that has no `week-09/` in it. Nothing is lost: the fix run below goes back to `dotnet run` from the top of the repo, and the failed save leaves Okonkwo out on the ice, which is what that run needs
+  - 💡 **Only if somebody asks about the red text** — *"The debugger started the program from a different folder, so it could not find where the log goes. Every other run tonight starts from the top of the repo."*
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *A query is a recipe*
 - [ ] 🎯 **The explanation, and it is a mechanism rather than a principle** — *"`Where` did not hand me a list of people. It handed me the instruction walk that list and keep the ones who are not back. The instruction is what got stored, and it runs again every single time anybody looks at it. So when I asked it for a count the second time, it went and looked again — and by then Okonkwo was back."*
