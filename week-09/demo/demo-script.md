@@ -434,7 +434,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] **Open `week-09/season.txt` in the editor.** Let them look at it for a second
 - [ ] 📖 **Say what it is and let the size do the work** — *"Same idea as the watch log — fields with a pipe between them. Day, time, temperature, and who took it: a crew member, or AWS. Every day of this winter so far."*
-- [ ] 💡 **Press <kbd>⌘↓</kbd> to jump to the end of the file, and point at the last reading** — *"The last line in the book is day two hundred sixty-eight. That is the same day as the banner at the top of the board."*
+- [ ] 💡 **Press <kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd> to jump to the end of the file, and point at the last reading** — *"The last line in the book is day two hundred sixty-eight. That is the same day as the banner at the top of the board."*
 - [ ] ⚠️ **Close it again.** A 50,000-line file open in an editor is a scrolling hazard for the rest of the night
 
 - [ ] **Two files, and neither is tonight's lesson. New file `week-09/Haldane/SeasonReading.cs`**
