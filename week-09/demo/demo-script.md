@@ -470,7 +470,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
     Muster taken at 18:12 - 3 unaccounted for.
   ```
 
-- [ ] 🎯 **Say what the room just watched, because it is the thing they will need in a minute** — *"That question got asked three times — once for each person on the sign-out list. Remember that it asked."*
+- [ ] 🎯 **Say what the room just watched, because it is the thing they will need in a minute** — *"That question got asked three times — once for each person on the sign-out list."*
 - [ ] 🎯 **Then the names, so they are holding them** — *"Lindqvist, Okonkwo, Reyes. Three people on the ice, written down."*
 - [ ] **Now press `b` and mark `Okonkwo` back.** The board redraws — two people outside. Nothing stops; that is not the query
 - [ ] 📖 **Ask before pressing anything, and wait** — *"Okonkwo is in. The muster I took two minutes ago has three names on it. What does it say now?"*
