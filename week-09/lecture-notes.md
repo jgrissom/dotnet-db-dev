@@ -387,7 +387,7 @@ All three hand back the same things in the same order, and the registry is first
 
 ## Querying a file, and what it costs
 
-Haldane's met book holds every temperature anybody has written down since the station opened: **50,000 readings over 268 days**, in a text file, one line each.
+Haldane's met book holds every temperature recorded this winter, by the AWS or by hand: **50,000 readings over 268 days**, in a text file, one line each.
 
 Reading **one line** is week 8's `Watch.Load` again. Reading the **whole book** is a query that ends in `ToList()` — [a query is a recipe](#a-query-is-a-recipe-not-an-answer) is why that ending matters:
 

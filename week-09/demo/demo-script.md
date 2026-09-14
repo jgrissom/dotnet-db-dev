@@ -430,11 +430,11 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 ## 5 · A season of weather *(slides 8–9)*
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *A season of weather*
-- [ ] 📖 **Introduce the file as furniture, not as a feature** — *"There is an instrument on the mast: the automatic weather station, AWS in the book. It writes down the temperature every eight minutes, day and night, however cold it gets. And at least twice a day somebody walks out to the masts and reads the temperature by hand, to check the instrument is telling the truth. That is a MET run. Every one of those readings has been written down since the station opened."*
+- [ ] 📖 **Introduce the file as furniture, not as a feature** — *"There is an instrument on the mast: the automatic weather station, AWS in the book. It writes down the temperature every eight minutes, day and night, however cold it gets. And at least twice a day somebody walks out to the masts and reads the temperature by hand, to check the instrument is telling the truth. That is a MET run. Every one of those readings goes in the met book, one line each. This book is this winter: two hundred sixty-eight days so far."*
 
 - [ ] **Open `week-09/season.txt` in the editor.** Let them look at it for a second
-- [ ] 📖 **Say what it is and let the size do the work** — *"Same idea as the watch log — fields with a pipe between them. Day, time, temperature, and who took it: a crew member, or AWS. Every day the station has been open."*
-- [ ] 💡 **Then read the count off the editor's own status bar rather than claiming a number** — *"Say what the editor says."*
+- [ ] 📖 **Say what it is and let the size do the work** — *"Same idea as the watch log — fields with a pipe between them. Day, time, temperature, and who took it: a crew member, or AWS. Every day of this winter so far."*
+- [ ] 💡 **Press <kbd>⌘↓</kbd> to jump to the end of the file, and point at the last reading** — *"The last line in the book is day two hundred sixty-eight. That is the same day as the banner at the top of the board."*
 - [ ] ⚠️ **Close it again.** A 50,000-line file open in an editor is a scrolling hazard for the rest of the night
 
 - [ ] **Two files, and neither is tonight's lesson. New file `week-09/Haldane/SeasonReading.cs`**
