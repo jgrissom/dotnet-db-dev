@@ -45,7 +45,7 @@ Tonight nine loops the room has watched get written come out, the tests never mo
 - [ ] ⚠️ **Run `dotnet run --project week-08/Haldane` once before class.** §1 opens by running it, so it has to build on the night
 - [ ] 💡 **The times in this sheet's output blocks are MINE.** Every log line the desk stamps tonight is station time — UTC — and the muster stamps one too. Nothing else in the blocks moves
 - [ ] 💡 ⚠️ **§5 and §6 print three cost figures and TWO OF THEM WILL DIFFER ON YOUR MACHINE.** The read time and the query time move by a few milliseconds every single run. **Say what the screen says.** The memory figure — *11.8 MB from a 1.1 MB file* — was stable across every run and it is the one carrying the argument
-- [ ] 💡 **No debugger tonight.** If a query is answering something you did not expect, week 5's offer stands quietly — but ⚠️ **a query in the Watch panel RUNS when the panel evaluates it**, which is the whole subject of §4 and will confuse you if you forget
+- [ ] 💡 **The debugger comes out tonight, to show something no printed output can.** ⚠️ **A query in the Watch panel RUNS when the panel evaluates it** — so never add a Watch on a query variable, or it quietly re-runs every time the pane refreshes
 - [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station that is not this one"*
 
 ---
