@@ -606,6 +606,12 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   }
   ```
 
+- [ ] 📖 **Start with the first line of the method** — *"`Season.Read` hands back the book, and I call it `book`. Every question in this method is asked of `book`."*
+- [ ] 📖 **Then the count** — *"`book.Count()` is how many readings are in the book."*
+- [ ] 📖 **Then the six questions, one line at a time** — *"`Max` of the day is the highest day number in the book. That is how many days the book covers."* · *"`Average` of the temperature is the average for the whole season."* · *"`MinBy` of the temperature hands back the one reading with the lowest temperature. It is the whole reading, not just the number, so the report can also say the day, the time and who took it."* · *"`Count` with a condition: how many readings were below minus fifty."* · *"`Count` again, with a different condition: how many readings Moretti took."* · *"And the last question takes several steps. I will come back to it after we see the answers."*
+- [ ] 💡 **If somebody asks about the `!` on the `MinBy` line** — *"`MinBy` hands back null when the book is empty. This book is not empty, so the exclamation mark tells the compiler I know that."*
+- [ ] 📖 **The rest of the method is printing** — *"Everything under the questions prints the answers, with the same Spectre markup as the board. There is nothing new in that part."*
+
 - [ ] **Run it and press `s`**
 
   ```bash
