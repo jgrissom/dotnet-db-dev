@@ -106,7 +106,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 
 ### Who chose the 3?
 
-- [ ] In `week-03/Haldane/Program.cs`, **select the whole file (`⌘A`) and paste over it.** ⚠️ **The template is TWO lines** — a `// See https://aka.ms/new-console-template` comment *and* the `Hello, World!` — so replacing "the line" strands the comment at the top, which is exactly where §4's `using Spectre.Console;` is about to land. 📖 **Talk it through** — *"three people are out on the ice, so a space for three"*:
+- [ ] In `week-03/Haldane/Program.cs`, **select the whole file (`⌘A` / `Ctrl+A`) and paste over it.** ⚠️ **The template is TWO lines** — a `// See https://aka.ms/new-console-template` comment *and* the `Hello, World!` — so replacing "the line" strands the comment at the top, which is exactly where §4's `using Spectre.Console;` is about to land. 📖 **Talk it through** — *"three people are out on the ice, so a space for three"*:
   ```csharp
   string[] names = new string[3];
   names[0] = "Okonkwo";
@@ -139,7 +139,7 @@ Tonight adds `week-03/Haldane` beside them — by command, nothing reopened.
 
 ### The one that grows
 
-- [ ] **Select all of it — the array, the four names *and* the `Length` line — and paste over it.** ⚠️ **`⌘A` is the safe move; a stray `Console.WriteLine(names.Length);` left behind is a `CS0103` on a name that no longer exists:**
+- [ ] **Select all of it — the array, the four names *and* the `Length` line — and paste over it.** ⚠️ **`⌘A` / `Ctrl+A` is the safe move; a stray `Console.WriteLine(names.Length);` left behind is a `CS0103` on a name that no longer exists:**
   ```csharp
   List<string> outside = new List<string>();
   outside.Add("Okonkwo");

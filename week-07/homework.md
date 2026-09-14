@@ -107,7 +107,7 @@ dotnet add Project.Tests reference Project
 > [!IMPORTANT]
 > **Do this before you open anything in the new folder.** VS Code worked out which projects exist when you opened this window, and `Project.Tests` did not exist then — so until you reload, `Assert` and `[Fact]` come up as red squiggles in a file that is perfectly fine. ⚠️ **`.NET: Restart Language Server` does not fix it. Only a window reload does.**
 
-**3. Trim the template.** Open `Project.Tests/Project.Tests.csproj`, select the whole file (`⌘A`), and paste this over it — [the notes say what each line is doing there](lecture-notes.md#the-csproj-trimmed):
+**3. Trim the template.** Open `Project.Tests/Project.Tests.csproj`, select the whole file (`⌘A` / `Ctrl+A`), and paste this over it — [the notes say what each line is doing there](lecture-notes.md#the-csproj-trimmed):
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

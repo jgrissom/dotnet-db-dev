@@ -314,7 +314,7 @@ You have been bolting scratch lines onto the end of `Program.cs` for three parts
 - **the removal becomes a real question** rather than a hard-coded name — and *that* is what the two "builds and runs" points test, because the grader answers it with nothing but Enter
 - **the list is printed again at the end**, so the removal is something you can see rather than a number going down
 
-Select the whole of `Project/Program.cs` (`⌘A`), paste this over, then make it yours: your record's name, your own facts, your own wording.
+Select the whole of `Project/Program.cs` (`⌘A` / `Ctrl+A`), paste this over, then make it yours: your record's name, your own facts, your own wording.
 
 ```csharp
 // Project/Program.cs — swap Thing for your record's name and Find/Visit for yours

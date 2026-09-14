@@ -287,7 +287,7 @@ git commit -m "One list holds them both"
 
 You have been bolting scratch lines onto the end of `Program.cs` for three parts now, and they have done their job. **This replaces all of them with the tidy version.**
 
-Select the whole of `Project/Program.cs` (`⌘A`), paste this over, then make it yours: your record's name, your own facts, your own wording.
+Select the whole of `Project/Program.cs` (`⌘A` / `Ctrl+A`), paste this over, then make it yours: your record's name, your own facts, your own wording.
 
 ```csharp
 // Project/Program.cs — swap Thing for your record's name, and Visit for your verb

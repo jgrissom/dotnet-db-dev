@@ -142,7 +142,7 @@ VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**.
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *Program.cs is the whole file* · **twenty seconds, don't teach it:** *"one file, statements top to bottom, no class around them. This is where your program starts"* 🔗 **that second half plants §6** — `Conditions.cs` is a file the program does NOT start in
 - [ ] **Ask, don't assume:** *"has anyone written `static void Main` before?"* — hands up, one sentence (*"older spelling, both still work"*); no hands, move on. ⚠️ **Never frame the slide as "where did Main go?"** — most of this room has never had one
-- [ ] In `week-01/Haldane/Program.cs`, **select the whole file (`⌘A`) and paste the banner over it.** ⚠️ **The template is TWO lines** — a `// See https://aka.ms/new-console-template` comment *and* the `Hello, World!` — so deleting "the line" leaves the comment stranded above your first code of the term. 📖 **Say what it does** — it's the station introducing itself:
+- [ ] In `week-01/Haldane/Program.cs`, **select the whole file (`⌘A` / `Ctrl+A`) and paste the banner over it.** ⚠️ **The template is TWO lines** — a `// See https://aka.ms/new-console-template` comment *and* the `Hello, World!` — so deleting "the line" leaves the comment stranded above your first code of the term. 📖 **Say what it does** — it's the station introducing itself:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");

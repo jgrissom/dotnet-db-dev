@@ -83,7 +83,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
   dotnet add week-05/Haldane package Spectre.Console --version 0.57.2
   ```
 
-- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
+- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**
 
   ```
   Developer: Reload Window
@@ -95,7 +95,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] **Open `week-05/Haldane/Program.cs`.** *"This is the program we finished with last week. I copied it across and I haven't changed a thing in it. Three changes and it's this week's"* — **each one has an exact place to look, so none of this is a hunt**
 
-- [ ] **1 of 3 — the console learns to redraw itself.** <kbd>⌘F</kbd> for **`void DrawBoard()`** — one hit, near the bottom. **Select that line and the `{` under it**, and paste this over them
+- [ ] **1 of 3 — the console learns to redraw itself.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void DrawBoard()`** — one hit, near the bottom. **Select that line and the `{` under it**, and paste this over them
 
   ```csharp
   void DrawBoard()
@@ -125,7 +125,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] **Press `q`**
 
-- [ ] **2 of 3 — the loop stops redrawing, and the actions take it over.** <kbd>⌘F</kbd> for **`That wasn't one of the buttons`** — one hit, the loop's `default:`. Below the switch the loop ends with `AnsiConsole.WriteLine();` and `DrawBoard();`. **Select those two lines** and paste this over them
+- [ ] **2 of 3 — the loop stops redrawing, and the actions take it over.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`That wasn't one of the buttons`** — one hit, the loop's `default:`. Below the switch the loop ends with `AnsiConsole.WriteLine();` and `DrawBoard();`. **Select those two lines** and paste this over them
 
   ```csharp
       AnsiConsole.WriteLine();
@@ -133,21 +133,21 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎯 **Say what that just broke, because it is the setup:** *"the board doesn't redraw at all now. Nothing I do gets me a fresh screen"*
 
-- [ ] **Now give it back, three times — only where the board actually changed.** <kbd>⌘F</kbd> for **`s.Expected = newTime;`** — one hit, in `AmendABackBy`. Put `DrawBoard();` on the line under it
+- [ ] **Now give it back, three times — only where the board actually changed.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`s.Expected = newTime;`** — one hit, in `AmendABackBy`. Put `DrawBoard();` on the line under it
 
   ```csharp
               s.Expected = newTime;
               DrawBoard();
   ```
 
-- [ ] **<kbd>⌘F</kbd> for `s.Back();`** — one hit, in `MarkSomebodyBack`. Same again
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `s.Back();`** — one hit, in `MarkSomebodyBack`. Same again
 
   ```csharp
               s.Back();
               DrawBoard();
   ```
 
-- [ ] **<kbd>⌘F</kbd> for `outside.Add(new SignOut("14:57"`** — one hit, in `SignSomebodyOut`. Same again
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `outside.Add(new SignOut("14:57"`** — one hit, in `SignSomebodyOut`. Same again
 
   ```csharp
           outside.Add(new SignOut("14:57", name.Trim(), reason.Trim(), expected.Trim()));
@@ -253,7 +253,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"Nothing new in it. A name set once, a count only this class can move, and the one method that moves it — that is all of last week, applied to a person instead of a sign-out"*
 
-- [ ] **Now `SignOut.cs`, and this is the interesting edit.** <kbd>⌘F</kbd> for **`public string Name { get; }`** — one hit. Replace that line with
+- [ ] **Now `SignOut.cs`, and this is the interesting edit.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public string Name { get; }`** — one hit. Replace that line with
 
   ```csharp
       public CrewMember Who { get; }
@@ -261,7 +261,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎯 **Say why, because this is the beat and not the typing:** *"the board has been storing a person's name. A name is a string, and a string cannot carry a trip count. So the board stops holding a name and starts holding the person"*
 
-- [ ] **And the constructor, in the same file.** <kbd>⌘F</kbd> for **`public SignOut(`** — one hit. Replace the whole constructor with this
+- [ ] **And the constructor, in the same file.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public SignOut(`** — one hit. Replace the whole constructor with this
 
   ```csharp
       public SignOut(string time, CrewMember who, string reason, string expected)
@@ -288,7 +288,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 💡 **Don't dwell on the errors themselves** — there are only two complaints in there, each said several times: *cannot convert from `string` to `CrewMember`* where a row is made, and *`SignOut` does not contain a definition for `Name`* where one is read. **The point is the reach**, and that four edits will clear the lot
 
-- [ ] **1 of 4 — the crew, and the three rows.** In `Program.cs`, <kbd>⌘F</kbd> for **`List<SignOut> outside`** — one hit. Select from there down to the last `outside.Add(...)` and paste this over the lot
+- [ ] **1 of 4 — the crew, and the three rows.** In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`List<SignOut> outside`** — one hit. Select from there down to the last `outside.Add(...)` and paste this over the lot
 
   ```csharp
   List<CrewMember> crew = new List<CrewMember>();
@@ -313,7 +313,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 📖 **Name the asymmetry before anybody has to ask about it** — *"six on the winter crew. Three of them get a variable of their own, because the rows underneath have to point at those exact people — `okonkwo` up here and `okonkwo` on the row are one object with two names on it. The other three just go straight onto the list, because nothing else needs to reach them"*
 - [ ] 💡 **That is tonight's whole question arriving in the seed data** — a variable is a name, and you only need one when something else has to refer to the same thing. **Don't teach it here**; §6 collects it properly with the muster
 
-- [ ] **2 of 4 — the board's NAME cell.** <kbd>⌘F</kbd> for **`Markup.Escape(s.Name)`** — one hit, inside `DrawBoard`. Make it read
+- [ ] **2 of 4 — the board's NAME cell.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`Markup.Escape(s.Name)`** — one hit, inside `DrawBoard`. Make it read
 
   ```csharp
               $"[{Fg}]{Markup.Escape(s.Who.Name)}[/]",
@@ -321,11 +321,11 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"The board goes through the person to get the name"*
 
-- [ ] **3 of 4 and 4 of 4 — the two searches.** <kbd>⌘F</kbd> for **`s.Name == name`** — **two hits**, one in `AmendABackBy` and one in `MarkSomebodyBack`. Make both read `s.Who.Name == name`
+- [ ] **3 of 4 and 4 of 4 — the two searches.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`s.Name == name`** — **two hits**, one in `AmendABackBy` and one in `MarkSomebodyBack`. Make both read `s.Who.Name == name`
 - [ ] 💡 *"Same edit, twice. Every place that used to ask a sign-out its name now asks the person on it"*
 
 - [ ] **Build again.** *"Four edits, and the list is down to one — and this last one is a different kind of problem"*
-- [ ] ⚠️ **More than one left? An edit didn't take, and the code says which** — `CS1061` in `DrawBoard` is the NAME cell, `CS1061` in `AmendABackBy` or `MarkSomebodyBack` is one of the two searches *(that `⌘F` has **two** hits and it is easy to replace only the first)*, `CS1503` on the seeded rows is the crew block. **The one that should still be there is `CS1503` inside `SignSomebodyOut`**
+- [ ] ⚠️ **More than one left? An edit didn't take, and the code says which** — `CS1061` in `DrawBoard` is the NAME cell, `CS1061` in `AmendABackBy` or `MarkSomebodyBack` is one of the two searches *(that `⌘F` / `Ctrl+F` has **two** hits and it is easy to replace only the first)*, `CS1503` on the seeded rows is the crew block. **The one that should still be there is `CS1503` inside `SignSomebodyOut`**
 
   ```bash
   dotnet build week-05/Haldane
@@ -337,7 +337,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎯 **This is `SignSomebodyOut`, and it is worth ten seconds because it is honest:** *"the duty officer types a name at the desk. A typed name is a string. The board wants a person — so somewhere, something has to turn one into the other"*
 
-- [ ] **<kbd>⌘F</kbd> for `Still load-bearing`** — one hit, a comment in `SignSomebodyOut`. **Select from that comment down to the closing `}` of the `if` beneath it**, and paste this over the lot
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Still load-bearing`** — one hit, a comment in `SignSomebodyOut`. **Select from that comment down to the closing `}` of the `if` beneath it**, and paste this over the lot
 
   ```csharp
       foreach (CrewMember c in crew)
@@ -354,14 +354,14 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 📖 *"Walk the crew, find the one with that name, put them on the board. Six people, so at worst it looks at six"*
 - [ ] 💡 **The blank-name guard went with it, and that is fine:** *"it was there to stop an empty name putting a blank row on the board. Nobody on this station is called nothing, so the search refuses it now"*
 
-- [ ] **Now the TRIPS column.** <kbd>⌘F</kbd> for **`]STATUS[/]");`** — one hit, inside `DrawBoard`. Make it read
+- [ ] **Now the TRIPS column.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`]STATUS[/]");`** — one hit, inside `DrawBoard`. Make it read
 
   ```csharp
           .AddColumn($"[{Dim}]STATUS[/]")
           .AddColumn($"[{Dim}]TRIPS[/]");
   ```
 
-- [ ] **And the cell for it.** <kbd>⌘F</kbd> for **`$"[{Cold}]OUT[/]");`** — one hit. Make it read
+- [ ] **And the cell for it.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`$"[{Cold}]OUT[/]");`** — one hit. Make it read
 
   ```csharp
               s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]",
@@ -401,7 +401,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] **Press `q`**
 
-- [ ] 💥 **Now the last thing the duty officer asked for.** *"One number at the bottom: how many trips has the station logged today?"* <kbd>⌘F</kbd> for **`people outside.[/]");`** — one hit, inside `DrawBoard`. Paste this on the line below it
+- [ ] 💥 **Now the last thing the duty officer asked for.** *"One number at the bottom: how many trips has the station logged today?"* <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`people outside.[/]");`** — one hit, inside `DrawBoard`. Paste this on the line below it
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]{CrewMember.TripsToday} trips logged today.[/]");
@@ -440,7 +440,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 📖 *"Now the board is complaining. And it is telling me exactly what to type"*
 
-- [ ] **In `Program.cs`, do what it says.** <kbd>⌘F</kbd> for **`{s.Who.TripsToday}`** — one hit, the last line of `AddRow`. Make it read
+- [ ] **In `Program.cs`, do what it says.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`{s.Who.TripsToday}`** — one hit, the last line of `AddRow`. Make it read
 
   ```csharp
               $"[{Fg}]{CrewMember.TripsToday}[/]");
@@ -481,7 +481,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
       public int TripsToday { get; private set; }
   ```
 
-- [ ] **And put the board's cell back.** <kbd>⌘F</kbd> for **`CrewMember.TripsToday`** — ⚠️ **two hits.** You want the one **inside `AddRow`**, not the `trips logged today` line below it — that one comes out next. Back to
+- [ ] **And put the board's cell back.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`CrewMember.TripsToday`** — ⚠️ **two hits.** You want the one **inside `AddRow`**, not the `trips logged today` line below it — that one comes out next. Back to
 
   ```csharp
               $"[{Fg}]{s.Who.TripsToday}[/]");
@@ -490,7 +490,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **Now the question the whole segment turns on:** *"so where does the day's total go? It is a real thing the duty officer wants. It just is not a fact about **a** crew member"*
 - [ ] *"The day's total is a fact about the crew. So it gets worked out from the crew"*
 
-- [ ] **Replace the `trips logged today` line** with the loop that earns it. <kbd>⌘F</kbd> for **`trips logged today`** — one hit, inside `DrawBoard`
+- [ ] **Replace the `trips logged today` line** with the loop that earns it. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`trips logged today`** — one hit, inside `DrawBoard`
 
   ```csharp
       int tripsToday = 0;
@@ -620,7 +620,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] *"End of watch. The desk closes, and before the duty officer hands over they walk the board and account for everybody on it"*
 - [ ] 📖 *"And they work off a copy — because last week we learned to hand out copies, and a copy is scratch paper. Nothing on the real board can get hurt"*
 
-- [ ] **The desk already has a function per action; this is one more.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut`** — one hit. Paste this **directly above it** — the call first, then the function
+- [ ] **The desk already has a function per action; this is one more.** In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void SignSomebodyOut`** — one hit. Paste this **directly above it** — the call first, then the function
 
   ```csharp
   EndOfWatch();
@@ -688,7 +688,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **Nothing is wrong yet, and that is the point.** *"So it's scratch paper. I can scribble on it"*
 - [ ] ⚠️ **This code is finished and it never changes again.** Everything from here happens in the debugger, on a program that is already correct — **what breaks is a belief, not the code**
 
-- [ ] **Breakpoint.** <kbd>⌘F</kbd> for **`List<SignOut> muster`** — one hit, inside `EndOfWatch()`. Put the breakpoint on **that line**
+- [ ] **Breakpoint.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`List<SignOut> muster`** — one hit, inside `EndOfWatch()`. Put the breakpoint on **that line**
 - [ ] ⚠️ **It has to be that line and not a later one.** The cross-off loop runs immediately after it, and once that has finished the muster is settled — marking people back after it changes nothing you can see
 - [ ] **<kbd>F5</kbd>, then press `q` at the desk.** ⚠️ **The muster runs after the desk closes**, so nothing reaches the breakpoint until you quit
 - [ ] **Click `Step Over` once.** The breakpoint stops *before* its line runs, so the copy does not exist yet — one step and it does
@@ -775,7 +775,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *`CrewMember` and `CrewMember?`* · 🎯 **name the gap, then the thing that fills it:** *"that loop had no way to tell me it found nothing. Every method any of us has written so far promises something comes back — and this one cannot keep that promise. One question mark changes what is being promised: `CrewMember` means there is one. `CrewMember?` means there might not be"*
 
-- [ ] **Make the search hand its answer back.** In `Program.cs`, <kbd>⌘F</kbd> for **`c.Name == name.Trim()`** — one hit, inside `SignSomebodyOut`. ⚠️ **Don't search for the `foreach` line itself — §3 put an identical one inside `DrawBoard`.** **Select the whole `foreach` around it**, from `foreach (CrewMember c in crew)` down to its closing `}`, and paste this over it
+- [ ] **Make the search hand its answer back.** In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`c.Name == name.Trim()`** — one hit, inside `SignSomebodyOut`. ⚠️ **Don't search for the `foreach` line itself — §3 put an identical one inside `DrawBoard`.** **Select the whole `foreach` around it**, from `foreach (CrewMember c in crew)` down to its closing `}`, and paste this over it
 
   ```csharp
       CrewMember? who = Find(name.Trim());
@@ -852,7 +852,7 @@ Tonight the room finds out what a word they have all typed was actually doing. T
 - [ ] 🎯 **And the honest comparison, because this is the beat:** *"ten minutes ago the same typo did nothing at all and I never found out. Now it takes the desk off the air in front of everybody. Which of those would you rather have at minus thirty-nine?"*
 - [ ] 🎞️ **GO TO SLIDE 10** — *The warning that was already there* · *"and the compiler said so at build time, in the quietest possible voice, about a crash that had not happened yet"*
 
-- [ ] **The fix.** <kbd>⌘F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit. Replace **that line and the `DrawBoard();` under it** with
+- [ ] **The fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit. Replace **that line and the `DrawBoard();` under it** with
 
   ```csharp
       if (who == null)

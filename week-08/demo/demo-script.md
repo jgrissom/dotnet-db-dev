@@ -92,13 +92,13 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 *"Eighth week, and this program has not been written from scratch since week three. The tests come with it — three facts that were true last week and are still true now."*
 
-- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
+- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**
 
   ```
   Developer: Reload Window
   ```
 
-- [ ] **Open `week-08/Haldane/Program.cs`, and move the date on.** <kbd>⌘F</kbd> for **`day 254`** — one hit. Make it read
+- [ ] **Open `week-08/Haldane/Program.cs`, and move the date on.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`day 254`** — one hit. Make it read
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 261[/]");
@@ -192,7 +192,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 📖 **Before any code, because it decides how everything else is written:** *"A relative path — a plain name — is worked out from the folder you were standing in when you started the program. Not from where the program lives. We always run from the top of the repo, so a name with the week in front of it lands next to the week's projects."*
 - [ ] 🎯 **Then the measured half, off the slide:** *"`dotnet test` does not stand where `dotnet run` stands. It runs from inside the test project's build folder. So the same plain name means two different files depending on which command you typed. That is why nothing in this course writes a file name inside a class. The path gets handed in."*
 
-- [ ] **Now the first save. Open `week-08/Haldane/Watch.cs`, go to the end of the file (<kbd>⌘↓</kbd>), select the last line — it is a single `}` — and paste this over it**
+- [ ] **Now the first save. Open `week-08/Haldane/Watch.cs`, go to the end of the file (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>), select the last line — it is a single `}` — and paste this over it**
 
   ```csharp
 
@@ -215,7 +215,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 *"One line per entry, built out of the three things every entry can answer. `WriteAllLines` takes a list of strings and puts each one on its own line."*
 
-- [ ] **Now `Program.cs` decides where.** <kbd>⌘F</kbd> for **`Watch watch = new Watch();`** — one hit. **Select that one line and paste this over it**
+- [ ] **Now `Program.cs` decides where.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`Watch watch = new Watch();`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
   Watch watch = new Watch();
@@ -230,7 +230,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   string logFile = "week-08/watch-log.txt";
   ```
 
-- [ ] **And write it at the handover.** <kbd>⌘F</kbd> for **`EndOfWatch();`** — one hit. **Select that one line and paste this over it**
+- [ ] **And write it at the handover.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`EndOfWatch();`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
   // The watch is handed over, so the book gets written up: load at the start,
@@ -277,7 +277,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 **Off the slide, before the paste:** *"Three decisions. The kind word goes first, so reading a line tells me what it is before I look at any of it. The fields get separated by something that cannot turn up inside a field — a pipe, not a comma, because commas are everywhere in real text. And anything the program can work out for itself stays out of the file. Look at what is missing from that first line: nothing on it says how many trips Lindqvist has made today. The board prints that number every night. It is not in here."*
 
-- [ ] **In `Watch.cs`, replace the save you just wrote.** <kbd>⌘F</kbd> for **`// One line per entry, exactly as the log prints it.`** — one hit. **Select from that line down to and including `File.WriteAllLines(path, lines);` and paste this over it** — the `}` under it stays where it is
+- [ ] **In `Watch.cs`, replace the save you just wrote.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// One line per entry, exactly as the log prints it.`** — one hit. **Select from that line down to and including `File.WriteAllLines(path, lines);` and paste this over it** — the `}` under it stays where it is
 
   ```csharp
       // The path is handed in and never written down in here. Where the file
@@ -317,7 +317,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   ```
 
 - [ ] 📖 *"We use entry `is` to find out what it actually turned out to be. Three kinds, Signout, Reading, and FuelCheck."*
-- [ ] **That needs one import.** <kbd>⌘F</kbd> for **`public class Watch`** — one hit. **Select that one line and paste this over it**
+- [ ] **That needs one import.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public class Watch`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
   //
@@ -345,7 +345,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 📖 *"Still readable. Every field is still a field. Same day, same six lines, and now the pieces are still pieces."*
 - [ ] ⚠️ **Then the thing that just happened quietly, and do not rush it:** *"The sentences are gone. I overwrote them. Nothing asked me and nothing warned me — the old file was in the old format, and this program does not know that format exists. Tonight I could afford to lose it. In week fourteen we do this to data you are not allowed to lose. Then it has a name. It is called a migration."*
 
-- [ ] **Now the way back in. Go to the end of `Watch.cs` (<kbd>⌘↓</kbd>), select the last line — a single `}` — and paste this over it**
+- [ ] **Now the way back in. Go to the end of `Watch.cs` (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>), select the last line — a single `}` — and paste this over it**
 
   ```csharp
 
@@ -402,7 +402,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 📖 **Walk three things and nothing else. Put the cursor on `line.Split('|')`:** *"`Split` hands back an array. Same square brackets you have used on a list since week three, indexed from zero — field zero is the kind word."*
 - [ ] 🎯 **Then the cursor on `Lookup(crew, field[2])`:** *"The file says the word Okonkwo. The log has to hold the man. Build a fresh crew member out of that name instead and there are two Okonkwos. The station can only see one of them. Every trip the real one made lands on the other. That is week five, and it is the same question `Assert.Same` asks."*
 
-- [ ] **And the lookup itself, which is the one part of tonight you have already written. Go to the end of `Watch.cs` again (<kbd>⌘↓</kbd>), select the last line — a single `}` — and paste this over it**
+- [ ] **And the lookup itself, which is the one part of tonight you have already written. Go to the end of `Watch.cs` again (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>), select the last line — a single `}` — and paste this over it**
 
   ```csharp
 
@@ -429,7 +429,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 **Thirty seconds, no editor:** *"That is about sixty lines of honest work, both directions, and it is the right amount for a log with three different kinds of things on it. Most lists are not like that. Most lists are one list of one type — and for those, a library does the whole trip in two lines. It is called a serializer, and you will use one in the lab tonight. I did it by hand first so you know what it is doing for you."*
 
-- [ ] **Now the loading half in `Program.cs`.** <kbd>⌘F</kbd> for **`watch.Add(new FuelCheck("07:40", 4300));`** — one hit. **Select from that line down to and including `watch.Add(new Reading("14:35", -41.5, bhatt));` and paste this over the lot**
+- [ ] **Now the loading half in `Program.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`watch.Add(new FuelCheck("07:40", 4300));`** — one hit. **Select from that line down to and including `watch.Add(new Reading("14:35", -41.5, bhatt));` and paste this over the lot**
 
   ```csharp
   if (File.Exists(logFile))
@@ -510,7 +510,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 🎯 **Put the file back on screen and point at the last line:** *"One thing is wrong in that file and it has been wrong since week three. Nakamura signed out at 14:57. So did everybody I have signed out on this program, every week, all term. It is typed into the code."*
 - [ ] 📖 *"That did not matter while the log died with the program. Nobody read it back, so nobody ever saw it. Now it keeps. Every sign-out anybody types at this desk goes into the log book saying 14:57, and it stays there."*
 
-- [ ] **In `Watch.cs`, give the station a clock.** <kbd>⌘F</kbd> for **`private readonly List<ILogEntry> _entries`** — one hit. **Select that one line and paste this over it**
+- [ ] **In `Watch.cs`, give the station a clock.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`private readonly List<ILogEntry> _entries`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
       private readonly List<ILogEntry> _entries = new List<ILogEntry>();
@@ -532,7 +532,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 **Off the slide, and it is the whole reason that line says `UtcNow`:** *"`DateTime.Now` is this machine's clock. `DateTime.UtcNow` is the world's. Haldane keeps UTC, and a lot of Antarctic stations do. Down there every meridian is a few hundred meters away, so a local time zone is a choice rather than a fact. The station runs on one clock. It is not the clock of whichever laptop is sitting on the desk tonight."*
 
-- [ ] **Use it — and TWO things change on this line, not one.** <kbd>⌘F</kbd> for **`Add(new SignOut("14:57"`** — one hit. It currently reads `_entries.Add(new SignOut("14:57", who, reason, expected));`. The time becomes the clock, **and the `_entries.` on the front comes off** — so a sign-out goes through this class's own `Add` instead of straight at the list. **Select the whole line and make it read**
+- [ ] **Use it — and TWO things change on this line, not one.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`Add(new SignOut("14:57"`** — one hit. It currently reads `_entries.Add(new SignOut("14:57", who, reason, expected));`. The time becomes the clock, **and the `_entries.` on the front comes off** — so a sign-out goes through this class's own `Add` instead of straight at the list. **Select the whole line and make it read**
 
   ```csharp
           Add(new SignOut(Now(), who, reason, expected));
@@ -540,7 +540,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 💡 **Instructor note, nothing to say yet: that second change does nothing right now.** `Add` still only appends, so the program behaves identically. It is the line that makes the ordering three beats from now reach the desk at all — without it, every sign-out you type would keep landing at the bottom whatever its time said
 
-- [ ] **And the reading, in `Program.cs`.** <kbd>⌘F</kbd> for **`watch.Add(new Reading("15:02"`** — one hit. Make that line read
+- [ ] **And the reading, in `Program.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`watch.Add(new Reading("15:02"`** — one hit. Make that line read
 
   ```csharp
       watch.Add(new Reading(Watch.Now(), celsius, who));
@@ -548,7 +548,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 🎯 **Now the part that only shows up because the clock is real. Put the cursor on `Add` in `Watch.cs`:** *"The log prints in the order the entries sit in the list. That has looked like time order all term, and it was luck: everything went in in order. A real clock can hand me a line that belongs earlier than the one before it."*
 
-- [ ] **Still in `Watch.cs`.** <kbd>⌘F</kbd> for **`public void Add(ILogEntry entry)`** — one hit. **Select from that line down to and including `_entries.Add(entry);` and paste this over it** — the `}` under it stays where it is
+- [ ] **Still in `Watch.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public void Add(ILogEntry entry)`** — one hit. **Select from that line down to and including `_entries.Add(entry);` and paste this over it** — the `}` under it stays where it is
 
   ```csharp
       // The book is kept in time order. A new line almost always belongs at the

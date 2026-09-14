@@ -101,13 +101,13 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 📖 *"Ninth week, and this program has not been written from scratch since week three. The tests come with it."*
 
-- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
+- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**
 
   ```
   Developer: Reload Window
   ```
 
-- [ ] **Open `week-09/Haldane/Program.cs` and move the date on.** <kbd>⌘F</kbd> for **`day 261`** — one hit. Make that line read
+- [ ] **Open `week-09/Haldane/Program.cs` and move the date on.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`day 261`** — one hit. Make that line read
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 268[/]");
@@ -115,7 +115,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 💡 **Name it as you do it — this is the last time it happens** — *"I have typed that number in by hand every week since week three. The station has a clock. It has a log. It has a file of every reading the station has ever taken. And the one thing it cannot tell you is what day it is, because that lives in the source code. Remember this line."*
 
-- [ ] **And the log file's name.** <kbd>⌘F</kbd> for **`week-08/watch-log.txt`** — one hit. Make that line read
+- [ ] **And the log file's name.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`week-08/watch-log.txt`** — one hit. Make that line read
 
   ```csharp
   string logFile = "week-09/watch-log.txt";
@@ -144,7 +144,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 ## 2 · The promise, collected *(slides 2–4)*
 
-- [ ] **Open `week-09/Haldane/Watch.cs`.** <kbd>⌘F</kbd> for **`public double LatestCelsius()`** — one hit
+- [ ] **Open `week-09/Haldane/Watch.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public double LatestCelsius()`** — one hit
 - [ ] 🎯 **Read the method out loud — what it does, not its syntax** — *"Start at minus forty-one point five. Walk every entry on the log. If it turns out to be a reading, remember its temperature. Hand back whatever you were holding at the end. A whole method, to find the newest temperature on the board."*
 - [ ] 💡 **Then the receipt** — *"I wrote this in front of you in week six, and I said then that in week nine you would write it in one line. so, I've had 3 weeks to get that right."*
 
@@ -219,7 +219,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 📖 *"The arrow reads as goes to. So this whole line is: add up the crew, and the thing to add up about each one is their trips today."*
 - [ ] 💡 **The one thing worth saying about the name** — *"The `c` is a name I picked for one crew member at a time. I never write the type, because the compiler already knows what is in the list."*
 
-- [ ] **Back in `Watch.cs`, and the next one is the same shape — this one goes straight to the arrow.** <kbd>⌘F</kbd> for **`public List<SignOut> SignOuts()`** — one hit. **Select the whole method — from that line down to and including the `}` under `return found;` — and paste this over it**
+- [ ] **Back in `Watch.cs`, and the next one is the same shape — this one goes straight to the arrow.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public List<SignOut> SignOuts()`** — one hit. **Select the whole method — from that line down to and including the `}` under `return found;` — and paste this over it**
 
   ```csharp
       public List<SignOut> SignOuts() =>
@@ -229,7 +229,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 💡 *"Same arrow as the last one. The whole method is one expression, so the braces go too."*
 - [ ] 📖 **Name what came out, and what the `ToList` is for** — *"A new list, a loop, an `is`, an `Add` and a `return` — gone. And the `ToList` on the end is not decoration. Without it this hands back instructions for finding the sign-outs instead of a list of them. Later tonight the met book shows what that costs."*
 
-- [ ] **One more, and it is a property rather than a method.** <kbd>⌘F</kbd> for **`public int OutsideCount`** — one hit. **Select from that line down to and including the `}` that closes the property — the second of the two `}` in a row under `return outside;`** — and paste this over it
+- [ ] **One more, and it is a property rather than a method.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public int OutsideCount`** — one hit. **Select from that line down to and including the `}` that closes the property — the second of the two `}` in a row under `return outside;`** — and paste this over it
 
   ```csharp
       public int OutsideCount => SignOuts().Count(s => !s.IsBack);
@@ -261,7 +261,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 🎞️ **GO TO SLIDE 5** — *What each word hands back*
 - [ ] 📖 **Read the right-hand column, not the left** — *"What matters is not the words, it is what each one hands back. A word that hands back a sequence can have another word after it. A word that hands back one number is the end of the line."*
 
-- [ ] **Now four in a row, and stop explaining after the first.** <kbd>⌘F</kbd> for **`public bool SignOut(CrewMember`** — one hit. **Select from `foreach (SignOut s in SignOuts())` down to and including `Add(new SignOut(Now(), who, reason, expected));`, and paste this over it**
+- [ ] **Now four in a row, and stop explaining after the first.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public bool SignOut(CrewMember`** — one hit. **Select from `foreach (SignOut s in SignOuts())` down to and including `Add(new SignOut(Now(), who, reason, expected));`, and paste this over it**
 
   ```csharp
           if (SignOuts().Any(s => s.Who == who && !s.IsBack))
@@ -274,7 +274,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 📖 **Say what the loop was really for** — *"That loop existed to answer one yes-or-no question, and it answered it by returning out of the middle of itself. `Any` asks the question out loud instead."*
 
-- [ ] **Next.** <kbd>⌘F</kbd> for **`public bool AmendBackBy`** — one hit. **Select from `foreach (SignOut s in SignOuts())` down to and including `return false;` — inside this method both appear once — and paste this over it**
+- [ ] **Next.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public bool AmendBackBy`** — one hit. **Select from `foreach (SignOut s in SignOuts())` down to and including `return false;` — inside this method both appear once — and paste this over it**
 
   ```csharp
           SignOut? open = SignOuts().FirstOrDefault(s => s.Who.Name == name && !s.IsBack);
@@ -291,7 +291,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 📖 **The interesting half is what stayed** — *"The searching is one line now. The `if` that is left was never searching for anything — it is what to do when there was nothing to find. Those were two jobs in one loop, and now they are two lines."*
 - [ ] ⚠️ **And the word, because the lab will punish getting it wrong** — *"`FirstOrDefault`, not `First`. There is a `First`, and on an empty list it throws. This method's whole job includes finding nothing."*
 
-- [ ] **Next, and this one is theirs to guess.** <kbd>⌘F</kbd> for **`public bool MarkBack`** — one hit. **Ask what goes here before you paste it.** Then select from `foreach (SignOut s in SignOuts())` down to and including `return false;` and paste
+- [ ] **Next, and this one is theirs to guess.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public bool MarkBack`** — one hit. **Ask what goes here before you paste it.** Then select from `foreach (SignOut s in SignOuts())` down to and including `return false;` and paste
 
   ```csharp
           SignOut? open = SignOuts().FirstOrDefault(s => s.Who.Name == name && !s.IsBack);
@@ -305,7 +305,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
           return true;
   ```
 
-- [ ] ⚠️ **And the last one in this file — read the whole instruction before you select.** <kbd>⌘F</kbd> for **`Lookup(List<CrewMember>`** — one hit. **Select from that line down to and including the `}` that closes the method — the FIRST of the two `}` in a row under `return null;`. The second one closes the class and stays. Paste this over it**
+- [ ] ⚠️ **And the last one in this file — read the whole instruction before you select.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`Lookup(List<CrewMember>`** — one hit. **Select from that line down to and including the `}` that closes the method — the FIRST of the two `}` in a row under `return null;`. The second one closes the class and stays. Paste this over it**
 
   ```csharp
       private static CrewMember? Lookup(List<CrewMember> crew, string name) =>
@@ -325,7 +325,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 💡 *"Five. Still five. Four more loops out of four methods, and I have not looked at the board once while doing it."*
 
-- [ ] **Now `Program.cs`, and this is week five's, spoken out loud back then.** <kbd>⌘F</kbd> for **`int tripsToday = 0;`** — one hit. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");`, and paste this over it**
+- [ ] **Now `Program.cs`, and this is week five's, spoken out loud back then.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`int tripsToday = 0;`** — one hit. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");`, and paste this over it**
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]{crew.Sum(c => c.TripsToday)} trips logged today.[/]");
@@ -333,7 +333,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 🎯 **Collect it by name — this one was a spoken promise** — *"I wrote that loop in front of you in week five. What I said at the time was that it is a lot of typing to add up three numbers."*
 
-- [ ] **And the search, one more time.** <kbd>⌘F</kbd> for **`CrewMember? Find(string wanted)`** — one hit. **Select from that line down to and including the `}` under `return null;` — a blank line follows it, so there is only one — and paste this over it**
+- [ ] **And the search, one more time.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`CrewMember? Find(string wanted)`** — one hit. **Select from that line down to and including the `}` under `return null;` — a blank line follows it, so there is only one — and paste this over it**
 
   ```csharp
   CrewMember? Find(string wanted) =>
@@ -388,7 +388,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 📖 **Say where it came from** — *"The muster at the end of the watch has been in this program since week five. It is one more loop that only asks a question."*
 
-- [ ] **In `Program.cs`, <kbd>⌘F</kbd> for `// watch.SignOuts() builds a fresh list`** — one hit. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");`, and paste this over it**
+- [ ] **In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `// watch.SignOuts() builds a fresh list`** — one hit. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");`, and paste this over it**
 
   ```csharp
       // The sign-outs, keeping the ones who are not back.
@@ -510,7 +510,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 📖 **Say what `Read` does, one piece at a time** — *"`ReadLine` is week eight: split the line, check the fields, make a reading. `Read` is tonight: every line of the file, turned into a reading, keeping only the lines that really are readings."*
 - [ ] 💡 **And why it is not a loop, before somebody asks** — *"`Watch.Load` stays a loop, because it puts entries into the watch. This one only hands readings back."*
 
-- [ ] **Now the questions. In `Program.cs`, <kbd>⌘F</kbd> for `string logFile` — one hit — and paste this directly under that line**
+- [ ] **Now the questions. In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `string logFile` — one hit — and paste this directly under that line**
 
   ```csharp
   // The met book. It has been in this folder since the season started, and
@@ -518,7 +518,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   string metBook = "week-09/season.txt";
   ```
 
-- [ ] 🎯 **Now the line from §1.** <kbd>⌘F</kbd> for **`string metBook`** — one hit — **and paste this directly under it**
+- [ ] 🎯 **Now the line from §1.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`string metBook`** — one hit — **and paste this directly under it**
 
   ```csharp
 
@@ -528,7 +528,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   int day = Season.LatestDay(metBook);
   ```
 
-- [ ] 🎯 **And now delete the literal.** <kbd>⌘F</kbd> for **`winter crew - day 268`** — one hit. Make that line read
+- [ ] 🎯 **And now delete the literal.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`winter crew - day 268`** — one hit. Make that line read
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day {day}[/]");
@@ -537,13 +537,13 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 🎯 **Land it, and it is a small thing that is worth the thirty seconds** — *"That number is not in this program any more. It comes off the last line of the met book, which is the last thing anybody wrote down. If somebody goes out tomorrow and writes a line, the console knows what day it is without me touching it."*
 - [ ] ⚠️ **Then the honest half, because they will ask** — *"And there is no cheap way to read the last line of a file. To find it, the program walked all fifty thousand lines. Nothing in a text file says where the last line starts. Hold on to that. It is the next segment."*
 
-- [ ] **The key.** <kbd>⌘F</kbd> for **`Console.Write("[o]ut`** — one hit. Make that whole line read
+- [ ] **The key.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`Console.Write("[o]ut`** — one hit. Make that whole line read
 
   ```csharp
       Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [s]eason  [q]uit: ");
   ```
 
-- [ ] **And the case.** <kbd>⌘F</kbd> for **`TakeAReading();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
+- [ ] **And the case.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`TakeAReading();`** — one hit. **Select from that line down to and including the `break;` under it, and paste this over it**
 
   ```csharp
               TakeAReading();
@@ -554,7 +554,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
               break;
   ```
 
-- [ ] **Then the report.** <kbd>⌘F</kbd> for **`void DrawBoard()`** — one hit — **and paste this directly ABOVE that line**
+- [ ] **Then the report.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void DrawBoard()`** — one hit — **and paste this directly ABOVE that line**
 
   ```csharp
   // Six questions about the whole season. Six lines.
@@ -642,7 +642,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 📖 **Ask before you measure anything, and let somebody guess** — *"That was fifty thousand rows. How long do you think it took?"*
 
-- [ ] **In `TheMetBook`, <kbd>⌘F</kbd> for `IEnumerable<SeasonReading> book = Season.Read(metBook);`** — one hit. **Select that one line and paste this over it**
+- [ ] **In `TheMetBook`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `IEnumerable<SeasonReading> book = Season.Read(metBook);`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
       long beforeRead = GC.GetTotalMemory(true);
@@ -655,7 +655,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       clock.Restart();
   ```
 
-- [ ] ⚠️ **Now stop the clock, and stop it in the right place** — the last question is the last thing it should be timing. <kbd>⌘F</kbd> for **`List<SeasonReading> worst = book.Where(r => r.Celsius < -60)`** — one hit. **Select from that line down to and including the `.ToList();` under it, and paste this over it**
+- [ ] ⚠️ **Now stop the clock, and stop it in the right place** — the last question is the last thing it should be timing. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`List<SeasonReading> worst = book.Where(r => r.Celsius < -60)`** — one hit. **Select from that line down to and including the `.ToList();` under it, and paste this over it**
 
   ```csharp
       List<SeasonReading> worst = book.Where(r => r.Celsius < -60)
@@ -668,7 +668,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
   - 💡 **Worth ten seconds** — *"The clock stops here, not at the bottom. Everything below this line is printing, and printing is not asking."*
 
-- [ ] **And the bill goes on the end.** <kbd>⌘F</kbd> for **`{Markup.Escape(r.TakenBy)}[/]");`** — one hit. **Select from that line down to and including the `}` that closes `TheMetBook` — the one on its own at no indentation — and paste this over it**
+- [ ] **And the bill goes on the end.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`{Markup.Escape(r.TakenBy)}[/]");`** — one hit. **Select from that line down to and including the `}` that closes `TheMetBook` — the one on its own at no indentation — and paste this over it**
 
   ```csharp
               + $"[{Cold}]{r.Celsius:0.0} C[/]  [{Fg}]{Markup.Escape(r.TakenBy)}[/]");
@@ -716,7 +716,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
   - 💡 **Only if somebody asks** — *"Every command tonight runs from the top of the repo. That line tells the debugger to start from there too."*
 
-- [ ] **The breakpoint.** In `Season.cs`, <kbd>⌘F</kbd> for **`string[] field = line.Split('|');`** — one hit. Click the gutter on that line
+- [ ] **The breakpoint.** In `Season.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`string[] field = line.Split('|');`** — one hit. Click the gutter on that line
 - [ ] 📖 **Say what that line is** — *"This line runs once for every line of the book. That is fifty thousand times, every time the file is read."*
 - [ ] 📖 **Then the problem with a plain breakpoint** — *"A plain breakpoint here would stop fifty thousand times. So I am going to tell it to wait."*
 - [ ] **Right-click the red dot → Edit Breakpoint… → change the dropdown to Hit Count → type `>= 50000` → Enter**
@@ -738,13 +738,13 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 🎯 **The explanation, and it is a mechanism rather than a principle** — *"`Read` did not hand back fifty thousand readings. It handed back instructions: go through the file and turn each line into a reading. Nothing ran until somebody asked a question. Then every question ran those instructions again, from the top of the file."*
 - [ ] 💡 **And why the first run's numbers looked like that** — *"That is why reading took no time and the book took no memory. Nothing had been read yet. The cost moved into the questions."*
 
-- [ ] ⚠️ **The fix is two edits in `Season.cs`.** <kbd>⌘F</kbd> for **`public static IEnumerable<SeasonReading> Read(string path) =>`** — one hit. Make that line read
+- [ ] ⚠️ **The fix is two edits in `Season.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public static IEnumerable<SeasonReading> Read(string path) =>`** — one hit. Make that line read
 
   ```csharp
       public static List<SeasonReading> Read(string path) =>
   ```
 
-- [ ] **Then the end of the query.** <kbd>⌘F</kbd> for **`.OfType<SeasonReading>();`** — one hit. Make that line read
+- [ ] **Then the end of the query.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`.OfType<SeasonReading>();`** — one hit. Make that line read
 
   ```csharp
               .OfType<SeasonReading>()

@@ -190,7 +190,7 @@ public class Registry
 
 ### And a `Program.cs` that runs
 
-Select the whole of `Project/Program.cs` (`⌘A`) and paste this over it — the two lines `dotnet new` wrote are the SDK's, not yours:
+Select the whole of `Project/Program.cs` (`⌘A` / `Ctrl+A`) and paste this over it — the two lines `dotnet new` wrote are the SDK's, not yours:
 
 ```csharp
 // Project/Program.cs — swap Thing for your record's name, and print your own facts

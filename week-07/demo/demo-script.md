@@ -90,13 +90,13 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   dotnet add week-07/Haldane package Spectre.Console --version 0.57.2
   ```
 
-- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
+- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**
 
   ```
   Developer: Reload Window
   ```
 
-- [ ] **Open `week-07/Haldane/Program.cs`, and move the date on.** <kbd>⌘F</kbd> for **`day 247`** — one hit. Make it read
+- [ ] **Open `week-07/Haldane/Program.cs`, and move the date on.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`day 247`** — one hit. Make it read
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 254[/]");
@@ -305,10 +305,10 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   ```
 
 - [ ] 📖 **Walk it top to bottom, fast — it is all furniture they know:** *"a private list, `Add`, `Count`, a copy — the same shape as `Hour` last week and the same shape as your own `Registry` since week four. Then every helper the desk had: the sign-out filter, the outside count off the bottom of the board, sign somebody out, amend, mark back, the latest temperature. Nothing new was written. It moved"*
-- [ ] 🎯 **And point at the two bugs riding along — <kbd>⌘F</kbd> for `radioed in`, put the cursor on the `if` below it:** *"both bugs came with us. Sign-out still doesn't ask. Amend still takes any row with your name on it — look, no question about whether the trip is over. Moved, not fixed"*
+- [ ] 🎯 **And point at the two bugs riding along — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `radioed in`, put the cursor on the `if` below it:** *"both bugs came with us. Sign-out still doesn't ask. Amend still takes any row with your name on it — look, no question about whether the trip is over. Moved, not fixed"*
 - [ ] 💡 **Your own project got this shape for free** — *"notice what you did NOT have to do this week: your `Registry` was born a class a check can call, in week four. Haldane is the one catching up"*
 
-- [ ] **Now point `Program.cs` at it. First the seeds.** In `week-07/Haldane/Program.cs`, <kbd>⌘F</kbd> for **`// ── the watch log`** — one hit. **Select from that line down to and including `log.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
+- [ ] **Now point `Program.cs` at it. First the seeds.** In `week-07/Haldane/Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// ── the watch log`** — one hit. **Select from that line down to and including `log.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
 
   ```csharp
   // ── the watch ──────────────────────────────────────────────────────────────
@@ -335,7 +335,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Read the error list off the screen — don't count it, point at it:** *"every one of those lines is a place in `Program.cs` still calling the old names. The compiler just wrote the moving checklist for me. We work down it"*
 
-- [ ] 🎯 **First, read the old shape while it is still on screen.** <kbd>⌘F</kbd> for **`void AmendABackBy()`** — one hit. Put the cursor on `DrawBoard();` inside the loop, then on the amber `Nobody outside by that name` line under it: *"Two things can happen in this method. We find her, we write the new time, we redraw the board — that is this line, in here. Or the loop runs out and nobody by that name is outside — that is this line, down here. Watch where those two end up"*
+- [ ] 🎯 **First, read the old shape while it is still on screen.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void AmendABackBy()`** — one hit. Put the cursor on `DrawBoard();` inside the loop, then on the amber `Nobody outside by that name` line under it: *"Two things can happen in this method. We find her, we write the new time, we redraw the board — that is this line, in here. Or the loop runs out and nobody by that name is outside — that is this line, down here. Watch where those two end up"*
 
 - [ ] **Now the edit — and the prompts are staying put, so don't select them.** Still in `AmendABackBy`. **Leave the four lines under it alone.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** — and paste this over them
 
@@ -356,7 +356,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Last, the half that did not move — cursor at the top of the method, on the prompts:** *"And notice what I did not select. The two prompts and the two `ReadLine`s are untouched, because asking a human a question is this file's job and always will be"*
 
-- [ ] *"Same again for mark-back — same two lines, same restraint."* <kbd>⌘F</kbd> for **`void MarkSomebodyBack()`** — one hit. **The prompt above stays.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** and paste this over them
+- [ ] *"Same again for mark-back — same two lines, same restraint."* <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void MarkSomebodyBack()`** — one hit. **The prompt above stays.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** and paste this over them
 
   ```csharp
       if (watch.MarkBack(name))
@@ -369,36 +369,36 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       }
   ```
 
-- [ ] **The sign-out itself.** <kbd>⌘F</kbd> for **`log.Add(new SignOut("14:57"`** — one hit. Make that line read
+- [ ] **The sign-out itself.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`log.Add(new SignOut("14:57"`** — one hit. Make that line read
 
   ```csharp
           watch.SignOut(who, reason.Trim(), expected.Trim());
   ```
 
-- [ ] **The reading.** <kbd>⌘F</kbd> for **`log.Add(new Reading("15:02"`** — one hit. Make that line read
+- [ ] **The reading.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`log.Add(new Reading("15:02"`** — one hit. Make that line read
 
   ```csharp
       watch.Add(new Reading("15:02", celsius, who));
   ```
 
-- [ ] **Now delete the two helpers that moved.** <kbd>⌘F</kbd> for **`// Every sign-out on the log`** — one hit, near the bottom. **Select from that line to the end of the file** (<kbd>⇧⌘↓</kbd>) and delete it — `SignOuts()` and `LatestCelsius()` both live in `Watch.cs` now
+- [ ] **Now delete the two helpers that moved.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// Every sign-out on the log`** — one hit, near the bottom. **Select from that line to the end of the file** (<kbd>⇧⌘↓</kbd> / <kbd>Ctrl⇧End</kbd>) and delete it — `SignOuts()` and `LatestCelsius()` both live in `Watch.cs` now
 
-- [ ] **The log loop.** <kbd>⌘F</kbd> for **`entry in log`** — one hit, in `DrawLog`. Make that line read
+- [ ] **The log loop.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`entry in log`** — one hit, in `DrawLog`. Make that line read
 
   ```csharp
       foreach (ILogEntry entry in watch.All())
   ```
 
-- [ ] **Five calls still use the old names.** Open Replace (<kbd>⌥⌘F</kbd>), put **`SignOuts()`** in the find box and **`watch.SignOuts()`** in the replace box — the editor says how many it found; read it off the screen — and **Replace All**
+- [ ] **Five calls still use the old names.** Open Replace (<kbd>⌥⌘F</kbd> / <kbd>Ctrl+H</kbd>), put **`SignOuts()`** in the find box and **`watch.SignOuts()`** in the replace box — the editor says how many it found; read it off the screen — and **Replace All**
 - [ ] ⚠️ **Once.** Run it twice and every call reads `watch.watch.` — undo and do it again if the count looked wrong
 
-- [ ] **And the last one.** <kbd>⌘F</kbd> for **`LatestCelsius()`** — one hit left, in `DrawBoard`. Make that line read
+- [ ] **And the last one.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`LatestCelsius()`** — one hit left, in `DrawBoard`. Make that line read
 
   ```csharp
       double latest = watch.LatestCelsius();
   ```
 
-- [ ] **One more, because the move earned it — the board's headline count.** <kbd>⌘F</kbd> for **`int stillOut = 0;`** — one hit, in `DrawBoard`. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Dim}]{stillOut} people outside.[/]");`** and paste this over the lot
+- [ ] **One more, because the move earned it — the board's headline count.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`int stillOut = 0;`** — one hit, in `DrawBoard`. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Dim}]{stillOut} people outside.[/]");`** and paste this over the lot
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]{watch.OutsideCount} people outside.[/]");
@@ -463,13 +463,13 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 *"one line: the test project can see the desk's classes. The same wiring has been in every lab folder you've ever copied"*
 
-- [ ] ⚠️ **Reload the window** — new folder, same reason as every week. Command Palette (<kbd>⇧⌘P</kbd>) →
+- [ ] ⚠️ **Reload the window** — new folder, same reason as every week. Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) →
 
   ```
   Developer: Reload Window
   ```
 
-- [ ] **Trim the template. Open `week-07/Haldane.Tests/Haldane.Tests.csproj`**, select the whole file (<kbd>⌘A</kbd>), and paste this over it
+- [ ] **Trim the template. Open `week-07/Haldane.Tests/Haldane.Tests.csproj`**, select the whole file (<kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>), and paste this over it
 
   ```xml
   <Project Sdk="Microsoft.NET.Sdk">
@@ -645,7 +645,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎯 **This is the beat of the night. Let it sit, then:** *"red — and red is the good outcome here. Expected one, got two: my test just watched Okonkwo go out twice, on its own, in four milliseconds, without a keyboard, without a board, without me. The bug that took a projector and a room to see is now caught by a machine — and it will be caught every time anybody runs this suite, forever"*
 
-- [ ] **Now the fix — in `Watch.cs`.** <kbd>⌘F</kbd> for **`// Sign somebody out: a new record`** — one hit. **Select from that line down to and including the `}` directly above `// A new return time, radioed in.`** and paste this over it
+- [ ] **Now the fix — in `Watch.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// Sign somebody out: a new record`** — one hit. **Select from that line down to and including the `}` directly above `// A new return time, radioed in.`** and paste this over it
 
   ```csharp
       // Sign somebody out — unless they are already out there. Says whether
@@ -685,7 +685,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎯 *"green. Same test, same questions, and now the answer is one. Red, then green — the red proved the test works, the green proves the fix does. From here that test never comes off the suite: if this bug ever creeps back, in week ten, in week fifteen, it gets caught in milliseconds"*
 
-- [ ] **And the test can pin the refusal itself now — four lines, and the scene above them does not move.** In `WatchTests.cs`, <kbd>⌘F</kbd> for **`watch.SignOut(okonkwo, "MET RUN", "15:00");`** — one hit. Select from that line down to and including **`Assert.Equal(1, watch.OutsideCount);`** and paste this over them
+- [ ] **And the test can pin the refusal itself now — four lines, and the scene above them does not move.** In `WatchTests.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`watch.SignOut(okonkwo, "MET RUN", "15:00");`** — one hit. Select from that line down to and including **`Assert.Equal(1, watch.OutsideCount);`** and paste this over them
 
   ```csharp
           bool first = watch.SignOut(okonkwo, "MET RUN", "15:00");
@@ -704,7 +704,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   dotnet test week-07/Haldane.Tests
   ```
 
-- [ ] **The desk should say no out loud too — and again, the prompts stay.** In `Program.cs`, <kbd>⌘F</kbd> for **`void SignSomebodyOut()`** — one hit. **Leave everything down to the `Find` alone.** Then select the whole `if` — from **`if (who == null)`** down to and including the **`}` that closes its `else`** — and paste this over it. A two-branch decision becomes a three-branch one
+- [ ] **The desk should say no out loud too — and again, the prompts stay.** In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void SignSomebodyOut()`** — one hit. **Leave everything down to the `Find` alone.** Then select the whole `if` — from **`if (who == null)`** down to and including the **`}` that closes its `else`** — and paste this over it. A two-branch decision becomes a three-branch one
 
   ```csharp
       if (who == null)
@@ -791,8 +791,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 *"red, for the right reason: the open trip still says 15:30, because the amend went to the closed one. Now the fix — and this one is humbling"*
 
-- [ ] **Nothing to change yet — look first.** In `Watch.cs`, <kbd>⌘F</kbd> for `s.Back();` — one hit, in `MarkBack` — and put the cursor on the `if` above it. 📖 *"mark-back has asked the right question for three weeks — name matches AND not already back. The guard existed. Amend just never got it"*
-- [ ] **The fix.** <kbd>⌘F</kbd> for **`// A new return time, radioed in.`** — one hit. **Select from that line down to and including `if (s.Who.Name == name)`** and paste this over it
+- [ ] **Nothing to change yet — look first.** In `Watch.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `s.Back();` — one hit, in `MarkBack` — and put the cursor on the `if` above it. 📖 *"mark-back has asked the right question for three weeks — name matches AND not already back. The guard existed. Amend just never got it"*
+- [ ] **The fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// A new return time, radioed in.`** — one hit. **Select from that line down to and including `if (s.Who.Name == name)`** and paste this over it
 
   ```csharp
       // A new return time lands on the OPEN sign-out — never on a closed one.

@@ -66,13 +66,13 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   dotnet add week-04/Haldane package Spectre.Console --version 0.57.2
   ```
 
-- [ ] ⚠️ **Reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`** — VS Code learned this folder's projects when it opened, and `week-04` did not exist then
+- [ ] ⚠️ **Reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`** — VS Code learned this folder's projects when it opened, and `week-04` did not exist then
 
   ```
   Developer: Reload Window
   ```
 
-- [ ] **One edit, in `week-04/Haldane/Program.cs`.** <kbd>⌘F</kbd> for **`day 226`** — one hit, in the banner. Make it **`day 233`**
+- [ ] **One edit, in `week-04/Haldane/Program.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`day 226`** — one hit, in the banner. Make it **`day 233`**
 - [ ] 💡 *"A week has passed on the ice"*
 
 - [ ] **Run it.** The desk they built last time, working
@@ -115,7 +115,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *A correction, at −39* · *"Reyes gets on the radio. The vent is worse than it looked, she'll be another half hour. The duty officer has to change her return time — and right now the desk has no button for that"*
 
-- [ ] **Add the action.** In `week-04/Haldane/Program.cs`, <kbd>⌘F</kbd> for **`void LookSomebodyUp`** — one hit. Paste this **directly above it**
+- [ ] **Add the action.** In `week-04/Haldane/Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void LookSomebodyUp`** — one hit. Paste this **directly above it**
 
   ```csharp
   void AmendABackBy()
@@ -143,7 +143,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 - [ ] 🎯 **Then put the cursor on `s.Expected = newTime;` and leave it there.** *"That is the line. A correction comes in over the radio, and we reach into the record and set the field. Some of us would write exactly that"*
 - [ ] 💡 **Why that one line gets the attention, and it is the only reason to dwell:** §3's payoff is that it keeps working untouched after `Expected` stops being a field. Nothing else in this method matters tonight
 
-- [ ] **Then wire it to a key.** <kbd>⌘F</kbd> for **`case "w":`** — one hit. Paste this directly above it
+- [ ] **Then wire it to a key.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`case "w":`** — one hit. Paste this directly above it
 
   ```csharp
           case "a":
@@ -152,7 +152,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
   ```
 
-- [ ] **And put it on the desk.** <kbd>⌘F</kbd> for **`[o]ut  [w]ho`** — one hit. Make that line read
+- [ ] **And put it on the desk.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`[o]ut  [w]ho`** — one hit. Make that line read
 
   ```csharp
       Console.Write("[o]ut  [a]mend  [w]ho  [q]uit: ");
@@ -236,7 +236,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 🎯 **Set the trap first.** *"While I'm in here — I noticed a typo in Okonkwo's name last week. I'll just fix it"*
 
-- [ ] **Paste the typo.** <kbd>⌘F</kbd> for **`"Lindqvist", "FUEL"`** — one hit, the last of the three seeded rows. Paste this on the line below it
+- [ ] **Paste the typo.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`"Lindqvist", "FUEL"`** — one hit, the last of the three seeded rows. Paste this on the line below it
 
   ```csharp
   outside[2].Name = "Okonkow";
@@ -308,7 +308,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *`private set`* · 🎯 **the sentence of the night:** *"public on the property, private on the setter. Anybody can read it. **Nobody** outside this class can write it — so there is no line you can write, anywhere in this program, that claims somebody came back who didn't"*
 
-- [ ] **Now the action it exists for.** <kbd>⌘F</kbd> for **`void LookSomebodyUp`** — one hit. Paste this directly above it
+- [ ] **Now the action it exists for.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void LookSomebodyUp`** — one hit. Paste this directly above it
 
   ```csharp
   void MarkSomebodyBack()
@@ -330,7 +330,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
   ```
 
-- [ ] **Wire it to a key.** <kbd>⌘F</kbd> for **`case "w":`** — one hit. Paste this directly above it
+- [ ] **Wire it to a key.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`case "w":`** — one hit. Paste this directly above it
 
   ```csharp
           case "b":
@@ -339,7 +339,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
   ```
 
-- [ ] **And on the desk.** <kbd>⌘F</kbd> for **`[o]ut  [a]mend`** — one hit. Make that line read
+- [ ] **And on the desk.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`[o]ut  [a]mend`** — one hit. Make that line read
 
   ```csharp
       Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [q]uit: ");
@@ -347,21 +347,21 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
 
 - [ ] 🎯 **Say what just became impossible:** *"there is now exactly one way anybody comes back — somebody at this desk presses `b`. No line anywhere else in the program can claim it"*
 
-- [ ] **A STATUS column, so the board shows it.** <kbd>⌘F</kbd> for **`]EXPECTED[/]");`** — one hit. Make it read
+- [ ] **A STATUS column, so the board shows it.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`]EXPECTED[/]");`** — one hit. Make it read
 
   ```csharp
           .AddColumn($"[{Dim}]EXPECTED[/]")
           .AddColumn($"[{Dim}]STATUS[/]");
   ```
 
-- [ ] **And a cell to fill it.** <kbd>⌘F</kbd> for **`Escape(s.Expected)}[/]");`** — one hit. Make it read
+- [ ] **And a cell to fill it.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`Escape(s.Expected)}[/]");`** — one hit. Make it read
 
   ```csharp
               $"[{Dim}]{Markup.Escape(s.Expected)}[/]",
               s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]");
   ```
 
-- [ ] **Replace the count** — `outside.Count` is now the wrong question. <kbd>⌘F</kbd> for **`{outside.Count} people outside`** — one hit. Replace **that whole line** with
+- [ ] **Replace the count** — `outside.Count` is now the wrong question. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`{outside.Count} people outside`** — one hit. Replace **that whole line** with
 
   ```csharp
       int stillOut = 0;

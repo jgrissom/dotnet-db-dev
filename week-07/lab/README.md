@@ -123,7 +123,7 @@ week 7: starter
 | `Lab/Hour.cs` | The update reordered two lines in `Run()`. **Task 5.** |
 | everything else in `Lab/` | Weeks 1–6, finished, untouched by the update. Check 1 goes red if it changes. |
 
-💡 **The update signed its work.** Every line it touched has a `[scheduler update]` comment sitting on it — <kbd>⌘F</kbd> for `scheduler update` in the task's file and you're standing on the bug. Finding the line was never the job tonight; **proving it's wrong before you touch it is.**
+💡 **The update signed its work.** Every line it touched has a `[scheduler update]` comment sitting on it — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `scheduler update` in the task's file and you're standing on the bug. Finding the line was never the job tonight; **proving it's wrong before you touch it is.**
 
 ## The tasks
 
@@ -244,7 +244,7 @@ Actual:   "10:5"
 
 **Red, for the right reason** — [read the failure like a sentence](../lecture-notes.md#reading-a-failure): which rule, expected versus actual. If yours is green, it's asking an easy question — feed it `605`.
 
-**Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Broadcast.cs` — there is the line, and the update deleted a format spec from it. Make `Clock` read:
+**Now the fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `scheduler update` in `Lab/Broadcast.cs` — there is the line, and the update deleted a format spec from it. Make `Clock` read:
 
 ```csharp
     public static string Clock(int seconds)
@@ -340,7 +340,7 @@ Actual:   -1
 
 **Minus one.** Pham's Bakery bought one spot and the station just aired two — a free ad nobody paid for. You saw this on the board back in Task 1, but only because you pressed `a` five times and happened to be reading the right line. Your test asks every single time, in about a millisecond.
 
-**Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Ad.cs` — there is the line. An airing only spends a run [if there is a run to spend](../lecture-notes.md#red-then-green). Make `Play` read:
+**Now the fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `scheduler update` in `Lab/Ad.cs` — there is the line. An airing only spends a run [if there is a run to spend](../lecture-notes.md#red-then-green). Make `Play` read:
 
 ```csharp
     public void Play()
@@ -433,7 +433,7 @@ Actual:   Caller { CallsTonight = 1, Favorite = null, Name = "Dorothy" }
 
 **Read those two lines.** Same name, same everything — and `CallsTonight` differs, because the call landed on the copy. Two Dorothys.
 
-**Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Switchboard.cs` — there it is. `Take` asks `Find` first, and only makes a caller when `Find` comes back empty, which is the shape you wrote in week 5. Make `Take` read:
+**Now the fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `scheduler update` in `Lab/Switchboard.cs` — there it is. `Take` asks `Find` first, and only makes a caller when `Find` comes back empty, which is the shape you wrote in week 5. Make `Take` read:
 
 ```csharp
     public Caller Take(string name)
@@ -547,7 +547,7 @@ Not found: "(2 left)"
 
 It printed `(3 le`… — the count as it stood *before* the spot aired.
 
-**Now the fix.** <kbd>⌘F</kbd> for `scheduler update` in `Lab/Hour.cs` — the two lines are right under it. Swap them back into week 6's order: play first, then speak.
+**Now the fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `scheduler update` in `Lab/Hour.cs` — the two lines are right under it. Swap them back into week 6's order: play first, then speak.
 
 ```csharp
             item.Play();

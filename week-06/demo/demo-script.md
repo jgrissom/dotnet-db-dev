@@ -97,7 +97,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   dotnet add week-06/Haldane package Spectre.Console --version 0.57.2
   ```
 
-- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd>) → **`Developer: Reload Window`**
+- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**
 
   ```
   Developer: Reload Window
@@ -105,7 +105,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 💡 **Same reason as last week and worth ten seconds, because they hit it again in the lab tonight** — VS Code learned what was in this folder when it opened, and `week-06` did not exist then
 
-- [ ] **Open `week-06/Haldane/Program.cs`, and move the date on.** <kbd>⌘F</kbd> for **`day 240`** — one hit. Make it read
+- [ ] **Open `week-06/Haldane/Program.cs`, and move the date on.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`day 240`** — one hit. Make it read
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 247[/]");
@@ -152,7 +152,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 📖 **Nothing new in it, and say so** — *"a time, a number, and the person who took it. It holds a crew member rather than a name, which is exactly what a sign-out has done since last week: a reading is taken by somebody"*
 - [ ] 💡 **That is week 12's second table arriving as furniture** — *a reading, taken by a person, at a time*. **Don't say that out loud**; it is a shape they will meet again, not a promise to make now
 
-- [ ] **Back in `Program.cs`, two of the crew need names of their own.** <kbd>⌘F</kbd> for **`// ── the board itself`** — one hit. Select from that line down to and including `crew.Add(new CrewMember("Nakamura"));` and paste this over the lot
+- [ ] **Back in `Program.cs`, two of the crew need names of their own.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// ── the board itself`** — one hit. Select from that line down to and including `crew.Add(new CrewMember("Nakamura"));` and paste this over the lot
 
   ```csharp
   // ── the crew ───────────────────────────────────────────────────────────────
@@ -176,7 +176,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 💡 *"Moretti does the weather and Bhatt does comms. They need variables now, because the readings underneath have to point at those exact people"*
 
-- [ ] **And the readings themselves.** <kbd>⌘F</kbd> for **`outside.Add(new SignOut("09:05"`** — one hit, the last of the three seeded rows. Paste this **underneath** it
+- [ ] **And the readings themselves.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`outside.Add(new SignOut("09:05"`** — one hit, the last of the three seeded rows. Paste this **underneath** it
 
   ```csharp
 
@@ -187,7 +187,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   readings.Add(new Reading("14:35", -41.5, bhatt));
   ```
 
-- [ ] **Now print them.** Go to the very end of `Program.cs` (<kbd>⌘↓</kbd>) and paste this on the bottom
+- [ ] **Now print them.** Go to the very end of `Program.cs` (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>) and paste this on the bottom
 
   ```csharp
 
@@ -217,7 +217,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 📖 **Say what it is before it runs** — *"Two lists, so two loops. The first is holding sign-outs, so it can reach for a reason and a due time. The second is holding readings, so it can reach for a temperature and who took it. Each loop was told what is in it — which is why each line comes out right"*
 
-- [ ] **And call it from the board.** <kbd>⌘F</kbd> for **`trips logged today`** — one hit, near the bottom of `DrawBoard`. **Select that line and the `AnsiConsole.WriteLine();` directly under it**, and paste this over them
+- [ ] **And call it from the board.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`trips logged today`** — one hit, near the bottom of `DrawBoard`. **Select that line and the `AnsiConsole.WriteLine();` directly under it**, and paste this over them
 
   ```csharp
       AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");
@@ -277,7 +277,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 📖 *"One list, then. It is the only thing that gets me time order, so let's see what it costs"*
 
-- [ ] **In `Program.cs`.** <kbd>⌘F</kbd> for **`List<SignOut> outside`** — one hit. **Select from that line down to and including `readings.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
+- [ ] **In `Program.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`List<SignOut> outside`** — one hit. **Select from that line down to and including `readings.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
 
   ```csharp
   SignOut fuelRun = new SignOut("09:05", lindqvist, "FUEL", "10:30");
@@ -304,7 +304,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 📖 **Two things to say, and the second one is a callback** — *"`List<object>`, because `object` is the only thing in C# that a sign-out and a reading both are"*
 - [ ] 📖 *"And notice what is on both lists. The same three sign-outs — not copies of them, the same objects. `fuelRun` up there and `fuelRun` on the log are two names for one thing, which is last week's lesson doing us a favor for once"*
 
-- [ ] **Now one loop.** <kbd>⌘F</kbd> for **`void DrawLog()`** — one hit. **Select from that line down to the end of the file** (<kbd>⇧⌘↓</kbd>) and paste this over it
+- [ ] **Now one loop.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void DrawLog()`** — one hit. **Select from that line down to the end of the file** (<kbd>⇧⌘↓</kbd> / <kbd>Ctrl⇧End</kbd>) and paste this over it
 
   ```csharp
   // The watch log. One list, one loop.
@@ -375,7 +375,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 💡 **The `I` is a convention, not a rule** — *"the `I` on the front is just something C# programmers do so you can tell at a glance. The compiler could not care less"*
 - [ ] 📖 **Then walk the three, because so far they have only heard the syntax:** *"three things, and that is the whole promise. `Time` — when it happened. `Kind` — one word for what sort of thing it was: MET, SIGN OUT, FUEL. And `Line()` — the rest of the line, handed back as a string. Not printed. Returned — the loop does the printing"*
 
-- [ ] **Now `SignOut.cs`, and this is one phrase.** <kbd>⌘F</kbd> for **`public class SignOut`** — one hit. Make the line read
+- [ ] **Now `SignOut.cs`, and this is one phrase.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public class SignOut`** — one hit. Make the line read
 
   ```csharp
   public class SignOut : ILogEntry
@@ -401,7 +401,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 🎯 **Point at what is NOT in that list:** *"I promised three things and it is only asking me for two. `Time` is not on there — this class has had a `Time` on it since week three, and the promise looked, found one, and moved on. That is the whole idea: a promise is about what you can answer, and this class could already answer one of them"*
 - [ ] 💡 *"And read the other two again — that is a to-do list the compiler wrote for me. It is going to keep failing the build until I have done both"*
 
-- [ ] **Pay it.** Still in `SignOut.cs` — go to the end of the file (<kbd>⌘↓</kbd>) and paste this **inside the class**, above its closing `}`
+- [ ] **Pay it.** Still in `SignOut.cs` — go to the end of the file (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>) and paste this **inside the class**, above its closing `}`
 
   ```csharp
 
@@ -420,7 +420,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 📖 *"And `Line` is the interesting one, because a sign-out knows something nothing else does — whether they came back. Its line reads differently depending, and nothing outside this class has to know that"*
 
-- [ ] **Same two moves in `Reading.cs`.** <kbd>⌘F</kbd> for **`public class Reading`** — one hit. Make the line read
+- [ ] **Same two moves in `Reading.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public class Reading`** — one hit. Make the line read
 
   ```csharp
   public class Reading : ILogEntry
@@ -440,7 +440,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 💡 **Don't narrate that one** — it is the same move, and the room should feel it is the same move
 
-- [ ] **Now the one-word change.** Back in `Program.cs`, <kbd>⌘F</kbd> for **`List<object> log`** — one hit. Make the line read
+- [ ] **Now the one-word change.** Back in `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`List<object> log`** — one hit. Make the line read
 
   ```csharp
   List<ILogEntry> log = new List<ILogEntry>();
@@ -448,7 +448,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 🎯 **Say it while it is on screen:** *"one word. That list has just gone from holding anything and promising nothing, to holding anything that promises three things"*
 
-- [ ] **And the loop can finally ask.** <kbd>⌘F</kbd> for **`foreach (object entry in log)`** — one hit. **Select from that line down to and including the `}` that closes it**, and paste this over
+- [ ] **And the loop can finally ask.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`foreach (object entry in log)`** — one hit. **Select from that line down to and including the `}` that closes it**, and paste this over
 
   ```csharp
       foreach (ILogEntry entry in log)
@@ -532,7 +532,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   }
   ```
 
-- [ ] **And put one on the log.** <kbd>⌘F</kbd> for **`log.Add(fuelRun);`** — one hit. **Select that line** and paste these two over it
+- [ ] **And put one on the log.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`log.Add(fuelRun);`** — one hit. **Select that line** and paste these two over it
 
   ```csharp
   log.Add(new FuelCheck("07:40", 4300));
@@ -563,7 +563,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 📖 **Name what it cost:** *"A whole new kind of thing on the log. One new class, one line to put it on there, and nothing that already worked had to change"*
 
-- [ ] **One more, and this time the log grows while they watch.** In `Program.cs`, <kbd>⌘F</kbd> for **`void AmendABackBy()`** — one hit. Paste this **above** it
+- [ ] **One more, and this time the log grows while they watch.** In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void AmendABackBy()`** — one hit. Paste this **above** it
 
   ```csharp
   void TakeAReading()
@@ -595,7 +595,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
   ```
 
-- [ ] **Wire it to a key.** <kbd>⌘F</kbd> for **`case "w":`** — one hit. **Select from that line down to and including the `break;` under it**, and paste this over them
+- [ ] **Wire it to a key.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`case "w":`** — one hit. **Select from that line down to and including the `break;` under it**, and paste this over them
 
   ```csharp
           case "w":
@@ -607,7 +607,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
               break;
   ```
 
-- [ ] **And the menu.** <kbd>⌘F</kbd> for **`[w]ho  [q]uit`** — one hit. Make the line read
+- [ ] **And the menu.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`[w]ho  [q]uit`** — one hit. Make the line read
 
   ```csharp
       Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [q]uit: ");
@@ -696,7 +696,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 📖 **And rule out the cheap fix out loud, because somebody is about to suggest it:** *"I could add the missing line. Then next week there is a third place, and a fourth. The board and the log hold the same sign-outs — one of them has to go, and it is not going to be the log"*
 
-- [ ] **So: ask the log.** Go to the end of `Program.cs` (<kbd>⌘↓</kbd>) and paste this on the bottom
+- [ ] **So: ask the log.** Go to the end of `Program.cs` (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>) and paste this on the bottom
 
   ```csharp
 
@@ -722,11 +722,11 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 🎯 **And the honest limit, which is the point of the segment:** *"this is what polymorphism cannot do for you. One loop treating everything the same is the whole trick — right up to the moment you need the one kind that is different, and then you have to ask"*
 - [ ] 💡 **Nothing to run yet, and say so** — *"I have written it, and not one line in this program calls it. Watch what it costs to change that"*
 
-- [ ] **Now point the board at it.** <kbd>⌘F</kbd> for **`in outside)`** — the editor says **5**. Open Replace (<kbd>⌥⌘F</kbd>), put **`in SignOuts())`** in the replace box, and **Replace All**
+- [ ] **Now point the board at it.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`in outside)`** — the editor says **5**. Open Replace (<kbd>⌥⌘F</kbd> / <kbd>Ctrl+H</kbd>), put **`in SignOuts())`** in the replace box, and **Replace All**
 - [ ] 💡 *"Five places asked the board a question. All five of them now ask the log"*
 - [ ] 💡 **Still nothing new on screen, and that is worth naming** — *"the board asks the log now. But the desk still writes a new sign-out to the old list, so nothing has actually moved yet. One more edit"*
 
-- [ ] **The muster's copy, and the comment above it, which has just stopped being true.** <kbd>⌘F</kbd> for **`A copy, because the next loop`** — one hit. **Select from that line down to and including `List<SignOut> muster = new List<SignOut>(outside);`** and paste this over the three
+- [ ] **The muster's copy, and the comment above it, which has just stopped being true.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`A copy, because the next loop`** — one hit. **Select from that line down to and including `List<SignOut> muster = new List<SignOut>(outside);`** and paste this over the three
 
   ```csharp
       // SignOuts() builds a fresh list every time it is asked, so crossing
@@ -737,7 +737,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 💡 *"That was last week's copy, and it is free now — `SignOuts` builds a fresh list every time you ask, so there is nothing left to protect"*
 - [ ] 💡 **And the other half, because it is what makes `[b]ack` work at all** — *"the list is new every time. The records inside it are not — they are the same objects that are sitting on the log. Crossing a name off this list cannot touch the log. Calling `Back()` on one of these records absolutely does, and that is week five, still true"*
 
-- [ ] **And the one that caused all this.** <kbd>⌘F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit, inside `SignSomebodyOut`. Make it read
+- [ ] **And the one that caused all this.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`outside.Add(new SignOut("14:57"`** — one hit, inside `SignSomebodyOut`. Make it read
 
   ```csharp
           log.Add(new SignOut("14:57", who, reason.Trim(), expected.Trim()));
@@ -768,7 +768,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 🎯 **Point at both:** *"the board and the log cannot disagree any more — and not because I remembered to update both. There is nothing to remember. There is one list, and the board is just the log, filtered"*
 - [ ] **Press `q`**
 
-- [ ] **Then take the board out.** <kbd>⌘F</kbd> for **`SignOut fuelRun`** — one hit. **Select from that line down to and including `log.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
+- [ ] **Then take the board out.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`SignOut fuelRun`** — one hit. **Select from that line down to and including `log.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
 
   ```csharp
   // ── the watch log ──────────────────────────────────────────────────────────
@@ -811,7 +811,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 - [ ] 💡 **Then the one thing nothing else says — and cut this first if §6 is running long:** *"One of those `if`s is fine. A chain of them — is this one a sign-out, else is it a reading, else is it a fuel check — is the code telling you something: the thing you keep asking about should have been a question on the interface instead"*
 
 - [ ] 📖 **Before you paste, point at the top of the board:** *"look at that temperature. `Outside: -41.5`. I typed that into the program in week one and it has been sitting there ever since — nobody measured it, and it has never once changed. Watch where it comes from now"*
-- [ ] **One more, and it is the closing beat.** <kbd>⌘F</kbd> for **`Safe to go out`** — one hit, in `DrawBoard`. **Select from the `AnsiConsole.MarkupLine($"[{Dim}]Outside:[/]…` line down to and including the `[/]");` under it**, and paste this over them
+- [ ] **One more, and it is the closing beat.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`Safe to go out`** — one hit, in `DrawBoard`. **Select from the `AnsiConsole.MarkupLine($"[{Dim}]Outside:[/]…` line down to and including the `[/]");` under it**, and paste this over them
 
   ```csharp
       // The headline temperature is not typed into this program any more. It is
@@ -824,7 +824,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
 
 - [ ] 💡 **Two lines, and say what each one does** — *"ask the log for the most recent reading, then hand that number to the same week-one method that has been answering this question all along. `IsSafeToGoOut` does not change at all — it just stops being fed a constant"*
 - [ ] 📖 **Say what it does as it goes in:** *"walk the log, and every time you find a reading, remember it. You finish holding the LAST one, because each reading overwrites the one before. And it starts at minus forty-one point five, so the board still has a number to show if nobody has taken a reading yet"*
-- [ ] **And the method it needs.** End of the file (<kbd>⌘↓</kbd>), paste on the bottom
+- [ ] **And the method it needs.** End of the file (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>), paste on the bottom
 
   ```csharp
 

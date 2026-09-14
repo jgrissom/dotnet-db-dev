@@ -235,7 +235,7 @@ VS Code shows `dotnet-db-coursework`, Explorer shows `.gitignore` + `week-01`, S
   Week 2: new week, Conditions carried forward
   ```
 - [ ] 🎯 *"a commit is a save point. Make one whenever you're somewhere solid, and the interesting work becomes safe to botch — which is exactly what we're about to do"*
-- [ ] In `week-02/Haldane/Program.cs`, **select the whole file (`⌘A`) and paste the banner and the prompt over it.** ⚠️ **The template is TWO lines** — the `aka.ms` comment as well as the `Hello, World!`. 📖 **Talk the `ReadLine` line through** — *"whatever they type, into a string"* — it's the one with the squiggle you're about to ignore on purpose:
+- [ ] In `week-02/Haldane/Program.cs`, **select the whole file (`⌘A` / `Ctrl+A`) and paste the banner and the prompt over it.** ⚠️ **The template is TWO lines** — the `aka.ms` comment as well as the `Hello, World!`. 📖 **Talk the `ReadLine` line through** — *"whatever they type, into a string"* — it's the one with the squiggle you're about to ignore on purpose:
   ```csharp
   Console.WriteLine("========================================");
   Console.WriteLine("  HALDANE STATION - DUTY CONSOLE");

@@ -213,7 +213,7 @@ week-08/
 
 **Three folders and nothing else.** A whole shift ended and the station wrote nothing down — there is no file for the carts to have been saved in.
 
-`Program.cs` already asks for one. <kbd>⌘F</kbd> for `rotation.Save` in `week-08/Lab/Program.cs` and you'll find it sitting in the sign-off block, called at the end of every shift. It is calling a method with nothing in it.
+`Program.cs` already asks for one. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `rotation.Save` in `week-08/Lab/Program.cs` and you'll find it sitting in the sign-off block, called at the end of every shift. It is calling a method with nothing in it.
 
 **Write it — in `Lab/Rotation.cs`, under the `TODO — Task 2` comment.** [Your rotation is one list of one type, which is exactly the case a serializer is for](../lecture-notes.md#one-list-one-type-the-serializer) — so this one is worked all the way through [in the notes](../lecture-notes.md#jsonserializer-both-directions):
 
@@ -288,7 +288,7 @@ dotnet run --project week-08/Lab
 
 **The file says `"PlaysTonight": 1` and the desk says `0`.** Nothing reads it. Press `q`.
 
-`Program.cs` already asks for this one too — <kbd>⌘F</kbd> for `rotation.Load`, near the top, right after the three carts are added.
+`Program.cs` already asks for this one too — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `rotation.Load`, near the top, right after the three carts are added.
 
 **Write it — in `Lab/Rotation.cs`, under the `TODO — Task 3` comment.** This is the same trip backwards, and it is yours. The spec:
 
