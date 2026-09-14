@@ -507,7 +507,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   }
   ```
 
-- [ ] 📖 **Say what `Read` does, one piece at a time** — *"`ReadLine` is week eight: split the line, check the fields, make a reading. `Read` is tonight: every line of the file, turned into a reading, keeping only the lines that really are readings."*
+- [ ] 📖 **Say what `Read` does, one piece at a time** — *"`ReadLine` is week eight: split the line, check the fields, make a reading. If a line is invalid — it is missing a field, or the temperature is not a number — it hands back null instead. `Read` is tonight: every line of the file, turned into a reading. `OfType<SeasonReading>` drops the nulls. In this book there are none, so all fifty thousand lines come through."*
 - [ ] 💡 **And why it is not a loop, before somebody asks** — *"`Watch.Load` stays a loop, because it puts entries into the watch. This one only hands readings back."*
 
 - [ ] **Now the questions. In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `string logFile` — one hit — and paste this directly under that line**
