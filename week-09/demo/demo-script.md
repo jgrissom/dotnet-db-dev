@@ -518,7 +518,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   string metBook = "week-09/season.txt";
   ```
 
-- [ ] 🎯 **Now the line from §1.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`string metBook`** — one hit — **and paste this directly under it**
+- [ ] 🎯 **Now the line from §1. Paste this directly under the `string metBook` line you just pasted**
 
   ```csharp
 
