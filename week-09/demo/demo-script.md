@@ -656,6 +656,8 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       clock.Restart();
   ```
 
+- [ ] 📖 **Say what the first measurement is around** — *"The clock starts right before `Season.Read` and stops right after it. That is the line that reads the book. `held` is how much more memory the program is using after that line than before it."*
+
 - [ ] ⚠️ **Now stop the clock, and stop it in the right place** — the last question is the last thing it should be timing. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`List<SeasonReading> worst = book.OrderBy`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
@@ -664,7 +666,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       double askMs = clock.Elapsed.TotalMilliseconds;
   ```
 
-  - 💡 **Worth ten seconds** — *"The clock stops here, not at the bottom. Everything below this line is printing, and printing is not asking."*
+- [ ] 💡 **Say what the second clock is around** — *"The clock started again right after `Season.Read`. It stops here, after the last question. So this number is the count and the six questions, and nothing else. Everything below this line is printing, and printing is not asking."*
 
 - [ ] **And the bill goes on the end.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`{Markup.Escape(r.TakenBy)}[/]");`** — one hit. **Select from that line down to and including the `}` that closes `TheMetBook` — the one on its own at no indentation — and paste this over it**
 
