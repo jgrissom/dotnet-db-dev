@@ -263,7 +263,7 @@ dotnet test week-09/Lab.Tests
 
 **Now the last four are yours, and three of them are lines you have already written tonight with different nouns:**
 
-**4 — `Lab/Rotation.cs`, `TotalSeconds`** — week 4's. The same as Hour's, over `_songs`. [`Sum`.](../lecture-notes.md#sum-count-and-average--one-number-out-of-many)
+**4 — `Lab/Rotation.cs`, `TotalSeconds`.** Week 4's. The same as Hour's, over `_songs`. [`Sum`.](../lecture-notes.md#sum-count-and-average--one-number-out-of-many)
 
 **Run the desk, type a DJ name, press `n`, then `q`.** Look at the first line:
 
@@ -283,7 +283,7 @@ dotnet test week-09/Lab.Checks
 
 **1 / 5.** If it drops to 0 / 5, read check 1's message before you change anything else.
 
-**5 — `Lab/Switchboard.cs`, `TotalCalls`** — week 5's. The same again, over `_callers`.
+**5 — `Lab/Switchboard.cs`, `TotalCalls`.** Week 5's. The same again, over `_callers`.
 
 **Run the desk, type a DJ name, press `n`, then `q`.** Look at the second line:
 
@@ -303,7 +303,7 @@ dotnet test week-09/Lab.Checks
 
 **1 / 5.** If it drops to 0 / 5, read check 1's message before you change anything else.
 
-**6 — `Lab/Hour.cs`, `LongestItem()`** — week 6's. [`MaxBy`](../lecture-notes.md#maxby--the-item-with-the-biggest-something), like `TheRegular`, and the same shape: the whole method on one line with `=>` — but this one hands back **the item**, not a name, so there is nothing to put a `?.` in front of. Its return type already says it can come back empty.
+**6 — `Lab/Hour.cs`, `LongestItem()`.** Week 6's. [`MaxBy`](../lecture-notes.md#maxby--the-item-with-the-biggest-something), like `TheRegular`, and the same shape: the whole method on one line with `=>` — but this one hands back **the item**, not a name, so there is nothing to put a `?.` in front of. Its return type already says it can come back empty.
 
 **Run the desk, type a DJ name, press `n`, then `q`.** Look at the fourth line:
 
@@ -323,7 +323,7 @@ dotnet test week-09/Lab.Checks
 
 **1 / 5.** If it drops to 0 / 5, read check 1's message before you change anything else.
 
-**7 — `Lab/Rotation.cs`, inside `Load`** — week 8's other one, and ⚠️ **this one is not LINQ at all.** The job is *put all of these in*, which is not a question — and [the list already has a method for it](../lecture-notes.md#thirty-lines-become-one). One call, and the name says exactly what it does. ⚠️ **The `_songs.Clear();` above it stays**: loading is replacing, and without it the rotation ends the night with six carts.
+**7 — `Lab/Rotation.cs`, inside `Load`.** Week 8's other one, and ⚠️ **this one is not LINQ at all.** The job is *put all of these in*, which is not a question — and [the list already has a method for it](../lecture-notes.md#thirty-lines-become-one). One call, and the name says exactly what it does. ⚠️ **The `_songs.Clear();` above it stays**: loading is replacing, and without it the rotation ends the night with six carts.
 
 **This one only shows on a second run**, because `Load` reads the carts the last shift saved. **Run the desk, type a DJ name, press `n`, then `q`. Then run it again and press `n` once more.** The first line should read the same both times:
 
