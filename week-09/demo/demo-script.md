@@ -632,7 +632,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *Six questions, six lines*
 - [ ] 🎯 **Point at the count, not at the cleverness** — *"Six answers. Fifty thousand readings. Six lines of code."*
-- [ ] 💡 **And the last one is a chain of steps** — *"Sort the whole book, coldest first. Then take the first five. Then make it a list. Each step hands the next one a sequence to work on. That is the whole of what the middle column on that slide was for."*
+- [ ] 💡 **And the last one is a chain of steps** — *"Sort the whole book, coldest first. Then take the first five. Then make it a list. `OrderBy` hands back a sequence, so `Take` can go on the end of it. `Take` hands back a sequence too, so `ToList` can go on the end of that."*
 - [ ] 💡 **Then the two the room should notice, and let them find the second** — *"Five hundred thirty-six readings taken by hand. That is two a day, every day of the winter, which is what I said it should be. Now look at the name on the coldest reading of the season: AWS. Nobody was outside at minus seventy. That is the standing order working."*
 - [ ] ⚠️ **Do not skip this one — it is the honest sell** — *"Nobody was going to write a loop to find out how many readings this season were below minus fifty. Not because it is hard. Because it was never worth the loop. So the question never got asked."*
 - [ ] **Press `q`**
