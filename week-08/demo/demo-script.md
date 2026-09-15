@@ -758,6 +758,6 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 **Six short sentences, then stop** — *"A file is a place to put text, and `File` does the whole job in one line each way. Turning your objects into text and back is your job, and the KIND word goes first. A serializer does it for you when the list is all one type. The path gets handed in, because where a file goes is a fact about the machine. A missing file is a first run, not a failure. And a save file is a text file that anybody can edit."*
 - [ ] 🎯 **The forward line:** *"Your data survives now, and it survives on your laptop. It is one file, on one machine, that one person can open. In week ten it moves somewhere the mainland can see — and in week eleven every terminal in this room writes to the same one."*
-- [ ] **Homework: two URLs in Canvas, coursework repo first, project repo second**
+- [ ] **Homework: your project repo URL in Canvas, and only that one**
 - [ ] ⚠️ **Say the checks line out loud** — *"Part 1 copies this week's checks in, same as always. This week there are FOUR of them. If `dotnet test Project.Checks` shows two, you are running last week's"*
 - [ ] ⚠️ **And say the date, because this one is different** — *"there is no class next week. It is fall break. So this homework is due two weeks out, not one. It is not a bigger homework. It is the same size with a week off in the middle of it."*

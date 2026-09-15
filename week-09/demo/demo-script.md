@@ -821,7 +821,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 📖 *"One shape, and a handful of words. Some of them throw when there is nothing there. A query asks — it never changes the thing it asked about. And `ToList` is what turns instructions into an answer."*
 - [ ] **Homework: three questions on their own registry, and one fact of their own** — say the checks-copy line, and that this week's `Project.Checks` holds **four** checks
 - [ ] ⚠️ **Say the due date normally** — *"Next class."* Last week was the two-week one; this week is not
-- [ ] **Two URLs in Canvas, coursework first**
+- [ ] **Project repo URL in Canvas, and only that one**
 - [ ] 💡 **And set up next week** — *"Tonight a file had to be read from top to bottom for every question, or held in memory whole. Neither one is a good answer. That is the problem a database exists to solve. Next week the log moves into one, somewhere that is not your laptop."*
 
 ---

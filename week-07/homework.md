@@ -353,10 +353,7 @@ Five moments worth saving, written into the parts above at the point where each 
 
 ## Submitting
 
-**Two URLs in Canvas, on two lines, in this order:**
-
-1. your coursework repo *(same as every week — the lab lives there)*
-2. your project repo
+**One URL in Canvas: your project repo.**
 
 ---
 
@@ -371,7 +368,7 @@ Five moments worth saving, written into the parts above at the point where each 
 | 4 | The same name cannot register twice — your test proves it AND my check agrees the guard is really in Add |
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
-| 1 | `bin/` and `obj/` tracked in **neither** repo — the `.gitignore` holding, in both places |
+| 1 | `bin/` and `obj/` tracked **nowhere** in the project repo — the `.gitignore` holding |
 | 2 | 3+ commits on **this week's branch** 👀 *(meaningful messages are a judgment call)* |
 | 2 | A merge commit on `main` — this week's branch → pull request → merge |
 

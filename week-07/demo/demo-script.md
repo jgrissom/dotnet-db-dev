@@ -865,5 +865,5 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Six short sentences, then stop** — *"A test is a method with `[Fact]` over it, and a check is a test. It calls your class the same way anything else calls it, and that is why we put logic in classes. Write the test first and watch it fail — that proves the test can see the bug. Then fix the code and watch it pass — that proves the fix works. Then keep the test. It runs every time from now on, so the bug cannot come back quietly"*
 - [ ] 🎯 **The forward line:** *"one thing the suite cannot save us from yet: press `q` and the whole log is still gone. Every reading, every sign-out, every night — gone at quit, since week three. Next week it stops being gone"*
-- [ ] **Homework: two URLs in Canvas, coursework repo first, project repo second**
+- [ ] **Homework: your project repo URL in Canvas, and only that one**
 - [ ] ⚠️ **Say the checks line out loud, with this week's twist** — *"Part 1 copies this week's checks in, same as always — and this week's checks are TWO, not five. If `dotnet test Project.Checks` shows five checks, you are running last week's. The other three points moved somewhere better: into tests you write yourself"*

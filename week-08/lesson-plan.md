@@ -62,7 +62,7 @@ By the end of this session, students can:
 | 2:32 | 8 min | 💥 **A record you can edit by hand** *(slide 12, demo §8)*. Delete Reyes's line in the editor. She is on the ice and on nothing. Week 10 and week 13, named. |
 | 2:40 | 5 min | **Lab launch** *(slide 13, demo §9)*. Two files, one attribute. Done is 5 green and a desk that knows who was on before you. |
 | 2:45 | 50 min | **Lab: the log book** *(slide 13 stays up)*. **In-class target: 5 green.** Circulate hard at Task 3 (clearing the list) and Task 4 (writing the fact before the fix). |
-| 3:35 | 10 min | **Wrap-up** *(slide 14, demo §10)*. Two URLs, the checks-copy line — **four checks this week, not two** — and ⚠️ **the two-week due date**. |
+| 3:35 | 10 min | **Wrap-up** *(slide 14, demo §10)*. Project repo URL, the checks-copy line — **four checks this week, not two** — and ⚠️ **the two-week due date**. |
 
 > [!NOTE]
 > **The table sums to exactly 225 minutes.** If the night runs long, §6 is the segment to shorten — keep the clock change and the spoken finding about ordering, drop the second fact in §7. **Do not take it from §5** (the payoff) **or from §2** (the promise), and do not take it from the lab.

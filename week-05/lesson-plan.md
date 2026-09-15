@@ -75,7 +75,7 @@ By the end of this session, students can:
 | 2:17 | 20 min | **Nothing at all** *(slides 9–10, demo §7)*. 💥 **Opens on a silent failure** — signing out `Reyez` does nothing at all, and nobody is told. Then `Find` returns `CrewMember?`. Build → **CS8604**, one warning. Run with `Reyes` → fine. Run with `Reyez` → **NullReferenceException**. The `if`, and back to 0 warnings. 🎯 **Silence, then a crash, then a sentence.** |
 | 2:37 | 5 min | **Lab launch** *(slide 11, demo §8)*. Done is defined on their machine: a switchboard that can tell three people apart. |
 | 2:42 | 50 min | **Lab: the switchboard** *(slide 11 stays up)*. **In-class target: 5 green.** Circulate hard at Task 1 and Task 4. |
-| 3:32 | 13 min | **Wrap-up** *(slide 12, demo §9)*. `static` · instance · a reference · `null`. Two URLs in Canvas. Week 6 tease: **one list, one loop, four different kinds of things.** |
+| 3:32 | 13 min | **Wrap-up** *(slide 12, demo §9)*. `static` · instance · a reference · `null`. Project repo URL in Canvas. Week 6 tease: **one list, one loop, four different kinds of things.** |
 
 > [!NOTE]
 > **The table sums to exactly 225 minutes.** If the night runs long, §5 compresses to its slide and §4's Call Stack aside drops. **Do not take it from the lab**, and do not take it from §2 — the break is the week.

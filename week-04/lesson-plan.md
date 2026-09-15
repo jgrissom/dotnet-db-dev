@@ -74,7 +74,7 @@ By the end of this session, students can:
 | 2:23 | 15 min | **Branch, pull request, merge** *(slide 13, demo §7)*. Push the branch they didn't know he was on, open a real PR, **read the diff**, plain-merge it, `checkout main` + `pull`. |
 | 2:38 | 5 min | **Lab launch** *(slide 14, demo §8)*. Done is defined on their machine: press `g` and nothing gets through. |
 | 2:43 | 50 min | **Lab: the rotation that fights back** *(slide 14 stays up)*. **In-class target: 5 green, and the glitch bouncing.** Circulate hard at Task 2. |
-| 3:33 | 12 min | **Wrap-up** *(slide 15, demo §9)*. Field · property · `private set`. Two URLs in Canvas. Week 5 tease: **`static`, and what it costs.** |
+| 3:33 | 12 min | **Wrap-up** *(slide 15, demo §9)*. Field · property · `private set`. Project repo URL in Canvas. Week 5 tease: **`static`, and what it costs.** |
 
 > [!NOTE]
 > **The table sums to exactly 225 minutes.** If the night runs long, the two places to take it from are named in the objectives: §6 compresses to its slides, and §7 can drop the diff-reading beat. **Do not take it from the lab.**

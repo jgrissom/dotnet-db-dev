@@ -65,7 +65,7 @@ By the end of this session, students can:
 | 2:20 | 20 min | **The other bug** *(slide 11, demo §6)*. Same discipline, richer scene: out, back, out again, the phone call. MarkBack had the guard for three weeks; Amend gets it now. Whole suite green. Desk proven once, by hand, for the last time. |
 | 2:40 | 5 min | **Lab launch** *(slide 12, demo §7)*. The scheduler update broke four rules; the checks caught all four. Done is: 5 green of mine, a fact per bug of yours. |
 | 2:45 | 50 min | **Lab: the update** *(slide 12 stays up)*. **In-class target: 5 green.** Circulate hard at Task 2 (the first fact) and Task 4 (`Assert.Same`). |
-| 3:35 | 10 min | **Wrap-up** *(slide 13, demo §8)*. Fact · check · red · green. Two URLs in Canvas, **the checks-copy line with this week's twist: two checks, not five.** Week 8 tease: the log stops being gone. |
+| 3:35 | 10 min | **Wrap-up** *(slide 13, demo §8)*. Fact · check · red · green. Project repo URL in Canvas, **the checks-copy line with this week's twist: two checks, not five.** Week 8 tease: the log stops being gone. |
 
 > [!NOTE]
 > **The table sums to exactly 225 minutes.** If the night runs long, §6 is the segment to shorten — drop its closing desk run and let the suite's green carry it, then trim §2's second bug walk to one run. **Do not take it from §4 or §5** — the reveal and the first red are the week, and do not take it from the lab.

@@ -72,7 +72,7 @@ By the end of this session, students can:
 | 2:09 | 26 min | 💥 **What it cost** *(slides 10–11, demo §6)*. The stopwatch says reading took `0 ms` and the book holds `0.0 MB`. A **hit-count breakpoint** stops on the last line of the book and then on the first: every question reads the file again. `ToList()`, and all three numbers flip. 🎯 **The promise made: querying a file is going to stop being good enough.** |
 | 2:35 | 5 min | **Lab launch** *(slide 12, demo §7)*. Task 1 turns nothing green; the suite is how you know. |
 | 2:40 | 50 min | **Lab: the night's numbers** *(slide 12 stays up)*. **In-class target: 5 green.** Circulate at Task 1 (`MaxBy` with no `?.`) and Task 4 (`List.Sort`). |
-| 3:30 | 15 min | **Wrap-up** *(slide 13, demo §8)*. Two URLs, the checks-copy line — **four checks this week** — and a normal one-week due date. |
+| 3:30 | 15 min | **Wrap-up** *(slide 13, demo §8)*. Project repo URL, the checks-copy line — **four checks this week** — and a normal one-week due date. |
 
 > [!NOTE]
 > **The table sums to exactly 225 minutes.** If the night runs long, **§5 is the segment to shorten** — drop the five-coldest list and keep the four headline answers, which is all §6 needs. **Do not take it from §2** (the payoff), **from §6** (the break), or from the lab.

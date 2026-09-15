@@ -75,7 +75,7 @@ By the end of this session, students can:
 | 2:13 | 27 min | 💥 **The board is a question you ask the log** *(slides 11–12, demo §6)*. Sign somebody out: the board says four, the log has never heard of her. 🎯 **Ask the room to count the log's sign-outs before you say anything.** Then `is`, one Replace All, the board list deleted, and the headline temperature starts coming off the log — `-52.4` flips `Safe to go out` to `False`. |
 | 2:40 | 5 min | **Lab launch** *(slide 13, demo §7)*. Done is defined on their machine: press `a` and six things go out in a row. |
 | 2:45 | 50 min | **Lab: the hour** *(slide 13 stays up)*. **In-class target: 5 green.** Circulate hard at Task 2 and Task 5. |
-| 3:35 | 10 min | **Wrap-up** *(slide 14, demo §8)*. Class · interface · one list · `is`. Two URLs in Canvas, and **say the checks-copy line out loud**. Week 8 tease: the log stops being gone. |
+| 3:35 | 10 min | **Wrap-up** *(slide 14, demo §8)*. Class · interface · one list · `is`. Project repo URL in Canvas, and **say the checks-copy line out loud**. Week 8 tease: the log stops being gone. |
 
 > [!NOTE]
 > **The table sums to exactly 225 minutes.** If the night runs long, **§5's four-word map is shortened, not dropped** — skip the hands question and the abstraction aside and read the four lines straight off slide 10 — then §5 loses its `abstract class` aside and §6 loses the `LatestCelsius` beat. **Do not take it from the lab**, and do not take it from §3 — the `object` break is what makes the rest of the night mean anything.

@@ -24,7 +24,7 @@ And they walk out with **a repo of their own**: public, on a topic they picked, 
 > **This is the hinge week.** From here the homework is always *their* program. Weeks 5–13 each extend it, and week 16 is the presentation. A student who picks a topic that can't grow a **second, related thing** hits a wall in week 12 — the homework makes them finish the sentence *"each one of my ___ has many ___"* before they commit to it.
 
 > [!NOTE]
-> **Two repos from this week on, and two URLs in Canvas.** The coursework repo (private, where the lab lives) and the project repo (public, where the graded work lives). **Two VS Code windows, one per repo** — not a multi-root workspace, so each window's terminal stands in exactly one place.
+> **Two repos from this week on, and one URL in Canvas.** The coursework repo (private, where the lab lives, never submitted) and the project repo (public, where the graded work lives, and the URL that goes in Canvas). **Two VS Code windows, one per repo** — not a multi-root workspace, so each window's terminal stands in exactly one place.
 
 ## 📋 Before class, don't forget
 

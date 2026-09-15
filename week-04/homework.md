@@ -387,10 +387,9 @@ That last one is the step everybody forgets. The merge happened on GitHub; your 
 
 ## Submitting
 
-**Two URLs in Canvas, on two lines, in this order:**
+**One URL in Canvas: your new project repo.**
 
-1. your coursework repo *(same as every week — the lab lives there)*
-2. **your new project repo**
+Your coursework repo isn't submitted. The lab lives there, and it's never collected.
 
 ---
 
@@ -405,7 +404,7 @@ That last one is the step everybody forgets. The merge happened on GitHub; your 
 | 3 | `Registry` keeps records — `Count` asks the list, and `All()` hands back a copy |
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
-| 1 | `bin/` and `obj/` tracked in **neither** repo — the `.gitignore` holding, in both places |
+| 1 | `bin/` and `obj/` tracked **nowhere** in the project repo — the `.gitignore` holding |
 | 2 | 3+ commits in the project repo 👀 *(meaningful messages are a judgment call)* |
 | 2 | A merge commit on `main` — the branch → pull request → merge round trip, done once |
 

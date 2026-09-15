@@ -35,7 +35,7 @@
     },
     "gitignoreClean": {
       "points": 1,
-      "label": "bin/ and obj/ tracked in NEITHER repo — the .gitignore holding, in both places"
+      "label": "bin/ and obj/ tracked nowhere in the project repo — the .gitignore holding"
     },
     "commits": {
       "points": 2,
