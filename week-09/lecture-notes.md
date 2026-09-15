@@ -429,7 +429,7 @@ int days = book.Max(r => r.Day);
 double average = book.Average(r => r.Celsius);
 SeasonReading coldest = book.MinBy(r => r.Celsius)!;
 int belowTheLine = book.Count(r => r.Celsius < -50);
-int moretti = book.Count(r => r.TakenBy == "Moretti");
+int byHand = book.Count(r => r.TakenBy != "AWS");
 List<SeasonReading> worst = book.Where(r => r.Celsius < -60)
     .OrderBy(r => r.Celsius)
     .Take(5)

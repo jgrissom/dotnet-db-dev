@@ -574,7 +574,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       double average = book.Average(r => r.Celsius);
       SeasonReading coldest = book.MinBy(r => r.Celsius)!;
       int belowTheLine = book.Count(r => r.Celsius < -50);
-      int moretti = book.Count(r => r.TakenBy == "Moretti");
+      int byHand = book.Count(r => r.TakenBy != "AWS");
       List<SeasonReading> worst = book.Where(r => r.Celsius < -60)
           .OrderBy(r => r.Celsius)
           .Take(5)
@@ -591,8 +591,8 @@ Tonight ten loops the room has watched get written come out, the tests never mov
           + $"[{Dim}]on day {coldest.Day} at {coldest.Time}, taken by {coldest.TakenBy}[/]");
       AnsiConsole.MarkupLine($"[{Dim}]  below -50[/]             [{Fg}]{belowTheLine:N0}[/] "
           + $"[{Dim}]readings[/]");
-      AnsiConsole.MarkupLine($"[{Dim}]  Moretti took[/]          [{Fg}]{moretti:N0}[/] "
-          + $"[{Dim}]of them[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  taken by hand[/]         [{Fg}]{byHand:N0}[/] "
+          + $"[{Dim}]readings[/]");
       AnsiConsole.WriteLine();
 
       AnsiConsole.MarkupLine($"[{Dim}]  the five coldest readings in the book:[/]");
@@ -608,7 +608,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 📖 **Start with the first line of the method** — *"`Season.Read` hands back the book, and I call it `book`. Every question in this method is asked of `book`. `book` is a sequence of `SeasonReading`: one reading for each line of `season.txt`."*
 - [ ] 📖 **Then the count** — *"`book.Count()` is how many readings are in the book."*
-- [ ] 📖 **Then the six questions, one line at a time** — *"`Max` of the day is the highest day number in the book. That is how many days the book covers."* · *"`Average` of the temperature is the average for the whole season."* · *"`MinBy` of the temperature hands back the one reading with the lowest temperature. It is the whole reading, not just the number, so the report can also say the day, the time and who took it."* · *"`Count` with a condition: how many readings were below minus fifty."* · *"`Count` again, with a different condition: how many readings Moretti took."* · *"And the last question takes several steps. I will come back to it after we see the answers."*
+- [ ] 📖 **Then the six questions, one line at a time** — *"`Max` of the day is the highest day number in the book. That is how many days the book covers."* · *"`Average` of the temperature is the average for the whole season."* · *"`MinBy` of the temperature hands back the one reading with the lowest temperature. It is the whole reading, not just the number, so the report can also say the day, the time and who took it."* · *"`Count` with a condition: how many readings were below minus fifty."* · *"`Count` again, with a different condition: how many readings were not written by AWS. Those are the readings somebody took by hand. Two a day for two hundred sixty-eight days, so this should be five hundred thirty-six."* · *"And the last question takes several steps. I will come back to it after we see the answers."*
 - [ ] 💡 **If somebody asks about the `!` on the `MinBy` line** — *"`MinBy` hands back null when the book is empty. This book is not empty, so the exclamation mark tells the compiler I know that."*
 - [ ] 📖 **The rest of the method is printing** — *"Everything under the questions prints the answers, with the same Spectre markup as the board. There is nothing new in that part."*
 
@@ -625,7 +625,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
     season average        -43.1 C
     coldest               -70.3 C on day 130 at 19:47, taken by AWS
     below -50             14,811 readings
-    Moretti took          179 of them
+    taken by hand         536 readings
 
     the five coldest readings in the book:
       day 130  19:47  -70.3 C  AWS
@@ -638,7 +638,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 🎞️ **GO TO SLIDE 9** — *Six questions, six lines*
 - [ ] 🎯 **Point at the count, not at the cleverness** — *"Six answers. Fifty thousand readings. Six lines of code."*
 - [ ] 💡 **And the last one is the only one tonight with more than one word in it** — *"Below minus sixty, then in order, then stop at five. One line, and each step hands the next one a sequence to work on. That is the whole of what the middle column on that slide was for."*
-- [ ] 💡 **Then the two the room should notice, and let them find the second** — *"Moretti is the met tech, so of course she took a third of the hand readings. Now look at the name on the coldest reading of the season: AWS. Nobody was outside at minus seventy. That is the standing order working."*
+- [ ] 💡 **Then the two the room should notice, and let them find the second** — *"Five hundred thirty-six readings taken by hand. That is two a day, every day of the winter, which is what I said it should be. Now look at the name on the coldest reading of the season: AWS. Nobody was outside at minus seventy. That is the standing order working."*
 - [ ] ⚠️ **Do not skip this one — it is the honest sell** — *"Nobody was going to write a loop to find out how many readings this season were below minus fifty. Not because it is hard. Because it was never worth the loop. So the question never got asked."*
 - [ ] **Press `q`**
 
