@@ -595,8 +595,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
       foreach (SeasonReading r in worst)
       {
-          AnsiConsole.MarkupLine($"[{Dim}]    day {r.Day,-4} {r.Time}[/]  "
-              + $"[{Cold}]{r.Celsius:0.0} C[/]  [{Fg}]{Markup.Escape(r.TakenBy)}[/]");
+          AnsiConsole.MarkupLine($"[{Dim}]    day {r.Day,-4} {r.Time}[/]  [{Cold}]{r.Celsius:0.0} C[/]  [{Fg}]{Markup.Escape(r.TakenBy)}[/]");
       }
 
   }
@@ -670,7 +669,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] **And the bill goes on the end.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`{Markup.Escape(r.TakenBy)}[/]");`** — one hit. **Select from that line down to and including the `}` that closes `TheMetBook` — the one on its own at no indentation — and paste this over it**
 
   ```csharp
-              + $"[{Cold}]{r.Celsius:0.0} C[/]  [{Fg}]{Markup.Escape(r.TakenBy)}[/]");
+          AnsiConsole.MarkupLine($"[{Dim}]    day {r.Day,-4} {r.Time}[/]  [{Cold}]{r.Celsius:0.0} C[/]  [{Fg}]{Markup.Escape(r.TakenBy)}[/]");
       }
 
       AnsiConsole.WriteLine();
