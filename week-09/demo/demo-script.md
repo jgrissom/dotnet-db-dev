@@ -583,13 +583,12 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       AnsiConsole.MarkupLine($"[{Dim}]  {readings:N0} readings over {days} days[/]");
       AnsiConsole.WriteLine();
 
+      string whenAndWho = $"on day {coldest.Day} at {coldest.Time}, taken by {coldest.TakenBy}";
+
       AnsiConsole.MarkupLine($"[{Dim}]  season average[/]        [{Cold}]{average:0.0} C[/]");
-      AnsiConsole.MarkupLine($"[{Dim}]  coldest[/]               [{Cold}]{coldest.Celsius:0.0} C[/] "
-          + $"[{Dim}]on day {coldest.Day} at {coldest.Time}, taken by {coldest.TakenBy}[/]");
-      AnsiConsole.MarkupLine($"[{Dim}]  below -50[/]             [{Fg}]{belowTheLine:N0}[/] "
-          + $"[{Dim}]readings[/]");
-      AnsiConsole.MarkupLine($"[{Dim}]  taken by hand[/]         [{Fg}]{byHand:N0}[/] "
-          + $"[{Dim}]readings[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  coldest[/]               [{Cold}]{coldest.Celsius:0.0} C[/] [{Dim}]{whenAndWho}[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  below -50[/]             [{Fg}]{belowTheLine:N0}[/] [{Dim}]readings[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  taken by hand[/]         [{Fg}]{byHand:N0}[/] [{Dim}]readings[/]");
       AnsiConsole.WriteLine();
 
       AnsiConsole.MarkupLine($"[{Dim}]  the five coldest readings in the book:[/]");
