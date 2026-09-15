@@ -263,10 +263,85 @@ dotnet test week-09/Lab.Tests
 
 **Now the last four are yours, and three of them are lines you have already written tonight with different nouns:**
 
-- **`Lab/Rotation.cs`, `TotalSeconds`** — week 4's. The same as Hour's, over `_songs`. [`Sum`.](../lecture-notes.md#sum-count-and-average--one-number-out-of-many)
-- **`Lab/Switchboard.cs`, `TotalCalls`** — week 5's. The same again, over `_callers`.
-- **`Lab/Hour.cs`, `LongestItem()`** — week 6's. [`MaxBy`](../lecture-notes.md#maxby--the-item-with-the-biggest-something), like `TheRegular`, and the same shape: the whole method on one line with `=>` — but this one hands back **the item**, not a name, so there is nothing to put a `?.` in front of. Its return type already says it can come back empty.
-- **`Lab/Rotation.cs`, inside `Load`** — week 8's other one, and ⚠️ **this one is not LINQ at all.** The job is *put all of these in*, which is not a question — and [the list already has a method for it](../lecture-notes.md#thirty-lines-become-one). One call, and the name says exactly what it does. ⚠️ **The `_songs.Clear();` above it stays**: loading is replacing, and without it the rotation ends the night with six carts.
+**4 — `Lab/Rotation.cs`, `TotalSeconds`** — week 4's. The same as Hour's, over `_songs`. [`Sum`.](../lecture-notes.md#sum-count-and-average--one-number-out-of-many)
+
+**Run the desk, type a DJ name, press `n`, then `q`.** Look at the first line:
+
+```bash
+dotnet run --project week-09/Lab
+```
+
+```
+  the rotation         3 carts, 13:30 on the clock
+```
+
+**Right: `13:30`, the same as at the start of this task.** If it says `0:03`, you counted the carts instead of adding up their seconds.
+
+```bash
+dotnet test week-09/Lab.Checks
+```
+
+**1 / 5.** If it drops to 0 / 5, read check 1's message before you change anything else.
+
+**5 — `Lab/Switchboard.cs`, `TotalCalls`** — week 5's. The same again, over `_callers`.
+
+**Run the desk, type a DJ name, press `n`, then `q`.** Look at the second line:
+
+```bash
+dotnet run --project week-09/Lab
+```
+
+```
+  the switchboard      5 calls from 3 people
+```
+
+**Right: `5 calls`.** If it says `3 calls from 3 people`, you counted the callers instead of adding up their calls.
+
+```bash
+dotnet test week-09/Lab.Checks
+```
+
+**1 / 5.** If it drops to 0 / 5, read check 1's message before you change anything else.
+
+**6 — `Lab/Hour.cs`, `LongestItem()`** — week 6's. [`MaxBy`](../lecture-notes.md#maxby--the-item-with-the-biggest-something), like `TheRegular`, and the same shape: the whole method on one line with `=>` — but this one hands back **the item**, not a name, so there is nothing to put a `?.` in front of. Its return type already says it can come back empty.
+
+**Run the desk, type a DJ name, press `n`, then `q`.** Look at the fourth line:
+
+```bash
+dotnet run --project week-09/Lab
+```
+
+```
+  longest in the hour  Long Way Round - The Ferrymen (5:31)
+```
+
+**Right: The Ferrymen, at `5:31`.** If it says `KDXR 88.1, The Owl (0:12)`, you asked for the shortest — `MinBy` instead of `MaxBy`.
+
+```bash
+dotnet test week-09/Lab.Checks
+```
+
+**1 / 5.** If it drops to 0 / 5, read check 1's message before you change anything else.
+
+**7 — `Lab/Rotation.cs`, inside `Load`** — week 8's other one, and ⚠️ **this one is not LINQ at all.** The job is *put all of these in*, which is not a question — and [the list already has a method for it](../lecture-notes.md#thirty-lines-become-one). One call, and the name says exactly what it does. ⚠️ **The `_songs.Clear();` above it stays**: loading is replacing, and without it the rotation ends the night with six carts.
+
+**This one only shows on a second run**, because `Load` reads the carts the last shift saved. **Run the desk, type a DJ name, press `n`, then `q`. Then run it again and press `n` once more.** The first line should read the same both times:
+
+```bash
+dotnet run --project week-09/Lab
+```
+
+```
+  the rotation         3 carts, 13:30 on the clock
+```
+
+**Right: `3 carts` on both runs.** If the second run says `6 carts, 27:00`, the `Clear()` is gone: the loaded carts went in on top of the ones already there.
+
+```bash
+dotnet test week-09/Lab.Checks
+```
+
+**1 / 5.** If it drops to 0 / 5, read check 1's message before you change anything else.
 
 **Run the desk, press `n`, and compare it with the screen at the start of this task:**
 
