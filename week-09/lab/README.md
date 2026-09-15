@@ -170,7 +170,7 @@ dotnet run --project week-09/Lab
 
 **The top four lines are right.** Four loops produced them and every one of those loops is correct. **The bottom three are blank**, and they are Tasks 2, 3 and 4. Press `q`.
 
-**Now run both suites, and write both numbers down.**
+**Now run both test projects — my checks, then your own tests — and note where each one starts.**
 
 ```bash
 dotnet test week-09/Lab.Checks
@@ -252,7 +252,7 @@ dotnet test week-09/Lab.Tests
 - **`Lab/Hour.cs`, `LongestItem()`** — week 6's. [`MaxBy`](../lecture-notes.md#maxby--the-item-with-the-biggest-something), like `TheRegular` — but this one hands back **the item**, not a name, so there is nothing to put a `?.` in front of. Its return type already says it can come back empty.
 - **`Lab/Rotation.cs`, inside `Load`** — week 8's other one, and ⚠️ **this one is not LINQ at all.** The job is *put all of these in*, which is not a question — and [the list already has a method for it](../lecture-notes.md#thirty-lines-become-one). One call, and the name says exactly what it does. ⚠️ **The `_songs.Clear();` above it stays**: loading is replacing, and without it the rotation ends the night with six carts.
 
-**Run the desk, press `n`, and compare it with what you wrote down:**
+**Run the desk, press `n`, and compare it with the screen at the start of this task:**
 
 ```bash
 dotnet run --project week-09/Lab
