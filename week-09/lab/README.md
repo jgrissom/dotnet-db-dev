@@ -229,11 +229,13 @@ dotnet test week-09/Lab.Tests
 
 ⚠️ **There are TWO arrows on that line and they mean different things.** The first one says *this property is one expression* — you have had that since week 4, in `Kind => "SONG"`. The second is inside the brackets and it is tonight's. [Both are named in the notes](../lecture-notes.md#reading-a-lambda-out-loud), and it is worth thirty seconds now rather than confusion at Task 3.
 
-**2 — `Lab/Switchboard.cs`, `TheRegular()`.** Week 3's, and [the one to slow down on](../lecture-notes.md#on-an-empty-sequence). Replace the body with:
+**2 — `Lab/Switchboard.cs`, `TheRegular()`.** Week 3's, and [the one to slow down on](../lecture-notes.md#on-an-empty-sequence). Replace the whole method — from `public string TheRegular()` down to and including its closing `}` — with this one line:
 
 ```csharp
-        return _callers.MaxBy(caller => caller.CallsTonight)?.Name ?? "nobody yet";
+    public string TheRegular() => _callers.MaxBy(caller => caller.CallsTonight)?.Name ?? "nobody yet";
 ```
+
+The first `=>` is the same one as on `TotalSeconds` above, this time on a method: *this method is one expression*. The second is the question inside the brackets.
 
 ⚠️ **The two operators on the end are not decoration.** [`MaxBy` hands back `null` for an empty list](../lecture-notes.md#maxby--the-item-with-the-biggest-something), so `?.` means *don't ask a nothing for its Name*, and `??` means *and when there is nothing, say this instead*. **That is exactly what `string best = "nobody yet";` above the loop was doing.** Take them off and check 1 goes red — try it, it takes ten seconds.
 
@@ -249,7 +251,7 @@ dotnet test week-09/Lab.Tests
 
 - **`Lab/Rotation.cs`, `TotalSeconds`** — week 4's. The same as Hour's, over `_songs`. [`Sum`.](../lecture-notes.md#sum-count-and-average--one-number-out-of-many)
 - **`Lab/Switchboard.cs`, `TotalCalls`** — week 5's. The same again, over `_callers`.
-- **`Lab/Hour.cs`, `LongestItem()`** — week 6's. [`MaxBy`](../lecture-notes.md#maxby--the-item-with-the-biggest-something), like `TheRegular` — but this one hands back **the item**, not a name, so there is nothing to put a `?.` in front of. Its return type already says it can come back empty.
+- **`Lab/Hour.cs`, `LongestItem()`** — week 6's. [`MaxBy`](../lecture-notes.md#maxby--the-item-with-the-biggest-something), like `TheRegular`, and the same shape: the whole method on one line with `=>` — but this one hands back **the item**, not a name, so there is nothing to put a `?.` in front of. Its return type already says it can come back empty.
 - **`Lab/Rotation.cs`, inside `Load`** — week 8's other one, and ⚠️ **this one is not LINQ at all.** The job is *put all of these in*, which is not a question — and [the list already has a method for it](../lecture-notes.md#thirty-lines-become-one). One call, and the name says exactly what it does. ⚠️ **The `_songs.Clear();` above it stays**: loading is replacing, and without it the rotation ends the night with six carts.
 
 **Run the desk, press `n`, and compare it with the screen at the start of this task:**
