@@ -731,10 +731,11 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] **<kbd>F5</kbd>, and press `s` at the desk.** It takes a few seconds before it stops
 - [ ] 💡 *"It is reading fifty thousand lines before it stops."*
 - [ ] 💥 **Stop 1** — Watch `line` reads `268|23:56|-19.1|AWS` — *"Day two hundred sixty-eight. That is the last line in the book. It has read all fifty thousand."*
-- [ ] 🎯 **Call Stack: click the `Program.cs` frame** — it highlights `int readings = book.Count();` — *"And it read them to count them: how many readings are in the book."*
+- [ ] 🎯 **Find the line that asked.** In the Run and Debug view, open the **CALL STACK** panel. The top row is `ReadLine` in `Season.cs`, where it stopped, and `[External Code]` below it is LINQ. **Click the first row below those that shows `Program.cs`.** The editor jumps to `Program.cs` and highlights `int readings = book.Count();`. Point at the highlighted line, not at the row's name — the compiler made that name up
+- [ ] 📖 **Say what the call stack is** — *"The call stack is the list of methods waiting on each other right now. The top row is where it stopped. Further down is who asked for it. This row is the line in my program that asked. It read all fifty thousand lines to count them: how many readings are in the book."*
 - [ ] **Continue** (<kbd>F5</kbd>)
 - [ ] 💥 **Stop 2, straight after** — `line` reads `1|00:03|-26.7|AWS` — ⚠️ **stop and let them look** — *"Day one. The first line of the book, again. It went back to the top of the file."*
-- [ ] 🎯 **Call Stack again** — it highlights `int days = book.Max(r => r.Day);` — *"This time for the next question: the latest day. Counting read the whole book, and this question started reading it all over again."*
+- [ ] 🎯 **Click the `Program.cs` row in CALL STACK again** — it highlights `int days = book.Max(r => r.Day);` — *"This time for the next question: the latest day. Counting read the whole book, and this question started reading it all over again."*
 - [ ] 🎯 **Then say what that means for every question** — *"The count, and then six questions. Every one of them goes back to the top of the file. That is seven reads: three hundred fifty thousand lines, to answer questions about fifty thousand."*
 - [ ] **Untick the breakpoint in the BREAKPOINTS panel, Continue**, and let the report print
 - [ ] **Stop the debugger with <kbd>Shift</kbd>+<kbd>F5</kbd>**
