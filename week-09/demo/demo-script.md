@@ -636,6 +636,11 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] 💡 **Then the two the room should notice, and let them find the second** — *"Five hundred thirty-six readings taken by hand. That is two a day, every day of the winter, which is what I said it should be. Now look at the name on the coldest reading of the season: AWS. Nobody was outside at minus seventy. That is the standing order working."*
 - [ ] ⚠️ **Do not skip this one — it is the honest sell** — *"Nobody was going to write a loop to find out how many readings this season were below minus fifty. Not because it is hard. Because it was never worth the loop. So the question never got asked."*
 - [ ] **Press `q`**
+- [ ] **Save it.** Silent
+
+  ```bash
+  git add . && git commit -m "week 9: the met book, six questions"
+  ```
 
 ---
 
@@ -783,10 +788,10 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] **Save it, and this is the one that pushes**
 
   ```bash
-  git add . && git commit -m "week 9: the met book, and what it cost"
+  git add . && git commit -m "week 9: what the met book cost"
   ```
 
-  - 💡 Then **Sync** in the Source Control view — one push, four commits
+  - 💡 Then **Sync** in the Source Control view — one push, five commits
 
 ---
 
