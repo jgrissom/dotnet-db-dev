@@ -672,14 +672,14 @@ Tonight ten loops the room has watched get written come out, the tests never mov
           AnsiConsole.MarkupLine($"[{Dim}]    day {r.Day,-4} {r.Time}[/]  [{Cold}]{r.Celsius:0.0} C[/]  [{Fg}]{Markup.Escape(r.TakenBy)}[/]");
       }
 
+      double heldMb = held / 1024.0 / 1024.0;
+      double fileMb = new FileInfo(metBook).Length / 1024.0 / 1024.0;
+
       AnsiConsole.WriteLine();
       AnsiConsole.MarkupLine($"[{Amber}]  what that cost:[/]");
-      AnsiConsole.MarkupLine($"[{Dim}]    reading the file[/]     [{Fg}]{readMs} ms[/] "
-          + $"[{Dim}]for all {readings:N0} lines[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]    reading the file[/]     [{Fg}]{readMs} ms[/] [{Dim}]for all {readings:N0} lines[/]");
       AnsiConsole.MarkupLine($"[{Dim}]    asking the questions[/] [{Fg}]{askMs:0.0} ms[/]");
-      AnsiConsole.MarkupLine($"[{Dim}]    the book, in memory[/]  "
-          + $"[{Fg}]{held / 1024.0 / 1024.0:0.0} MB[/] "
-          + $"[{Dim}]from a {new FileInfo(metBook).Length / 1024.0 / 1024.0:0.0} MB file[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]    the book, in memory[/]  [{Fg}]{heldMb:0.0} MB[/] [{Dim}]from a {fileMb:0.0} MB file[/]");
   }
   ```
 
