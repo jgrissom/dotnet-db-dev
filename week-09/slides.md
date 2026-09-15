@@ -201,7 +201,7 @@ Instructions run again every time you ask.
 the book, in memory    11.8 MB from a 0.9 MB file
 ```
 
-- getting the list cost **more than every question**
+- getting the list meant **reading every line**
 - it read **all** 50,000 to answer any one
 - **more than ten times the file**, held, to ask six questions
 
@@ -238,4 +238,4 @@ Your own suite is how you know it worked.
 - `.ToList()` turns instructions into an answer
 - a file answers nothing without reading all of it
 
-Week 10: somewhere that isn't your laptop.
+Week 10: a database, somewhere that isn't your laptop.

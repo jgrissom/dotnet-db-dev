@@ -448,9 +448,11 @@ Here is the part that is worth more than the six lines. Ask the program what it 
 
 Three facts, and the last one is the one to sit with:
 
-1. **Reading the file cost more than every question put together.** The queries are not the expensive part. *Getting the list* is.
+1. **Getting the list meant reading every line.** The questions are not where the work is. *Getting the list* is.
 2. **It read all fifty thousand lines to answer any of them.** To find the single coldest reading in the season, it built fifty thousand objects.
 3. **A 0.9 MB file became 11.8 MB of program.** More than ten times bigger, held for as long as you want to keep asking questions.
+
+**Neither version is a good answer.** Without `ToList()`, every question reads the whole file again. With it, the file is read once and the whole book sits in memory. A file gives you no third choice, because it cannot answer a question without being read.
 
 ⚠️ **The numbers on your own machine will differ, and the shape will not.** That ratio is the point, not the milliseconds.
 

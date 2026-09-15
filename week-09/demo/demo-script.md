@@ -783,6 +783,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *What it cost*
 - [ ] 🎯 **Then hand them the arithmetic instead of doing it** — *"And that is not even one whole season. Haldane has been open since nineteen ninety-four."* — and stop
+- [ ] 🎯 **Name both ways, and say neither one is good** — *"So there are two ways to ask a file questions. Without `ToList`, it reads the whole file again for every question. With `ToList`, it reads the file once and holds the whole book in memory. Neither one is a good answer."*
 - [ ] ⚠️ **Say the limit plainly, and make it about what a file IS** — *"This is not a speed problem and it does not get better on a faster laptop. A file cannot answer a question without being read all the way through, because a file does not know anything about what is in it. It is a row of characters. Every question costs the whole thing."*
 - [ ] 🎯 **And make the promise, in as many words** — *"Querying a file is going to stop being good enough. Something that could answer that question where the data lives would read five readings and hand me five readings. That is week ten. And the query running inside it is week twelve."*
 - [ ] **Press `q`**
@@ -821,7 +822,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 - [ ] **Homework: three questions on their own registry, and one fact of their own** — say the checks-copy line, and that this week's `Project.Checks` holds **four** checks
 - [ ] ⚠️ **Say the due date normally** — *"Next class."* Last week was the two-week one; this week is not
 - [ ] **Two URLs in Canvas, coursework first**
-- [ ] 💡 **And the one sentence that sets up next week** — *"Next week the log moves somewhere that is not your laptop."*
+- [ ] 💡 **And set up next week** — *"Tonight a file had to be read from top to bottom for every question, or held in memory whole. Neither one is a good answer. That is the problem a database exists to solve. Next week the log moves into one, somewhere that is not your laptop."*
 
 ---
 
