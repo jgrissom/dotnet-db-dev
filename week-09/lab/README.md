@@ -217,7 +217,7 @@ dotnet test week-09/Lab.Tests
 
 #### Now the seven methods
 
-[The notes open with the receipt](../lecture-notes.md#thirty-lines-become-one): every one of these was promised to you as one line, in the week you wrote it. Six of them are loops; `LastShift` walks an array to reach its last item, which is the same job done a different way. Work down the list. **The first four are written out; the last three are the same lines with different nouns.**
+[The notes open with the receipt](../lecture-notes.md#thirty-lines-become-one): every one of these was promised to you as one line, in the week you wrote it. Six of them are loops; `LastShift` walks an array to reach its last item, which is the same job done a different way. Work down the list. **The first three are written out; the last four are yours.**
 
 **1 — `Lab/Hour.cs`, `TotalSeconds`.** Week 7's. Replace the whole property with:
 
@@ -246,6 +246,20 @@ The first `=>` is the same one as on `TotalSeconds` above, this time on a method
 ```
 
 ⚠️ **The `File.Exists` guard at the top stays.** `ReadAllLines` throws on a file that isn't there, so LINQ never gets a chance to be asked anything. What goes is the array indexing *and* the empty-array check — [`LastOrDefault` copes with both](../lecture-notes.md#firstordefault--the-one-or-nothing-at-all).
+
+**Before you write your own four, run both again.** Nothing you pasted should have moved either number.
+
+```bash
+dotnet test week-09/Lab.Checks
+```
+
+**1 / 5.**
+
+```bash
+dotnet test week-09/Lab.Tests
+```
+
+**4 passed.** If either number moved, one of the three pastes broke something. Find it now, while it is one of three and not one of seven.
 
 **Now the last four are yours, and three of them are lines you have already written tonight with different nouns:**
 
@@ -286,7 +300,7 @@ dotnet test week-09/Lab.Checks
 **1 / 5 — exactly where you started.**
 
 > [!IMPORTANT]
-> **Read that number again.** You deleted about forty lines of a program you did not write, and two commands told you in under a second that you had broken nothing. **That is what a test suite is actually for.** Every check you have ever run caught something; these two gave you permission.
+> **Read that number again.** You deleted about forty lines of a program you did not write, and two commands told you in under a second that you had broken nothing they check. **That is what a test suite is actually for.** Every check you have ever run caught something; these two gave you permission.
 
 **Commit it:**
 
@@ -533,6 +547,7 @@ dotnet run --project week-09/Lab
 
 - **Take the `?? "nobody yet"` off `TheRegular`** and run my checks. Read the message. Put it back.
 - **Change `TheRegular`'s `MaxBy` to `MinBy`** and press `n`. The desk now reports the person who called *least* as its regular, and nothing objects. **Which of your four facts caught it?**
+- **Swap `LastOrDefault` for `FirstOrDefault` in `LastShift`**, then run both suites. **Which one notices?** Neither does: no check and no fact of yours asks what `LastShift` answers. That is a fact you could write.
 - **Swap `OrderByDescending` for `List.Sort` in `TopPlayed`**, then press `n`, then `t`. The numbers look right. Now look at the order of the carts. [Then read check 4's message.](../lecture-notes.md#orderby--and-it-leaves-the-thing-you-asked-alone)
 - **Put `item.Play()` inside `RunningOrder`'s lambda** and press `n` twice in a row. Watch the ad's `(N left)` count down without anything going on the air.
 - **Ask `LongerThan(227)`** — Nightjar is exactly 227 seconds. Does it come back? Should it? *(Change `240` to `227` in `Program.cs` for a moment if you want to see it on screen.)*
