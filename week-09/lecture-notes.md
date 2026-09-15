@@ -292,7 +292,7 @@ It works. Every answer the met book gives is correct. But put a stopwatch round 
 ```
   what that cost:
     reading the file     0 ms for all 50,000 lines
-    asking the questions 53.3 ms
+    asking the questions 59.9 ms
     the book, in memory  0.0 MB from a 0.9 MB file
 ```
 
@@ -311,7 +311,7 @@ public static List<SeasonReading> Read(string path) =>
         .ToList();
 ```
 
-`ToList()` runs the plan **once**, now, and keeps the answer. All three numbers flip: reading takes about 9 ms because it really reads the file, asking takes about 5 ms because the questions ask a list already in memory, and the book holds 11.8 MB.
+`ToList()` runs the plan **once**, now, and keeps the answer. All three numbers flip: reading takes about 9 ms because it really reads the file, asking takes about 7 ms because the questions ask a list already in memory, and the book holds 11.8 MB.
 
 ⚠️ **Your milliseconds will differ.** The `0 ms` and the `0.0 MB` will not, and nor will the 11.8 MB.
 
@@ -430,10 +430,7 @@ double average = book.Average(r => r.Celsius);
 SeasonReading coldest = book.MinBy(r => r.Celsius)!;
 int belowTheLine = book.Count(r => r.Celsius < -50);
 int byHand = book.Count(r => r.TakenBy != "AWS");
-List<SeasonReading> worst = book.Where(r => r.Celsius < -60)
-    .OrderBy(r => r.Celsius)
-    .Take(5)
-    .ToList();
+List<SeasonReading> worst = book.OrderBy(r => r.Celsius).Take(5).ToList();
 ```
 
 Not one of those is a loop you would have enjoyed writing, and one of them — *how many readings below fifty below* — is a question nobody would have asked at all last week. Not because it is hard. Because it was never worth the loop.
@@ -445,7 +442,7 @@ Here is the part that is worth more than the six lines. Ask the program what it 
 ```
   what that cost:
     reading the file     9 ms for all 50,000 lines
-    asking the questions 5.3 ms
+    asking the questions 7.1 ms
     the book, in memory  11.8 MB from a 0.9 MB file
 ```
 

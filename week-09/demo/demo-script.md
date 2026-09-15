@@ -575,10 +575,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       SeasonReading coldest = book.MinBy(r => r.Celsius)!;
       int belowTheLine = book.Count(r => r.Celsius < -50);
       int byHand = book.Count(r => r.TakenBy != "AWS");
-      List<SeasonReading> worst = book.Where(r => r.Celsius < -60)
-          .OrderBy(r => r.Celsius)
-          .Take(5)
-          .ToList();
+      List<SeasonReading> worst = book.OrderBy(r => r.Celsius).Take(5).ToList();
 
 
       AnsiConsole.WriteLine();
@@ -637,7 +634,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *Six questions, six lines*
 - [ ] 🎯 **Point at the count, not at the cleverness** — *"Six answers. Fifty thousand readings. Six lines of code."*
-- [ ] 💡 **And the last one is the only one tonight with more than one word in it** — *"Below minus sixty, then in order, then stop at five. One line, and each step hands the next one a sequence to work on. That is the whole of what the middle column on that slide was for."*
+- [ ] 💡 **And the last one is a chain of steps** — *"Sort the whole book, coldest first. Then take the first five. Then make it a list. Each step hands the next one a sequence to work on. That is the whole of what the middle column on that slide was for."*
 - [ ] 💡 **Then the two the room should notice, and let them find the second** — *"Five hundred thirty-six readings taken by hand. That is two a day, every day of the winter, which is what I said it should be. Now look at the name on the coldest reading of the season: AWS. Nobody was outside at minus seventy. That is the standing order working."*
 - [ ] ⚠️ **Do not skip this one — it is the honest sell** — *"Nobody was going to write a loop to find out how many readings this season were below minus fifty. Not because it is hard. Because it was never worth the loop. So the question never got asked."*
 - [ ] **Press `q`**
@@ -661,13 +658,10 @@ Tonight ten loops the room has watched get written come out, the tests never mov
       clock.Restart();
   ```
 
-- [ ] ⚠️ **Now stop the clock, and stop it in the right place** — the last question is the last thing it should be timing. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`List<SeasonReading> worst = book.Where(r => r.Celsius < -60)`** — one hit. **Select from that line down to and including the `.ToList();` under it, and paste this over it**
+- [ ] ⚠️ **Now stop the clock, and stop it in the right place** — the last question is the last thing it should be timing. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`List<SeasonReading> worst = book.OrderBy`** — one hit. **Select that one line and paste this over it**
 
   ```csharp
-      List<SeasonReading> worst = book.Where(r => r.Celsius < -60)
-          .OrderBy(r => r.Celsius)
-          .Take(5)
-          .ToList();
+      List<SeasonReading> worst = book.OrderBy(r => r.Celsius).Take(5).ToList();
 
       double askMs = clock.Elapsed.TotalMilliseconds;
   ```
@@ -702,7 +696,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   ```
     what that cost:
       reading the file     0 ms for all 50,000 lines
-      asking the questions 53.3 ms
+      asking the questions 59.9 ms
       the book, in memory  0.0 MB from a 0.9 MB file
   ```
 
@@ -768,7 +762,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
   ```
     what that cost:
       reading the file     9 ms for all 50,000 lines
-      asking the questions 5.3 ms
+      asking the questions 7.1 ms
       the book, in memory  11.8 MB from a 0.9 MB file
   ```
 

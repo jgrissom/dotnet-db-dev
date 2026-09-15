@@ -31,7 +31,7 @@ They can also say what every one of those does to an **empty** sequence — and 
 
 ```
 reading the file       0 ms for all 50,000 lines
-asking the questions   53.3 ms
+asking the questions   59.9 ms
 the book, in memory    0.0 MB from a 0.9 MB file
 ```
 
@@ -39,7 +39,7 @@ the book, in memory    0.0 MB from a 0.9 MB file
 
 ```
 reading the file       9 ms for all 50,000 lines
-asking the questions   5.3 ms
+asking the questions   7.1 ms
 the book, in memory    11.8 MB from a 0.9 MB file
 ```
 
