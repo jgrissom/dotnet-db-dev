@@ -742,7 +742,7 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 - [ ] 🎞️ **GO TO SLIDE 10** — *A query is a recipe*
 - [ ] 🎯 **The explanation, and it is a mechanism rather than a principle** — *"`Read` did not hand back fifty thousand readings. It handed back instructions: go through the file and turn each line into a reading. Nothing ran until somebody asked a question. Then every question ran those instructions again, from the top of the file."*
-- [ ] 💡 **And why the first run's numbers looked like that** — *"That is why reading took no time and the book took no memory. Nothing had been read yet. The cost moved into the questions."*
+- [ ] 💡 **And why the first run's numbers looked like that** — *"That is why reading took no time and the book took no memory. Nothing had been read yet. The cost moved into the questions. Every question we ask costs 50,000 lines to read."*
 
 - [ ] ⚠️ **The fix is two edits in `Season.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`public static IEnumerable<SeasonReading> Read(string path) =>`** — one hit. Make that line read
 
