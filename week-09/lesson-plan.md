@@ -90,7 +90,7 @@ By the end of this session, students can:
 - ⚠️ **§6's explanation is a mechanism, not a principle.** *"`Read` handed back instructions, and every question ran them again from the top of the file."* Do not reach for a metaphor; the room is already holding a surprise.
 - ⚠️ ⚠️ **§6 IS NOT A SPEED BEAT, and building it as one would falsify itself on screen.** Measured: 50,000 lines read in **8–24 ms**. The argument is **work and memory** — it read all 50,000 to answer a question about one, and a 0.9 MB file became 11.8 MB of program. Both of those are true on any machine.
 - 💡 **The two millisecond figures move every run and the slide deliberately does not carry them.** Read yours off the screen. The memory figure was stable across every run and it is the one to land.
-- 🎯 **§6's closing arithmetic is theirs, not yours.** *"That is one season. Haldane has been open since 1994."* Then stop.
+- 🎯 **§6's closing arithmetic is theirs, not yours.** *"And that is not even one whole season. Haldane has been open since 1994."* Then stop.
 - ⚠️ **Say the P6 promise in as many words** — *"querying a file is going to stop being good enough"* — because week 12 collects it by name.
 - **The demo commits four times, silently**, and the first is immediately after the carry-forward. Then the collapses (§3), the end-of-watch muster (§4), and the met book (§6) with the push.
 - **The branch is spoken, briefly** — five seconds, nothing new this week.

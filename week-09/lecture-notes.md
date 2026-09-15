@@ -454,7 +454,7 @@ Three facts, and the last one is the one to sit with:
 
 ⚠️ **The numbers on your own machine will differ, and the shape will not.** That ratio is the point, not the milliseconds.
 
-And that is *one season*. Haldane has been open since 1994.
+And that is not even one whole season. Haldane has been open since 1994.
 
 > [!IMPORTANT]
 > **This is the honest limit of a file, and it is not a speed problem.** A file cannot answer a question without being read in full, because a file does not know anything about what is in it — it is a row of characters. Every question you ask costs the whole thing.

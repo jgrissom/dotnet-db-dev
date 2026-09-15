@@ -205,7 +205,7 @@ the book, in memory    11.8 MB from a 0.9 MB file
 - it read **all** 50,000 to answer any one
 - **more than ten times the file**, held, to ask six questions
 
-That is *one* season. Haldane opened in 1994.
+Not even one whole season. Haldane opened in 1994.
 
 ---
 
