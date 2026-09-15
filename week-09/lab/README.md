@@ -25,13 +25,7 @@ Four steps, all from the **one VS Code window you keep all semester** — open o
 
 ```bash
 cd ../dotnet-db-starters
-```
-
-```bash
 git pull
-```
-
-```bash
 cd ../dotnet-db-coursework
 ```
 
