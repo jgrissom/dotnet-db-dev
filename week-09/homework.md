@@ -99,11 +99,17 @@ dotnet test Project.Checks
 
 **Check:** `Check2_TheRegistryHandsBackItsNames` — *mine*
 
-**1. Add the member.** In `Project/Registry.cs`, and the signature is dictated:
+**1. Add the method.** In `Project/Registry.cs`, and the signature is dictated:
 
 ```csharp
 public List<string> Names()
+{
+    // TODO: hand back a list holding just the name from each of your items.
+    return new List<string>();
+}
 ```
+
+💡 **The placeholder `return` is there so the project still builds** — check 2 then fails with its own message instead of a build error taking all four down with it.
 
 **2. One line inside it**, and [the notes work the shape through](lecture-notes.md#select--turning-each-one-into-something-else):
 
@@ -133,10 +139,14 @@ git commit -m "The registry hands back its names"
 
 **Check:** `Check3_TheRegistryComesBackInOrder` — *mine*
 
-**1. Add the member**, dictated the same way:
+**1. Add the method**, dictated the same way:
 
 ```csharp
 public List<YourRecord> Sorted()
+{
+    // TODO: hand back your items in order by name — a sorted COPY, not the list itself.
+    return new List<YourRecord>();
+}
 ```
 
 **2. One line**, and it is [`OrderBy`](lecture-notes.md#orderby--and-it-leaves-the-thing-you-asked-alone) over your name property, with [`.ToList()`](lecture-notes.md#tolist-and-why-every-query-here-ends-with-it) on the end.
@@ -167,10 +177,14 @@ git commit -m "And it comes back in order"
 
 **Check:** `Check4_TheRegistryFindsEveryMatch` — *mine*
 
-**1. Add the member**, dictated:
+**1. Add the method**, dictated:
 
 ```csharp
 public List<YourRecord> Matching(string term)
+{
+    // TODO: hand back only the items whose name contains term, in the order the registry holds them.
+    return new List<YourRecord>();
+}
 ```
 
 **2. One line** — [a `Where`](lecture-notes.md#where--keeping-some-of-them), and the question is whether the record's name **contains** the term:
