@@ -275,26 +275,29 @@ That is what `string best = "nobody yet";` above the loop was for. Delete the lo
 
 ### Writing a fact about nothing being there
 
-The three moves are week 7's — set the scene, do the thing, check the answer. What is new is that the answer you are checking is *nothing*, and the assert you reach for depends on what kind of nothing it is.
+The three moves are week 7's — set the scene, do the thing, check the answer. What is new is that one of the answers is *nothing*, so the fact has two halves: the thing that is there, and the thing that is not.
 
 ```csharp
 // Project.Tests/RegistryTests.cs — mine is lighthouses
 [Fact]
-public void MatchingComesBackEmptyWhenNothingMatches()
+public void MatchingFindsSomeAndComesBackEmptyForNone()
 {
     Registry registry = new Registry();
     Lighthouse sable = registry.NewItem("Sable Point Light");
     registry.Add(sable);
 
-    List<Lighthouse> found = registry.Matching("zzz");
+    List<Lighthouse> point = registry.Matching("Point");
+    List<Lighthouse> nothing = registry.Matching("zzz");
 
-    Assert.Empty(found);
+    Assert.Single(point);
+    Assert.Empty(nothing);
 }
 ```
 
 - **The scene is two lines, and the contract hands you both.** `NewItem` makes one of your records; `Add` puts it in the registry. Nothing is faked and nothing is mocked — it is your own class, built in the test.
-- **Three kinds of nothing, three asserts.** `Assert.Empty` for a list with nothing in it. `Assert.Null` for a record that was not found. `Assert.Same` for *this is the very record I added*, not a copy that merely looks like it.
-- **`Matching` cannot come back `null`** — `Where` hands back an empty sequence, and `ToList` turns it into an empty list. Asserting `Null` here would fail, and the failure would be telling you the truth.
+- **Both halves in one fact.** A search that finds things proves half of the job. What it does when there is nothing to find is the other half, and it is the half a rewrite breaks.
+- **The assert follows the return type.** `Matching` hands back a list, so the pair is `Assert.Single` and `Assert.Empty`. A method that hands back **one record or nothing** — `Find` — wants `Assert.Same` for the record you added and `Assert.Null` for the name nobody has. **`Assert.Same` is stricter than `Assert.Equal`**: it says *this is the very object I put in*, not one that merely looks like it.
+- **`Matching` cannot come back `null`** — `Where` hands back an empty sequence and `ToList` turns it into an empty list. Asserting `Null` there would fail, and the failure would be telling you the truth.
 
 ## ToList, and why every query here ends with it
 
