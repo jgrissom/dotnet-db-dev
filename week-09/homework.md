@@ -274,7 +274,7 @@ dotnet test Project.Checks
 
 The checks never look at `Program.cs`, and a registry that can answer questions should be seen answering them.
 
-Open `Project/Program.cs` and put this at the end, after your listing loop and after `registry.Save(...)`:
+Open `Project/Program.cs` and put this at the **very end of the file** — after your listing loop, after `registry.Save(...)`, and after the line that reports how many are on file. That keeps the program reading in the order things happened: the listing, the save, then the questions.
 
 ```csharp
 Console.WriteLine();
