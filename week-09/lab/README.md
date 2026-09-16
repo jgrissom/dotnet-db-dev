@@ -457,6 +457,9 @@ It is 4 AM and the DJ wants something the station has not already worn out tonig
 - **One [`Where`](../lecture-notes.md#where--keeping-some-of-them)**, and the question is about `PlaysTonight` — *never* is `0`.
 - ⚠️ **Read your comparison twice.** `> 0` is also a perfectly good list of carts — it is just the opposite answer, and both look right on screen.
 
+> [!NOTE]
+> **This task needs carts nobody has aired yet.** If you have pressed `a` while poking around, the play counts are already above zero — and they survive quitting, because week 8's `Save` writes them into `week-09/rotation.json`. **Delete that file before you run this task** — right-click it in VS Code's Explorer and choose Delete — and the carts come back as the seeded three with every count at zero. `air-log.txt` only ever gains lines, and it changes nothing these tasks read.
+
 **Run the desk, DJ name, then `n` — and do NOT air the hour first:**
 
 ```bash
@@ -531,7 +534,7 @@ dotnet run --project week-09/Lab
   worked hardest       Nightjar (3), Slack Water (2)
 ```
 
-**Nightjar is one ahead, because it was in the hour twice.** The other two are on two apiece: once when you aired the hour in Task 3, once again just now. **If you have aired the hour more often than the lab asked, your numbers are higher and that is fine** — what matters is Nightjar being one ahead.
+**Nightjar is one ahead, because it was in the hour twice.** The other two are on two apiece: once when you aired the hour in Task 3, once again just now. **If you have aired the hour more often than the lab asked, your numbers are higher and that is fine** — [Task 3's note](#task-3-in-full) says how to start the counts over if you want mine exactly — what matters is Nightjar being one ahead.
 
 💡 **Slack Water and Long Way Round are tied on two.** The desk asks for the top *two*, and songs on the same count stay in the order the rotation holds them — so Slack Water is the one that shows. Press `q`.
 
