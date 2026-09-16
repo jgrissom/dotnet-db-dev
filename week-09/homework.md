@@ -3,7 +3,7 @@
 **20 points · due before next class**
 
 > [!NOTE]
-> **Back to a normal week.** Last week's was the term's only two-week homework, because fall break sat in the middle of it. This one is set today and due before the next class.
+> **Back to a normal week.** Last week's was the term's only two-week homework, because the term break sat in the middle of it. This one is set today and due before the next class.
 
 Your registry has held records since week 4 and remembered them since week 8. It still cannot answer a single question about them.
 

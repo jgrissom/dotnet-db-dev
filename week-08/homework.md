@@ -3,7 +3,7 @@
 **20 points · due before next class — and this week that is TWO weeks out**
 
 > [!IMPORTANT]
-> **There is no class next week; it's fall break.** This homework is set today and due before the class after next. **It is not a bigger homework** — it is the same size with a week off in the middle of it. Do it this week anyway, while tonight is still in your hands.
+> **There is no class next week; it's the term break.** This homework is set today and due before the class after next. **It is not a bigger homework** — it is the same size with a week off in the middle of it. Do it this week anyway, while tonight is still in your hands.
 
 Your registry has been perfect and temporary since week 4. Tonight it gets a file, and [the record you have been building all term stops dying with the process](lecture-notes.md#the-log-stops-being-gone).
 

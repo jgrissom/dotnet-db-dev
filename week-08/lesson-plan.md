@@ -82,7 +82,7 @@ By the end of this session, students can:
 - **The demo commits four times, silently**, and the first is immediately after the carry-forward — the same commit the lab's Setup asks of them. Then the format (§5), the clock (§6), and the two facts with the push (§7).
 - **The branch is spoken, briefly** — five seconds, nothing new this week.
 - ⚠️ **Say the checks-copy line at the wrap with this week's twist.** This week's `Project.Checks` holds **four** checks; last week's held two. A student on last week's sees two names and 1/2.
-- ⚠️ ⚠️ **Say the due date out loud, twice if you have to.** Fall break falls between this session and the next, so this homework is set today and due two weeks out. It is not bigger; students will assume it is.
+- ⚠️ ⚠️ **Say the due date out loud, twice if you have to.** The term break falls between this session and the next, so this homework is set today and due two weeks out. It is not bigger; students will assume it is.
 - **The lab's Task 3 is where the wrong answer looks right** — a `Load` with no `Clear()` gives six carts and a plausible-looking board. Circulate for a rotation with six rows in it.
 - 💡 **`Lab.Tests` fact names are theirs.** The homework dictates exactly one name, and the note explaining why it carries the week rather than a number is worth reading aloud if anybody asks.
 

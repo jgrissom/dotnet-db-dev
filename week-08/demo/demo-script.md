@@ -760,4 +760,4 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 🎯 **The forward line:** *"Your data survives now, and it survives on your laptop. It is one file, on one machine, that one person can open. In week ten it moves somewhere the mainland can see — and in week eleven every terminal in this room writes to the same one."*
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
 - [ ] ⚠️ **Say the checks line out loud** — *"Part 1 copies this week's checks in, same as always. This week there are FOUR of them. If `dotnet test Project.Checks` shows two, you are running last week's"*
-- [ ] ⚠️ **And say the date, because this one is different** — *"there is no class next week. It is fall break. So this homework is due two weeks out, not one. It is not a bigger homework. It is the same size with a week off in the middle of it."*
+- [ ] ⚠️ **And say the date, because this one is different** — *"there is no class next week. It is the term break. So this homework is due two weeks out, not one. It is not a bigger homework. It is the same size with a week off in the middle of it."*

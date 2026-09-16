@@ -23,7 +23,7 @@ They can also say **where a file actually goes** — that a relative path resolv
 And they meet the trap that costs an evening: **a serializer writes every property it can read and reads back only the ones it can write**, so the `{ get; private set; }` they have been writing since week 4 goes into the file and never comes home. `[JsonInclude]` is the answer, and it is framed as a decision about what should survive rather than as a repair.
 
 > [!IMPORTANT]
-> **This week's homework has the term's only two-week window** — set on 6 October, due 20 October, because fall break falls in between. It is the same size as any other week; the demo's wrap says so out loud, and so does the homework's first line.
+> **This week's homework has the term's only two-week window** — set on 6 October, due 20 October, because the term break falls in between. It is the same size as any other week; the demo's wrap says so out loud, and so does the homework's first line.
 
 > [!NOTE]
 > **The desk clock stops being a string.** `Watch.Now()` is `DateTime.UtcNow` from tonight, so the log carries real times — which is why `Watch.Add` now keeps the book in time order instead of relying on the entries happening to arrive in it. Both are small; the second one is the more interesting lesson and the demo says why.
