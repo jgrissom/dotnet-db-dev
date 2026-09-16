@@ -216,7 +216,7 @@ git commit -m "And it finds every match"
 
 Every fact in your suite so far was written to **catch** something. This one is written so that you can **change** something.
 
-**In `Project.Tests/RegistryTests.cs`, under the five you already have.** Two asserts, and the second is the one that matters:
+**In `Project.Tests/RegistryTests.cs`, under the five you already have.** Two asserts, and the second is the one that matters — [the notes work a fact of this shape through, on lighthouses](lecture-notes.md#writing-a-fact-about-nothing-being-there):
 
 - **Set the scene.** A registry, one record, added.
 - **`Find` the record by the name you gave it** — and `Assert.Same` that you got back the record the registry is holding, not a copy.

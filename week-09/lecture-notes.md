@@ -273,6 +273,29 @@ Those two operators are doing exactly what the loop's setup line did:
 
 That is what `string best = "nobody yet";` above the loop was for. Delete the loop and the sentence still has to be said somewhere.
 
+### Writing a fact about nothing being there
+
+The three moves are week 7's — set the scene, do the thing, check the answer. What is new is that the answer you are checking is *nothing*, and the assert you reach for depends on what kind of nothing it is.
+
+```csharp
+// Project.Tests/RegistryTests.cs — mine is lighthouses
+[Fact]
+public void MatchingComesBackEmptyWhenNothingMatches()
+{
+    Registry registry = new Registry();
+    Lighthouse sable = registry.NewItem("Sable Point Light");
+    registry.Add(sable);
+
+    List<Lighthouse> found = registry.Matching("zzz");
+
+    Assert.Empty(found);
+}
+```
+
+- **The scene is two lines, and the contract hands you both.** `NewItem` makes one of your records; `Add` puts it in the registry. Nothing is faked and nothing is mocked — it is your own class, built in the test.
+- **Three kinds of nothing, three asserts.** `Assert.Empty` for a list with nothing in it. `Assert.Null` for a record that was not found. `Assert.Same` for *this is the very record I added*, not a copy that merely looks like it.
+- **`Matching` cannot come back `null`** — `Where` hands back an empty sequence, and `ToList` turns it into an empty list. Asserting `Null` here would fail, and the failure would be telling you the truth.
+
 ## ToList, and why every query here ends with it
 
 ### A query is a recipe, not an answer
