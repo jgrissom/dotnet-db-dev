@@ -1,0 +1,55 @@
+{
+  "week": 10,
+  "total": 20,
+  "_comment": "One source of truth for week 10's rubric. The grader scores from this file, the homework's grading table is copied from it, and you can read it. `suite` says which test run scores an item — 'checks' is `dotnet test Project.Checks` (canonical, replaced wholesale by the grader), 'tests' is `dotnet test Project.Tests` (the student's OWN suite, run as-is and never replaced). The dictated student fact carries the WEEK rather than a check number — Week10_AnEmptyTableLeavesTheRegistryAlone — and week 7's four CheckN_ facts are still left alone. ⚠️ THE RUN-IT ITEM IS A BUILD-IT ITEM FROM THIS WEEK ON, AND IT IS NOT A SOFTENING: the program's data lives in a database now, so running it needs the student's connection string, which is in their secret store and — correctly — not in the repo. `dotnet run` on a clone cannot work for anybody, ever again. What a clone still proves is that it COMPILES. Their code is still executed heavily by both suites. Weeks 11-13 inherit this. Check 4 is the heaviest item in the week because it IS the week: the registry survives a restart in its new home, including the first-run case that is easy to get wrong and impossible to notice twice. Check 1 stays at 2 like every came-forward check. The graded repo is the PROJECT repo (D1b); the coursework repo is not cloned.",
+  "checks": {
+    "Check1_WeeksFourToNineStillHold": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Weeks 4-9 still hold — Topic, no public fields, All() copies, Find and Remove behave, IListed kept by record and registry, Everything() intact, Add refuses a duplicate, and Names/Sorted/Matching still answer"
+    },
+    "Check2_TheRecordIsShapedForATable": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Your record has an Id the database can tell its rows apart by, and the property holding its name is stored"
+    },
+    "Check3_ThereIsAMigration": {
+      "points": 2,
+      "suite": "checks",
+      "label": "A migration exists in your project — you ran `dotnet ef migrations add` rather than making the table by hand"
+    },
+    "Check4_TheRegistrySurvivesARestart": {
+      "points": 4,
+      "suite": "checks",
+      "label": "Save and Load round-trip every record and everything on it — and an empty table leaves a seeded registry alone"
+    },
+    "Week10_AnEmptyTableLeavesTheRegistryAlone": {
+      "points": 2,
+      "suite": "tests",
+      "label": "Your test: loading from a table nobody has saved to yet does not throw your records away — written by you, green in your own suite"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programBuilds": {
+      "points": 2,
+      "label": "The project compiles from a clean clone — from this week it cannot be RUN anywhere but your own machine, because your connection string is not in the repo"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked nowhere in the project repo — the .gitignore holding"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgment call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}

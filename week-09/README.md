@@ -57,4 +57,4 @@ the book, in memory    11.8 MB from a 0.9 MB file
 - **VS Code open on the demo repo's top**, exactly where week 8 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — week 9's board is up, and it is the first one with a met summary on it
 
-**Prev:** [Week 8 — File I/O, and the Log Stops Being Gone](../week-08/) · **Next:** Week 10 — EF Core I *(coming)*
+**Prev:** [Week 8 — File I/O, and the Log Stops Being Gone](../week-08/) · **Next:** [Week 10 — EF Core I: The Log Leaves the Building](../week-10/)

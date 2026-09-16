@@ -82,11 +82,14 @@ jobs:
       # Pages hosts decks and the instructor demo-script checklists — public-repo
       # material only. NEVER answer-key content (solutions, graders, keys).
       #
-      # NOTE — the web course's sticky "Port box" is deliberately absent: this
-      # course has no localhost URLs to retarget. The RULE it existed to enforce
-      # still applies (never make the instructor hand-edit a value mid-demo), and
-      # the EF Core weeks will need their own version of it for the database name.
-      # Build that control when week 10 lands; don't ship an instruction to retype.
+      # NOTE — the sticky "Database box" is this course's version of the web
+      # course's Port box, built for week 10 (D3). The rule it enforces is the
+      # same: never make the instructor hand-edit a value mid-demo. Any sheet
+      # that mentions DB_HALDANE_156101411_JSG grows a box at the top; typing in
+      # it rewrites every occurrence on the page, INCLUDING what the Copy
+      # buttons put on the clipboard, and remembers the value per sheet. Sheets
+      # that never mention it are untouched, so weeks 1-9 render exactly as
+      # before.
       # Syntax highlighting for the cue sheets happens HERE, at build time, so the
       # published page carries the <span>s already and needs no CDN or runtime JS.
       # The sheet is read live at the projector; a second origin that can fail on
@@ -128,7 +131,14 @@ jobs:
               # triangle is a widget, not text). Nor should finishing a text selection.
               echo "<script>document.querySelectorAll('li').forEach(function(li){var cb=li.querySelector(':scope > input[type=checkbox], :scope > p > input[type=checkbox]');if(!cb)return;li.classList.add('task');li.addEventListener('click',function(e){if(e.target===cb)return;if(e.target.closest('a,button,pre,details'))return;var n=e.target.closest('li');if(n!==li&&n.classList.contains('task'))return;if((getSelection()+'').length)return;cb.checked=!cb.checked;cb.dispatchEvent(new Event('change'));});});</script>"
               # Copy button on every code block — you're grabbing these mid-demo.
-              echo "<script>document.querySelectorAll('pre').forEach(function(pre){var b=document.createElement('button');b.type='button';b.className='copy';b.textContent='Copy';b.addEventListener('click',function(){var c=pre.querySelector('code');var t=(c||pre).innerText;navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1200);},function(){var r=document.createRange();r.selectNodeContents(c||pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Press Cmd/Ctrl+C';setTimeout(function(){b.textContent='Copy';},2000);});});pre.appendChild(b);});</script></body></html>"
+              echo "<script>document.querySelectorAll('pre').forEach(function(pre){var b=document.createElement('button');b.type='button';b.className='copy';b.textContent='Copy';b.addEventListener('click',function(){var c=pre.querySelector('code');var t=(c||pre).innerText;navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1200);},function(){var r=document.createRange();r.selectNodeContents(c||pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Press Cmd/Ctrl+C';setTimeout(function(){b.textContent='Copy';},2000);});});pre.appendChild(b);});</script>"
+              # THE DATABASE BOX (D3). The markdown carries the real default, so
+              # GitHub renders a correct sheet and the markdown stays the source of
+              # truth. Here, every text node holding it is remembered and rewritten
+              # from its pristine original on every edit — so repeated edits cannot
+              # compound, and the Copy buttons (which read innerText at click time)
+              # pick the new value up for free. No box appears if the token is absent.
+              echo "<script>(function(){var D='DB_HALDANE_156101411_JSG';var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);var n,hits=[];while(n=w.nextNode()){if(n.nodeValue.indexOf(D)>=0)hits.push([n,n.nodeValue]);}if(!hits.length)return;var k='$3-dbname';var box=document.createElement('div');box.style.cssText='margin:.6rem 0 1rem;padding:.6rem .8rem;background:#151b23;border:1px solid #3a4a5e;border-radius:6px';var lab=document.createElement('label');lab.textContent='Database ';lab.style.cssText='font-size:.9rem;color:#a5b4c4';var inp=document.createElement('input');inp.type='text';inp.spellcheck=false;inp.style.cssText='font-family:ui-monospace,monospace;font-size:.9rem;width:22rem;max-width:100%;padding:.25rem .4rem;background:#0d1117;color:#e6edf3;border:1px solid #3a4a5e;border-radius:4px';var note=document.createElement('div');note.style.cssText='font-size:.78rem;color:#6c7b78;margin-top:.35rem';note.textContent='Rewrites every mention on this page, and what the Copy buttons hand you. Saved on this device.';var saved=null;try{saved=localStorage.getItem(k)}catch(e){}inp.value=saved||D;function apply(){var v=inp.value.trim()||D;hits.forEach(function(h){h[0].nodeValue=h[1].split(D).join(v)});try{localStorage.setItem(k,v)}catch(e){}}inp.addEventListener('input',apply);lab.appendChild(inp);box.appendChild(lab);box.appendChild(note);document.body.insertBefore(box,document.body.firstChild.nextSibling);apply();})();</script></body></html>"
             } > "$2"
           }
           {

@@ -406,4 +406,4 @@ Five moments worth saving, written into the parts above at the point where each 
 | A value isn't what you think it is | **Set a breakpoint and look** — [week 5's drill](../week-05/lecture-notes.md#the-debugger-and-what-it-is-actually-for). ⚠️ A query in the Watch panel **runs** when the panel evaluates it. |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b three-questions`, push that. |
 
-**Prev:** [Week 9 Lab — The Night's Numbers](lab/) · **Next:** Week 10 — the list moves into a real database *(coming)*
+**Prev:** [Week 9 Lab — The Night's Numbers](lab/) · **Next:** [Week 10 — EF Core I: The Log Leaves the Building](../week-10/)

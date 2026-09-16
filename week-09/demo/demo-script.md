@@ -826,4 +826,4 @@ Tonight ten loops the room has watched get written come out, the tests never mov
 
 ---
 
-**Prev:** [Week 8 Demo — The Log Stops Being Gone](../../week-08/demo/) · **Next:** Week 10 Demo *(coming)*
+**Prev:** [Week 8 Demo — The Log Stops Being Gone](../../week-08/demo/) · **Next:** [Week 10 Demo — The Log Leaves the Building](../../week-10/demo/)
