@@ -528,10 +528,12 @@ dotnet run --project week-09/Lab
 ```
 
 ```
-  worked hardest       Nightjar (2), Slack Water (1)
+  worked hardest       Nightjar (3), Slack Water (2)
 ```
 
-**Nightjar twice, because it was in the hour twice.** Press `q`.
+**Nightjar is one ahead, because it was in the hour twice.** The other two are on two apiece: once when you aired the hour in Task 3, once again just now. **If you have aired the hour more often than the lab asked, your numbers are higher and that is fine** — what matters is Nightjar being one ahead.
+
+💡 **Slack Water and Long Way Round are tied on two.** The desk asks for the top *two*, and songs on the same count stay in the order the rotation holds them — so Slack Water is the one that shows. Press `q`.
 
 **Then mine:**
 
