@@ -173,6 +173,9 @@ dotnet run --project week-07/Lab
 
 There's one — the station now owes Pham's Bakery a negative spot. The other three are hiding better. **Press `q`.**
 
+> [!NOTE]
+> **In class, stop here.** The rest of Task 1 comes after the next part of the demo. Working at home? Carry straight on.
+
 **Now open `week-07/Lab.Tests/DeskTests.cs` and read the worked fact** — [the anatomy is in the notes](../lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer): `[Fact]` on top, then set the scene, do the thing, check the answer. Run it:
 
 ```bash

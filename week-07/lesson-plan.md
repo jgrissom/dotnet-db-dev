@@ -50,25 +50,39 @@ By the end of this session, students can:
 - ⚠️ **Week 6's project has to RUN** — §1 opens by running it. One `dotnet run --project week-06/Haldane` before class warms the restore
 - ⚠️ **Delete `week-07/` from the demo repo if you've rehearsed** — both `Haldane` and `Haldane.Tests`; `dotnet new` refuses to overwrite either
 - **A browser tab on the starters repo** at `week-06/Lab.Checks/HourChecks.cs`, ready for §4's reveal
+- **A browser tab on the lab README** (`week-07/lab/README.md` on GitHub) — it is the projector screen for Lab A–D
+- **The pace question, set up before class** — one anonymous multiple-choice question (*too slow · about right · too fast · I got lost somewhere*), somewhere every student can answer in a few seconds whatever this term's delivery mode. An ungraded anonymous Canvas survey does it
+
+## The chunked night *(pilot)*
+
+Tonight the lab is not one block at the end. **Each demo segment is followed by the lab task that practices it**, while the segment is still fresh, and the longest stretch of watching is §2's 30 minutes. The README is unchanged apart from one stop note in Task 1.
+
+- **Every lab block ends at a named stop**, and the cue sheet says it out loud. Only Lab E has no stop, because it absorbs whatever the night has left.
+- ⚠️ **The stop in Task 1 is load-bearing.** Its second half opens `DeskChecks.cs`, and opening that before §4 spends the week's reveal. The README's stop note sits right after *Press `q`*.
+- **Watch where students stall.** Each block ends at a known task, so by Lab D you know who is lost and where, without waiting for the homework.
+- **The pace question at the wrap is how the pilot gets judged.** Keep the answers.
 
 ## Timed agenda
 
 | Time | Duration | Segment |
 |------|----------|---------|
 | 0:00 | 15 min | **Where we finished last week** *(demo §1)*. Run week 6, take a reading, forty seconds of refresher. 🎯 **Then the question the night runs on:** *how do I know what this console says is TRUE?* Branch, `week-07/Haldane`, all seven files carried forward, the date. |
-| 0:15 | 30 min | 💥 **Two bugs on the board** *(slides 2–4, demo §2)*. Okonkwo signs out twice: `4 people outside.`, three on the ice. Reyes's amend lands on a closed trip. 🎯 **Then the wall:** a check is just a caller, and the rules live in `Program.cs` where nothing can call them — week 1's rule, arriving with a bill. |
-| 0:45 | 10 min | **☕ Break** |
-| 0:55 | 26 min | **The move** *(slides 5–6, demo §3)*. `Watch.cs` pasted whole — bugs riding along, said out loud. `Program.cs` worked down the compiler's own error list. 🎯 **Closes on the §2 break replayed: same wrong board, byte for byte.** Move ≠ fix. |
-| 1:21 | 25 min | 🎯 **A project that asks questions** *(slides 7–9, demo §4)*. `dotnet new xunit`, the reference, the trimmed csproj. First fact: `MinusFiftyIsTheLine`, week 1's method. **The reveal** — `HourChecks.cs` in the browser beside it. Then falsify-and-restore. |
-| 1:46 | 10 min | **☕ Break** |
-| 1:56 | 24 min | 💥 **Red, then green** *(slide 10, demo §5)*. The double sign-out test, written against the live bug. 🎯 **Ask for the color before the run.** Red — expected 1, actual 2 — then the guard, then green, then the desk says *"already outside"* out loud. |
-| 2:20 | 20 min | **The other bug** *(slide 11, demo §6)*. Same discipline, richer scene: out, back, out again, the phone call. MarkBack had the guard for three weeks; Amend gets it now. Whole suite green. Desk proven once, by hand, for the last time. |
-| 2:40 | 5 min | **Lab launch** *(slide 12, demo §7)*. The scheduler update broke four rules; the checks caught all four. Done is: 5 green of mine, a fact per bug of yours. |
-| 2:45 | 50 min | **Lab: the update** *(slide 12 stays up)*. **In-class target: 5 green.** Circulate hard at Task 2 (the first fact) and Task 4 (`Assert.Same`). |
-| 3:35 | 10 min | **Wrap-up** *(slide 13, demo §8)*. Fact · check · red · green. Project repo URL in Canvas, **the checks-copy line with this week's twist: two checks, not five.** Week 8 tease: the log stops being gone. |
+| 0:15 | 5 min | **Lab A: setup** *(no slide — the lab README in the browser)*. The KDXR story in two sentences, setup steps 1–4, then **1 / 5** passing. Stop there. |
+| 0:20 | 30 min | 💥 **Two bugs on the board** *(slides 2–4, demo §2)*. Okonkwo signs out twice: `4 people outside.`, three on the ice. Reyes's amend lands on a closed trip. 🎯 **Then the wall:** a check is just a caller, and the rules live in `Program.cs` where nothing can call them — week 1's rule, arriving with a bill. |
+| 0:50 | 7 min | **Lab B: Task 1, up to "Press `q`"**. Work a shift, press `a` five times, find the negative ad. ⚠️ **Stop at the README's stop note** — the rest of Task 1 opens `DeskChecks.cs`, and that file is §4's reveal. |
+| 0:57 | 26 min | **The move** *(slides 5–6, demo §3)*. `Watch.cs` pasted whole — bugs riding along, said out loud. `Program.cs` worked down the compiler's own error list. 🎯 **Closes on the §2 break replayed: same wrong board, byte for byte.** Move ≠ fix. |
+| 1:23 | 10 min | **☕ Break** |
+| 1:33 | 25 min | 🎯 **A project that asks questions** *(slides 7–9, demo §4)*. `dotnet new xunit`, the reference, the trimmed csproj. First fact: `MinusFiftyIsTheLine`, week 1's method. **The reveal** — `HourChecks.cs` in the browser beside it. Then falsify-and-restore. |
+| 1:58 | 6 min | **Lab C: the rest of Task 1**. Read the worked fact, run it, then read check 3 of `DeskChecks.cs` top to bottom. Stop at the end of Task 1. |
+| 2:04 | 24 min | 💥 **Red, then green** *(slide 10, demo §5)*. The double sign-out test, written against the live bug. 🎯 **Ask for the color before the run.** Red — expected 1, actual 2 — then the guard, then green, then the desk says *"already outside"* out loud. |
+| 2:28 | 20 min | 🎯 **Lab D: Task 2** — the lab's payoff. Their own red on the clock bug, then the fix. **Circulate hard.** Stop at **2 / 5**; anyone finished early goes on to Task 3. |
+| 2:48 | 10 min | **☕ Break** |
+| 2:58 | 20 min | **The other bug** *(slide 11, demo §6)*. Same discipline, richer scene: out, back, out again, the phone call. MarkBack had the guard for three weeks; Amend gets it now. Whole suite green. Desk proven once, by hand, for the last time. |
+| 3:18 | 17 min | **Lab E: Tasks 3–5** *(slide 12, demo §7)*. The hand-off, then the rest of the update. Circulate at Task 4 (`Assert.Same`). **In-class target: Task 2 done**; the rest finishes at home. |
+| 3:35 | 10 min | **Wrap-up** *(slide 13, demo §8)*. Fact · check · red · green. Project repo URL in Canvas, **the checks-copy line with this week's twist: two checks, not five.** Week 8 tease: the log stops being gone. Then the one-question pace check *(see Materials)*. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes.** If the night runs long, §6 is the segment to shorten — drop its closing desk run and let the suite's green carry it, then trim §2's second bug walk to one run. **Do not take it from §4 or §5** — the reveal and the first red are the week, and do not take it from the lab.
+> **The table sums to exactly 225 minutes, and 55 of them are lab, in five blocks.** If the night runs long, §6 is the segment to shorten — drop its closing desk run and let the suite's green carry it, then trim §2's second bug walk to one run. **Do not take it from §4 or §5** — the reveal and the first red are the week, and do not take it from the lab. **If the demo runs fast, the time goes to Lab E.**
 
 ## Instructor notes
 

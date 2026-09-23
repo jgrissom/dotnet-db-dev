@@ -213,17 +213,14 @@ The closed one is **history** — untouched.
 
 ## Lab: the update
 
-KDXR's scheduler took an update overnight.
-It "improved" four things.
-
-For each one:
+Three bugs left, and each one has the same shape as Task 2:
 
 **your test → red → the fix → green**
 
-`Lab.Tests` is yours — the first **test project**
-in this course that belongs to you.
+Done is **5 green** of mine, and a fact per bug of yours.
+Whatever is left tonight, you finish at home.
 
-**⏱️ 50 minutes · target tonight: 5 green, and 5 of your own.**
+**⏱️ 17 minutes · target tonight: Task 2 done.**
 
 ---
 

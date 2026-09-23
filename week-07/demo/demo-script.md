@@ -42,7 +42,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] ⚠️ **Delete `week-07/` from the demo repo if you've rehearsed** — both `week-07/Haldane` *and* `week-07/Haldane.Tests`. `dotnet new` refuses to overwrite either, and tonight creates both
 - [ ] **The starters repo open in a browser tab, ready but not showing** — `github.com/jgrissom/dotnet-db-starters`, at `week-06/Lab.Checks/HourChecks.cs`. §4's reveal points at it
 - [ ] 💡 **No debugger tonight.** The new instrument is the test — if a value surprises you mid-demo, the week-5 offer still stands, quietly
-- [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station that is not this one"*
+- [ ] **Lids down for the demo** — *"tonight comes in pieces. Lids down while I'm working on the station, lids up for each lab block in between. You'll write all of this yourself in the lab, on a station that is not this one"*
 
 ---
 
@@ -118,6 +118,16 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ---
 
+## Lab A · Setup — 5 minutes
+
+- [ ] **Lids up. Swipe away from the deck and put the lab README up in the browser** — `week-07/lab/README.md` on GitHub, scrolled to *Setup*. It is the screen for every lab block tonight
+- [ ] 📖 **The story, in two sentences:** *"KDXR's scheduler software took an update overnight, and the update 'improved' four things. My checks caught all four before the morning show did"*
+- [ ] **Setup, steps 1 to 4, then run my checks.** *"Stop when the terminal says one out of five passing. Getting the week onto your machine is the whole job for these five minutes"*
+- [ ] 💡 **Name the new folder out loud** — *"the week's folder has three projects in it now: the desk, my checks, and `Lab.Tests`. `Lab.Tests` is yours. It's the first test project in this course that belongs to you"*
+- [ ] ⚠️ **Nobody starts Task 1 yet.** Its first half is the lab's version of §2, so it goes right after §2
+
+---
+
 ## 2 · Two bugs on the board *(slides 2–4)*
 
 - [ ] 📖 *"So. The station's whole reason for keeping this board is one number: how many people are on the ice. Watch me break it without touching the code"*
@@ -175,7 +185,17 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] 🎞️ **GO TO SLIDE 4** — *Nothing can call Program.cs*
 
 - [ ] 🎯 **The wall, and it is week 1's rule arriving with a bill:** *"so let's write one. First problem: the rule 'you can't go out twice' lives inside `SignSomebodyOut`, which is a local function in `Program.cs`. Week one, first night, I told you: code in `Program.cs` cannot be called, tested, or graded by anyone. Four weeks of homework have banned logic in your `Program.cs` for exactly this moment. A check is just a caller — and there is nothing here for it to call"*
-- [ ] 📖 **Set up the segment after the break:** *"so before we can test anything, these rules have to become methods on a class. That's first"*
+- [ ] 📖 **Set up the segment after Lab B:** *"so before we can test anything, these rules have to become methods on a class. That's first"*
+
+---
+
+## Lab B · Task 1, up to "Press q" — 7 minutes
+
+- [ ] **Lids up. The lab README, scrolled to *Task 1 in full*.**
+- [ ] 📖 *"You just watched me find two bugs by using the desk. Your desk has four bugs. Task 1: work a shift, then press `a` five times and watch the AD line. Stop where the README says 'In class, stop here.' The rest of Task 1 comes after the next segment"*
+- [ ] ⚠️ **The stop protects §4.** The second half of Task 1 opens `DeskChecks.cs`, and that file is §4's reveal. The README has a stop note at the same spot, just after *Press `q`*
+- [ ] 🎯 **Circulating:** the fourth and fifth presses print `(0 left)` and `(-1 left)`. Ask *"how many spots did Pham's Bakery buy?"* and let them find the answer on their own board
+- [ ] 📖 **Close the block:** *"you found one bug, and three are still hiding. My board did the same thing to me: a desk only shows you what you happened to do on it"*
 
 ---
 
@@ -603,6 +623,15 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ---
 
+## Lab C · Task 1, the rest — 6 minutes
+
+- [ ] **Lids up. The lab README, at *Now open `week-07/Lab.Tests/DeskTests.cs`*.**
+- [ ] 📖 *"Back to Task 1, from the stop note. Read the worked fact in `DeskTests.cs`, then run it. Then open my checks file, `DeskChecks.cs`, and read check 3 from top to bottom. Every line in check 3 is a kind of line you just watched me write"*
+- [ ] 🎯 **Circulating, about the worked fact:** ask *"which lines set the scene, which line does the thing, and which line checks the answer?"* Answering it names the three parts of a fact
+- [ ] ⚠️ **Stop at the end of Task 1.** Task 2 is red-then-green, and they see that done first in §5
+
+---
+
 ## 5 · Red, then green *(slide 10)*
 
 - [ ] 🎞️ **GO TO SLIDE 10** — *Red, then green*
@@ -745,6 +774,16 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ---
 
+## Lab D · Task 2 — 20 minutes
+
+- [ ] **Lids up. The lab README, at *Task 2 in full*.**
+- [ ] 📖 *"Task 2 is exactly what I just did. There's a bug. You write a test against it, you watch the test go red, and then you fix the line. Stop when your test is green and my checks say two out of five"*
+- [ ] 🎯 **Circulate hard. This block is the lab's payoff moment.** The question to ask over a shoulder: *"what color is your test right now?"* Watch for anyone fixing the line before they have seen red
+- [ ] 💡 **A test that comes up green against the bug** is usually asserting on `Clock(893)`, the value that was never broken. Point them at the `605` in the task
+- [ ] 💡 **Finished early?** Task 3 is the same shape. Let them go on
+
+---
+
 ## 6 · The other bug *(slide 11)*
 
 - [ ] 🎞️ **GO TO SLIDE 11** — *Test the rule, not the line*
@@ -853,9 +892,16 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎞️ **GO TO SLIDE 12** — *Lab: the update*
 
-- [ ] 📖 *"Your turn — and at KDXR it's worse than two bugs. The station's scheduler software took an update overnight, and the update 'improved' four things. The checks caught all four before the morning show did. Your job is the same as mine was tonight. For each one: write your own test, watch it go red against the real bug, then fix the line and watch both go green"*
-- [ ] 🎯 **Define done on their machine:** *"you are done when `dotnet test week-07/Lab.Checks` says five out of five, your own `Lab.Tests` file has a fact per bug, and the desk behaves when you work a shift"*
-- [ ] 💡 **Name the new folder out loud** — *"the week's folder has three projects in it now: the desk, my checks, and `Lab.Tests` — which is yours. The first test project in this course that belongs to you"*
+- [ ] 📖 *"Three bugs are left at KDXR, and every one of them has the same shape as Task 2. For each one: write your own test, watch it go red against the real bug, then fix the line and watch both go green"*
+- [ ] 🎯 **Define done on their machine:** *"you are done when `dotnet test week-07/Lab.Checks` says five out of five, your own `Lab.Tests` file has a fact per bug, and the desk behaves when you work a shift. Tonight's target is Task 2, which you've done. Whatever is left, you finish at home"*
+
+---
+
+## Lab E · Tasks 3 to 5 — 17 minutes
+
+- [ ] **Lids up. Slide 12 stays up** for the whole block, unlike the earlier lab blocks
+- [ ] 🎯 **Circulate at Task 4** (`Assert.Same`). It is where students stall most
+- [ ] ⚠️ **Stop at 3:35 on the timing table, wherever the room is.** Nobody is expected to finish all three here
 
 ---
 
@@ -865,5 +911,6 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Six short sentences, then stop** — *"A test is a method with `[Fact]` over it, and a check is a test. It calls your class the same way anything else calls it, and that is why we put logic in classes. Write the test first and watch it fail — that proves the test can see the bug. Then fix the code and watch it pass — that proves the fix works. Then keep the test. It runs every time from now on, so the bug cannot come back quietly"*
 - [ ] 🎯 **The forward line:** *"one thing the suite cannot save us from yet: press `q` and the whole log is still gone. Every reading, every sign-out, every night — gone at quit, since week three. Next week it stops being gone"*
+- [ ] **One question about tonight's format, before anyone packs up.** Anonymous, one tap: *the pace tonight felt too slow · about right · too fast · I got lost somewhere*. The lesson plan says where the question lives
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
 - [ ] ⚠️ **Say the checks line out loud, with this week's twist** — *"Part 1 copies this week's checks in, same as always — and this week's checks are TWO, not five. If `dotnet test Project.Checks` shows five checks, you are running last week's. The other three points moved somewhere better: into tests you write yourself"*
