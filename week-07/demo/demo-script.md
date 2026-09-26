@@ -863,7 +863,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎯 **The reveal. Bring up the browser tab — `dotnet-db-starters`, week 6's `HourChecks.cs` — beside the editor, and scroll it slowly:** *"this is the file that graded your lab last week. A class. Methods with `[Fact]` over them. `Assert` after `Assert`. It is this same kind of project, down to the csproj settings. I have called them checks since week one, because that is what they are to you. The rest of the world calls them unit tests. There is no magic in this file. As of tonight, there is not a line of it you cannot read"*
 - [ ] 📖 **Collect the promise by quoting it:** *"Week one, first night, I told you this. There is a file in tonight's lab that grades you. In week seven you find out it is not magic, and you write one. It is week seven"*
-- [ ] 💡 **And the header of that very file has been saying so for a week** — point at it: *"read the last line of the comment at the top. 'That is what an interface is, and it is what a check is. Week 7.' It was posted"*
+- [ ] 💡 **Point at the last line of the comment at the top of the file:** *"Look at the last line of this comment. 'That is what an interface is, and it is what a check is. Week 7.' This file has been in your week 6 folder since last week. That line was telling you about tonight"*
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *Make it fail once*
 
