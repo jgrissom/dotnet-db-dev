@@ -1071,7 +1071,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] **Lids up. The lab README, at *Task 2 in full*.**
 - [ ] 📖 *"Task 2 is exactly what I just did. There's a bug. You write a test against it, you watch the test go red, and then you fix the line. Stop when your test is green and my checks say two out of five"*
 - [ ] 🎯 **Circulate hard. This block is the lab's payoff moment.** The question to ask over a shoulder: *"what color is your test right now?"* Watch for anyone fixing the line before they have seen red
-- [ ] 💡 **Task 2 has a short debugger step between their red and the fix**: a breakpoint in `Broadcast.Clock`, **Debug All Tests**, and `seconds % 60` in the Watch pane showing `5`. It's their first time debugging a test. If someone is stuck, the usual cause is no red dot (the click missed the margin)
+- [ ] 💡 **Task 2 has a short debugger step between their red and the fix**: a breakpoint in `Broadcast.Clock`, **Debug All Tests**, then the method's own expression typed into the Debug Console (`"10:5"`), and the fix tried there before it goes in the code (`"10:05"`). It's their first time debugging a test. If someone is stuck, the usual cause is no red dot (the click missed the margin)
 - [ ] 💡 **A test that comes up green against the bug** is usually asserting on `Clock(893)`, the value that was never broken. Point them at the `605` in the task
 - [ ] 💡 **Finished early?** Task 3 is the same shape. Let them go on
 
