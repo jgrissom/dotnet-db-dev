@@ -360,11 +360,9 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Read the error list off the screen — don't count it, point at it:** *"every error on that list says the same thing: the name `log` does not exist. `log` was the list `Program.cs` kept, and I just replaced it with the `Watch`. Each error is a place that still uses the old list. The compiler just wrote the moving checklist for me. We work down it"*
 
-- [ ] **Fix one of them live — the reading.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`log.Add(new Reading("15:02"`** — one hit. Make that line read
-
-  ```csharp
-      watch.Add(new Reading("15:02", celsius, who));
-  ```
+- [ ] **Fix the first one live, the way you'd find it on your own — from the error, not with a search.** In the terminal, <kbd>⌘</kbd>-click / <kbd>Ctrl</kbd>-click the file name on the **first** error, `Program.cs(` and two numbers. VS Code opens `Program.cs` at that line
+- [ ] 📖 **Say how to read the location:** *"The error tells me where to go. `Program.cs`, then two numbers in brackets. The first number is the line. The second is how far along the line"*
+- [ ] **It lands on the sign-out's `log.Add(new SignOut("14:57", …` line. Change `log` to `watch` on that line, and nothing else**
 
 - [ ] **Build it, and watch the list get shorter**
 
