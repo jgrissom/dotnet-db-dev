@@ -467,6 +467,10 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ---
 
+## ☕ Break
+
+---
+
 ## 4 · A project that asks questions *(slides 7–9)*
 
 - [ ] 📖 *"Now the thing that calls them. It is a project — a whole separate program, whose only job is to ask mine questions"*
@@ -785,6 +789,10 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] 🎯 **Circulate hard. This block is the lab's payoff moment.** The question to ask over a shoulder: *"what color is your test right now?"* Watch for anyone fixing the line before they have seen red
 - [ ] 💡 **A test that comes up green against the bug** is usually asserting on `Clock(893)`, the value that was never broken. Point them at the `605` in the task
 - [ ] 💡 **Finished early?** Task 3 is the same shape. Let them go on
+
+---
+
+## ☕ Break
 
 ---
 
