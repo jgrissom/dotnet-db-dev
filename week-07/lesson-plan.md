@@ -7,7 +7,7 @@
 
 ## 🎯 The payoff moment — the demo's
 
-**The reveal, §4.** The first test of the night runs — one green line, named — and the question goes to the room: *"where have you seen it before?"* Then the browser comes up with week 6's `HourChecks.cs` beside the editor: a class, `[Fact]`s, `Assert`s, the same csproj settings. The line to land:
+**The reveal, §4.** The first test of the night runs — one green line, named — and the question goes to the room: *"look familiar?"* Then the browser comes up with week 6's `HourChecks.cs` beside the editor: a class, `[Fact]`s, `Assert`s, the same csproj settings. The line to land:
 
 > *"I have been calling them checks since week one because that is what they are to you, and the word the rest of the world uses is unit tests. There is no line of this file you cannot read now."*
 
@@ -90,7 +90,7 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 - ⚠️ **Do not fix anything in §2, and do not fix anything during the move in §3.** The whole architecture of the night is that the first fix lands *after* a test is red against it. A room that watches move-and-fix in one act learns neither.
 - 🎯 **§3's broken build is deliberate and worth naming as a technique** — replace the seeds, build, and the error list *is* the moving checklist. Read it off the screen; don't count it out loud from the sheet.
 - ⭐ **§3 fixes ONE error live, then pastes the rest** *(changed 2026-09-26 for the chunked night)*. The one fix and the rebuild show the technique — the list gets one shorter. Working the remaining eight edits one at a time was 15 minutes of the room watching the same change, so the whole file is pasted and walked in the Source Control diff instead. The pasted file is byte-identical to where the old step-by-step edits ended.
-- 🎯 **In §4, the reveal must come after their first green run, not before.** The order is: write the fact, run it, one named green line, *"where have you seen this before?"* — and only then the browser. Recognition beats explanation.
+- 🎯 **In §4, the reveal must come after their first green run, not before.** The order is: write the fact, run it, one named green line, *"look familiar?"* — and only then the browser. Recognition beats explanation.
 - ⚠️ **§4's falsify beat is not optional filler.** *Make it fail once* is the discipline the homework leans on (its Task 2 repeats it verbatim), and it is the answer to the room's fair question "how do I know my test tests anything?"
 - 🎯 **In §5, ask for the predicted color out loud and wait for an answer.** Half the room will say green out of habit. The red that follows does the teaching.
 - 💡 **The refused sign-out never reaching the log (`watch.Count` staying 1) is the quiet star of §5's grown test** — a silent refusal is only visible to a test, which is the week's thesis in one assert.
