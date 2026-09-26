@@ -468,8 +468,8 @@ One door handles *"somebody is on the line"* — `Switchboard.Take`. The update 
 
 **Write the fact — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** Same three moves as Task 3:
 
-- Scene: a fresh `Switchboard`, and a `Caller` you keep a variable for — `var dorothy = new Caller("Dorothy");` — added to the board.
-- Do: `Take("Dorothy")`, and keep what comes back.
+- Scene: a fresh `Switchboard` — `var board = new Switchboard();` — and a `Caller` you keep a variable for — `var dorothy = new Caller("Dorothy");` — added to the board with its `Add` method.
+- Do: `Take("Dorothy")` on the board, and keep what comes back in a variable called `took`.
 - Check: **`Assert.Same(dorothy, took)`** — [the identity question](../lecture-notes.md#the-assert-family): the very object on the board, not a lookalike. Add `Assert.Equal(1, dorothy.CallsTonight);` if you want the consequence pinned too — with the bug, *her* count never moved.
 - Name it after the rule it proves. Mine is `TakeHandsBackTheCallerOnTheBoard`; yours doesn't have to be.
 
