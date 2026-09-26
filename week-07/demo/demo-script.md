@@ -370,9 +370,10 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   dotnet build week-07/Haldane
   ```
 
-- [ ] 🎯 **Point at the list:** *"The error list is one shorter. That is the whole technique. Break it on purpose, then work down the list until it is empty. Every error that is left is the same change: `log` becomes `watch`. So I am not going to make you watch me do the rest one at a time"*
+- [ ] 🎯 **Point at the list:** *"The error list is one shorter. That is the whole technique. Break it on purpose, then work down the list until it is empty. I am not going to make you watch me do the other four"*
 
-- [ ] **So paste the rest in.** In `week-07/Haldane/Program.cs`, select the whole file (<kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>) and paste this over it. It is exactly where working down the list ends up
+- [ ] 📖 **One warning about the technique, before the paste:** *"An empty error list means the program compiles. It does not mean the move is done. If I fixed the other four, `Program.cs` would build, and it would still have its own copies of the rules. The compiler has no problem with that. So the rest of this move is changes no error points at"*
+- [ ] **So paste the finished move in.** In `week-07/Haldane/Program.cs`, select the whole file (<kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>) and paste this over it. It is the four errors fixed, plus the changes the error list never pointed at
 
   ```csharp
   using Spectre.Console;
