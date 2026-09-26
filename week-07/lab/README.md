@@ -188,7 +188,7 @@ dotnet test week-07/Lab.Tests
 
 **And open `week-07/Lab.Checks/DeskChecks.cs` — really.** You have been forbidden to edit this species of file since week 1, and you still are. But tonight is the night it stops being a black box: scroll it, pick check 3, and read it top to bottom. [It is a class, some facts, and some asserts](../lecture-notes.md#the-bill-for-testable-shape) — every line is syntax you know.
 
-**What check 3 does, in plain words.** It's two small scenes, each with the same three moves as the worked fact: set the scene, do the thing, check the answer.
+**What check 3 does, in plain words.** It makes two assertions. Each one gets the same three moves as the worked fact: set the scene, do the thing, check the answer. Both have to pass for check 3 to go green.
 
 1. **A three-spot buy, aired once.** It makes an `Ad` for Pham's Bakery with 3 spots, plays it once, and asserts that `Remaining` is 2.
 2. **A one-spot buy, aired three times.** It makes an `Ad` with 1 spot, plays it three times, and asserts that `Remaining` is 0, not below zero.
