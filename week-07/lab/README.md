@@ -259,6 +259,16 @@ Actual:   "10:5"
 
 **Red, for the right reason** — [read the failure like a sentence](../lecture-notes.md#reading-a-failure): which rule, expected versus actual. If yours is green, it's asking an easy question — feed it `605`.
 
+**Before you fix it, watch it happen in the debugger.** About three minutes, and it's the quickest way to see *why* a test is red. Nothing here changes any code.
+
+1. Open `Lab/Broadcast.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public static string Clock` — one hit.
+2. Click in the margin just left of the line number on `return $"{seconds / 60}:{seconds % 60}";`. A red dot appears. That's a breakpoint: the program will stop there.
+3. Open `Lab.Tests/DeskTests.cs`. Just above `public class DeskTests`, click **Debug All Tests**. (If you see **Debug Test** above your own test method, that works too.)
+4. The debugger stops on your red dot. In the **Variables** pane on the left, `seconds` is `605`.
+5. Hover over the **Watch** heading, click **+**, and type `seconds % 60`. It shows `5`. That `5` goes straight into the string, and nothing tells it to use two digits. That's the bug.
+6. Press **Continue** (<kbd>F5</kbd>). The debugger stops again, this time on your `Assert.Equal`, highlighting the exact line where your test failed.
+7. Press **Stop** (<kbd>⇧F5</kbd> / <kbd>Shift+F5</kbd>), then click the red dot to remove it.
+
 **Now the fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `scheduler update` in `Lab/Broadcast.cs` — there is the line, and the update deleted a format spec from it. Make `Clock` read:
 
 ```csharp
