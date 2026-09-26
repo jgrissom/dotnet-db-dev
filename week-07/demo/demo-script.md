@@ -1159,11 +1159,13 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎯 **Point at the three lines:** *"three rules of this station, written down where a machine re-asks them on every run. That took us one evening, and most of the evening was the first one"*
 
-- [ ] **Prove it at the desk once — run it, `b` `Reyes`, `o` `Reyes` `WALK` `15:30`, `a` `Reyes` `16:00`**
+- [ ] **Prove it at the desk once — run it, `b` `Reyes`, then `o` `Reyes` `WALK` `15:30`**
 
   ```bash
   dotnet run --project week-07/Haldane
   ```
+
+- [ ] **Then `a`, amend `Reyes` to `16:00`**
 
   ```
   │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ back   │ 2     │
