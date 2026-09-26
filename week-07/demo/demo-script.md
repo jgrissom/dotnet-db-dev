@@ -330,6 +330,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] 🎯 **And point at the two bugs riding along — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `radioed in`, put the cursor on the `if` below it:** *"both bugs came with us. Sign-out still doesn't ask if the crew member is outside. Amend still takes any row with your name on it — look, no question about whether the trip is over. Moved, not fixed"*
 - [ ] 💡 **Your own project got this shape for free** — *"notice what you did NOT have to do this week: your `Registry` was born a class a check can call, in week four. Haldane is the one catching up"*
 
+- [ ] 📖 **Say what is about to happen to `Program.cs`:** *"The rules live in `Watch.cs` now, but `Program.cs` doesn't know that yet. It still has its own list, and everything in it still talks to that list. So now we point `Program.cs` at the `Watch` class instead. First the seeds. Where `Program.cs` made its own list, it now makes one `Watch`. The same six entries go into it, in the same order"*
+
 - [ ] **Now point `Program.cs` at it. First the seeds.** In `week-07/Haldane/Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// ── the watch log`** — one hit. **Select from that line down to and including `log.Add(new Reading("14:35", -41.5, bhatt));`** and paste this over the lot
 
   ```csharp
