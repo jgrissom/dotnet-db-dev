@@ -857,7 +857,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
        Passed: 1
   ```
 
-- [ ] 🎯 **Let the shape of that output land, then ask, and wait:** *"one test, one green line, named. Look at that output for a second. Where have you seen it before?"*
+- [ ] 🎯 **Let the shape of that output land, then ask, and wait:** *"one test, one green line, named. Look at that output for a second. Look familiar?"*
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *You've been reading tests all semester*
 
