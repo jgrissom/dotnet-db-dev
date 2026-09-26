@@ -120,7 +120,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ## Lab A · Setup — 5 minutes
 
-- [ ] **Lids up. Swipe away from the deck and put the lab README up in the browser** — `week-07/lab/README.md` on GitHub, scrolled to *Setup*. It is the screen for every lab block tonight
+- [ ] **Lids up. Swipe away from the deck and put the lab README up in the browser, at *Setup*.** It is the screen for every lab block tonight, and each block below names the heading to scroll to
 - [ ] 📖 **The story, in two sentences:** *"KDXR's scheduler software took an update overnight, and the update 'improved' four things. My checks caught all four before the morning show did"*
 - [ ] **Setup, steps 1 to 4, then run my checks.** *"Stop when the terminal says one out of five passing. Getting the week onto your machine is the whole job for these five minutes"*
 - [ ] 💡 **Name the new folder out loud** — *"the week's folder has three projects in it now: the desk, my checks, and `Lab.Tests`. `Lab.Tests` is yours. It's the first test project in this course that belongs to you"*
@@ -191,7 +191,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ## Lab B · Task 1, up to "Press q" — 7 minutes
 
-- [ ] **Lids up. The lab README, scrolled to *Task 1 in full*.**
+- [ ] **Lids up. The lab README, at *Task 1 in full*.**
 - [ ] 📖 *"You just watched me find two bugs by using the desk. Your desk has four bugs. Task 1: work a shift, then press `a` five times and watch the AD line. Stop where the README says 'In class, stop here.' The rest of Task 1 comes after the next segment"*
 - [ ] ⚠️ **The stop protects §4.** The second half of Task 1 opens `DeskChecks.cs`, and that file is §4's reveal. The README has a stop note at the same spot, just after *Press `q`*
 - [ ] 🎯 **Circulating:** the fourth and fifth presses print `(0 left)` and `(-1 left)`. Ask *"how many spots did Pham's Bakery buy?"* and let them find the answer on their own board
@@ -625,8 +625,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ## Lab C · Task 1, the rest — 6 minutes
 
-- [ ] **Lids up. The lab README, at *Now open `week-07/Lab.Tests/DeskTests.cs`*.**
-- [ ] 📖 *"Back to Task 1, from the stop note. Read the worked fact in `DeskTests.cs`, then run it. Then open my checks file, `DeskChecks.cs`, and read check 3 from top to bottom. Every line in check 3 is a kind of line you just watched me write"*
+- [ ] **Lids up. The lab README, at *The worked fact, and my checks*.** It is the heading just under the stop note
+- [ ] 📖 *"Back to Task 1, from the heading just under the stop note. Read the worked fact in `DeskTests.cs`, then run it. Then open my checks file, `DeskChecks.cs`, and read check 3 from top to bottom. Every line in check 3 is a kind of line you just watched me write"*
 - [ ] 🎯 **Circulating, about the worked fact:** ask *"which lines set the scene, which line does the thing, and which line checks the answer?"* Answering it names the three parts of a fact
 - [ ] ⚠️ **Stop at the end of Task 1.** Task 2 is red-then-green, and they see that done first in §5
 
@@ -899,7 +899,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ## Lab E · Tasks 3 to 5 — 17 minutes
 
-- [ ] **Lids up. Slide 12 stays up** for the whole block, unlike the earlier lab blocks
+- [ ] **Lids up. Slide 12 stays up** for the whole block, unlike the earlier lab blocks. The block starts at *Task 3 in full* in the README
 - [ ] 🎯 **Circulate at Task 4** (`Assert.Same`). It is where students stall most
 - [ ] ⚠️ **Stop at 3:35 on the timing table, wherever the room is.** Nobody is expected to finish all three here
 

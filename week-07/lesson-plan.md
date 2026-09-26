@@ -55,7 +55,7 @@ By the end of this session, students can:
 
 ## The chunked night *(pilot)*
 
-Tonight the lab is not one block at the end. **Each demo segment is followed by the lab task that practices it**, while the segment is still fresh, and the longest stretch of watching is §2's 30 minutes. The README is unchanged apart from one stop note in Task 1.
+Tonight the lab is not one block at the end. **Each demo segment is followed by the lab task that practices it**, while the segment is still fresh, and the longest stretch of watching is §2's 30 minutes. The README is unchanged apart from Task 1: a stop note, and a heading under it for Lab C to link to.
 
 - **Every lab block ends at a named stop**, and the cue sheet says it out loud. Only Lab E has no stop, because it absorbs whatever the night has left.
 - ⚠️ **The stop in Task 1 is load-bearing.** Its second half opens `DeskChecks.cs`, and opening that before §4 spends the week's reveal. The README's stop note sits right after *Press `q`*.
