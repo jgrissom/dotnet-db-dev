@@ -373,7 +373,7 @@ The count lives on `Ad`, and the only thing that moves it is `Play()`. You wrote
 - **Set the scene.** One `Ad` with a **one-run** buy, in a variable, so you can ask it about itself afterwards:
 
   ```csharp
-  Ad ad = new Ad("Pham's Bakery", "open at five", runs: 1);
+  Ad ad = new Ad(sponsor: "Pham's Bakery", copy: "open at five", runs: 1);
   ```
 
 - **Do the thing.** Play it **twice** — one airing the buy can pay for, and one it cannot.
@@ -575,7 +575,7 @@ The order lives in `Hour.Run()` — the one loop that puts the hour on air.
 
 ```csharp
 Hour hour = new Hour();
-Ad ad = new Ad("Pham's Bakery", "open at five", runs: 3);
+Ad ad = new Ad(sponsor: "Pham's Bakery", copy: "open at five", runs: 3);
 hour.Add(ad);
 
 List<string> aired = hour.Run();
