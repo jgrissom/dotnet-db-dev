@@ -54,7 +54,7 @@ By the end of this session, students can:
 
 ## The chunked night *(pilot)*
 
-Tonight the lab is not one block at the end. **Each demo segment is followed by the lab task that practices it**, while the segment is still fresh, and the longest stretch of watching is §2's 30 minutes. The README is unchanged apart from Task 1: two "In class, stop here" notes (mid-task and at its end), a heading for Lab C to start from, and a plain-words overview of check 3.
+Tonight the lab is not one block at the end. **Each demo segment is followed by the lab task that practices it**, while the segment is still fresh, and the longest stretch of watching is §2's 30 minutes. The README changes are: three "In class, stop here" notes (mid-Task 1, end of Task 1, end of Task 2), a heading for Lab C to start from, a plain-words overview of check 3, and in Task 2 the test's shape with two blanks plus a short debugger walkthrough.
 
 - **Every lab block ends at a named stop**, and the cue sheet says it out loud. Only Lab E has no stop, because it absorbs whatever the night has left.
 - ⚠️ **The stop in Task 1 is load-bearing.** Its second half opens `DeskChecks.cs`, and opening that before §4 spends the week's reveal. The README's stop note sits right after *Press `q`*.
@@ -74,7 +74,7 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 | 1:19 | 25 min | 🎯 **A project that asks questions** *(slides 7–9, demo §4)*. `dotnet new xunit`, the reference, the replaced csproj. First fact: `MinusFiftyIsTheLine`, week 1's method. **The reveal** on slide 8. Then falsify-and-restore. |
 | 1:44 | 6 min | **Lab C: the rest of Task 1**. Read the worked fact, run it, then read check 3 of `DeskChecks.cs` top to bottom. Stop at the end of Task 1. |
 | 1:50 | 24 min | 💥 **Red, then green** *(slide 10, demo §5)*. The double sign-out test, written against the live bug. 🎯 **Ask for the color before the run.** Red — expected 1, actual 2 — then the guard, then green, then the desk says *"already outside"* out loud. |
-| 2:14 | 20 min | 🎯 **Lab D: Task 2** — the lab's payoff. Their own red on the clock bug, then the fix. **Circulate hard.** Stop at **2 / 5**; anyone finished early goes on to Task 3. |
+| 2:14 | 20 min | 🎯 **Lab D: Task 2** — the lab's payoff. Their own red on the clock bug, then the fix. **Circulate hard.** Stop at **2 / 5**; early finishers take item 2 of *⭐ Done early?* or help a neighbor. |
 | 2:34 | 10 min | **☕ Break** |
 | 2:44 | 20 min | **The other bug** *(slide 11, demo §6)*. Same discipline, richer scene: out, back, out again, the phone call. MarkBack had the guard for three weeks; Amend gets it now. Whole suite green. Desk proven once, by hand, for the last time. |
 | 3:04 | 31 min | **Lab E: Tasks 3–5** *(slide 12, demo §7)*. The hand-off, then the rest of the update. Circulate at Task 4 (`Assert.Same`). **In-class target: Task 2 done**; the rest finishes at home. |

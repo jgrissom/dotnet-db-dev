@@ -1073,7 +1073,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] 🎯 **Circulate hard. This block is the lab's payoff moment.** The question to ask over a shoulder: *"what color is your test right now?"* Watch for anyone fixing the line before they have seen red
 - [ ] 💡 **Task 2 has a short debugger step between their red and the fix**: a breakpoint in `Broadcast.Clock`, **Debug All Tests**, then the method's own expression typed into the Debug Console (`"10:5"`), and the fix tried there before it goes in the code (`"10:05"`). It's their first time debugging a test. If someone is stuck, the usual cause is no red dot (the click missed the margin)
 - [ ] 💡 **A test that comes up green against the bug** is usually asserting on `Clock(893)`, the value that was never broken. Point them at the `605` in the task
-- [ ] 💡 **Finished early?** Task 3 is the same shape. Let them go on
+- [ ] ⚠️ **Stop at 2 / 5.** The README has an "In class, stop here" note at the end of Task 2, because Tasks 3–5 come after §6. Early finishers: item 2 of *⭐ Done early?* (a fact for `MinutesUntilSunrise`), or helping a neighbor
 
 ---
 

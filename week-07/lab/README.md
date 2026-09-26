@@ -339,6 +339,9 @@ dotnet test week-07/Lab.Checks
 week 7 lab: the clock pads its seconds
 ```
 
+> [!NOTE]
+> **In class, stop here.** Tasks 3 to 5 come after the next part of the demo. Finished early? Try item 2 of [⭐ Done early?](#-done-early), a fact for `Broadcast.MinutesUntilSunrise`, or help the person next to you. Working at home? Carry straight on.
+
 ---
 
 ### Task 3 in full
