@@ -582,6 +582,14 @@ hour.Add(ad);
 List<string> aired = hour.Run();
 ```
 
+**Before you write the check, look at `aired[0]` in the debugger.** Same tool as Task 2, and just as optional. The failure message cuts long strings short; the debugger shows the whole thing.
+
+1. Click in the margin left of the line number on `List<string> aired = hour.Run();`. A red dot appears.
+2. Above `public class DeskTests`, click **Debug All Tests**. The debugger stops on your red dot, *before* that line runs.
+3. Press **Step Over** (<kbd>F10</kbd>) once. Now `aired` holds what the desk printed.
+4. In the **Debug Console**, type `aired[0]` and press Enter. You'll see the whole line: `AD - Pham's Bakery - "open at five" (3 left)`. The ad has just aired, and the count hasn't moved.
+5. Press **Stop** (<kbd>⇧F5</kbd> / <kbd>Shift+F5</kbd>), and click the red dot to remove it.
+
 - **`aired[0]` is the line the desk printed for the ad** — the first and only thing on this hour. Square brackets, same as every `List<T>` since week 3.
 - **Check it with [`Assert.Contains`](../lecture-notes.md#the-assert-family)** — substring first, whole string second.
 - **Which substring?** The buy was three and the ad has just aired once. You watched it print `(3 left)` a minute ago. Decide what that line *should* say, and assert on that.
