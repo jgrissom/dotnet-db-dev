@@ -148,7 +148,7 @@ a class · methods marked `[Fact]` · `Assert`s
 
 The industry word is **unit test**.
 
-There is no line of that file
+There is no line of a checks file
 you cannot read now.
 
 ---

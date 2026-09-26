@@ -7,11 +7,11 @@
 
 ## 🎯 The payoff moment — the demo's
 
-**The reveal, §4.** The first test of the night runs — one green line, named — and the question goes to the room: *"look familiar?"* Then the browser comes up with week 6's `HourChecks.cs` beside the editor: a class, `[Fact]`s, `Assert`s, the same csproj settings. The line to land:
+**The reveal, §4.** The first test of the night runs — one green line, named — and the question goes to the room: *"look familiar?"* Then slide 8 names what they just recognized: every checks project that has graded them is a class, `[Fact]`s and `Assert`s, the same kind of project they just watched get made. The line to land:
 
-> *"I have been calling them checks since week one because that is what they are to you, and the word the rest of the world uses is unit tests. There is no line of this file you cannot read now."*
+> *"I have been calling them checks since week one because that is what they are to you, and the word the rest of the world uses is unit tests. There is no line of a checks file you cannot read now."*
 
-⚠️ **The set-up is what makes it land, so protect the order:** the room has to have *written* a fact and *run* it before the file is opened. Recognition only works from the inside. And the file's own header has been promising this night for a week — read its last line out loud: *"That is what an interface is, and it is what a check is. Week 7."*
+⚠️ **The set-up is what makes it land, so protect the order:** the room has to have *written* a fact and *run* it before slide 8 goes up. Recognition only works from the inside. **Lab C then puts a checks file in their own hands:** they open `DeskChecks.cs` and read check 3 themselves.
 
 ## 🎯 The payoff moment — the lab's
 
@@ -49,7 +49,6 @@ By the end of this session, students can:
 - **The instructor demo repo**, where week 6 left it — `week-01/` … `week-06/` in it, clean, `main` up to date after last week's merge
 - ⚠️ **Week 6's project has to RUN** — §1 opens by running it. One `dotnet run --project week-06/Haldane` before class warms the restore
 - ⚠️ **Delete `week-07/` from the demo repo if you've rehearsed** — both `Haldane` and `Haldane.Tests`; `dotnet new` refuses to overwrite either
-- **A browser tab on the starters repo** at `week-06/Lab.Checks/HourChecks.cs`, ready for §4's reveal
 - **A browser tab on the lab README** (`week-07/lab/README.md` on GitHub) — it is the projector screen for Lab A–D
 - **The pace question, set up before class** — one anonymous multiple-choice question (*too slow · about right · too fast · I got lost somewhere*), somewhere every student can answer in a few seconds whatever this term's delivery mode. An ungraded anonymous Canvas survey does it
 
@@ -72,7 +71,7 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 | 0:50 | 7 min | **Lab B: Task 1, up to "Press `q`"**. Work a shift, press `a` five times, find the negative ad. ⚠️ **Stop at the README's stop note** — the rest of Task 1 opens `DeskChecks.cs`, and that file is §4's reveal. |
 | 0:57 | 12 min | **The move** *(slides 5–6, demo §3)*. `Watch.cs` pasted whole — bugs riding along, said out loud. Seeds replaced, build broken on purpose: the error list is the checklist. One line fixed live and the list gets one shorter; then the rest pasted whole and walked in the Source Control diff, with `AmendABackBy`'s two endings and its `bool`. 🎯 **Closes on the §2 break replayed: same wrong board, byte for byte.** Move ≠ fix. |
 | 1:09 | 10 min | **☕ Break** |
-| 1:19 | 25 min | 🎯 **A project that asks questions** *(slides 7–9, demo §4)*. `dotnet new xunit`, the reference, the replaced csproj. First fact: `MinusFiftyIsTheLine`, week 1's method. **The reveal** — `HourChecks.cs` in the browser beside it. Then falsify-and-restore. |
+| 1:19 | 25 min | 🎯 **A project that asks questions** *(slides 7–9, demo §4)*. `dotnet new xunit`, the reference, the replaced csproj. First fact: `MinusFiftyIsTheLine`, week 1's method. **The reveal** on slide 8. Then falsify-and-restore. |
 | 1:44 | 6 min | **Lab C: the rest of Task 1**. Read the worked fact, run it, then read check 3 of `DeskChecks.cs` top to bottom. Stop at the end of Task 1. |
 | 1:50 | 24 min | 💥 **Red, then green** *(slide 10, demo §5)*. The double sign-out test, written against the live bug. 🎯 **Ask for the color before the run.** Red — expected 1, actual 2 — then the guard, then green, then the desk says *"already outside"* out loud. |
 | 2:14 | 20 min | 🎯 **Lab D: Task 2** — the lab's payoff. Their own red on the clock bug, then the fix. **Circulate hard.** Stop at **2 / 5**; anyone finished early goes on to Task 3. |
@@ -90,7 +89,7 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 - ⚠️ **Do not fix anything in §2, and do not fix anything during the move in §3.** The whole architecture of the night is that the first fix lands *after* a test is red against it. A room that watches move-and-fix in one act learns neither.
 - 🎯 **§3's broken build is deliberate and worth naming as a technique** — replace the seeds, build, and the error list *is* the moving checklist. Read it off the screen; don't count it out loud from the sheet.
 - ⭐ **§3 fixes ONE error live, then pastes the rest** *(changed 2026-09-26 for the chunked night)*. The one fix and the rebuild show the technique — the list gets one shorter. Working the remaining eight edits one at a time was 15 minutes of the room watching the same change, so the whole file is pasted and walked in the Source Control diff instead. The pasted file is byte-identical to where the old step-by-step edits ended.
-- 🎯 **In §4, the reveal must come after their first green run, not before.** The order is: write the fact, run it, one named green line, *"look familiar?"* — and only then the browser. Recognition beats explanation.
+- 🎯 **In §4, the reveal must come after their first green run, not before.** The order is: write the fact, run it, one named green line, *"look familiar?"* — and only then slide 8. Recognition beats explanation.
 - ⚠️ **§4's falsify beat is not optional filler.** *Make it fail once* is the discipline the homework leans on (its Task 2 repeats it verbatim), and it is the answer to the room's fair question "how do I know my test tests anything?"
 - 🎯 **In §5, ask for the predicted color out loud and wait for an answer.** Half the room will say green out of habit. The red that follows does the teaching.
 - 💡 **The refused sign-out never reaching the log (`watch.Count` staying 1) is the quiet star of §5's grown test** — a silent refusal is only visible to a test, which is the week's thesis in one assert.
@@ -110,7 +109,6 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 | §3's first build shows errors you don't recognize | They should all say the name `log` does not exist: each one is a place still using the list the `Watch` replaced. If something else appears, the seeds paste landed in the wrong place — undo it and re-select from `// ── the watch log`. |
 | §3's build after the paste still has errors | The whole-file paste didn't take the whole file. Select all (<kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>) and paste again. |
 | §5's test comes up green on the first run | The guard is already in `Watch.SignOut` — you pasted the §5 version during §3. Take the guard back out (the §3 block in the sheet is the faithful one); the red is the beat. |
-| A wrong slide is showing during a reveal | The reveal's screen is the browser + editor, not the deck — slide 8 goes up *after* the file has been scrolled. |
 | Somebody asks "do professionals really write the test first?" | Honestly: for a bug, almost always — the red is the proof the bug is caught. For new code, it varies, and week 8 onward this course writes tests after the fact too. Both need the falsify discipline. |
 | Somebody asks why `Assert.Equal(1, ...)` and not `== 1` with `Assert.True` | Both work; `Assert.Equal` *reports* better — expected and actual, named. Show the two failure messages if there's a minute; the notes cover it. |
 | Somebody asks about `[Theory]` | Thirty seconds, no editor: a fact with parameters, so one method runs as many tests. Real, useful, not tonight's. The notes name it as the first thing to learn next. |

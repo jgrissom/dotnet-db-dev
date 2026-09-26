@@ -31,7 +31,6 @@ They can practice the two disciplines the week is really about: **red, then gree
 - ⚠️ **Delete `week-07/` from the demo repo if you've rehearsed** — both `Haldane` and `Haldane.Tests`; `dotnet new` refuses to overwrite either
 - ⚠️ **`main` up to date in the demo repo** — §1 carries week 6 forward, so last week's merge needs to be pulled
 - ⚠️ **Run `dotnet run --project week-06/Haldane` once before class** — §1 opens by running it
-- **A browser tab on the starters repo** at `week-06/Lab.Checks/HourChecks.cs` — §4's reveal scrolls it beside the editor
 - **Rehearse §5's red** — it only lands if `Watch.cs` went in as the §3 block (no guard). If the first run comes up green, the §5 version got pasted early
 - **VS Code open on the demo repo's top**, exactly where week 6 left it
 - **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — week 7's board is up

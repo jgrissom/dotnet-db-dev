@@ -40,7 +40,6 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 6 left it, with `week-01/` through `week-06/` in it
 - [ ] ⚠️ **Run `dotnet run --project week-06/Haldane` once before class.** §1 opens by running it, so it has to build on the night — a cold NuGet cache in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-07/` from the demo repo if you've rehearsed** — both `week-07/Haldane` *and* `week-07/Haldane.Tests`. `dotnet new` refuses to overwrite either, and tonight creates both
-- [ ] **The starters repo open in a browser tab, ready but not showing** — `github.com/jgrissom/dotnet-db-starters`, at `week-06/Lab.Checks/HourChecks.cs`. §4's reveal points at it
 - [ ] 💡 **No debugger tonight.** The new instrument is the test — if a value surprises you mid-demo, the week-5 offer still stands, quietly
 - [ ] **Lids down for the demo** — *"tonight comes in pieces. Lids down while I'm working on the station, lids up for each lab block in between. You'll write all of this yourself in the lab, on a station that is not this one"*
 
@@ -861,9 +860,9 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *You've been reading tests all semester*
 
-- [ ] 🎯 **The reveal. Bring up the browser tab — `dotnet-db-starters`, week 6's `HourChecks.cs` — beside the editor, and scroll it slowly:** *"this is the file that graded your lab last week. A class. Methods with `[Fact]` over them. `Assert` after `Assert`. It is this same kind of project, down to the csproj settings. I have called them checks since week one, because that is what they are to you. The rest of the world calls them unit tests. There is no magic in this file. As of tonight, there is not a line of it you cannot read"*
+- [ ] 🎯 **The reveal, with slide 8 up:** *"Every checks project that has graded you since week one looks like this. A class. Methods with `[Fact]` over them. `Assert` after `Assert`. It is the same kind of project we just made, down to the csproj settings. I have called them checks since week one, because that is what they are to you. The rest of the world calls them unit tests. There is no magic in them. As of tonight, there is not a line of one you cannot read"*
 - [ ] 📖 **Collect the promise by quoting it:** *"Week one, first night, I told you this. There is a file in tonight's lab that grades you. In week seven you find out it is not magic, and you write one. It is week seven"*
-- [ ] 💡 **Point at the last line of the comment at the top of the file:** *"Look at the last line of this comment. 'That is what an interface is, and it is what a check is. Week 7.' This file has been in your week 6 folder since last week. That line was telling you about tonight"*
+- [ ] 💡 **Point ahead to the lab:** *"In a few minutes you'll open one of my checks files yourself and read it, line by line"*
 
 - [ ] 🎞️ **GO TO SLIDE 9** — *Make it fail once*
 
