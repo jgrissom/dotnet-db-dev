@@ -259,7 +259,7 @@ Actual:   "10:5"
 
 **Red, for the right reason** — [read the failure like a sentence](../lecture-notes.md#reading-a-failure): which rule, expected versus actual. If yours is green, it's asking an easy question — feed it `605`.
 
-**Before you fix it, watch it happen in the debugger.** About three minutes, and it's the quickest way to see *why* a test is red. Nothing here changes any code.
+**Before you fix it, watch it happen in the debugger.** You don't need the debugger to write or run tests. `dotnet test` is all a test ever needs. The debugger is just another tool, and it's a good one for seeing *why* a test passes or fails. This takes about three minutes, and nothing here changes any code.
 
 1. Open `Lab/Broadcast.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public static string Clock` — one hit.
 2. Click in the margin just left of the line number on `return $"{seconds / 60}:{seconds % 60}";`. A red dot appears. That's a breakpoint: the program will stop there.
