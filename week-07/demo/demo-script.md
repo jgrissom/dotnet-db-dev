@@ -919,7 +919,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] **Lids up. The lab README, at *The worked fact, and my checks*.** It is the heading just under the stop note
 - [ ] 📖 *"Back to Task 1, from the heading just under the stop note. Read the worked fact in `DeskTests.cs`, then run it. Then open my checks file, `DeskChecks.cs`, and read check 3 from top to bottom. Every line in check 3 is a kind of line you just watched me write"*
 - [ ] 🎯 **Circulating, about the worked fact:** ask *"which lines set the scene, which line does the thing, and which line checks the answer?"* Answering it names the three parts of a fact
-- [ ] ⚠️ **Stop at the end of Task 1.** Task 2 is red-then-green, and they see that done first in §5
+- [ ] ⚠️ **Stop at the end of Task 1.** The README has a second "In class, stop here" note there. Task 2 is red-then-green, and they see that done first in §5
 
 ---
 

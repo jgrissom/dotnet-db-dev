@@ -195,6 +195,9 @@ dotnet test week-07/Lab.Tests
 
 Each `Assert.True` has a second argument: the long string after the condition. That's the message you read when the check fails, the same messages you've been reading since week 1.
 
+> [!NOTE]
+> **In class, stop here.** Task 2 comes after the next part of the demo. Working at home? Carry straight on.
+
 ---
 
 ### Task 2 in full
