@@ -1125,7 +1125,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   Actual:   "15:30"
   ```
 
-- [ ] 📖 *"red, for the right reason: the open trip still says 15:30, because the amend went to the closed one. Now the fix — and this one is humbling"*
+- [ ] 📖 *"red, for the right reason: the open trip still says 15:30, because the amend went to the closed one. And the second claim is false too — row zero now says 16:00 — but you'll never see it. A failing assert stops the test on that line, so the second one never ran. Now the fix — and this one is humbling"*
 
 - [ ] **Nothing to change yet — look first.** In `Watch.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `s.Back();` — one hit, in `MarkBack` — and put the cursor on the `if` above it. 📖 *"mark-back has asked the right question for three weeks — name matches AND not already back. The guard existed. Amend just never got it"*
 - [ ] **The fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// A new return time, radioed in.`** — one hit. **Select from that line down to and including `if (s.Who.Name == name)`** and paste this over it
