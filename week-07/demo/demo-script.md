@@ -799,7 +799,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   </Project>
   ```
 
-- [ ] 💡 **Ten seconds, not a lecture:** *"Same versions the template gave us. I took out a coverage tool we do not need this term, and I added one setting: it lists every test by name, passed and failed. You have been reading that setting's output since week one"*
+- [ ] 💡 **Ten seconds, not a lecture:** *"Same versions the template gave us. I took out a coverage tool we do not need this term, and I added one setting: it lists every test by name, passed and failed. This matches the settings used to check and grade your homework"*
 
 - [ ] **One more small file. New file, `week-07/Haldane.Tests/Directory.Build.rsp`** — paste the whole thing
 
