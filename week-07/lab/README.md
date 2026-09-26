@@ -245,6 +245,18 @@ Every LENGTH cell and that total go through one method — **`Broadcast.Clock`**
 - **Feed it at least one value whose seconds are under ten** — `605` is ten minutes, five seconds. ⚠️ **A test that only asks about `893` stays green with the bug in**, because `:53` already has two digits. [Choosing the value that hurts is the skill](../lecture-notes.md#what-a-test-cannot-see).
 - Name it after the rule it proves. Mine's called `TheClockPadsItsSeconds`; yours doesn't have to be.
 
+**It's the worked fact's shape.** Put this under the `TODO — Task 2` comment:
+
+```csharp
+    [Fact]
+    public void TheClockPadsItsSeconds()
+    {
+        Assert.Equal("?", Broadcast.Clock(?));
+    }
+```
+
+Fill in the two question marks: the number of seconds to feed it (pick one whose seconds are under ten, like `605`), and what the clock **should** say for that number. It won't build until both are filled in.
+
 **Run yours, and expect red:**
 
 ```bash
