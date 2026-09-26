@@ -699,7 +699,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] 🎯 **Scroll the diff to `void AmendABackBy()`. On the left, point at the loop:** *"On the left, this method searched the list itself. If it found her, it changed the time and redrew the board. If it didn't, it said nobody's outside by that name"*
 - [ ] 🎯 **On the right, point at `watch.AmendBackBy(name, newTime)`:** *"Now `Watch` does the search. If it finds her, it changes the time. Then it answers true or false, because `Program.cs` still needs to know whether she was found. True, we redraw the board. False, we say nobody's outside. Same two outcomes as before"*
 - [ ] 📖 **Point at the top of the method:** *"The prompts didn't change. Asking a person a question stays in `Program.cs`"*
-- [ ] 💡 **Two more, one line each.** At the bottom of the file: *"The two old helpers are gone. They're in `Watch.cs` now."* In `DrawBoard`: *"The count of people outside is now `watch.OutsideCount`. A test asks that same question later tonight"*
+- [ ] 💡 **Two more changes, one line each.** At the bottom of the file: *"The two old helpers, `SignOuts()` and `LatestCelsius()`, are gone from the bottom of this file. They're in `Watch.cs` now."* In `DrawBoard`: *"The count of people outside is now `watch.OutsideCount`. A test asks that same question later tonight"*
 
 - [ ] **Build it again — clean this time**
 
