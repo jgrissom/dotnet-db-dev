@@ -841,7 +841,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   }
   ```
 
-- [ ] 📖 **Read it as three sentences, not as syntax:** *"I put the parameter names in front of both arguments (`celsius`, `blizzard`), so you can read each line without going and looking the method up. Now the three claims. At minus forty-nine point nine, you can go out. At exactly minus fifty, you cannot. In a blizzard, you cannot, whatever the number says. `IsSafeToGoOut` is the first method this console ever had — week one, night one — and until this moment, the minus-fifty line existed in exactly one place: inside the method. Now the rule is written down where a machine re-asks it"*
+- [ ] 📖 **Read it as three sentences, not as syntax:** *"I put the parameter names in front of both arguments (`celsius`, `blizzard`), so you can read each line without going and looking the method up. Now the three claims. At -49.9, you can go out. At exactly -50, you cannot. In a blizzard, you cannot, whatever the number says. `IsSafeToGoOut` is the first method this console ever had — week one, night one — and until this moment, the -50 line existed in exactly one place: inside the method. Now the rule is written down where a machine re-asks it"*
 
 - [ ] **Run it**
 
