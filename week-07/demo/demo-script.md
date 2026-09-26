@@ -963,7 +963,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   Actual:   2
   ```
 
-- [ ] 🎯 **This is the beat of the night. Let it sit, then:** *"red — and red is the good outcome here. Expected one, got two: my test just watched Okonkwo go out twice, on its own, in four milliseconds, without a keyboard, without a board, without me. The bug that took a projector and a room to see is now caught by a machine — and it will be caught every time anybody runs this suite, forever"*
+- [ ] 🎯 **This is the beat of the night. Let it sit, then:** *"red — and that is the desired outcome here. Expected one, got two: my test just watched Okonkwo go out twice, on its own, in four milliseconds, without a keyboard, without a board, without me. The bug that took a projector and a room to see is now caught by a machine — and it will be caught every time anybody runs this suite, forever"*
 
 - [ ] **Now the fix — in `Watch.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// Sign somebody out: a new record`** — one hit. **Select from that line down to and including the `}` directly above `// A new return time, radioed in.`** and paste this over it
 
