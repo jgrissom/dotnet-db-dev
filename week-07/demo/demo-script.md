@@ -181,7 +181,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 - [ ] 🎞️ **GO TO SLIDE 3** — *How long does a fix stay fixed?*
 
 - [ ] 📖 *"Now — I can fix both of these tonight, and I will. Here is the question I actually care about: how do I know they're still fixed in week ten? This program changes every single week. You watched me rewrite half of it last week. If the only check is me trying it by hand tonight, then tonight is the last time anybody checks"*
-- [ ] 🎯 **Let the room propose it, then price it:** *"run the program and try it? Sure. That's what we just did — sign him out twice, mark her back, amend, read the board. Two minutes, at the keyboard, by a person. Every run. Every week. For every rule this program has. Nobody does that, and I have eleven weeks of evidence"* — **and stop there. Do not say what the evidence is yet**
+- [ ] 🎯 **Let the room propose it, then price it:** *"run the program and try it? Sure. That's what we just did — sign him out twice, mark her back, amend, read the board. Two minutes, at the keyboard, by a person. Every run. Every week. For every rule this program has. Nobody does that. These two bugs are the proof: they've been in this program for weeks, and nobody caught them by trying it"*
 - [ ] 📖 **The idea, plainly:** *"what I want is a program whose job is to check MY program — asks the same questions every time, in under a second, and complains when an answer changes. That exists. You have been graded by one since week one"*
 
 - [ ] 🎞️ **GO TO SLIDE 4** — *Nothing can call Program.cs*
