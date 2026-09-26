@@ -840,7 +840,12 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   }
   ```
 
-- [ ] 📖 **Read it as three sentences, not as syntax:** *"I put the parameter names in front of both arguments (`celsius`, `blizzard`), so you can read each line without going and looking the method up. Now the three claims. At -49.9, you can go out. At exactly -50, you cannot. In a blizzard, you cannot, whatever the number says. `IsSafeToGoOut` is the first method this console ever had — week one, night one — and until this moment, the -50 line existed in exactly one place: inside the method. Now the rule is written down where a machine re-asks it"*
+- [ ] 📖 **The names, then the rule:** *"I put the parameter names in front of both arguments (`celsius`, `blizzard`), so you can read each line without going and looking the method up. And here is the rule, from week one: it is safe to go out when it is warmer than -50 and there is no blizzard"*
+- [ ] 🎯 **Before running it, ask about each line in turn: pass or fail, and why?** Take an answer, ask that person to defend it, and don't confirm anything yet. The run answers
+  - **Line 1** (`-49.9`, no blizzard, `Assert.True`): *"First line. Pass or fail? Why?"*
+  - **Line 2** (`-50.0`, no blizzard, `Assert.False`): *"Second line. Exactly -50, and this one says `Assert.False`. Pass or fail? Why?"* 💡 Expect some "fail", because they see false. Let it stand until the run
+  - **Line 3** (`-10.0`, blizzard, `Assert.False`): *"Third line. Warm, but a blizzard. Pass or fail? Why?"*
+  - 💡 **The answers, for you:** all three **pass**. -49.9 is warmer than -50, so the method says true, and `Assert.True` wanted true. Exactly -50 is not warmer than -50, so the method says false, and `Assert.False` wanted false. A blizzard makes it false at any temperature, and `Assert.False` wanted false
 
 - [ ] **Run it**
 
@@ -856,6 +861,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
        Passed: 1
   ```
 
+- [ ] 📖 **Settle the predictions:** *"All three pass. One green line means every assert in that test held. A test passes only if all of its asserts pass. Line two is the one to look at. Exactly -50 is not warmer than -50, so the method says false. `Assert.False` says the answer should be false. It is, so it passes"*
+- [ ] 📖 **Then why it matters:** *"`IsSafeToGoOut` is the first method this console ever had, week one, night one. Until now, the -50 line was written down in one place: inside the method. Now a test checks it every time we run"*
 - [ ] 🎯 **Let the shape of that output land, then ask, and wait:** *"one test, one green line, named. Look at that output for a second. Look familiar?"*
 
 - [ ] 🎞️ **GO TO SLIDE 8** — *You've been reading tests all semester*
