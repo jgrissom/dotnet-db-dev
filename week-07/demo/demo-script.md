@@ -357,7 +357,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   dotnet build week-07/Haldane
   ```
 
-- [ ] 📖 **Read the error list off the screen — don't count it, point at it:** *"every one of those lines is a place in `Program.cs` still calling the old names. The compiler just wrote the moving checklist for me. We work down it"*
+- [ ] 📖 **Read the error list off the screen — don't count it, point at it:** *"every error on that list says the same thing: the name `log` does not exist. `log` was the list `Program.cs` kept, and I just replaced it with the `Watch`. Each error is a place that still uses the old list. The compiler just wrote the moving checklist for me. We work down it"*
 
 - [ ] 🎯 **First, read the old shape while it is still on screen.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void AmendABackBy()`** — one hit. Put the cursor on `DrawBoard();` inside the loop, then on the amber `Nobody outside by that name` line under it: *"Two things can happen in this method. We find her, we write the new time, we redraw the board — that is this line, in here. Or the loop runs out and nobody by that name is outside — that is this line, down here. Watch where those two end up"*
 
@@ -413,7 +413,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       foreach (ILogEntry entry in watch.All())
   ```
 
-- [ ] **Five calls still use the old names.** Open Replace (<kbd>⌥⌘F</kbd> / <kbd>Ctrl+H</kbd>), put **`SignOuts()`** in the find box and **`watch.SignOuts()`** in the replace box — the editor says how many it found; read it off the screen — and **Replace All**
+- [ ] **The rest still call `SignOuts()` on its own, without `watch.` in front.** Open Replace (<kbd>⌥⌘F</kbd> / <kbd>Ctrl+H</kbd>), put **`SignOuts()`** in the find box and **`watch.SignOuts()`** in the replace box — the editor says how many it found; read it off the screen — and **Replace All**
 - [ ] ⚠️ **Once.** Run it twice and every call reads `watch.watch.` — undo and do it again if the count looked wrong
 
 - [ ] **And the last one.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`LatestCelsius()`** — one hit left, in `DrawBoard`. Make that line read

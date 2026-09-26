@@ -107,7 +107,7 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 |---|---|
 | `dotnet new console -o week-07/Haldane` refuses | You rehearsed and left `week-07/` behind. Delete both folders; §0 says so. |
 | `dotnet new xunit` refuses in §4 | Same cause — `week-07/Haldane.Tests` survived a rehearsal. Delete it. |
-| §3's first build shows errors you don't recognize | Work the list top to bottom anyway — every line is a place still calling the old names. The sheet's edits cover exactly that list; if one remains after, it is a missed edit and the message names the line. |
+| §3's first build shows errors you don't recognize | Work the list top to bottom anyway. The first build's errors all say the name `log` does not exist: each one is a place still using the list the `Watch` replaced. The sheet's edits cover exactly that list; if one remains after, it is a missed edit and the message names the line. |
 | The Replace All count looks wrong | An earlier edit didn't take, or it ran twice (`watch.watch.`). Undo once and re-run it; the sheet's step order makes the count stable. |
 | §5's test comes up green on the first run | The guard is already in `Watch.SignOut` — you pasted the §5 version during §3. Take the guard back out (the §3 block in the sheet is the faithful one); the red is the beat. |
 | A wrong slide is showing during a reveal | The reveal's screen is the browser + editor, not the deck — slide 8 goes up *after* the file has been scrolled. |
