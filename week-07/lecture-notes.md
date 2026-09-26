@@ -30,9 +30,9 @@ dotnet add Project.Tests reference Project
 
 That one line is the same wiring every `Lab.Checks` you have ever copied ships with: a `ProjectReference`, so the test project can use your classes by name.
 
-### The csproj, trimmed
+### The test project's csproj
 
-The template's csproj works as-is, but this course replaces the whole file rather than describing it — select all, paste this over (this is the homework's exact block; the demo's differs only in the project it references):
+The template's csproj works as-is, but this course replaces the whole file rather than describing it. Compared with the template, it drops `coverlet.collector`, a code-coverage package this course never uses, and adds `VSTestLogger`, explained below. Select all, paste this over (this is the homework's exact block; the demo's differs only in the project it references):
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

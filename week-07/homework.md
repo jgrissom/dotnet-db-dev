@@ -107,7 +107,7 @@ dotnet add Project.Tests reference Project
 > [!IMPORTANT]
 > **Do this before you open anything in the new folder.** VS Code worked out which projects exist when you opened this window, and `Project.Tests` did not exist then — so until you reload, `Assert` and `[Fact]` come up as red squiggles in a file that is perfectly fine. ⚠️ **`.NET: Restart Language Server` does not fix it. Only a window reload does.**
 
-**3. Trim the template.** Open `Project.Tests/Project.Tests.csproj`, select the whole file (`⌘A` / `Ctrl+A`), and paste this over it — [the notes say what each line is doing there](lecture-notes.md#the-csproj-trimmed):
+**3. Replace the template's csproj.** Open `Project.Tests/Project.Tests.csproj`, select the whole file (`⌘A` / `Ctrl+A`), and paste this over it. It drops one package this course never uses (`coverlet.collector`) and adds the line that lists every test by name — [the notes say what each line is doing there](lecture-notes.md#the-test-projects-csproj):
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -388,7 +388,7 @@ Five moments worth saving, written into the parts above at the point where each 
 | Check 5 red in **my** suite after Part 1 | Correct — [it's waiting for Task 5](lecture-notes.md#the-registrys-new-rule), and your own test goes red against the same rule first. |
 | **Red squiggles under `Assert` or `[Fact]` — but `dotnet test` runs fine** | **The editor, not your code.** VS Code worked out which projects exist when you opened the window, and the test project did not exist then. Command Palette → **`Developer: Reload Window`**. ⚠️ `.NET: Restart Language Server` does **not** fix it. The compiler is the witness here: if `dotnet test` is happy, believe it. |
 | `CS0246: 'FactAttribute' could not be found` — blamed on **`Project.csproj`** | `Project.Tests` is *inside* `Project/`. [A folder is a project or a container, never both](lecture-notes.md#-troubleshooting) — move it up beside `Project`, at the repo root. |
-| `CS0246: The type or namespace name 'Registry' could not be found` — in the test project | No reference. `dotnet add Project.Tests reference Project`, or [check the csproj block's last ItemGroup](lecture-notes.md#the-csproj-trimmed). |
+| `CS0246: The type or namespace name 'Registry' could not be found` — in the test project | No reference. `dotnet add Project.Tests reference Project`, or [check the csproj block's last ItemGroup](lecture-notes.md#the-test-projects-csproj). |
 | `dotnet test Project.Tests` says **0 tests** | No `[Fact]`, or the class isn't `public` — [a fact takes nothing, returns nothing, wears the attribute](lecture-notes.md#a-fact-set-the-scene-do-the-thing-check-the-answer). |
 | Your fact names don't match the table | The grader reads the four names **exactly** — `Check2_AddingGrowsTheCount`, spelled like the table, on `public void` methods taking nothing. The bodies are yours; the names aren't. |
 | A failure where **Expected** is obviously the broken value | [`Assert.Equal`'s arguments are swapped](lecture-notes.md#the-assert-family) — expected first, actual second. |

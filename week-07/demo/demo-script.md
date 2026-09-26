@@ -768,7 +768,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   Developer: Reload Window
   ```
 
-- [ ] **Trim the template. Open `week-07/Haldane.Tests/Haldane.Tests.csproj`**, select the whole file (<kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>), and paste this over it
+- [ ] **Replace the template's csproj. Open `week-07/Haldane.Tests/Haldane.Tests.csproj`**, select the whole file (<kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>), and paste this over it. It drops one package this course never uses (`coverlet.collector`) and adds the line that lists every test by name
 
   ```xml
   <Project Sdk="Microsoft.NET.Sdk">
