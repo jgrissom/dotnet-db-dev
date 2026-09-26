@@ -220,7 +220,7 @@ Three bugs left, and each one has the same shape as Task 2:
 Done is **5 green** of mine, and a fact per bug of yours.
 Whatever is left tonight, you finish at home.
 
-**⏱️ 17 minutes · target tonight: Task 2 done.**
+**⏱️ 31 minutes · target tonight: Task 2 done.**
 
 ---
 

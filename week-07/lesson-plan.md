@@ -70,15 +70,15 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 | 0:15 | 5 min | **Lab A: setup** *(no slide — the lab README in the browser)*. The KDXR story in two sentences, setup steps 1–4, then **1 / 5** passing. Stop there. |
 | 0:20 | 30 min | 💥 **Two bugs on the board** *(slides 2–4, demo §2)*. Okonkwo signs out twice: `4 people outside.`, three on the ice. Reyes's amend lands on a closed trip. 🎯 **Then the wall:** a check is just a caller, and the rules live in `Program.cs` where nothing can call them — week 1's rule, arriving with a bill. |
 | 0:50 | 7 min | **Lab B: Task 1, up to "Press `q`"**. Work a shift, press `a` five times, find the negative ad. ⚠️ **Stop at the README's stop note** — the rest of Task 1 opens `DeskChecks.cs`, and that file is §4's reveal. |
-| 0:57 | 26 min | **The move** *(slides 5–6, demo §3)*. `Watch.cs` pasted whole — bugs riding along, said out loud. `Program.cs` worked down the compiler's own error list. 🎯 **Closes on the §2 break replayed: same wrong board, byte for byte.** Move ≠ fix. |
-| 1:23 | 10 min | **☕ Break** |
-| 1:33 | 25 min | 🎯 **A project that asks questions** *(slides 7–9, demo §4)*. `dotnet new xunit`, the reference, the trimmed csproj. First fact: `MinusFiftyIsTheLine`, week 1's method. **The reveal** — `HourChecks.cs` in the browser beside it. Then falsify-and-restore. |
-| 1:58 | 6 min | **Lab C: the rest of Task 1**. Read the worked fact, run it, then read check 3 of `DeskChecks.cs` top to bottom. Stop at the end of Task 1. |
-| 2:04 | 24 min | 💥 **Red, then green** *(slide 10, demo §5)*. The double sign-out test, written against the live bug. 🎯 **Ask for the color before the run.** Red — expected 1, actual 2 — then the guard, then green, then the desk says *"already outside"* out loud. |
-| 2:28 | 20 min | 🎯 **Lab D: Task 2** — the lab's payoff. Their own red on the clock bug, then the fix. **Circulate hard.** Stop at **2 / 5**; anyone finished early goes on to Task 3. |
-| 2:48 | 10 min | **☕ Break** |
-| 2:58 | 20 min | **The other bug** *(slide 11, demo §6)*. Same discipline, richer scene: out, back, out again, the phone call. MarkBack had the guard for three weeks; Amend gets it now. Whole suite green. Desk proven once, by hand, for the last time. |
-| 3:18 | 17 min | **Lab E: Tasks 3–5** *(slide 12, demo §7)*. The hand-off, then the rest of the update. Circulate at Task 4 (`Assert.Same`). **In-class target: Task 2 done**; the rest finishes at home. |
+| 0:57 | 12 min | **The move** *(slides 5–6, demo §3)*. `Watch.cs` pasted whole — bugs riding along, said out loud. Seeds replaced, build broken on purpose: the error list is the checklist. One line fixed live and the list gets one shorter; then the rest pasted whole and walked in the Source Control diff, with `AmendABackBy`'s two endings and its `bool`. 🎯 **Closes on the §2 break replayed: same wrong board, byte for byte.** Move ≠ fix. |
+| 1:09 | 10 min | **☕ Break** |
+| 1:19 | 25 min | 🎯 **A project that asks questions** *(slides 7–9, demo §4)*. `dotnet new xunit`, the reference, the trimmed csproj. First fact: `MinusFiftyIsTheLine`, week 1's method. **The reveal** — `HourChecks.cs` in the browser beside it. Then falsify-and-restore. |
+| 1:44 | 6 min | **Lab C: the rest of Task 1**. Read the worked fact, run it, then read check 3 of `DeskChecks.cs` top to bottom. Stop at the end of Task 1. |
+| 1:50 | 24 min | 💥 **Red, then green** *(slide 10, demo §5)*. The double sign-out test, written against the live bug. 🎯 **Ask for the color before the run.** Red — expected 1, actual 2 — then the guard, then green, then the desk says *"already outside"* out loud. |
+| 2:14 | 20 min | 🎯 **Lab D: Task 2** — the lab's payoff. Their own red on the clock bug, then the fix. **Circulate hard.** Stop at **2 / 5**; anyone finished early goes on to Task 3. |
+| 2:34 | 10 min | **☕ Break** |
+| 2:44 | 20 min | **The other bug** *(slide 11, demo §6)*. Same discipline, richer scene: out, back, out again, the phone call. MarkBack had the guard for three weeks; Amend gets it now. Whole suite green. Desk proven once, by hand, for the last time. |
+| 3:04 | 31 min | **Lab E: Tasks 3–5** *(slide 12, demo §7)*. The hand-off, then the rest of the update. Circulate at Task 4 (`Assert.Same`). **In-class target: Task 2 done**; the rest finishes at home. |
 | 3:35 | 10 min | **Wrap-up** *(slide 13, demo §8)*. Fact · check · red · green. Project repo URL in Canvas, **the checks-copy line with this week's twist: two checks, not five.** Week 8 tease: the log stops being gone. Then the one-question pace check *(see Materials)*. |
 
 > [!NOTE]
@@ -89,7 +89,7 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 - 🎯 **§2's two bugs are found at the desk, not in the code.** Nothing is opened in the editor until §3. The room should hold *"the board lies"* before it ever sees why — and the count question (*"count the people"*) goes to them, with a wait.
 - ⚠️ **Do not fix anything in §2, and do not fix anything during the move in §3.** The whole architecture of the night is that the first fix lands *after* a test is red against it. A room that watches move-and-fix in one act learns neither.
 - 🎯 **§3's broken build is deliberate and worth naming as a technique** — replace the seeds, build, and the error list *is* the moving checklist. Read it off the screen; don't count it out loud from the sheet.
-- ⚠️ **The Replace All in §3 runs ONCE.** `SignOuts()` → `watch.SignOuts()` — run twice it manufactures `watch.watch.`, and the sheet says so. Read the hit count off the editor.
+- ⭐ **§3 fixes ONE error live, then pastes the rest** *(changed 2026-09-26 for the chunked night)*. The one fix and the rebuild show the technique — the list gets one shorter. Working the remaining eight edits one at a time was 15 minutes of the room watching the same change, so the whole file is pasted and walked in the Source Control diff instead. The pasted file is byte-identical to where the old step-by-step edits ended.
 - 🎯 **In §4, the reveal must come after their first green run, not before.** The order is: write the fact, run it, one named green line, *"where have you seen this before?"* — and only then the browser. Recognition beats explanation.
 - ⚠️ **§4's falsify beat is not optional filler.** *Make it fail once* is the discipline the homework leans on (its Task 2 repeats it verbatim), and it is the answer to the room's fair question "how do I know my test tests anything?"
 - 🎯 **In §5, ask for the predicted color out loud and wait for an answer.** Half the room will say green out of habit. The red that follows does the teaching.
@@ -107,8 +107,8 @@ Tonight the lab is not one block at the end. **Each demo segment is followed by 
 |---|---|
 | `dotnet new console -o week-07/Haldane` refuses | You rehearsed and left `week-07/` behind. Delete both folders; §0 says so. |
 | `dotnet new xunit` refuses in §4 | Same cause — `week-07/Haldane.Tests` survived a rehearsal. Delete it. |
-| §3's first build shows errors you don't recognize | Work the list top to bottom anyway. The first build's errors all say the name `log` does not exist: each one is a place still using the list the `Watch` replaced. The sheet's edits cover exactly that list; if one remains after, it is a missed edit and the message names the line. |
-| The Replace All count looks wrong | An earlier edit didn't take, or it ran twice (`watch.watch.`). Undo once and re-run it; the sheet's step order makes the count stable. |
+| §3's first build shows errors you don't recognize | They should all say the name `log` does not exist: each one is a place still using the list the `Watch` replaced. If something else appears, the seeds paste landed in the wrong place — undo it and re-select from `// ── the watch log`. |
+| §3's build after the paste still has errors | The whole-file paste didn't take the whole file. Select all (<kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>) and paste again. |
 | §5's test comes up green on the first run | The guard is already in `Watch.SignOut` — you pasted the §5 version during §3. Take the guard back out (the §3 block in the sheet is the faithful one); the red is the beat. |
 | A wrong slide is showing during a reveal | The reveal's screen is the browser + editor, not the deck — slide 8 goes up *after* the file has been scrolled. |
 | Somebody asks "do professionals really write the test first?" | Honestly: for a bug, almost always — the red is the proof the bug is caught. For new code, it varies, and week 8 onward this course writes tests after the fact too. Both need the falsify discipline. |

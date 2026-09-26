@@ -359,11 +359,211 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Read the error list off the screen — don't count it, point at it:** *"every error on that list says the same thing: the name `log` does not exist. `log` was the list `Program.cs` kept, and I just replaced it with the `Watch`. Each error is a place that still uses the old list. The compiler just wrote the moving checklist for me. We work down it"*
 
-- [ ] 🎯 **First, read the old shape while it is still on screen.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void AmendABackBy()`** — one hit. Put the cursor on `DrawBoard();` inside the loop, then on the amber `Nobody outside by that name` line under it: *"Two things can happen in this method. We find her, we write the new time, we redraw the board — that is this line, in here. Or the loop runs out and nobody by that name is outside — that is this line, down here. Watch where those two end up"*
-
-- [ ] **Now the edit — and the prompts are staying put, so don't select them.** Still in `AmendABackBy`. **Leave the four lines under it alone.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** — and paste this over them
+- [ ] **Fix one of them live — the reading.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`log.Add(new Reading("15:02"`** — one hit. Make that line read
 
   ```csharp
+      watch.Add(new Reading("15:02", celsius, who));
+  ```
+
+- [ ] **Build it, and watch the list get shorter**
+
+  ```bash
+  dotnet build week-07/Haldane
+  ```
+
+- [ ] 🎯 **Point at the list:** *"The error list is one shorter. That is the whole technique. Break it on purpose, then work down the list until it is empty. Every error that is left is the same change: `log` becomes `watch`. So I am not going to make you watch me do the rest one at a time"*
+
+- [ ] **So paste the rest in.** In `week-07/Haldane/Program.cs`, select the whole file (<kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>) and paste this over it. It is exactly where working down the list ends up
+
+  ```csharp
+  using Spectre.Console;
+
+  // Straight out of board.css, so the output and the projector agree.
+  const string Amber = "#e8b04b";
+  const string Dim = "#6c7b78";
+
+  const string Fg = "#c8d3cf";
+  const string Cold = "#7fb2d4";
+
+  // ── the crew ───────────────────────────────────────────────────────────────
+  // The winter crew. Each one is a person the station keeps a count for.
+
+  List<CrewMember> crew = new List<CrewMember>();
+
+  CrewMember okonkwo = new CrewMember("Okonkwo");
+  CrewMember reyes = new CrewMember("Reyes");
+  CrewMember lindqvist = new CrewMember("Lindqvist");
+  CrewMember moretti = new CrewMember("Moretti");
+  CrewMember bhatt = new CrewMember("Bhatt");
+
+  crew.Add(okonkwo);
+  crew.Add(reyes);
+  crew.Add(lindqvist);
+  crew.Add(moretti);
+  crew.Add(bhatt);
+  crew.Add(new CrewMember("Nakamura"));
+
+  // ── the watch ──────────────────────────────────────────────────────────────
+  // The log lives in Watch.cs now, along with every rule about what goes on
+  // it. This file is down to what it should have been all along: prompts,
+  // paint, and a loop. The rules are methods on a class now, so something
+  // other than this file can call them.
+
+  Watch watch = new Watch();
+
+  watch.Add(new FuelCheck("07:40", 4300));
+  watch.Add(new SignOut("09:05", lindqvist, "FUEL", "10:30"));
+  watch.Add(new Reading("12:00", -39.8, moretti));
+  watch.Add(new SignOut("14:20", okonkwo, "MET RUN", "15:00"));
+  watch.Add(new SignOut("14:20", reyes, "DIG OUT", "14:45"));
+  watch.Add(new Reading("14:35", -41.5, bhatt));
+
+  // Who is who. A dictionary is a lookup: give it a name, get back a role.
+  Dictionary<string, string> roles = new Dictionary<string, string>();
+  roles["Okonkwo"] = "station leader";
+  roles["Reyes"] = "general technician";
+  roles["Lindqvist"] = "generator mech";
+  roles["Moretti"] = "meteorology";
+  roles["Bhatt"] = "comms";
+  roles["Nakamura"] = "chef";
+
+  // ── the desk ───────────────────────────────────────────────────────────────
+  // Everything below this line is one loop: draw the board, ask what the
+  // duty officer wants, do it, draw the board again. The two things it can do
+  // are the two things this program already knew how to do — sign somebody out,
+  // and look somebody up. They have just stopped being a form you fill in once.
+
+  DrawBoard();
+
+  while (true)
+  {
+      Console.Write("[o]ut  [a]mend  [b]ack  [w]ho  [m]et  [q]uit: ");
+      string? key = Console.ReadLine();
+
+      // q is the duty officer handing over; null is the end of input. Either ends it.
+      if (key == null || key.Trim().ToLower() == "q")
+      {
+          break;
+      }
+
+      switch (key.Trim().ToLower())
+      {
+          case "o":
+              SignSomebodyOut();
+              break;
+
+          case "a":
+              AmendABackBy();
+              break;
+
+          case "b":
+              MarkSomebodyBack();
+              break;
+
+          case "w":
+              LookSomebodyUp();
+              break;
+
+          case "m":
+              TakeAReading();
+              break;
+
+          default:
+              AnsiConsole.MarkupLine($"[{Dim}]That wasn't one of the buttons.[/]");
+              break;
+      }
+
+      AnsiConsole.WriteLine();
+  }
+
+  EndOfWatch();
+
+  // ── end of watch ───────────────────────────────────────────────────────────
+  // The desk is closed. Account for everybody on the board.
+  void EndOfWatch()
+  {
+      // watch.SignOuts() builds a fresh list every time it is asked, so crossing
+      // names off this one cannot reach the log.
+      List<SignOut> muster = watch.SignOuts();
+
+      foreach (SignOut s in watch.SignOuts())
+      {
+          if (s.IsBack)
+          {
+              muster.Remove(s);
+          }
+      }
+
+      AnsiConsole.WriteLine();
+      AnsiConsole.MarkupLine($"[{Amber}]Muster - still to account for:[/]");
+
+      foreach (SignOut s in muster)
+      {
+          AnsiConsole.MarkupLine($"[{Fg}]  {Markup.Escape(s.Who.Name)}[/] "
+              + $"[{Dim}]- {Markup.Escape(s.Reason)}, due {Markup.Escape(s.Expected)}[/]");
+      }
+  }
+
+  void SignSomebodyOut()
+  {
+      Console.Write("  Name: ");
+      string name = Console.ReadLine() ?? "";
+      Console.Write("  Reason (MET RUN / DIG OUT / FUEL / FIELD / COMMS / WALK): ");
+      string reason = Console.ReadLine() ?? "";
+      Console.Write("  Back by: ");
+      string expected = Console.ReadLine() ?? "";
+
+      // ⚠️ Still load-bearing for the drop: without it an Enter-only sign-out
+      // puts a blank row on the board, and the re-run comparison shows a ghost.
+      CrewMember? who = Find(name.Trim());
+
+      if (who == null)
+      {
+          AnsiConsole.MarkupLine($"[{Amber}]  Nobody on station by that name. Nothing logged.[/]");
+      }
+      else
+      {
+          watch.SignOut(who, reason.Trim(), expected.Trim());
+
+          // Redraw ONLY where the board actually changed. An action that just
+          // reports — a lookup, a refusal — leaves its answer on screen instead.
+          DrawBoard();
+      }
+  }
+
+  void TakeAReading()
+  {
+      Console.Write("  Who took it: ");
+      string name = Console.ReadLine() ?? "";
+      Console.Write("  Reading (C): ");
+      string typed = Console.ReadLine() ?? "";
+
+      CrewMember? who = Find(name.Trim());
+
+      if (who == null)
+      {
+          AnsiConsole.MarkupLine($"[{Amber}]  Nobody on station by that name. Nothing logged.[/]");
+          return;
+      }
+
+      // Week 2's guard, still earning its keep: a reading that isn't a number
+      // is not a reading, and the log is not the place to find that out.
+      if (!double.TryParse(typed.Trim(), out double celsius))
+      {
+          AnsiConsole.MarkupLine($"[{Amber}]  That isn't a temperature. Nothing logged.[/]");
+          return;
+      }
+
+      watch.Add(new Reading("15:02", celsius, who));
+      DrawBoard();
+  }
+  void AmendABackBy()
+  {
+      Console.Write("  Whose back-by is changing: ");
+      string name = Console.ReadLine() ?? "";
+      Console.Write("  New back-by: ");
+      string newTime = Console.ReadLine() ?? "";
+
       if (watch.AmendBackBy(name, newTime))
       {
           DrawBoard();
@@ -372,17 +572,13 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       {
           AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");
       }
-  ```
+  }
 
-- [ ] 📖 **Point at the `if`, then at the `else`:** *"Those two endings were both already in this method. Redrawing the board was buried in the middle of the search — three lines ago it sat inside the loop. Saying nobody is outside was stranded underneath it, and the only way to reach it was for the loop to run out. Taking the search away is what let them come and sit next to each other, which is what they always were: the two things that can happen"*
+  void MarkSomebodyBack()
+  {
+      Console.Write("  Who's back: ");
+      string name = Console.ReadLine() ?? "";
 
-- [ ] 🎯 **Then the `bool`, and this is the part to slow down for. Put the cursor on `watch.AmendBackBy(name, newTime)`:** *"And now look at why that method hands back true or false. In the old version, `return` was doing two jobs at once — it stopped the looking, and it meant we found her. Both, in one word. The moment the loop moves into `Watch`, `return` can only do the first job: it stops the loop in there. So the news has to travel back some other way, and the way it travels is a yes or a no."*
-
-- [ ] 📖 **Last, the half that did not move — cursor at the top of the method, on the prompts:** *"And notice what I did not select. The two prompts and the two `ReadLine`s are untouched, because asking a human a question is this file's job and always will be"*
-
-- [ ] *"Same again for mark-back — same two lines, same restraint."* <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void MarkSomebodyBack()`** — one hit. **The prompt above stays.** Select from **`foreach (SignOut s in SignOuts())`** down to and including **`AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");`** and paste this over them
-
-  ```csharp
       if (watch.MarkBack(name))
       {
           DrawBoard();
@@ -391,46 +587,122 @@ Tonight the console gets caught keeping two wrong records — and the room finds
       {
           AnsiConsole.MarkupLine($"[{Amber}]  Nobody outside by that name.[/]");
       }
-  ```
+  }
 
-- [ ] **The sign-out itself.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`log.Add(new SignOut("14:57"`** — one hit. Make that line read
+  void LookSomebodyUp()
+  {
+      Console.Write("  Look somebody up: ");
+      string who = (Console.ReadLine() ?? "").Trim();
 
-  ```csharp
-          watch.SignOut(who, reason.Trim(), expected.Trim());
-  ```
+      // ⚠️ PLAIN Console.WriteLine, deliberately. `who` is
+      // typed live, so MarkupLine would throw the moment somebody types a '['.
+      if (roles.TryGetValue(who, out string? role))
+      {
+          Console.WriteLine($"  {who} - {role}");
+      }
+      else
+      {
+          Console.WriteLine($"  No '{who}' on this station. {roles.Count} people on the crew list.");
+      }
+  }
 
-- [ ] **The reading.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`log.Add(new Reading("15:02"`** — one hit. Make that line read
+  void DrawBoard()
+  {
+      // The console redraws itself from the top after every action, so the
+      // banner and the readings live in here rather than running once at
+      // startup — otherwise the first action would scroll them away for good.
+      AnsiConsole.Clear();
 
-  ```csharp
-      watch.Add(new Reading("15:02", celsius, who));
-  ```
+      AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
+      AnsiConsole.MarkupLine($"[{Amber} bold]  HALDANE STATION - DUTY CONSOLE[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]  nearest neighbor: 512 km - winter crew - day 254[/]");
+      AnsiConsole.MarkupLine($"[{Dim}]========================================================[/]");
+      AnsiConsole.WriteLine();
 
-- [ ] **Now delete the two helpers that moved.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// Every sign-out on the log`** — one hit, near the bottom. **Select from that line to the end of the file** (<kbd>⇧⌘↓</kbd> / <kbd>Ctrl⇧End</kbd>) and delete it — `SignOuts()` and `LatestCelsius()` both live in `Watch.cs` now
-
-- [ ] **The log loop.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`entry in log`** — one hit, in `DrawLog`. Make that line read
-
-  ```csharp
-      foreach (ILogEntry entry in watch.All())
-  ```
-
-- [ ] **The rest still call `SignOuts()` on its own, without `watch.` in front.** Open Replace (<kbd>⌥⌘F</kbd> / <kbd>Ctrl+H</kbd>), put **`SignOuts()`** in the find box and **`watch.SignOuts()`** in the replace box — the editor says how many it found; read it off the screen — and **Replace All**
-- [ ] ⚠️ **Once.** Run it twice and every call reads `watch.watch.` — undo and do it again if the count looked wrong
-
-- [ ] **And the last one.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`LatestCelsius()`** — one hit left, in `DrawBoard`. Make that line read
-
-  ```csharp
+      // The headline temperature is not typed into this program any more. It is
+      // the last reading anybody actually took, read straight off the log.
       double latest = watch.LatestCelsius();
-  ```
 
-- [ ] **One more, because the move earned it — the board's headline count.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`int stillOut = 0;`** — one hit, in `DrawBoard`. **Select from that line down to and including `AnsiConsole.MarkupLine($"[{Dim}]{stillOut} people outside.[/]");`** and paste this over the lot
+      AnsiConsole.MarkupLine($"[{Dim}]Outside:[/] [{Cold}]{latest:0.0} C[/]   "
+          + $"[{Dim}]Safe to go out:[/] [{Fg}]{Conditions.IsSafeToGoOut(latest, false)}[/]");
+      AnsiConsole.WriteLine();
 
-  ```csharp
+      var board = new Table()
+          .Border(TableBorder.Square)
+          .BorderColor(Color.FromHex("#1e2529"))
+          .AddColumn($"[{Dim}]TIME[/]")
+          .AddColumn($"[{Dim}]NAME[/]")
+          .AddColumn($"[{Dim}]REASON[/]")
+          .AddColumn($"[{Dim}]EXPECTED[/]")
+          .AddColumn($"[{Dim}]STATUS[/]")
+          .AddColumn($"[{Dim}]TRIPS[/]");
+
+      foreach (SignOut s in watch.SignOuts())
+      {
+          board.AddRow(
+              $"[{Dim}]{Markup.Escape(s.Time)}[/]",
+              $"[{Fg}]{Markup.Escape(s.Who.Name)}[/]",
+              $"[{Amber}]{Markup.Escape(s.Reason)}[/]",
+              $"[{Dim}]{Markup.Escape(s.Expected)}[/]",
+              s.IsBack ? $"[{Dim}]back[/]" : $"[{Cold}]OUT[/]",
+              $"[{Fg}]{s.Who.TripsToday}[/]");
+      }
+
+      AnsiConsole.Write(board);
       AnsiConsole.MarkupLine($"[{Dim}]{watch.OutsideCount} people outside.[/]");
+
+      int tripsToday = 0;
+      foreach (CrewMember c in crew)
+      {
+          tripsToday += c.TripsToday;
+      }
+
+      AnsiConsole.MarkupLine($"[{Dim}]{tripsToday} trips logged today.[/]");
+      AnsiConsole.WriteLine();
+
+      DrawLog();
+  }
+
+  // Walks the crew and hands back the person, or nothing at all.
+  CrewMember? Find(string wanted)
+  {
+      foreach (CrewMember c in crew)
+      {
+          if (c.Name == wanted)
+          {
+              return c;
+          }
+      }
+
+      return null;
+  }
+
+  // The watch log. One list, one loop.
+  void DrawLog()
+  {
+      AnsiConsole.MarkupLine($"[{Dim}]Watch log:[/]");
+
+      foreach (ILogEntry entry in watch.All())
+      {
+          AnsiConsole.MarkupLine($"[{Dim}]  {Markup.Escape(entry.Time)}[/]  "
+              + $"[{Amber}]{Markup.Escape(entry.Kind),-8}[/]  "
+              + $"[{Fg}]{Markup.Escape(entry.Line())}[/]");
+      }
+
+      AnsiConsole.WriteLine();
+  }
   ```
 
-- [ ] 💡 *"the number this whole station exists to keep right was a counting loop at the bottom of a paint method. Now it is a question the watch answers — hold on to `OutsideCount`, because a test asks it that same question within the hour"*
+- [ ] **Show the room what changed.** Open the Source Control view (<kbd>⌃⇧G</kbd> / <kbd>Ctrl⇧G</kbd>) and click `Program.cs` under *Changes*. The old file is on the left and the new one is on the right
+- [ ] 📖 **The pattern first — scroll to any red line with `log` in it:** *"Every red line that used `log` came back green, asking `watch` instead. The desk still does everything it did. It just asks the `Watch` now"*
 
-- [ ] **Build it again**
+- [ ] 🎯 **Now the one change worth slowing down for. Scroll the diff to `void AmendABackBy()`.** On the left, put the cursor on `DrawBoard();` inside the loop, then on the amber `Nobody outside by that name` line under it: *"Two things can happen in this method. We find her, we write the new time, we redraw the board — that is this line, in here. Or the loop runs out and nobody by that name is outside — that is this line, down here. Now look at where those two ended up"*
+- [ ] 📖 **On the right, point at the `if`, then at the `else`:** *"Those two endings were both already in this method. On the left, redrawing the board was buried in the middle of the search, inside the loop. Saying nobody is outside was stranded underneath it, and the only way to reach it was for the loop to run out. Taking the search away is what let them come and sit next to each other, which is what they always were: the two things that can happen"*
+- [ ] 🎯 **Then the `bool`, and this is the part to slow down for. Put the cursor on `watch.AmendBackBy(name, newTime)` on the right:** *"And now look at why that method hands back true or false. In the old version, `return` was doing two jobs at once — it stopped the looking, and it meant we found her. Both, in one word. Once the loop lives in `Watch`, `return` can only do the first job: it stops the loop in there. So the news has to travel back some other way, and the way it travels is a yes or a no"*
+- [ ] 📖 **Then the lines the diff did not mark — the top of the method:** *"And look at what did not change. The two prompts and the two `ReadLine`s are the same on both sides, because asking a human a question is this file's job and always will be"*
+- [ ] 💡 **Two more things the diff shows, one line each.** At the bottom of the file: *"the two helpers that used to sit down here are gone. They live in `Watch.cs` now."* And in `DrawBoard`: *"the board's headline count was a counting loop inside the paint method. Now it is `watch.OutsideCount`. Hold on to that, because a test asks the same question within the hour"*
+
+- [ ] **Build it again — clean this time**
 
   ```bash
   dotnet build week-07/Haldane
@@ -909,7 +1181,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ---
 
-## Lab E · Tasks 3 to 5 — 17 minutes
+## Lab E · Tasks 3 to 5 — 31 minutes
 
 - [ ] **Lids up. Slide 12 stays up** for the whole block, unlike the earlier lab blocks. The block starts at *Task 3 in full* in the README
 - [ ] 🎯 **Circulate at Task 4** (`Assert.Same`). It is where students stall most
