@@ -1024,6 +1024,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   dotnet test week-07/Haldane.Tests
   ```
 
+- [ ] 📖 **Say what the desk is about to do with the answer:** *"`Watch.SignOut` now answers true or false, the same way amend does. True means the sign-out went on the board. False means that person is already outside. Right now the desk ignores the answer. Now it listens. Nobody by that name, it says so. Sign-out accepted, it redraws the board. Sign-out refused, it says they're already outside"*
 - [ ] **The desk should say no out loud too — and again, the prompts stay.** In `Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`void SignSomebodyOut()`** — one hit. **Leave everything down to the `Find` alone.** Then select the whole `if` — from **`if (who == null)`** down to and including the **`}` that closes its `else`** — and paste this over it. A two-branch decision becomes a three-branch one
 
   ```csharp
