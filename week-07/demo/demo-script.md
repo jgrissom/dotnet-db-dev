@@ -875,7 +875,11 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **The discipline, and it is the room's first instinct to skip it:** *"one thing before we trust our green line. A test that has never failed proves less than you think — maybe it checks nothing. So you make it lie, once, on purpose, and watch it object"*
 
-- [ ] **In `WatchTests.cs`, change the first assert's `-49.9` to `-50.1`** — a claim that is genuinely false — and run it again
+- [ ] **In `WatchTests.cs`, change the first assert's `-49.9` to `-50.1`.** Don't run it yet
+- [ ] 🎯 **Ask for a prediction first:** *"Same test, one number changed. -50.1 instead of -49.9. Pass or fail? Why?"* Take an answer and have them defend it
+  - 💡 **The answer, for you:** it **fails**. -50.1 is colder than -50, so the method says false, and `Assert.True` wanted true. And the whole test fails, even though lines 2 and 3 still hold. If nobody says that part, ask: *"Lines 2 and 3 didn't change. Does that save it?"*
+
+- [ ] **Run it**
 
   ```bash
   dotnet test week-07/Haldane.Tests
