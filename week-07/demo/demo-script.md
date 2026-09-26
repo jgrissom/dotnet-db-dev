@@ -156,11 +156,13 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 **Name what kind of failure this is:** *"no exception, no warning, nothing red anywhere. The program did exactly what I typed into it. It is just wrong — and the compiler has no opinion about wrong. That is week one's lesson, and tonight it finally costs us something"*
 
-- [ ] **Second one. Run it again — `b`, `Reyes` comes back. Then `o`, sign her out again — `WALK`, back by `15:30`. Then `a`, amend `Reyes` to `16:00`**
+- [ ] **Second one. Run it again — `b`, `Reyes` comes back. Then `o`, sign her out again — `WALK`, back by `15:30`**
 
   ```bash
   dotnet run --project week-07/Haldane
   ```
+
+- [ ] **Then `a`, amend `Reyes` to `16:00`**
 
   ```
   │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │ 1     │
