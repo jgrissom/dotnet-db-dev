@@ -744,7 +744,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 ## 4 · A project that asks questions *(slides 7–9)*
 
-- [ ] 📖 *"Now the thing that calls them. It is a project — a whole separate program, whose only job is to ask mine questions"*
+- [ ] 📖 *"Now the thing that calls them. It is a project — a whole separate program, whose only job is to ask my program (Haldane) questions"*
 
 - [ ] **Make it, from the terminal.** A new template — not `console`, and say so as you type it
 
