@@ -91,7 +91,7 @@ dotnet test Project.Checks
 ⚠️ **Row 5's name is dictated exactly as spelled**, the way `Week8_TheRegistrySurvivesARestart` was — it is what the grader reads out of *your* test run. `public void`, takes nothing, `[Fact]` on top. **Everything inside the braces is yours.**
 
 > [!NOTE]
-> **The name carries the week, not a check number.** That changed in week 8 and it holds from here: your suite is permanent and grows every week, and check numbers restart annually. [Week 7's four `CheckN_` facts stay exactly as they are.](../week-08/homework.md#task-5-in-full)
+> **The name carries the week, not a check number.** That changed in week 8 and it holds from here: your suite is permanent and grows every week, and check numbers restart annually. [Week 7's four `CheckN_` facts stay exactly as they are.](../week-08/homework.md#task-4-in-full)
 
 ### Task 2 in full
 

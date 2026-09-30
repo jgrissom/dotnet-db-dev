@@ -217,7 +217,7 @@ dotnet test week-09/Lab.Tests
 
 #### Now the seven methods
 
-[The notes open with the receipt](../lecture-notes.md#thirty-lines-become-one): every one of these was promised to you as one line, in the week you wrote it. Six of them are loops; `LastShift` walks an array to reach its last item, which is the same job done a different way. Work down the list. **The first three are written out; the last four are yours.**
+[The notes open with the receipt](../lecture-notes.md#thirty-lines-become-one): every one of these was promised to you as one line, in the week you wrote it. Six of them are loops; `LastShift` walks an array to reach its last item, which is the same job done a different way. It was one of week 8's *Done early?* items, so if you skipped it, this is the first time you've seen it — the starter ships it either way. Work down the list. **The first three are written out; the last four are yours.**
 
 **1 — `Lab/Hour.cs`, `TotalSeconds`.** Week 7's. Replace the whole property with:
 
