@@ -32,66 +32,7 @@ style: |
 
 ---
 
-<!-- _footer: '🖥️ Demo §2 · gone' -->
-
-## Gone
-
-```
-Watch log:
-  07:40  FUEL      day tank 4300 L
-  09:05  SIGN OUT  Lindqvist - FUEL, due 10:30
-  ...
-```
-
-Nakamura signed out. Then I pressed `q`.
-
-The list was in memory. Memory belongs
-to the process. **The process ended.**
-
-Nothing is broken. Week 3 said so.
-
----
-
-<!-- _footer: '🖥️ Demo §2 · the test you cannot write' -->
-
-## The test you cannot write
-
-```csharp
-[Fact]
-public void TheLogSurvivesARestart()
-{
-    // ...and then what?
-}
-```
-
-Last week you learned to write a rule down
-so a machine re-asks it forever.
-
-**There is nothing to call.**
-
----
-
-<!-- _footer: '🖥️ Demo §2 · a file is a place to put text' -->
-
-## A file is a place to put text
-
-```csharp
-File.WriteAllText(path, text);   // makes it, or REPLACES it
-string s = File.ReadAllText(path);
-
-File.WriteAllLines(path, list);  // one line each
-string[] l = File.ReadAllLines(path);
-
-File.AppendAllText(path, line);  // ADDS to the end
-bool there = File.Exists(path);
-```
-
-`WriteAllText` is a **save file**.
-`AppendAllText` is a **log**.
-
----
-
-<!-- _footer: '🖥️ Demo §3 · where the file actually goes' -->
+<!-- _footer: '🖥️ Demo §3 · a file of our own' -->
 
 ## Where the file actually goes
 
@@ -109,53 +50,15 @@ So the path is **handed in**, always.
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · readable, and useless' -->
-
-## Readable, and useless
-
-```
-09:05  SIGN OUT  Lindqvist - FUEL, due 10:30
-```
-
-Perfect. A person can read it.
-
-Now read it back **in.** Where does the
-name stop and the reason start?
-
-That line is a sentence `Line()` wrote
-for a human — and it may reword it
-next week.
-
----
-
-<!-- _footer: '🖥️ Demo §4 · the kind word comes first' -->
-
-## The kind word comes first
-
-```
-SIGNOUT|09:05|Lindqvist|FUEL|10:30|out
-MET|12:00|-39.8|Moretti
-FUEL|07:40|4300
-```
-
-- the **kind** first — you know what
-  the line is before you read it
-- a separator that **cannot appear
-  in a field** (a `|`, not a comma)
-- nothing the program can **work out
-  for itself** — the trip counts
-
----
-
-<!-- _footer: '🖥️ Demo §4 · one list, one type' -->
+<!-- _footer: '🖥️ Demo §3 · a file of our own' -->
 
 ## One list, one type
 
-Sixty lines by hand, both directions,
-for a log with three kinds of things on it.
+The log holds **three kinds** of things,
+so it is written by hand.
 
-Most lists are **one list of one type** —
-and for those it is two lines:
+A rotation is **one list of one type** —
+and for that, a serializer does the job:
 
 ```csharp
 string json = JsonSerializer.Serialize(_songs);
@@ -167,108 +70,36 @@ You use this one in the lab.
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · still there' -->
-
-## Still there
-
-```
-│ 14:57 │ Nakamura │ WALK │ 19:40 │ OUT │ 1 │
-
-4 people outside.
-4 trips logged today.
-```
-
-Same board. **New process.**
-
-That last line is a count each crew member
-keeps. Nothing in the file says `4`.
-
----
-
 <!-- _footer: '🖥️ Demo §6 · the station’s own clock' -->
 
-## The station's own clock
+## What a serializer won't read back
+
+It **writes** every property it can **read**.
+It **reads back** only the ones it can **write**.
 
 ```csharp
-DateTime.UtcNow.ToString("HH:mm")
+public int PlaysTonight { get; private set; }
 ```
 
-`Now` is this machine. `UtcNow` is the world.
-
-And a real clock breaks an assumption:
-the log looked time-ordered because
-**everything happened to arrive in order.**
-
-Now `Add` puts each line where its
-time says it goes.
-
----
-
-<!-- _footer: '🖥️ Demo §7 · the fact you could not write' -->
-
-## The fact you could not write
+Goes into the file. **Never comes back.**
 
 ```csharp
-watch.Save(path);
-
-Watch reopened = new Watch();
-reopened.Load(path, crew);
-
-Assert.Equal(1, reopened.Count);
+[JsonInclude]
+public int PlaysTonight { get; private set; }
 ```
-
-A **second** watch, holding nothing.
-
-That is quitting and starting again,
-without quitting.
 
 ---
 
-<!-- _footer: '🖥️ Demo §8 · a file is a text file' -->
-
-## A file is a text file
-
-I opened the log and deleted one line.
-
-```
-3 people outside.
-
-Muster - still to account for:
-  Lindqvist, Okonkwo, Nakamura
-```
-
-**Reyes is outside.**
-
-No crash. No warning. One file, one
-laptop, one person who can open it.
-
----
-
-<!-- _footer: '🖥️ Demo §9 · lab: the log book' -->
-
-## Lab: the log book
-
-KDXR forgets the night too — which carts
-played, and who had the desk before you.
-
-- the rotation, saved as **JSON**
-- the air log, **appended** to
-- one number that will not come back
-
-**⏱️ 50 minutes · target tonight: 5 green.**
-
----
-
-<!-- _footer: '🖥️ Demo §10 · tonight, in one picture' -->
+<!-- _footer: '🖥️ Demo §8 · wrap' -->
 
 ## Tonight, in one picture
 
 **text → fields → objects → and back**
 
-- `File` does each trip in one line
-- the **kind** word first
-- a serializer, when it is one type
+- `File` does each direction in one line
 - the **path is handed in**
 - no file is a **first run**
+- a serializer, when it is **one list of one type**
+- a save file is a text file **anybody can edit**
 
 Week 10: somewhere that isn't your laptop.

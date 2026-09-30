@@ -46,6 +46,19 @@ const DELIBERATE = {
     'commit messages (lab)': "week 1's lab commits nothing — git init is in its homework",
     'CLI fallback (lab)':    "no commits in week 1's lab, so nothing to fall back from",
   },
+  // Week 8 was re-cut for the chunked night on 2026-09-30, after the week 7
+  // pilot showed students struggling with the lab. Jeff decided each of these
+  // one at a time; CLAUDE.md's "The chunked week" records the rules.
+  '08': {
+    'notes links (homework)': "the homework mirrors the lab and carries its own syntax; the notes became further reading, one link per task",
+    'notes links (lab)':      "the lab README carries every shape a task needs; the notes became further reading, one link per task",
+    'links inside 🆘':        "four tasks, not five, and the 🆘 rows name the fix directly; every notes section is still linked from somewhere",
+    'commit messages (lab)':  "four tasks, not five: the air log moved to Done early",
+    'bold in-full links':     "four tasks, not five: the air log moved to Done early",
+    '**Check:** lines':       "four tasks, not five: the air log moved to Done early",
+    'csharp fences (lab) ⚠️eyes': "whole methods sit only in collapsed 'Stuck? Show me the shape' blocks and Done early; the visible fences are syntax fragments and Program.cs lines",
+    'dotnet test (lab)':      "four tasks, not five, and only Task 4 writes a fact of the student's own",
+  },
 }
 
 const read = f => { try { return fs.readFileSync(f, 'utf8') } catch { return null } }
@@ -83,6 +96,9 @@ const ROWS = [
 
   // A RISE means the lab started handing over whole worked methods again.
   // The floor is "at least half a lab's code tasks withheld" (CLAUDE.md).
+  // From week 8 a withheld task still carries its shape in a COLLAPSED block
+  // (CLAUDE.md, "The chunked week") — so the question is whether a VISIBLE
+  // block gives away a whole method, not how many fences there are.
   // ⚠️ NEEDS EYES: week 4's blocks are fragments, not whole methods, so the
   // raw number is not comparable across weeks.  Flag, never fail.
   { name: 'csharp fences (lab) ⚠️eyes', kind: 'rise',
