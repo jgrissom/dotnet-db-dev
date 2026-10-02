@@ -172,7 +172,6 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 💥 **Do not explain it. Ask, and wait:** *"Where is Nakamura?"*
 - [ ] **Press `q`**
 
-- [ ] 🎯 **Collect the promise, and name where it was made:** *"Week three, I had you type three records in and quit, and I said I wanted you to be annoyed by it. Week six I said it again about this log. Last week I said it a third time. Every one of those times I told you the week. It was this one."*
 - [ ] 📖 **Then be precise about what is happening, because it is not a bug:** *"The list is in memory. Memory belongs to the program while it runs. The program ended, so the memory went with it. There is nothing to fix. Every program ever written does this."*
 - [ ] 🎯 **The week-7 hook, one line:** *"Last week you learned to write a rule down so a machine checks it forever. Try to write this one: the log is still there after a restart. You can't — there is nothing to call. By the end of tonight you'll write it."*
 - [ ] 📖 **And the tool, one line, no slide:** *"Everything tonight goes through a class called File. One line writes text to a file. One line reads it back."*
