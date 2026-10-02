@@ -7,9 +7,9 @@
 
 ## 🎯 The payoff moment — the demo's
 
-**§4, and §5 finishes it.** The save file goes up in the editor — the station's whole day, in plain text — and then the program runs again and Nakamura is still on the board. The line to land is the promise being paid, not the feature:
+**§4, and §5 finishes it.** The save file goes up in the editor — the station's whole day, in plain text — and then the program runs again and Nakamura is still on the board. The line to land, and it says nothing about the weeks before:
 
-> *"There he is. Same board, new program. Week three's promise, paid."*
+> *"There he is. Same board, new program."*
 
 ⚠️ **And one number on that board is wrong, on purpose.** §4's `Load` builds a new `CrewMember` from each name — the natural first attempt — so every TRIPS cell says `1` and the line under them says **`0 trips logged today.`** Measured. **Leave it alone in §4.** §5 opens on it, writes `TheLogSurvivesARestart` first, and the red prints two Okonkwos that look identical: `Expected: CrewMember { Name = "Okonkwo", TripsToday = 1 }` over the same `Actual:`. `Lookup` fixes it and the line reads `4`. That is week 5 and week 7's `Assert.Same` arriving somewhere nobody expected them, and it is the exact shape of the lab's Task 4.
 
@@ -66,7 +66,7 @@ By the end of this session, students can:
 |------|----------|---------|
 | 0:00 | 14 min | **Where we finished last week** *(demo §1)*. Run week 7, take a reading, and the question: everything you just did is gone. Branch, `week-08/Haldane`, the suite carried forward, the date. |
 | 0:14 | 5 min | **Lab A: setup** *(no slide — the lab README in the browser)*. Setup steps 1–4, **1 / 4** passing, the starter commit. Stop there. |
-| 0:19 | 22 min | 💥 **Gone** *(demo §2)*. Sign Nakamura out, quit, run again — *"where is Nakamura?"* 🎯 **The promise collected by name**, the test they cannot write yet, and `File` in one line. |
+| 0:19 | 22 min | 💥 **Gone** *(demo §2)*. Sign Nakamura out, quit, run again — *"where is Nakamura?"* 🎯 Not a bug: memory goes with the program. The test they cannot write yet, and `File` in one line. |
 | 0:41 | 7 min | **Lab B: Task 1.** Air the hour, quit, run again: `PLAYED` is 0. No code. |
 | 0:48 | 25 min | **A file of our own** *(slides 2–3, demo §3)*. Where a path goes. The first save — readable — then *"where does the name stop and the reason start?"*, then the pipe format and the migration line. Closes on slide 3: one list, one type. |
 | 1:13 | 12 min | **Lab C: Task 2** — `Save`, and the two `Program.cs` lines that call it. |
@@ -82,12 +82,12 @@ By the end of this session, students can:
 | 3:35 | 10 min | **Wrap-up** *(slide 5, demo §8)*. Project repo URL, **the homework is the lab again**, the checks-copy line — **four checks this week, not two** — ⚠️ **the two-week due date**, and the pace question. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes: 128 of demo in seven segments, 67 of lab in six blocks.** If the night runs long, §6 is the segment to shorten — keep the clock change and the spoken finding about ordering, drop the order fact. **Do not take it from §4** (the payoff), **§5** (the red), **or §2** (the promise), and do not take it from the lab. **If the demo runs fast, the time goes to Lab F.**
+> **The table sums to exactly 225 minutes: 128 of demo in seven segments, 67 of lab in six blocks.** If the night runs long, §6 is the segment to shorten — keep the clock change and the spoken finding about ordering, drop the order fact. **Do not take it from §4** (the payoff), **§5** (the red), **or §2** (the loss), and do not take it from the lab. **If the demo runs fast, the time goes to Lab F.**
 
 ## Instructor notes
 
 - 🎯 **§2's loss is theirs to name, not yours.** Sign Nakamura out, quit, run again, and ask *"where is Nakamura?"* — then wait. The room has been told three times that this week answers it; let somebody say so before you do.
-- ⚠️ **Collect the promise by naming the weeks it was made in** — week 3, week 6, week 7. It is the oldest promise in the course and the room notices when it is paid on time.
+- ⚠️ **No callback to the weeks the promise was made in.** Jeff, 2026-10-02: *"the callbacks are silly — nobody will remember that."* The loss and Nakamura coming back carry it on their own.
 - 🎯 **§3's first save is a good one that does not work.** The file is genuinely readable and the room will think it is finished. The question *"where does the name stop and the reason start?"* is what turns it — ask it and wait rather than explaining it.
 - ⚠️ **Do not point at `0 trips logged today` in §4.** It is planted there on purpose, and §5 opens on it. If somebody spots it early, say *"hold that thought — it's the next thing we do."*
 - 🎯 **In §5, ask for the color before the test runs, and wait.** Then point at Expected and Actual printing the same text. Two objects that look identical is the whole idea of `Assert.Same`.

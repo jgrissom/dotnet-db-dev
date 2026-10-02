@@ -49,7 +49,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] **Press `m`, and have `Bhatt` phone in a reading of `-42.4`.** The log grows a line, the headline number changes
 - [ ] **Press `q` to close the desk**
 
-- [ ] 🎯 **Then the question the night runs on, and let it sit:** *"Everything you just watched me do is gone. It went when the program went. Every reading since week three, every sign-out — gone the moment I press q. Tonight that changes."*
+- [ ] 🎯 **Then the question the night runs on, and let it sit:** *"Everything you just watched me do is gone. It went when the program went. Every reading, every sign-out — gone the moment I press q. Tonight that changes."*
 
 - [ ] **Branch first, and say it as you type it** — *"a branch for tonight, same as every week. Nothing goes straight to `main`, and that goes for your project too"*
 
@@ -85,7 +85,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   rm week-08/Haldane.Tests/UnitTest1.cs
   ```
 
-- [ ] 📖 *"Eighth week, and this program has not been written from scratch since week three. The tests come with it — three facts that were true last week and are still true now."*
+- [ ] 📖 *"The tests come with the program. Three facts, and all three still pass."*
 
 - [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**
 
@@ -173,7 +173,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] **Press `q`**
 
 - [ ] 📖 **Then be precise about what is happening, because it is not a bug:** *"The list is in memory. Memory belongs to the program while it runs. The program ended, so the memory went with it. There is nothing to fix. Every program ever written does this."*
-- [ ] 🎯 **The week-7 hook, one line:** *"Last week you learned to write a rule down so a machine checks it forever. Try to write this one: the log is still there after a restart. You can't — there is nothing to call. By the end of tonight you'll write it."*
+- [ ] 🎯 **The week-7 hook, one line:** *"A test writes a rule down so a machine checks it every time. Try to write this one: the log is still there after a restart. You can't — there is nothing to call. By the end of tonight you'll write it."*
 - [ ] 📖 **And the tool, one line, no slide:** *"Everything tonight goes through a class called File. One line writes text to a file. One line reads it back."*
 
 ---
@@ -464,7 +464,7 @@ Tonight the station's book survives the program that keeps it — and the room f
   0 trips logged today.
   ```
 
-- [ ] 🎯 *"There he is. Same board, new program. Week three's promise, paid."*
+- [ ] 🎯 *"There he is. Same board, new program."*
 - [ ] ⚠️ **Do not point at `0 trips logged today`.** If somebody spots it, say *"hold that thought — it's the next thing we do."* It is §5's whole segment
 - [ ] **Press `q`**
 
@@ -507,7 +507,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] 🎯 **Then the reason, one sentence at a time:** *"The total adds up the trips on the station's crew list. `Load` didn't use the crew list. It made a new Okonkwo out of the name in the file. So now there are two Okonkwos. The one on the board has the trip. The one on the crew list doesn't."*
 - [ ] **Press `q`**
 
-- [ ] 📖 *"Before I fix it, I write it down as a test. Same as last week: see it red first."*
+- [ ] 📖 *"Before I fix it, I write it down as a test, and I see it red first."*
 
 - [ ] **In `week-08/Haldane.Tests/WatchTests.cs`, paste this at the bottom of the class — above the last `}`**
 
@@ -542,7 +542,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 📖 **Cursor on the `path` line:** *"This test gets a file of its own, in the folder the system keeps for scratch files. It never touches the station's book. That only works because `Save` takes a path."*
 - [ ] 📖 **Cursor on `Watch reopened = new Watch();`:** *"This is the restart. A second watch, holding nothing, reads the same file. Loading into the watch that just saved would prove nothing — it already has the record."*
-- [ ] 📖 **Cursor on `Assert.Same`:** *"`Assert.Same` asks: is this the same object, not just one that looks the same. You used it last week on Dorothy."*
+- [ ] 📖 **Cursor on `Assert.Same`:** *"`Assert.Same` asks: is this the same object, not just one that looks the same."*
 
 - [ ] 🎯 **Ask for the color before you run it, and wait for an answer.** *"Red or green?"*
 
@@ -558,7 +558,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 🎯 **Point at the two lines:** *"Same name, same trip count, and they are two different objects. That's the two Okonkwos, caught by a test."*
 
-- [ ] 📖 *"The fix: look each name up in the crew list and use the person who's already there. Week five's `Find`, one more time."*
+- [ ] 📖 *"The fix: look each name up in the crew list and use the person who's already there."*
 
 - [ ] **First the lookup. Go to the end of `Watch.cs` (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>), select the last line — a single `}` — and paste this over it**
 
@@ -662,7 +662,7 @@ Tonight the station's book survives the program that keeps it — and the room f
        Passed: 4
   ```
 
-- [ ] 🎯 *"Four tests, all green. Three of the four were true last week. The fourth one couldn't be written last week, and now it runs every time."*
+- [ ] 🎯 *"Four tests, all green. The new one checks that the log survives a restart, and it runs every time from now on."*
 
 - [ ] **Now the program — run it, nothing else**
 
@@ -702,7 +702,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 
 - [ ] 🎞️ **GO TO SLIDE 4** — *What a serializer won't read back* · *"This is what you just hit in Task 4. A serializer writes every property it can read. It reads back only the ones it can write. A private setter is readable and not writable, so it goes into the file and never comes back. `[JsonInclude]` says: this one too."*
 
-- [ ] **Back to the editor. Put the file back on screen and point at Nakamura's line:** *"One thing is wrong in this file, and it has been wrong since week three. Nakamura signed out at 14:57. So has everybody I've signed out on this program, every week. That time is typed into the code."*
+- [ ] **Back to the editor. Put the file back on screen and point at Nakamura's line:** *"One thing is wrong in this file. Nakamura signed out at 14:57. So has everybody I've ever signed out on this program. That time is typed into the code."*
 - [ ] 📖 *"That typed-in time didn't matter while the log died with the program. Now the log keeps, and every sign-out goes into the book saying 14:57."*
 
 - [ ] **In `Watch.cs`, give the station a clock.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`private readonly List<ILogEntry> _entries`** — one hit. **Select that one line and paste this over it**
@@ -767,7 +767,7 @@ Tonight the station's book survives the program that keeps it — and the room f
           _entries.Insert(at, entry);
   ```
 
-- [ ] 📖 **Cursor on `Insert`:** *"`Insert` puts an item at a position instead of on the end. Same list you've had since week three."*
+- [ ] 📖 **Cursor on `Insert`:** *"`Insert` puts an item at a position instead of on the end."*
 - [ ] 🎯 **Then the finding, slowly:** *"The book is in order now because something puts it in order. Before tonight it was in order because the lines happened to arrive that way. Only one of those can be tested."*
 
 - [ ] **So test it.** In `WatchTests.cs`, paste this at the bottom of the class — above the last `}`

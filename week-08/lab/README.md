@@ -2,7 +2,7 @@
 
 It's 4 AM at **KDXR 88.1, "The Owl,"** and the desk has a hole in it that nobody has noticed because nobody has looked: **the station forgets the entire night the moment the shift ends.** Which carts went out, and how many times — all of it goes when the program goes.
 
-That has been true since week 4, and [it has been promised an answer since week 3](../lecture-notes.md#the-log-stops-being-gone). Tonight it stops.
+Tonight it stops.
 
 Your job: write the carts to a file when the shift ends, read them back when the next one starts — and then chase down the one number that refuses to come home even though you can see it sitting in the file.
 
@@ -471,7 +471,7 @@ dotnet run --project week-08/Lab
 
 **Zero — with the right answer sitting in the file.** The title came back. The length came back. The play count didn't. Press `q`.
 
-**Write the fact first — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** Same three moves as last week: set the scene, do the thing, check the answer. Here's what each one needs:
+**Write the fact first — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** The same three moves as every fact: set the scene, do the thing, check the answer. Here's what each one needs:
 
 - **A scratch path.** The same two lines as `AFirstNightKeepsItsCarts`, with a file name of your own:
 
@@ -550,7 +550,7 @@ Actual:   0
    It answers `0`. The number is in the file and not in the object.
 5. Press **Stop** (<kbd>⇧F5</kbd> / <kbd>Shift+F5</kbd>), then click the red dot to remove it.
 
-**Here is why.** A serializer writes every property it can **read**, and reads back only the ones it can **write**. `PlaysTonight` is `{ get; private set; }`. You sealed it in week 4 so nothing outside the class could claim a play that never happened, and that is still right. It also means the serializer has no way to put the value back.
+**Here is why.** A serializer writes every property it can **read**, and reads back only the ones it can **write**. `PlaysTonight` is `{ get; private set; }`. It's sealed so nothing outside the class can claim a play that never happened, and that is still right. It also means the serializer has no way to put the value back.
 
 **So you tell it that this one is allowed.** In `Lab/Song.cs`, under the `TODO — Task 4` comment, put one line directly above the property:
 
