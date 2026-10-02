@@ -98,13 +98,13 @@ week 8: starter
 ```
 
 > [!NOTE]
-> **In class, stop here.** Task 1 comes after the next part of the demo. Working at home? Carry straight on.
-
-> [!NOTE]
 > **Nobody grades these commits.** The lab is never collected — this is practice with the safety on. [The homework counts its own](../homework.md#commit-as-you-go), separately.
 
 > [!CAUTION]
 > **Every command names its week.** Your terminal always stands at the top of your repo — so it's `dotnet test week-08/Lab.Checks`, `dotnet test week-08/Lab.Tests` and `dotnet run --project week-08/Lab`, with the week in front. Forget the week and you'll get `MSB1003` — it just means the command couldn't see a project from the top; add the week and go again.
+
+> [!NOTE]
+> **In class, stop here.** Task 1 comes after the next part of the demo. Working at home? Carry straight on.
 
 ## Where tonight's work happens
 
