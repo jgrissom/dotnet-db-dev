@@ -98,6 +98,9 @@ week 8: starter
 ```
 
 > [!NOTE]
+> **In class, stop here.** Task 1 comes after the next part of the demo. Working at home? Carry straight on.
+
+> [!NOTE]
 > **Nobody grades these commits.** The lab is never collected — this is practice with the safety on. [The homework counts its own](../homework.md#commit-as-you-go), separately.
 
 > [!CAUTION]
@@ -135,9 +138,6 @@ Every task tells you exactly what to write and the syntax you need. **Putting th
 | 2 | `TheRotationIsWrittenDown` | The carts go into a file. **[Task 2 in full ↓](#task-2-in-full)** |
 | 3 | `TheRotationComesBack` | …and come back out of it. **[Task 3 in full ↓](#task-3-in-full)** |
 | 4 | `ACartRemembersItsPlays` | The number that is in the file and still comes back wrong. **[Task 4 in full ↓](#task-4-in-full)** |
-
-> [!NOTE]
-> **In class, stop here.** Task 1 comes after the next part of the demo. Working at home? Carry straight on.
 
 ---
 

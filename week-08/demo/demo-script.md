@@ -123,7 +123,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] **Lids up. Swipe away from the deck and put the lab README up in the browser, at *Setup*.** It is the screen for every lab block tonight
 - [ ] 📖 **The story, in one sentence:** *"KDXR has the same problem Haldane has. The desk forgets the whole night the moment the shift ends."*
 - [ ] **Setup, steps 1 to 4, then run my checks and commit.** *"Stop when the terminal says one out of four passing, and you've committed. That's the whole job for these five minutes."*
-- [ ] ⚠️ **Nobody starts Task 1 yet.** The README has an "In class, stop here" note just above it. Task 1 is the lab's version of §2, so it goes right after §2
+- [ ] ⚠️ **Nobody starts Task 1 yet.** The README has an "In class, stop here" note right after the starter commit. Task 1 is the lab's version of §2, so it goes right after §2
 
 ---
 
