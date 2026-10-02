@@ -49,7 +49,7 @@ Tonight the station's book survives the program that keeps it — and the room f
 - [ ] **Press `m`, and have `Bhatt` phone in a reading of `-42.4`.** The log grows a line, the headline number changes
 - [ ] **Press `q` to close the desk**
 
-- [ ] 🎯 **Then the question the night runs on, and let it sit:** *"Everything you just watched me do is gone. It went when the program went. Every reading since week three, every sign-out — gone the moment I press q. Tonight is the week I told you about in week three."*
+- [ ] 🎯 **Then the question the night runs on, and let it sit:** *"Everything you just watched me do is gone. It went when the program went. Every reading since week three, every sign-out — gone the moment I press q. Tonight that changes."*
 
 - [ ] **Branch first, and say it as you type it** — *"a branch for tonight, same as every week. Nothing goes straight to `main`, and that goes for your project too"*
 
