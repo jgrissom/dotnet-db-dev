@@ -65,7 +65,7 @@ By the end of this session, students can:
 | 0:41 | 20 min | **The switchboard, written down** *(slide 2, demo §3)*. Where a path goes. `Switchboard.Save`, run, open `switchboard.json`. **Push #1.** |
 | 1:01 | 20 min | **Lab C: Task 2** — copy your file in, then `Rotation.Save` and its two `Program.cs` lines. |
 | 1:21 | 10 min | **☕ Break** |
-| 1:31 | 15 min | **Read back** *(demo §4)*. `Switchboard.Load`. Every caller comes back at 0 while the file says 4 — planted, not explained. **Push #2.** |
+| 1:31 | 15 min | **Read back** *(demo §4)*. `Switchboard.Load`, then Ray typed into the file by hand: he shows up, so the file was read — and every caller comes back at 0. Planted, not explained. **Push #2.** |
 | 1:46 | 22 min | **Lab D: Task 3** — copy your file in, then `Rotation.Load`, its one line, and a hand-edited title to prove it reads the file. |
 | 2:08 | 20 min | 💥 **The number that came back wrong** *(slide 3, demo §5)*. The fact first, red, slide 3, `[JsonInclude]` on both sealed properties, green, Dorothy back at 4. **Push #3.** |
 | 2:28 | 30 min | 🎯 **Lab E: Task 4** — the lab's payoff. Copy your two files in, then fact first, red, `[JsonInclude]`, green. **Circulate hard.** |
@@ -81,7 +81,7 @@ By the end of this session, students can:
 
 - 🎯 **§1 is two sentences, not a speech.** *"From tonight, I work on the same station you do."* Then straight into setup with the room.
 - 🎯 **§2's loss is theirs to name.** Ask *"where did Dorothy's call go?"* and wait.
-- ⚠️ **§4 plants the 0 and says nothing about it.** If somebody spots it, *"hold that thought — it's the next thing we do."*
+- 🎯 **§4 proves the load before it shows the problem.** Ray is typed into `switchboard.json` by hand, and he appears on the board — he exists nowhere in the code, so the file was read. Only then does the room look at the zeros, which §5 fixes. Without Ray, a board that went from Dorothy's 3 calls to 0 reads as *Load made it worse*.
 - ⚠️ **§4's run writes the zeros back over the file when you quit.** That is said out loud — it's exactly what students meet in Task 3 — and it's why §5 deletes the file before its final run.
 - 🎯 **In §5, ask for the color before the test runs, and wait for an answer.**
 - 💡 **§5 puts `[JsonInclude]` on both `CallsTonight` and `Favorite`.** Both have private setters, and without the second one Dorothy's request comes back as `-`. That is the homework's own tip — every sealed property needs it — shown live.

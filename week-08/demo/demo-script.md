@@ -260,6 +260,20 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 - [ ] 📖 **Cursor on `Deserialize<List<Caller>>`, with `switchboard.json` and `Caller.cs` open beside it:** *"Deserialize builds a brand new list from the JSON in the file. The type in the angle brackets tells it what to build. Each item in the list becomes a Caller, with a Name, CallsTonight and a Favorite."*
 - [ ] 📖 **Cursor on `_callers.Clear()`:** *"Program.cs puts three callers on the board before it loads: Dorothy, Bex and Teodoro. If I don't empty the board first, the callers from the file go in on top, and Dorothy is on it twice. You'll meet the same thing with the carts."*
 
+- [ ] **Before you run it, prove that Load reads the file. Open `week-08/switchboard.json`, go to the end of it (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>), select the last two lines — the `}` and the `]` — paste this over them, and save**
+
+  ```json
+    },
+    {
+      "Name": "Ray",
+      "CallsTonight": 2,
+      "Favorite": null
+    }
+  ]
+  ```
+
+- [ ] 📖 *"I've added a fourth caller to the file. Ray, with two calls. Ray isn't anywhere in the code. The only place he exists is this file."*
+
 - [ ] **Run it: DJ name, then `c`**
 
   ```bash
@@ -267,12 +281,18 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   ```
 
   ```
+  │ CALLER  │ CALLS │ ASKED FOR │
+  ├─────────┼───────┼───────────┤
   │ Dorothy │ 0     │ -         │
   │ Bex     │ 0     │ -         │
   │ Teodoro │ 0     │ -         │
+  │ Ray     │ 0     │ -         │
+  ╰─────────┴───────┴───────────╯
+  4 on the switchboard.
   ```
 
-- [ ] 💥 **Point at Dorothy's row, then at the file:** *"The file says four calls and Nightjar. The switchboard says zero and nothing."* **Then leave it.** *"Hold on to that zero. It's the next thing we fix."*
+- [ ] 🎯 **Point at Ray's row:** *"There's Ray. He came from the file, so Load read it."*
+- [ ] 💥 **Then at the CALLS column:** *"But the file said Ray had two calls and Dorothy had four. Every caller came back with zero, and Dorothy's request is gone."* **Then leave it.** *"Hold on to that zero. It's the next thing we fix."*
 - [ ] **Press `q`.** Then open the file again
 - [ ] 📖 *"And quitting just wrote the zeros back over the file. Load got the calls wrong, and Save wrote the wrong number to disk."*
 
