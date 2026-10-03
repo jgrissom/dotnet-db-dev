@@ -159,7 +159,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 - [ ] 🎞️ **GO TO SLIDE 2** — *Where the file actually goes* · *"Before any code, the one thing you can't see on screen. A plain file name is worked out from the folder you were standing in when you started the program. `dotnet run` stands at the top of the repo. `dotnet test` stands inside the build folder. Same name, two different files. So nothing in this course types a file name inside a class. The path gets handed in."*
 
 - [ ] **Back to the editor. Open `week-08/Lab/Program.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Save` — one hit.** Put the cursor on it and leave it there
-- [ ] 📖 *"Program.cs already saves the switchboard when the shift ends, to a path it hands in. That Save is empty. Nothing gets written."*
+- [ ] 📖 *"Program.cs already calls Save when the shift ends. It passes Save the name of the file to write, switchboardFile. But Save is empty, so nothing gets written."*
 
 - [ ] **Open `week-08/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public void Save(string path)` — one hit. Select from that line down to and including the `}` directly under its `{`, and paste this over it**
 
