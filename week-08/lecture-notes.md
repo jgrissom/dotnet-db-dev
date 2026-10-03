@@ -101,17 +101,17 @@ File.Delete(path);
 
 ## Readable, and useless
 
-The obvious first attempt at saving a list is to write down what it already knows how to say:
+A serializer needs **one list of one type**. KDXR's hour is not one: it holds a station ID, songs, an ad and a weather bed, four different classes behind one `IScheduleItem` promise. So it is the list to save by hand, and the obvious first attempt is to write down what each item already knows how to say:
 
 ```csharp
-// inside Watch — the version that does NOT work
+// inside Hour — the version that does NOT work
 public void Save(string path)
 {
     List<string> lines = new List<string>();
 
-    foreach (ILogEntry entry in _entries)
+    foreach (IScheduleItem item in _items)
     {
-        lines.Add($"{entry.Time}  {entry.Kind}  {entry.Line()}");
+        lines.Add($"{item.Kind} - {item.Cue}");
     }
 
     File.WriteAllLines(path, lines);
@@ -120,7 +120,7 @@ public void Save(string path)
 
 Open that file and it is perfect. A human can read every line of it.
 
-Now write the method that reads it back and you find out what is wrong: `14:20  SIGN OUT  Okonkwo - MET RUN, due 15:00` is a **sentence**. To turn it back into a `SignOut` you would have to find the name inside it, find the reason after a dash, find the time after the word "due" — and all three of those are decisions the `Line()` method made about how to talk to a person, which it is free to change next week.
+Now write the method that reads it back and you find out what is wrong: `AD - Pham's Bakery - "open at five" (3 left)` is a **sentence**. To turn it back into an `Ad` you would have to find the sponsor before a dash, the copy inside quotes, and the runs inside brackets before the word "left". And `SONG - Slack Water - Marguerite Vance` only splits cleanly on ` - ` until somebody adds a song with a dash in its title. Every one of those is a decision `Cue` made about how to talk to a person, and it is free to change next week.
 
 **A file that a human can read and a program cannot is half a save file.** What you want is a file where the pieces are still pieces.
 
@@ -131,23 +131,29 @@ Now write the method that reads it back and you find out what is wrong: `14:20  
 ### Saving by hand: one line per record, fields kept apart
 
 ```csharp
-// inside Watch — the version that does work
+// inside Hour — the version that does work
 public void Save(string path)
 {
     List<string> lines = new List<string>();
 
-    foreach (ILogEntry entry in _entries)
+    foreach (IScheduleItem item in _items)
     {
-        if (entry is SignOut s)
+        if (item is Song s)
         {
-            lines.Add($"SIGNOUT|{s.Time}|{s.Who.Name}|{s.Reason}|{s.Expected}|"
-                + (s.IsBack ? "back" : "out"));
+            lines.Add($"SONG|{s.Title}|{s.Artist}|{s.Seconds}");
         }
-        else if (entry is FuelCheck f)
+        else if (item is Ad a)
         {
-            lines.Add($"FUEL|{f.Time}|{f.Liters}");
+            lines.Add($"AD|{a.Sponsor}|{a.Copy}|{a.Remaining}");
         }
-        // ...and one more branch for Reading, the same shape again.
+        else if (item is StationId id)
+        {
+            lines.Add($"IDENT|{id.Words}");
+        }
+        else if (item is WeatherBed w)
+        {
+            lines.Add($"WEATHER|{w.Forecast}");
+        }
     }
 
     File.WriteAllLines(path, lines);
@@ -157,45 +163,62 @@ public void Save(string path)
 Three things are deliberate here:
 
 - **The KIND word comes first.** Reading the file back, that word tells you what the rest of the line is before you look at any of it.
-- **The fields are separated by something that cannot appear inside a field.** A `|` was chosen over a comma because a comma turns up in real text constantly — a caller called `Ray, Mile 240` would split one field into two and every field after it would be off by one. Nothing here contains a `|`.
-- **Nothing computed is written down.** `Line()` is worked out from the other fields, so storing it would be storing the same fact twice — and two copies of one fact is one fact and one bug waiting.
+- **The fields are separated by something that cannot appear inside a field.** A `|` was chosen over a comma because a comma turns up in real text constantly — the forecast *"clear, four below, wind out of the northwest"* would split one field into three, and every field after it would be off. Nothing here contains a `|`.
+- **Nothing computed is written down.** `Cue` and `Seconds` on the ad are worked out from the other fields, so storing them would be storing the same fact twice — and two copies of one fact is one fact and one bug waiting.
 
 ### Loading by hand: the kind word first
 
 ```csharp
-// inside Watch
-public void Load(string path, List<CrewMember> crew)
+// inside Hour
+public void Load(string path, Rotation rotation)
 {
-    _entries.Clear();
+    _items.Clear();
 
     foreach (string line in File.ReadAllLines(path))
     {
         string[] field = line.Split('|');
 
-        if (field[0] == "SIGNOUT" && field.Length == 6)
+        if (field[0] == "SONG" && field.Length == 4)
         {
-            CrewMember? who = Lookup(crew, field[2]);
+            Song? song = FindCart(rotation, field[1]);
 
-            if (who != null)
+            if (song != null)
             {
-                SignOut s = new SignOut(field[1], who, field[3], field[4]);
-                if (field[5] == "back") { s.Back(); }
-                Add(s);
+                Add(song);
             }
         }
-        // ...and an `else if` for "MET" and one for "FUEL", each reading the
-        // fields that kind of line has. Three branches, one per kind.
+        else if (field[0] == "AD" && field.Length == 4
+            && int.TryParse(field[3], out int runs))
+        {
+            Add(new Ad(field[1], field[2], runs));
+        }
+        // ...and an `else if` for "IDENT" and one for "WEATHER", each reading
+        // the fields that kind of line has. One branch per kind.
     }
+}
+
+// also inside Hour: walk the rotation and hand back the cart, or nothing.
+private static Song? FindCart(Rotation rotation, string title)
+{
+    foreach (Song song in rotation.All())
+    {
+        if (song.Title == title)
+        {
+            return song;
+        }
+    }
+
+    return null;
 }
 ```
 
-`Split('|')` hands back a `string[]` — an array, indexed from zero, the same square brackets you have used on a `List<T>` since week 3. `field[0]` is the kind, `field[1]` is the time, and so on.
+`Split('|')` hands back a `string[]` — an array, indexed from zero, with the same square brackets as a `List<T>`. `field[0]` is the kind, `field[1]` is the first field after it, and so on.
 
-⚠️ **`field.Length == 6` is not defensive decoration.** A file is a text file: anybody can open it and change it, and a half-deleted line has fewer pieces than the code expects. Reaching for `field[5]` on a line with three pieces is a crash. (What *should* happen when a file is damaged is a real design question, and it is week 13's.)
+⚠️ **`field.Length == 4` is not defensive decoration.** A file is a text file: anybody can open it and change it, and a half-deleted line has fewer pieces than the code expects. Reaching for `field[3]` on a line with two pieces is a crash. (What *should* happen when a file is damaged is a real design question, and it is week 13's.)
 
-⚠️ **`Lookup` is why `Load` needs the crew list.** The file says `Okonkwo`; the log has to hold **the** Okonkwo — the same object the board counts trips on. Build a fresh `CrewMember` from the name instead and you have two men with one name, and half the station's numbers land on the one nobody can see. That is week 5's lesson and week 7's `Assert.Same`, arriving in a place you would not have expected them.
+⚠️ **`FindCart` is why `Load` needs the rotation.** The file says `Nightjar`; the hour has to hold **the** Nightjar — the same cart the rotation counts plays on. Build a fresh `Song` from the line instead and there are two Nightjars: the hour plays one and the rotation counts the other, so `PLAYED` never moves. It is the same question `Assert.Same` asks.
 
-💡 **And one thing you get for free, which is worth noticing:** `new SignOut(...)` calls `Who.GoesOut()` in its constructor, because since week 5 making a sign-out *is* the trip. So loading the file rebuilds every crew member's trip count without a line of code that mentions counting.
+💡 **The ad's runs come back for free.** `new Ad(sponsor, copy, runs)` starts the buy at `runs`, so writing `Remaining` into the file and handing it back as `runs` puts the buy exactly where it was.
 
 ---
 
@@ -351,48 +374,48 @@ public static string LastShift(string path)
 
 ## The station's own clock
 
-Haldane stamps every entry with the time it happened, and until this week that time was the string `"14:57"`, typed into the code. That was fine while nothing could read the log back. It is not fine in a file: a book with the same time on every line is not a book.
+An air log that records *what* happened and not *when* is half a log. To stamp each line, the desk needs the time as text:
 
 ```csharp
-// inside Watch
+// inside Broadcast — it needs `using System.Globalization;` at the top
 public static string Now()
 {
-    return DateTime.UtcNow.ToString("HH:mm", CultureInfo.InvariantCulture);
+    return DateTime.Now.ToString("HH:mm", CultureInfo.InvariantCulture);
 }
 ```
 
-- **`DateTime.Now` is this machine's clock. `DateTime.UtcNow` is the world's.** Haldane keeps UTC — a lot of Antarctic stations do, because at the bottom of the world every meridian is a few hundred meters away and a local time zone is a choice rather than a fact. The station runs on one clock and it is not the clock of whatever laptop is on the desk.
+- **`DateTime.Now` is this machine's clock. `DateTime.UtcNow` is the world's.** A local radio station keeps local time — the "4 AM" in *it's 4 AM at KDXR* is local — so `Now` is the right one here. A program used across several time zones picks one clock for everybody, usually UTC.
 - **`"HH:mm"` is 24-hour with a leading zero** — `09:05`, never `9:05`. Capital `HH` is 24-hour; lowercase `hh` is 12-hour and would give you two `09:05`s a day.
 - **`CultureInfo.InvariantCulture`** (from `using System.Globalization;`) pins the separator, so it is a colon on every machine.
 
-### Keeping the book in order
+### Keeping a list in time order
 
-A real clock brings a real problem with it. The log is displayed in the order the entries sit in the list, and that only *looked* like time order because everything was added in order.
+An air log never needs sorting: it is only ever added to, and each shift signs off after the one before it. A list whose lines can arrive **out of order** is different — say a request book, where the DJ jots a 2 AM request on a scrap of paper and types it in at 3. Adding it to the end would put it in the wrong place. So the list puts every line where its own time says it goes:
 
 ```csharp
-// inside Watch — Add, now that the times are real
-public void Add(ILogEntry entry)
+// inside a class that keeps a List<string> called _lines, each line starting with its HH:mm time
+public void Add(string line)
 {
-    int at = _entries.Count;
+    int at = _lines.Count;
 
-    for (int i = 0; i < _entries.Count; i++)
+    for (int i = 0; i < _lines.Count; i++)
     {
-        if (string.CompareOrdinal(_entries[i].Time, entry.Time) > 0)
+        if (string.CompareOrdinal(_lines[i], line) > 0)
         {
             at = i;
             break;
         }
     }
 
-    _entries.Insert(at, entry);
+    _lines.Insert(at, line);
 }
 ```
 
-Walk until you find the first entry that is *later* than the new one, and put the new one in front of it; if there isn't one, it goes on the end. `List<T>.Insert(index, item)` is the same list you have had since week 3, with a method you have not needed until now.
+Walk until you find the first line that is *later* than the new one, and put the new one in front of it; if there isn't one, it goes on the end. `List<T>.Insert(index, item)` is the same list you already know, with a method you have not needed until now.
 
-💡 **Why comparing the text works.** `string.CompareOrdinal` compares character by character — and for times written `HH:mm`, that gives exactly the same answer as comparing the clock. `"09:05"` sorts before `"14:20"` because `0` sorts before `1`. **That only holds because of the leading zero**, which is the same padding week 7's lab put back into `Broadcast.Clock`. Drop it and `"9:05"` sorts *after* `"14:20"`, because `9` is bigger than `1`.
+💡 **Why comparing the text works.** `string.CompareOrdinal` compares character by character — and because each line starts with a time written `HH:mm`, that gives exactly the same answer as comparing the clock. `"02:14 …"` sorts before `"03:20 …"` because `2` sorts before `3`. **That only holds because of the leading zero.** Drop it and `"9:05 …"` sorts *after* `"14:20 …"`, because `9` is bigger than `1`.
 
-The real point is not the sorting. It is that the log is in order **because something puts it in order**, rather than because the lines happened to arrive that way. That is the difference between a property and a coincidence, and only one of the two can be tested.
+The real point is not the sorting. It is that the list is in order **because something puts it in order**, rather than because the lines happened to arrive that way. That is the difference between a property and a coincidence, and only one of the two can be tested.
 
 ---
 
