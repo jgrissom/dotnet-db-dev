@@ -317,8 +317,8 @@ dotnet test Project.Checks
 
   ⚠️ **Never your program's real file.** `registry.json` belongs to your program; the test gets a file of its own.
 - **Set the scene.** A `Registry`, one record from `NewItem("a name of yours")`, with one ordinary property set, added to the registry. Then call the verb week 5 had you write, so the sealed property moves.
-- **Do the thing.** `Save(path)`, then a **second, empty `Registry`**, then `Load(path)` on *that* one.
-- **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then `Find` the record by its name, and assert on the ordinary property **and** the sealed one. The sealed one is the assert that goes red.
+- **Do the thing.** `Save(path)`, then a **second, empty `Registry`** called `reopened`, then `Load(path)` on *that* one. Use that name: the next lines use it.
+- **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then `Find` the record by its name, and assert on the ordinary property **and** the sealed one. The sealed one is the assert that goes red. For each expected value, write the value itself — the number your verb should have left, like `1` — rather than `item.YourSealedProperty`. Both go red now, but only the literal can't agree with a broken verb.
 
 | In the lab | In yours |
 |---|---|
