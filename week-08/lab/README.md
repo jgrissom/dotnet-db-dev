@@ -554,7 +554,7 @@ dotnet run --project week-08/Lab
 
 - **Set the scene.** A `Song` in a variable — `new Song("Nightjar", "The Lamplighters", 227)` — played twice with `.Play()`. Then a `Rotation`, with the song added to it.
 - **Do the thing.** Call `Save(path)` on that rotation. Then make a **second**, empty `Rotation` and call `Load(path)` on *it*. ⚠️ Loading into the rotation that just saved would prove nothing, because it already holds the song. A second, empty one is the same as quitting and starting the desk again.
-- **Check the answer.** `Assert.Equal(expected, actual)`, expected first. The actual value is the loaded song's count: `reopened.All()[0].PlaysTonight` if you called the second rotation `reopened`. **What should the expected value be?** That's yours to decide.
+- **Check the answer.** `Assert.Equal(expected, actual)`, expected first. The actual value is the loaded song's count: `reopened.All()[0].PlaysTonight` if you called the second rotation `reopened`. **What should the expected value be?** It's how many times you played the song before you saved it. Write that number itself, like `2`, rather than your song variable's `PlaysTonight`. Both go red now and green after the fix, but if `Play()` were ever broken, the variable would be 0 too and the test would pass anyway.
 - Name the fact after the rule it proves. Mine is `ACartRemembersItsPlays`; yours doesn't have to be.
 
 <details>
