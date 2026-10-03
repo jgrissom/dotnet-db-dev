@@ -477,7 +477,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ## 6 · A file is a text file
 
-- [ ] 📖 *"One more thing, and it's the honest half of tonight."*
+- [ ] 📖 *"One more thing. A save file has a weakness, and I want to show it to you."*
 - [ ] **Open `week-08/switchboard.json`, change Dorothy's `"CallsTonight"` to `500`, and save the file.** Say what you're doing while you do it: *"I'm the overnight DJ. I have the switchboard file open in a text editor. I'd like Dorothy to look busier."*
 - [ ] **Run it: DJ name, then `c`**
 

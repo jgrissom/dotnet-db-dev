@@ -703,7 +703,7 @@ dotnet run --project week-08/Lab
 - Air the hour four times over three separate shifts. Does `PLAYED` add up across all of them?
 - **Delete `week-08/rotation.json` while the desk is closed**, then run it. What happens, and is that the right thing to happen?
 - **Open `week-08/rotation.json` while the desk is closed and change a `"Seconds"` to `0`.** Run it and press `t`. Did the length change? Look at how `Song.Seconds` is written and work out why not — a setter that refuses nonsense refuses it whoever is asking, including a file.
-- **Open the file while the desk is closed and change a `"PlaysTonight"` to `500`.** Run it. The desk believes you. That is the honest half of tonight, and it is what week 10 is for.
+- **Open the file while the desk is closed and change a `"PlaysTonight"` to `500`.** Run it. The desk believes you. That is the weakness of a save file: anyone who can open it can change what the program believes. Week 10 moves the data off your laptop.
 - **Falsify your Task 4 fact** — [make it lie](../../week-07/lecture-notes.md#make-it-fail-once): comment out the `[JsonInclude]`, run your suite, read the failure, put it back.
 
 ## ⭐ Done early?
