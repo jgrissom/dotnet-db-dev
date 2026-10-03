@@ -12,6 +12,39 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ## 0 · Before class
 
+> [!NOTE]
+> **Rehearsing on your class machine? Do it on a throwaway branch, so the class repo is exactly as it was afterwards.** Every command below runs from the VS Code terminal of the class repo, `dotnet-db-coursework`.
+>
+> **Before the walk:**
+>
+> ```bash
+> git checkout -b week-08-rehearsal
+> ```
+>
+> **After the walk** — back to `main`, and the rehearsal branch is gone with every commit you made on it:
+>
+> ```bash
+> git checkout main
+> ```
+>
+> ```bash
+> git branch -D week-08-rehearsal
+> ```
+>
+> Then **delete the `week-08` folder** from the Explorer. Switching to `main` removed the files you committed, but not what the program wrote — `switchboard.json`, `rotation.json`, `bin` and `obj`.
+>
+> **And empty `demo/week-08/` in the starters repo**, because your rehearsal pushes reached the real one students pull from:
+>
+> ```bash
+> git -C ../dotnet-db-starters rm -r --quiet demo/week-08
+> ```
+>
+> ```bash
+> git -C ../dotnet-db-starters commit -m "week 8 demo: reset for class" && git -C ../dotnet-db-starters push
+> ```
+>
+> The student side of a rehearsal needs nothing; that folder is only yours.
+
 - [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-08/demo/script.html) and confirm the top line says *the same station they work on*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] ⚠️ **A starters clone you can PUSH to, next to your demo repo.** Tonight you push three files to it. Open `dotnet-db-coursework` in VS Code and use its terminal, which stands at the top of the demo repo. Once per machine:
 
