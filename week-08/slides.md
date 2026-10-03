@@ -46,7 +46,7 @@ were standing**, not from where the code is.
 
 Same name. **Two different files.**
 
-So the path is **handed in**, always.
+So the path is **handed to the method**, always.
 
 ---
 
@@ -78,7 +78,7 @@ public int CallsTonight { get; private set; }
 
 - `File` does each direction in one line
 - the serializer turns a list into text and back
-- the **path is handed in**
+- the **path is handed to the method**
 - no file is a **first night**
 - a private setter needs **`[JsonInclude]`**
 - a save file is a text file **anybody can edit**

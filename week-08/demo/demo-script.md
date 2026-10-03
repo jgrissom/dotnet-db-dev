@@ -156,7 +156,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ## 3 · The switchboard, written down *(slide 2)*
 
-- [ ] 🎞️ **GO TO SLIDE 2** — *Where the file actually goes* · *"Before any code, the one thing you can't see on screen. A plain file name is worked out from the folder you were standing in when you started the program. `dotnet run` stands at the top of the repo. `dotnet test` stands inside the build folder. Same name, two different files. So nothing in this course types a file name inside a class. The path gets handed in."*
+- [ ] 🎞️ **GO TO SLIDE 2** — *Where the file actually goes* · *"Before any code, the one thing you can't see on screen. A plain file name is worked out from the folder you were standing in when you started the program. `dotnet run` stands at the top of the repo. `dotnet test` stands inside the build folder. Same name, two different files. So nothing in this course types a file name inside a class. The path gets handed to the method."*
 
 - [ ] **Back to the editor. Open `week-08/Lab/Program.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Save` — one hit.** Put the cursor on it and leave it there
 - [ ] 📖 *"Program.cs already calls Save when the shift ends. It passes Save the name of the file to write, switchboardFile. But Save is empty, so nothing gets written."*
@@ -480,7 +480,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ## 7 · Wrap *(slide 4)*
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *Tonight, in one picture* · *"A file is a place to put text, and File does each direction in one line. The serializer turns a list into text and back. The path is handed in. No file means a first night. A private setter needs JsonInclude to come back. And a save file is a text file that anybody can edit."*
+- [ ] 🎞️ **GO TO SLIDE 4** — *Tonight, in one picture* · *"A file is a place to put text, and File does each direction in one line. The serializer turns a list into text and back. The path is handed to the method. No file means a first night. A private setter needs JsonInclude to come back. And a save file is a text file that anybody can edit."*
 - [ ] 🎯 **The forward line:** *"Your data survives now, and it survives on your laptop. It's one file, on one machine. In week ten it moves somewhere other machines can reach."*
 - [ ] **One question about tonight's format, before anyone packs up.** Anonymous, one tap: *the pace tonight felt too slow · about right · too fast · I got lost somewhere*. The lesson plan says where the question lives
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
