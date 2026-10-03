@@ -72,7 +72,7 @@ dotnet-db-coursework/      ← your VS Code window, all semester
 ├─ …
 └─ week-08/                ← the folder you just copied in
    ├─ Lab/                 ← the desk — Rotation.cs, Song.cs and Program.cs have work in them
-   ├─ Lab.Tests/           ← YOURS, carried forward. One fact goes in it tonight
+   ├─ Lab.Tests/           ← YOURS — two facts ship written; you add one tonight
    └─ Lab.Checks/          ← my checks — read-only
 ```
 
