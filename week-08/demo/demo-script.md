@@ -292,7 +292,8 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   ```
 
 - [ ] 🎯 **Point at Ray's row:** *"There's Ray. He came from the file, so Load read it."*
-- [ ] 💥 **Then at the CALLS column:** *"But the file said Ray had two calls and Dorothy had four. Every caller came back with zero, and Dorothy's request is gone."* **Then leave it.** *"Hold on to that zero. It's the next thing we fix."*
+- [ ] 💥 **Then at the CALLS column:** *"But we lost data. The file said Ray had two calls and Dorothy had four. Every caller came back with zero, and Dorothy's request is gone."*
+- [ ] 📖 **Cursor on `CallsTonight` in `Caller.cs`, then the reason:** *"Here's why. CallsTonight has a private setter. Only the Caller class itself can change it. The serializer can read it to write the file, but it can't set it when it reads the file back. Favorite has a private setter too. We'll fix that in the next step."*
 - [ ] **Press `q`.** Then open the file again
 - [ ] 📖 *"And quitting just wrote the zeros back over the file. Load got the calls wrong, and Save wrote the wrong number to disk."*
 
@@ -375,7 +376,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 - [ ] 📖 *"Red. Four calls went into the file, and zero came back."*
 
-- [ ] 🎞️ **GO TO SLIDE 3** — *What a serializer won't read back* · *"Here's why. A serializer writes every property it can read. It reads back only the ones it can write. CallsTonight has a private setter, so nothing outside the class can change it. That includes the serializer."*
+- [ ] 🎞️ **GO TO SLIDE 3** — *What a serializer won't read back* · *"This is the rule behind that zero, on one slide. A serializer writes every property it can read. It reads back only the ones it can write. A private setter is one it can't write."*
 
 - [ ] **Back to `Caller.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int CallsTonight` — one hit. Select that one line and paste this over it**
 
