@@ -39,6 +39,8 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 > git -C ../dotnet-db-starters rm -r --quiet demo/week-08
 > ```
 >
+> `did not match any files` means it is already empty — skip the next line.
+>
 > ```bash
 > git -C ../dotnet-db-starters commit -m "week 8 demo: reset for class" && git -C ../dotnet-db-starters push
 > ```
@@ -68,6 +70,8 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   ```bash
   git -C ../dotnet-db-starters rm -r --quiet demo/week-08
   ```
+
+  `did not match any files` means it is already empty — skip the next line.
 
   ```bash
   git -C ../dotnet-db-starters commit -m "week 8 demo: reset for class" && git -C ../dotnet-db-starters push
