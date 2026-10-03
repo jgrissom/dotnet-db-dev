@@ -51,7 +51,7 @@ By the end of this session, students can:
 - **After §3, §4 and §5 you push your finished file to `demo/week-08/` in the starters repo.** Each lab task opens with the student pulling and copying it in. The files you push are only ones students never edit — `Switchboard.cs`, `Caller.cs`, `SwitchboardTests.cs` — so a copy can never overwrite their work.
 - ⚠️ **Nothing in the lab waits on a push.** Their tasks are on `Rotation` and `Song`. If a push stalls, they start the task and copy your file when it lands.
 - **Push only what you just ran.** Each push comes right after the segment's last run or green test, so nothing broken reaches the room.
-- **Every lab block ends at an "In class, stop here" note** in the README, with an early-finisher extra. Lab F has no stop; it absorbs what is left.
+- **Every lab block ends at an "In class, stop here" note** in the README, with an early-finisher extra. Lab F has no stop; it absorbs what is left, and anyone finished starts the homework. *Now try to break it* and *⭐ Done early?* stay optional, as every week.
 - **The pace question at the wrap is how the format gets judged.** Keep the answers — this week decides whether weeks 9–16 run the same way.
 
 ## Timed agenda
@@ -71,7 +71,7 @@ By the end of this session, students can:
 | 2:28 | 30 min | 🎯 **Lab E: Task 4** — the lab's payoff. Copy your two files in, then fact first, red, `[JsonInclude]`, green. **Circulate hard.** |
 | 2:58 | 10 min | **☕ Break** |
 | 3:08 | 8 min | 💥 **A file is a text file** *(demo §6)*. Dorothy's calls edited to 500 by hand, and the desk believes it. Weeks 10 and 13, named. Done, defined. |
-| 3:16 | 19 min | **Lab F: finish, or try to break it.** |
+| 3:16 | 19 min | **Lab F: finish the lab, or start the homework.** Finished students do the homework's Part 1 and Task 1 and push their branch, while you're there to answer setup questions. |
 | 3:35 | 10 min | **Wrap-up** *(slide 5, demo §7)*. Project repo URL, **the homework is the lab again**, the checks-copy line — **four checks this week, not two** — ⚠️ **the two-week due date**, and the pace question. |
 
 > [!NOTE]

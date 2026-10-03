@@ -496,9 +496,11 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ---
 
-## Lab F · Finish, or try to break it — 19 minutes
+## Lab F · Finish the lab, or start the homework — 19 minutes
 
-- [ ] **Lids up. The lab README.** Anyone not finished works on their next task. Anyone finished goes to *Now try to break it* — one item there is §6 done to their own file — then *⭐ Done early?*
+- [ ] **Lids up. The lab README.** Anyone not finished works on their next task.
+- [ ] 📖 **For anyone who's finished:** *"If your lab is done, open this week's homework and start it now, while I'm here. It's the lab again, on your own project. Do Part 1 and Task 1, and push your branch before you leave. Part 1 is where the questions usually come up, so this is the time to ask them."*
+- [ ] 💡 *Now try to break it* and *⭐ Done early?* stay on the lab page for anyone who wants them. Don't ask for either.
 - [ ] ⚠️ **Stop at 3:35 on the timing table, wherever the room is.** Whatever is left finishes at home
 
 ---

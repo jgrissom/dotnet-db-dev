@@ -686,7 +686,7 @@ week 8 lab: a cart remembers its plays
 **Four commits, four green checks, and a station that remembers its own night.**
 
 > [!NOTE]
-> **In class, stop here.** The demo has one more part. After it, [Now try to break it](#now-try-to-break-it) and [⭐ Done early?](#-done-early) are yours. Working at home? Carry straight on.
+> **In class, stop here.** The demo has one more part. After it, if your lab is done, [start the homework](../homework.md#part-1--catch-up-branch-and-bring-in-this-weeks-checks): it's this lab again, on your own project. Do Part 1 and Task 1 and push your branch before you leave, while your instructor is in the room to help. [Now try to break it](#now-try-to-break-it) and [⭐ Done early?](#-done-early) are there if you want more. Working at home? Carry straight on.
 
 📖 *Further reading:* [what the serializer will not read back](../lecture-notes.md#what-the-serializer-will-not-read-back).
 
