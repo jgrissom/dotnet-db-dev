@@ -32,6 +32,25 @@ style: |
 
 ---
 
+<!-- _footer: '🖥️ Demo §2 · gone' -->
+
+## Objects ⇄ text
+
+A file holds **text**. The switchboard is **objects** in memory.
+
+| | |
+|---|---|
+| **serialize** | objects → JSON text → `File.WriteAllText` |
+| **deserialize** | `File.ReadAllText` → JSON text → objects |
+
+```json
+{ "Name": "Dorothy", "CallsTonight": 4 }
+```
+
+**JSON**: plain text a person can read, and a program can turn back into objects.
+
+---
+
 <!-- _footer: '🖥️ Demo §3 · the switchboard, written down' -->
 
 ## Where the file actually goes

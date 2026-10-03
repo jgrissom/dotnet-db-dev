@@ -110,7 +110,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ---
 
-## 2 · Gone
+## 2 · Gone *(slide 2)*
 
 - [ ] **Run the desk, type a DJ name, then take a request: `r`, caller `Dorothy`, song `1`. Then `c` to look at the switchboard**
 
@@ -142,7 +142,11 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 - [ ] 💥 **Do not explain it. Ask, and wait:** *"Where did Dorothy's call go?"*
 - [ ] **Press `q`**
 - [ ] 📖 **Then be precise, because it is not a bug:** *"The switchboard is in memory. Memory belongs to the program while it runs. The program ended, so the memory went with it. Every program ever written does this."*
-- [ ] 📖 **And the tool, one line, no slide:** *"Everything tonight goes through a class called File. One line writes text to a file. One line reads it back."*
+- [ ] 🎞️ **GO TO SLIDE 2** — *Objects ⇄ text* · *"Here's the plan for tonight. The switchboard lives in memory, as objects. A file can't hold objects. A file holds text."*
+- [ ] 📖 **Point at the serialize row:** *"So to save, we turn the objects into text. That's called serializing. Then File.WriteAllText puts that text in a file."*
+- [ ] 📖 **Point at the JSON line:** *"The text format we'll use is called JSON. It's plain text. Here's Dorothy with four calls: the property name in quotes, a colon, then the value. Curly braces go around one caller."*
+- [ ] 📖 **Point at the deserialize row:** *"Loading goes the other way. File.ReadAllText reads the text back. Then we turn that text back into objects. That's called deserializing."*
+- [ ] 📖 **One line to close it:** *"Serialize on the way out. Deserialize on the way in."*
 
 ---
 
@@ -154,9 +158,9 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ---
 
-## 3 · The switchboard, written down *(slide 2)*
+## 3 · The switchboard, written down *(slide 3)*
 
-- [ ] 🎞️ **GO TO SLIDE 2** — *Where the file actually goes* · *"Before any code, the one thing you can't see on screen. A plain file name is worked out from the folder you were standing in when you started the program. `dotnet run` stands at the top of the repo. `dotnet test` stands inside the build folder. Same name, two different files. So nothing in this course types a file name inside a class. The path gets handed to the method."*
+- [ ] 🎞️ **GO TO SLIDE 3** — *Where the file actually goes* · *"Before any code, the one thing you can't see on screen. A plain file name is worked out from the folder you were standing in when you started the program. `dotnet run` stands at the top of the repo. `dotnet test` stands inside the build folder. Same name, two different files. So nothing in this course types a file name inside a class. The path gets handed to the method."*
 
 - [ ] **Back to the editor. Open `week-08/Lab/Program.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Save` — one hit.** Put the cursor on it and leave it there
 - [ ] 📖 *"Tonight's starter added this line to Program.cs. It calls Save when the shift ends, and passes it the file name, switchboardFile. But Save is empty, so nothing gets written. You'll add the same kind of line for the rotation."*
@@ -322,7 +326,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ---
 
-## 5 · The number that came back wrong *(slide 3)*
+## 5 · The number that came back wrong *(slide 4)*
 
 - [ ] 📖 *"Before I fix the zero, I write it down as a test, and I see it red first."*
 
@@ -376,7 +380,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 - [ ] 📖 *"Red. Four calls went into the file, and zero came back."*
 
-- [ ] 🎞️ **GO TO SLIDE 3** — *What a serializer won't read back* · *"This is the rule behind that zero, on one slide. A serializer writes every property it can read. It reads back only the ones it can write. A private setter is one it can't write."*
+- [ ] 🎞️ **GO TO SLIDE 4** — *What a serializer won't read back* · *"This is the rule behind that zero, on one slide. A serializer writes every property it can read. It reads back only the ones it can write. A private setter is one it can't write."*
 
 - [ ] **Back to `Caller.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int CallsTonight` — one hit. Select that one line and paste this over it**
 
@@ -499,9 +503,9 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ---
 
-## 7 · Wrap *(slide 4)*
+## 7 · Wrap *(slide 5)*
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *Tonight, in one picture* · *"A file is a place to put text, and File does each direction in one line. The serializer turns a list into text and back. The path is handed to the method. No file means a first night. A private setter needs JsonInclude to come back. And a save file is a text file that anybody can edit."*
+- [ ] 🎞️ **GO TO SLIDE 5** — *Tonight, in one picture* · *"A file is a place to put text, and File does each direction in one line. The serializer turns a list into text and back. The path is handed to the method. No file means a first night. A private setter needs JsonInclude to come back. And a save file is a text file that anybody can edit."*
 - [ ] 🎯 **The forward line:** *"Your data survives now, and it survives on your laptop. It's one file, on one machine. In week ten it moves somewhere other machines can reach."*
 - [ ] **One question about tonight's format, before anyone packs up.** Anonymous, one tap: *the pace tonight felt too slow · about right · too fast · I got lost somewhere*. The lesson plan says where the question lives
 - [ ] **Homework: your project repo URL in Canvas, and only that one**

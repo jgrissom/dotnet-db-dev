@@ -7,7 +7,7 @@
 
 ## 🎯 The payoff moment — the demo's
 
-**§5, the number that came back wrong.** §4's `Load` brings the switchboard back with every caller at **0** while the file on screen says Dorothy has **4**. §5 writes the fact first, asks the room for the color, and runs it: `Expected: 4 / Actual: 0`. Then slide 3 says why, `[JsonInclude]` goes on, the suite goes green, and after a restart Dorothy is back at four calls with her request. The line to land:
+**§5, the number that came back wrong.** §4's `Load` brings the switchboard back with every caller at **0** while the file on screen says Dorothy has **4**. §5 writes the fact first, asks the room for the color, and runs it: `Expected: 4 / Actual: 0`. Then slide 4 restates the rule, `[JsonInclude]` goes on, the suite goes green, and after a restart Dorothy is back at four calls with her request. The line to land:
 
 > *"Four calls and Nightjar, after a restart. The switchboard remembers the night."*
 
@@ -36,7 +36,7 @@ By the end of this session, students can:
 
 ## Materials
 
-- `slides.md` / `slides.html` — the deck, four slides
+- `slides.md` / `slides.html` — the deck, five slides
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-08/demo/script.html))
 - **The instructor demo repo**, `dotnet-db-coursework`, with **a starters clone you can push to next to it** — §0 sets it up and tests a push
 - ⚠️ **`demo/week-08/` in the starters repo empty or missing** before class — it fills up during the night
@@ -60,19 +60,19 @@ By the end of this session, students can:
 |------|----------|---------|
 | 0:00 | 8 min | **The same station** *(demo §1)*. From tonight the demo is KDXR. You build the switchboard; they build the rotation. |
 | 0:08 | 10 min | **Lab A: setup, together** *(the lab README in the browser)*. You copy week 8 in alongside the room. **1 / 4**, the starter commit. Stop there. |
-| 0:18 | 15 min | 💥 **Gone** *(demo §2)*. Dorothy's fourth call, quit, run again — *"where did Dorothy's call go?"* Not a bug: memory goes with the program. `File` in one line. |
+| 0:18 | 15 min | 💥 **Gone** *(slide 2, demo §2)*. Dorothy's fourth call, quit, run again — *"where did Dorothy's call go?"* Not a bug: memory goes with the program. Then slide 2: objects ⇄ JSON text, serialize out and deserialize in. |
 | 0:33 | 8 min | **Lab B: Task 1.** Air the hour, quit, run again: `PLAYED` is 0. No code. |
-| 0:41 | 20 min | **The switchboard, written down** *(slide 2, demo §3)*. Where a path goes. `Switchboard.Save`, run, open `switchboard.json`. **Push #1.** |
+| 0:41 | 20 min | **The switchboard, written down** *(slide 3, demo §3)*. Where a path goes. `Switchboard.Save`, run, open `switchboard.json`. **Push #1.** |
 | 1:01 | 20 min | **Lab C: Task 2** — copy your file in, then `Rotation.Save` and its two `Program.cs` lines. |
 | 1:21 | 10 min | **☕ Break** |
 | 1:31 | 15 min | **Read back** *(demo §4)*. `Switchboard.Load`, then Ray typed into the file by hand: he shows up, so the file was read — and every caller comes back at 0. The lost data and the reason (private setters) are named; the fix is §5's. **Push #2.** |
 | 1:46 | 22 min | **Lab D: Task 3** — copy your file in, then `Rotation.Load`, its one line, and a hand-edited title to prove it reads the file. |
-| 2:08 | 20 min | 💥 **The number that came back wrong** *(slide 3, demo §5)*. The fact first, red, slide 3, `[JsonInclude]` on both sealed properties, green, Dorothy back at 4. **Push #3.** |
+| 2:08 | 20 min | 💥 **The number that came back wrong** *(slide 4, demo §5)*. The fact first, red, slide 4, `[JsonInclude]` on both sealed properties, green, Dorothy back at 4. **Push #3.** |
 | 2:28 | 30 min | 🎯 **Lab E: Task 4** — the lab's payoff. Copy your two files in, then fact first, red, `[JsonInclude]`, green. **Circulate hard.** |
 | 2:58 | 10 min | **☕ Break** |
 | 3:08 | 8 min | 💥 **A file is a text file** *(demo §6)*. Dorothy's calls edited to 500 by hand, and the desk believes it. Weeks 10 and 13, named. Done, defined. |
 | 3:16 | 19 min | **Lab F: finish, or try to break it.** |
-| 3:35 | 10 min | **Wrap-up** *(slide 4, demo §7)*. Project repo URL, **the homework is the lab again**, the checks-copy line — **four checks this week, not two** — ⚠️ **the two-week due date**, and the pace question. |
+| 3:35 | 10 min | **Wrap-up** *(slide 5, demo §7)*. Project repo URL, **the homework is the lab again**, the checks-copy line — **four checks this week, not two** — ⚠️ **the two-week due date**, and the pace question. |
 
 > [!NOTE]
 > **The table sums to exactly 225 minutes: 86 of demo in six segments, 109 of lab in six blocks.** If the night runs long, take it from Lab F. **Do not take it from §5** (the red) **or Lab E** (the payoff). If the demo runs fast, the time goes to Lab E.
