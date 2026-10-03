@@ -448,5 +448,6 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 - [ ] **One question about tonight's format, before anyone packs up.** Anonymous, one tap: *the pace tonight felt too slow · about right · too fast · I got lost somewhere*. The lesson plan says where the question lives
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
 - [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. Same four tasks, same order. If you finished the lab, you've done every step once."*
+- [ ] ⚠️ **Say the branch line out loud** — *"Your homework goes on a branch, same as every week. Nothing goes straight to main."*
 - [ ] ⚠️ **Say the checks line out loud** — *"Part 1 copies this week's checks in, same as always. This week there are FOUR of them. If `dotnet test Project.Checks` shows two, you're running last week's."*
 - [ ] ⚠️ **And say the date, because this one is different** — *"There's no class next week. It's the term break. So this homework is due two weeks out, not one. It's not a bigger homework. It's the same size with a week off in the middle of it."*
