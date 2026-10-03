@@ -541,7 +541,7 @@ dotnet run --project week-08/Lab
 │ Nightjar       │ The Lamplighters │ 3:47   │ 0      │
 ```
 
-**Zero — with the right answer sitting in the file.** The title came back. The length came back. The play count didn't. Press `q`.
+**Zero — with the right answer sitting in the file.** The title came back. The length came back. The play count didn't. Press `q`, then open `rotation.json` again: it says `"PlaysTonight": 0` now. Quitting saved the desk as it stands, so the 0 went back over the file. That's why the fix below starts by deleting it.
 
 **Write the fact first — in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 4` comment.** The same three moves as every fact: set the scene, do the thing, check the answer. Here's what each one needs:
 
