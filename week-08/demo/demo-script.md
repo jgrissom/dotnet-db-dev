@@ -149,7 +149,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 ## Lab B · Task 1 — 8 minutes
 
 - [ ] **Lids up. The lab README, at *Task 1 in full*.**
-- [ ] 📖 *"Your desk loses its carts the same way. Task 1: air the hour, look at the carts, quit, and look again. No code. Stop at the stop note at the end of Task 1."*
+- [ ] 📖 *"Your desk loses its carts the same way. Task 1: look at the carts, air the hour, and look again. Then quit, start it again, and look one more time. No code. Stop at the stop note at the end of Task 1."*
 - [ ] 🎯 **Circulating:** ask *"how many times did Nightjar play tonight?"* The desk says 0, and they aired it a minute ago
 
 ---

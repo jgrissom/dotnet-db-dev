@@ -150,24 +150,38 @@ Every task tells you exactly what to write and the syntax you need. **Putting th
 
 Nothing to write. Find out exactly what the station loses at 6 AM.
 
-**Work a shift.** Type a DJ name, press `a` to put the hour on air, then `t` to look at the carts, then `q` to end the shift:
+**Work a shift.** Start the desk and type a DJ name:
 
 ```bash
 dotnet run --project week-08/Lab
 ```
 
+**First, press `t` to look at the carts before anything has aired:**
+
 ```
 ╭────────────────┬──────────────────┬────────┬────────╮
 │ TITLE          │ ARTIST           │ LENGTH │ PLAYED │
 ├────────────────┼──────────────────┼────────┼────────┤
-│ Nightjar       │ The Lamplighters │ 3:47   │ 1      │
-│ Slack Water    │ Marguerite Vance │ 4:12   │ 1      │
-│ Long Way Round │ The Ferrymen     │ 5:31   │ 1      │
+│ Nightjar       │ The Lamplighters │ 3:47   │ 0      │
+│ Slack Water    │ Marguerite Vance │ 4:12   │ 0      │
+│ Long Way Round │ The Ferrymen     │ 5:31   │ 0      │
 ╰────────────────┴──────────────────┴────────┴────────╯
 3 carts loaded.
 ```
 
-**Every cart has been on air once.** Now start the shift again and go straight to the carts: **DJ name, then `t`, then `q`**:
+**`PLAYED` is 0 for every cart.** Nothing has gone out yet.
+
+**Without quitting, press `a` to put the hour on air,** then **`t` again:**
+
+```
+│ Nightjar       │ The Lamplighters │ 3:47   │ 1      │
+│ Slack Water    │ Marguerite Vance │ 4:12   │ 1      │
+│ Long Way Round │ The Ferrymen     │ 5:31   │ 1      │
+```
+
+**Every cart has been on air once.** Now press `q` to end the shift.
+
+**Start the desk again, type a DJ name, and press `t`:**
 
 ```bash
 dotnet run --project week-08/Lab
