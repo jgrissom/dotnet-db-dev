@@ -257,8 +257,8 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   ```
 
 - [ ] 📖 **Cursor on `File.Exists`:** *"No file means nobody has signed off on this desk yet. That's a first night, not an error. So it just returns."*
-- [ ] 📖 **Cursor on `Deserialize<List<Caller>>`:** *"Deserialize builds a brand new list from the text. The type in the angle brackets tells it what to build."*
-- [ ] 📖 **Cursor on `_callers.Clear()`:** *"Program.cs adds three callers before it loads. So I empty the switchboard first, then move the loaded callers in."*
+- [ ] 📖 **Cursor on `Deserialize<List<Caller>>`:** *"Deserialize builds a brand new list from the json in the text file. The type in the angle brackets tells it what to build - each list item will be an instance of type caller (look at switchboard.json and the caller class - Name, Calls, and Favorite)."*
+- [ ] 📖 **Cursor on `_callers.Clear()`:** *"Program.cs puts three callers on the board before it loads: Dorothy, Bex and Teodoro. If I don't empty the board first, the callers from the file go in on top, and Dorothy is on it twice. You'll meet the same thing with the carts."*
 
 - [ ] **Run it: DJ name, then `c`**
 
