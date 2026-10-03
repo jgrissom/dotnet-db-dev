@@ -228,7 +228,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 ## 4 · Read back
 
-- [ ] 📖 *"Now the way back in. Load reads the file and turns it back into callers."*
+- [ ] 📖 *"Now that we have saved the data to disk when the program ends, we now need a way to read from that file when the program starts. Load reads the file and turns it back into callers."*
 
 - [ ] **In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public void Load(string path)` — one hit. Select from that line down to and including the `}` directly under its `{`, and paste this over it**
 
