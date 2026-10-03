@@ -26,13 +26,13 @@ style: |
 <!-- _paginate: false -->
 
 
-# Week 8 — The Log Stops Being Gone
+# Week 8 — The Night Stops Being Gone
 
 .NET Database Development · Week 8 of 16
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · a file of our own' -->
+<!-- _footer: '🖥️ Demo §3 · the switchboard, written down' -->
 
 ## Where the file actually goes
 
@@ -41,8 +41,8 @@ were standing**, not from where the code is.
 
 | typed at the top of your repo | runs in |
 |---|---|
-| `dotnet run --project week-08/Haldane` | the top |
-| `dotnet test week-08/Haldane.Tests` | `bin/Debug/net10.0` |
+| `dotnet run --project week-08/Lab` | the top |
+| `dotnet test week-08/Lab.Tests` | `bin/Debug/net10.0` |
 
 Same name. **Two different files.**
 
@@ -50,27 +50,7 @@ So the path is **handed in**, always.
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · a file of our own' -->
-
-## One list, one type
-
-The log holds **three kinds** of things,
-so it is written by hand.
-
-A rotation is **one list of one type** —
-and for that, a serializer does the job:
-
-```csharp
-string json = JsonSerializer.Serialize(_songs);
-List<Song>? back =
-    JsonSerializer.Deserialize<List<Song>>(json);
-```
-
-You use this one in the lab.
-
----
-
-<!-- _footer: '🖥️ Demo §6 · the station’s own clock' -->
+<!-- _footer: '🖥️ Demo §5 · the number that came back wrong' -->
 
 ## What a serializer won't read back
 
@@ -78,28 +58,29 @@ It **writes** every property it can **read**.
 It **reads back** only the ones it can **write**.
 
 ```csharp
-public int PlaysTonight { get; private set; }
+public int CallsTonight { get; private set; }
 ```
 
 Goes into the file. **Never comes back.**
 
 ```csharp
 [JsonInclude]
-public int PlaysTonight { get; private set; }
+public int CallsTonight { get; private set; }
 ```
 
 ---
 
-<!-- _footer: '🖥️ Demo §8 · wrap' -->
+<!-- _footer: '🖥️ Demo §7 · wrap' -->
 
 ## Tonight, in one picture
 
-**text → fields → objects → and back**
+**objects → text → file → and back**
 
 - `File` does each direction in one line
+- the serializer turns a list into text and back
 - the **path is handed in**
-- no file is a **first run**
-- a serializer, when it is **one list of one type**
+- no file is a **first night**
+- a private setter needs **`[JsonInclude]`**
 - a save file is a text file **anybody can edit**
 
-Week 10: somewhere that isn't your laptop.
+Week 10: somewhere other machines can reach.

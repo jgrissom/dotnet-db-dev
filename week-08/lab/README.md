@@ -11,6 +11,9 @@ Your job: write the carts to a file when the shift ends, read them back when the
 > [!NOTE]
 > **Missed a week?** You're not behind. Every file ships finished except the two empty methods in `Rotation.cs`, one line of `Song.cs`, and three lines of `Program.cs`. Nothing tonight depends on remembering last week's code — only on reading this week's.
 
+> [!NOTE]
+> **Tonight your instructor works on the same desk.** In class you watch the **switchboard** get written, then copy those finished files into your project before each task. They're your worked example: the same moves you're about to make on the **rotation**. Working at home? The files are already in the starters repo, and the copy commands work the same.
+
 ## Setup
 
 Four steps, all from the **one VS Code window you keep all semester** — open on `dotnet-db-coursework`, the top of your repo.
@@ -114,17 +117,19 @@ week 8: starter
 |---|---|---|
 | `dotnet run --project week-08/Lab` | the desk | what any of it looks like on the air |
 | `dotnet test week-08/Lab.Checks` | mine | *does the station remember?* — climbs 1 → 4 as you build it |
-| `dotnet test week-08/Lab.Tests` | **yours** | *did the rule I wrote down hold?* — 2 facts now, 3 by the end |
+| `dotnet test week-08/Lab.Tests` | **yours** | *did the rule I wrote down hold?* — 2 facts now; your instructor's makes 3, and yours makes 4 |
 
 | File | What it is |
 |---|---|
 | `Lab/Rotation.cs` | Two empty methods at the bottom, `Save` and `Load`. **Tasks 2 and 3.** |
 | `Lab/Program.cs` | Three lines are yours: two in Task 2, one in Task 3. Each spot has a comment naming its task. |
 | `Lab/Song.cs` | One line to add — and you will not guess which. **Task 4.** |
+| `Lab/Switchboard.cs`, `Lab/Caller.cs` | **Your instructor's.** You copy the finished files in at the start of Tasks 2, 3 and 4, and read them as you work. |
+| `Lab.Tests/SwitchboardTests.cs` | **Your instructor's fact**, copied in at Task 4. |
 | `Lab.Tests/DeskTests.cs` | **Yours.** Two facts ship written; one more goes in at Task 4. |
 | `Lab.Checks/DeskChecks.cs` | My four. **Read-only, as always.** |
 
-💡 **Tonight makes one file: `week-08/rotation.json`.** It holds the carts as they stand, and it is rewritten every time the shift ends. It appears in your Explorer, inside the week folder, because a relative path is worked out from where you were standing when you ran the program — and you always run from the top of your repo.
+💡 **Tonight makes two files: `week-08/switchboard.json`, from your instructor's code, and `week-08/rotation.json`, from yours.** Each holds its list as it stands, and each is rewritten every time the shift ends. It appears in your Explorer, inside the week folder, because a relative path is worked out from where you were standing when you ran the program — and you always run from the top of your repo.
 
 ## The tasks
 
@@ -205,7 +210,19 @@ You'll use the same two lines in Task 4.
 
 **Check:** `Check2_TheRotationIsWrittenDown`
 
-**First, work a whole shift and end it properly.** DJ name, `a` to air the hour, `q` to sign off:
+**First, bring in your instructor's code.** Pull the starters clone, then copy the file in:
+
+```bash
+git -C ../dotnet-db-starters pull
+```
+
+```bash
+cp ../dotnet-db-starters/demo/week-08/Switchboard.cs week-08/Lab/
+```
+
+Open `week-08/Lab/Switchboard.cs` and scroll to `Save` at the bottom. That's what you just watched get written. Yours goes in `Rotation.cs`, and it's the same two lines on a different list.
+
+**Now work a whole shift and end it properly.** DJ name, `a` to air the hour, `q` to sign off:
 
 ```bash
 dotnet run --project week-08/Lab
@@ -217,10 +234,11 @@ dotnet run --project week-08/Lab
 week-08/
 ├─ Lab/
 ├─ Lab.Checks/
-└─ Lab.Tests/
+├─ Lab.Tests/
+└─ switchboard.json
 ```
 
-**Three folders and nothing else.** A whole shift ended and the station wrote nothing down.
+**One file: `switchboard.json`.** That's your instructor's `Save`, working. A whole shift ended and nothing wrote the carts down.
 
 **Write `Save` — in `Lab/Rotation.cs`, under the `TODO — Task 2` comment.** It has to do two things: turn the list of songs into text, then put that text in the file at `path`.
 
@@ -310,7 +328,19 @@ week 8 lab: the rotation is written down
 
 **Check:** `Check3_TheRotationComesBack`
 
-**First, watch the file get ignored.** Open `week-08/rotation.json` and find Nightjar's line:
+**First, bring in your instructor's code.** Pull the starters clone, then copy the file in:
+
+```bash
+git -C ../dotnet-db-starters pull
+```
+
+```bash
+cp ../dotnet-db-starters/demo/week-08/Switchboard.cs week-08/Lab/
+```
+
+Your instructor's `Load` is now at the bottom of `Switchboard.cs`, under the `Save`.
+
+**Now watch the file get ignored.** Open `week-08/rotation.json` and find Nightjar's line:
 
 ```json
     "PlaysTonight": 1,
@@ -435,9 +465,31 @@ week 8 lab: the rotation comes back
 
 **Check:** `Check4_ACartRemembersItsPlays`
 
-The one that surprises everybody.
+**First, bring in your instructor's code.** Pull the starters clone, then copy the file in:
 
-**First, start the night from nothing** — throw away the file so the counts begin at zero:
+```bash
+git -C ../dotnet-db-starters pull
+```
+
+This time it's two files, your instructor's fixed `Caller.cs` and the fact that proves it:
+
+```bash
+cp ../dotnet-db-starters/demo/week-08/Caller.cs week-08/Lab/
+```
+
+```bash
+cp ../dotnet-db-starters/demo/week-08/SwitchboardTests.cs week-08/Lab.Tests/
+```
+
+Run your suite once so you know where you're starting:
+
+```bash
+dotnet test week-08/Lab.Tests
+```
+
+**3 passed** — the two that shipped, and your instructor's. Open `Lab.Tests/SwitchboardTests.cs` and `Lab/Caller.cs`: the test you're about to write, and the fix you're about to make, are both sitting there for the switchboard.
+
+**Now start the night from nothing** — throw away the file so the counts begin at zero:
 
 ```bash
 rm week-08/rotation.json
@@ -595,7 +647,7 @@ dotnet run --project week-08/Lab
 dotnet test week-08/Lab.Tests
 ```
 
-**3 passed.**
+**4 passed.**
 
 **Then mine:**
 
@@ -696,14 +748,15 @@ dotnet run --project week-08/Lab
 
 2. **Stop writing what you already know.** `rotation.json` holds `Length`, `Kind` and `Cue`, and all three are worked out from the other fields — so the file stores the same fact twice. Put `[JsonIgnore]` on them ([the mirror of the attribute you just used](../lecture-notes.md#the-mirror-what-it-writes-that-you-did-not-want)), run a shift, and look at how much smaller the file gets. Check 1 has to stay green.
 3. **A fact for the first night.** `AFirstNightKeepsItsCarts` is born green. [Falsify it once](../../week-07/lecture-notes.md#make-it-fail-once): take the `File.Exists` guard out of `Load`, run your suite, read the failure, put it back.
-4. **The demo did it the long way, on purpose.** Haldane's log holds three different kinds of things, so a serializer can't rebuild it. The demo's first try was [readable, and useless](../lecture-notes.md#readable-and-useless); the one that worked [turns objects into text and back by hand](../lecture-notes.md#turning-objects-into-text-and-back) — [written one line per entry](../lecture-notes.md#saving-by-hand-one-line-per-record-fields-kept-apart) and [read back by looking at the kind word first](../lecture-notes.md#loading-by-hand-the-kind-word-first). Read those two sections and work out what `Rotation.Save` would have to look like if the rotation held ads and weather beds as well as songs.
-5. **Put a time on it.** Once you have the air log from item 1: it records *what* happened and not *when*. Give `LogShift` a stamp — [the station clock the duty console uses is two lines](../lecture-notes.md#the-stations-own-clock) — and write `HH:mm` in front of each entry. Then notice something: the air log needs no sorting, ever, because it is only ever appended to. [Haldane's log is not so lucky](../lecture-notes.md#keeping-the-book-in-order), and the reason is worth ten seconds.
+4. **Without a serializer.** A list that holds several different kinds of things can't be rebuilt by a serializer on its own. The notes show what happens instead: a first try that is [readable, and useless](../lecture-notes.md#readable-and-useless), then [objects turned into text and back by hand](../lecture-notes.md#turning-objects-into-text-and-back) — [written one line per entry](../lecture-notes.md#saving-by-hand-one-line-per-record-fields-kept-apart) and [read back by looking at the kind word first](../lecture-notes.md#loading-by-hand-the-kind-word-first). Read those and work out what `Rotation.Save` would have to look like if the rotation held ads and weather beds as well as songs.
+5. **Put a time on it.** Once you have the air log from item 1: it records *what* happened and not *when*. Give `LogShift` a stamp — [the station clock the duty console uses is two lines](../lecture-notes.md#the-stations-own-clock) — and write `HH:mm` in front of each entry. Then notice something: the air log needs no sorting, ever, because it is only ever appended to. [A log that has to stay in time order while lines arrive out of order is not so lucky](../lecture-notes.md#keeping-the-book-in-order), and the reason is worth ten seconds.
 6. ⭐ **The one that pays off later:** your `Load` walks one list to fill another. In **week 9** that becomes one line — and your suite is how you'll *prove* the one-liner does the same job.
 
 ## 🆘 Stuck?
 
 | What you see | What it means |
 |---|---|
+| `cp: … demo/week-08/…: No such file or directory` | Your instructor hasn't pushed that file yet, or your starters clone isn't pulled. Run `git -C ../dotnet-db-starters pull` and try again. Your task doesn't need the file to start. |
 | `MSB1003: Specify which project` | You're at the top of your repo and didn't name the week. `dotnet test week-08/Lab.Checks`. |
 | `CS0103: The name 'JsonSerializer' does not exist` | Missing `using System.Text.Json;` at the top of `Rotation.cs`. It ships in the starter — check it's still there. |
 | `CS0103: The name 'rotationFile' does not exist` | The path line isn't in `Program.cs`, or it's below the line that uses it. It goes under the `Task 2 — where the carts get written down` comment, near the top. |
@@ -719,7 +772,7 @@ dotnet run --project week-08/Lab
 | My check is red but yours is green | Your fact isn't asking the hard question — usually loading into the *same* rotation instead of a new one. Read the check; it names what it asked. |
 | `dotnet test` passes and the shift looks wrong | Run the program, not just the suites. Neither one looks at `Program.cs`. |
 | Red squiggles under `Assert` or `[Fact]`, but `dotnet test` runs | **The editor, not your code.** Command Palette → **`Developer: Reload Window`**. ⚠️ `.NET: Restart Language Server` does **not** fix it. |
-| Not sure what a serializer even is | [One list, one type](../lecture-notes.md#one-list-one-type-the-serializer) — why the rotation gets one and Haldane's log doesn't. Then [both directions, worked](../lecture-notes.md#jsonserializer-both-directions). |
+| Not sure what a serializer even is | [One list, one type](../lecture-notes.md#one-list-one-type-the-serializer) — why a list of one type gets one, and a list of mixed kinds doesn't. Then [both directions, worked](../lecture-notes.md#jsonserializer-both-directions). |
 | The file is there and the program says it isn't | The working directory. `dotnet run` stands at the top of your repo and <kbd>F5</kbd> stands in the project folder, so they read two different places. [The whole story is in the notes](../lecture-notes.md#where-the-file-actually-goes). |
 
 > [!NOTE]

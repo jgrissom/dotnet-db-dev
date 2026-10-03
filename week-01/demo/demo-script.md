@@ -36,6 +36,17 @@ instructor/                    ← the container on your machine
 
 VS Code shows `dotnet-db-coursework` in the title bar and an **empty Explorer**. That emptiness is the first beat of the night — §3 turns nothing into a program on screen. By §9 the same window holds `.gitignore` + `week-01/Haldane/`, committed and pushed clean — which is also **week 2's opening state**, untouched.
 
+- [ ] ⚠️ **Once per term: empty `demo/` in the starters repo.** From week 8 you push your demo files there during class, and they should arrive fresh each term. From a terminal standing in the folder that holds your starters clone:
+
+  ```bash
+  git -C dotnet-db-starters rm -r --quiet demo/week-*
+  ```
+
+  ```bash
+  git -C dotnet-db-starters commit -m "demo: reset for the new term" && git -C dotnet-db-starters push
+  ```
+
+  If it says `did not match any files`, it's already empty. `demo/README.md` explains the folder and stays
 - [ ] **Copy `week-01/demo-starter/Haldane` out of the private repo** somewhere you can look at it — that's the **finished** state. ⚠️ **Do not open it in class.** Tonight's first beat is an empty folder becoming a program, and having it pre-made throws that away
 - [ ] ⚠️ **Reset to exactly what the room will have after §2** — an empty `dotnet-db-coursework` and nothing else. §3 *creates* `week-01` inside it on screen, and a leftover folder kills that beat:
   ```bash
