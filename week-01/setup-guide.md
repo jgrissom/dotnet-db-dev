@@ -154,6 +154,8 @@ The repo you just made is **empty and on GitHub**. Your actual work happens in a
 
 ⚠️ **Put it somewhere sensible and permanent** — your home folder, or wherever you keep projects. **Not on the Desktop, not in Downloads, and not inside any other folder from this course.** You will add a folder to it every week for the rest of the semester.
 
+⚠️ **Not in OneDrive, Dropbox, iCloud Drive or Google Drive either.** On Windows, `Documents` and `Desktop` are often inside OneDrive without you knowing, so check the path VS Code shows. Every build rewrites hundreds of files, a sync program locks them while it uploads, and the build or the debugger then fails on and off with errors like *"being used by another process"* or *"access denied"*. GitHub is your backup; you don't need a second one. `C:\Users\<you>\Repos` on Windows, or `~/Repos` on a Mac, is a good home. The same goes for every repo in this course, including the project repo you'll make in week 4.
+
 **✓ Check.** VS Code's title bar says `dotnet-db-coursework` and the Explorer view on the left is empty. That emptiness is correct — you'll fill it in tonight's lab.
 
 > [!NOTE]
@@ -219,7 +221,7 @@ You should now have **two folders** on your machine, side by side, and they do o
 
 ```
 dotnet-db-coursework/    ← YOURS. Empty for now. Everything you write goes here.
-dotnet-db-dev/           ← MINE. You only ever copy things OUT of it.
+dotnet-db-starters/      ← MINE. You only ever copy things OUT of it.
 ```
 
 Plus a compiler, an editor that understands C#, and a private repo on GitHub waiting for that first folder.
@@ -232,4 +234,5 @@ Plus a compiler, an editor that understands C#, and a private repo on GitHub wai
 - **VS Code says "The .NET Core SDK cannot be located"** — VS Code was open during the SDK install. Quit it entirely (not just the window) and reopen.
 - **The C# extension sits on "Downloading"** forever — usually campus wifi. Try again on a different network, or come find me before class.
 - **`git config --global user.name` prints nothing after you set it** — the `--global` flag was mistyped, or you set it in a terminal that has since closed without the command actually running. Run it again and re-check.
+- **Builds or the debugger fail now and then with "being used by another process" or "access denied"**, and your folder is inside OneDrive (or another sync folder). Push your work first, then clone every course repo fresh into one folder outside it (`C:\Users\<you>\Repos`), side by side as before: your coursework, the starters, and from week 4 your project repo. Open the new copies in VS Code and work there from now on.
 - **You can't install anything** because the machine is locked down — tell me. Everything in this course runs on the lab machines, and there's a plan for that; you just need to not spend an evening fighting it alone.

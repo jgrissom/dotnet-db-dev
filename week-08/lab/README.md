@@ -793,6 +793,7 @@ dotnet run --project week-08/Lab
 | `dotnet test` passes and the shift looks wrong | Run the program, not just the suites. Neither one looks at `Program.cs`. |
 | Red squiggles under `Assert` or `[Fact]`, but `dotnet test` runs | **The editor, not your code.** Command Palette → **`Developer: Reload Window`**. ⚠️ `.NET: Restart Language Server` does **not** fix it. |
 | Not sure what a serializer even is | [One list, one type](../lecture-notes.md#one-list-one-type-the-serializer) — why a list of one type gets one, and a list of mixed kinds doesn't. Then [both directions, worked](../lecture-notes.md#jsonserializer-both-directions). |
+| The debugger won't start, or builds fail now and then with *"being used by another process"* or *"access denied"* | Check whether your repo is inside OneDrive or another sync folder. On Windows, `Documents` often is. The sync program locks files while a build is writing them. Push your work, then clone your repos fresh into a folder outside it — [the setup guide's fix](../../week-01/setup-guide.md#-if-something-wouldnt-install). The debugger part of Task 4 is optional, so skip it until then. |
 | The file is there and the program says it isn't | The working directory. `dotnet run` stands at the top of your repo and <kbd>F5</kbd> stands in the project folder, so they read two different places. [The whole story is in the notes](../lecture-notes.md#where-the-file-actually-goes). |
 
 > [!NOTE]
