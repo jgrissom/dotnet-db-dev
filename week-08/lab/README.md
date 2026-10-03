@@ -252,7 +252,7 @@ week-08/
 └─ switchboard.json
 ```
 
-**One file: `switchboard.json`.** That's your instructor's `Save`, working. A whole shift ended and nothing wrote the carts down.
+**One file: `switchboard.json`.** Your program just wrote it, when you pressed `q` — that's the `Save` you copied in, running on your machine. A whole shift ended and nothing wrote the carts down.
 
 **Write `Save` — in `Lab/Rotation.cs`, under the `TODO — Task 2` comment.** It has to do two things: turn the list of songs into text, then put that text in the file at `path`.
 
