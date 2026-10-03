@@ -382,7 +382,15 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 - [ ] 🎞️ **GO TO SLIDE 4** — *What a serializer won't read back* · *"This is the rule behind that zero, on one slide. A serializer writes every property it can read. It reads back only the ones it can write. A private setter is one it can't write."*
 
-- [ ] **Back to `Caller.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int CallsTonight` — one hit. Select that one line and paste this over it**
+- [ ] **Back to `Caller.cs`. First, the using the attribute needs. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public class Caller` — one hit. Select that one line and paste this over it**
+
+  ```csharp
+  using System.Text.Json.Serialization;
+
+  public class Caller
+  ```
+
+- [ ] **Now the attribute. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int CallsTonight` — one hit. Select that one line and paste this over it**
 
   ```csharp
       [JsonInclude]
@@ -398,14 +406,6 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   ```
 
 - [ ] 📖 *"Favorite has a private setter too. Every sealed property you want back needs the attribute."*
-- [ ] **Last, the using. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public class Caller` — one hit. Select that one line and paste this over it**
-
-  ```csharp
-  using System.Text.Json.Serialization;
-
-  public class Caller
-  ```
-
 - [ ] **Run the tests again**
 
   ```bash

@@ -624,17 +624,17 @@ Actual:   0
 
 **Here is why.** A serializer writes every property it can **read**, and reads back only the ones it can **write**. `PlaysTonight` is `{ get; private set; }`. It's sealed so nothing outside the class can claim a play that never happened, and that is still right. It also means the serializer has no way to put the value back.
 
-**So you tell it that this one is allowed.** In `Lab/Song.cs`, under the `TODO — Task 4` comment, put one line directly above the property:
+**So you tell it that this one is allowed.** First, the `using` the attribute needs — add this at the very top of `Lab/Song.cs`:
+
+```csharp
+using System.Text.Json.Serialization;
+```
+
+Then, under the `TODO — Task 4` comment, put one line directly above the property:
 
 ```csharp
     [JsonInclude]
     public int PlaysTonight { get; private set; }
-```
-
-and add this at the very top of `Song.cs`:
-
-```csharp
-using System.Text.Json.Serialization;
 ```
 
 ⚠️ **Do not fix it by making the setter public.** That would undo weeks 4 and 5. The attribute changes what the serializer is allowed to do, and nothing else.
