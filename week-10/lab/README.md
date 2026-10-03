@@ -70,7 +70,7 @@ dotnet-db-coursework/      ← your VS Code window, all semester
 ├─ …
 └─ week-10/                ← the folder you just copied in
    ├─ Lab/                 ← the desk — three of its files have work in them
-   ├─ Lab.Tests/           ← YOURS, carried forward. One of its four is red tonight
+   ├─ Lab.Tests/           ← YOURS — four facts ship written; one of them is red tonight
    └─ Lab.Checks/          ← my checks — read-only
 ```
 
