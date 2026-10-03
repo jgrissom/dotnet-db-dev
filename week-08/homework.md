@@ -105,7 +105,7 @@ dotnet run --project Project
 dotnet run --project Project
 ```
 
-**Both runs start from exactly the same place: your seed records.** Anything the first run did — a record added, a verb called, a count moved — is gone by the second. If your `Program.cs` calls the verb week 5 had you write (a visit, a play, a sighting), the count it prints is the same on every run, however many times you run it.
+**Both runs start from exactly the same place: your seed records.** Anything the first run did — a record added, a record removed, a verb called, a count moved — is gone by the second. If your program asks you to take one off the books, try it: name a record on the first run, and it's back on the second. If your `Program.cs` calls the verb week 5 had you write (a visit, a play, a sighting), the count it prints is the same on every run, however many times you run it.
 
 ---
 
