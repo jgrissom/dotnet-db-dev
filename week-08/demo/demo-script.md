@@ -13,13 +13,13 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 ## 0 · Before class
 
 - [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-08/demo/script.html) and confirm the top line says *the same station they work on*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
-- [ ] ⚠️ **A starters clone you can PUSH to, next to your demo repo.** Tonight you push three files to it. Once per machine, from the folder that holds `dotnet-db-coursework`:
+- [ ] ⚠️ **A starters clone you can PUSH to, next to your demo repo.** Tonight you push three files to it. Open `dotnet-db-coursework` in VS Code and use its terminal, which stands at the top of the demo repo. Once per machine:
 
   ```bash
-  git clone https://github.com/jgrissom/dotnet-db-starters.git
+  git clone https://github.com/jgrissom/dotnet-db-starters.git ../dotnet-db-starters
   ```
 
-  Then prove you can push from it before anybody is watching — open `dotnet-db-coursework` in VS Code, and from its terminal:
+  The `../` puts the clone **next to** the demo repo, not inside it. `already exists` means this machine already has one there — skip to the push test. Then prove you can push from it before anybody is watching, from the same terminal:
 
   ```bash
   git -C ../dotnet-db-starters pull
