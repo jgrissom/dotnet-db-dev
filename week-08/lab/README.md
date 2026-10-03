@@ -354,13 +354,19 @@ cp ../dotnet-db-starters/demo/week-08/Switchboard.cs week-08/Lab/
 
 Your instructor's `Load` is now at the bottom of `Switchboard.cs`, under the `Save`.
 
-**Now watch the file get ignored.** Open `week-08/rotation.json` and find Nightjar's line:
+**Now watch the file get ignored.** First, give the file a play count to ignore: start the desk, type a DJ name, press `a` to air the hour, then `q`:
+
+```bash
+dotnet run --project week-08/Lab
+```
+
+Now open `week-08/rotation.json` and find Nightjar's line:
 
 ```json
     "PlaysTonight": 1,
 ```
 
-**Now start the shift and go straight to the carts — DJ name, then `t`:**
+**Then start the shift again and go straight to the carts — DJ name, then `t`:**
 
 ```bash
 dotnet run --project week-08/Lab
