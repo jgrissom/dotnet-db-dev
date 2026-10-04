@@ -318,21 +318,20 @@ dotnet test Project.Checks
   ```
 
   ⚠️ **Never your program's real file.** `registry.json` belongs to your program; the test gets a file of its own.
-- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`. Give that record a value for one property that has a public `set` — on the notes' lighthouse, `item.Condition = "lit";` — so the test can check that an everyday property comes back too, not only the private-set one. Then add the record to the registry. Then call your verb, the method that changes your private-set property. On the lighthouse that's `item.Visit(...)`, which moves `Visits` from 0 to 1.
+- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`, added to the registry. Then call your verb, the method that changes your private-set property. On the lighthouse that's `item.Visit(...)`, which moves `Visits` from 0 to 1.
 - **Do the thing.** `Save(path)`, then a **second, empty `Registry`** called `reopened`, then `Load(path)` on *that* one. Use that name: the next lines use it.
-- **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then read the record back the way the lab did, with `reopened.All()[0]` (one record went in, so it's the first and only one), and assert on that property **and** your private-set one. The private-set one is the assert that goes red. For each expected value, write the value itself — the number your verb should have left, like `1` — rather than `item.YourPrivateSetProperty`. Both go red now, but only the literal can't agree with a broken verb.
+- **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then read the record back the way the lab did, with `reopened.All()[0]` (one record went in, so it's the first and only one), and assert on your private-set property: `Assert.Equal(expected, reopened.All()[0].YourPrivateSetProperty)`. That's the assert that goes red. For the expected value, write the number itself — what your verb should have left, like `1` — rather than `item.YourPrivateSetProperty`. Both go red now, but only the number can't agree with a broken verb. ⚠️ **Assert on `reopened`, never on the record you made**: that one never went through the file, so it passes whatever happens.
 
 | In the lab | In yours |
 |---|---|
 | `Song` | your record type — written `YourRecord` below |
 | `nightjar.Play()` | your verb, with whatever arguments yours takes — written `YourVerb()` below |
 | `PlaysTonight` | your property with a public `get` and a `private set` — written `YourPrivateSetProperty` below |
-| *(none)* | one property with a public `set`, like the lighthouse's `Condition` — written `YourProperty` below |
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
 
-Swap every `Your…` name for one of yours, and put your own values where the `?` marks are, or it will not build.
+Swap every `Your…` name for one of yours, and put your own value where the `?` is, or it will not build.
 
 ```csharp
     [Fact]
@@ -343,7 +342,6 @@ Swap every `Your…` name for one of yours, and put your own values where the `?
 
         Registry registry = new Registry();
         YourRecord item = registry.NewItem("a name of yours");
-        item.YourProperty = ?;
         registry.Add(item);
         item.YourVerb();
 
@@ -353,7 +351,6 @@ Swap every `Your…` name for one of yours, and put your own values where the `?
         reopened.Load(path);
 
         Assert.Equal(1, reopened.Count);
-        Assert.Equal(?, reopened.All()[0].YourProperty);
         Assert.Equal(?, reopened.All()[0].YourPrivateSetProperty);
     }
 ```
@@ -486,8 +483,8 @@ Four moments worth saving, written into the parts above at the point where each 
 | **Two checks listed**, not four | You're running **week 7's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — this week lists four, starting `Check1_WeeksFourToSevenStillHold` and `Check2_TheRegistryWritesItselfDown`. |
 | `CS0246: The type or namespace name 'YourRecord' could not be found` | You pasted a **Stuck?** shape without swapping the placeholder. `YourRecord` is your record type's name — the class `NewItem` hands back. |
 | `CS0103: The name '_yourList' does not exist in the current context` | Same thing: `_yourList` is the name of the list field inside your `Registry`. Open `Registry.cs` and use the name you gave it. |
-| `CS1525: Invalid expression term '?'` | The fact's shape still has a `?` in it. Each `?` is a value of yours: what you set `YourProperty` to (like `"lit"`), and what the private-set one should say after your verb. |
-| `CS1061` naming `YourProperty`, `YourVerb` or `YourPrivateSetProperty` | The fact's shape still has a placeholder in it. Swap each one for a real member of your record. |
+| `CS1525: Invalid expression term '?'` | The fact's shape still has its `?` in it. The `?` is a value of yours: what your private-set property should say after your verb, like `1`. |
+| `CS1061` naming `YourVerb` or `YourPrivateSetProperty` | The fact's shape still has a placeholder in it. Swap each one for a real member of your record. |
 | `CS0103: The name 'JsonSerializer' does not exist` | `using System.Text.Json;` at the top of `Registry.cs`. |
 | `CS0246: 'JsonInclude' could not be found` | A different using, and it catches everybody: `using System.Text.Json.Serialization;` — the `.Serialization` on the end is the whole difference. |
 | Check 2 red: *no file appeared* | `Save` is writing to a name of its own instead of the `path` it was handed, or it isn't writing at all. [Why the path is always handed in.](lecture-notes.md#so-hand-the-path-in) |
