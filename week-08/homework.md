@@ -194,6 +194,8 @@ git add .
 git commit -m "The registry writes itself down"
 ```
 
+`git add .` picks up `registry.json` too. That's fine: it's your registry's data, and it belongs in the repo. From now on it changes every time you run the program, so expect to see it in every commit.
+
 ---
 
 ### Task 3 in full
