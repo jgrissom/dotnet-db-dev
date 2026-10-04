@@ -320,7 +320,7 @@ dotnet test Project.Checks
   ⚠️ **Never your program's real file.** `registry.json` belongs to your program; the test gets a file of its own.
 - **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`. Give that record a value for one property that has a public `set` — on the notes' lighthouse, `item.Condition = "lit";` — so the test can check that an everyday property comes back too, not only the private-set one. Then add the record to the registry. Then call your verb, the method that changes your private-set property. On the lighthouse that's `item.Visit(...)`, which moves `Visits` from 0 to 1.
 - **Do the thing.** `Save(path)`, then a **second, empty `Registry`** called `reopened`, then `Load(path)` on *that* one. Use that name: the next lines use it.
-- **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then `Find` the record by its name, and assert on that property **and** your private-set one. The private-set one is the assert that goes red. For each expected value, write the value itself — the number your verb should have left, like `1` — rather than `item.YourPrivateSetProperty`. Both go red now, but only the literal can't agree with a broken verb.
+- **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then read the record back the way the lab did, with `reopened.All()[0]` (one record went in, so it's the first and only one), and assert on that property **and** your private-set one. The private-set one is the assert that goes red. For each expected value, write the value itself — the number your verb should have left, like `1` — rather than `item.YourPrivateSetProperty`. Both go red now, but only the literal can't agree with a broken verb.
 
 | In the lab | In yours |
 |---|---|
@@ -353,12 +353,8 @@ Swap every `Your…` name for one of yours, and put your own values where the `?
         reopened.Load(path);
 
         Assert.Equal(1, reopened.Count);
-
-        YourRecord? back = reopened.Find("a name of yours");
-
-        Assert.NotNull(back);
-        Assert.Equal(?, back!.YourProperty);
-        Assert.Equal(?, back.YourPrivateSetProperty);
+        Assert.Equal(?, reopened.All()[0].YourProperty);
+        Assert.Equal(?, reopened.All()[0].YourPrivateSetProperty);
     }
 ```
 
@@ -372,7 +368,7 @@ dotnet test Project.Tests
 
 It fails on your private-set property: **Expected** is the value your verb moved it to, and **Actual** is where it started. **Red, for the right reason.**
 
-**The reason, and it is one sentence:** a serializer writes every property it can **read**, and reads back only the ones it can **write**. The property week 5 had you seal — `{ get; private set; }` — has no public setter, so it goes out and never comes home.
+**The reason, and it is one sentence:** a serializer writes every property it can **read**, and reads back only the ones it can **write**. Your private-set property — `{ get; private set; }` — has no public setter, so it goes out and never comes home.
 
 **The fix is one line above the property.** It's the lab's fix:
 
