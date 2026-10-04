@@ -318,7 +318,7 @@ dotnet test Project.Checks
   ```
 
   ⚠️ **Never your program's real file.** `registry.json` belongs to your program; the test gets a file of its own.
-- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`. Give that record a value for one property that has a public `set` — on a ballpark, `item.Team = "Cubs";` — so the test can check that an everyday property comes back too, not only the sealed one. Then add the record to the registry. Then call the verb week 5 had you write, so the sealed property moves.
+- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`. Give that record a value for one property that has a public `set` — on the notes' lighthouse, `item.Condition = "lit";` — so the test can check that an everyday property comes back too, not only the sealed one. Then add the record to the registry. Then call the verb week 5 had you write, so the sealed property moves.
 - **Do the thing.** `Save(path)`, then a **second, empty `Registry`** called `reopened`, then `Load(path)` on *that* one. Use that name: the next lines use it.
 - **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then `Find` the record by its name, and assert on that property **and** the sealed one. The sealed one is the assert that goes red. For each expected value, write the value itself — the number your verb should have left, like `1` — rather than `item.YourSealedProperty`. Both go red now, but only the literal can't agree with a broken verb.
 
@@ -327,7 +327,7 @@ dotnet test Project.Checks
 | `Song` | your record type — written `YourRecord` below |
 | `nightjar.Play()` | your verb, with whatever arguments yours takes — written `YourVerb()` below |
 | `PlaysTonight` | your sealed property — written `YourSealedProperty` below |
-| *(none)* | one property with a public `set`, like `Team` — written `YourProperty` below |
+| *(none)* | one property with a public `set`, like the lighthouse's `Condition` — written `YourProperty` below |
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
@@ -490,7 +490,7 @@ Four moments worth saving, written into the parts above at the point where each 
 | **Two checks listed**, not four | You're running **week 7's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — this week lists four, starting `Check1_WeeksFourToSevenStillHold` and `Check2_TheRegistryWritesItselfDown`. |
 | `CS0246: The type or namespace name 'YourRecord' could not be found` | You pasted a **Stuck?** shape without swapping the placeholder. `YourRecord` is your record type's name — the class `NewItem` hands back. |
 | `CS0103: The name '_yourList' does not exist in the current context` | Same thing: `_yourList` is the name of the list field inside your `Registry`. Open `Registry.cs` and use the name you gave it. |
-| `CS1525: Invalid expression term '?'` | The fact's shape still has a `?` in it. Each `?` is a value of yours: what you set `YourProperty` to (like `"Cubs"`), and what the sealed one should say after your verb. |
+| `CS1525: Invalid expression term '?'` | The fact's shape still has a `?` in it. Each `?` is a value of yours: what you set `YourProperty` to (like `"lit"`), and what the sealed one should say after your verb. |
 | `CS1061` naming `YourProperty`, `YourVerb` or `YourSealedProperty` | The fact's shape still has a placeholder in it. Swap each one for a real member of your record. |
 | `CS0103: The name 'JsonSerializer' does not exist` | `using System.Text.Json;` at the top of `Registry.cs`. |
 | `CS0246: 'JsonInclude' could not be found` | A different using, and it catches everybody: `using System.Text.Json.Serialization;` — the `.Serialization` on the end is the whole difference. |
