@@ -261,13 +261,15 @@ Swap `YourRecord` for your record type and `_yourList` for the list inside your 
 
 </details>
 
-**Now call it — one line in `Project/Program.cs`**, right after the last line that adds a seed record:
+**First, take out week 7's register-twice lines** — the ones that add a record with the same name a second time and print *"…twice - N on file"*. Delete the comment, the `Add` and the `Console.WriteLine`. Your week 7 test already proves the guard, so the lines have done their job, and from tonight they would get in the way: they add a record **after** `Load`, so a record you removed last run would come straight back.
+
+**Now call it — one line in `Project/Program.cs`**, right after the last line that adds a seed record, and before your verb or the take-one-off prompt:
 
 ```csharp
 registry.Load(registryFile);
 ```
 
-Your seeds go in first, and then — if there is a file — what's in the file replaces them. That is the same order the lab's desk uses.
+Your seeds go in first, and then — if there is a file — what's in the file replaces them. That is the same order the lab's desk uses. ⚠️ **Below your verb is too late:** `Load` replaces the record the verb just changed, and the change is lost.
 
 **Now prove it reads the file.** Open `registry.json` again, change a record's name, and save. Then run:
 
