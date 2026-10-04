@@ -176,7 +176,7 @@ Swap `_yourList` for the name of the list inside your `Registry`, or it will not
 dotnet run --project Project
 ```
 
-The last line says how many records went into the file. **Now look at the top of your repo** — `registry.json` is there. Open it. That is your registry, on disk, and it outlived the program. Every property the serializer could read went into it — including the sealed one week 5 had you write.
+The last line says how many records went into the file. **Now look at the top of your repo** — `registry.json` is there. Open it. That is your registry, on disk, and it outlived the program. Every property the serializer could read went into it — including your **sealed** property: the one with a `private set`, which only your verb can change.
 
 > [!NOTE]
 > **Committing `registry.json` is fine and so is not committing it** — it is data your program made, not code you wrote. Nothing is graded either way. *(Don't add it to `.gitignore`; [that file has been four lines since week 1 and it stays four lines](../week-01/lecture-notes.md).)*
@@ -318,7 +318,7 @@ dotnet test Project.Checks
   ```
 
   ⚠️ **Never your program's real file.** `registry.json` belongs to your program; the test gets a file of its own.
-- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`. Give that record a value for one property that has a public `set` — on the notes' lighthouse, `item.Condition = "lit";` — so the test can check that an everyday property comes back too, not only the sealed one. Then add the record to the registry. Then call the verb week 5 had you write, so the sealed property moves.
+- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`. Give that record a value for one property that has a public `set` — on the notes' lighthouse, `item.Condition = "lit";` — so the test can check that an everyday property comes back too, not only the sealed one. Then add the record to the registry. Then call your verb, the method that changes your sealed property. On the lighthouse that's `item.Visit(...)`, which moves `Visits` from 0 to 1.
 - **Do the thing.** `Save(path)`, then a **second, empty `Registry`** called `reopened`, then `Load(path)` on *that* one. Use that name: the next lines use it.
 - **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then `Find` the record by its name, and assert on that property **and** the sealed one. The sealed one is the assert that goes red. For each expected value, write the value itself — the number your verb should have left, like `1` — rather than `item.YourSealedProperty`. Both go red now, but only the literal can't agree with a broken verb.
 
@@ -380,14 +380,14 @@ It fails on the sealed property: **Expected** is the value your verb moved it to
 using System.Text.Json.Serialization;   // at the very top of the file
 
 [JsonInclude]
-public int TimesVisited { get; private set; }
+public int Visits { get; private set; }
 ```
 
-`TimesVisited` is an example — put `[JsonInclude]` on **your** sealed property.
+`Visits` is the lighthouse's — put `[JsonInclude]` on **your** sealed property.
 
 ⚠️ **Do not make the setter public.** That would undo weeks 4 and 5. The attribute changes what the serializer is allowed to do, and nothing else.
 
-💡 **If your record has more than one sealed property, they all need it.** Check 4 names every one that lost its value.
+💡 **If your record has more than one sealed property, they all need it.** The lighthouse has two, `Visits` and `LastVisit`. Check 4 names every one that lost its value.
 
 **Run yours, green:**
 
