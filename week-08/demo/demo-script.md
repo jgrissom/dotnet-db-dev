@@ -405,7 +405,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
       public Song? Favorite { get; private set; }
   ```
 
-- [ ] 📖 *"Favorite has a private setter too. Every sealed property you want back needs the attribute."*
+- [ ] 📖 *"Favorite has a private setter too. Every property with a private setter that you want back needs the attribute."*
 - [ ] **Run the tests again**
 
   ```bash

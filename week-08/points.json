@@ -21,7 +21,7 @@
     "Check4_ARecordKeepsItsOwnFacts": {
       "points": 3,
       "suite": "checks",
-      "label": "A record's own sealed facts survive the round trip — the private-set trap, closed"
+      "label": "A record's private-set properties survive the round trip"
     },
     "Week8_TheRegistrySurvivesARestart": {
       "points": 2,

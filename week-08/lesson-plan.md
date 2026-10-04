@@ -67,7 +67,7 @@ By the end of this session, students can:
 | 1:21 | 10 min | **☕ Break** |
 | 1:31 | 15 min | **Read back** *(demo §4)*. `Switchboard.Load`, then Ray typed into the file by hand: he shows up, so the file was read — and every caller comes back at 0. The lost data and the reason (private setters) are named; the fix is §5's. **Push #2.** |
 | 1:46 | 22 min | **Lab D: Task 3** — copy your file in, then `Rotation.Load`, its one line, and a hand-edited title to prove it reads the file. |
-| 2:08 | 20 min | 💥 **The number that came back wrong** *(slide 4, demo §5)*. The fact first, red, slide 4, `[JsonInclude]` on both sealed properties, green, Dorothy back at 4. **Push #3.** |
+| 2:08 | 20 min | 💥 **The number that came back wrong** *(slide 4, demo §5)*. The fact first, red, slide 4, `[JsonInclude]` on both private-set properties, green, Dorothy back at 4. **Push #3.** |
 | 2:28 | 30 min | 🎯 **Lab E: Task 4** — the lab's payoff. Copy your two files in, then fact first, red, `[JsonInclude]`, green. **Circulate hard.** |
 | 2:58 | 10 min | **☕ Break** |
 | 3:08 | 8 min | 💥 **A file is a text file** *(demo §6)*. Dorothy's calls edited to 500 by hand, and the desk believes it. Weeks 10 and 13, named. Done, defined. |
@@ -84,7 +84,7 @@ By the end of this session, students can:
 - 🎯 **§4 proves the load before it shows the problem.** Ray is typed into `switchboard.json` by hand, and he appears on the board — he exists nowhere in the code, so the file was read. Only then does the room look at the zeros: say that data was lost, say why (private setters the serializer can't set), and say the next step fixes it. **Slide 3 in §5 is then the recap, not the reveal.** Without Ray, a board that went from Dorothy's 3 calls to 0 reads as *Load made it worse*.
 - ⚠️ **§4's run writes the zeros back over the file when you quit.** That is said out loud — it's exactly what students meet in Task 3 — and it's why §5 deletes the file before its final run.
 - 🎯 **In §5, ask for the color before the test runs, and wait for an answer.**
-- 💡 **§5 puts `[JsonInclude]` on both `CallsTonight` and `Favorite`.** Both have private setters, and without the second one Dorothy's request comes back as `-`. That is the homework's own tip — every sealed property needs it — shown live.
+- 💡 **§5 puts `[JsonInclude]` on both `CallsTonight` and `Favorite`.** Both have private setters, and without the second one Dorothy's request comes back as `-`. That is the homework's own tip — every private-set property needs it — shown live.
 - ⚠️ **Each push is three steps: copy the file, commit, then pull-and-push.** The cue sheet has them as three Copy buttons. **A push that asks you to sign in or is rejected costs a minute, not the block** — their task doesn't need your file to start.
 - ⚠️ **§6 must not become a lecture on security.** Edit one number, run it, say the two sentences. Week 10 moves the data and week 13 handles damage.
 - **The demo commits once, silently** — the starter, alongside the room in Lab A. The three pushes go to the starters repo, not the demo repo.

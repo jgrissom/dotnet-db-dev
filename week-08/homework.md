@@ -176,7 +176,7 @@ Swap `_yourList` for the name of the list inside your `Registry`, or it will not
 dotnet run --project Project
 ```
 
-The last line says how many records went into the file. **Now look at the top of your repo** — `registry.json` is there. Open it. That is your registry, on disk, and it outlived the program. Every property the serializer could read went into it — including your **sealed** property: the one with a `private set`, which only your verb can change.
+The last line says how many records went into the file. **Now look at the top of your repo** — `registry.json` is there. Open it. That is your registry, on disk, and it outlived the program. Every property the serializer could read went into it — including the one only your verb can change. **Look at your record's class and find the property with a public `get` and a `private set`** — on the notes' lighthouse, `public int Visits { get; private set; }`. That's your private-set property, and Task 4 is about it.
 
 > [!NOTE]
 > **Committing `registry.json` is fine and so is not committing it** — it is data your program made, not code you wrote. Nothing is graded either way. *(Don't add it to `.gitignore`; [that file has been four lines since week 1 and it stays four lines](../week-01/lecture-notes.md).)*
@@ -318,15 +318,15 @@ dotnet test Project.Checks
   ```
 
   ⚠️ **Never your program's real file.** `registry.json` belongs to your program; the test gets a file of its own.
-- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`. Give that record a value for one property that has a public `set` — on the notes' lighthouse, `item.Condition = "lit";` — so the test can check that an everyday property comes back too, not only the sealed one. Then add the record to the registry. Then call your verb, the method that changes your sealed property. On the lighthouse that's `item.Visit(...)`, which moves `Visits` from 0 to 1.
+- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`. Give that record a value for one property that has a public `set` — on the notes' lighthouse, `item.Condition = "lit";` — so the test can check that an everyday property comes back too, not only the private-set one. Then add the record to the registry. Then call your verb, the method that changes your private-set property. On the lighthouse that's `item.Visit(...)`, which moves `Visits` from 0 to 1.
 - **Do the thing.** `Save(path)`, then a **second, empty `Registry`** called `reopened`, then `Load(path)` on *that* one. Use that name: the next lines use it.
-- **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then `Find` the record by its name, and assert on that property **and** the sealed one. The sealed one is the assert that goes red. For each expected value, write the value itself — the number your verb should have left, like `1` — rather than `item.YourSealedProperty`. Both go red now, but only the literal can't agree with a broken verb.
+- **Check the answer.** `Assert.Equal(1, reopened.Count)`. Then `Find` the record by its name, and assert on that property **and** your private-set one. The private-set one is the assert that goes red. For each expected value, write the value itself — the number your verb should have left, like `1` — rather than `item.YourPrivateSetProperty`. Both go red now, but only the literal can't agree with a broken verb.
 
 | In the lab | In yours |
 |---|---|
 | `Song` | your record type — written `YourRecord` below |
 | `nightjar.Play()` | your verb, with whatever arguments yours takes — written `YourVerb()` below |
-| `PlaysTonight` | your sealed property — written `YourSealedProperty` below |
+| `PlaysTonight` | your property with a public `get` and a `private set` — written `YourPrivateSetProperty` below |
 | *(none)* | one property with a public `set`, like the lighthouse's `Condition` — written `YourProperty` below |
 
 <details>
@@ -358,7 +358,7 @@ Swap every `Your…` name for one of yours, and put your own values where the `?
 
         Assert.NotNull(back);
         Assert.Equal(?, back!.YourProperty);
-        Assert.Equal(?, back.YourSealedProperty);
+        Assert.Equal(?, back.YourPrivateSetProperty);
     }
 ```
 
@@ -370,7 +370,7 @@ Swap every `Your…` name for one of yours, and put your own values where the `?
 dotnet test Project.Tests
 ```
 
-It fails on the sealed property: **Expected** is the value your verb moved it to, and **Actual** is where it started. **Red, for the right reason.**
+It fails on your private-set property: **Expected** is the value your verb moved it to, and **Actual** is where it started. **Red, for the right reason.**
 
 **The reason, and it is one sentence:** a serializer writes every property it can **read**, and reads back only the ones it can **write**. The property week 5 had you seal — `{ get; private set; }` — has no public setter, so it goes out and never comes home.
 
@@ -383,11 +383,11 @@ using System.Text.Json.Serialization;   // at the very top of the file
 public int Visits { get; private set; }
 ```
 
-`Visits` is the lighthouse's — put `[JsonInclude]` on **your** sealed property.
+`Visits` is the lighthouse's — put `[JsonInclude]` on **your** private-set property.
 
 ⚠️ **Do not make the setter public.** That would undo weeks 4 and 5. The attribute changes what the serializer is allowed to do, and nothing else.
 
-💡 **If your record has more than one sealed property, they all need it.** The lighthouse has two, `Visits` and `LastVisit`. Check 4 names every one that lost its value.
+💡 **If your record has more than one property with a `private set`, they all need it.** The lighthouse has two, `Visits` and `LastVisit`. Check 4 names every one that lost its value.
 
 **Run yours, green:**
 
@@ -467,7 +467,7 @@ Four moments worth saving, written into the parts above at the point where each 
 | 2 | Weeks 4-7 still hold — Topic, no public fields, All() copies, Find and Remove behave, IListed kept by record and registry, Everything() intact, and Add still refuses a duplicate |
 | 2 | Save(string path) writes a file at the path it was handed, with the records in it |
 | 3 | Load(string path) fills a fresh registry back up — count and Find both — and a missing file is a first run, not a crash |
-| 3 | A record's own sealed facts survive the round trip — the private-set trap, closed |
+| 3 | A record's private-set properties survive the round trip |
 | 2 | Your test: the registry is still there after a restart — written by you, green in your own suite |
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
@@ -490,8 +490,8 @@ Four moments worth saving, written into the parts above at the point where each 
 | **Two checks listed**, not four | You're running **week 7's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — this week lists four, starting `Check1_WeeksFourToSevenStillHold` and `Check2_TheRegistryWritesItselfDown`. |
 | `CS0246: The type or namespace name 'YourRecord' could not be found` | You pasted a **Stuck?** shape without swapping the placeholder. `YourRecord` is your record type's name — the class `NewItem` hands back. |
 | `CS0103: The name '_yourList' does not exist in the current context` | Same thing: `_yourList` is the name of the list field inside your `Registry`. Open `Registry.cs` and use the name you gave it. |
-| `CS1525: Invalid expression term '?'` | The fact's shape still has a `?` in it. Each `?` is a value of yours: what you set `YourProperty` to (like `"lit"`), and what the sealed one should say after your verb. |
-| `CS1061` naming `YourProperty`, `YourVerb` or `YourSealedProperty` | The fact's shape still has a placeholder in it. Swap each one for a real member of your record. |
+| `CS1525: Invalid expression term '?'` | The fact's shape still has a `?` in it. Each `?` is a value of yours: what you set `YourProperty` to (like `"lit"`), and what the private-set one should say after your verb. |
+| `CS1061` naming `YourProperty`, `YourVerb` or `YourPrivateSetProperty` | The fact's shape still has a placeholder in it. Swap each one for a real member of your record. |
 | `CS0103: The name 'JsonSerializer' does not exist` | `using System.Text.Json;` at the top of `Registry.cs`. |
 | `CS0246: 'JsonInclude' could not be found` | A different using, and it catches everybody: `using System.Text.Json.Serialization;` — the `.Serialization` on the end is the whole difference. |
 | Check 2 red: *no file appeared* | `Save` is writing to a name of its own instead of the `path` it was handed, or it isn't writing at all. [Why the path is always handed in.](lecture-notes.md#so-hand-the-path-in) |
@@ -499,13 +499,13 @@ Four moments worth saving, written into the parts above at the point where each 
 | Check 3 red: *the registry held records after loading a missing file* | No `File.Exists` guard — [a missing file is a first run](lecture-notes.md#a-missing-file-is-not-an-error). |
 | Check 3 red: *Find can't see one of them* | The name didn't survive. The property `NewItem` puts the name into has no public setter — same fix as Task 4, `[JsonInclude]`. |
 | Check 4 red, and it names a property | Exactly the trap: `{ get; private set; }` [goes out and never comes home](lecture-notes.md#what-the-serializer-will-not-read-back). One attribute, above that property. |
-| Check 4 red: *no method that moves something sealed* | Week 5's job is missing — your record needs a verb that moves a property the outside world cannot write. [Week 5's homework](../week-05/homework.md) is where that was built. |
+| Check 4 red: *no method that moves something the outside world cannot write* | Week 5's job is missing — your record needs a verb that moves a property the outside world cannot write. [Week 5's homework](../week-05/homework.md) is where that was built. |
 | Every record comes back blank | Your record has no public parameterless constructor **and** no constructor whose parameter names match its properties. The serializer needs one road in — [more of these in the notes](lecture-notes.md#-troubleshooting). |
 | Your records show up twice | No `Clear()` before filling — your seeds went in first, and `Load` added on top of them. |
 | My hand edit to `registry.json` disappeared | The program saves at the end of every run. Edit the file when the program isn't running, and if `Load` isn't written yet, the run will write your seeds over it — that's Task 3's "before". |
 | `JsonException: The JSON value could not be converted` | The file was written by an older shape of your class. Delete `registry.json` and let the program write a new one. |
 | Your fact's name doesn't match the table | The grader reads it **exactly** — `Week8_TheRegistrySurvivesARestart`, on a `public void` method taking nothing. The body is yours; the name isn't. |
-| Your fact is green before the fix | It's loading into the registry that already holds the records, reading a file an earlier run left behind, or not asserting on the sealed property. **A second, empty registry, `File.Delete(path)` first, and an assert on the sealed one.** |
+| Your fact is green before the fix | It's loading into the registry that already holds the records, reading a file an earlier run left behind, or not asserting on the private-set property. **A second, empty registry, `File.Delete(path)` first, and an assert on the private-set one.** |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
 | A value isn't what you think it is | **Set a breakpoint and look** — [week 5's drill](../week-05/lecture-notes.md#the-debugger-and-what-it-is-actually-for), and a `path` variable is exactly the kind of thing to put in the Variables pane. |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b the-log-book`, push that. |

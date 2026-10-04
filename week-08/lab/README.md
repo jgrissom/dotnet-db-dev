@@ -622,7 +622,7 @@ Actual:   0
    It answers `0`. The number is in the file and not in the object.
 5. Press **Stop** (<kbd>⇧F5</kbd> / <kbd>Shift+F5</kbd>), then click the red dot to remove it.
 
-**Here is why.** A serializer writes every property it can **read**, and reads back only the ones it can **write**. `PlaysTonight` is `{ get; private set; }`. It's sealed so nothing outside the class can claim a play that never happened, and that is still right. It also means the serializer has no way to put the value back.
+**Here is why.** A serializer writes every property it can **read**, and reads back only the ones it can **write**. `PlaysTonight` is `{ get; private set; }`. The setter is private so nothing outside the class can claim a play that never happened, and that is still right. It also means the serializer has no way to put the value back.
 
 **So you tell it that this one is allowed.** First, the `using` the attribute needs — add this at the very top of `Lab/Song.cs`:
 
