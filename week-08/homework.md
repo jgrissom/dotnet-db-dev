@@ -45,17 +45,23 @@ git checkout -b the-log-book
 git -C ../dotnet-db-starters pull
 ```
 
-Then copy this week's over the top:
+Then take last week's out and copy this week's in. **Two commands, in this order:**
+
+```bash
+rm -r Project.Checks
+```
 
 ```bash
 cp -r ../dotnet-db-starters/project/week-08/Project.Checks .
 ```
 
+⚠️ **Don't skip the `rm`.** Copying over the top of the old folder is not enough: on Windows the copied files keep their old dates, `dotnet` decides nothing has changed, and it runs **last week's** checks again without telling you.
+
 > [!NOTE]
 > **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
 
 > [!WARNING]
-> **Skip this and every number below is wrong.** This week's `Project.Checks` holds **four** checks. If `dotnet test Project.Checks` lists **two**, you are running **week 7's** — come back and run the two commands above.
+> **Skip this and every number below is wrong.** This week's `Project.Checks` holds **four** checks. If `dotnet test Project.Checks` lists **two**, you are running **week 7's** — come back and run the `rm` and the `cp` above, both of them.
 
 **Prove it landed:**
 
