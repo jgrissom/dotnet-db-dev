@@ -3,22 +3,24 @@
 **20 points · due before next class**
 
 > [!NOTE]
-> **Back to a normal week.** Last week's was the term's only two-week homework, because the term break sat in the middle of it. This one is set today and due before the next class.
+> **A normal week.** Set in one class and due before the next one.
 
-Your registry has held records since week 4 and remembered them since week 8. It still cannot answer a single question about them.
+Your registry has held records since week 4 and remembered them since week 8. It still can't answer a question about them.
 
-Tonight it gets three, and [each one is a line](lecture-notes.md#one-shape-and-it-does-not-change): **just the names**, **in order**, and **the ones that match**. If the `=>` is new to you, [read one out loud before you write one](lecture-notes.md#reading-a-lambda-out-loud) — it is the only new syntax this week, and [the whole vocabulary fits in one table](lecture-notes.md#the-words-you-need-tonight). Their signatures are part of the deal the way every dictated name has been since week 4:
+**This homework is the lab again, on your own project.** Same four tasks, same order, same steps. Where the lab said `Rotation`, `Song` and `_songs`, you use your `Registry`, your record type, and the list inside your `Registry`. If you finished the lab, you have already done every step once.
+
+Three new members, and their signatures are part of the deal the way every dictated name has been since week 4:
 
 ```csharp
+public List<YourRecord> Matching(string term)
 public List<string> Names()
 public List<YourRecord> Sorted()
-public List<YourRecord> Matching(string term)
 ```
 
-Then one fact of your own, and it is a different kind of fact from the five already in your suite: **it gives permission rather than catching something.**
+`YourRecord` is your own record type — the class your `NewItem` hands back.
 
 > [!TIP]
-> **Keep [`lecture-notes.md`](lecture-notes.md) open in a second tab.** Every requirement below links to the section that shows it done, and the [troubleshooting section](lecture-notes.md#-troubleshooting) names this week's actual errors.
+> **Keep the [lab](lab/README.md) open in a second tab.** Each task below is the lab task with the same number. Every task also has a **Stuck? Show me the shape** box, written with placeholder names like `YourRecord` — swap in your own names before it will build.
 
 ---
 
@@ -64,10 +66,10 @@ cp -r ../dotnet-db-starters/project/week-09/Project.Checks .
 ⚠️ **Don't skip the `rm`.** Copying over the top of the old folder is not enough: on Windows the copied files keep their old dates, `dotnet` decides nothing has changed, and it runs **last week's** checks again without telling you.
 
 > [!NOTE]
-> **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched.
+> **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
 
 > [!WARNING]
-> **Skip this and every number below is wrong.** This week's `Project.Checks` holds **four** checks, and check 1 is called `Check1_WeeksFourToEightStillHold`. If you see a different first name, you are running last week's — come back and run the `rm` and the `cp` above, both of them.
+> **Skip this and every number below is wrong.** This week's `Project.Checks` holds four checks, and the first is called `Check1_WeeksFourToEightStillHold`. If yours is called `Check1_WeeksFourToSevenStillHold`, you are running **week 8's** — come back and run the `rm` and the `cp` above, both of them.
 
 **Prove it landed:**
 
@@ -75,158 +77,88 @@ cp -r ../dotnet-db-starters/project/week-09/Project.Checks .
 dotnet test Project.Checks
 ```
 
-**1 / 4.** The green one is check 1 — weeks 4 through 8, still holding. The other three are tonight's.
+**1 / 4.** The green one is check 1 — weeks 4 through 8, still holding. The other three are this week's three questions.
+
+**Commit it** — the week as you started it, the same commit the lab's Setup made:
+
+```bash
+git add .
+git commit -m "week 9: this week's checks"
+```
 
 ---
 
-## Part 2 — The code
+## Part 2 — The tasks
 
-**Two suites this week, so two counts:**
+**Two suites this week, so two counts** — the same two the lab had:
 
-- **Mine:** `dotnet test Project.Checks` — climbs **1 → 2 → 3 → 4**.
-- **Yours:** `dotnet test Project.Tests` — **5 facts** now, 6 by the end.
+- **Mine:** `dotnet test Project.Checks` — **1** through Task 1, then **2, 3, 4**.
+- **Yours:** `dotnet test Project.Tests` — the suite you have been growing since week 7. It has **5 facts** in it now and gains one at Task 1.
 
 | # | Check | Whose | What to do |
 |---|---|---|---|
-| 1 | `Check1_WeeksFourToEightStillHold` | mine | **Nothing to write.** Green before you start — and [it is doing something new this week](#the-invitation-and-nothing-grades-it). |
-| 2 | `Check2_TheRegistryHandsBackItsNames` | mine | `Names()`. **[Task 2 in full ↓](#task-2-in-full)** |
-| 3 | `Check3_TheRegistryComesBackInOrder` | mine | `Sorted()`. **[Task 3 in full ↓](#task-3-in-full)** |
-| 4 | `Check4_TheRegistryFindsEveryMatch` | mine | `Matching(term)`. **[Task 4 in full ↓](#task-4-in-full)** |
-| 5 | `Week9_FindComesBackEmptyHanded` | **yours** | One fact, in your own suite. **[Task 5 in full ↓](#task-5-in-full)** |
+| 1 | `Check1_WeeksFourToEightStillHold` | mine | Already green, and it has to stay green while you rewrite `Find` and `Load`. **[Task 1 in full ↓](#task-1-in-full)** |
+| 1 | `Week9_FindComesBackEmptyHanded` | **yours** | Your own fact about `Find`, written first. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `Check2_TheRegistryFindsEveryMatch` | mine | Write `Matching`, and call it. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `Check3_TheRegistryHandsBackItsNames` | mine | Write `Names`, and call it. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `Check4_TheRegistryComesBackInOrder` | mine | Write `Sorted`, and call it. **[Task 4 in full ↓](#task-4-in-full)** |
 
-⚠️ **Row 5's name is dictated exactly as spelled**, the way `Week8_TheRegistrySurvivesARestart` was — it is what the grader reads out of *your* test run. `public void`, takes nothing, `[Fact]` on top. **Everything inside the braces is yours.**
+⚠️ **Your fact's name is dictated exactly as spelled**, the way `Week8_TheRegistrySurvivesARestart` was — it is what the grader reads out of *your* test run. `public void`, takes nothing, `[Fact]` on top. **Everything inside the braces is yours.**
 
-> [!NOTE]
-> **The name carries the week, not a check number.** That changed in week 8 and it holds from here: your suite is permanent and grows every week, and check numbers restart annually. [Week 7's four `CheckN_` facts stay exactly as they are.](../week-08/homework.md#task-4-in-full)
+### Task 1 in full
 
-### Task 2 in full
+**A fact first, then two loops become one line each.**
 
-**Just the names.**
+**Checks:** `Check1_WeeksFourToEightStillHold` — *mine, already green* · `Week9_FindComesBackEmptyHanded` — *yours*
 
-**Check:** `Check2_TheRegistryHandsBackItsNames` — *mine*
+This is the lab's Task 1. **Nothing goes from red to green.** You change two pieces of code that work, and my count stays at 1 / 4. Your own suite is how you know nothing broke.
 
-**1. Add the method.** In `Project/Registry.cs`, and the signature is dictated:
-
-```csharp
-public List<string> Names()
-{
-    // TODO: hand back a list holding just the name from each of your items.
-    return new List<string>();
-}
-```
-
-💡 **The placeholder `return` is there so the project still builds** — check 2 then fails with its own message instead of a build error taking all four down with it.
-
-**2. One line inside it**, and [the notes work the shape through](lecture-notes.md#select--turning-each-one-into-something-else):
-
-- `_items.Select(item => item.Name).ToList()` — swap `Name` for whatever your own name property is called. It is the one `NewItem` sets and `Find` matches on.
-- **`Where` keeps SOME of the things. `Select` keeps all of them and changes what each one IS** — here, from one of your records into the one string on it. A `List<Lighthouse>` goes in and a `List<string>` comes out.
-
-⚠️ **In the registry's own order**, which is the order records were added. Sorting is Task 3's job, and check 2 fails if you do it here.
-
-**3. Run mine:**
+**First, see where both suites start.** Mine:
 
 ```bash
 dotnet test Project.Checks
 ```
 
-**2 / 4.**
+**1 / 4.** Yours:
 
 ```bash
-git add .
-git commit -m "The registry hands back its names"
+dotnet test Project.Tests
 ```
 
----
+**5 passed.**
 
-### Task 3 in full
+#### First, the fact — before you touch `Find`
 
-**In order.**
+**Write it in `Project.Tests/RegistryTests.cs`, under the five you already have.** The name is dictated: `Week9_FindComesBackEmptyHanded`. The moves are the lab's:
 
-**Check:** `Check3_TheRegistryComesBackInOrder` — *mine*
+- **Set the scene.** A `Registry`, and one record from `NewItem("a name of yours")`, kept in a variable and added to the registry.
+- **Check the record that is there.** `Assert.Same(expected, actual)` passes only when both are the **same object**. Expected is your record variable. Actual is `registry.Find("a name of yours")` — the same name you gave `NewItem`.
+- **Check the name nobody has.** `Assert.Null(registry.Find("a name nobody has"))`.
 
-**1. Add the method**, dictated the same way:
+| In the lab | In yours |
+|---|---|
+| `Rotation` | `Registry` |
+| `Song nightjar = new Song(...)` | a record from `NewItem` — its type is written `YourRecord` below |
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `YourRecord` for your record type, and both names for names of your own, or it will not build.
 
 ```csharp
-public List<YourRecord> Sorted()
-{
-    // TODO: hand back your items in order by name — a sorted COPY, not the list itself.
-    return new List<YourRecord>();
-}
+    [Fact]
+    public void Week9_FindComesBackEmptyHanded()
+    {
+        Registry registry = new Registry();
+        YourRecord item = registry.NewItem("a name of yours");
+        registry.Add(item);
+
+        Assert.Same(item, registry.Find("a name of yours"));
+        Assert.Null(registry.Find("a name nobody has"));
+    }
 ```
 
-**2. One line**, and it is [`OrderBy`](lecture-notes.md#orderby--and-it-leaves-the-thing-you-asked-alone) over your name property, with [`.ToList()`](lecture-notes.md#tolist-and-why-every-query-here-ends-with-it) on the end.
-
-> [!CAUTION]
-> **This is the week's trap and it is worth two minutes.** `OrderBy` sorts a **copy** and hands the copy back. `List<T>.Sort` does not — it rearranges the list it was given.
->
-> Reach for `Sort` here and **your registry itself comes out in a different order than records went in**, which means your `Save` writes the file in the new order too. Nothing tells you. **Check 3 tests for exactly this**, and it is the only part of tonight you cannot see by running your program.
-
-**3. Run mine:**
-
-```bash
-dotnet test Project.Checks
-```
-
-**3 / 4.**
-
-```bash
-git add .
-git commit -m "And it comes back in order"
-```
-
----
-
-### Task 4 in full
-
-**The ones that match.**
-
-**Check:** `Check4_TheRegistryFindsEveryMatch` — *mine*
-
-**1. Add the method**, dictated:
-
-```csharp
-public List<YourRecord> Matching(string term)
-{
-    // TODO: hand back only the items whose name contains term, in the order the registry holds them.
-    return new List<YourRecord>();
-}
-```
-
-**2. One line** — [a `Where`](lecture-notes.md#where--keeping-some-of-them), and the question is whether the record's name **contains** the term:
-
-- [`item.Name.Contains(term)`](lecture-notes.md#where--keeping-some-of-them) — **`Contains`, not `StartsWith`.** "Sable Point Light" has *Point* in the middle of it, and a search that only looks at the front misses it.
-- **In the registry's own order.** [`Where` does not reorder anything.](lecture-notes.md#where--keeping-some-of-them)
-- **A term nothing matches gives an empty list** — not `null`, and not an error. You do not have to write that; it is what `Where` already does, and [it is the opposite of what `First` would do](lecture-notes.md#on-an-empty-sequence).
-
-**3. Run mine:**
-
-```bash
-dotnet test Project.Checks
-```
-
-**4 / 4.**
-
-```bash
-git add .
-git commit -m "And it finds every match"
-```
-
----
-
-### Task 5 in full
-
-**Your own fact, and it is the first one that gives permission.**
-
-**Check:** `Week9_FindComesBackEmptyHanded` — *yours*
-
-Every fact in your suite so far was written to **catch** something. This one is written so that you can **change** something.
-
-**In `Project.Tests/RegistryTests.cs`, under the five you already have.** Two asserts, and the second is the one that matters — [the notes work a fact of this shape through, on lighthouses](lecture-notes.md#writing-a-fact-about-nothing-being-there):
-
-- **Set the scene.** A registry, one record, added.
-- **`Find` the record by the name you gave it** — and `Assert.Same` that you got back the record the registry is holding, not a copy.
-- **Then `Find` a name nobody has**, and `Assert.Null` the answer. **That is half of what `Find` is for.**
+</details>
 
 **Run yours:**
 
@@ -234,66 +166,193 @@ Every fact in your suite so far was written to **catch** something. This one is 
 dotnet test Project.Tests
 ```
 
-**6 passed** — five from before, and this one.
+**6 passed.** It went green the first time, **and that is not a mistake.** `Find` already works, so a fact about `Find` passes. It is there so you can change `Find` and know you didn't break it.
 
-**It went green immediately, and that is not a mistake.** It describes code that already works.
+#### Now make `Find` one line
 
-**So make it fail once, and this time the falsification IS the lesson.** In `Registry.cs`, change `Find`'s `FirstOrDefault` to `First` — just `First`, no `OrDefault` — and run your suite again:
+**In `Project/Registry.cs`.** Your `Find` is a `foreach` that walks your list, hands back the record whose name matches, and hands back `null` at the end. Keep its first line exactly as it is. Replace the loop **and** the `return null;` under it with one `return` line:
+
+- **`FirstOrDefault(question)`**, called on the list inside your `Registry`, hands back the first record the question is true for. If it is true for none of them, it hands back `null`.
+- **The question** is asked of one record at a time: `item => item.YourNameProperty == name`. `item` is a name you pick. `YourNameProperty` is the property `NewItem` puts the name into. `name` is whatever your `Find`'s parameter is called.
+
+| In the lab | In yours |
+|---|---|
+| `_songs` | the list inside your `Registry` — written `_yourList` below |
+| `song.Title` | your record's name property — written `YourNameProperty` below |
+| `title` | your `Find`'s parameter — written `name` below |
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `YourRecord`, `_yourList` and `YourNameProperty` for your own names, or it will not build.
+
+```csharp
+    public YourRecord? Find(string name)
+    {
+        return _yourList.FirstOrDefault(item => item.YourNameProperty == name);
+    }
+```
+
+</details>
+
+💡 **Is your `Find` already one line?** Then there is nothing to rewrite. Do *Make it fail once* below anyway, and carry on to `Load`.
+
+**Run your program**, and check it prints what it printed before:
+
+```bash
+dotnet run --project Project
+```
+
+**Then yours:**
+
+```bash
+dotnet test Project.Tests
+```
+
+**6 passed.** Then mine:
+
+```bash
+dotnet test Project.Checks
+```
+
+**1 / 4 — exactly where you started.**
+
+#### Make it fail once
+
+**In your new line, change `FirstOrDefault` to `First`**, and run your suite:
 
 ```bash
 dotnet test Project.Tests
 ```
 
 ```
-System.InvalidOperationException : Sequence contains no matching element
+   System.InvalidOperationException : Sequence contains no matching element
 ```
 
-**Read that.** [`First` objects to finding nothing](lecture-notes.md#on-an-empty-sequence); `FirstOrDefault` hands back `null`. Your loop could never have done that — it walked, found nothing, and fell out of the bottom to a `return null;`. **Put it back**, and now the green means something.
+**Red — and probably more than one fact.** `First` does not hand back `null` when it finds nothing. It throws. Your new fact asks for a name nobody has, so it goes red. If your `Add` asks `Find` first, the way week 7's guard does, then **every fact that adds a record goes red too**, because the first record always goes into an empty registry.
+
+**Now run your program:**
 
 ```bash
-git add .
-git commit -m "Find comes back empty-handed: my own fact"
+dotnet run --project Project
 ```
 
----
+```
+Unhandled exception. System.InvalidOperationException: Sequence contains no matching element
+```
 
-### The invitation, and nothing grades it
+**If your `Add` asks `Find` first, it crashes on its very first record.** The loop could never do that. *(If your program ran, your `Add` doesn't use `Find`; your fact still caught the change.)* **Put `FirstOrDefault` back**, and run your suite again:
 
-**Your `Registry` still has loops in it**, and you now know what most of them are:
+```bash
+dotnet test Project.Tests
+```
 
-- **`Find`** — a `foreach` that walks and returns. That is [`FirstOrDefault`](lecture-notes.md#firstordefault--the-one-or-nothing-at-all), and you just watched what happens if you pick the wrong word.
-- **`Load`** — a `foreach` that fills one list from another. That is `AddRange`, and ⚠️ **the `Clear()` above it stays.**
-- **`Everything()`** — and this one **should stay a loop.** There is a LINQ spelling of it and [it reads worse](lecture-notes.md#everything-and-the-one-liner-that-reads-worse). A one-liner is not the goal.
-- ⚠️ **And if your `Program.cs` has a loop that CHANGES something on each record**, leave that alone too — [a query asks, and a lambda that does something is not a question](lecture-notes.md#select--turning-each-one-into-something-else).
+**6 passed.**
 
-💡 **The sharpest version of this argument is Haldane's, not yours.** `Watch.Save` stays a loop because [the one-line version has to answer for a kind of entry it has never met — and what it answers is a blank line in the file](lecture-notes.md#the-one-liner-that-writes-a-blank-line). Your own `Save` is a `JsonSerializer` call with no loop in it, so there is nothing to collapse there.
+#### And the loop at the bottom of `Load`
 
-**Nothing scores this either way, and I am telling you that rather than pretending otherwise** — a collapsed `Find` and a `foreach` behave identically, so no check can tell them apart. **What check 1 can tell you is whether you broke anything**, which is the only reason it is safe to try. Run it before and after:
+**In `Project/Registry.cs`, at the bottom of `Load`.** The `foreach` there puts every loaded record into your list, one at a time. Replace that loop with one call:
+
+- **`AddRange(loaded)`**, called on the list inside your `Registry`, adds every item of another list at once.
+- ⚠️ **The `Clear()` above it stays.** Loading replaces what the registry holds.
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `_yourList` for the list inside your `Registry`, or it will not build.
+
+```csharp
+        _yourList.Clear();
+
+        _yourList.AddRange(loaded);
+    }
+```
+
+</details>
+
+**Run your program twice:**
+
+```bash
+dotnet run --project Project
+```
+
+```bash
+dotnet run --project Project
+```
+
+**The same number of records both times.** If the second run has twice as many, the `Clear()` is gone.
+
+**Then yours:**
+
+```bash
+dotnet test Project.Tests
+```
+
+**6 passed.** Your week 8 fact saves a registry and loads it into a second one, so it is the fact watching `Load`.
+
+**Then mine:**
 
 ```bash
 dotnet test Project.Checks
 ```
 
+**1 / 4.**
+
+> [!NOTE]
+> **Nothing grades the rewrite itself.** A loop and a `FirstOrDefault` behave the same way, so no check can tell them apart. What is graded is your fact (2 points) and check 1 staying green (2 points). Check 1 is what tells you a rewrite broke something.
+
+💡 **`Everything()` stays a loop.** It builds a list out of two different kinds of things, and [the one-line version reads worse](lecture-notes.md#everything-and-the-one-liner-that-reads-worse). One line is not the goal.
+
+```bash
+git add .
+git commit -m "Find and Load, one line each, and my fact about Find"
+```
+
 ---
 
-## Part 3 — Show it in the program
+### Task 2 in full
 
-The checks never look at `Program.cs`, and a registry that can answer questions should be seen answering them.
+**The ones that match.**
 
-Open `Project/Program.cs` and put this at the **very end of the file** — after your listing loop, after `registry.Save(...)`, and after the line that reports how many are on file. That keeps the program reading in the order things happened: the listing, the save, then the questions.
+**Check:** `Check2_TheRegistryFindsEveryMatch` — *mine*
+
+**Write `Matching` — in `Project/Registry.cs`.** The signature is dictated:
+
+```csharp
+public List<YourRecord> Matching(string term)
+```
+
+It hands back every record whose name has `term` somewhere inside it. One line, the lab's Task 2 with a different question:
+
+- **`Where(question)`**, called on the list inside your `Registry`, keeps the records the question is true for, in the order it found them.
+- **The question** answers yes or no for one record: does this record's name contain the term? `text.Contains(term)` answers that for a string.
+- **`.ToList()`** on the end. `Where` does not hand back a list, and this method has to.
+- ⚠️ **`Contains`, not `StartsWith`.** "Sable Point Light" has *Point* in the middle of it.
+
+| In the lab | In yours |
+|---|---|
+| `List<Song>` | a list of your record type — written `List<YourRecord>` below |
+| `_songs` | the list inside your `Registry` — written `_yourList` below |
+| `song.Seconds > seconds` | does the name contain the term — your name property is written `YourNameProperty` below |
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `YourRecord`, `_yourList` and `YourNameProperty` for your own names, or it will not build.
+
+```csharp
+    public List<YourRecord> Matching(string term)
+    {
+        return _yourList.Where(item => item.YourNameProperty.Contains(term)).ToList();
+    }
+```
+
+</details>
+
+**Now call it — in `Project/Program.cs`, at the very end of the file**, after the line that says how many records were saved:
 
 ```csharp
 Console.WriteLine();
-Console.WriteLine("In order:");
-
-foreach (var record in registry.Sorted())
-{
-    Console.WriteLine($"  {record.Name}");
-}
-
-Console.WriteLine();
-Console.WriteLine($"On the books, as they arrived: {string.Join(", ", registry.Names())}");
-
 Console.Write("Search (a word, or Enter to skip): ");
 string? term = Console.ReadLine();
 
@@ -303,28 +362,179 @@ if (!string.IsNullOrWhiteSpace(term))
 
     Console.WriteLine(found.Count == 0
         ? $"  Nothing on file with \"{term.Trim()}\" in it."
-        : $"  {found.Count} match(es).");
+        : $"  {found.Count} on file with \"{term.Trim()}\" in it.");
 }
 ```
 
-⚠️ **Swap `record.Name` for your own record's name property**, and `var` is doing real work in the first line — it is whatever type your `Sorted()` hands back.
-
-**Run it and read the two lists against each other:**
+**Run it**, and at the `Search` prompt type a word that is inside one of your records' names:
 
 ```bash
 dotnet run --project Project
 ```
 
-**They hold the same records in different orders**, and the second one is the order your file is written in. That is [`OrderBy` handing back a copy](lecture-notes.md#orderby--and-it-leaves-the-thing-you-asked-alone), working — and [it is why every one of these ends with `.ToList()`](lecture-notes.md#tolist-and-why-every-query-here-ends-with-it).
+It says how many records have that word in them. Run it again and type a word none of them has: `Nothing on file with …`. Run it once more and just press Enter: it skips the search.
+
+**Then mine:**
+
+```bash
+dotnet test Project.Checks
+```
+
+**2 / 4.**
 
 ```bash
 git add .
-git commit -m "The program asks its own registry three questions"
+git commit -m "The registry finds every match"
 ```
 
 ---
 
-## Part 4 — The pull request
+### Task 3 in full
+
+**Just the names.**
+
+**Check:** `Check3_TheRegistryHandsBackItsNames` — *mine*
+
+**Write `Names` — in `Project/Registry.cs`.** The signature is dictated:
+
+```csharp
+public List<string> Names()
+```
+
+It hands back the name of every record. One line, the lab's Task 3:
+
+- **`Select(question)`**, called on the list inside your `Registry`, keeps **every** record and hands back one thing about each.
+- **The question** answers with the thing you want from each record. Here that is the record's name property. A list of your records goes in, and a list of strings comes out.
+- **`.ToList()`** on the end.
+- ⚠️ **In the registry's own order**, which is the order the records were added in. Putting them in order is Task 4, and check 3 fails if you do it here.
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `_yourList` and `YourNameProperty` for your own names, or it will not build.
+
+```csharp
+    public List<string> Names()
+    {
+        return _yourList.Select(item => item.YourNameProperty).ToList();
+    }
+```
+
+</details>
+
+**Now call it — in `Project/Program.cs`, at the very end of the file**, under the search:
+
+```csharp
+Console.WriteLine();
+Console.WriteLine($"On the books, as they arrived: {string.Join(", ", registry.Names())}");
+```
+
+**Run it** — press Enter at the `Search` prompt:
+
+```bash
+dotnet run --project Project
+```
+
+The last line lists every record's name, in the order you added them.
+
+**Then mine:**
+
+```bash
+dotnet test Project.Checks
+```
+
+**3 / 4.**
+
+```bash
+git add .
+git commit -m "The registry hands back its names"
+```
+
+---
+
+### Task 4 in full
+
+**In order — and the registry left alone.**
+
+**Check:** `Check4_TheRegistryComesBackInOrder` — *mine*
+
+**Write `Sorted` — in `Project/Registry.cs`.** The signature is dictated:
+
+```csharp
+public List<YourRecord> Sorted()
+```
+
+It hands back every record, in order by name. One line, the lab's Task 4:
+
+- **`OrderBy(question)`**, called on the list inside your `Registry`, hands back the records in order, A to Z.
+- **The question** answers with the thing to put them in order by: the record's name property.
+- **`.ToList()`** on the end.
+
+> [!CAUTION]
+> **`OrderBy` builds a new list in sorted order and leaves your registry's list alone. `Sort`, called on your list, does not: it rearranges the registry itself.** Reach for `Sort` and your registry comes out in a different order than the records went in, and your `Save` writes the file in that new order. Nothing tells you. **Check 4 looks for exactly this, and it is worth 4 points.**
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `YourRecord`, `_yourList` and `YourNameProperty` for your own names, or it will not build.
+
+```csharp
+    public List<YourRecord> Sorted()
+    {
+        return _yourList.OrderBy(item => item.YourNameProperty).ToList();
+    }
+```
+
+</details>
+
+**Now call it — in `Project/Program.cs`, at the very end of the file**, under the names:
+
+```csharp
+Console.WriteLine();
+Console.WriteLine("In order:");
+
+foreach (var record in registry.Sorted())
+{
+    Console.WriteLine($"  {record.YourNameProperty}");
+}
+```
+
+⚠️ **Swap `YourNameProperty` for your record's name property**, or it will not build.
+
+**Run it** — press Enter at the `Search` prompt:
+
+```bash
+dotnet run --project Project
+```
+
+**Read the last two lists against each other.** *As they arrived* and *In order* hold the same records in two different orders.
+
+**Now check the file.** Open `registry.json`. The records are in the order they arrived, not in A-to-Z order. Asking for the records in order did not rewrite your file — the lab's Task 4, on your project.
+
+**Then mine:**
+
+```bash
+dotnet test Project.Checks
+```
+
+**4 / 4.**
+
+**And yours:**
+
+```bash
+dotnet test Project.Tests
+```
+
+**6 passed.**
+
+```bash
+git add .
+git commit -m "And it comes back in order"
+```
+
+---
+
+## Part 3 — The pull request
 
 ```bash
 git push -u origin three-questions
@@ -349,7 +559,7 @@ git pull
 
 ## Commit as you go
 
-Five moments worth saving, written into the parts above at the point where each thing starts working — the names, the order, the search, your own fact, and the program. **The commits I count are the ones on this week's branch**, so committing straight to `main` costs you twice.
+Five moments worth saving, written into the parts above at the point where each thing starts working — the checks copied in, then one for each of the four tasks. **The commits I count are the ones on this week's branch**, so committing straight to `main` costs you twice.
 
 ---
 
@@ -364,10 +574,10 @@ Five moments worth saving, written into the parts above at the point where each 
 | Points | What |
 |---|---|
 | 2 | Weeks 4-8 still hold — Topic, no public fields, All() copies, Find and Remove behave (including the empty-handed answer), IListed kept by record and registry, Everything() intact, Add refuses a duplicate, and Save/Load still round-trip |
+| 2 | Your test: Find hands back the record it holds, and null for a name nobody has — written by you, green in your own suite |
+| 2 | Matching(term) hands back every record whose name contains the term, in order, and an empty list when none do |
 | 2 | Names() hands back one name per record, in the order they were added |
 | 4 | Sorted() hands back every record in order by name — and leaves the registry's own order alone |
-| 2 | Matching(term) hands back every record whose name contains the term, in order, and an empty list when none do |
-| 2 | Your test: Find hands back the record it holds, and null for a name nobody has — written by you, green in your own suite |
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The program builds and runs without crashing — even when fed nothing but Enter |
 | 1 | `bin/` and `obj/` tracked **nowhere** in the project repo — the `.gitignore` holding |
@@ -386,30 +596,30 @@ Five moments worth saving, written into the parts above at the point where each 
 
 | What you see | What it means |
 |---|---|
-| **Two or three checks listed**, not four | You're running an earlier week's. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — this week lists four, starting `Check1_WeeksFourToEightStillHold`. |
-| `CS1061: does not contain a definition for 'Select'` | `using System.Linq;` is missing from `Registry.cs`. It ships via implicit usings, so something at the top of the file got deleted. |
-| `CS0029: cannot convert 'IEnumerable<...>' to 'List<...>'` | The `.ToList()` on the end is missing. [It is what turns a recipe into an answer](lecture-notes.md#a-query-is-a-recipe-not-an-answer), and the dictated return types are all `List`. |
-| `CS1503: cannot convert from 'method group'` | You wrote `Select(item.Name)` instead of `Select(item => item.Name)`. The `=>` is not optional. |
-| Check 1 red: *Add threw InvalidOperationException* | You rewrote `Find` with `First()`. On an **empty** registry it throws, and `Add` asks `Find` first — so it dies on your very first record. [`FirstOrDefault`.](lecture-notes.md#on-an-empty-sequence) |
-| Check 1 red: *a registry already holding 3 … now holds 6* | `Load`'s `foreach` became `AddRange` and the `Clear()` went with it. Put it back above. |
-| Check 1 red, naming an older week | Something older broke, and the message names which week's rule. Check 1 doing its job. |
-| Check 2 red: *gave the whole line* | `Select` is handing back `Line()` rather than the one name property. |
-| Check 2 red: *gave them in order* | There is an `OrderBy` in `Names()`. It hands them back in the registry's own order; sorting is check 3's. |
-| Check 3 red: *That is the first record ADDED* | Nothing sorted — `Sorted()` is handing back what `All()` would. |
-| Check 3 red: *That is LAST alphabetically* | `OrderByDescending`. `OrderBy` is the one that starts at A. |
-| Check 3 red: ***Sorting the registry SORTED THE REGISTRY*** | `List.Sort` instead of `OrderBy`. [The whole trap, in one message.](lecture-notes.md#orderby--and-it-leaves-the-thing-you-asked-alone) |
-| Check 4 red: *handed back 1 … should hand back 2* | `StartsWith` instead of `Contains`. |
-| Check 4 red: *hands back a `IEnumerable<…>`* | No `.ToList()`, so the method's return type is wrong. |
-| `NullReferenceException` after a `MaxBy` or `MinBy` | They hand back `null` for an empty list. [`?.` in front, `??` behind.](lecture-notes.md#on-an-empty-sequence) |
-| `Average` threw and `Sum` didn't | [The average of no numbers is not zero.](lecture-notes.md#sum-count-and-average--one-number-out-of-many) |
-| You want *"is there at least one…"* and reached for `Where` | [`Any` answers yes or no in one word.](lecture-notes.md#any--a-yes-or-a-no) |
-| You want *"the top three"* | [`OrderByDescending`, then `Take`.](lecture-notes.md#take--stop-after-n) |
-| Your registry is small and you wonder when it stops being small | [The demo measured exactly that](lecture-notes.md#querying-a-file-and-what-it-costs), and [the bill is why week 10 exists](lecture-notes.md#and-then-the-bill). |
-| Your fact name doesn't match the table | The grader reads it **exactly** — `Week9_FindComesBackEmptyHanded`, on a `public void` method taking nothing. |
-| Your fact passes and you don't believe it | Good. [Make it fail once](#task-5-in-full) — swap `FirstOrDefault` for `First` and watch it throw. |
-| A search finds nothing and you can see the record | Compare exactly what you typed with exactly what is stored. String comparison is exact — **and if you're wondering whether it should be, hold that thought; it is a database-week conversation.** |
+| The first check is called `Check1_WeeksFourToSevenStillHold` | You're running **week 8's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) removes them and copies this week's in — run the `rm` and the `cp`, both. |
+| `CS0246: The type or namespace name 'YourRecord' could not be found` | You pasted a **Stuck?** shape without swapping the placeholder. `YourRecord` is your record type's name — the class `NewItem` hands back. |
+| `CS0103: The name '_yourList' does not exist in the current context` | Same thing: `_yourList` is the name of the list field inside your `Registry`. Open `Registry.cs` and use the name you gave it. |
+| `CS1061` naming `YourNameProperty` | The shape, or the `Program.cs` lines from Task 4, still have that placeholder in them. It's the property your `NewItem` puts the name into. |
+| `CS0266: Cannot implicitly convert type 'IEnumerable<…>' to 'List<…>'` | The `.ToList()` on the end is missing. `Where`, `Select` and `OrderBy` don't hand back a list, and all three dictated methods have to. |
+| `CS0103: The name 'item' does not exist in the current context` | The question is missing its front half. `Select(item.YourNameProperty)` has to be `Select(item => item.YourNameProperty)`. |
+| `InvalidOperationException: Sequence contains no matching element` | `First` where `FirstOrDefault` belongs. `First` throws when it finds nothing. |
+| Check 1 red: *Add threw InvalidOperationException* | Your rewritten `Find` uses `First`. On an empty registry it throws, and `Add` asks `Find` first — so the very first record fails. [`FirstOrDefault`.](lecture-notes.md#firstordefault--the-one-or-nothing-at-all) |
+| Check 1 red: *a registry already holding 3 … now holds 6* | `Load`'s loop became `AddRange` and the `Clear()` went with it. Put it back above. |
+| Check 1 red, naming an older week | Something older broke, and the message names which week's rule. |
+| Check 2 red: *handed back 1 … should hand back 2* | `StartsWith` instead of `Contains`. |
+| Check 3 red: *gave them in order* | There is an `OrderBy` in `Names()`. It hands them back in the registry's own order; sorting is check 4's. |
+| Check 3 red, and the names look like whole lines | `Select` is handing back `Line()` or the whole record rather than the one name property. |
+| Check 4 red: *That is the first record ADDED* | Nothing sorted — `Sorted()` is handing back what `All()` would. |
+| Check 4 red: *That is LAST alphabetically* | `OrderByDescending`. `OrderBy` is the one that starts at A. |
+| Check 4 red: ***Sorting the registry SORTED THE REGISTRY*** | `Sort` instead of `OrderBy`. [The whole trap, in one message.](lecture-notes.md#orderby--and-it-leaves-the-thing-you-asked-alone) Fix the line, then delete `registry.json` — the wrong order is saved in it. |
+| Your records show up twice | `Load` lost its `Clear()`. |
+| Your fact's name doesn't match the table | The grader reads it **exactly** — `Week9_FindComesBackEmptyHanded`, on a `public void` method taking nothing. The body is yours; the name isn't. |
+| Your fact is red before you've changed anything | The name you ask `Find` for has to be spelled exactly like the name you gave `NewItem`, capital letters included. |
+| A search finds nothing and you can see the record | Compare exactly what you typed with exactly what is stored. The comparison is exact, capital letters included. **If you're wondering whether it should be, hold that thought: it's a database-week conversation.** |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
-| A value isn't what you think it is | **Set a breakpoint and look** — [week 5's drill](../week-05/lecture-notes.md#the-debugger-and-what-it-is-actually-for). ⚠️ A query in the Watch panel **runs** when the panel evaluates it. |
+| A value isn't what you think it is | **Set a breakpoint and look** — [week 5's drill](../week-05/lecture-notes.md#the-debugger-and-what-it-is-actually-for). |
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b three-questions`, push that. |
+
+📖 *Further reading, all of it optional:* [one shape, read out loud](lecture-notes.md#one-shape-and-it-does-not-change) · [`Where`](lecture-notes.md#where--keeping-some-of-them) · [`Select`](lecture-notes.md#select--turning-each-one-into-something-else) · [`OrderBy`, and the list left alone](lecture-notes.md#orderby--and-it-leaves-the-thing-you-asked-alone) · [a fact about nothing being there](lecture-notes.md#writing-a-fact-about-nothing-being-there).
 
 **Prev:** [Week 9 Lab — The Night's Numbers](lab/) · **Next:** [Week 10 — EF Core I: The Log Leaves the Building](../week-10/)

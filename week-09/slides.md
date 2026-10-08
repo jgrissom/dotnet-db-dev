@@ -32,210 +32,68 @@ style: |
 
 ---
 
-<!-- _footer: '🖥️ Demo §2 · the promise, collected' -->
+<!-- _footer: '🖥️ Demo §2 · a fact first, then one line' -->
 
-## A method, and a line
+## One shape
 
-```csharp
-double latest = -41.5;
-foreach (ILogEntry entry in _entries)
-    if (entry is Reading r) latest = r.Celsius;
-return latest;
+```
+the list . a word ( a question )
 ```
 
 ```csharp
-return _entries.OfType<Reading>()
-    .LastOrDefault()?.Celsius ?? -41.5;
+_callers.FirstOrDefault(caller => caller.Name == name)
 ```
 
-**Week 6 wrote the top one. Week 6 promised the bottom one.**
-
----
-
-<!-- _footer: '🖥️ Demo §2 · the promise, collected' -->
-
-## One shape, every time
-
-```
-the sequence . the verb ( what to ask of each one )
-```
-
-```csharp
-crew.Sum(c => c.TripsToday)
-```
-
-- `crew` — the list
-- `Sum` — what to do with it
-- `c => c.TripsToday` — the question
-
-**Everything tonight is those three parts.**
-
----
-
-<!-- _footer: '🖥️ Demo §2 · the promise, collected' -->
-
-## Reading it out loud
-
-```csharp
-c => c.TripsToday
-```
-
-- `c` — one thing out of the list. **You name it.**
+- `caller` — one item from the list. **You pick the name.**
 - `=>` — *"goes to"*
-- `c.TripsToday` — the answer, for that one
-
-> add up the crew, and the thing to add up
-> about each one is their trips today
-
-You never write the type. The list already knows it.
+- `caller.Name == name` — the answer, for that one
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · six more of the same shape' -->
+<!-- _footer: '🖥️ Demo §3 · a number, and some of them' -->
 
 ## What each word hands back
 
 | Word | Hands back |
 |---|---|
-| `Where` · `Select` · `OrderBy` · `Take` · `OfType<T>` | a **sequence** |
-| `Sum` · `Count` · `Average` | one **number** |
-| `Any` · `All` | **true** or **false** |
-| `FirstOrDefault` · `LastOrDefault` · `MaxBy` · `MinBy` | one **thing**, or nothing |
+| `Where` · `Select` · `OrderBy` · `Take` | **several things** |
+| `Sum` · `Count` | one **number** |
+| `FirstOrDefault` · `MaxBy` | **one thing**, or nothing |
 
-**The right-hand column is the one that matters.**
+After **several things**, you can keep going.
 
----
-
-<!-- _footer: '🖥️ Demo §3 · six more of the same shape' -->
-
-## On an empty sequence
-
-| | |
-|---|---|
-| `First()` `Last()` `Single()` | 💥 **throws** |
-| `Average()` | 💥 **throws** |
-| `FirstOrDefault()` `LastOrDefault()` | `null` |
-| `MaxBy()` `MinBy()` | `null` — so `.Name` 💥 |
-| `Sum()` `Count()` | `0` |
-
-**Your loop could not do this.**
+After a **number**, you are finished.
 
 ---
 
-<!-- _footer: '🖥️ Demo §3 · six more of the same shape' -->
+<!-- _footer: '🖥️ Demo §6 · a question, and an answer' -->
 
-## What stays a loop
-
-**A query asks. A loop can do.**
-
-- `Watch.Add` — **inserts** at a worked-out position
-- `Watch.Save` / `Load` — **makes** things
-
-**A one-liner is not the goal, especially when it
-makes the code harder to read.**
-
----
-
-<!-- _footer: '🖥️ Demo §5 · a season of weather' -->
-
-## A season of weather
-
-```
-130|02:39|-46.6|AWS
-130|02:42|-46.7|Okonkwo
-```
-
-**50,000 readings. 268 days. One text file.**
-
-The AWS writes a line every eight minutes.
-Twice a day, somebody checks it by hand.
-
-Nothing has ever asked it anything.
-
----
-
-<!-- _footer: '🖥️ Demo §5 · a season of weather' -->
-
-## Six questions, six lines
+## A question, and an answer
 
 ```csharp
-book.Max(r => r.Day)
-book.Average(r => r.Celsius)
-book.MinBy(r => r.Celsius)
-book.Count(r => r.Celsius < -50)
-book.Count(r => r.TakenBy != "AWS")
-book.OrderBy(r => r.Celsius).Take(5).ToList()
+board.All().Where(caller => caller.CallsTonight > 1)
 ```
 
-**Nobody was going to write a loop** to find out
-how many readings this season were below −50.
-
-Not because it is hard. Because it was never
-worth the loop — so the question never got asked.
-
----
-
-<!-- _footer: '🖥️ Demo §6 · what it cost' -->
-
-## A query is a recipe
+A **question**. Nobody has been asked yet.
 
 ```csharp
-IEnumerable<SeasonReading> book = Season.Read(metBook);
+board.All().Where(caller => caller.CallsTonight > 1).ToList()
 ```
 
-- reading the file: **0 ms** · the book in memory: **0.0 MB**
-- then **seven reads** of the same file: the count, and one for each of the six questions
-
-`Read` handed back **instructions**, not readings.
-Instructions run again every time you ask.
-
-**A method that hands back a query ends it with** `.ToList()`
+An **answer**. Asked once, right here, and kept.
 
 ---
 
-<!-- _footer: '🖥️ Demo §6 · what it cost' -->
-
-## What it cost
-
-```
-the book, in memory    11.8 MB from a 0.9 MB file
-```
-
-- getting the list meant **reading every line**
-- it read **all** 50,000 to answer any one
-- **more than ten times the file**, held, to ask six questions
-
-Not even one whole season. Haldane opened in 1994.
-
----
-
-<!-- _footer: '🖥️ Demo §7 · hand off' -->
-
-## Lab: the night's numbers
-
-**Task 1 turns nothing green.** You delete seven
-working loops and the count stays where it was.
-Your own suite is how you know it worked.
-
-- a cart long enough to cover the news
-- what has not been out tonight
-- what got worked hardest
-- what is coming, without airing it
-
-**⏱️ 50 minutes · target tonight: 5 green.**
-
----
-
-<!-- _footer: '🖥️ Demo §8 · wrap' -->
+<!-- _footer: '🖥️ Demo §7 · wrap' -->
 
 ## Tonight, in one picture
 
-**sequence · verb · question**
+**a list · a word · a question**
 
-- one shape, and a handful of words
-- **some of them throw** on nothing
-- a query **asks** — it changes nothing
-- `.ToList()` turns instructions into an answer
-- a file answers nothing without reading all of it
+- `FirstOrDefault` hands back one, or `null` — **`First` throws**
+- `Where` keeps some · `Select` changes each one
+- `OrderBy` hands back a **new** list — yours is left alone
+- a question **only reads**
+- `ToList()` turns a question into an answer
 
-Week 10: a database, somewhere that isn't your laptop.
+Week 10: the data moves into a database.

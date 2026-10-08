@@ -1,508 +1,448 @@
 # Week 9 — Lecture Notes
 
+**These notes are further reading.** The [lab](lab/README.md) and the [homework](homework.md) each tell you what to write and give you the syntax. Come here when you want to know **why** a line is written the way it is.
+
+The examples are the lab's, on KDXR's `Rotation`, `Switchboard` and `Hour`. Where a section is about the homework, the example is a registry of lighthouses.
+
 ## Thirty lines become one
 
-Since week 3 you have been told the same thing six times: *in week 9 this whole loop becomes one line.*
+The desk has lists: carts in the rotation, callers on the switchboard, items in the hour. Until tonight, every question about a list was a loop somebody had to write. *Find the cart called Nightjar* was five lines. *Add up the hour* was six.
 
-Here is the receipt. Every one of these was written by hand on purpose, and tonight every one of them collapses:
+**LINQ is a set of methods that ask a list a question in one line.** It ships with .NET, and every project in this course can already use it. There is nothing to install and no `using` to add.
 
-| You wrote | In | It becomes |
-|---|---|---|
-| `TheRegular()` — who called most | week 3 | `_callers.MaxBy(c => c.CallsTonight)?.Name ?? "nobody yet"` |
-| `Rotation.TotalSeconds` | week 4 | `_songs.Sum(song => song.Seconds)` |
-| `Switchboard.TotalCalls` | week 5 | `_callers.Sum(caller => caller.CallsTonight)` |
-| `Hour.LongestItem()` | week 6 | `_items.MaxBy(item => item.Seconds)` |
-| `Hour.TotalSeconds` | week 7 | `_items.Sum(item => item.Seconds)` |
-| `Rotation.Load`'s fill loop | week 8 | `_songs.AddRange(loaded)` |
-| `Broadcast.LastShift`'s indexing | week 8 | `File.ReadAllLines(path).LastOrDefault() ?? ""` |
+This loop, from `Rotation.cs`:
 
-**The point was never the typing.** Writing them by hand is what makes it obvious that all seven were the *same* loop wearing different nouns — and a language that lets you say a thing once is worth more than a language that lets you say it shorter.
+```csharp
+foreach (Song song in _songs)
+{
+    if (song.Title == title)
+    {
+        return song;
+    }
+}
 
-⚠️ **And the last row of that table is not LINQ at all.** `AddRange` is a `List<T>` method. Not every one-liner is a query, and reaching for LINQ when the list already has the method is showing off rather than writing.
+return null;
+```
+
+does the same job as this line:
+
+```csharp
+return _songs.FirstOrDefault(song => song.Title == title);
+```
+
+Both fragments go inside `Find`, in `Rotation.cs`. The second is shorter. The more useful thing about it is that it **says what it is for**: the first song whose title matches, or nothing.
 
 ## One shape, and it does not change
 
-Everything tonight is this:
+Every line this week has three parts:
 
 ```
-the sequence  .  the verb  (  what to ask of each one  )
+the list . a word ( a question )
 ```
-
-Here is one real line in that shape — it is inside `DrawBoard()`, in Haldane's `Program.cs`:
 
 ```csharp
-crew.Sum(c => c.TripsToday)
+_songs.Where(song => song.Seconds > 240)
 ```
 
-Three parts. `crew` is a `List<CrewMember>`. `Sum` is what to do with them. And `c => c.TripsToday` is the part that is new.
+- **`_songs`** is the list being asked.
+- **`Where`** is the word. It says what to do with the list: keep some of it.
+- **`song => song.Seconds > 240`** is the question. It is asked of one item at a time.
+
+Change the word and you get a different kind of answer. Change the question and you get a different answer of the same kind. The shape stays put.
 
 ### Reading a lambda out loud
 
-`c => c.TripsToday` is a **lambda**: a small piece of code you hand to a method the way you hand it a number.
-
-- **`c`** — a name for one thing out of the sequence. You pick it. `c`, `crew`, `member`, `x` — the compiler works out its type from the list, which is why you never write `CrewMember c`.
-- **`=>`** — read it as **"goes to"** or **"hands back"**.
-- **`c.TripsToday`** — the answer, for that one thing.
-
-So the whole line reads: **"add up the crew, and the thing to add up about each one is their `TripsToday`."**
-
-Once you can read that, you can read all of them, because they are all the same three parts. That is the entire syntax load of tonight.
-
-⚠️ **There is a SECOND `=>` in C# and it means something else entirely.** You have had it since week 4:
+The part in the brackets is called a **lambda**. It is a small method with no name, written right where it is used.
 
 ```csharp
-public string Kind => "MET";                 // the member is one expression
-public int Count => _entries.Count;
+song => song.Seconds > 240
 ```
 
-That one says *this member's whole body is the expression after the arrow*. It has nothing to do with lambdas. **The two turn up on one line all the time**, and once you have seen it named it stops being confusing:
+- **`song`** is one item out of the list. **You pick the name.** `s` or `cart` would work as well. Pick a name that says what one item is.
+- **`=>`** reads as *"goes to"*.
+- **`song.Seconds > 240`** is the answer for that one item.
 
-```csharp
-public int TotalSeconds => _items.Sum(item => item.Seconds);
-//                     ↑                   ↑
-//              the member                 the question asked of each item
-```
+Read the whole thing as: *"song goes to: is this song longer than 240 seconds?"*
 
-> [!NOTE]
-> **You have written a lambda before and it wasn't called that.** Week 5's debugger slot had you type expressions into the Watch panel; week 8's `JsonSerializerOptions { WriteIndented = true }` was an object built inline. This is the same instinct — code in an argument position — with a name.
+You never write the item's type. `_songs` is a `List<Song>`, so the compiler already knows `song` is a `Song`.
+
+⚠️ **`=>` has a second job you have already met.** In `public int Count => _songs.Count;` it means *this member is one expression*. That one sits after a member's name. The lambda's arrow sits inside brackets, after a name you picked. They look the same and do different things.
+
+**A question can answer with different kinds of things**, and the word decides which kind it wants:
+
+| The question answers with | Example | Words that want it |
+|---|---|---|
+| yes or no | `song => song.Seconds > 240` | `Where`, `FirstOrDefault`, `Any` |
+| one value from the item | `song => song.Title` | `Select`, `OrderBy`, `Sum`, `MaxBy` |
 
 ## The words you need tonight
 
-The right-hand column is the one to learn, because it decides what can come after:
+Sort them by **what each one hands back**. That is what decides what you can do next.
 
-| Word | Hands back | Job |
-|---|---|---|
-| `Where` | a sequence | keep **some** of them |
-| `Select` | a sequence | turn **each** one into something else |
-| `OrderBy` / `OrderByDescending` | a sequence | put them in order |
-| `Take` | a sequence | stop after n |
-| `OfType<T>` | a sequence | keep the ones that turned out to be a `T` |
-| `Sum` / `Count` / `Average` | one number | one number out of many |
-| `Any` / `All` | `true` or `false` | a yes or a no |
-| `FirstOrDefault` / `LastOrDefault` | **one thing**, or nothing | the one you were looking for |
-| `MaxBy` / `MinBy` | **one thing**, or nothing | the one with the biggest something |
+| Word | Hands back |
+|---|---|
+| `Where` · `Select` · `OrderBy` · `OrderByDescending` · `Take` | **several things** — you can put another word after it |
+| `Sum` · `Count` | one **number** |
+| `Any` | **true** or **false** |
+| `FirstOrDefault` · `MaxBy` | **one thing**, or nothing |
 
-⚠️ **The right-hand column is the one that matters.** A word that hands back a *sequence* can have another word after it; a word that hands back *one number* or *one thing* is the end of the line.
+After `Where` you can keep going: `Where(...).OrderBy(...).ToList()`. After `Sum` you have a number, and you are finished.
+
+### FirstOrDefault — the one, or nothing at all
+
+```csharp
+// in Rotation.cs
+public Song? Find(string title)
+{
+    return _songs.FirstOrDefault(song => song.Title == title);
+}
+```
+
+`FirstOrDefault` walks the list and hands back the **first** item the question is true for. If the question is true for none of them, it hands back `null`.
+
+That matches what the loop did. The loop fell out of the bottom and hit `return null;`.
+
+**There is a shorter word, `First`, and it is not the same.** `First` hands back the first match too. When there is no match, it **throws**:
+
+```
+System.InvalidOperationException: Sequence contains no matching element
+```
+
+A hand-written search loop cannot crash on a missing item. `First` can. So for a method whose job includes answering *"nothing here"*, the word is `FirstOrDefault`.
+
+The return type says the same thing. `Song?` has a `?` on it because the answer can be `null`.
 
 ### Where — keeping some of them
 
-The lambda answers a yes/no question, and `Where` keeps the ones it said yes to.
-
-Inside `Rotation.cs`, KDXR's rotation of songs:
-
 ```csharp
-    public List<Song> LongerThan(int seconds)
-    {
-        return _songs.Where(song => song.Seconds > seconds).ToList();
-    }
+// in Rotation.cs
+public List<Song> LongerThan(int seconds)
+{
+    return _songs.Where(song => song.Seconds > seconds).ToList();
+}
 ```
 
-Two things to notice, and both come up tonight:
+`Where` keeps every item the question is true for and drops the rest.
 
-- **`Where` does not reorder anything.** What is left comes back in the order it was found.
-- **A question that is true of nothing hands back an empty list** — never `null`, and never an error.
+- **It keeps them in the order it found them.** `Where` never reorders anything.
+- **It hands back the items themselves, not copies.** The songs in the answer are the same objects the rotation holds.
+- **True for none of them means an empty answer.** It is not `null` and it is not an error.
+- **It does not change the list it was asked about.** `_songs` holds exactly what it held before.
+
+The question can use anything that answers yes or no. A search by name uses `Contains`:
+
+```csharp
+// in a registry of lighthouses, inside Registry.cs
+public List<Lighthouse> Matching(string term)
+{
+    return _items.Where(item => item.Name.Contains(term)).ToList();
+}
+```
+
+`"Sable Point Light".Contains("Point")` is true, because *Point* is somewhere inside it. `StartsWith` would be false: it only looks at the front.
 
 ### Select — turning each one into something else
 
-`Where` keeps some of the things. `Select` keeps **all** of them and changes what each one *is*.
-
-Also inside `Rotation.cs`:
-
 ```csharp
-    public List<string> Titles()
-    {
-        return _songs.Select(song => song.Title).ToList();
-    }
+// in Rotation.cs
+public List<string> Titles()
+{
+    return _songs.Select(song => song.Title).ToList();
+}
 ```
 
-A `List<Song>` went in and a `List<string>` came out. **That is the whole idea** — look at what changed between the two type names.
+`Where` keeps **some** of the items. `Select` keeps **all** of them and changes what each one is. Here a list of songs goes in and a list of strings comes out, one string per song, in the same order.
 
-It does not have to be one property. Anything the lambda can build — still inside `Rotation.cs`:
+The question can build something rather than just read a property. The hour's running order builds a line of text from each item:
 
 ```csharp
-    public List<string> RunningSheet()
-    {
-        return _songs.Select(song => $"{song.Title} - {song.Length}").ToList();
-    }
+// in Hour.cs
+public List<string> RunningOrder()
+{
+    return _items.Select(item => $"{item.Kind} - {item.Cue}").ToList();
+}
 ```
 
-⚠️ **`Select` is for ASKING, and this is the one place tonight where that is a rule rather than a description.** A lambda that *changes* something on the way past turns a question into an action, and nobody reading the call site can tell. If the loop you are replacing calls a method on each item — `Play()`, `Visit()`, `Back()` — it is doing work, and it stays a loop. See [What should stay a loop](#what-should-stay-a-loop).
+⚠️ **The question must only read.** It must not change the item. See [what should stay a loop](#what-should-stay-a-loop).
 
 ### OrderBy — and it leaves the thing you asked alone
 
 ```csharp
-    public List<Song> ByTitle()
-    {
-        return _songs.OrderBy(song => song.Title).ToList();
-    }
+// in Rotation.cs
+public List<Song> ByTitle()
+{
+    return _songs.OrderBy(song => song.Title).ToList();
+}
 ```
 
-`OrderByDescending` is the same word backwards.
+`OrderBy` hands back the items in order, smallest first. For text that is A to Z. The question answers with the thing to put them in order by. `OrderByDescending` is the same with the biggest first.
 
-⚠️ **This is the most important sentence in these notes: `OrderBy` sorts a COPY.** `_songs` is in exactly the order it was in before, and something else in your program is entitled to rely on that — your `Save` writes the file in that order, and week 8's `Load` reads it back in that order.
+**`OrderBy` builds a new list. It does not touch the list it was asked about.** After `ByTitle()` runs, `_songs` is in exactly the order it was in before.
 
-There *is* a method that sorts the list itself — `List<T>.Sort` — and if you reach for it here, you have quietly rewritten your save file as a side effect of asking a question.
+**`List` has its own method called `Sort`, and it is different.** `_songs.Sort(...)` rearranges `_songs` itself. Use it inside a question and three things happen that nobody asked for:
 
-> [!IMPORTANT]
-> **Every query in this course answers a question and leaves the thing alone.** Once you have that, `.ToList()` on the end of every one of them stops looking like ceremony: it is what makes the answer a *separate* thing from the list it came out of.
+1. The rotation is now in a different order than the carts were loaded in.
+2. Everything else that reads the rotation sees the new order.
+3. `Save` writes the file in the new order, so the change outlives the program.
+
+Asking *"what would these look like in order?"* should not rewrite a file. That is why the lab's check 4 and the homework's check 4 both look at the list's own order after asking.
 
 ### Sum, Count and Average — one number out of many
 
 ```csharp
-int seconds = _songs.Sum(song => song.Seconds);
-int played  = _songs.Count(song => song.PlaysTonight > 0);
-double mean = _songs.Average(song => song.Seconds);
-```
-
-- `Sum` and `Count` over an **empty** sequence give `0`. You do not have to guard for it.
-- `Count` with no lambda counts everything — but a `List<T>` already has a `Count` property, so use that.
-- ⚠️ **`Average` over an empty sequence THROWS.** It is the odd one out, and the reason is honest: the average of no numbers is not zero, it is nothing.
-
-### Any — a yes or a no
-
-When a loop existed only to answer *"is there one of these?"*, this is what it was. The whole method, from Haldane's `Watch.cs`:
-
-```csharp
-    public bool SignOut(CrewMember who, string reason, string expected)
+// in Hour.cs
+public int TotalSeconds
+{
+    get
     {
-        if (SignOuts().Any(s => s.Who == who && !s.IsBack))
-        {
-            return false;
-        }
-
-        Add(new SignOut(Now(), who, reason, expected));
-        return true;
+        return _items.Sum(item => item.Seconds);
     }
+}
 ```
 
-That whole `if` was a `foreach` with a `return false` in the middle of it. `Any` says the question out loud instead of leaving the reader to work it out from the shape of the loop.
+`Sum` adds up one number from each item. The question says which number.
 
-`All` is the same thing the other way round, and `Any()` with no lambda just asks *"is there anything in here at all?"*
+`Count` says how many items there are. Give it a question and it counts only the ones the question is true for: `_songs.Count(song => song.Seconds > 240)`.
 
-### FirstOrDefault — the one, or nothing at all
-
-This is the shape of every search you have written since week 5 — the whole method, from Haldane's `Program.cs`:
-
-```csharp
-CrewMember? Find(string wanted) =>
-    crew.FirstOrDefault(c => c.Name == wanted);
-```
-
-Six lines to one. And the `?` on the return type is not new — it was there before, because the method could always come back empty-handed.
-
-⚠️ **`FirstOrDefault`, never `First`.** See [what an empty sequence does](#on-an-empty-sequence). This is the single most common way a rewrite goes wrong.
-
-`LastOrDefault` is the same from the other end, and it is what turns week 8's array indexing into a line:
-
-```csharp
-    public static string LastShift(string path)
-    {
-        if (!File.Exists(path))
-        {
-            return "";
-        }
-
-        return File.ReadAllLines(path).LastOrDefault() ?? "";
-    }
-```
-
-Two of the three things that method used to do are gone: reaching the last index by hand, and checking whether the array was empty first. **The `File.Exists` guard stays** — `ReadAllLines` throws on a file that isn't there, and LINQ never gets a chance to be asked anything.
+`Average` works out the mean of one number from each item. ⚠️ **`Average` throws on an empty list**, because the average of no numbers is not zero. `Sum` and `Count` both answer `0`.
 
 ### MaxBy — the item with the biggest something
 
-There are two words here and confusing them costs you an hour:
-
 ```csharp
-int longest = _items.Max(item => item.Seconds);           // the NUMBER
-IScheduleItem? it = _items.MaxBy(item => item.Seconds);   // the THING
+// in Switchboard.cs
+public string TheRegular()
+{
+    return _callers.MaxBy(caller => caller.CallsTonight)?.Name ?? "nobody yet";
+}
 ```
 
-`Max` hands back the number, so you cannot then ask it its name. `MaxBy` hands back the item, which is almost always what the loop was building.
+`MaxBy` hands back the **one item** with the biggest answer to the question. Here that is the caller with the most calls. `MinBy` hands back the one with the smallest.
 
-`MinBy` is the same downwards.
+**On an empty list there is no item to hand back, so `MaxBy` hands back `null`.** The two operators on the end deal with that:
 
-⚠️ **Both hand back `null` for an empty sequence**, which is why `LongestItem()` is declared `IScheduleItem?`.
+- **`?.Name`** means *ask for the Name only if there is a caller*. Without it, an empty switchboard gives a `NullReferenceException`.
+- **`?? "nobody yet"`** means *if there was nothing, answer with this text instead*.
 
-### OfType — the ones that turned out to be a certain kind
-
-Week 6 gave you a list that holds four different classes, and `is` was how you asked one what it turned out to be. Here is that loop from Haldane's `Watch.cs`, with the loop taken out of it:
-
-```csharp
-    public List<SignOut> SignOuts() =>
-        _entries.OfType<SignOut>().ToList();
-```
-
-Twelve lines — a new list, a `foreach`, an `if (entry is SignOut s)`, an `Add` and a `return` — replaced by the type in the angle brackets. It keeps them **in the order it found them**, which is what makes `SignOuts()[0]` still mean the row it meant last week.
+A loop that did this job started with `string best = "nobody yet";`. The `??` on the end does the same thing.
 
 ### Take — stop after n
 
-Inside `Rotation.cs` again:
-
 ```csharp
-    public List<Song> TopPlayed(int n)
-    {
-        return _songs.OrderByDescending(song => song.PlaysTonight).Take(n).ToList();
-    }
+// in Switchboard.cs
+public List<Caller> Busiest(int n)
+{
+    return _callers.OrderByDescending(caller => caller.CallsTonight).Take(n).ToList();
+}
 ```
 
-Read it left to right: put them in order, stop after n, hand back a list. **Asking `Take` for more than there are is not an error** — it gives you everything it has and stops.
+`Take(n)` keeps the first `n` items and stops. Read the line left to right: put them in order, biggest first; keep the first `n`; hand back a list.
+
+Asking `Take` for more items than there are is not an error. It hands back everything and stops.
+
+### Any — a yes or a no
+
+```csharp
+// could go in Rotation.cs
+public bool AnythingAired()
+{
+    return _songs.Any(song => song.PlaysTonight > 0);
+}
+```
+
+`Any` answers `true` if the question is true for at least one item. It stops at the first one it finds.
+
+You could write `_songs.Where(...).Count() > 0`, and it would give the same answer. `Any` says what you mean in one word.
+
+### OfType — the ones that turned out to be a certain kind
+
+The hour holds four kinds of items behind one interface. `OfType<T>()` keeps only the items of one kind:
+
+```csharp
+// in a fact, inside Lab.Tests/DeskTests.cs
+int songs = hour.All().OfType<Song>().Count();
+```
+
+It takes no question. The type in the angle brackets is the whole instruction.
 
 ## On an empty sequence
 
-Nearly everything tonight copes with an empty sequence by handing back something sensible. **Two things do not**, and both of them are one keystroke away from something that does:
+Every word behaves in some way when there is nothing to work on. A loop over an empty list just doesn't run. These words differ:
 
-| This | On an empty sequence |
+| On an empty list | What you get |
 |---|---|
-| `First()`, `Last()`, `Single()` | **throws `InvalidOperationException`** — *"Sequence contains no elements"* |
-| `FirstOrDefault()`, `LastOrDefault()` | hands back `null` |
-| `MaxBy()`, `MinBy()` | hands back `null` — so `.Name` straight off it **throws `NullReferenceException`** |
-| `Average()` | **throws `InvalidOperationException`** |
-| `Sum()`, `Count()` | `0` |
+| `Where` · `Select` · `OrderBy` · `Take` | an empty answer |
+| `Sum` · `Count` | `0` |
+| `Any` | `false` |
+| `FirstOrDefault` · `MaxBy` · `MinBy` | `null` |
+| `First` · `Last` · `Single` · `Average` | 💥 an exception |
 
-⚠️ **This is what your hand-written loop was already doing for you and you never noticed.** A `foreach` that walks a list, finds nothing, and falls out of the bottom to a `return null;` cannot crash. `First()` can. So:
-
-```csharp
-// the loop's behavior, kept:
-return _callers.MaxBy(caller => caller.CallsTonight)?.Name ?? "nobody yet";
-```
-
-Those two operators are doing exactly what the loop's setup line did:
-
-- **`?.`** — don't ask a nothing for its `Name`.
-- **`??`** — and when there *is* nothing, say this instead.
-
-That is what `string best = "nobody yet";` above the loop was for. Delete the loop and the sentence still has to be said somewhere.
+**Before you use a word, ask what it does when nothing matches.** If the answer is *throws* and nothing matching is a normal thing to happen, pick a different word.
 
 ### Writing a fact about nothing being there
 
-The three moves are week 7's — set the scene, do the thing, check the answer. What is new is that one of the answers is *nothing*, so the fact has two halves: the thing that is there, and the thing that is not.
+A fact about a search needs two asserts. The second one is the one people leave out.
 
 ```csharp
-// Project.Tests/RegistryTests.cs — mine is lighthouses
+// in a registry of lighthouses, inside Project.Tests/RegistryTests.cs
 [Fact]
-public void MatchingFindsSomeAndComesBackEmptyForNone()
+public void Week9_FindComesBackEmptyHanded()
 {
     Registry registry = new Registry();
     Lighthouse sable = registry.NewItem("Sable Point Light");
     registry.Add(sable);
 
-    List<Lighthouse> point = registry.Matching("Point");
-    List<Lighthouse> nothing = registry.Matching("zzz");
-
-    Assert.Single(point);
-    Assert.Empty(nothing);
+    Assert.Same(sable, registry.Find("Sable Point Light"));
+    Assert.Null(registry.Find("Cape Disappointment"));
 }
 ```
 
-- **The scene is two lines, and the contract hands you both.** `NewItem` makes one of your records; `Add` puts it in the registry. Nothing is faked and nothing is mocked — it is your own class, built in the test.
-- **Both halves in one fact.** A search that finds things proves half of the job. What it does when there is nothing to find is the other half, and it is the half a rewrite breaks.
-- **The assert follows the return type.** `Matching` hands back a list, so the pair is `Assert.Single` and `Assert.Empty`. A method that hands back **one record or nothing** — `Find` — wants `Assert.Same` for the record you added and `Assert.Null` for the name nobody has. **`Assert.Same` is stricter than `Assert.Equal`**: it says *this is the very object I put in*, not one that merely looks like it.
-- **`Matching` cannot come back `null`** — `Where` hands back an empty sequence and `ToList` turns it into an empty list. Asserting `Null` there would fail, and the failure would be telling you the truth.
+- **`Assert.Same(expected, actual)`** passes only when both are the **same object**. `Find` hands back the record the registry is holding, not a copy.
+- **`Assert.Null(value)`** passes when the value is `null`. That is `Find` being asked for a name nobody has.
+
+**This fact is green the moment you write it**, because `Find` already works. That is fine. Its job is to let you change `Find` and know the answer did not move.
+
+**So make it fail once on purpose.** Change `FirstOrDefault` to `First` in `Find` and run the suite. The second assert goes red with `Sequence contains no matching element`. Put it back. Now you have seen this fact catch something.
+
+## A loop that fills a list is not a question
+
+```csharp
+// the bottom of Load, in Rotation.cs — before
+_songs.Clear();
+
+foreach (Song song in loaded)
+{
+    _songs.Add(song);
+}
+```
+
+This loop does not ask anything. It **does** something: it puts every loaded song into the rotation. So it is not a job for `Where` or `Select`.
+
+The list already has a method for it:
+
+```csharp
+// the bottom of Load, in Rotation.cs — after
+_songs.Clear();
+
+_songs.AddRange(loaded);
+```
+
+`AddRange` adds every item of another list in one call. It is a method on `List`, not part of LINQ.
+
+⚠️ **The `Clear()` stays.** Loading replaces what the list holds. Without it, the loaded items go in on top of the ones already there, and you have every record twice.
 
 ## ToList, and why every query here ends with it
 
-### A query is a recipe, not an answer
+`Where`, `Select` and `OrderBy` do not hand back a `List`. Leave `.ToList()` off the end of a method that returns `List<Song>` and it does not build:
 
-This is the surprise of the week, and it is worth meeting on purpose. Here is `Season.Read` the way it is first written tonight — every line of the file, turned into a reading:
+```
+error CS0266: Cannot implicitly convert type 'System.Collections.Generic.IEnumerable<Song>' to 'System.Collections.Generic.List<Song>'.
+```
+
+`IEnumerable<Song>` is what `Where` hands back. `ToList()` turns it into a list.
+
+### A query is a question, not an answer
+
+**What `Where` hands back is the question itself, not yet asked.** Nothing has been looked at. The question is asked later, when something reads the result. If something reads it twice, it is asked twice.
+
+This fact shows it. It goes in a file of its own, `Lab.Tests/BusyCallerTests.cs`:
 
 ```csharp
-// Season.cs, inside the Season class.
-public static IEnumerable<SeasonReading> Read(string path) =>
-    File.ReadLines(path)
-        .Select(ReadLine)
-        .OfType<SeasonReading>();
+namespace Lab.Tests;
+
+public class BusyCallerTests
+{
+    [Fact]
+    public void AnAnswerDoesNotChangeAfterItIsGiven()
+    {
+        Switchboard board = new Switchboard();
+        board.Take("Dorothy");
+        board.Take("Dorothy");
+        board.Take("Bex");
+
+        IEnumerable<Caller> busy = board.All().Where(caller => caller.CallsTonight > 1);
+
+        board.Take("Bex");
+
+        Assert.Single(busy);
+    }
+}
 ```
 
-It works. Every answer the met book gives is correct. But put a stopwatch round the call and measure the memory it holds, and the report looks wrong:
+Dorothy has rung twice and Bex once. The `Where` line asks who has rung more than once. Then Bex rings again. Then the fact checks that the answer holds one caller.
+
+**It fails:**
 
 ```
-  what that cost:
-    reading the file     0 ms for all 50,000 lines
-    asking the questions 59.9 ms
-    the book, in memory  0.0 MB from a 0.9 MB file
+Assert.Single() Failure: The collection contained 2 items
 ```
 
-**Reading fifty thousand lines took no time, and the book takes no memory.** That is because `Read` did not read anything. It handed back *the instruction* "go through the file and turn each line into a reading" — and that instruction runs **every single time anybody asks it something**. `TheMetBook` counts the readings and then asks six questions, so the whole file is read from the top **seven times**: 350,000 lines, to answer questions about 50,000.
+The `Where` line did not look at any caller. It handed back the question. `Assert.Single` was the first thing to read it, and by then Bex had two calls.
 
-That is called **deferred execution**, and it is the honest reading of `Select`, `Where`, `OrderBy` and `Take`: they hand back a *plan*, and the plan runs when somebody asks.
+Put `.ToList()` on the end of the `Where` line and the fact passes. **`ToList()` asks the question right there, once, and keeps the answer.** Bex's second call comes after that, so it changes nothing.
 
-The same method, ending in `.ToList()`, with the return type that says so:
+That is the reason every method in this course that hands back several things ends with `ToList()`. The caller gets an answer that will not change behind their back.
 
-```csharp
-// Season.cs, inside the Season class.
-public static List<SeasonReading> Read(string path) =>
-    File.ReadLines(path)
-        .Select(ReadLine)
-        .OfType<SeasonReading>()
-        .ToList();
-```
-
-`ToList()` runs the plan **once**, now, and keeps the answer. All three numbers flip: reading takes about 9 ms because it really reads the file, asking takes about 7 ms because the questions ask a list already in memory, and the book holds 11.8 MB.
-
-⚠️ **Your milliseconds will differ.** The `0 ms` and the `0.0 MB` will not, and nor will the 11.8 MB.
-
-> [!IMPORTANT]
-> **The rule for this course: a method that hands a query to somebody else ends it with `ToList()`.** Inside one method, where you build a query and use it right away, leaving it off is fine and saves a copy. Handing a recipe across a method boundary is how you ship something that quietly does its work again every time it is asked.
-
-⚠️ **`ToList()` is a trade, not a free fix.** Read the file once and hold all of it, or hold none of it and read the file again for every question. For a book you are about to ask seven things, holding it wins.
+**This matters more from week 10.** When the data is in a database, the question is sent to the database at the moment it is read. `ToList()` is the moment it is sent.
 
 ## What should stay a loop
 
-**A query asks. A loop can do.** That is the whole test, and three methods in tonight's demo fail it on purpose:
+**A query asks. A loop can do.**
 
-| Stays a loop | Because |
-|---|---|
-| `Watch.Add` | it **inserts** at a position it worked out. A query answers a question; it does not rearrange the thing it was asked about. |
-| `Watch.Save` | it walks three different kinds of things and writes a different line for each — an `if`/`else` chain wherever you put it, and [the one-line version is worse in a way that is not a matter of taste](#the-one-liner-that-writes-a-blank-line). |
-| `Watch.Load` | every line through it **makes** something and puts it on the log. |
-| `Hour.Run` | it **airs** the hour on the way past. A `Select` could build the same strings, and it would have to call `Play()` inside the lambda to do it — so the station would go out over the transmitter as a side effect of somebody asking a question. |
-
-### The one-liner that writes a blank line
-
-`Watch.Save` walks the log and writes a different line for each kind of entry. There **is** a one-line spelling, and it compiles:
+`Hour.Run` is a loop, and it should stay one:
 
 ```csharp
-File.WriteAllLines(path, _entries.Select(e => e switch
+// in Hour.cs
+foreach (IScheduleItem item in _items)
 {
-    SignOut s => $"SIGNOUT|{s.Time}|{s.Who.Name}|{s.Reason}|{s.Expected}|"
-        + (s.IsBack ? "back" : "out"),
-    Reading r => $"MET|{r.Time}|"
-        + r.Celsius.ToString("0.0", CultureInfo.InvariantCulture)
-        + $"|{r.TakenBy.Name}",
-    FuelCheck f => $"FUEL|{f.Time}|{f.Liters}",
-    _ => ""
-}));
+    item.Play();
+    aired.Add($"{item.Kind} - {item.Cue}");
+}
 ```
 
-**Read the last arm.** The `if`/`else if` chain in `Save` has no `else`, so an entry it does not recognize is skipped and nothing is written. A `switch` expression is not allowed to do that — it has to answer for every case — so the one-line version is forced to invent an answer, and `_ => ""` puts a **blank line** in the file. The day something new implements `ILogEntry`, the loop stays quiet and the one-liner corrupts the log.
+It calls `Play()` on every item. That puts the item on air and changes it: a song's play count goes up, and an ad uses up one of its airings.
 
-That is not a matter of taste. **The two versions do different things**, and the shorter one does the worse thing silently.
+`RunningOrder` builds the same lines **without** playing anything, and that is the whole reason it is a separate method. If the `Select` inside it called `Play()`, then reading the running order would use up the ad's airings. Somebody looking at a screen would be changing the station.
+
+**The rule: the question inside the brackets only reads.** If a line has to change each item, write a `foreach`.
 
 ### Everything, and the one-liner that reads worse
 
-`Registry.Everything()` hands back the registry's own line, then one line per record. It stays a loop — and it is the most interesting of the five, because unlike the others there really is a one-line spelling. Two of them. This is what ships:
+Your registry has an `Everything()` that builds a list out of two different kinds of things: the registry itself, then every record. It is a short loop:
 
 ```csharp
+// in a registry of lighthouses, inside Registry.cs
 public List<IListed> Everything()
 {
-    List<IListed> listing = new List<IListed>();
-    listing.Add(this);
+    List<IListed> all = new List<IListed>();
+    all.Add(this);
 
-    foreach (var item in _items)      // your own record type
+    foreach (Lighthouse item in _items)
     {
-        listing.Add(item);
+        all.Add(item);
     }
 
-    return listing;
+    return all;
 }
 ```
 
-And these both do the same job in one line:
-
-```csharp
-// Prepend — but every record has to change type before this will compile
-public List<IListed> Everything() =>
-    _items.Cast<IListed>().Prepend(this).ToList();
-
-// Concat — build a list holding one thing, so as not to build a list
-public List<IListed> Everything() =>
-    new List<IListed> { this }.Concat(_items).ToList();
-```
-
-All three hand back the same things in the same order, and the registry is first in all three. The loop is the one you can still read a year from now. **A one-liner is not the goal. Saying the thing plainly is.**
-
-## Querying a file, and what it costs
-
-Haldane's met book holds every temperature recorded this winter, by the AWS or by hand: **50,000 readings over 268 days**, in a text file, one line each.
-
-Reading **one line** is week 8's `Watch.Load` again. Reading the **whole book** is a query that ends in `ToList()` — [a query is a recipe](#a-query-is-a-recipe-not-an-answer) is why that ending matters:
-
-```csharp
-// Season.cs — the reading half of it. LatestDay is the other half.
-using System.Globalization;
-
-public static class Season
-{
-    public static List<SeasonReading> Read(string path) =>
-        File.ReadLines(path)
-            .Select(ReadLine)
-            .OfType<SeasonReading>()
-            .ToList();
-
-    // One line of the book as a reading, or null when the line is not one.
-    private static SeasonReading? ReadLine(string line)
-    {
-        string[] field = line.Split('|');
-
-        if (field.Length == 4
-            && int.TryParse(field[0], out int day)
-            && double.TryParse(field[2], NumberStyles.Float,
-                CultureInfo.InvariantCulture, out double celsius))
-        {
-            return new SeasonReading(day, field[1], celsius, field[3]);
-        }
-
-        return null;
-    }
-}
-```
-
-**What is new is what you can ask once it is in your hands.** Six questions, six lines, over fifty thousand rows — these all sit inside one method in `Program.cs`, with `book` already read. The first line is not one of the six: `book.Count()` counts the readings, and it is the only line here with no question in the brackets.
-
-```csharp
-int readings = book.Count();
-int days = book.Max(r => r.Day);
-double average = book.Average(r => r.Celsius);
-SeasonReading coldest = book.MinBy(r => r.Celsius)!;
-int belowTheLine = book.Count(r => r.Celsius < -50);
-int byHand = book.Count(r => r.TakenBy != "AWS");
-List<SeasonReading> worst = book.OrderBy(r => r.Celsius).Take(5).ToList();
-```
-
-Not one of those is a loop you would have enjoyed writing, and one of them — *how many readings below fifty below* — is a question nobody would have asked at all last week. Not because it is hard. Because it was never worth the loop.
-
-### And then the bill
-
-Here is the part that is worth more than the six lines. Ask the program what it cost:
-
-```
-  what that cost:
-    reading the file     9 ms for all 50,000 lines
-    asking the questions 7.1 ms
-    the book, in memory  11.8 MB from a 0.9 MB file
-```
-
-Three facts, and the last one is the one to sit with:
-
-1. **Getting the list meant reading every line.** The questions are not where the work is. *Getting the list* is.
-2. **It read all fifty thousand lines to answer any of them.** To find the single coldest reading in the season, it built fifty thousand objects.
-3. **A 0.9 MB file became 11.8 MB of program.** More than ten times bigger, held for as long as you want to keep asking questions.
-
-**Neither version is a good answer.** Without `ToList()`, every question reads the whole file again. With it, the file is read once and the whole book sits in memory. A file gives you no third choice, because it cannot answer a question without being read.
-
-⚠️ **The numbers on your own machine will differ, and the shape will not.** That ratio is the point, not the milliseconds.
-
-And that is not even one whole season. Haldane has been open since 1994.
-
-> [!IMPORTANT]
-> **This is the honest limit of a file, and it is not a speed problem.** A file cannot answer a question without being read in full, because a file does not know anything about what is in it — it is a row of characters. Every question you ask costs the whole thing.
->
-> **Something that could answer the question where the data lives** would read the five coldest readings and hand you five readings. That is week 10, and the query running *inside* it is week 12.
+There is a one-line way to write it. It uses two more words you have not met, and it is harder to read than the loop. **Leave it as a loop.** One line is not the goal. A line that says what it means is.
 
 ## 🔧 Troubleshooting
 
 | What you see | What it means |
 |---|---|
-| `CS1061: 'List<Song>' does not contain a definition for 'Where'` | `using System.Linq;` is missing. It ships in every project in this course via implicit usings, so this means somebody turned `ImplicitUsings` off, or you are in a file with an explicit using list. |
-| `InvalidOperationException: Sequence contains no elements` | `First()`, `Last()`, `Single()` or `Average()` on an empty sequence. [The `...OrDefault` versions hand back null instead.](#on-an-empty-sequence) |
-| `InvalidOperationException: Sequence contains no matching element` | `First(lambda)` found nothing. Same fix: `FirstOrDefault`. |
-| `NullReferenceException` right after a `MaxBy` or `MinBy` | It handed back `null` for an empty sequence and something asked it for a property. [`?.` in front, `??` behind.](#on-an-empty-sequence) |
-| `InvalidOperationException: Sequence contains more than one matching element` | `Single()`, which insists there is exactly one. You almost certainly wanted `First`/`FirstOrDefault`. |
-| `CS0029: cannot implicitly convert 'IEnumerable<Song>' to 'List<Song>'` | The `.ToList()` on the end is missing. [That is what turns a recipe into an answer.](#a-query-is-a-recipe-not-an-answer) |
-| `CS1503: cannot convert from 'method group'` | You wrote `Sum(song.Seconds)` instead of `Sum(song => song.Seconds)`. The `=>` is not optional. |
-| `CS0854: expression tree may not contain a call` | You are in week 12's world already. Not this week. |
-| The answer is right but the list came back in a different order | `OrderBy` handed you a sorted copy and you kept it; or something used `List.Sort`, [which reorders the list itself](#orderby--and-it-leaves-the-thing-you-asked-alone). |
-| A count that was right yesterday is wrong today | A query without `ToList()`, being read twice. [It re-runs every time.](#a-query-is-a-recipe-not-an-answer) |
-| `Sum` gives 0 and there is definitely data | The lambda is adding up the wrong thing, or a `Where` before it filtered everything out. Print the `.Count()` of the sequence before the `Sum`. |
-| A search finds nothing and you can see the record | Compare exactly what you typed with exactly what is stored. String comparison is exact — **and if you are wondering whether it should be, hold that thought; it is a database-week conversation.** |
-| It compiles, it runs, and you cannot see why the answer is wrong | Set a breakpoint on the line and put the query in the Watch panel — [week 5's drill](../week-05/lecture-notes.md#the-debugger-and-what-it-is-actually-for). ⚠️ A query in the Watch panel **runs** when the panel evaluates it, which is worth knowing before it confuses you. |
+| `CS0266: Cannot implicitly convert type 'IEnumerable<…>' to 'List<…>'` | The `.ToList()` on the end is missing. |
+| `CS0103: The name 'song' does not exist in the current context` | The question is missing its front half: `Where(song.Seconds > 240)` has to be `Where(song => song.Seconds > 240)`. |
+| `CS0029: Cannot implicitly convert type 'string' to 'bool'` | One `=` where `==` belongs, inside a yes-or-no question. |
+| `CS0029: Cannot implicitly convert type 'void' to 'List<…>'` | `return _songs.Sort(...)`. `Sort` hands nothing back, because it changes the list itself. `OrderBy` is the word. |
+| `CS0029: … 'List<Song>' to 'List<string>'` | A `Select` whose question hands back the whole item, not the one property you wanted. |
+| `InvalidOperationException: Sequence contains no matching element` | `First` found nothing. `FirstOrDefault` hands back `null` instead. |
+| `InvalidOperationException: Sequence contains no elements` | `First`, `Last`, `Single` or `Average` on an empty list. |
+| `NullReferenceException` right after `MaxBy` or `FirstOrDefault` | The answer was `null` and the next thing asked it for a property. `?.` in front, `??` behind. |
+| A list comes back in a different order than it went in | `Sort` was used somewhere a question was meant. If the list is saved to a file, the wrong order is in the file too — delete it. |
+| Every record shows up twice after loading | `Load` lost its `Clear()`. |
+| An answer changed after you took it | It was a question without `ToList()`, and it was read after the list changed. |
+| A search can't find something you can see | The comparison is exact, capital letters included. That is the same as the loop it replaced. |
+| Red squiggles under `Where`, and `dotnet build` is fine | The editor, not your code. Command Palette → **`Developer: Reload Window`**. |
+
+**Prev:** [Week 8 — Lecture Notes](../week-08/lecture-notes.md) · **Next:** [Week 10 — Lecture Notes](../week-10/lecture-notes.md)

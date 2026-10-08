@@ -1,118 +1,118 @@
 # Week 9 — Lesson Plan
 
-**Topic:** LINQ over collections — one shape, a handful of words, and what a query must never do; deferred execution; and the honest limit of asking a file anything.
+**Topic:** LINQ over a list — one shape, a handful of words, what each word does when nothing matches, and why a question never changes the list it is asked of.
 **Session length:** 3h 45m
 
-> Students have been told six separate times, since week 3, that a loop they were writing by hand would become one line in week 9. Tonight all six are collected — and the collection is only half the evening. The other half is that a query **asks**: it never changes the thing it was asked about, and it is not an answer until somebody makes it one.
+> **The demo and the lab are both KDXR.** The instructor works on the switchboard and the hour, live, and pushes each finished file to the starters repo. Students copy it in, then do the same thing to the rotation. The code a student is reading while they work is the code they just watched get written.
 
 ## 🎯 The payoff moment — the demo's
 
-**§2, and it is a number rather than a line of code.** `LatestCelsius` — the method the room watched get written in week 6, and was promised in week 6 — becomes one line. Then:
+**§5, the board that moved.** `Busiest` is written first with the list's own `Sort`. The answer on the `[n]` screen is right. Then `c` shows the switchboard in a different order, and `switchboard.json` shows the file was rewritten too. The line to land:
 
-```
-Total tests: 5
-     Passed: 5
-```
+> *"I asked the desk a question, and the switchboard changed."*
 
-The line to land is about the tests, not about the brevity:
+Then `OrderByDescending` replaces it, the same answer comes back, and the board and the file are in the order the callers rang.
 
-> *"I deleted eleven lines of a working program. The board still reads minus forty-one point five. Five tests still pass. That is not proof that nothing broke — a suite only knows the things somebody wrote down. It is five things I did not have to go and check by hand, and before week seven I had none of them."*
-
-⚠️ **Run the suite BEFORE the edit as well as after**, and say the number out loud both times. A green run after a change means nothing to a room that did not watch it be green before.
+⚠️ **Ask "where is Bex now?" and wait.** The room has to find the changed row before it is explained.
 
 ## 🎯 The payoff moment — the lab's
 
-**Task 1, and it is the first task in this course whose success looks like nothing happening.** Students write one fact, rewrite seven methods across four files — six loops and one array walk — and then:
+**Task 4, and the file is the evidence.** They write `ByTitle`, see `Long Way Round, Nightjar, Slack Water` on the `[n]` screen, press `t`, and the cart table is still Nightjar, Slack Water, Long Way Round. Then they open `rotation.json` and the three titles are in loaded order. **It lands right after §5, which has just shown the same thing going wrong on the switchboard.**
 
-```
-dotnet test week-09/Lab.Checks     →  1 / 5 — exactly where they started
-dotnet test week-09/Lab.Tests      →  4 passed
-```
-
-**A student's own suite is the only thing that tells them it worked.** Week 7 promised exactly that, in as many words, and this is where it is collected.
-
-⚠️ **The commonest wrong reflex to catch while circulating**: skipping the fact and going straight to the deleting. The fact takes ninety seconds and it is the whole point of the task.
+⚠️ **The earlier one to protect is Task 1's red.** A student changes `FirstOrDefault` to `First`, their own fact goes red, and the desk crashes on a title that isn't there. That is the empty-list lesson happening to them rather than being told to them.
 
 ## Learning objectives
 
 By the end of this session, students can:
 
-1. Read a lambda out loud — the sequence, the word, and the question asked of each thing.
-2. Choose between `Where`, `Select`, `OrderBy`, `Take`, `OfType<T>`, `Sum`/`Count`/`Average`, `Any`, `FirstOrDefault`/`LastOrDefault` and `MaxBy`/`MinBy` by what each one hands back.
-3. Say what happens to each of those on an **empty** sequence, and why `First` and `FirstOrDefault` are not interchangeable.
-4. Replace a hand-written loop with a query **and prove the behavior did not change**, using a test written before the rewrite.
-5. Say why `OrderBy` does not reorder the list it was asked about, and what `List.Sort` would have done instead.
-6. Explain deferred execution: a query is a recipe, it re-runs when it is read, and `ToList()` is what makes it an answer.
-7. Say which loops should NOT become queries — the ones that *do* something rather than ask something.
-8. State the limit of querying a file: it must be read in full to answer anything, and it costs memory proportional to the whole of it.
+1. Read a lambda out loud: the list, the word, and the question asked of one item at a time.
+2. Use `FirstOrDefault`, `Where`, `Select` and `OrderBy`, each ending in `ToList()` where it hands back several things.
+3. Say what `First` does when nothing matches, and why `FirstOrDefault` is the word that matches a search loop.
+4. Change a working loop into a query **and prove the behavior did not change**, with a fact written before the change.
+5. Say why `OrderBy` leaves the list alone and what `List.Sort` would have done to the list and to the save file.
+6. Say why the question inside a query only reads, and name a loop that should stay a loop.
+7. Say what `Where` hands back before `ToList()` — a question that has not been asked yet.
 
 > [!NOTE]
-> **Objectives 3, 5 and 6 are the three that bite**, and all three are measurable rather than matters of taste. If the night runs short, protect §2's payoff and §6's break — and let §5 lose the five-coldest list.
+> **`Sum`, `Take` and `MaxBy` are demo-only**, on the switchboard and the hour, with *Done early* items for students who want a rep. `Any`, `Count`, `Average`, `OfType` and `MinBy` are in the notes. The four the students write are the four the homework grades.
 
 ## Materials
 
-- `slides.md` / `slides.html` — the deck
-- `lecture-notes.md` on your second screen
+- `slides.md` / `slides.html` — the deck, five slides
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-09/demo/script.html))
-- **The instructor demo repo**, where week 8 left it — `week-01/` … `week-08/` in it, clean, `main` up to date after last week's merge
-- ⚠️ **Week 8's project has to RUN** — §1 opens by running it
-- ⚠️ ⚠️ **`week-09/season.txt` has to be in place before class.** It is 50,000 lines and 0.9 MB, the demo never types it, and **§5 and §6 cannot run without it.** §0 has the one-line copy
+- **The instructor demo repo**, `dotnet-db-coursework`, with **a starters clone you can push to next to it** — §0 tests a push
+- ⚠️ **`demo/week-09/` in the starters repo empty or missing** before class — it fills up during the night
+- ⚠️ **Delete `week-09/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
+- **A browser tab on the lab README** (`week-09/lab/README.md` on GitHub) — it is the projector screen for Lab A–F
+
+## The chunked night, on one station
+
+Each demo segment is followed by the lab task that practices it. **The demo works on the switchboard and the hour while the lab works on the rotation** — same technique, sibling objects.
+
+- **After §2, §3, §4, §5 and §6 you push your finished files to `demo/week-09/` in the starters repo.** Each lab task opens with the student pulling and copying them in. The files you push are only ones students never edit — `Switchboard.cs`, `Hour.cs`, `SwitchboardTests.cs`, `BusyCallerTests.cs` — so a copy can never overwrite their work.
+- ⚠️ **Nothing in the lab waits on a push.** Their tasks are all in `Rotation.cs`. If a push stalls, they start the task and copy your file when it lands.
+- **Push only what you just ran.** Each push comes right after the segment's last run or green test.
+- **Every lab block ends at an "In class, stop here" note** in the README, with an early-finisher extra. Lab F has no stop; it absorbs what is left, and anyone finished starts the homework.
+- **The `[n]` screen is the scoreboard for both halves.** Your four lines and the running order fill in as you push; their three fill in as they finish tasks.
 
 ## Timed agenda
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 15 min | **Where we finished last week** *(demo §1)*. Run week 8, take a reading, then collect the promise the room has been hearing since week 3. Branch, `week-09/Haldane`, the suite carried forward, the date. 🎯 **Say "five tests" out loud and ask them to hold it.** |
-| 0:15 | 28 min | 🎯 **The promise, collected** *(slides 2–4, demo §2)*. `LatestCelsius`: read the method out loud, replace it with one line, run the board, **run the suite**. Then the shape and the lambda, then `SignOuts` and `OutsideCount`. |
-| 0:43 | 10 min | **☕ Break** |
-| 0:53 | 30 min | **Six more of the same shape** *(slides 5–7, demo §3)*. `Any`, two `FirstOrDefault`s, `Lookup`, then `Program.cs` — `crew.Sum` (week 5's spoken promise) and `Find`. What an empty sequence does to you, and what stays a loop. |
-| 1:23 | 8 min | **End of watch, in one line** *(demo §4)*. Week 5's muster becomes one line; the `ToList` is there because the variable is a list. |
+| 0:00 | 3 min | **Questions the desk can't answer** *(demo §1)*. Two sentences: tonight every answer is one line, and you build the switchboard's while they build the rotation's. |
+| 0:03 | 10 min | **Lab A: setup, together** *(the lab README in the browser)*. You copy week 9 in alongside the room. **1 / 4**, the starter commit. Stop there. |
+| 0:13 | 22 min | 💥 **A fact first, then one line** *(slide 2, demo §2)*. The `[n]` screen, all dashes. A fact about `Switchboard.Find`, green at once. Slide 2: the shape. `Find` becomes `FirstOrDefault`. Then `First`: the fact goes red and a new caller crashes the desk. `Load`'s loop becomes `AddRange`. **Push #1.** |
+| 0:35 | 25 min | **Lab B: Task 1** — copy your files in, write the fact, then `Rotation.Find` and `Load`. The count stays at 1 / 4. |
+| 1:00 | 16 min | **A number, and some of them** *(slide 3, demo §3)*. `Hour.TotalSeconds` becomes `Sum`. New `TotalCalls`. `CalledMoreThan` with `Where`. Slide 3: what each word hands back. **Push #2.** |
+| 1:16 | 15 min | **Lab C: Task 2** — `LongerThan`. |
 | 1:31 | 10 min | **☕ Break** |
-| 1:41 | 28 min | **A season of weather** *(slides 8–9, demo §5)*. The met book on screen, `SeasonReading` and `Season.Read` pasted — as a query, with no `ToList()` — then six questions in six lines over 50,000 rows. Every answer is right. |
-| 2:09 | 26 min | 💥 **What it cost** *(slides 10–11, demo §6)*. The stopwatch says reading took `0 ms` and the book holds `0.0 MB`. A **hit-count breakpoint** stops on the last line of the book and then on the first: every question reads the file again. `ToList()`, and all three numbers flip. 🎯 **The promise made: querying a file is going to stop being good enough.** |
-| 2:35 | 5 min | **Lab launch** *(slide 12, demo §7)*. Task 1 turns nothing green; the suite is how you know. |
-| 2:40 | 50 min | **Lab: the night's numbers** *(slide 12 stays up)*. **In-class target: 5 green.** Circulate at Task 1 (`MaxBy` with no `?.`) and Task 4 (`List.Sort`). |
-| 3:30 | 15 min | **Wrap-up** *(slide 13, demo §8)*. Project repo URL, the checks-copy line — **four checks this week** — and a normal one-week due date. |
+| 1:41 | 12 min | 💥 **Read the hour without airing it** *(demo §4)*. `RunningOrder` hands back `Run()`, and looking twice uses up two of the bakery's airings. `Select` replaces it. **Push #3.** |
+| 1:53 | 15 min | **Lab D: Task 3** — `Titles`. |
+| 2:08 | 20 min | 💥 **In order, and the list left alone** *(demo §5)*. `Busiest` with `Sort`: the board and the file both change. `OrderByDescending` and `Take`. Then `TheRegular` with `MaxBy`, `?.` and `??`. **Push #4.** |
+| 2:28 | 25 min | 🎯 **Lab E: Task 4** — the lab's payoff. `ByTitle`, then the cart table, then the file. **Circulate hard.** |
+| 2:53 | 10 min | **☕ Break** |
+| 3:03 | 10 min | 💥 **A question, and an answer** *(slide 4, demo §6)*. A fact with no `ToList()`, red with two callers. The debugger: the question runs when the answer is read. `ToList()`, green. Week 10, named. **Push #5.** Done, defined. |
+| 3:13 | 22 min | **Lab F: finish the lab, or start the homework.** Finished students do the homework's Part 1 and Task 1 and push their branch, while you're there to answer setup questions. |
+| 3:35 | 10 min | **Wrap-up** *(slide 5, demo §7)*. Project repo URL, **the homework is the lab again**, the branch line, the checks-copy line, and a normal one-week due date. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes.** If the night runs long, **§5 is the segment to shorten** — drop the five-coldest list and keep the four headline answers, which is all §6 needs. **Do not take it from §2** (the payoff), **from §6** (the break), or from the lab.
+> **The table sums to exactly 225 minutes: 93 of demo in seven segments, 112 of lab in six blocks.** If the night runs long, take it from Lab F. **Do not take it from §2's red** or **Lab E** (the payoff). If the demo runs fast, the time goes to Lab B and Lab E.
 
 ## Instructor notes
 
-- 🎯 **§1's "five tests" is a setup, not filler.** Say the number, ask them to hold it, and then say it again after every collapse in §2 and §3. The whole evening's argument is that the number never moves.
-- ⚠️ **Collect the promise, and do not recite the list.** The sheet says *"several times since week three"* on purpose. The weeks are 3, 4, 5, 6, 7 and 8 — that is for you, not for saying out loud, because naming all six turns a payoff into a roll-call. It is the most-repeated promise in the course and the room will remember at least two of them unprompted.
-- ⚠️ ⚠️ **§2's `OutsideCount` edit is the one selection tonight that needs care.** It replaces a whole property, so the selection ends on **the second of the two `}` in a row**. Every other edit in §2 and §3 runs statement-to-statement.
-- 💡 **§3 is deliberately repetitive and should be paced that way.** Explain the first `FirstOrDefault`; for the second, ask what goes there and wait. Three of the six need no commentary at all.
-- ⚠️ **The `?.` and `??` in `LatestCelsius` are worth thirty seconds even when the clock is tight.** They are the single most common way the lab goes wrong tonight, and check 1's failure message says so — but a room that has seen it once reads that message much faster.
-- 🎯 **§6's break needs the pause.** After the first run, read `0 ms` and `0.0 MB` out and **ask how reading a file can take no time** — before you touch the debugger. The room should be puzzled first.
-- ⚠️ ⚠️ **§6 runs under the debugger, and the setup should not happen for the first time in front of the room.** Delete `.vscode`, set `"cwd": "${workspaceFolder}"` in the regenerated `launch.json`, then the gutter breakpoint in `Season.ReadLine` with **Hit Count `>= 50000`**. **Rehearse it once before class** — the `cwd` step in particular has not been run on the real Haldane program yet.
-- 💡 **The hit count is the new tool tonight, so name it.** A plain breakpoint on that line would stop 50,000 times; the hit count is the answer to that, and the room has just watched why it is needed.
-- ⚠️ **§6's explanation is a mechanism, not a principle.** *"`Read` handed back instructions, and every question ran them again from the top of the file."* Do not reach for a metaphor; the room is already holding a surprise.
-- ⚠️ ⚠️ **§6 IS NOT A SPEED BEAT, and building it as one would falsify itself on screen.** Measured: 50,000 lines read in **8–24 ms**. The argument is **work and memory** — it read all 50,000 to answer a question about one, and a 0.9 MB file became 11.8 MB of program. Both of those are true on any machine.
-- 💡 **The two millisecond figures move every run and the slide deliberately does not carry them.** Read yours off the screen. The memory figure was stable across every run and it is the one to land.
-- 🎯 **§6's closing arithmetic is theirs, not yours.** *"And that is not even one whole season. Haldane has been open since 1994."* Then stop.
-- ⚠️ **Say the P6 promise in as many words** — *"querying a file is going to stop being good enough"* — because week 12 collects it by name.
-- **The demo commits four times, silently**, and the first is immediately after the carry-forward. Then the collapses (§3), the end-of-watch muster (§4), and the met book (§6) with the push.
-- **The branch is spoken, briefly** — five seconds, nothing new this week.
-- ⚠️ **Say the due date normally.** Last week was the term's only two-week homework; students who were told that twice will assume this one is too.
-- 💡 **The lab's Task 3 is where a run instruction matters more than usual**: they must press `n` *before* airing the hour, or `never been out` reads `-` and the task looks broken. The doc says so in bold; say it again at the hand-off if you have ten seconds.
+- 🎯 **§2's fact is green the first time, and that has to be said.** A room that has only seen facts go red first will read a green as a mistake. The line is in the sheet: the fact is there so `Find` can be changed safely.
+- 🎯 **Say "four" in §2 and "five" after the fact, out loud.** The numbers are the evidence that nothing moved.
+- 💥 **In §2, type the change to `First`; don't paste it.** It is one word, and the break is that word.
+- ⚠️ **§2's crash needs a caller who is not on the board.** `Ray` works. `Dorothy` does not crash, because `First` finds her.
+- 💡 **§3's check run is honest.** Check 1 builds a small hour and expects `TotalSeconds` to be 257, so a broken `Sum` would turn it red. The sheet says that and no more.
+- 💥 **§4 pastes `return Run();` on purpose.** It is the quick, natural first try, and it is wrong in a way the room can see: the bakery's ad counts down each time the screen is drawn. Ask what changed, and wait.
+- ⚠️ **§4's run has to press `n` twice before `q`.** One press shows `(2 left)` and proves nothing on its own.
+- 💥 **§5's `Sort` is the demo's payoff.** Press `c` *before* `n` so the room has seen Bex in second place. Then `n`, then `c` again.
+- ⚠️ **§5 deletes `switchboard.json` before the fixed run.** The wrong order was saved when you quit, and `Load` would bring it straight back. The sheet has the `rm`.
+- ⚠️ **§6's debugger steps are unverified on any machine but a rehearsal.** Run them once before class. The note at the end of §6 has the fallback if the breakpoint does not stop inside the question.
+- 🎯 **§6 is one fact and ten minutes.** Nothing in the lab or the homework can get this wrong, because every dictated method returns a `List`. It is here so that `ToList()` is not a word they copy, and because week 10 needs it.
+- **The demo commits once, silently** — the starter, alongside the room in Lab A. The five pushes go to the starters repo, not the demo repo.
+- ⚠️ **Say the due date plainly at the wrap.** Last week's homework had two weeks. This one has one.
+- **Lab B is where the discipline happens to them** — watch for a rewritten `Find` and no fact. The question over a shoulder: *"how many tests did you have before you started?"*
+- **Lab E is where the wrong answer looks right** — `Sort` in `ByTitle` gives a perfect `[n]` line. Ask what order the carts are in when they press `t`.
 
 ## What could go wrong
 
 | If | Then |
 |---|---|
-| §1's reading does not move the headline temperature | **Correct, and it is the ordered `Add` working.** The headline is the last reading *in the book*, and the book is in time order — so a reading stamped earlier than the seeded `14:35` lands above it. Measured: `20:49` moves it to `-42.4`, `09:12` leaves it at `-41.5`. ⚠️ **The cue sheet says the mechanism rather than predicting the number**, and off-hours rehearsal is the only time you will see the insert work. |
-| `dotnet new console -o week-09/Haldane` refuses | You rehearsed and left `week-09/` behind. Delete both project folders and the log file — but ⚠️ **not `season.txt`**, or §5 has nothing to open. §0 makes that distinction. |
-| §5 says the met book isn't there | `season.txt` was never copied in, or `rm -rf week-09` took it. §0's copy line, again. |
-| The met book's numbers differ from this sheet's | Somebody regenerated `season.txt`. The committed file is the source of truth; `demo-starter/tools/make-season.py` reproduces it. |
-| §6's first run already shows about 9 ms and 11.8 MB | The `.ToList()` is already in `Season.Read`. §5 pastes it without on purpose — check you did not paste the fixed version. |
-| <kbd>F5</kbd> stops at once with `FileNotFoundException` | Expected until `"cwd"` in `.vscode/launch.json` reads `"${workspaceFolder}"`. The debugger starts in the project folder, where `week-09/season.txt` does not exist. |
-| The breakpoint stops on the first line of the book, not the last | The hit count is `50001` rather than `>= 50000`. Both prove the second read, but only `>= 50000` shows the last line first. |
-| The breakpoint stops only once | `.ToList()` is already in `Season.Read`, so the file is read once. That is the fixed state, not a fault. |
-| A collapse makes a test go red | **That is the segment working**, and it is worth saying so out loud rather than fixing it quietly. Read the failure, then fix it. |
-| Somebody asks why `Everything()` doesn't collapse | Because the one-line version reads worse. Slide 7 says it, and it is the honest answer rather than a dodge. |
-| Somebody asks about `First` vs `FirstOrDefault` performance | They are the same. The difference is what happens when there is nothing, and that is the only difference. |
-| Somebody asks whether the search is case-sensitive | **It is, and it is exactly as case-sensitive as the loop it replaced** — nothing about tonight changed that. ⚠️ **Do not spend it here**; it is a database-week conversation and both the lab and the homework 🆘 point forward without spoiling it. |
-| A student's `MaxBy` throws in the lab | `?.` and `??`. Check 1's message names it, and it is the most common failure of the night. |
-| A student's rotation comes back in a different order | `List.Sort` in `TopPlayed`. Check 4 catches it and the message is written for exactly this. |
-| Somebody asks whether LINQ is slower than a loop | Honestly: usually a little, and it has never mattered in anything this course does. **The thing that will matter is in §6**, and it is about the file rather than about the query. |
+| A push asks you to sign in, or is rejected | §0's test push should have caught it. Sign in and push again; the room starts the task meanwhile. If it is rejected as behind, the pull in the same step fixes it — run the step again. |
+| A student's copy says `No such file or directory` | Your push hasn't landed, or their starters clone isn't pulled. `git -C ../dotnet-db-starters pull` and copy again. Their task doesn't need the file to start. |
+| `demo/week-09/` already has files in it at the start of class | Left from rehearsing, or from last term. §0 resets it. If you forget, nothing breaks — students simply have your files before you've built them. |
+| §2's suite says more than 4 before you start | A push file from a rehearsal is in your `week-09`. Delete the folder and copy the week in again. |
+| §2's `First` run is green | The name in `Assert.Null` is on the board. It has to be a caller nobody has taken. |
+| §4's second `n` shows `(2 left)` again | `RunningOrder` already has the `Select` in it — you copied a push file in while rehearsing. |
+| §5's board does not change after `n` | `Busiest` already has `OrderByDescending`. Same cause. |
+| §5's fixed run still shows the board in the wrong order | `switchboard.json` was not deleted, so the saved wrong order was loaded. |
+| §6's breakpoint stops once and the test ends | The debugger bound the red dot to the statement only. The fallback is in the note at the end of §6. |
+| A student's `Find` rewrite crashes the desk on `f` | `First`. Their own fact is red too, and check 1 names it. |
+| A student's rotation has six carts | `Load` lost its `Clear()` when the loop became `AddRange`. |
+| A student's carts are in the wrong order after they fixed `ByTitle` | The wrong order is saved in `week-09/rotation.json`. Delete the file. |
+| A student's top `[n]` lines don't match the README | They are the instructor's lines, and they depend on which push files are copied in and on any requests taken. Only the student's three have to match. |
+| Somebody asks why not `First` | Because finding nothing is a normal answer for `Find`. `First` is right when a missing item means something is broken and you want to hear about it at once. |
+| Somebody asks whether LINQ is slower than a loop | Usually a little, and it has never mattered in anything this course does. |
+| Somebody asks whether the search should ignore capitals | It is as exact as the loop it replaced. **Don't spend it here** — it is a database-week conversation, and the lab and homework both say so. |

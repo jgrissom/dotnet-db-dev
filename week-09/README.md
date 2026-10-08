@@ -1,60 +1,36 @@
 # Week 9 — LINQ, and Thirty Lines Become One
 
-The most heavily pre-promised week in the course comes due. Since week 3, six separate times, students have written a loop by hand and been told *"in week 9 this becomes one line."* Tonight all six are collected — and then the evening turns, because the interesting half of LINQ is not the brevity. It is that a query **asks**: it never changes the thing it was asked about, and it is not an answer until somebody makes it one.
+The desk learns to answer questions, and every answer is one line. **The demo and the lab are both KDXR.** The instructor changes the switchboard and the hour live and pushes each finished file; students copy it in and do the same to the rotation. One question quietly rewrites a save file — first on the switchboard, then, if they reach for the wrong word, on their own rotation.
 
 ## Use in this order
 
 | When | Document | What it is |
 |------|----------|------------|
 | Prep | 🗓️&nbsp;[lesson-⁠plan.md](lesson-plan.md) | Timed 3h45 agenda + instructor notes |
-| Prep&nbsp;/⁠&nbsp;in-⁠class&nbsp;script | 📖&nbsp;[lecture-⁠notes.md](lecture-notes.md) | Full lecture content, every word with what it hands back, **troubleshooting appendix** |
+| Prep&nbsp;/⁠&nbsp;in-⁠class&nbsp;script | 📖&nbsp;[lecture-⁠notes.md](lecture-notes.md) | Further reading: every word with what it hands back, **troubleshooting appendix** |
 | Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck (GFM, one slide per `##`) — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-09/) (arrow keys, `F` for fullscreen) |
-| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *Thirty lines become one* — ten loops out, including the end-of-watch muster, a season queried and read seven times; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-09/demo/script.html) |
-| In&nbsp;class,&nbsp;last&nbsp;50&nbsp;min | 🧪&nbsp;[lab/⁠](lab/) | *The night's numbers* — 5 checks, 1/5 out of the box, and a first task that turns nothing green (answer key in the private repo) |
+| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *Thirty lines become one* — the switchboard and the hour, changed live in seven short segments, each followed by the lab task it practices; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-09/demo/script.html) |
+| In&nbsp;class,&nbsp;between&nbsp;demo&nbsp;segments | 🧪&nbsp;[lab/⁠](lab/) | *The night's numbers* — 4 checks, 1/4 out of the box, and a first task that turns nothing green (answer key in the private repo) |
 | With&nbsp;the&nbsp;homework | ✅&nbsp;[starters&nbsp;repo⁠](https://github.com/jgrissom/dotnet-db-starters) | The lab folder, and **`project/week-09/Project.Checks`** — the checks the grader runs against your own project, byte-for-byte |
-| Assigned&nbsp;at&nbsp;wrap-⁠up | 📤&nbsp;[homework.md](homework.md) | Three questions on your own registry, and a fact that gives permission (20 pts) |
+| Assigned&nbsp;at&nbsp;wrap-⁠up | 📤&nbsp;[homework.md](homework.md) | The lab again, on your own registry: a fact about `Find`, then `Matching`, `Names` and `Sorted` (20 pts) |
 
 ## What students walk out with
 
-**One shape, and the confidence that it is only one.** `sequence . word ( question )` — and once they can read `c => c.TripsToday` out loud, every word in the set reads the same way. They can pick between `Where`, `Select`, `OrderBy`, `Take`, `OfType<T>`, `Sum`/`Count`/`Average`, `Any`, `FirstOrDefault`/`LastOrDefault` and `MaxBy`/`MinBy` **by what each one hands back**, which is the only classification that decides what can come next.
+**One shape, and the confidence that it is only one.** A list, a word, and a question asked of one item at a time. Once a student can read `song => song.Seconds > 240` out loud, `FirstOrDefault`, `Where`, `Select` and `OrderBy` all read the same way, and they can pick between them **by what each one hands back**.
 
-They can also say what every one of those does to an **empty** sequence — and that `First` and `FirstOrDefault` are not interchangeable, because the loop they are replacing could never crash and `First` can.
+Students can also say what a word does **when nothing matches** — that `First` throws where `FirstOrDefault` hands back `null`, and that a search loop could never crash that way. They have seen it happen on their own desk.
 
-**And two things a query must never do.** `OrderBy` sorts a *copy*, so a registry keeps the order records arrived in and the save file is not quietly rewritten. And a lambda that changes something on the way past has turned a question into an action — which is why `Hour.Run` and `Watch.Save` stay loops, and why a one-liner is not the goal.
+**And two things a question must never do.** It must not change the list it is asked of: `OrderBy` builds a new list, while `List.Sort` rearranges the one it is given and the save file with it. And it must not change the items: a `Select` that plays each item puts the hour on air when somebody only wanted to read it.
 
 > [!IMPORTANT]
-> **The week's own payoff is a number that does not move.** Ten working loops come out of the demo and about forty lines out of the lab, and the test count sits still through all of it. **Week 7 promised exactly this** — *"your tests will be how you prove the one-liners do the same job"* — and this is where it is collected. The lab's Task 1 turns nothing green on purpose.
-
-## 💥 And then the honest half
-
-§6 asks the station's met book — **50,000 readings over 268 days** — six questions in six lines, and prints the bill. The first time, it is too good to be true:
-
-```
-reading the file       0 ms for all 50,000 lines
-asking the questions   59.9 ms
-the book, in memory    0.0 MB from a 0.9 MB file
-```
-
-`Season.Read` handed back **instructions**, not readings, so nothing had been read yet. A **hit-count breakpoint** on the line that reads one line of the book stops at hit 50,000 on the *last* line — and one Continue later, on the *first* line again. Every question reads the whole file from the top: seven reads, 350,000 lines. `ToList()` makes it one read, and all three numbers flip:
-
-```
-reading the file       9 ms for all 50,000 lines
-asking the questions   7.1 ms
-the book, in memory    11.8 MB from a 0.9 MB file
-```
-
-⚠️ **This is deliberately not a speed beat, and it must not be built as one.** At this size a file is *fast* — the argument is **work and memory**: without `ToList()` the file is read again for every question, and with it a 0.9 MB file is more than ten times bigger once it is in the program. That is true on any machine, and a stopwatch race is not.
-
-**That is where the week's forward promise is made, in as many words:** *querying a file is going to stop being good enough.* Week 10 moves it; week 12 collects it.
+> **Task 1 turns nothing green, on purpose.** Students write one fact, change two working loops into one line each, and the check count stays at 1 / 4. Their own suite is how they know nothing broke. The homework's Task 1 is the same task on their own registry.
 
 ## 📋 Before class, don't forget
 
-- ⚠️ ⚠️ **`week-09/season.txt` must be in the demo repo before class** — 50,000 lines, 0.9 MB, and **§5 and §6 cannot run without it.** The demo never types it; §0 has the copy line
-- ⚠️ **Delete `week-09/` if you've rehearsed** — both projects **and `watch-log.txt`**, but ⚠️ **not `season.txt`**
-- ⚠️ **`main` up to date in the demo repo** — §1 carries week 8 forward, so last week's merge needs to be pulled
-- ⚠️ **Run `dotnet run --project week-08/Haldane` once before class** — §1 opens by running it
-- 💡 **The two millisecond figures in §6 move every run**, which is why slide 11 carries only the memory line. Read yours off the screen
-- **VS Code open on the demo repo's top**, exactly where week 8 left it
-- **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive** — week 9's board is up, and it is the first one with a met summary on it
+- ⚠️ **A starters clone you can push to, next to your demo repo** — you push to it five times tonight. The cue sheet's §0 tests it
+- ⚠️ **`demo/week-09/` in the starters repo empty or missing** — it fills up during class
+- ⚠️ **Delete `week-09/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
+- ⚠️ **Rehearse §6's debugger steps once** — a breakpoint, Debug Test, one Step Over, two Continues
+- **VS Code open on the demo repo's top**, and a browser tab on the lab README
 
 **Prev:** [Week 8 — File I/O, and the Night Stops Being Gone](../week-08/) · **Next:** [Week 10 — EF Core I: The Log Leaves the Building](../week-10/)
