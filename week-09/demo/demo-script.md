@@ -640,7 +640,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 **Read it left to right. Highlight `OrderByDescending`:** *"OrderByDescending puts the callers in order by CallsTonight, biggest first."*
 - [ ] 📖 **Highlight `Take`:** *"Take keeps the first n."*
 - [ ] 📖 **Highlight `ToList`:** *"ToList hands back a list."*
-- [ ] 📖 **Then the difference:** *"OrderByDescending builds a new list in sorted order. It does not touch _callers."*
+- [ ] 📖 **Then the difference:** *"OrderByDescending builds a new list in sorted order. It does not reorder our original list of callers."*
 - [ ] **Throw the file away, because the wrong order is saved in it**
 
   ```bash
