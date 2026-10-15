@@ -629,6 +629,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 *"Quitting saved the board in the new order. Asking who was busiest rewrote the file."*
+- [ ] 📖 *"The switchboard keeps the callers in the order they first rang, and I want to keep that order. So I should not sort the list itself. I need another way to get the busiest callers that leaves the list alone."*
 
 - [ ] **Back to `Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `_callers.Sort(` — one hit. Select from that line down to and including `return _callers.Take(n).ToList();`, and paste this over it**
 
