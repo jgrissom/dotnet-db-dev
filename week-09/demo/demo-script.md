@@ -353,6 +353,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"One out of four, the same as at the start. Check 1 builds a small hour of its own and expects it to add up to 257 seconds. Check 1 is still green."*
 
+- [ ] 📖 **Before you change TotalCalls, say what it does now:** *"Right now TotalCalls hands back zero, whatever is on the board. That zero is the zero calls on the screen. I need it to add up every caller's CallsTonight."*
 - [ ] **Now a question the desk could not answer. In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `get { return 0; }` — one hit. Select that one line and paste this over it**
 
   ```csharp
@@ -373,6 +374,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"Five calls from three people."*
 
+- [ ] 📖 **Before you change CalledMoreThan, say what it does now:** *"Right now CalledMoreThan hands back an empty list, so the screen shows a dash. I need it to hand back the callers who have rung more than the number I give it."*
 - [ ] **Next line of the screen. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<Caller> CalledMoreThan(int calls)` — one hit. Two lines under it is `return new List<Caller>();`. Select that one line and paste this over it**
 
   ```csharp
@@ -448,6 +450,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<string> Run()` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
 - [ ] 📖 *"Run already builds the lines the running order needs. Run makes one line of text for each item: the kind, a dash, then the cue."*
+- [ ] 📖 **Before you change RunningOrder, say what it does now:** *"Right now RunningOrder hands back an empty list, so nothing shows under the running order. I need it to hand back one line of text for each item in the hour, the same lines Run builds."*
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return new List<string>();` — one hit. Select that one line and paste this over it**
 
   ```csharp
@@ -540,6 +543,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"Two questions left on my half of the screen. Who are the two busiest callers? And who is the regular?"*
 
+- [ ] 📖 **Before you change Busiest, say what it does now:** *"Right now Busiest hands back an empty list, so the screen shows a dash for the busiest two. I need it to hand back the n callers with the most calls, the most first."*
 - [ ] **In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<Caller> Busiest(int n)` — one hit. Two lines under it is `return new List<Caller>();`. Select that one line and paste this over it**
 
   ```csharp
@@ -632,6 +636,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"The file is in the order the callers rang. Task 4 is this, on your rotation, and my check looks for exactly this."*
 
+- [ ] 📖 **Before you change TheRegular, say what it does now:** *"Right now TheRegular hands back empty text, so the screen shows a dash for the regular. I need it to hand back the name of the caller with the most calls."*
 - [ ] **Last one. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return "";` — one hit. Select that one line and paste this over it**
 
   ```csharp
