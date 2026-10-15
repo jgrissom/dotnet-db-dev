@@ -82,6 +82,8 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 ## 1 · Questions the desk can't answer
 
+- [ ] **Slide 1 is already up as the room settles.** It names tonight's theme. Read it to them in one go, then the two lines below
+- [ ] 📖 **Read the slide:** *"Tonight is LINQ, which is about asking a list a question. We'll turn a loop into one line, and write a test first to prove nothing changed. We'll use a few LINQ words: one finds a single item, one keeps some, one changes each item, one puts them in order. We'll see the one thing a question must never do to the list it asks. And in your lab, you'll give the rotation three questions it can answer."*
 - [ ] 🎯 **Say what tonight is, plainly:** *"The desk holds the carts, the hour, and every caller. Tonight it learns to answer questions about them. Each answer is one line of code. The C# feature that does it is called LINQ. It is a set of methods that every list already has."*
 - [ ] 📖 **Then the deal for the night:** *"I work on the switchboard and the hour. You work on the rotation. After each piece I push my file, and you copy it in."*
 

@@ -28,6 +28,13 @@ style: |
 
 # Week 9 — Thirty Lines Become One
 
+**LINQ: asking a list a question**
+
+- one line instead of a loop — and a test that proves nothing changed
+- a few LINQ words: find one, keep some, change each, put in order
+- what a question must never do to the list it asks
+- **your lab:** three questions about the rotation
+
 .NET Database Development · Week 9 of 16
 
 ---
