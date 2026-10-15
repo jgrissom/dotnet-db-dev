@@ -521,7 +521,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
       WEATHER - clear, four below, wind out of the northwest
   ```
 
-- [ ] 📖 *"Three left, both times. The weather has not been read. Looking at the running order no longer changes the hour."*
+- [ ] 📖 *"Three left, both times. The weather has not been read. The hour has not been aired. Looking at the running order no longer changes the hour."*
 - [ ] **Without quitting, press `a`, then `n`**
 
   ```
