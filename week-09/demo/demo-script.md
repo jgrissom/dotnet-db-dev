@@ -72,6 +72,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click anywhere in it and press <kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>
 - [ ] ⚠️ **Delete `week-09/` from the demo repo if you've rehearsed.** Tonight you copy it in fresh, along with everybody else
 - [ ] ⚠️ **Rehearse §6's debugger steps once before class.** They are the one part of tonight that no script can check: a breakpoint, **Debug Test**, one Step Over and two Continues. If the breakpoint does not stop inside the question, the note at the end of §6 has the fallback
 - [ ] **A browser tab on the lab README** (`week-09/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
@@ -141,7 +142,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] **Press `q`**
 - [ ] 📖 *"Before I add anything, I'm going to change a method that already works. That method is Find, on the switchboard."*
 
-- [ ] **Open `week-09/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Caller? Find(string name)` — one hit.** Put the cursor on it and leave it there
+- [ ] **Open `week-09/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Caller? Find(string name)` — one hit.** Highlight that line (<kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>) and leave it highlighted
 - [ ] 📖 **Read the loop out, a line at a time:** *"Find walks the callers. If a caller's name matches the name it was handed, it hands that caller back. If it reaches the end without a match, it hands back null."*
 - [ ] 📖 *"This loop works. I'm going to replace it with one line. First I write down what Find does, as a test. Then I can tell whether my one line changed it."*
 
@@ -175,8 +176,8 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   }
   ```
 
-- [ ] 📖 **Cursor on `Assert.Same`:** *"Dorothy is on the board. Find Dorothy has to hand back that same caller, not a copy of her."*
-- [ ] 📖 **Cursor on `Assert.Null`:** *"Nobody called Ray has rung. Find Ray has to hand back null."*
+- [ ] 📖 **Highlight `Assert.Same`:** *"Dorothy is on the board. Find Dorothy has to hand back that same caller, not a copy of her."*
+- [ ] 📖 **Highlight `Assert.Null`:** *"Nobody called Ray has rung. Find Ray has to hand back null."*
 - [ ] 🎯 **Ask for the color before you run it, and wait for an answer.** *"Red or green?"*
 
   ```bash
@@ -199,9 +200,9 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           return _callers.FirstOrDefault(caller => caller.Name == name);
   ```
 
-- [ ] 📖 **Cursor on `_callers`:** *"The list of callers."*
-- [ ] 📖 **Cursor on `FirstOrDefault`:** *"FirstOrDefault hands back the first caller the question is true for."*
-- [ ] 📖 **Cursor on `caller => caller.Name == name`:** *"This is the question. It is asked of one caller at a time. Is this caller's name the name I was handed?"*
+- [ ] 📖 **Highlight `_callers`:** *"The list of callers."*
+- [ ] 📖 **Highlight `FirstOrDefault`:** *"FirstOrDefault hands back the first caller the question is true for."*
+- [ ] 📖 **Highlight `caller => caller.Name == name`:** *"This is the question. It is asked of one caller at a time. Is this caller's name the name I was handed?"*
 - [ ] 📖 **Then the last part of the word:** *"OrDefault covers the case where the question is true for no caller. Then it hands back null. That is what `return null` at the bottom of the loop did."*
 
 - [ ] **Run the suite**
@@ -263,7 +264,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 *"This loop put every loaded caller on the board, one at a time. That is not a question, so it is not a query. The list has a method that adds a whole list at once, called AddRange."*
-- [ ] 📖 **Cursor on `_callers.Clear();`:** *"The Clear above it stays. Loading replaces what is on the board."*
+- [ ] 📖 **Highlight `_callers.Clear();`:** *"The Clear above it stays. Loading replaces what is on the board."*
 - [ ] **Run the suite**
 
   ```bash
@@ -309,7 +310,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"Find answered with one caller. The next two questions answer with a number, and with several callers."*
 
-- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int TotalSeconds` — one hit.** Put the cursor on it
+- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int TotalSeconds` — one hit.** Highlight that line (<kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>) and leave it highlighted
 - [ ] 📖 **Read the loop out:** *"TotalSeconds starts a total at zero. It adds each item's seconds to the total. Then it hands the total back."*
 - [ ] **Select from `int total = 0;` down to and including `return total;`, and paste this over it**
 
@@ -317,8 +318,8 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
               return _items.Sum(item => item.Seconds);
   ```
 
-- [ ] 📖 **Cursor on `Sum`:** *"Sum adds up one number from each item in the list."*
-- [ ] 📖 **Cursor on `item => item.Seconds`:** *"The question says which number. For this item, the answer is its Seconds. This question does not answer yes or no. It answers with a number."*
+- [ ] 📖 **Highlight `Sum`:** *"Sum adds up one number from each item in the list."*
+- [ ] 📖 **Highlight `item => item.Seconds`:** *"The question says which number. For this item, the answer is its Seconds. This question does not answer yes or no. It answers with a number."*
 - [ ] **Run the desk: DJ name, then `q`.** The hour is drawn as soon as the shift starts
 
   ```bash
@@ -370,9 +371,9 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           return _callers.Where(caller => caller.CallsTonight > calls).ToList();
   ```
 
-- [ ] 📖 **Cursor on `Where`:** *"Where keeps the callers the question is true for, and drops the rest."*
-- [ ] 📖 **Cursor on the question:** *"The question is: has this caller rung more than `calls` times?"*
-- [ ] 📖 **Cursor on `ToList`:** *"Where does not hand back a list. ToList on the end makes one. At the end of tonight I'll show you what Where hands back on its own."*
+- [ ] 📖 **Highlight `Where`:** *"Where keeps the callers the question is true for, and drops the rest."*
+- [ ] 📖 **Highlight the question:** *"The question is: has this caller rung more than `calls` times?"*
+- [ ] 📖 **Highlight `ToList`:** *"Where does not hand back a list. ToList on the end makes one. At the end of tonight I'll show you what Where hands back on its own."*
 - [ ] **Run the desk: DJ name, then `n`, then `q`**
 
   ```bash
@@ -431,7 +432,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"The last part of the screen is the running order. The DJ wants to read what is coming up before the hour goes out. Nothing is listed under it yet."*
 
-- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<string> Run()` — one hit.** Put the cursor on it
+- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<string> Run()` — one hit.** Highlight that line (<kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>) and leave it highlighted
 - [ ] 📖 *"Run already builds those lines. It makes one line of text for each item: the kind, a dash, then the cue."*
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return new List<string>();` — one hit. Select that one line and paste this over it**
 
@@ -457,7 +458,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 💥 **Do not explain it. Ask, and wait:** *"Look at the bakery ad in the first list and in the second list. What changed?"*
 - [ ] 📖 *"Two left, then one left. Pham's Bakery paid for three airings. I pressed n twice, and two of them are used up. Nothing went out on air. I only looked."*
-- [ ] **Press `q`.** Then put the cursor on `item.Play();` inside `Run`
+- [ ] **Press `q`.** Then highlight `item.Play();` inside `Run`
 - [ ] 📖 *"Here is why. Run does not only build the lines. It plays each item first. Calling Run puts the hour on air."*
 
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return Run();` — one hit. Select that one line and paste this over it**
@@ -466,8 +467,8 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           return _items.Select(item => $"{item.Kind} - {item.Cue}").ToList();
   ```
 
-- [ ] 📖 **Cursor on `Select`:** *"Select keeps every item, and turns each one into something else."*
-- [ ] 📖 **Cursor on the question:** *"Here each item becomes a line of text: its Kind, a dash, and its Cue. There is no Play in this line. It reads two things from each item and changes nothing."*
+- [ ] 📖 **Highlight `Select`:** *"Select keeps every item, and turns each one into something else."*
+- [ ] 📖 **Highlight the question:** *"Here each item becomes a line of text: its Kind, a dash, and its Cue. There is no Play in this line. It reads two things from each item and changes nothing."*
 - [ ] **Run the desk: DJ name, then `n`, then `n` again**
 
   ```bash
@@ -526,8 +527,8 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           return _callers.Take(n).ToList();
   ```
 
-- [ ] 📖 **Cursor on `Sort`:** *"The list has its own method called Sort. I hand it a rule for two callers, a and b: the one with more calls goes first."*
-- [ ] 📖 **Cursor on `Take`:** *"Then Take keeps the first n callers and stops."*
+- [ ] 📖 **Highlight `Sort`:** *"The list has its own method called Sort. I hand it a rule for two callers, a and b: the one with more calls goes first."*
+- [ ] 📖 **Highlight `Take`:** *"Then Take keeps the first n callers and stops."*
 - [ ] **Run the desk: DJ name. Then `r`, caller `Teodoro`, and press Enter for the song. Then `c`**
 
   ```bash
@@ -574,9 +575,9 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           return _callers.OrderByDescending(caller => caller.CallsTonight).Take(n).ToList();
   ```
 
-- [ ] 📖 **Read it left to right. Cursor on `OrderByDescending`:** *"OrderByDescending puts the callers in order by CallsTonight, biggest first."*
-- [ ] 📖 **Cursor on `Take`:** *"Take keeps the first n."*
-- [ ] 📖 **Cursor on `ToList`:** *"ToList hands back a list."*
+- [ ] 📖 **Read it left to right. Highlight `OrderByDescending`:** *"OrderByDescending puts the callers in order by CallsTonight, biggest first."*
+- [ ] 📖 **Highlight `Take`:** *"Take keeps the first n."*
+- [ ] 📖 **Highlight `ToList`:** *"ToList hands back a list."*
 - [ ] 📖 **Then the difference:** *"OrderByDescending builds a new list in sorted order. It does not touch _callers."*
 - [ ] **Throw the file away, because the wrong order is saved in it**
 
@@ -617,9 +618,9 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           return _callers.MaxBy(caller => caller.CallsTonight)?.Name ?? "nobody yet";
   ```
 
-- [ ] 📖 **Cursor on `MaxBy`:** *"MaxBy hands back the one caller with the biggest CallsTonight."*
-- [ ] 📖 **Cursor on `?.Name`:** *"On a switchboard nobody has rung, there is no caller to hand back, so MaxBy hands back null. The question mark and the dot mean: ask for the Name only if there is a caller."*
-- [ ] 📖 **Cursor on `?? "nobody yet"`:** *"The two question marks mean: if there was no caller, answer with this text."*
+- [ ] 📖 **Highlight `MaxBy`:** *"MaxBy hands back the one caller with the biggest CallsTonight."*
+- [ ] 📖 **Highlight `?.Name`:** *"On a switchboard nobody has rung, there is no caller to hand back, so MaxBy hands back null. The question mark and the dot mean: ask for the Name only if there is a caller."*
+- [ ] 📖 **Highlight `?? "nobody yet"`:** *"The two question marks mean: if there was no caller, answer with this text."*
 - [ ] **Run the desk: DJ name, then `n`, then `q`**
 
   ```bash
@@ -694,10 +695,10 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   }
   ```
 
-- [ ] 📖 **Cursor on the three `Take` lines:** *"Dorothy rings twice. Bex rings once."*
-- [ ] 📖 **Cursor on the `IEnumerable<Caller> busy` line:** *"This line asks which callers have rung more than once. Right now that is Dorothy, and only Dorothy. There is no ToList on the end."*
-- [ ] 📖 **Cursor on the second `board.Take("Bex");`:** *"Then Bex rings a second time."*
-- [ ] 📖 **Cursor on `Assert.Single(busy);`:** *"Then I check the answer I already took. Assert.Single passes if the answer holds exactly one caller."*
+- [ ] 📖 **Highlight the three `Take` lines:** *"Dorothy rings twice. Bex rings once."*
+- [ ] 📖 **Highlight the `IEnumerable<Caller> busy` line:** *"This line asks which callers have rung more than once. Right now that is Dorothy, and only Dorothy. There is no ToList on the end."*
+- [ ] 📖 **Highlight the second `board.Take("Bex");`:** *"Then Bex rings a second time."*
+- [ ] 📖 **Highlight `Assert.Single(busy);`:** *"Then I check the answer I already took. Assert.Single passes if the answer holds exactly one caller."*
 - [ ] 🎯 **Ask for the color before you run it, and wait for an answer.** *"Red or green?"*
 
   ```bash
