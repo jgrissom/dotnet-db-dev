@@ -165,7 +165,7 @@ cp ../dotnet-db-starters/demo/week-09/Switchboard.cs week-09/Lab/
 cp ../dotnet-db-starters/demo/week-09/SwitchboardTests.cs week-09/Lab.Tests/
 ```
 
-Open `week-09/Lab/Switchboard.cs` and look at `Find` and at the bottom of `Load`. Each was a loop, and each is one line now. That's what you just watched. Open `week-09/Lab.Tests/SwitchboardTests.cs` and read `FindHandsBackTheCallerOrNothing`: it's the fact you're about to write, for the switchboard.
+Open `week-09/Lab/Switchboard.cs` and look at `Find` and at the bottom of `Load`. Each was a loop, and each is one line now. That's what you just watched. Open `week-09/Lab.Tests/SwitchboardTests.cs` and read `FindHandsBackTheCallerOrNothing`. That is your instructor's fact about the **switchboard's** `Find`. In a minute you write the same kind of fact about the **rotation's** `Find`, in a different file, `DeskTests.cs`.
 
 **Now see what you're about to change.** Start the desk and type a DJ name:
 
