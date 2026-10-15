@@ -82,7 +82,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 ## 1 · Questions the desk can't answer
 
-- [ ] 🎯 **Say what tonight is, plainly:** *"The desk holds the carts, the hour, and every caller. Tonight it learns to answer questions about them. Each answer is one line of code."*
+- [ ] 🎯 **Say what tonight is, plainly:** *"The desk holds the carts, the hour, and every caller. Tonight it learns to answer questions about them. Each answer is one line of code. The C# feature that does it is called LINQ. It is a set of methods that every list already has."*
 - [ ] 📖 **Then the deal for the night:** *"I work on the switchboard and the hour. You work on the rotation. After each piece I push my file, and you copy it in."*
 
 ---
@@ -191,7 +191,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"Green, the first time. That is not a mistake. Find already works, so a test about Find passes. This test is not here to catch a bug. It is here so I can change Find and know I did not break it."*
 
-- [ ] 🎞️ **GO TO SLIDE 2** — *One shape* · *"Every line tonight has three parts. First the list. Then a word that says what to do with the list. Then, in the brackets, a question that is asked of one item at a time."*
+- [ ] 🎞️ **GO TO SLIDE 2** — *One shape* · *"LINQ stands for Language Integrated Query. A query is just a question. Every LINQ line tonight has three parts. First the list. Then a word that says what to do with the list. Then, in the brackets, a question that is asked of one item at a time."*
 - [ ] 📖 **Point at the bottom half of the slide:** *"The question has three parts too. `caller` is one item out of the list, and I pick that name. The arrow reads as 'goes to'. After the arrow is the answer for that one caller."*
 
 - [ ] **Back to `Switchboard.cs`, in `Find`. Select from `foreach (Caller caller in _callers)` down to and including `return null;`, and paste this over it**
@@ -787,7 +787,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 ## 7 · Wrap *(slide 5)*
 
-- [ ] 🎞️ **GO TO SLIDE 5** — *Tonight, in one picture* · *"Every line tonight was a list, a word and a question. FirstOrDefault hands back one thing or null, and First throws. Where keeps some. Select turns each one into something else. OrderBy hands back a new list and leaves yours alone. ToList is what turns a question into an answer."*
+- [ ] 🎞️ **GO TO SLIDE 5** — *Tonight, in one picture* · *"Every LINQ line tonight was a list, a word and a question. FirstOrDefault hands back one thing or null, and First throws. Where keeps some. Select turns each one into something else. OrderBy hands back a new list and leaves yours alone. ToList is what turns a question into an answer."*
 - [ ] 🎯 **The forward line:** *"Every question tonight was asked of a list that is already in memory. In week ten the data moves into a database. In week twelve the database answers the question."*
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
 - [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. The same four tasks, in the same order. If you finished the lab, you have done every step once."*

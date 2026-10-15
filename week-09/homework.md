@@ -5,7 +5,7 @@
 > [!NOTE]
 > **A normal week.** Set in one class and due before the next one.
 
-Your registry has held records since week 4 and remembered them since week 8. It still can't answer a question about them.
+Your registry has held records since week 4 and remembered them since week 8. It still can't answer a question about them. This week it learns to, with **LINQ** — the methods every list in C# already has for asking it a question.
 
 **This homework is the lab again, on your own project.** Same four tasks, same order, same steps. Where the lab said `Rotation`, `Song` and `_songs`, you use your `Registry`, your record type, and the list inside your `Registry`. If you finished the lab, you have already done every step once.
 

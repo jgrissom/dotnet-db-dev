@@ -36,6 +36,8 @@ style: |
 
 ## One shape
 
+**LINQ** — methods every list already has, for asking it a question.
+
 ```
 the list . a word ( a question )
 ```
@@ -88,7 +90,7 @@ An **answer**. Asked once, right here, and kept.
 
 ## Tonight, in one picture
 
-**a list · a word · a question**
+**LINQ: a list · a word · a question**
 
 - `FirstOrDefault` hands back one, or `null` — **`First` throws**
 - `Where` keeps some · `Select` changes each one

@@ -2,7 +2,7 @@
 
 It's 4 AM at **KDXR 88.1, "The Owl,"** and the desk knows more than it can say. It has the carts, it has the hour, it has every call that came in. Ask it *"which carts are long enough to cover the news?"* and there is no answer, because nobody was ever going to write a loop for that.
 
-Tonight [every answer is one line](../lecture-notes.md#thirty-lines-become-one).
+Tonight [every answer is one line](../lecture-notes.md#thirty-lines-become-one). The methods that make that possible are called **LINQ**, and every list in C# already has them.
 
 Your job: change two loops that already work into one line each, and prove nothing moved. Then give the rotation three questions it can answer.
 
