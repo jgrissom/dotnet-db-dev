@@ -378,7 +378,7 @@ Assert.Single() Failure: The collection contained 2 items
 
 The `Where` line did not look at any caller. It handed back the question. `Assert.Single` was the first thing to read it, and by then Bex had two calls.
 
-Put `.ToList()` on the end of the `Where` line and the fact passes. **`ToList()` asks the question right there, once, and keeps the answer.** Bex's second call comes after that, so it changes nothing.
+Put `.ToList()` on the end of the `Where` line and the fact passes. **Without `ToList()`, `busy` stores the query, not the result. `ToList()` runs the query right there, once, and keeps a snapshot of the result.** Bex's second call comes after that, so it changes nothing.
 
 That is the reason every method in this course that hands back several things ends with `ToList()`. The caller gets an answer that will not change behind their back.
 

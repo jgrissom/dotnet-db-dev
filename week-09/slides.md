@@ -83,13 +83,13 @@ After a **number**, you are finished.
 board.All().Where(caller => caller.CallsTonight > 1)
 ```
 
-A **question**. Nobody has been asked yet.
+Stores the **query**. It runs every time something reads it.
 
 ```csharp
 board.All().Where(caller => caller.CallsTonight > 1).ToList()
 ```
 
-An **answer**. Asked once, right here, and kept.
+Runs the query **once**, right here, and stores a **snapshot** of the result.
 
 ---
 

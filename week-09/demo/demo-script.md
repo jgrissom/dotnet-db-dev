@@ -795,7 +795,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 *"Red. busy holds two callers now, Dorothy and Bex."*
-- [ ] 📖 *"But Bex's second call came after the Where line. So the Where line did not work out the answer when it ran. The answer was worked out later, when Assert.Single read busy. The debugger can show us that."*
+- [ ] 📖 *"Without ToList, busy stores the query, not the result. The query runs when something reads busy, and here that is Assert.Single, after Bex's second call. ToList would run the query right away and save a snapshot of the result. The debugger can show us the query running late."*
 
 - [ ] **Now watch it happen. Click in the margin left of the `IEnumerable<Caller> busy` line, so a red dot appears. Then click `Debug Test`, just above `public void AnAnswerDoesNotChangeAfterItIsGiven()`**
 - [ ] 📖 **It stops on the line with the red dot:** *"The debugger has stopped on the Where line. That line has not run yet."*
@@ -806,7 +806,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] **Press Continue (<kbd>F5</kbd>)**
 - [ ] 📖 **It stops there once more:** *"The caller is Bex this time, and she has two calls. Her second call came in before anybody read the answer, so she counts."*
 - [ ] **Press Continue (<kbd>F5</kbd>) to let the test finish, then click the red dot to remove it**
-- [ ] 📖 *"Where did not hand back the callers. It handed back the question. The question was asked later, when Assert.Single read it."*
+- [ ] 📖 *"Where did not hand back the callers. It handed back the query. The query ran later, when Assert.Single read busy."*
 
 - [ ] **Make the `IEnumerable<Caller> busy` line read as below. One change: `.ToList()` goes on the end, before the semicolon**
 
@@ -825,9 +825,9 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
        Passed: 6
   ```
 
-- [ ] 📖 *"Green. ToList asked the question on the Where line, one time, and kept the answer. Bex's second call came after ToList, so it does not change the answer."*
+- [ ] 📖 *"Green. ToList ran the query on the Where line, one time, and saved a snapshot of the result. Bex's second call came after the snapshot, so it does not change it."*
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *A question, and an answer* · *"Where, Select and OrderBy hand back a question that has not been asked yet. ToList asks it, once, and hands back the answer as a list. So every method tonight ends with ToList."*
+- [ ] 🎞️ **GO TO SLIDE 4** — *A question, and an answer* · *"Without ToList, Where, Select and OrderBy hand back the query. The query runs every time something reads it. ToList runs the query once and saves a snapshot of the result as a list. So every method tonight ends with ToList."*
 - [ ] 🎯 **The forward line:** *"In week ten the callers and the carts move into a database. Then a LINQ question like this Where is sent to the database, and ToList is the moment it is sent."*
 
 - [ ] **Commit it in the demo repo.** Silent
