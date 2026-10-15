@@ -309,7 +309,12 @@ dotnet run --project week-09/Lab
 Unhandled exception. System.InvalidOperationException: Sequence contains no matching element
 ```
 
-**The desk crashed on a title that isn't there.** The loop could never do that. **Put `FirstOrDefault` back**, and run your suite again:
+**The desk crashed on a title that isn't there.** The loop could never do that.
+
+> [!IMPORTANT]
+> **Now put `FirstOrDefault` back.** Change `First` back to `FirstOrDefault` in your `Find` line before you do anything else. Every step after this one needs it.
+
+Then run your suite again:
 
 ```bash
 dotnet test week-09/Lab.Tests

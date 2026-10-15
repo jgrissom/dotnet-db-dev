@@ -241,7 +241,12 @@ dotnet run --project Project
 Unhandled exception. System.InvalidOperationException: Sequence contains no matching element
 ```
 
-**If your `Add` asks `Find` first, it crashes on its very first record.** The loop could never do that. *(If your program ran, your `Add` doesn't use `Find`; your fact still caught the change.)* **Put `FirstOrDefault` back**, and run your suite again:
+**If your `Add` asks `Find` first, it crashes on its very first record.** The loop could never do that. *(If your program ran, your `Add` doesn't use `Find`; your fact still caught the change.)*
+
+> [!IMPORTANT]
+> **Now put `FirstOrDefault` back.** Change `First` back to `FirstOrDefault` in your `Find` line before you do anything else. Every step after this one needs it.
+
+Then run your suite again:
 
 ```bash
 dotnet test Project.Tests
