@@ -384,7 +384,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 **Highlight `Where`:** *"Where keeps the callers the question is true for, and drops the rest."*
 - [ ] 📖 **Highlight the question:** *"The question is: has this caller rung more than `calls` times?"*
 - [ ] 📖 **Highlight `ToList`:** *"Where does not hand back a list. ToList on the end makes one. At the end of tonight I'll show you what Where hands back on its own."*
-- [ ] **Run the desk: DJ name, then `n`, then `q`**
+- [ ] **Run the desk: DJ name, then `n`. Don't quit yet**
 
   ```bash
   dotnet run --project week-09/Lab
@@ -396,6 +396,21 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 *"The desk asks for callers who rang more than one time. That is Dorothy, and only Dorothy."*
+- [ ] 🎯 **Make Bex ring again. Without quitting, press `r`, caller `Bex`, and press Enter for the song. Then `n`**
+
+  ```
+    the switchboard      6 calls from 3 people
+    rang more than once  Dorothy, Bex
+  ```
+
+- [ ] 📖 *"Bex just rang a second time. I asked the same question, and now the answer is Dorothy and Bex. Where asks the list again every time the screen is drawn, so the answer follows the calls."*
+- [ ] **Press `q`.** Then throw away the file the desk just saved
+
+  ```bash
+  rm week-09/switchboard.json
+  ```
+
+- [ ] 📖 *"Quitting saved Bex's second call to the file. I deleted the file so the rest of tonight starts from the usual three callers."*
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *What each word hands back* · *"Here are tonight's words, sorted by what each one hands back. Where, Select, OrderBy and Take hand back several things. Sum and Count hand back one number. FirstOrDefault and MaxBy hand back one thing, or nothing."*
 - [ ] 📖 **Point at the right-hand column:** *"What a word hands back decides what you can do next. After Where you can keep going. After Sum you have a number, and you are finished."*
