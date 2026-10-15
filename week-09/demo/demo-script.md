@@ -500,7 +500,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 💥 **Do not explain it. Ask, and wait:** *"Look at the bakery ad in the first list and in the second list. What changed?"*
 - [ ] 📖 *"Two left, then one left. Pham's Bakery paid for three airings. I pressed n twice, and two of them are used up. Nothing went out on air. I only looked."*
 - [ ] **Press `q`.** Then highlight `item.Play();` inside `Run`
-- [ ] 📖 *"Here is why the ad count dropped. Run does not only build the lines. It plays each item first. Calling Run puts the hour on air."*
+- [ ] 📖 *"Here is why the ad count dropped. Run does not only build the lines. It plays each item first. Calling Run puts the hour on air. We don't want to play the items. We only want to see them."*
 
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return Run();` — one hit. Select that one line and paste this over it**
 
