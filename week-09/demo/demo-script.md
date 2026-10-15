@@ -280,7 +280,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"Five passed. One of those five saves a switchboard and loads it into a second one, so it would fail if Load were broken."*
 
-- [ ] **Push it — the files, then the commit, then the push.** Silent; they watch
+- [ ] **Commit it in the demo repo.** Silent
+
+  ```bash
+  git add . && git commit -m "week 9: Find and Load, one line each"
+  ```
+
+- [ ] **Push it to the starters repo — copy the files there, commit there, then push.** Silent; they watch
 
   ```bash
   mkdir -p ../dotnet-db-starters/demo/week-09 && cp week-09/Lab/Switchboard.cs ../dotnet-db-starters/demo/week-09/ && cp week-09/Lab.Tests/SwitchboardTests.cs ../dotnet-db-starters/demo/week-09/
@@ -392,7 +398,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 🎞️ **GO TO SLIDE 3** — *What each word hands back* · *"Here are tonight's words, sorted by what each one hands back. Where, Select, OrderBy and Take hand back several things. Sum and Count hand back one number. FirstOrDefault and MaxBy hand back one thing, or nothing."*
 - [ ] 📖 **Point at the right-hand column:** *"What a word hands back decides what you can do next. After Where you can keep going. After Sum you have a number, and you are finished."*
 
-- [ ] **Push it.** Silent
+- [ ] **Commit it in the demo repo.** Silent
+
+  ```bash
+  git add . && git commit -m "week 9: Sum and Where"
+  ```
+
+- [ ] **Push it to the starters repo.** Silent
 
   ```bash
   cp week-09/Lab/Switchboard.cs ../dotnet-db-starters/demo/week-09/ && cp week-09/Lab/Hour.cs ../dotnet-db-starters/demo/week-09/
@@ -494,7 +506,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] **Press `q`**
 - [ ] 🎯 *"Run stays a loop. It does something to every item. A line like tonight's should only ask."*
 
-- [ ] **Push it.** Silent
+- [ ] **Commit it in the demo repo.** Silent
+
+  ```bash
+  git add . && git commit -m "week 9: the running order, read without airing it"
+  ```
+
+- [ ] **Push it to the starters repo.** Silent
 
   ```bash
   cp week-09/Lab/Hour.cs ../dotnet-db-starters/demo/week-09/
@@ -638,7 +656,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"All four of my lines answer now. Six calls from three people. Dorothy and Teodoro rang more than once. Dorothy is the regular."*
 
-- [ ] **Push it.** Silent
+- [ ] **Commit it in the demo repo.** Silent
+
+  ```bash
+  git add . && git commit -m "week 9: the busiest two, and the regular"
+  ```
+
+- [ ] **Push it to the starters repo.** Silent
 
   ```bash
   cp week-09/Lab/Switchboard.cs ../dotnet-db-starters/demo/week-09/
@@ -748,7 +772,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 🎞️ **GO TO SLIDE 4** — *A question, and an answer* · *"Where, Select and OrderBy hand back a question that has not been asked yet. ToList asks it, once, and hands back the answer as a list. That is why every method tonight ends with ToList."*
 - [ ] 🎯 **The forward line:** *"In week ten the callers and the carts move into a database. Then a question like this one is sent to the database, and ToList is the moment it is sent."*
 
-- [ ] **Push it.** Silent
+- [ ] **Commit it in the demo repo.** Silent
+
+  ```bash
+  git add . && git commit -m "week 9: a question, and an answer"
+  ```
+
+- [ ] **Push it to the starters repo.** Silent
 
   ```bash
   cp week-09/Lab.Tests/BusyCallerTests.cs ../dotnet-db-starters/demo/week-09/

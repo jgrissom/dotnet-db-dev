@@ -91,7 +91,7 @@ Each demo segment is followed by the lab task that practices it. **The demo work
 - ⚠️ **§5 deletes `switchboard.json` before the fixed run.** The wrong order was saved when you quit, and `Load` would bring it straight back. The sheet has the `rm`.
 - ⚠️ **§6's debugger steps are unverified on any machine but a rehearsal.** Run them once before class. The note at the end of §6 has the fallback if the breakpoint does not stop inside the question.
 - 🎯 **§6 is one fact and ten minutes.** Nothing in the lab or the homework can get this wrong, because every dictated method returns a `List`. It is here so that `ToList()` is not a word they copy, and because week 10 needs it.
-- **The demo commits once, silently** — the starter, alongside the room in Lab A. The five pushes go to the starters repo, not the demo repo.
+- **The demo commits six times, silently** — the starter, alongside the room in Lab A, and then once at the end of each demo block, right before that block's push. Students commit once per lab task, so the demo shows the same habit. The pushes go to the starters repo; the commits stay in the demo repo.
 - ⚠️ **Say the due date plainly at the wrap.** Last week's homework had two weeks. This one has one.
 - **Lab B is where the discipline happens to them** — watch for a rewritten `Find` and no fact. The question over a shoulder: *"how many tests did you have before you started?"*
 - **Lab E is where the wrong answer looks right** — `Sort` in `ByTitle` gives a perfect `[n]` line. Ask what order the carts are in when they press `t`.
