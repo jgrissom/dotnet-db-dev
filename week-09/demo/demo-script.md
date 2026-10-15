@@ -637,7 +637,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           return _callers.OrderByDescending(caller => caller.CallsTonight).Take(n).ToList();
   ```
 
-- [ ] 📖 **Read it left to right. Highlight `OrderByDescending`:** *"OrderByDescending puts the callers in order by CallsTonight, biggest first."*
+- [ ] 📖 **Read it left to right. Highlight `OrderByDescending`:** *"OrderByDescending puts the callers in order by their number of calls, the most calls first."*
 - [ ] 📖 **Highlight `Take`:** *"Take keeps the first n."*
 - [ ] 📖 **Highlight `ToList`:** *"ToList hands back a list."*
 - [ ] 📖 **Then the difference:** *"OrderByDescending builds a new list in sorted order. It does not reorder our original list of callers."*
@@ -681,7 +681,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           return _callers.MaxBy(caller => caller.CallsTonight)?.Name ?? "nobody yet";
   ```
 
-- [ ] 📖 **Highlight `MaxBy`:** *"MaxBy hands back the one caller with the biggest CallsTonight."*
+- [ ] 📖 **Highlight `MaxBy`:** *"MaxBy hands back the one caller with the most calls tonight."*
 - [ ] 📖 **Highlight `?.Name`:** *"On a switchboard nobody has rung, there is no caller to hand back, so MaxBy hands back null. The question mark and the dot mean: ask for the Name only if there is a caller."*
 - [ ] 📖 **Highlight `?? "nobody yet"`:** *"The two question marks mean: if there was no caller, answer with this text."*
 - [ ] **Run the desk: DJ name, then `n`, then `q`**
