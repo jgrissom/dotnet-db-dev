@@ -38,6 +38,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   ```
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 6 left it, with `week-01/` through `week-06/` in it
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click anywhere in it and press <kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>
 - [ ] ⚠️ **Run `dotnet run --project week-06/Haldane` once before class.** §1 opens by running it, so it has to build on the night — a cold NuGet cache in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-07/` from the demo repo if you've rehearsed** — both `week-07/Haldane` *and* `week-07/Haldane.Tests`. `dotnet new` refuses to overwrite either, and tonight creates both
 - [ ] 💡 **No debugger tonight.** The new instrument is the test — if a value surprises you mid-demo, the week-5 offer still stands, quietly
@@ -326,8 +327,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   ```
 
 - [ ] 📖 **Walk it top to bottom, fast — it is all furniture they know:** *"a private list, `Add`, `Count`, a copy — the same shape as `Hour` last week and the same shape as your own `Registry` since week four. Then every helper the desk had: the sign-out filter, the outside count off the bottom of the board, sign somebody out, amend, mark back, the latest temperature. Nothing new was written. It moved"*
-- [ ] 🎯 **Now the two bugs riding along. First, sign-out: in `Watch.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Sign somebody out` — one hit. Put the cursor on the `_entries.Add` line inside it:** *"Both bugs came with us. Here's the first. Sign-out still doesn't ask if the crew member is already outside. There's no `if` in this method at all. It just adds the record"*
-- [ ] 🎯 **Then amend: <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `radioed in` — one hit. Put the cursor on the `if` inside the loop:** *"And the second. Amend still takes any row with your name on it. It checks the name, and it never asks whether the crew member has already returned from the trip. Moved, not fixed"*
+- [ ] 🎯 **Now the two bugs riding along. First, sign-out: in `Watch.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Sign somebody out` — one hit. Highlight the `_entries.Add` line inside it:** *"Both bugs came with us. Here's the first. Sign-out still doesn't ask if the crew member is already outside. There's no `if` in this method at all. It just adds the record"*
+- [ ] 🎯 **Then amend: <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `radioed in` — one hit. Highlight the `if` line inside the loop:** *"And the second. Amend still takes any row with your name on it. It checks the name, and it never asks whether the crew member has already returned from the trip. Moved, not fixed"*
 - [ ] 💡 **Your own project got this shape for free** — *"notice what you did NOT have to do this week: your `Registry` was born a class a check can call, in week four. Haldane is the one catching up"*
 
 - [ ] 📖 **Say what is about to happen to `Program.cs`:** *"The rules live in `Watch.cs` now, but `Program.cs` doesn't know that yet. It still has its own list, and everything in it still talks to that list. So now we point `Program.cs` at the `Watch` class instead. First the seeds. Where `Program.cs` made its own list, it now makes one `Watch`. The same six entries go into it, in the same order"*
@@ -896,8 +897,8 @@ Tonight the console gets caught keeping two wrong records — and the room finds
        …/week-07/Haldane.Tests/WatchTests.cs:line 14
   ```
 
-- [ ] 📖 **Break the failing line apart, inside out.** In `WatchTests.cs`, put the cursor on `Conditions.IsSafeToGoOut(celsius: -50.1, blizzard: false)`: *"Start inside the brackets. Is it safe to go out at -50.1 with no blizzard? The method's rule is: warmer than -50, and no blizzard. -50.1 is colder than -50. So this call answers false"*
-- [ ] 📖 **Then move the cursor to `Assert.True(`:** *"Now the outside. `Assert.True` says the answer should be true. So we are asserting the result is true, when it is actually false. That is why the test fails. And it should, because I just told it something untrue about the rule. And notice: if any assertion fails, the entire test fails. Lines 2 and 3 are still true, and it doesn't matter"*
+- [ ] 📖 **Break the failing line apart, inside out.** In `WatchTests.cs`, highlight `Conditions.IsSafeToGoOut(celsius: -50.1, blizzard: false)`: *"Start inside the brackets. Is it safe to go out at -50.1 with no blizzard? The method's rule is: warmer than -50, and no blizzard. -50.1 is colder than -50. So this call answers false"*
+- [ ] 📖 **Then highlight `Assert.True(`:** *"Now the outside. `Assert.True` says the answer should be true. So we are asserting the result is true, when it is actually false. That is why the test fails. And it should, because I just told it something untrue about the rule. And notice: if any assertion fails, the entire test fails. Lines 2 and 3 are still true, and it doesn't matter"*
 - [ ] 📖 **Read the failure in the console like a sentence, and point at each part as you name it:** *"Three things, and they are always these three. The name at the top says which rule broke. Expected and actual say how — I claimed true, it came back false. And the last line says where: `WatchTests.cs`, line 14. That is the assert I just made lie. You have been reading failures shaped exactly like this since your first red check in week one. Now you know who writes them"*
 - [ ] 💡 **The path in front of `:line 14` is your machine's, so it will be long** — the part that matters is the file name and the number on the end
 - [ ] **Put the `-49.9` back, run it once more, and see it green before moving on**
@@ -1127,7 +1128,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
 
 - [ ] 📖 *"red, for the right reason: the open trip still says 15:30, because the amend went to the closed one. And the second claim is false too — row zero now says 16:00 — but you'll never see it. A failing assert stops the test on that line, so the second one never ran. Now the fix — and this one is humbling"*
 
-- [ ] **Nothing to change yet — look first.** In `Watch.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `s.Back();` — one hit, in `MarkBack` — and put the cursor on the `if` above it. 📖 *"mark-back has asked the right question for three weeks — name matches AND not already back. The guard existed. Amend just never got it"*
+- [ ] **Nothing to change yet — look first.** In `Watch.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `s.Back();` — one hit, in `MarkBack` — and highlight the `if` line above it. 📖 *"mark-back has asked the right question for three weeks — name matches AND not already back. The guard existed. Amend just never got it"*
 - [ ] **The fix.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// A new return time, radioed in.`** — one hit. **Select from that line down to and including `if (s.Who.Name == name)`** and paste this over it
 
   ```csharp

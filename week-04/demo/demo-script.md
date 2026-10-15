@@ -36,6 +36,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   ```
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 3 left it, with `week-01/` through `week-03/` in it
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click anywhere in it and press <kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>
 - [ ] ⚠️ **Delete `week-04/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it
 - [ ] **A browser tab signed in to GitHub**, on the demo repo. §7 opens a real pull request in front of them
 - [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station of your own"*
@@ -140,7 +141,7 @@ Tonight the class you have shown them since week 3 gets convicted. It has been o
   ```
 
 - [ ] 📖 **Nothing to change here — talk the paste through in one sentence:** *"ask who, ask for the new time, walk the board, find her row, write it in"*
-- [ ] 🎯 **Then put the cursor on `s.Expected = newTime;` and leave it there.** *"That is the line. A correction comes in over the radio, and we reach into the record and set the field. Some of us would write exactly that"*
+- [ ] 🎯 **Then highlight the line `s.Expected = newTime;` and leave it highlighted.** *"That is the line. A correction comes in over the radio, and we reach into the record and set the field. Some of us would write exactly that"*
 - [ ] 💡 **Why that one line gets the attention, and it is the only reason to dwell:** §3's payoff is that it keeps working untouched after `Expected` stops being a field. Nothing else in this method matters tonight
 
 - [ ] **Then wire it to a key.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`case "w":`** — one hit. Paste this directly above it

@@ -78,6 +78,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   ```
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click anywhere in it and press <kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>
 - [ ] ⚠️ **Delete `week-08/` from the demo repo if you've rehearsed.** Tonight you copy it in fresh, along with everybody else
 - [ ] **A browser tab on the lab README** (`week-08/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
 - [ ] **Lids down for the demo** — *"Tonight comes in pieces. Lids down while I work, lids up for each lab block in between."*
@@ -162,7 +163,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *Where the file actually goes* · *"Before any code, the one thing you can't see on screen. A plain file name is worked out from the folder you were standing in when you started the program. `dotnet run` stands at the top of the repo. `dotnet test` stands inside the build folder. Same name, two different files. So nothing in this course types a file name inside a class. The path gets handed to the method."*
 
-- [ ] **Back to the editor. Open `week-08/Lab/Program.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Save` — one hit.** Put the cursor on it and leave it there
+- [ ] **Back to the editor. Open `week-08/Lab/Program.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Save` — one hit.** Highlight that line (<kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>) and leave it highlighted
 - [ ] 📖 *"Tonight's starter added this line to Program.cs. It calls Save when the shift ends, and passes it the file name, switchboardFile. But Save is empty, so nothing gets written. You'll add the same kind of line for the rotation."*
 
 - [ ] **Open `week-08/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public void Save(string path)` — one hit. Select from that line down to and including the `}` directly under its `{`, and paste this over it**
@@ -177,8 +178,8 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
       }
   ```
 
-- [ ] 📖 **Two lines, one at a time. Cursor on `Serialize`:** *"The serializer turns the whole list of callers into text. The format is called JSON. WriteIndented puts each property on its own line, so I can read the file."*
-- [ ] 📖 **Cursor on `WriteAllText`:** *"WriteAllText puts that text in the file at the path I was handed. If the file isn't there, it makes it."*
+- [ ] 📖 **Two lines, one at a time. Highlight `Serialize`:** *"The serializer turns the whole list of callers into text. The format is called JSON. WriteIndented puts each property on its own line, so I can read the file."*
+- [ ] 📖 **Highlight `WriteAllText`:** *"WriteAllText puts that text in the file at the path I was handed. If the file isn't there, it makes it."*
 
 - [ ] **Run it: DJ name, `r`, caller `Dorothy`, song `1`, then `q`**
 
@@ -260,9 +261,9 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
       }
   ```
 
-- [ ] 📖 **Cursor on `File.Exists`:** *"No file means nobody has signed off on this desk yet. That's a first night, not an error. So it just returns."*
-- [ ] 📖 **Cursor on `Deserialize<List<Caller>>`, with `switchboard.json` and `Caller.cs` open beside it:** *"Deserialize builds a brand new list from the JSON in the file. The type in the angle brackets tells it what to build. Each item in the list becomes a Caller, with a Name, CallsTonight and a Favorite."*
-- [ ] 📖 **Cursor on `_callers.Clear()`:** *"Program.cs puts three callers on the board before it loads: Dorothy, Bex and Teodoro. If I don't empty the board first, the callers from the file go in on top, and Dorothy is on it twice. You'll meet the same thing with the carts."*
+- [ ] 📖 **Highlight `File.Exists`:** *"No file means nobody has signed off on this desk yet. That's a first night, not an error. So it just returns."*
+- [ ] 📖 **Highlight `Deserialize<List<Caller>>`, with `switchboard.json` and `Caller.cs` open beside it:** *"Deserialize builds a brand new list from the JSON in the file. The type in the angle brackets tells it what to build. Each item in the list becomes a Caller, with a Name, CallsTonight and a Favorite."*
+- [ ] 📖 **Highlight `_callers.Clear()`:** *"Program.cs puts three callers on the board before it loads: Dorothy, Bex and Teodoro. If I don't empty the board first, the callers from the file go in on top, and Dorothy is on it twice. You'll meet the same thing with the carts."*
 
 - [ ] **Before you run it, prove that Load reads the file. Open `week-08/switchboard.json`, go to the end of it (<kbd>⌘↓</kbd> / <kbd>Ctrl+End</kbd>), select the last two lines — the `}` and the `]` — paste this over them, and save**
 
@@ -297,7 +298,7 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 - [ ] 🎯 **Point at Ray's row:** *"There's Ray. He came from the file, so Load read it."*
 - [ ] 💥 **Then at the CALLS column:** *"But we lost data. The file said Ray had two calls and Dorothy had four. Every caller came back with zero, and Dorothy's request is gone."*
-- [ ] 📖 **Cursor on `CallsTonight` in `Caller.cs`, then the reason:** *"Here's why. CallsTonight has a private setter. Only the Caller class itself can change it. The serializer can read it to write the file, but it can't set it when it reads the file back. Favorite has a private setter too. We'll fix that in the next step."*
+- [ ] 📖 **Highlight `CallsTonight` in `Caller.cs`, then the reason:** *"Here's why. CallsTonight has a private setter. Only the Caller class itself can change it. The serializer can read it to write the file, but it can't set it when it reads the file back. Favorite has a private setter too. We'll fix that in the next step."*
 - [ ] **Press `q`.** Then open the file again
 - [ ] 📖 *"And quitting just wrote the zeros back over the file. Load got the calls wrong, and Save wrote the wrong number to disk."*
 
@@ -364,8 +365,8 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   }
   ```
 
-- [ ] 📖 **Cursor on the `path` line:** *"The test gets a file of its own, in the folder the system keeps for scratch files. It never touches the desk's real file. That only works because Save takes a path."*
-- [ ] 📖 **Cursor on `Switchboard reopened = new Switchboard();`:** *"This is the restart. A second switchboard, holding nothing, reads the same file. Loading into the one that just saved would prove nothing."*
+- [ ] 📖 **Highlight the `path` line:** *"The test gets a file of its own, in the folder the system keeps for scratch files. It never touches the desk's real file. That only works because Save takes a path."*
+- [ ] 📖 **Highlight `Switchboard reopened = new Switchboard();`:** *"This is the restart. A second switchboard, holding nothing, reads the same file. Loading into the one that just saved would prove nothing."*
 - [ ] 🎯 **Ask for the color before you run it, and wait for an answer.** *"Red or green?"*
 
   ```bash

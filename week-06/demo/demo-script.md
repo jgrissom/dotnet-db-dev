@@ -38,6 +38,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 5 left it, with `week-01/` through `week-05/` in it
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click anywhere in it and press <kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>
 - [ ] ⚠️ **Run `dotnet run --project week-05/Haldane` once before class.** §1 opens by running it, so it has to build on the night — a cold NuGet cache restoring Spectre in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-06/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it
 - [ ] 💡 **No debugger tonight.** Week 5's segment was the earned one and this week doesn't need it — if a value surprises you, §7's wrap points them back at it
@@ -555,7 +556,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
     14:35  MET       -41.5 C, taken by Bhatt
   ```
 
-- [ ] 🎯 **The payoff, and it is the whole reason this thing exists. Scroll to `DrawLog` and put the cursor in it:** *"nothing. I wrote a new class, I put one on the list, and this loop printed it. I have not touched this loop since the promise landed, and it has never heard of a fuel check"*
+- [ ] 🎯 **The payoff, and it is the whole reason this thing exists. Scroll to `DrawLog` and highlight the `foreach` loop inside it:** *"nothing. I wrote a new class, I put one on the list, and this loop printed it. I have not touched this loop since the promise landed, and it has never heard of a fuel check"*
 - [ ] 💡 **The number is a callback and it costs one sentence** — *"four thousand three hundred liters, which some of you may remember dividing by eight hundred in week one"*
 - [ ] **Press `q`**
 
