@@ -72,7 +72,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
-- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click anywhere in it and press <kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click its line number in the left margin
 - [ ] ⚠️ **Delete `week-09/` from the demo repo if you've rehearsed.** Tonight you copy it in fresh, along with everybody else
 - [ ] ⚠️ **Rehearse §6's debugger steps once before class.** They are the one part of tonight that no script can check: a breakpoint, **Debug Test**, one Step Over and two Continues. If the breakpoint does not stop inside the question, the note at the end of §6 has the fallback
 - [ ] **A browser tab on the lab README** (`week-09/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
@@ -142,7 +142,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] **Press `q`**
 - [ ] 📖 *"Before I add anything, I'm going to change a method that already works. That method is Find, on the switchboard."*
 
-- [ ] **Open `week-09/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Caller? Find(string name)` — one hit.** Highlight that line (<kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>) and leave it highlighted
+- [ ] **Open `week-09/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Caller? Find(string name)` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
 - [ ] 📖 **Read the loop out, a line at a time:** *"Find walks the callers. If a caller's name matches the name it was handed, it hands that caller back. If it reaches the end without a match, it hands back null."*
 - [ ] 📖 *"This loop works. I'm going to replace it with one line. First I write down what Find does, as a test. Then I can tell whether my one line changed it."*
 
@@ -310,7 +310,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"Find answered with one caller. The next two questions answer with a number, and with several callers."*
 
-- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int TotalSeconds` — one hit.** Highlight that line (<kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>) and leave it highlighted
+- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int TotalSeconds` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
 - [ ] 📖 **Read the loop out:** *"TotalSeconds starts a total at zero. It adds each item's seconds to the total. Then it hands the total back."*
 - [ ] **Select from `int total = 0;` down to and including `return total;`, and paste this over it**
 
@@ -432,7 +432,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"The last part of the screen is the running order. The DJ wants to read what is coming up before the hour goes out. Nothing is listed under it yet."*
 
-- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<string> Run()` — one hit.** Highlight that line (<kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>) and leave it highlighted
+- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<string> Run()` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
 - [ ] 📖 *"Run already builds those lines. It makes one line of text for each item: the kind, a dash, then the cue."*
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return new List<string>();` — one hit. Select that one line and paste this over it**
 

@@ -38,7 +38,7 @@ Tonight the console stops being a board and starts being a **log** — and the r
   ```
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 5 left it, with `week-01/` through `week-05/` in it
-- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click anywhere in it and press <kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click its line number in the left margin
 - [ ] ⚠️ **Run `dotnet run --project week-05/Haldane` once before class.** §1 opens by running it, so it has to build on the night — a cold NuGet cache restoring Spectre in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-06/` from the demo repo if you've rehearsed.** `dotnet new` refuses to overwrite, and §1 starts with it
 - [ ] 💡 **No debugger tonight.** Week 5's segment was the earned one and this week doesn't need it — if a value surprises you, §7's wrap points them back at it

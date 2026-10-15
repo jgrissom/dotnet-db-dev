@@ -38,7 +38,7 @@ Tonight the console gets caught keeping two wrong records — and the room finds
   ```
 
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 6 left it, with `week-01/` through `week-06/` in it
-- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click anywhere in it and press <kbd>⌘L</kbd> / <kbd>Ctrl+L</kbd>
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click its line number in the left margin
 - [ ] ⚠️ **Run `dotnet run --project week-06/Haldane` once before class.** §1 opens by running it, so it has to build on the night — a cold NuGet cache in front of the room is a slow first minute
 - [ ] ⚠️ **Delete `week-07/` from the demo repo if you've rehearsed** — both `week-07/Haldane` *and* `week-07/Haldane.Tests`. `dotnet new` refuses to overwrite either, and tonight creates both
 - [ ] 💡 **No debugger tonight.** The new instrument is the test — if a value surprises you mid-demo, the week-5 offer still stands, quietly
