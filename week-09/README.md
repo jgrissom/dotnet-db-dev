@@ -30,7 +30,6 @@ Students can also say what a word does **when nothing matches** — that `First`
 - ⚠️ **A starters clone you can push to, next to your demo repo** — you push to it five times tonight. The cue sheet's §0 tests it
 - ⚠️ **`demo/week-09/` in the starters repo empty or missing** — it fills up during class
 - ⚠️ **Delete `week-09/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
-- ⚠️ **Rehearse §6's debugger steps once** — a breakpoint, Debug Test, one Step Over, two Continues
 - **VS Code open on the demo repo's top**, and a browser tab on the lab README
 
 **Prev:** [Week 8 — File I/O, and the Night Stops Being Gone](../week-08/) · **Next:** [Week 10 — EF Core I: The Log Leaves the Building](../week-10/)

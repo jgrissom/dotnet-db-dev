@@ -71,7 +71,7 @@ Each demo segment is followed by the lab task that practices it. **The demo work
 | 2:08 | 20 min | 💥 **In order, and the list left alone** *(demo §5)*. `Busiest` with `Sort`: the board and the file both change. `OrderByDescending` and `Take`. Then `TheRegular` with `MaxBy`, `?.` and `??`. **Push #4.** |
 | 2:28 | 25 min | 🎯 **Lab E: Task 4** — the lab's payoff. `ByTitle`, then the cart table, then the file. **Circulate hard.** |
 | 2:53 | 10 min | **☕ Break** |
-| 3:03 | 10 min | 💥 **A question, and an answer** *(slide 4, demo §6)*. A fact with no `ToList()`, red with two callers. The debugger: the question runs when the answer is read. `ToList()`, green. Week 10, named. **Push #5.** Done, defined. |
+| 3:03 | 10 min | 💥 **A question, and an answer** *(slide 4, demo §6)*. A fact with no `ToList()`: green with Dorothy alone, then one typed call from Bex turns it red with two callers — `busy` stored the query, not the result. `ToList()` saves a snapshot, and it is green again. Week 10, named. **Push #5.** Done, defined. |
 | 3:13 | 22 min | **Lab F: finish the lab, or start the homework.** Finished students do the homework's Part 1 and Task 1 and push their branch, while you're there to answer setup questions. |
 | 3:35 | 10 min | **Wrap-up** *(slide 5, demo §7)*. Project repo URL, **the homework is the lab again**, the branch line, the checks-copy line, and a normal one-week due date. |
 
@@ -89,8 +89,8 @@ Each demo segment is followed by the lab task that practices it. **The demo work
 - ⚠️ **§4's run has to press `n` twice before `q`.** One press shows `(2 left)` and proves nothing on its own.
 - 💥 **§5's `Sort` is the demo's payoff.** Press `c` *before* `n` so the room has seen Bex in second place. Then `n`, then `c` again.
 - ⚠️ **§5 deletes `switchboard.json` before the fixed run.** The wrong order was saved when you quit, and `Load` would bring it straight back. The sheet has the `rm`.
-- ⚠️ **§6's debugger steps are unverified on any machine but a rehearsal.** Run them once before class. The note at the end of §6 has the fallback if the breakpoint does not stop inside the question.
-- 🎯 **§6 is one fact and ten minutes.** Nothing in the lab or the homework can get this wrong, because every dictated method returns a `List`. It is here so that `ToList()` is not a word they copy, and because week 10 needs it.
+- 🎯 **§6 is one fact and ten minutes, and it uses no debugger** — Jeff cut it 2026-10-15: two runs of the same fact, green and then red, carry the point, and stepping inside a lambda lost the room. If §6 runs short, the minutes go to Lab F.
+- 🎯 **§6 is one fact.** Nothing in the lab or the homework can get this wrong, because every dictated method returns a `List`. It is here so that `ToList()` is not a word they copy, and because week 10 needs it.
 - **The demo commits six times, silently** — the starter, alongside the room in Lab A, and then once at the end of each demo block, right before that block's push. Students commit once per lab task, so the demo shows the same habit. The pushes go to the starters repo; the commits stay in the demo repo.
 - ⚠️ **Say the due date plainly at the wrap.** Last week's homework had two weeks. This one has one.
 - **Lab B is where the discipline happens to them** — watch for a rewritten `Find` and no fact. The question over a shoulder: *"how many tests did you have before you started?"*
@@ -108,7 +108,6 @@ Each demo segment is followed by the lab task that practices it. **The demo work
 | §4's second `n` shows `(2 left)` again | `RunningOrder` already has the `Select` in it — you copied a push file in while rehearsing. |
 | §5's board does not change after `n` | `Busiest` already has `OrderByDescending`. Same cause. |
 | §5's fixed run still shows the board in the wrong order | `switchboard.json` was not deleted, so the saved wrong order was loaded. |
-| §6's breakpoint stops once and the test ends | The debugger bound the red dot to the statement only. The fallback is in the note at the end of §6. |
 | A student's `Find` rewrite crashes the desk on `f` | `First`. Their own fact is red too, and check 1 names it. |
 | A student's rotation has six carts | `Load` lost its `Clear()` when the loop became `AddRange`. |
 | A student's carts are in the wrong order after they fixed `ByTitle` | The wrong order is saved in `week-09/rotation.json`. Delete the file. |

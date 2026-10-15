@@ -74,7 +74,6 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
 - [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click its line number in the left margin
 - [ ] ⚠️ **Delete `week-09/` from the demo repo if you've rehearsed.** Tonight you copy it in fresh, along with everybody else
-- [ ] ⚠️ **Rehearse §6's debugger steps once before class.** They are the one part of tonight that no script can check: a breakpoint, **Debug Test**, one Step Over and two Continues. If the breakpoint does not stop inside the question, the note at the end of §6 has the fallback
 - [ ] **A browser tab on the lab README** (`week-09/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
 - [ ] **Lids down for the demo** — *"Tonight comes in pieces. Lids down while I work, lids up for each lab block in between."*
 
@@ -795,18 +794,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 *"Red. busy holds two callers now, Dorothy and Bex."*
-- [ ] 📖 *"Without ToList, busy stores the query, not the result. The query runs when something reads busy, and here that is Assert.Single, after Bex's second call. ToList would run the query right away and save a snapshot of the result. The debugger can show us the query running late."*
-
-- [ ] **Now watch it happen. Click in the margin left of the `IEnumerable<Caller> busy` line, so a red dot appears. Then click `Debug Test`, just above `public void AnAnswerDoesNotChangeAfterItIsGiven()`**
-- [ ] 📖 **It stops on the line with the red dot:** *"The debugger has stopped on the Where line. That line has not run yet."*
-- [ ] **Press Step Over (<kbd>F10</kbd>)**
-- [ ] 📖 **The yellow arrow is now on the second `board.Take("Bex");`:** *"The Where line has finished. The debugger never went inside the question. So the question has not been asked about any caller yet."*
-- [ ] **Press Continue (<kbd>F5</kbd>)**
-- [ ] 📖 **It stops on the Where line again, and the Variables pane shows `caller`:** *"Now it is inside the question, and the caller is Dorothy. Look at the Call Stack. The line that brought us here is Assert.Single. The question is being asked now, when the answer is read."*
-- [ ] **Press Continue (<kbd>F5</kbd>)**
-- [ ] 📖 **It stops there once more:** *"The caller is Bex this time, and she has two calls. Her second call came in before anybody read the answer, so she counts."*
-- [ ] **Press Continue (<kbd>F5</kbd>) to let the test finish, then click the red dot to remove it**
-- [ ] 📖 *"Where did not hand back the callers. It handed back the query. The query ran later, when Assert.Single read busy."*
+- [ ] 📖 *"Without ToList, busy stores the query, not the result. The query runs when something reads busy, and here that is Assert.Single, after Bex's second call. ToList would run the query right away and save a snapshot of the result."*
 
 - [ ] **Make the `IEnumerable<Caller> busy` line read as below. One change: `.ToList()` goes on the end, before the semicolon**
 
@@ -851,18 +839,6 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 🎯 **Define done on their machine:** *"You are done when `dotnet test week-09/Lab.Checks` says four out of four. And when you press n, all three of your lines have an answer."*
-
-> [!NOTE]
-> **If the breakpoint never stops inside the question** — two Continues and the test just ends — the debugger on this machine binds the red dot to the statement only. Write the question on lines of its own, and put the red dot on the `return` line:
->
-> ```csharp
->         IEnumerable<Caller> busy = board.All().Where(caller =>
->         {
->             return caller.CallsTonight > 1;
->         });
-> ```
->
-> Everything said at each stop is the same. Put the line back to its one-line form before you push.
 
 ---
 
