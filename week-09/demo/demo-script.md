@@ -565,7 +565,20 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 ## 5 · In order, and the list left alone
 
-- [ ] 📖 *"Two questions left on my half of the screen. Who are the two busiest callers? And who is the regular?"*
+- [ ] **Run the desk: DJ name, then `n`, then `q`**
+
+  ```bash
+  dotnet run --project week-09/Lab
+  ```
+
+  ```
+    the switchboard      5 calls from 3 people
+    rang more than once  Dorothy
+    busiest two          -
+    the regular          -
+  ```
+
+- [ ] 📖 **Highlight the `busiest two` and `the regular` lines on screen:** *"Two questions left on my half of the screen, and both show a dash. Who are the two busiest callers? And who is the regular?"*
 
 - [ ] 📖 **Before you change Busiest, say what it does now:** *"Right now Busiest hands back an empty list, so the screen shows a dash for the busiest two. I need it to hand back the n callers with the most calls, the most first."*
 - [ ] **In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<Caller> Busiest(int n)` — one hit. Two lines under it is `return new List<Caller>();`. Select that one line and paste this over it**
