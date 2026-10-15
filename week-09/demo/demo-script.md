@@ -405,7 +405,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 *"Dorothy has three calls. Bex and Teodoro have one each. So only Dorothy has rung more than once."*
-- [ ] 🎯 **Make Bex ring again. Still without quitting, press `r`, caller `Bex`, and press Enter for the song. Then `n`**
+- [ ] 🎯 **Make Bex ring again. Still without quitting, press `r`, caller `Bex`, then press Enter at the song prompt (Enter picks the next song in the rotation, and the first request in a run gets Nightjar). Then `n`**
 
   ```
     the switchboard      6 calls from 3 people
@@ -577,7 +577,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 **Highlight `Sort`:** *"The list has its own method called Sort. I hand it a rule for two callers, a and b: the one with more calls goes first."*
 - [ ] 📖 **Highlight `Take`:** *"Then Take keeps the first n callers and stops."*
-- [ ] **Run the desk: DJ name. Then `r`, caller `Teodoro`, and press Enter for the song. Then `c`**
+- [ ] **Run the desk: DJ name. Then `r`, caller `Teodoro`, then press Enter at the song prompt (Enter picks the next song in the rotation, and the first request in a run gets Nightjar). Then `c`**
 
   ```bash
   dotnet run --project week-09/Lab
@@ -633,7 +633,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   rm week-09/switchboard.json
   ```
 
-- [ ] **Run the desk: DJ name. Then `r`, caller `Teodoro`, Enter for the song. Then `n`, then `c`**
+- [ ] **Run the desk: DJ name. Then `r`, caller `Teodoro`, then press Enter at the song prompt (Enter picks the next song in the rotation, and the first request in a run gets Nightjar). Then `n`, then `c`**
 
   ```bash
   dotnet run --project week-09/Lab
