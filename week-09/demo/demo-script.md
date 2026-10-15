@@ -359,7 +359,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           get { return _callers.Sum(caller => caller.CallsTonight); }
   ```
 
-- [ ] 📖 *"The same word on a different list. Add up the callers, and the number to add for each caller is CallsTonight."*
+- [ ] 📖 *"This is Sum again, the word I just used on the hour. This time it's on the list of callers. The number it totals from each caller is CallsTonight."*
 - [ ] 🎯 **Say the number before it prints:** *"Dorothy has three calls, Bex has one, Teodoro has one. That is five."*
 - [ ] **Run the desk: DJ name, then `n`, then `q`**
 
