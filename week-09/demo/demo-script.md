@@ -76,7 +76,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] ⚠️ **Delete `week-09/` from the demo repo if you've rehearsed.** Tonight you copy it in fresh, along with everybody else
 - [ ] ⚠️ **Rehearse §6's debugger steps once before class.** They are the one part of tonight that no script can check: a breakpoint, **Debug Test**, one Step Over and two Continues. If the breakpoint does not stop inside the question, the note at the end of §6 has the fallback
 - [ ] **A browser tab on the lab README** (`week-09/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
-- [ ] **Lids down for the demo** — *"Tonight comes in pieces again. Lids down while I work, lids up for each lab block in between."*
+- [ ] **Lids down for the demo** — *"Tonight comes in pieces. Lids down while I work, lids up for each lab block in between."*
 
 ---
 
@@ -204,8 +204,8 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 **Highlight `_callers`:** *"The list of callers."*
 - [ ] 📖 **Highlight `FirstOrDefault`:** *"FirstOrDefault hands back the first caller the question is true for."*
-- [ ] 📖 **Highlight `caller => caller.Name == name`:** *"This is the question. It is asked of one caller at a time. Is this caller's name the name I was handed?"*
-- [ ] 📖 **Then the last part of the word:** *"OrDefault covers the case where the question is true for no caller. Then it hands back null. That is what `return null` at the bottom of the loop did."*
+- [ ] 📖 **Highlight `caller => caller.Name == name`:** *"The part inside the brackets is the question. It is asked of one caller at a time: is this caller's name the name Find was handed?"*
+- [ ] 📖 **Then the last part of the word:** *"OrDefault covers the case where the question is true for no caller. Then it hands back null. Handing back null is what `return null` at the bottom of the loop did."*
 
 - [ ] **Run the suite**
 
@@ -257,7 +257,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
        Passed: 5
   ```
 
-- [ ] 📖 *"Five passed again. The loop could never crash on a missing name. First can. FirstOrDefault is the word that matches what the loop did."*
+- [ ] 📖 *"Five passed again. The loop could never crash on a missing name. First can crash on one. FirstOrDefault is the word that matches what the loop did."*
 
 - [ ] **One more loop, in `Load`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `foreach (Caller caller in loaded)` — one hit. Select from that line down to and including the `}` directly under `_callers.Add(caller);`, and paste this over it**
 
@@ -265,7 +265,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           _callers.AddRange(loaded);
   ```
 
-- [ ] 📖 *"This is the end of Load. The callers in `loaded` were just read from switchboard.json, the file the desk saved at the end of the last shift. This loop puts them on the board one at a time. That is not a question, so it is not a query. The list has a method that adds a whole list at once, called AddRange."*
+- [ ] 📖 *"This is the end of Load. The callers in `loaded` were just read from switchboard.json, the file the desk saved at the end of the last shift. This loop puts them on the board one at a time. Putting callers on the board is not a question, so it is not a query. The list has a method that adds a whole list at once, called AddRange."*
 - [ ] 📖 **Highlight `_callers.Clear();`:** *"The Clear above it stays. Loading replaces what is on the board."*
 - [ ] **Run the suite**
 
@@ -327,7 +327,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 **Highlight `Sum`:** *"Sum adds up one number from each item in the list."*
-- [ ] 📖 **Highlight `item => item.Seconds`:** *"The question says which number. For this item, the answer is its Seconds. This question does not answer yes or no. It answers with a number."*
+- [ ] 📖 **Highlight `item => item.Seconds`:** *"The part in the brackets says which number to total: each item's Seconds. This question does not answer yes or no. It answers with a number."*
 - [ ] **Run the desk: DJ name, then `q`.** The hour is drawn as soon as the shift starts
 
   ```bash
@@ -338,7 +338,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   6 items - 14:57 on the clock.
   ```
 
-- [ ] 📖 *"Six items, fourteen minutes fifty-seven. That clock comes from TotalSeconds, and it is what the desk said before I changed it."*
+- [ ] 📖 *"Six items, fourteen minutes fifty-seven. The fourteen fifty-seven comes from TotalSeconds, and it is the same number the desk showed before I changed TotalSeconds."*
 - [ ] **And the checks**
 
   ```bash
@@ -351,7 +351,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
        Failed: 3
   ```
 
-- [ ] 📖 *"One out of four, the same as at the start. Check 1 builds a small hour of its own and expects it to add up to 257 seconds. It is still green."*
+- [ ] 📖 *"One out of four, the same as at the start. Check 1 builds a small hour of its own and expects it to add up to 257 seconds. Check 1 is still green."*
 
 - [ ] **Now a question the desk could not answer. In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `get { return 0; }` — one hit. Select that one line and paste this over it**
 
@@ -423,7 +423,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 ## Lab C · Task 2 — 15 minutes
 
 - [ ] **Lids up. The lab README, at *Task 2 in full*.**
-- [ ] 📖 *"Task 2: copy my two files in, and press n. Two of my lines have answers now. Then write LongerThan on the rotation. It is one Where. Stop at the stop note after the commit."*
+- [ ] 📖 *"Task 2: copy my two files in, and press n. Two of my lines have answers now. Then write LongerThan on the rotation. LongerThan is one line, using Where. Stop at the stop note after the commit."*
 - [ ] 🎯 **Circulating:** a student with all three carts on the line has the comparison backwards. A student with `CS0266` left `ToList()` off the end
 
 ---
@@ -447,7 +447,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 *"The last part of the screen is the running order. The DJ wants to read what is coming up before the hour goes out. Nothing is listed under it yet."*
 
 - [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<string> Run()` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
-- [ ] 📖 *"Run already builds those lines. It makes one line of text for each item: the kind, a dash, then the cue."*
+- [ ] 📖 *"Run already builds the lines the running order needs. Run makes one line of text for each item: the kind, a dash, then the cue."*
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return new List<string>();` — one hit. Select that one line and paste this over it**
 
   ```csharp
@@ -473,7 +473,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 💥 **Do not explain it. Ask, and wait:** *"Look at the bakery ad in the first list and in the second list. What changed?"*
 - [ ] 📖 *"Two left, then one left. Pham's Bakery paid for three airings. I pressed n twice, and two of them are used up. Nothing went out on air. I only looked."*
 - [ ] **Press `q`.** Then highlight `item.Play();` inside `Run`
-- [ ] 📖 *"Here is why. Run does not only build the lines. It plays each item first. Calling Run puts the hour on air."*
+- [ ] 📖 *"Here is why the ad count dropped. Run does not only build the lines. It plays each item first. Calling Run puts the hour on air."*
 
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return Run();` — one hit. Select that one line and paste this over it**
 
@@ -482,7 +482,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 **Highlight `Select`:** *"Select keeps every item, and turns each one into something else."*
-- [ ] 📖 **Highlight the question:** *"Here each item becomes a line of text: its Kind, a dash, and its Cue. There is no Play in this line. It reads two things from each item and changes nothing."*
+- [ ] 📖 **Highlight the question:** *"Here each item becomes a line of text: its Kind, a dash, and its Cue. There is no Play in this line. This line reads two things from each item and changes nothing."*
 - [ ] **Run the desk: DJ name, then `n`, then `n` again**
 
   ```bash
@@ -502,7 +502,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
       WEATHER - clear, four below, wind out of the northwest (read)
   ```
 
-- [ ] 📖 *"I pressed a, and the hour went out. Now the ad has two left and the weather has been read. Airing the hour changed those. Reading the running order did not."*
+- [ ] 📖 *"I pressed a, and the hour went out. Now the ad has two left and the weather has been read. Airing the hour changed the ad and the weather. Reading the running order did not."*
 - [ ] **Press `q`**
 - [ ] 🎯 *"Run stays a loop. It does something to every item. A line like tonight's should only ask."*
 
@@ -531,7 +531,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 ## Lab D · Task 3 — 15 minutes
 
 - [ ] **Lids up. The lab README, at *Task 3 in full*.**
-- [ ] 📖 *"Task 3: copy my hour in, and press n to see the running order on your own desk. Then write Titles on the rotation. It is one Select. Stop at the stop note after the commit."*
+- [ ] 📖 *"Task 3: copy my hour in, and press n to see the running order on your own desk. Then write Titles on the rotation. Titles is one line, using Select. Stop at the stop note after the commit."*
 - [ ] 🎯 **Circulating:** a student whose titles come out in alphabetical order has done Task 4's job in Task 3. Check 3 says so
 
 ---
@@ -621,7 +621,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   │ Teodoro │ 2     │ Nightjar  │
   ```
 
-- [ ] 📖 *"The same answer: Dorothy, then Teodoro. And the board is still Dorothy, Bex, Teodoro. The answer is in order. The switchboard was left alone."*
+- [ ] 📖 *"Busiest two is still Dorothy, then Teodoro. And the board is still Dorothy, Bex, Teodoro. The answer is in order. The switchboard was left alone."*
 - [ ] **Press `q`, and open `week-09/switchboard.json` again**
 
   ```json
@@ -742,7 +742,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] **Now watch it happen. Click in the margin left of the `IEnumerable<Caller> busy` line, so a red dot appears. Then click `Debug Test`, just above `public void AnAnswerDoesNotChangeAfterItIsGiven()`**
 - [ ] 📖 **It stops on the line with the red dot:** *"The debugger has stopped on the Where line. That line has not run yet."*
 - [ ] **Press Step Over (<kbd>F10</kbd>)**
-- [ ] 📖 **The yellow arrow is now on the second `board.Take("Bex");`:** *"The Where line has finished. The debugger never went inside the question. So nobody has been asked anything yet."*
+- [ ] 📖 **The yellow arrow is now on the second `board.Take("Bex");`:** *"The Where line has finished. The debugger never went inside the question. So the question has not been asked about any caller yet."*
 - [ ] **Press Continue (<kbd>F5</kbd>)**
 - [ ] 📖 **It stops on the Where line again, and the Variables pane shows `caller`:** *"Now it is inside the question, and the caller is Dorothy. Look at the Call Stack. The line that brought us here is Assert.Single. The question is being asked now, when the answer is read."*
 - [ ] **Press Continue (<kbd>F5</kbd>)**
@@ -767,10 +767,10 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
        Passed: 6
   ```
 
-- [ ] 📖 *"Green. ToList asked the question on that line, one time, and kept the answer. Bex's second call came after that, so it does not change the answer."*
+- [ ] 📖 *"Green. ToList asked the question on the Where line, one time, and kept the answer. Bex's second call came after ToList, so it does not change the answer."*
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *A question, and an answer* · *"Where, Select and OrderBy hand back a question that has not been asked yet. ToList asks it, once, and hands back the answer as a list. That is why every method tonight ends with ToList."*
-- [ ] 🎯 **The forward line:** *"In week ten the callers and the carts move into a database. Then a question like this one is sent to the database, and ToList is the moment it is sent."*
+- [ ] 🎞️ **GO TO SLIDE 4** — *A question, and an answer* · *"Where, Select and OrderBy hand back a question that has not been asked yet. ToList asks it, once, and hands back the answer as a list. So every method tonight ends with ToList."*
+- [ ] 🎯 **The forward line:** *"In week ten the callers and the carts move into a database. Then a LINQ question like this Where is sent to the database, and ToList is the moment it is sent."*
 
 - [ ] **Commit it in the demo repo.** Silent
 
