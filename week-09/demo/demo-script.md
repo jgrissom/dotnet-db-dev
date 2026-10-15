@@ -127,7 +127,16 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
     the running order:
   ```
 
-- [ ] 📖 *"This screen is new. Every line asks the desk one question. The top four lines are about the switchboard, and those are mine. The next three are about the rotation, and those are yours."*
+- [ ] 📖 *"This screen is new. Every line asks the desk one question. The top four lines and the running order at the bottom are mine. The three in the middle are about the rotation, and those are yours."*
+- [ ] 📖 **Then one line each, top to bottom — point at each as you say it:**
+  - **`the switchboard`** — *"How many calls the desk has taken tonight, and from how many people."*
+  - **`rang more than once`** — *"Which callers have rung more than one time tonight."*
+  - **`busiest two`** — *"The two callers who have rung the most, busiest first, with their number of calls."*
+  - **`the regular`** — *"The one caller who has rung the most."*
+  - **`over four minutes`** — *"Which carts run longer than four minutes. The news at the top of the hour runs four minutes, so these are the carts that can cover it."*
+  - **`the titles`** — *"Just the title of every cart, in the order the rotation holds them."*
+  - **`in order by title`** — *"Every cart again, this time in order by title, A to Z."*
+  - **`the running order`** — *"Everything in the hour, as the DJ would read it before it goes on air."*
 - [ ] 📖 **Point at the first line:** *"Zero calls from three people. Dorothy alone has rung three times tonight. The desk has the callers and can't add up their calls."*
 - [ ] **Press `q`**
 - [ ] 📖 *"Before I add anything, I'm going to change a method that already works. That method is Find, on the switchboard."*
