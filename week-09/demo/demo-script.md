@@ -757,18 +757,32 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
           IEnumerable<Caller> busy = board.All().Where(caller => caller.CallsTonight > 1);
 
-          board.Take("Bex");
-
           Assert.Single(busy);
       }
   }
   ```
 
 - [ ] 📖 **Highlight the three `Take` lines:** *"Dorothy rings twice. Bex rings once."*
-- [ ] 📖 **Highlight the `IEnumerable<Caller> busy` line:** *"This line asks: which callers have rung more than once? If you answered it right now, the answer would be Dorothy, and only Dorothy. Notice there is no ToList on the end."*
-- [ ] 📖 **Highlight the second `board.Take("Bex");`:** *"Then Bex rings a second time. Now Bex has rung more than once too."*
-- [ ] 📖 **Highlight `Assert.Single(busy);`:** *"Assert.Single checks that busy holds exactly one caller. When I asked the question, only Dorothy had rung more than once. So the test expects one caller: Dorothy. The question for you is whether busy still holds the answer from when I asked."*
-- [ ] 🎯 **Ask for the color before you run it, and wait for an answer.** *"Red or green?"*
+- [ ] 📖 **Highlight `board.All()`:** *"board.All() hands back the list of callers on the switchboard."*
+- [ ] 📖 **Highlight `.Where(caller => caller.CallsTonight > 1)`:** *"Where keeps the callers who have rung more than once. It is the same question CalledMoreThan asks."*
+- [ ] 📖 **Highlight `IEnumerable<Caller> busy`:** *"The result goes into a variable called busy. Notice there is no ToList on the end, so busy is not a List."*
+- [ ] 📖 **Highlight `Assert.Single(busy);`:** *"Assert.Single checks that busy holds exactly one caller. Only Dorothy has rung more than once, so one caller is what I expect."*
+- [ ] **Run the suite**
+
+  ```bash
+  dotnet test week-09/Lab.Tests
+  ```
+
+  ```
+  Total tests: 6
+       Passed: 6
+  ```
+
+- [ ] 📖 *"Green. busy holds one caller, Dorothy."*
+
+- [ ] **Now one more call. Click at the end of the `IEnumerable<Caller> busy` line, press Enter twice, and type `board.Take("Bex");`** Type it; it is one line
+- [ ] 📖 **Highlight the line you just typed:** *"Bex rings a second time. This call comes after the Where line. I have not changed the Where line or the Assert."*
+- [ ] **Run the suite again**
 
   ```bash
   dotnet test week-09/Lab.Tests
@@ -780,7 +794,8 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
      Assert.Single() Failure: The collection contained 2 items
   ```
 
-- [ ] 📖 *"Red. The answer holds two callers. Bex is in an answer I took before her second call."*
+- [ ] 📖 *"Red. busy holds two callers now, Dorothy and Bex."*
+- [ ] 📖 *"But Bex's second call came after the Where line. So the Where line did not work out the answer when it ran. The answer was worked out later, when Assert.Single read busy. The debugger can show us that."*
 
 - [ ] **Now watch it happen. Click in the margin left of the `IEnumerable<Caller> busy` line, so a red dot appears. Then click `Debug Test`, just above `public void AnAnswerDoesNotChangeAfterItIsGiven()`**
 - [ ] 📖 **It stops on the line with the red dot:** *"The debugger has stopped on the Where line. That line has not run yet."*
