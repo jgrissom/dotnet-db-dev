@@ -766,7 +766,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 **Highlight `board.All()`:** *"board.All() hands back the list of callers on the switchboard."*
 - [ ] 📖 **Highlight `.Where(caller => caller.CallsTonight > 1)`:** *"Where keeps the callers who have rung more than once. It is the same question CalledMoreThan asks."*
 - [ ] 📖 **Highlight `IEnumerable<Caller> busy`:** *"The result goes into a variable called busy. Notice there is no ToList on the end, so busy is not a List."*
-- [ ] 📖 **Highlight `Assert.Single(busy);`:** *"Assert.Single checks that busy holds exactly one caller. Only Dorothy has rung more than once, so one caller is what I expect."*
+- [ ] 📖 **Highlight `Assert.Single(busy);`:** *"Assert.Single checks that busy holds exactly one caller. There are two callers on the board, Dorothy and Bex. But busy is not the whole board. Where kept only the callers who have rung more than once. Dorothy has rung twice and Bex once, so busy should hold one caller: Dorothy."*
 - [ ] **Run the suite**
 
   ```bash
@@ -778,7 +778,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
        Passed: 6
   ```
 
-- [ ] 📖 *"Green. busy holds one caller, Dorothy."*
+- [ ] 📖 *"Green. Two callers on the board, but only one of them has rung more than once. So busy holds one caller, Dorothy."*
 
 - [ ] **Now one more call. Click at the end of the `IEnumerable<Caller> busy` line, press Enter twice, and type `board.Take("Bex");`** Type it; it is one line
 - [ ] 📖 **Highlight the line you just typed:** *"Bex rings a second time. This call comes after the Where line. I have not changed the Where line or the Assert."*
