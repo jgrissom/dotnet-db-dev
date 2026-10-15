@@ -765,9 +765,9 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 **Highlight the three `Take` lines:** *"Dorothy rings twice. Bex rings once."*
-- [ ] 📖 **Highlight the `IEnumerable<Caller> busy` line:** *"This line asks which callers have rung more than once. Right now that is Dorothy, and only Dorothy. There is no ToList on the end."*
-- [ ] 📖 **Highlight the second `board.Take("Bex");`:** *"Then Bex rings a second time."*
-- [ ] 📖 **Highlight `Assert.Single(busy);`:** *"Then I check the answer I already took. Assert.Single passes if the answer holds exactly one caller."*
+- [ ] 📖 **Highlight the `IEnumerable<Caller> busy` line:** *"This line asks: which callers have rung more than once? If you answered it right now, the answer would be Dorothy, and only Dorothy. Notice there is no ToList on the end."*
+- [ ] 📖 **Highlight the second `board.Take("Bex");`:** *"Then Bex rings a second time. Now Bex has rung more than once too."*
+- [ ] 📖 **Highlight `Assert.Single(busy);`:** *"Assert.Single checks that busy holds exactly one caller. When I asked the question, only Dorothy had rung more than once. So the test expects one caller: Dorothy. The question for you is whether busy still holds the answer from when I asked."*
 - [ ] 🎯 **Ask for the color before you run it, and wait for an answer.** *"Red or green?"*
 
   ```bash
