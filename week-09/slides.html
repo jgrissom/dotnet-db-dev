@@ -207,10 +207,10 @@ section footer { color: #9fb2c1; font-size: 0.6em; opacity: 0.85; }
 <h2 id="a-question-and-an-answer">A question, and an answer</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp">board.All().Where(caller =&gt; caller.CallsTonight &gt; <span class="hljs-number">1</span>)
 </code></pre>
-<p>A <strong>question</strong>. Nobody has been asked yet.</p>
+<p>Stores the <strong>query</strong>. It runs every time something reads it.</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-csharp">board.All().Where(caller =&gt; caller.CallsTonight &gt; <span class="hljs-number">1</span>).ToList()
 </code></pre>
-<p>An <strong>answer</strong>. Asked once, right here, and kept.</p>
+<p>Runs the query <strong>once</strong>, right here, and stores a <strong>snapshot</strong> of the result.</p>
 <footer><img class="emoji" draggable="false" alt="🖥️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.3/assets/svg/1f5a5.svg" data-marp-twemoji=""/> Demo §6 · a question, and an answer</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-class="invert" data-paginate="true" data-footer="🖥️ Demo §7 · wrap" data-theme="gaia" data-style="section pre {
