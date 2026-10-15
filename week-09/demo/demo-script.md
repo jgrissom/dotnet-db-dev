@@ -396,7 +396,16 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
 - [ ] 📖 *"The desk asks for callers who rang more than one time. That is Dorothy, and only Dorothy."*
-- [ ] 🎯 **Make Bex ring again. Without quitting, press `r`, caller `Bex`, and press Enter for the song. Then `n`**
+- [ ] **Without quitting, press `c` to see where the switchboard stands**
+
+  ```
+  │ Dorothy │ 3     │ -         │
+  │ Bex     │ 1     │ -         │
+  │ Teodoro │ 1     │ -         │
+  ```
+
+- [ ] 📖 *"Dorothy has three calls. Bex and Teodoro have one each. So only Dorothy has rung more than once."*
+- [ ] 🎯 **Make Bex ring again. Still without quitting, press `r`, caller `Bex`, and press Enter for the song. Then `n`**
 
   ```
     the switchboard      6 calls from 3 people
