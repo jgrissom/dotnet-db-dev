@@ -265,7 +265,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
           _callers.AddRange(loaded);
   ```
 
-- [ ] 📖 *"This loop put every loaded caller on the board, one at a time. That is not a question, so it is not a query. The list has a method that adds a whole list at once, called AddRange."*
+- [ ] 📖 *"This is the end of Load. The callers in `loaded` were just read from switchboard.json, the file the desk saved at the end of the last shift. This loop puts them on the board one at a time. That is not a question, so it is not a query. The list has a method that adds a whole list at once, called AddRange."*
 - [ ] 📖 **Highlight `_callers.Clear();`:** *"The Clear above it stays. Loading replaces what is on the board."*
 - [ ] **Run the suite**
 

@@ -319,7 +319,7 @@ dotnet test week-09/Lab.Tests
 
 #### And the loop at the bottom of `Load`
 
-**In `Lab/Rotation.cs`, under the second `TODO — Task 1` comment.** That loop puts every loaded cart into the rotation, one at a time. It isn't asking a question, so [it isn't a query](../lecture-notes.md#a-loop-that-fills-a-list-is-not-a-question). The list already has a method for the job:
+**In `Lab/Rotation.cs`, under the second `TODO — Task 1` comment.** The carts in `loaded` were just read from `week-09/rotation.json`, the file the desk saved at the end of the last shift. That loop puts them into the rotation one at a time. It isn't asking a question, so [it isn't a query](../lecture-notes.md#a-loop-that-fills-a-list-is-not-a-question). The list already has a method for the job:
 
 - **`_songs.AddRange(loaded)`** adds every item of another list in one call. Replace the `foreach` loop with it.
 - ⚠️ **The `_songs.Clear();` above it stays.** Loading replaces what the rotation holds.
