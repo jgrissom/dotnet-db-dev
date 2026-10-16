@@ -7,7 +7,7 @@
 
 Your registry has held records since week 4 and remembered them since week 8. It still can't answer a question about them. This week it learns to, with **LINQ** — the methods every list in C# already has for asking it a question.
 
-**This homework is the lab again, on your own project.** Same four tasks, same order, same steps. Where the lab said `Rotation`, `Song` and `_songs`, you use your `Registry`, your record type, and the list inside your `Registry`. If you finished the lab, you have already done every step once.
+**This homework is the lab again, on your own project.** Same steps. Tasks 1, 3 and 4 are the lab's Tasks 1, 3 and 4. Task 2 is the lab's Task 5, the search on the `f` key. Where the lab said `Rotation`, `Song` and `_songs`, you use your `Registry`, your record type, and the list inside your `Registry`. If you finished the lab, you have already done every step once.
 
 Three new members, and their signatures are part of the deal the way every dictated name has been since week 4:
 
@@ -327,7 +327,7 @@ git commit -m "Find and Load, one line each, and my fact about Find"
 public List<YourRecord> Matching(string term)
 ```
 
-It hands back every record whose name has `term` somewhere inside it. One line, the lab's Task 2 with a different question:
+It hands back every record whose name has `term` somewhere inside it. One line. It is the lab's Task 5, on your own records:
 
 - **`Where(question)`**, called on the list inside your `Registry`, keeps the records the question is true for, in the order it found them.
 - **The question** answers yes or no for one record: does this record's name contain the term? `text.Contains(term)` answers that for a string.

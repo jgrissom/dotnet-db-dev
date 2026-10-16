@@ -52,7 +52,7 @@ Each demo segment is followed by the lab task that practices it. **The demo work
 - **After §2, §3, §4, §5 and §6 you push your finished files to `demo/week-09/` in the starters repo.** Each lab task opens with the student pulling and copying them in. The files you push are only ones students never edit — `Switchboard.cs`, `Hour.cs`, `SwitchboardTests.cs`, `BusyCallerTests.cs` — so a copy can never overwrite their work.
 - ⚠️ **Nothing in the lab waits on a push.** Their tasks are all in `Rotation.cs`. If a push stalls, they start the task and copy your file when it lands.
 - **Push only what you just ran.** Each push comes right after the segment's last run or green test.
-- **Every lab block ends at an "In class, stop here" note** in the README, with an early-finisher extra. Lab F has no stop; it absorbs what is left, and anyone finished starts the homework.
+- **Every lab block ends at an "In class, stop here" note** in the README, with an early-finisher extra. Lab F holds Task 5 and absorbs what is left; anyone finished starts the homework.
 - **The `[n]` screen is the scoreboard for both halves.** Your four lines and the running order fill in as you push; their three fill in as they finish tasks.
 
 ## Timed agenda
@@ -72,7 +72,7 @@ Each demo segment is followed by the lab task that practices it. **The demo work
 | 2:28 | 25 min | 🎯 **Lab E: Task 4** — the lab's payoff. `ByTitle`, then the cart table, then the file. **Circulate hard.** |
 | 2:53 | 10 min | **☕ Break** |
 | 3:03 | 10 min | 💥 **A question, and an answer** *(slide 4, demo §6)*. A fact with no `ToList()`: green with Dorothy alone, then one typed call from Bex turns it red with two callers — `busy` stored the query, not the result. `ToList()` saves a snapshot, and it is green again. Week 10, named. **Push #5.** Done, defined. |
-| 3:13 | 22 min | **Lab F: finish the lab, or start the homework.** Finished students do the homework's Part 1 and Task 1 and push their branch, while you're there to answer setup questions. |
+| 3:13 | 22 min | **Lab F: Task 5, then start the homework.** `Matching` with `Contains` — the search the homework's Task 2 asks for. Finished students do the homework's Part 1 and Task 1 and push their branch, while you're there to answer setup questions. |
 | 3:35 | 10 min | **Wrap-up** *(slide 5, demo §7)*. Project repo URL, **the homework is the lab again**, the branch line, the checks-copy line, and a normal one-week due date. |
 
 > [!NOTE]

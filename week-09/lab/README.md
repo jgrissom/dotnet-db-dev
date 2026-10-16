@@ -4,9 +4,9 @@ It's 4 AM at **KDXR 88.1, "The Owl,"** and the desk knows more than it can say. 
 
 Tonight [every answer is one line](../lecture-notes.md#thirty-lines-become-one). The methods that make that possible are called **LINQ**, and every list in C# already has them.
 
-Your job: change two loops that already work into one line each, and prove nothing moved. Then give the rotation three questions it can answer.
+Your job: change two loops that already work into one line each, and prove nothing moved. Then give the rotation four questions it can answer.
 
-**Time:** tonight's lab comes in short blocks, each one right after the part of the demo it practices. **Target tonight: all four checks green, and three lines of the `[n]` screen that are yours.**
+**Time:** tonight's lab comes in short blocks, each one right after the part of the demo it practices. **Target tonight: all five checks green, three lines of the `[n]` screen that are yours, and a search on the `[f]` key.**
 
 > [!NOTE]
 > **Missed a week?** You're not behind. Every file ships finished except `Rotation.cs`, and nothing tonight depends on remembering last week's code — only on reading this week's.
@@ -92,7 +92,7 @@ VS Code worked out what was in this folder **when you opened it**, and `week-09`
 dotnet test week-09/Lab.Checks
 ```
 
-**1 / 4 passing.** Check 1 is everything the desk already does, and it stays green all night. **The three red ones are tonight's questions** — read their names; they're the map.
+**1 / 5 passing.** Check 1 is everything the desk already does, and it stays green all night. **The four red ones are tonight's questions** — read their names; they're the map.
 
 **Commit that before you change anything** — it's the week exactly as you were handed it, and it makes every later commit obviously *your* work. Source Control view: stage (**+**), paste, **✓ Commit**, **Sync**.
 
@@ -121,14 +121,14 @@ week 9: starter
 
 | File | What it is |
 |---|---|
-| `Lab/Rotation.cs` | **Yours, all night.** Two loops to rewrite in Task 1, and three empty methods for Tasks 2, 3 and 4. |
+| `Lab/Rotation.cs` | **Yours, all night.** Two loops to rewrite in Task 1, and four empty methods for Tasks 2 to 5. |
 | `Lab.Tests/DeskTests.cs` | **Yours.** Three facts ship written; one more goes in at Task 1. |
 | `Lab/Switchboard.cs`, `Lab/Hour.cs` | **Your instructor's.** You copy the finished files in at the start of each task, and read them as you work. You never edit them. |
 | `Lab.Tests/SwitchboardTests.cs` | **Your instructor's facts**, copied in at Task 1. |
 | `Lab/Program.cs` | Shipped, finished. It already calls every method you are about to write. |
-| `Lab.Checks/DeskChecks.cs` | My four. **Read-only, as always.** |
+| `Lab.Checks/DeskChecks.cs` | My five. **Read-only, as always.** |
 
-💡 **Two keys on the desk are new tonight.** `f` finds a cart by its title. `n` shows *the night's numbers*: one line for each of tonight's questions. The top four lines and the running order are your instructor's. **The middle three are yours**, and each shows a dash until you write the method behind it.
+💡 **Two keys on the desk are new tonight.** `f` finds a cart by its title, and after Task 5 it also finds the carts with part of that title in them. `n` shows *the night's numbers*: one line for each of tonight's questions. The top four lines and the running order are your instructor's. **The middle three are yours**, and each shows a dash until you write the method behind it.
 
 ## The tasks
 
@@ -142,6 +142,7 @@ Every task tells you exactly what to write and the syntax you need, and [all of 
 | 2 | `TheDeskFindsALongCart` | The carts long enough to cover the news. **[Task 2 in full ↓](#task-2-in-full)** |
 | 3 | `TheDeskReadsOffItsTitles` | Just the titles. **[Task 3 in full ↓](#task-3-in-full)** |
 | 4 | `TheCartsComeBackInOrder` | In order by title, with the rotation left alone. **[Task 4 in full ↓](#task-4-in-full)** |
+| 5 | `TheDeskSearchesItsTitles` | Every cart with a bit of text in its title. **[Task 5 in full ↓](#task-5-in-full)** |
 
 ---
 
@@ -149,7 +150,7 @@ Every task tells you exactly what to write and the syntax you need, and [all of 
 
 **Check:** `Check1_TheDeskStillAnswers` — **and it is already green.**
 
-This task is different from every other one you have done. **Nothing goes from red to green.** You are going to change two pieces of code that work, and the check count is going to stay at 1 / 4. Your own suite is how you'll know nothing broke.
+This task is different from every other one you have done. **Nothing goes from red to green.** You are going to change two pieces of code that work, and the check count is going to stay at 1 / 5. Your own suite is how you'll know nothing broke.
 
 **First, bring in your instructor's code.** Pull the starters clone, then copy the two files in:
 
@@ -193,7 +194,7 @@ dotnet run --project week-09/Lab
 dotnet test week-09/Lab.Checks
 ```
 
-**1 / 4.**
+**1 / 5.**
 
 Yours:
 
@@ -283,7 +284,7 @@ dotnet test week-09/Lab.Tests
 dotnet test week-09/Lab.Checks
 ```
 
-**1 / 4 — exactly where you started.** Five lines of loop are gone, and two commands just told you `Find` still answers the same way.
+**1 / 5 — exactly where you started.** Five lines of loop are gone, and two commands just told you `Find` still answers the same way.
 
 #### Make it fail once
 
@@ -367,7 +368,7 @@ dotnet test week-09/Lab.Tests
 dotnet test week-09/Lab.Checks
 ```
 
-**1 / 4.**
+**1 / 5.**
 
 **Commit it:**
 
@@ -457,7 +458,7 @@ dotnet run --project week-09/Lab
 dotnet test week-09/Lab.Checks
 ```
 
-**2 / 4.**
+**2 / 5.**
 
 **Green? Commit it:**
 
@@ -544,7 +545,7 @@ dotnet run --project week-09/Lab
 dotnet test week-09/Lab.Checks
 ```
 
-**3 / 4.**
+**3 / 5.**
 
 **Green? Commit it:**
 
@@ -646,7 +647,7 @@ dotnet run --project week-09/Lab
 dotnet test week-09/Lab.Checks
 ```
 
-**4 / 4.**
+**4 / 5.**
 
 **And yours:**
 
@@ -662,12 +663,90 @@ dotnet test week-09/Lab.Tests
 week 9 lab: in order, and the rotation left alone
 ```
 
-**Four commits after the starter, four green checks, and three lines of the night's numbers that are yours.**
-
 > [!NOTE]
-> **In class, stop here.** The demo has one more part. After it, if your lab is done, [start the homework](../homework.md#part-1--catch-up-branch-and-bring-in-this-weeks-checks): it's this lab again, on your own project. Do Part 1 and Task 1 and push your branch before you leave, while your instructor is in the room to help. [Now try to break it](#now-try-to-break-it) and [⭐ Done early?](#-done-early) are there if you want more. Working at home? Carry straight on.
+> **In class, stop here.** Task 5 comes after the last part of the demo. Finished early? Try item 2 of [⭐ Done early?](#-done-early), or help the person next to you. Working at home? Carry straight on.
 
 📖 *Further reading:* [`OrderBy` — and it leaves the thing you asked alone](../lecture-notes.md#orderby--and-it-leaves-the-thing-you-asked-alone).
+
+---
+
+### Task 5 in full
+
+**Check:** `Check5_TheDeskSearchesItsTitles`
+
+**Run the desk: DJ name, then `f`, `Water`, then `f`, `Way`, then `q`.**
+
+```bash
+dotnet run --project week-09/Lab
+```
+
+```
+  No cart called "Water" in the rotation.
+```
+
+```
+  No cart called "Way" in the rotation.
+```
+
+**Both are true, and neither helps.** No cart is called exactly *Water*, but Slack Water is right there in the rotation. `Find` asks whether a title **is** what you typed. Task 5 asks whether a title **has it in it**.
+
+**Write `Matching` — in `Lab/Rotation.cs`, under the `TODO — Task 5` comment.** Replace the `return new List<Song>();` line with one line that hands back every cart whose title has `term` somewhere in it:
+
+- **`_songs.Where(question)`**, the same word as Task 2. Only the question is different.
+- **The question** answers yes or no for one song: does this song's title contain the term? **`text.Contains(term)`** answers that for a string. `"Slack Water".Contains("Water")` is `true`.
+- **`.ToList()`** on the end.
+- ⚠️ **`Contains`, not `==` and not `StartsWith`.** `==` asks whether the whole title **is** the term. `StartsWith` only looks at the front of the title. *Water* is at the end of *Slack Water*, and *Way* is in the middle of *Long Way Round*.
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+```csharp
+    public List<Song> Matching(string term)
+    {
+        return _songs.Where(song => song.Title.Contains(term)).ToList();
+    }
+```
+
+</details>
+
+**Run the desk again, and do the same two finds:** DJ name, `f`, `Water`, then `f`, `Way`, then `q`.
+
+```bash
+dotnet run --project week-09/Lab
+```
+
+```
+  No cart called "Water" in the rotation.
+  With "Water" in the title: Slack Water
+```
+
+```
+  No cart called "Way" in the rotation.
+  With "Way" in the title: Long Way Round
+```
+
+**The `f` key now finds a cart from part of its title.** Try `water`, with a small w: nothing. `Contains` compares the letters exactly, the same way `Find` does.
+
+**Then mine:**
+
+```bash
+dotnet test week-09/Lab.Checks
+```
+
+**5 / 5.**
+
+**Then clock out — commit the shift:**
+
+```
+week 9 lab: a search on the titles
+```
+
+**Five commits after the starter, five green checks, three lines of the night's numbers that are yours, and a search on the `f` key.**
+
+> [!NOTE]
+> **In class, stop here.** If your lab is done, [start the homework](../homework.md#part-1--catch-up-branch-and-bring-in-this-weeks-checks): it's this lab again, on your own project, and its Task 2 is the search you just wrote. Do Part 1 and Task 1 and push your branch before you leave, while your instructor is in the room to help. [Now try to break it](#now-try-to-break-it) and [⭐ Done early?](#-done-early) are there if you want more. Working at home? Carry straight on.
+
+📖 *Further reading:* [`Where` — keeping some of them](../lecture-notes.md#where--keeping-some-of-them).
 
 ---
 
@@ -726,10 +805,11 @@ None of these has a check. Each one is a method on `Rotation` — add it at the 
 | Your Task 1 fact is red before you've changed `Find` | Check the title you asked for is spelled exactly like the one you added, capital letters included. |
 | `over four minutes` shows all three carts | The comparison is the wrong way round. |
 | `the titles` comes out in alphabetical order | There's an `OrderBy` in `Titles`. That's Task 4's job, and check 3 says so. |
+| Check 5 red: *gave (nothing) and should give Slack Water* | `==` or `StartsWith` where `Contains` belongs. *Water* is the end of the title, not all of it. |
 | Check 4 red: *Sorting the rotation SORTED THE ROTATION* | `Sort` instead of `OrderBy`. Fix the line, then delete `week-09/rotation.json`. |
 | The carts are in the wrong order even after you fixed `ByTitle` | The wrong order was saved to `week-09/rotation.json`, and every shift loads it. Delete that file. |
 | The top lines of `n` don't match this page | They're your instructor's, and they depend on which files you've copied in and whether you've taken requests. Only your three lines have to match. |
-| `f` can't find `nightjar` and you can see Nightjar in the table | The titles are compared exactly, capital letters included. **If you're wondering whether they should be, hold that thought: it's a database-week conversation.** |
+| `f` can't find `nightjar` and you can see Nightjar in the table, or `water` finds nothing | The titles are compared exactly, capital letters included. **If you're wondering whether they should be, hold that thought: it's a database-week conversation.** |
 | `dotnet test` passes and the shift looks wrong | Run the program, not just the suites. Neither one looks at `Program.cs`. |
 | Red squiggles under `Where` or `Assert`, but `dotnet test` runs | **The editor, not your code.** Command Palette → **`Developer: Reload Window`**. ⚠️ `.NET: Restart Language Server` does **not** fix it. |
 | An error that isn't in this table | [The notes' troubleshooting list](../lecture-notes.md#-troubleshooting) has more of them. |

@@ -82,7 +82,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 ## 1 · Questions the desk can't answer
 
 - [ ] **Slide 1 is already up as the room settles.** It names tonight's theme. Read it to them in one go, then the two lines below
-- [ ] 📖 **Read the slide:** *"Tonight is LINQ, which is about asking a list a question. We'll turn a loop into one line, and write a test first to prove nothing changed. We'll use a few LINQ words: one finds a single item, one keeps some, one changes each item, one puts them in order. We'll see the one thing a question must never do to the list it asks. And in your lab, you'll give the rotation three questions it can answer."*
+- [ ] 📖 **Read the slide:** *"Tonight is LINQ, which is about asking a list a question. We'll turn a loop into one line, and write a test first to prove nothing changed. We'll use a few LINQ words: one finds a single item, one keeps some, one changes each item, one puts them in order. We'll see the one thing a question must never do to the list it asks. And in your lab, you'll give the rotation four questions it can answer."*
 - [ ] 🎯 **Say what tonight is, plainly:** *"The desk holds the carts, the hour, and every caller. Tonight it learns to answer questions about them. Each answer is one line of code. The C# feature that does it is called LINQ. It is a set of methods that every list already has."*
 - [ ] 📖 **Then the deal for the night:** *"I work on the switchboard and the hour. You work on the rotation. After each piece I push my file, and you copy it in."*
 
@@ -91,7 +91,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 ## Lab A · Setup, together — 10 minutes
 
 - [ ] **Lids up. Put the lab README up in the browser, at *Setup*.** Do steps 1 to 4 on your own machine at the same time as the room, in your demo repo's terminal. You copy week 9 in exactly as they do
-- [ ] **Run the checks, and say the number:** *"One out of four. Check 1 is everything the desk already does."*
+- [ ] **Run the checks, and say the number:** *"One out of five. Check 1 is everything the desk already does."*
 
   ```bash
   dotnet test week-09/Lab.Checks
@@ -306,7 +306,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 ## Lab B · Task 1 — 25 minutes
 
 - [ ] **Lids up. The lab README, at *Task 1 in full*.** Its first step is pulling your files and copying them in
-- [ ] 📖 *"Task 1 is what I just did, on the rotation. Copy my two files in. Write your fact about the rotation's Find first. Then change Find and the loop in Load. Your check count stays at one out of four the whole time. Stop at the stop note after the commit."*
+- [ ] 📖 *"Task 1 is what I just did, on the rotation. Copy my two files in. Write your fact about the rotation's Find first. Then change Find and the loop in Load. Your check count stays at one out of five the whole time. Stop at the stop note after the commit."*
 - [ ] 🎯 **Circulating:** the wrong reflex is rewriting `Find` before the fact exists. Ask *"how many tests did you have before you started, and how many now?"*
 - [ ] 🎯 **And look for a `Load` that lost its `Clear()`.** The desk says `6 carts loaded` on the second run
 - [ ] ⚠️ **If your push is still going when the block starts,** they start Task 1 without your files. Their task doesn't need them; the copy can wait a minute
@@ -345,12 +345,12 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   ```
 
   ```
-  Total tests: 4
+  Total tests: 5
        Passed: 1
-       Failed: 3
+       Failed: 4
   ```
 
-- [ ] 📖 *"One out of four, the same as at the start. Check 1 builds a small hour of its own and expects it to add up to 257 seconds. Check 1 is still green."*
+- [ ] 📖 *"One out of five, the same as at the start. Check 1 builds a small hour of its own and expects it to add up to 257 seconds. Check 1 is still green."*
 
 - [ ] 📖 **Before you change TotalCalls, say what it does now:** *"Right now TotalCalls hands back zero, whatever is on the board. That zero is the zero calls on the screen. I need it to add up every caller's CallsTonight."*
 - [ ] **Now a question the desk could not answer. In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `get { return 0; }` — one hit. Select that one line and paste this over it**
@@ -838,13 +838,15 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
   git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
   ```
 
-- [ ] 🎯 **Define done on their machine:** *"You are done when `dotnet test week-09/Lab.Checks` says four out of four. And when you press n, all three of your lines have an answer."*
+- [ ] 🎯 **Define done on their machine:** *"You are done when `dotnet test week-09/Lab.Checks` says five out of five. When you press n, all three of your lines have an answer. And when you press f and type Water, the desk finds Slack Water."*
 
 ---
 
-## Lab F · Finish the lab, or start the homework — 22 minutes
+## Lab F · Task 5, then start the homework — 22 minutes
 
-- [ ] **Lids up. The lab README.** Anyone not finished works on their next task
+- [ ] **Lids up. The lab README, at *Task 5 in full*.** Anyone not finished works on their next task
+- [ ] 📖 *"Task 5 is one more question for the rotation. Which carts have this bit of text somewhere in their title? Contains is the word for that. Your homework's Task 2 is the same search, on your own project."*
+- [ ] 🎯 **Circulating:** a student whose `Water` search finds nothing has `==` or `StartsWith` where `Contains` belongs. Check 5 says so
 - [ ] 📖 **For anyone who's finished:** *"If your lab is done, open this week's homework and start it now, while I'm here. It is tonight's lab again, on your own project. Do Part 1 and Task 1, and push your branch before you leave."*
 - [ ] 💡 *Now try to break it* and *⭐ Done early?* stay on the lab page for anyone who wants them. Don't ask for either
 - [ ] ⚠️ **Stop at 3:35 on the timing table, wherever the room is.** Whatever is left finishes at home
@@ -856,7 +858,7 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 🎞️ **GO TO SLIDE 5** — *Tonight, in one picture* · *"Every LINQ line tonight was a list, a word and a question. FirstOrDefault hands back one thing or null, and First throws. Where keeps some. Select turns each one into something else. OrderBy hands back a new list and leaves yours alone. ToList is what turns a question into an answer."*
 - [ ] 🎯 **The forward line:** *"Every question tonight was asked of a list that is already in memory. In week ten the data moves into a database. In week twelve the database answers the question."*
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
-- [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. The same four tasks, in the same order. If you finished the lab, you have done every step once."*
+- [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. It has four tasks. Its search is the one you wrote in Task 5. If you finished the lab, you have done every step once."*
 - [ ] ⚠️ **Say the branch line out loud** — *"Your homework goes on a branch, same as every week. Nothing goes straight to main."*
 - [ ] ⚠️ **Say the checks line out loud** — *"Part 1 removes last week's checks and copies this week's in. Run both commands. This week's first check is called WeeksFourToEightStillHold. If yours says FourToSeven, you are running last week's."*
 - [ ] ⚠️ **And say the date, because the last one was different** — *"This homework is due before our next class. One week, the normal amount."*
