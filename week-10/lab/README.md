@@ -1,20 +1,25 @@
-# Week 10 Lab — The Carts Leave the Building 📻
+# Week 10 Lab — The Carts Move In 📻
 
-It's 4 AM at **KDXR 88.1, "The Owl,"** and the rotation is a file. Three carts, and what each one has played tonight, sitting in `rotation.json` on whichever machine happens to be at the desk.
+It's 4 AM at **KDXR 88.1, "The Owl,"** and the whole night is in two files. `switchboard.json` holds the callers and `rotation.json` holds the carts, and both sit in the week folder on whichever laptop is at the desk.
 
-Tonight the carts move onto the college's SQL Server — **a machine that is not yours**, which is the half a file was never going to fix.
+Tonight both move into a **database** on the college's SQL Server, a machine that is not yours. The tool that does it is called **Entity Framework Core**, EF Core for short. It turns a class into a table, and a list of objects into rows.
 
-**Time:** ~50 minutes in class — **target tonight: all five checks green, and a rotation that remembers last night.**
+Your job: give the desk somewhere to keep a password, give a cart an `Id`, make the tables, and then have the rotation save to the database and load from it. Your instructor does the same to the switchboard, a piece at a time, just before you do it to the rotation.
+
+**Time:** tonight's lab comes in short blocks, each one right after the part of the demo it practices. **Target tonight: all five checks green, a rotation that comes back from the database, and no `rotation.json` anywhere.**
 
 > [!IMPORTANT]
-> **You are going to make a real database tonight, on the college's server, with your own account.** **Setup step 5 proves your account works** and **Task 3 makes the database** — both deliberately early, so that if something is going to go wrong with your login or the network, it goes wrong while there is somebody in the room to ask.
+> **You make a real database tonight, on the college's server, with your own account.** Task 1 proves your account works, and it is the first thing you do, so that a problem with your login or the network turns up while your instructor is in the room.
 
 > [!NOTE]
-> **Missed a week?** You're not behind. Every file ships finished except the four blanks below, and nothing tonight depends on remembering last week's code.
+> **Missed a week?** You're not behind. Every file ships finished except the ones the tasks name, and nothing tonight depends on remembering last week's code.
+
+> [!NOTE]
+> **Tonight your instructor works on the same desk.** In class you watch the **switchboard** move into the database, then copy those finished files into your project. They're your worked example: the same moves you're about to make on the **rotation**. Working at home? The files are already in the starters repo, all of them finished, and the copy commands work the same.
 
 ## Setup
 
-**Five steps**, all from the **one VS Code window you keep all semester** — open on `dotnet-db-coursework`, the top of your repo.
+Four steps, all from the **one VS Code window you keep all semester** — open on `dotnet-db-coursework`, the top of your repo.
 
 **1. Confirm your coursework window is open.** If VS Code is already showing `dotnet-db-coursework` from last week — done, skip to step 2. Otherwise: **File → Open Folder → `dotnet-db-coursework` → Open.**
 
@@ -69,8 +74,8 @@ dotnet-db-coursework/      ← your VS Code window, all semester
 ├─ week-01/
 ├─ …
 └─ week-10/                ← the folder you just copied in
-   ├─ Lab/                 ← the desk — three of its files have work in them
-   ├─ Lab.Tests/           ← YOURS — four facts ship written; one of them is red tonight
+   ├─ Lab/                 ← the desk — Rotation.cs and Song.cs have tonight's work in them
+   ├─ Lab.Tests/           ← YOURS — four facts ship written; two of them move tonight
    └─ Lab.Checks/          ← my checks — read-only
 ```
 
@@ -81,56 +86,8 @@ VS Code worked out what was in this folder **when you opened it**, and `week-10`
 > [!CAUTION]
 > **`.NET: Restart Language Server` does not fix this. Only a window reload does.** If the squiggles are there but `dotnet test` runs, believe `dotnet test`.
 
-**5. Get the EF tool, and tell the desk where its database is.** This is the step that talks to the college's server, and it is here rather than later on purpose.
-
-**5a. Install the tool** — once per machine, ever:
-
-```bash
-dotnet tool install --global dotnet-ef
-```
-
-> [!NOTE]
-> **`tool 'dotnet-ef' is already installed`?** Good. Make it current instead: `dotnet tool update --global dotnet-ef`.
-
-**5b. Turn on this project's secret store:**
-
-```bash
-dotnet user-secrets init --project week-10/Lab
-```
-
-That writes a `<UserSecretsId>` into `week-10/Lab/Lab.csproj`. [It is a folder name, not a secret](../lecture-notes.md#dotnet-user-secrets--the-four-commands) — it is meant to be committed.
-
-> [!WARNING]
-> **Skip this one and nothing complains.** Your connection string reads back as empty, silently — and you do not find out here. It surfaces at **Task 3**, as a connection error that looks like something else entirely.
-
-**5c. Put your connection string in it.** **Swap all four `YOUR-…` parts for the real ones** — the server is on the board, the login and password are your college SQL account, and **the database name is yours to choose** and must not exist yet:
-
-```bash
-dotnet user-secrets set "ConnectionStrings:Desk" "Server=YOUR-SERVER;Database=DB_KDXR_156101411_YOURINITIALS;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True" --project week-10/Lab
-```
-
-```
-Successfully saved ConnectionStrings:Desk to the secret store.
-```
-
 > [!IMPORTANT]
-> **`DB_KDXR_156101411_ABL` is the shape** — `DB_`, the app, the course number, your initials. [The `DB_` prefix is not decoration](../lecture-notes.md#naming-your-database): it is what stops your databases colliding with your own from another course.
->
-> **`TrustServerCertificate=True` is not optional either.** Leave it off and the connection is refused outright. [Every field in that string is worth thirty seconds](../lecture-notes.md#the-connection-string-field-by-field) — you will be retyping it the first time a lab PC reboots.
-
-**5d. Install the one database tool this course uses.** Extensions (<kbd>⇧⌘X</kbd> / <kbd>Ctrl⇧X</kbd>), search **`SQL Server (mssql)`** — publisher **Microsoft**, id `ms-mssql.mssql` — and **Install**.
-
-> [!NOTE]
-> **This is the first week anything in the course needs it**, so almost nobody will have it. It is the only database tool this course uses: no SSMS, no Azure Data Studio.
-
-**5e. Prove your account actually works** — before you need it, and with somebody in the room.
-
-Activity bar → **SQL Server** (<kbd>⌘⌥D</kbd> / <kbd>Ctrl+Alt+D</kbd>) → **Add Connection**. Give it the same server, login and password you just put in the connection string; leave the database blank. Say yes if it asks about trusting the certificate.
-
-**You should get a server in the Connections list that you can expand.** There is no database of your own under it yet — Task 3 makes that.
-
-> [!CAUTION]
-> **This is the step to get help with if it fails**, and it is much better to find out now than at Task 3. [Every error it can give you is in the troubleshooting table](../lecture-notes.md#-troubleshooting); the commonest are a wrong server name, a wrong password, and a certificate prompt that got dismissed.
+> **Your homework lives in your project repo, in its own window** — [`homework.md`](../homework.md) picks up there, and this lab is the worked example for it: tonight the rotation moves into a database, and the homework moves your own registry the same way.
 
 **Then run my checks** — from the terminal, naming the week:
 
@@ -138,15 +95,7 @@ Activity bar → **SQL Server** (<kbd>⌘⌥D</kbd> / <kbd>Ctrl+Alt+D</kbd>) →
 dotnet test week-10/Lab.Checks
 ```
 
-**1 / 5 passing.** Check 1 is everything the desk already does, and its only job tonight is to still be green at the end.
-
-**And your own suite, which does something new this week:**
-
-```bash
-dotnet test week-10/Lab.Tests
-```
-
-**3 passed, 1 failed.** That is not a mistake and it is not yours to be worried about. `ACartRemembersItsPlays` is the fact you wrote in week 8 — *a cart aired twice, saved and loaded, still says it aired twice* — and it has been rewritten to keep its rows somewhere other than a file. **Tasks 4 and 5 are what turn it green again.**
+**1 / 5 passing.** Check 1 is everything the desk already does, and it stays green all night. **The four red ones are tonight's tasks** — read their names; they're the map.
 
 **Commit that before you change anything** — it's the week exactly as you were handed it, and it makes every later commit obviously *your* work. Source Control view: stage (**+**), paste, **✓ Commit**, **Sync**.
 
@@ -158,102 +107,313 @@ week 10: starter
 > **Nobody grades these commits.** The lab is never collected — this is practice with the safety on. [The homework counts its own](../homework.md#commit-as-you-go), separately.
 
 > [!CAUTION]
-> **Every command names its week.** Your terminal always stands at the top of your repo — so it's `dotnet test week-10/Lab.Checks` and `dotnet run --project week-10/Lab`, with the week in front. Forget the week and you'll get `MSB1003` — it just means the command couldn't see a project from the top; add the week and go again.
+> **Every command names its week.** Your terminal always stands at the top of your repo — so it's `dotnet test week-10/Lab.Checks`, `dotnet test week-10/Lab.Tests` and `dotnet run --project week-10/Lab`, with the week in front. Forget the week and you'll get `MSB1003` — it just means the command couldn't see a project from the top; add the week and go again.
+
+> [!NOTE]
+> **In class, stop here.** Task 1 comes after the next part of the demo. Working at home? Carry straight on.
 
 ## Where tonight's work happens
+
+**Two suites, a desk, and now a database:**
 
 | Command | Whose | What it answers |
 |---|---|---|
 | `dotnet run --project week-10/Lab` | the desk | what any of it looks like on the air — **and the only thing that proves your database works** |
-| `dotnet test week-10/Lab.Checks` | mine | *can the desk do it?* — climbs 1 → 5 as you build it |
-| `dotnet test week-10/Lab.Tests` | **yours** | 3 of 4 now, 4 of 4 by the end |
+| `dotnet test week-10/Lab.Checks` | mine | *can the desk do it?* — 1 through Task 1, then 2, 3, 4, 5 |
+| `dotnet test week-10/Lab.Tests` | **yours** | *did the rule I wrote down hold?* — 7 facts most of the night, 9 by the end |
 
 | File | What it is |
 |---|---|
-| `Lab/Song.cs` | **Four `TODO — Task 2` marks.** A cart the database can keep |
-| `Lab/DeskContext.cs` | **One `TODO — Task 2`.** The rest of it ships finished |
-| `Lab/Rotation.cs` | **Two empty methods.** Tasks 4 and 5 |
-| `Lab.Tests/DeskTests.cs` | **Yours.** One of its four facts is red until Task 5 |
-| `Lab.Checks/DeskChecks.cs` | My five. **Read-only, as always** |
-| `Lab/Program.cs` | Shipped, finished, and **it already calls everything you are about to write** |
-
-💡 **Tonight's whole vocabulary is [one page of notes](../lecture-notes.md#a-class-becomes-a-table)**, and the part people actually get stuck on is [what `SaveChanges()` is for](../lecture-notes.md#save--add-update-or-remove).
+| `Lab/Song.cs` | **Yours for one line**, in Task 2, and a tidy-up in Task 4 |
+| `Lab/DeskContext.cs` | **Yours, and it doesn't exist yet.** You make it in Task 2 |
+| `Lab/Rotation.cs` | **Yours.** `Save` and `Load` change in Tasks 4 and 5 |
+| `Lab/Program.cs` | Ships finished, and **four lines of it change in Task 4**: one makes the database, and two pairs hand it to `Load` and `Save` |
+| `Lab.Tests/DeskTests.cs` | **Yours.** Two of its facts move in Task 4, and you write one more in Task 5 |
+| `Lab/Caller.cs`, `Lab/Switchboard.cs` | **Your instructor's.** You copy the finished files in at Tasks 2, 4 and 5, and read them as you work. You never edit them |
+| `Lab.Tests/SwitchboardTests.cs`, `Lab.Tests/SecondSaveTests.cs` | **Your instructor's facts**, copied in at Tasks 4 and 5 |
+| `Lab.Checks/DeskChecks.cs` | My five. **Read-only, as always.** |
 
 > [!IMPORTANT]
-> **My checks never touch the college's server.** They will go green on a laptop with the wifi off, because [they hand the context a table that lives inside the test run](../lecture-notes.md#testing-database-code-without-a-database). **That is why every task below runs the desk as well** — green checks say your code is right; only the desk says your *database* is.
+> **My checks never touch the college's server.** They hand your `DeskContext` [a table that lives inside the test run](../lecture-notes.md#testing-without-a-database), so they pass with the wifi off. **That is why every task runs the desk as well.** Green checks say your code is right. Only the desk says your *database* is.
 
 ## The tasks
 
-**The rhythm is the same all four times, and the order is the lesson:** run the desk and *look at the screen* → write the code → run the desk again and *see what changed* → run my checks (the count climbs). **Commit every time a check goes green** — each task hands you the message to paste.
+**The rhythm is the same every time:** run the desk and *look* → write the code → run the desk again and *see the difference* → run my checks. **Commit at the end of every task** — each task hands you the message to paste.
+
+Every task tells you exactly what to write and the syntax you need. **Putting it together is your job.** If you get stuck, each task has a **Stuck? Show me the shape** box underneath it — click it and the whole thing is there.
 
 | # | Check | What to do |
 |---|-------|------------|
-| 1 | *(check 1 is already green — and has to stay that way)* | **Nothing to write.** It is everything the desk did before tonight |
-| 2 | `ACartIsShapedForATable` | A cart the database can keep. **[Task 2 in full ↓](#task-2-in-full)** |
-| 3 | `ThereIsAMigration` | The instructions that made your table. **[Task 3 in full ↓](#task-3-in-full)** |
-| 4 | `TheCartsGoIntoTheTable` | Write the rotation down. **[Task 4 in full ↓](#task-4-in-full)** |
-| 5 | `TheCartsComeBackOut` | And read it back. **[Task 5 in full ↓](#task-5-in-full)** |
+| 1 | *(check 1 is already green — and has to stay that way)* | The packages, and somewhere for a password. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `ACartIsShapedForATable` | A cart with an `Id`, and a `DeskContext`. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `ThereIsAMigration` | The instructions that make the tables, and then the tables. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `TheCartsSurviveARestart` | The rotation saves to the database and loads from it. **[Task 4 in full ↓](#task-4-in-full)** |
+| 5 | `ASecondSaveUpdatesTheRows` | A fact first, then a cart that is already in the table gets changed, not added again. **[Task 5 in full ↓](#task-5-in-full)** |
+
+---
+
+### Task 1 in full
+
+**The packages, and somewhere for a password.**
+
+**Check:** `Check1_TheDeskStillAnswers` — **already green, and it stays that way.** Nothing in this task turns a check green. It is the setup every later task stands on, and the part that talks to the college's server for the first time.
+
+**First, look at the carts.** Start the desk, type a DJ name, press `t`, then `q`:
+
+```bash
+dotnet run --project week-10/Lab
+```
+
+```
+│ Nightjar       │ The Lamplighters │ 3:47   │ 0      │
+│ Slack Water    │ Marguerite Vance │ 4:12   │ 0      │
+│ Long Way Round │ The Ferrymen     │ 5:31   │ 0      │
+```
+
+**When you pressed `q`, the desk wrote two files into `week-10/`: `switchboard.json` and `rotation.json`.** By Task 4 neither one is used.
+
+#### 1a — the EF tool
+
+```bash
+dotnet tool update --global dotnet-ef
+```
+
+**This one command installs `dotnet-ef` if you don't have it, and updates it if you do.** It is the tool that writes migrations and makes tables, in Task 3. You run it once per machine.
+
+#### 1b — five packages on the desk
+
+Each package is one `dotnet add`. **The first is the SQL Server part of EF Core:**
+
+```bash
+dotnet add week-10/Lab package Microsoft.EntityFrameworkCore.SqlServer --version 10.0.13
+```
+
+**Now build, and read the bottom of the output:**
+
+```bash
+dotnet build week-10/Lab
+```
+
+```
+    4 Warning(s)
+    0 Error(s)
+```
+
+**Four warnings, and they are two warnings printed twice.** Scroll up and read one:
+
+```
+warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.11 has a known high severity vulnerability
+```
+
+The SQL Server package uses another package called `System.Security.Cryptography.Pkcs`, and the version it asks for has a known security problem. **A fixed version exists. You add it to the project yourself, and your version wins:**
+
+```bash
+dotnet add week-10/Lab package System.Security.Cryptography.Pkcs --version 10.0.13
+```
+
+```bash
+dotnet build week-10/Lab
+```
+
+```
+    0 Warning(s)
+    0 Error(s)
+```
+
+**Then the other three.** The first is the part of EF Core that `dotnet-ef` needs to write migrations. The other two read the password from where you're about to keep it.
+
+```bash
+dotnet add week-10/Lab package Microsoft.EntityFrameworkCore.Design --version 10.0.13
+```
+
+```bash
+dotnet add week-10/Lab package Microsoft.Extensions.Configuration --version 10.0.13
+```
+
+```bash
+dotnet add week-10/Lab package Microsoft.Extensions.Configuration.UserSecrets --version 10.0.13
+```
+
+📖 *Why the `--version`:* every package in the course is pinned, so your desk and my checks use the same EF Core.
+
+#### 1c — somewhere for the password
+
+The desk needs a **connection string**: one line that says which server, which database, and who you are, **including your password**. A password does not go in your repo, ever. [User secrets](../lecture-notes.md#user-secrets--a-password-outside-the-repo) keep it in a file in your home folder instead, outside every repo you have.
+
+**Ask what is in this project's secret store:**
+
+```bash
+dotnet user-secrets list --project week-10/Lab
+```
+
+```
+Could not find the global property 'UserSecretsId' in MSBuild project
+```
+
+**That means this project has no secret store yet.** Turn it on:
+
+```bash
+dotnet user-secrets init --project week-10/Lab
+```
+
+That writes a `<UserSecretsId>` line into `week-10/Lab/Lab.csproj`. **It is the name of a folder, not a secret**, and it is meant to be committed. Ask again:
+
+```bash
+dotnet user-secrets list --project week-10/Lab
+```
+
+```
+No secrets configured for this application.
+```
+
+**The store exists, and it is empty.** Those two answers are worth remembering: they are the two different things that are wrong when the desk can't find its database.
+
+**Now put your connection string in it.** Swap all four `YOUR-…` parts before you run it. The server is on the board. The login and password are your college SQL account. **The database name is yours to choose**, in this shape, and it doesn't exist yet:
+
+```bash
+dotnet user-secrets set "ConnectionStrings:Desk" "Server=YOUR-SERVER;Database=DB_KDXR_156101411_YOURINITIALS;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True" --project week-10/Lab
+```
+
+```
+Successfully saved ConnectionStrings:Desk to the secret store.
+```
+
+> [!IMPORTANT]
+> **`DB_KDXR_156101411_ABL` is the shape:** `DB_`, the app, the course number, your initials. [The `DB_` on the front](../lecture-notes.md#naming-your-database) stops your databases colliding with ones you make in another course. **`TrustServerCertificate=True` is not optional either.** Without it the server refuses the connection.
+
+**Check it took:**
+
+```bash
+dotnet user-secrets list --project week-10/Lab
+```
+
+```
+ConnectionStrings:Desk = Server=YOUR-SERVER;Database=DB_KDXR_156101411_YOURINITIALS;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True
+```
+
+Yours shows your real values. **That command prints your password**, so it is for your own screen only.
+
+> [!CAUTION]
+> **Keep a copy of that connection string somewhere that is not this repo.** Lab PCs wipe when they reboot, and the secret store goes with them. [Putting it back is one command](../lecture-notes.md#a-lab-pc-that-rebooted), and it is the `set` above.
+
+#### 1d — prove your account works
+
+**Install the one database tool this course uses.** Extensions (<kbd>⇧⌘X</kbd> / <kbd>Ctrl⇧X</kbd>), search **`SQL Server (mssql)`**, publisher **Microsoft**, and **Install**.
+
+Then click the new **SQL Server** icon in the activity bar on the left → **Add Connection**. Give it the same server, login and password you put in the connection string, with **SQL Login** as the authentication type, and leave the database blank. Say yes if it asks about trusting the server's certificate.
+
+**You should get your server in the Connections list, and you can expand it.** There is no database of yours under it yet. Task 3 makes it.
+
+> [!CAUTION]
+> **If this step fails, get help now.** It is much better to find out here than at Task 3. The commonest causes are a wrong server name, a wrong password, and a certificate prompt that got dismissed.
+
+**Run my checks:**
+
+```bash
+dotnet test week-10/Lab.Checks
+```
+
+**1 / 5 — still.** Nothing the checks look at has changed yet.
+
+**Commit it:**
+
+```
+week 10 lab: the packages, and somewhere for the password
+```
+
+> [!NOTE]
+> **In class, stop here.** Task 2 comes after the next part of the demo. Finished early? Read [what user secrets are not](../lecture-notes.md#what-user-secrets-are-not), or help the person next to you. Working at home? Carry straight on.
+
+📖 *Further reading:* [user secrets, and a password outside the repo](../lecture-notes.md#user-secrets--a-password-outside-the-repo).
 
 ---
 
 ### Task 2 in full
 
-**A cart the database can keep.**
+**A cart with an `Id`, and a `DeskContext`.**
 
 **Check:** `Check2_ACartIsShapedForATable`
 
-**First, look at what the desk has.** Start the shift, type a DJ name, and press `t`:
+**First, bring in your instructor's code.** Pull the starters clone, then copy the file in:
 
 ```bash
-dotnet run --project week-10/Lab
+git -C ../dotnet-db-starters pull
 ```
 
-```
-│ TITLE          │ ARTIST           │ LENGTH │ PLAYED │
-├────────────────┼──────────────────┼────────┼────────┤
-│ Nightjar       │ The Lamplighters │ 3:47   │ 0      │
-│ Slack Water    │ Marguerite Vance │ 4:12   │ 0      │
-│ Long Way Round │ The Ferrymen     │ 5:31   │ 0      │
-╰────────────────┴──────────────────┴────────┴────────╯
-3 carts loaded.
+```bash
+cp ../dotnet-db-starters/demo/week-10/Caller.cs week-10/Lab/
 ```
 
-**Four columns on that screen, and only two of them are facts the cart KEEPS.** `LENGTH` is worked out from the seconds. Hold that thought for about a minute. Press `q`.
+Open `week-10/Lab/Caller.cs` and find the three things your instructor just changed so the database can keep a caller:
 
-**1 — `Lab/Song.cs`, the Id.** The database needs one column that is different on every row. Add this at the top of the class, under the `TODO — Task 2` that asks for it:
+- **`public int Id { get; set; }`** at the top. A table needs one column that is different on every row, and EF Core looks for a property called `Id`.
+- **`Name { get; private set; }`**. It was `{ get; }`. A property with only a `get` is left out of the table, and then the database has no name to hand back.
+- **`[NotMapped]` on `Favorite`**. A favorite is a whole `Song`, and without `[NotMapped]` EF Core tries to make a table of songs too.
+
+**Your `Song` needs only the first of those three.** Its properties already have setters, and nothing on it holds another class.
+
+#### The `Id`
+
+**In `Lab/Song.cs`, under the `TODO — Task 2` comment, add this line:**
 
 ```csharp
     public int Id { get; set; }
 ```
 
-[Nothing at the station has one of these](../lecture-notes.md#id-and-why-the-database-wants-one) — you never set it, and the database fills it in.
+**You never set it.** A cart that has never been saved has `Id` 0, and the database fills in the real number when it saves the row.
 
-**2 — `Lab/Song.cs`, the three that are not columns.** A table gets a column for everything the class can tell you, *including the things it works out*. Three of these are arithmetic rather than facts. Put `[NotMapped]` on each of `Length`, `Kind` and `Cue`:
+#### The `DeskContext`
 
-```csharp
-    [NotMapped]
-    public string Length => Broadcast.Clock(Seconds);
-```
+**A `DeskContext` is the desk's database in one class.** It says which tables the desk keeps, and where to find them. **Make a new file, `week-10/Lab/DeskContext.cs`.** Right-click `week-10/Lab` in the Explorer → **New File** → `DeskContext.cs`.
 
-and the same one line above `Kind` and above `Cue`. Then add the using at the top of the file:
+Here is what goes in it:
 
-```csharp
-using System.ComponentModel.DataAnnotations.Schema;
-```
+- **`public class DeskContext : DbContext`**, with `using Microsoft.EntityFrameworkCore;` and `using Microsoft.Extensions.Configuration;` at the top of the file.
+- **One `DbSet` per table:** `public DbSet<Caller> Callers { get; set; }` and `public DbSet<Song> Carts { get; set; }`. **The property's name is the table's name.** `Callers` is your instructor's switchboard, and it has to be spelled exactly that way, because `Switchboard.cs` reaches it by that name. `Carts` is yours.
+- **Two constructors.** One takes nothing: the desk and `dotnet ef` use that one. The other takes `DbContextOptions<DeskContext> options` and passes it on with `: base(options)`. Tests use that one, to hand in [a table that lives inside the test run](../lecture-notes.md#testing-without-a-database).
+- **`OnConfiguring`**, which reads your connection string out of the secret store. It is the same as your instructor's, word for word. A console program doesn't read settings on its own, so it builds its configuration by hand: `new ConfigurationBuilder().AddUserSecrets<DeskContext>().Build()`, then `options.UseSqlServer(config["ConnectionStrings:Desk"])`.
 
-⚠️ **The test is one question, and [the notes put it plainly](../lecture-notes.md#notmapped--the-things-a-class-works-out): is this something the cart KEEPS, or something it WORKS OUT?**
-
-**3 — `Lab/Song.cs`, take `[JsonInclude]` off `PlaysTonight`.** Week 8 needed it, because the JSON serializer would write a `private set` property out and then refuse to read it back. **Find out whether EF Core needs telling.** (It does not — [it sets private setters the same way your class does](../lecture-notes.md#notmapped--the-things-a-class-works-out).) You can drop `using System.Text.Json.Serialization;` with it.
-
-**4 — `Lab/DeskContext.cs`, one line.** The rest of the file ships finished; this is the line that turns a class into a table:
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
 
 ```csharp
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
+public class DeskContext : DbContext
+{
+    public DbSet<Caller> Callers { get; set; }
+
     public DbSet<Song> Carts { get; set; }
+
+    public DeskContext()
+    {
+    }
+
+    public DeskContext(DbContextOptions<DeskContext> options)
+        : base(options)
+    {
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+    {
+        if (options.IsConfigured)
+        {
+            return;
+        }
+
+        IConfiguration config = new ConfigurationBuilder()
+            .AddUserSecrets<DeskContext>()
+            .Build();
+
+        options.UseSqlServer(config["ConnectionStrings:Desk"]);
+    }
+}
 ```
 
-[The name of the property is the name of the table](../lecture-notes.md#the-dbcontext), which is why it is `Carts`.
+</details>
 
-**Run the desk, DJ name, `t`, then `q`.** Nothing on screen should have changed at all:
+**Run the desk: DJ name, then `t`, then `q`.**
 
 ```bash
 dotnet run --project week-10/Lab
@@ -263,7 +423,9 @@ dotnet run --project week-10/Lab
 │ Nightjar       │ The Lamplighters │ 3:47   │ 0      │
 ```
 
-**Right: identical.** You have described a table; nothing writes to one yet.
+**Nothing on screen changed, and that is right.** The desk still uses the two files. You have described two tables; nothing has made them yet.
+
+**Then mine:**
 
 ```bash
 dotnet test week-10/Lab.Checks
@@ -274,59 +436,76 @@ dotnet test week-10/Lab.Checks
 **Commit it:**
 
 ```
-week 10 lab: a cart the database can keep
+week 10 lab: a cart with an Id, and a DeskContext
 ```
+
+📖 *Further reading:* [a class becomes a table](../lecture-notes.md#a-class-becomes-a-table) · [the `DbContext`](../lecture-notes.md#the-dbcontext).
 
 ---
 
 ### Task 3 in full
 
-**The instructions that made your table.**
+**The instructions that make the tables, and then the tables.**
 
 **Check:** `Check3_ThereIsAMigration`
 
-**You have described a table and there isn't one.** Nothing so far has written a single thing to the college's server.
+**A migration is a C# file that `dotnet-ef` writes for you.** It holds the instructions for making your tables, worked out from your `DeskContext`.
 
-**1 — Write the instructions:**
+**1 — Write it:**
 
 ```bash
-dotnet ef migrations add TheCartsMoveIn --project week-10/Lab
+dotnet ef migrations add TheDeskMovesIn --project week-10/Lab
 ```
 
-**2 — Read what it wrote.** Open `week-10/Lab/Migrations/`, the file ending `_TheCartsMoveIn.cs`, and find `Up()`. **This is the point of the task, not a formality:**
+```
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+```
+
+**2 — Read it.** Open `week-10/Lab/Migrations/` and the file whose name ends `_TheDeskMovesIn.cs` (not the `.Designer.cs` one). Find `Up()`. **It makes two tables, `Callers` and `Carts`,** and under `Carts` is your `Song` class with the column types filled in:
 
 ```csharp
-    migrationBuilder.CreateTable(
-        name: "Carts",
-        columns: table => new
-        {
-            Id = table.Column<int>(type: "int", nullable: false)
-                .Annotation("SqlServer:Identity", "1, 1"),
-            Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Artist = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Seconds = table.Column<int>(type: "int", nullable: false),
+                    PlaysTonight = table.Column<int>(type: "int", nullable: false)
 ```
 
-**That is your `Song` class with the column types filled in.** Count the columns. ⚠️ **There should be no `Length`, no `Kind` and no `Cue`** — if there are, Task 2's `[NotMapped]`s did not land, and [check 2 will say so](../lecture-notes.md#notmapped--the-things-a-class-works-out).
+**Five columns, and no `Length`, `Kind` or `Cue`.** Those three are worked out from the others and have only a `get`, so EF Core leaves them out without being told. `Identity` on `Id` is the database numbering the rows itself.
 
-**3 — Now carry them out.** This is the command that talks to the server, and the first one tonight that does:
+> [!IMPORTANT]
+> **Nothing has touched the server yet.** `migrations add` connects to nothing. It reads your classes and writes a file. **The next command is the one that talks to the server.**
+
+**3 — Carry it out:**
 
 ```bash
 dotnet ef database update --project week-10/Lab
 ```
 
-It **creates the database**, because you do not have one yet, and then it makes the table.
-
-> [!TIP]
-> **Look at it.** In the **SQL Server** view, right-click your connection → **Refresh** → Databases. Yours is there now, with a `Carts` table under it and nothing in it.
-
-**Run the desk, DJ name, `t`, then `q`** — still identical, and it should be:
-
-```bash
-dotnet run --project week-10/Lab
+```
+Build started...
+Build succeeded.
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Applying migration '20261016013042_TheDeskMovesIn'.
+Done.
 ```
 
+The number on the front of yours is the date and time you wrote it. **It creates your database, because you don't have one yet, and then the two tables.**
+
+**4 — Look at them.** In the **SQL Server** view, right-click your connection → **Refresh**, then open **Databases** → yours → **Tables**:
+
 ```
-3 carts loaded.
+dbo.__EFMigrationsHistory
+dbo.Callers
+dbo.Carts
 ```
+
+`__EFMigrationsHistory` is EF Core's own list of which migrations this database has had. Right-click **`dbo.Carts`** → **Select Top 1000**. **Empty.** The table exists, and nothing has written to it.
+
+**Then mine:**
 
 ```bash
 dotnet test week-10/Lab.Checks
@@ -334,119 +513,390 @@ dotnet test week-10/Lab.Checks
 
 **3 / 5 — checks 1, 2 and 3.**
 
-💡 **[`migrations add` and `database update` are two different commands and only one of them touches the server](../lecture-notes.md#migrations--add-and-update).** You just ran both. Getting that pair mixed up is the commonest way this goes wrong at home.
+> [!WARNING]
+> **My check 3 can't see whether you ran `database update`.** It looks for the migration in your project, and that is all. Only the SQL Server view, or the desk in Task 4, can tell you the tables exist.
 
 **Commit it:**
 
 ```
-week 10 lab: the instructions that made the table
+week 10 lab: the migration, and the tables
 ```
+
+> [!NOTE]
+> **In class, stop here.** Task 4 comes after the next part of the demo. Finished early? Read `Down()` in the same migration file and say what it would undo, or help the person next to you. Working at home? Carry straight on.
+
+📖 *Further reading:* [migrations — `add`, then `update`](../lecture-notes.md#migrations--add-then-update).
 
 ---
 
 ### Task 4 in full
 
-**Write the rotation down.**
+**The rotation saves to the database and loads from it.**
 
-**Check:** `Check4_TheCartsGoIntoTheTable`
+**Check:** `Check4_TheCartsSurviveARestart`
 
-**First, look at the table you made.** Activity bar → **SQL Server** (<kbd>⌘⌥D</kbd> / <kbd>Ctrl+Alt+D</kbd>) → your server → Databases → your database → Tables → right-click **`dbo.Carts`** → **Select Top 1000**.
+**First, bring in your instructor's code.** Pull, then copy three files in:
 
-**Nothing. The table exists and it is empty**, and it will stay empty however many shifts you work, because `Rotation.Save` does nothing at all.
+```bash
+git -C ../dotnet-db-starters pull
+```
 
-**Write it — in `Lab/Rotation.cs`, under the `TODO — Task 4` comment.** The shape, and nothing else:
+```bash
+cp ../dotnet-db-starters/demo/week-10/Switchboard.cs week-10/Lab/
+```
 
-- **Every cart is one of two things, and its `Id` says which.** A cart that has never been in the table has `Id == 0` and is **new**. A cart that came out of the table is carrying its row number, and that row **changes** — which is how tonight's plays land on last night's cart.
-- **The DbSet has a method for each of those**, and they are named exactly what they do.
-- ⚠️ **And nothing happens until you say so.** [Those methods write down what is *intended*](../lecture-notes.md#save--add-update-or-remove); one more line sends the lot to the server in a single trip. **That line is the one everybody forgets**, and the check's message for it says *nothing arrived*.
+```bash
+cp ../dotnet-db-starters/demo/week-10/Caller.cs week-10/Lab/
+```
 
-> [!TIP]
-> **Stuck on the shape?** [The notes work the whole method through](../lecture-notes.md#save--add-update-or-remove) — on a registry rather than a rotation, so the nouns differ and the three lines do not.
+```bash
+cp ../dotnet-db-starters/demo/week-10/SwitchboardTests.cs week-10/Lab.Tests/
+```
 
-**Run the desk, DJ name, then `a` to air the hour, then `q`.** Nothing on screen changes — this task's whole effect is somewhere else:
+**Now build:**
+
+```bash
+dotnet build week-10/Lab
+```
+
+```
+week-10/Lab/Program.cs(100,18): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+week-10/Lab/Program.cs(170,18): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+```
+
+**Two errors, and both are the switchboard's.** Your instructor's `Save` and `Load` take a `DeskContext` now, and `Program.cs` still hands them a file name. **Make the same three edits your instructor just made, in `Lab/Program.cs`:**
+
+- Find `string switchboardFile = "week-10/switchboard.json";` and make that line read `DeskContext db = new DeskContext();`. **That is the database, made once for the whole shift.**
+- Find `switchboard.Load(switchboardFile);` and make it read `switchboard.Load(db);`.
+- Find `switchboard.Save(switchboardFile);` and make it read `switchboard.Save(db);`.
+
+```bash
+dotnet build week-10/Lab
+```
+
+**0 errors.** The switchboard is in the database now, and the rotation is still in its file.
+
+#### `Save` and `Load`, for the rotation
+
+**In `Lab/Rotation.cs`, under the `TODO — Task 4` comment.** Replace `Save(string path)` and `Load(string path)` with two that take the database. **Select from `public void Save(string path)` down to and including the `}` that closes `Load`**, and write the two new ones there. Read your instructor's in `Switchboard.cs` first; yours are the same, with carts.
+
+- **`public void Save(DeskContext db)`**: for each song, **`db.Carts.Add(song)`** marks it to go into the table. After the loop, **`db.SaveChanges()`** sends everything to the server in one go. Without `SaveChanges()`, nothing arrives and nothing complains.
+- **`public void Load(DeskContext db)`**: read the table into a list with **`db.Carts.OrderBy(song => song.Id).ToList()`**. A table keeps no order of its own, so `OrderBy` on `Id` hands the carts back in the order they first went in.
+- ⚠️ **Then the first night.** The old `Load` returned early when there was no file. The table is always there now, but the first time it is **empty**. So if the list has no carts in it, `return` before you touch anything. Otherwise `_songs.Clear()`, then `_songs.AddRange(loaded)`.
+- **Delete `using System.Text.Json;`** at the top of the file. Nothing in `Rotation.cs` uses it now.
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+```csharp
+    public void Save(DeskContext db)
+    {
+        foreach (Song song in _songs)
+        {
+            db.Carts.Add(song);
+        }
+
+        db.SaveChanges();
+    }
+
+    public void Load(DeskContext db)
+    {
+        List<Song> loaded = db.Carts.OrderBy(song => song.Id).ToList();
+
+        if (loaded.Count == 0)
+        {
+            return;
+        }
+
+        _songs.Clear();
+
+        _songs.AddRange(loaded);
+    }
+```
+
+</details>
+
+```bash
+dotnet build week-10/Lab
+```
+
+```
+week-10/Lab/Program.cs(73,15): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+week-10/Lab/Program.cs(172,15): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+```
+
+**The same two errors, on the rotation's two lines.** In `Lab/Program.cs`:
+
+- Find `string rotationFile = "week-10/rotation.json";` and **delete that line**. The `db` two lines above it is for the rotation too.
+- Find `rotation.Load(rotationFile);` and make it read `rotation.Load(db);`.
+- Find `rotation.Save(rotationFile);` and make it read `rotation.Save(db);`.
+
+**And one tidy-up in `Lab/Song.cs`.** There is no file to read back from any more, so `[JsonInclude]` has nothing to do. Delete the `[JsonInclude]` line above `PlaysTonight`, the comment line above that, and `using System.Text.Json.Serialization;` at the top. **EF Core fills in a property with a `private set` without being told.**
+
+```bash
+dotnet build week-10/Lab
+```
+
+**0 errors, 0 warnings.**
+
+#### Your two facts that used a file
+
+**Run your suite:**
+
+```bash
+dotnet test week-10/Lab.Tests
+```
+
+```
+week-10/Lab.Tests/DeskTests.cs(38,23): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+week-10/Lab.Tests/DeskTests.cs(58,23): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+week-10/Lab.Tests/DeskTests.cs(63,23): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+week-10/Lab.Tests/SwitchboardTests.cs(13,14): error CS1061: 'DbContextOptionsBuilder<DeskContext>' does not contain a definition for 'UseInMemoryDatabase'
+```
+
+**Three errors are yours and one is your instructor's.** `AFirstNightKeepsItsCarts` and `ACartRemembersItsPlays` still hand `Load` and `Save` a file path. The `CS1061` means your test project hasn't got the package that keeps rows inside a test run. Add it:
+
+```bash
+dotnet add week-10/Lab.Tests package Microsoft.EntityFrameworkCore.InMemory --version 10.0.13
+```
+
+**Then move your two facts off the file, in `Lab.Tests/DeskTests.cs`.** Your instructor's `ACallerRemembersTheirCalls` in `SwitchboardTests.cs` is already done; copy its moves:
+
+- **At the top of the file**, `using Microsoft.EntityFrameworkCore;` above `namespace Lab.Tests;`.
+- **In each fact, the two lines that make a scratch file** (`string path = …` and `File.Delete(path);`) **become the three lines below.** They make a table with a new name every time, so no fact can see another fact's rows.
+- **Wherever a fact hands over `path`**, hand over `new DeskContext(options)` instead: `rotation.Load(new DeskContext(options));`, `rotation.Save(new DeskContext(options));`, `reopened.Load(new DeskContext(options));`.
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+The three lines that replace the two `path` lines, in both facts:
+
+```csharp
+        DbContextOptions<DeskContext> options = new DbContextOptionsBuilder<DeskContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+```
+
+</details>
+
+```bash
+dotnet test week-10/Lab.Tests
+```
+
+**7 passed.** `ACartRemembersItsPlays` saves a cart that aired twice into one context and reads it back through another, so it fails if `Save` or `Load` is wrong.
+
+#### Now run the desk, twice
+
+**If `week-10/rotation.json` and `week-10/switchboard.json` are there, delete them** from the Explorer. Nothing reads them now.
+
+**Run it: DJ name, then `a` to air the hour, then `q`.**
 
 ```bash
 dotnet run --project week-10/Lab
 ```
 
-**Now go back to the SQL Server view, right-click `dbo.Carts` → Select Top 1000 again:**
-
 ```
-Id   Title            Artist             Seconds   PlaysTonight
-1    Nightjar         The Lamplighters   227       1
-2    Slack Water      Marguerite Vance   252       1
-3    Long Way Round   The Ferrymen       331       1
+KDXR - that's the shift. 3 on the switchboard, 6 in the hour.
 ```
 
-**Three rows, and they have your plays on them.** ⚠️ **If the table is still empty, it is the line you did not write** — read the check's message.
+**Look in `week-10/`.** Three folders, `Lab`, `Lab.Checks` and `Lab.Tests`, and **no `.json` file at all**. Now the SQL Server view: right-click **`dbo.Carts`** → **Select Top 1000**:
+
+```
+Id|Title|Artist|Seconds|PlaysTonight
+1|Nightjar|The Lamplighters|227|1
+2|Slack Water|Marguerite Vance|252|1
+3|Long Way Round|The Ferrymen|331|1
+```
+
+**Three rows, one play each, and the `Id` filled in by the database.** You are reading that from the server, with the desk shut.
+
+**Run it again: DJ name, then `t`, then `q`.**
+
+```bash
+dotnet run --project week-10/Lab
+```
+
+```
+│ Nightjar       │ The Lamplighters │ 3:47   │ 1      │
+│ Slack Water    │ Marguerite Vance │ 4:12   │ 1      │
+│ Long Way Round │ The Ferrymen     │ 5:31   │ 1      │
+```
+
+**The plays came back out of the database.** Then you pressed `q`:
+
+```
+Unhandled exception. Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Callers' when IDENTITY_INSERT is set to OFF.
+```
+
+**That is the switchboard, crashing on the way out.** Its callers came out of the table carrying their `Id`, and its `Save` tried to `Add` them a second time. **Your rotation's `Save` has the same problem.** Your instructor fixes the switchboard in the next part of the demo, and Task 5 is the same fix on yours.
+
+**Then mine:**
 
 ```bash
 dotnet test week-10/Lab.Checks
 ```
 
-**4 / 5 — checks 1, 2, 3 and 4.**
+**4 / 5 — checks 1, 2, 3 and 4.** Check 5 is the crash you just saw.
 
 **Commit it:**
 
 ```
-week 10 lab: the carts go into the table
+week 10 lab: the rotation moves into the database
 ```
+
+> [!NOTE]
+> **In class, stop here.** Task 5 comes after the next part of the demo. Finished early? Try the first item of [Now try to break it](#now-try-to-break-it), or help the person next to you. Working at home? Carry straight on.
+
+📖 *Further reading:* [`Save` — `Add`, then `SaveChanges`](../lecture-notes.md#save--add-then-savechanges) · [`Load`, and the first night](../lecture-notes.md#load-and-the-first-night) · [testing without a database](../lecture-notes.md#testing-without-a-database).
 
 ---
 
 ### Task 5 in full
 
-**And read it back.**
+**A fact first, then a cart that is already in the table gets changed, not added again.**
 
-**Check:** `Check5_TheCartsComeBackOut`
+**Check:** `Check5_ASecondSaveUpdatesTheRows`
 
-**First, see what is still wrong.** Run the desk, DJ name, `t`, `q`:
+**First, bring in your instructor's code.** Pull, then copy two files in:
+
+```bash
+git -C ../dotnet-db-starters pull
+```
+
+```bash
+cp ../dotnet-db-starters/demo/week-10/Switchboard.cs week-10/Lab/
+```
+
+```bash
+cp ../dotnet-db-starters/demo/week-10/SecondSaveTests.cs week-10/Lab.Tests/
+```
+
+Open `Switchboard.cs` and look at `Save`: a caller with `Id` 0 is added, and any other caller is **updated**. `SecondSaveTests.cs` is your instructor's fact about it.
+
+```bash
+dotnet test week-10/Lab.Tests
+```
+
+**8 passed** — your four, and your instructor's four.
+
+**Now see your rotation's problem.** Run the desk: DJ name, then `t`, then `a`, then `q`.
 
 ```bash
 dotnet run --project week-10/Lab
 ```
 
 ```
-│ Nightjar       │ The Lamplighters │ 3:47   │ 0      │
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Carts' when IDENTITY_INSERT is set to OFF.
 ```
 
-**Zero plays — and you can see three rows in the table with a play each.** The carts are going in and nothing is coming back out, because `Rotation.Load` does nothing.
+**It got further this time.** The switchboard saved, and then your rotation crashed, on table `Carts`. **Every cart came out of the table carrying its `Id`, and `Save` tried to `Add` each one a second time.**
 
-**Write it — in `Lab/Rotation.cs`, under the `TODO — Task 5` comment.** Two things it has to get right, and **week 8 had both**:
+#### First, the fact — before you touch `Save`
 
-- **Loading is REPLACING, not adding.** `Program.cs` puts three carts in and *then* calls `Load`. Without a `Clear()` you end the night with six.
-- ⚠️ ⚠️ **THE FIRST NIGHT, and this is the one that bites.** Week 8 asked `File.Exists` first, because a desk nobody has signed off has no file. **Your table is always there — the migration made it — but the first time, it is EMPTY.** A `Load` that clears before it looks throws away the three carts `Program.cs` just added, and the next line reaches for one and finds nothing. [The notes say what to do about it](../lecture-notes.md#load--and-the-first-night).
+**Write it in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 5` comment.** It is your instructor's `ACallerWhoRingsAgainIsStillOneRow`, with a cart. The same three moves as every fact:
 
-> [!TIP]
-> **[`db.Carts` is a question, not an answer.](../lecture-notes.md#load--and-the-first-night)** Ask it once, work from what comes back.
+- **Set the scene.** The three `options` lines from Task 4. A `Rotation` with one `Song` in it, saved with `rotation.Save(new DeskContext(options))`.
+- **Do the thing: the next night.** One `DeskContext db = new DeskContext(options);`, used for both halves the way the desk uses one for a whole shift. A second rotation, `nextNight`, loads from `db`, plays its cart once (`nextNight.All()[0].Play();`), and saves back to `db`.
+- **Check the answer** in a third rotation, `reopened`, loaded from a fresh `new DeskContext(options)`: `Assert.Equal(1, reopened.Count)`, and the cart's `PlaysTonight` is 1. **Assert on `reopened`, never on the rotation that saved.**
+- Name the fact after the rule it proves. Mine is `ACartAiredAgainIsStillOneRow`; yours doesn't have to be.
 
-**Now the run that is the point of the whole night. Work a shift, air the hour, and sign off:**
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+```csharp
+    [Fact]
+    public void ACartAiredAgainIsStillOneRow()
+    {
+        DbContextOptions<DeskContext> options = new DbContextOptionsBuilder<DeskContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+
+        Rotation rotation = new Rotation();
+        rotation.Add(new Song("Nightjar", "The Lamplighters", 227));
+        rotation.Save(new DeskContext(options));
+
+        DeskContext db = new DeskContext(options);
+        Rotation nextNight = new Rotation();
+        nextNight.Load(db);
+        nextNight.All()[0].Play();
+        nextNight.Save(db);
+
+        Rotation reopened = new Rotation();
+        reopened.Load(new DeskContext(options));
+
+        Assert.Equal(1, reopened.Count);
+        Assert.Equal(1, reopened.All()[0].PlaysTonight);
+    }
+```
+
+</details>
+
+**Run yours, and expect red:**
+
+```bash
+dotnet test week-10/Lab.Tests
+```
+
+```
+  Failed Lab.Tests.DeskTests.ACartAiredAgainIsStillOneRow
+  Error Message:
+   System.ArgumentException : An item with the same key has already been added. Key: 1
+```
+
+**Red, and it is the same mistake as the crash.** The table inside the test words it differently: *the same key* means the same `Id`, twice.
+
+#### Now the fix
+
+**In `Lab/Rotation.cs`, in `Save`.** Replace the one line `db.Carts.Add(song);` with an `if`/`else`:
+
+- **`if (song.Id == 0)`**: the cart has never been saved, so **`db.Carts.Add(song)`**.
+- **`else`**: the table already has its row, so **`db.Carts.Update(song)`** changes that row.
+- `db.SaveChanges()` stays where it is, after the loop.
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+```csharp
+            if (song.Id == 0)
+            {
+                db.Carts.Add(song);
+            }
+            else
+            {
+                db.Carts.Update(song);
+            }
+```
+
+</details>
+
+```bash
+dotnet test week-10/Lab.Tests
+```
+
+**9 passed.** Then run the desk: DJ name, `a`, `q`.
 
 ```bash
 dotnet run --project week-10/Lab
 ```
 
-Type a DJ name, press `a`, press `q`.
+```
+KDXR - that's the shift. 3 on the switchboard, 6 in the hour.
+```
 
-**Then start a completely new shift and press `t`:**
+**No crash.** Run it once more: DJ name, `t`, `q`.
 
 ```bash
 dotnet run --project week-10/Lab
 ```
 
 ```
-│ TITLE          │ ARTIST           │ LENGTH │ PLAYED │
-├────────────────┼──────────────────┼────────┼────────┤
-│ Nightjar       │ The Lamplighters │ 3:47   │ 1      │
-│ Slack Water    │ Marguerite Vance │ 4:12   │ 1      │
-│ Long Way Round │ The Ferrymen     │ 5:31   │ 1      │
-╰────────────────┴──────────────────┴────────┴────────╯
-3 carts loaded.
+│ Nightjar       │ The Lamplighters │ 3:47   │ 3      │
+│ Slack Water    │ Marguerite Vance │ 4:12   │ 3      │
+│ Long Way Round │ The Ferrymen     │ 5:31   │ 3      │
 ```
 
-**One play each, carried over from a shift that has already ended.** Press `q`.
-
-⚠️ **Now look in `week-10/`. There is no `rotation.json`, and there never will be again.** That is not on your laptop — it is on a machine down the hall that you and everybody else in this room can reach.
+**Three plays each.** One from Task 4, one from the run that crashed, and one from this one. *(The crashed run still kept its play: the switchboard's `SaveChanges()` went first, and it sent everything the desk's database was holding, carts included. If you've pressed `a` a different number of times, your number is different. What matters is that it went up and nothing crashed.)*
 
 **Then mine:**
 
@@ -456,21 +906,18 @@ dotnet test week-10/Lab.Checks
 
 **5 / 5.**
 
-**And yours, which has been red since Setup:**
-
-```bash
-dotnet test week-10/Lab.Tests
-```
-
-**4 passed.** `ACartRemembersItsPlays` is green again — the same fact you wrote in week 8, about the same behavior, in a different home.
-
 **Then clock out — commit the shift:**
 
 ```
-week 10 lab: the carts come back out
+week 10 lab: a second save changes the rows
 ```
 
-**Five commits, five green checks, four of your own facts, and a rotation that is not on your laptop.**
+**Five commits after the starter, five green checks, nine facts, and a rotation that lives on a machine that isn't yours.**
+
+> [!NOTE]
+> **In class, stop here.** If your lab is done, [start the homework](../homework.md#part-1--catch-up-branch-and-bring-in-this-weeks-checks): it's this lab again, on your own project. Do Part 1 and Task 1 and push your branch before you leave, while your instructor is in the room to help with your login. [Now try to break it](#now-try-to-break-it) and [⭐ Done early?](#-done-early) are there if you want more. Working at home? Carry straight on.
+
+📖 *Further reading:* [the second save — `Add` or `Update`](../lecture-notes.md#the-second-save--add-or-update).
 
 ---
 
@@ -480,53 +927,76 @@ week 10 lab: the carts come back out
 dotnet run --project week-10/Lab
 ```
 
-- **Take `db.SaveChanges()` out of `Save`** and work a shift. The desk behaves perfectly and the table never changes. **Which of my checks catches it, and what does it say?**
-- **Take the `Clear()` out of `Load`** and run two shifts in a row. Count the carts. Then read check 5's message.
-- **Take the first-night guard out of `Load`**, drop your table's rows (`DELETE FROM Carts;` in a New Query) and run. **That is the crash a first-time user gets, and only a first-time user.**
-- **Put `[NotMapped]` on `Seconds`**, then `dotnet ef migrations add Oops` and read the `Up()`. Then take it off again and delete that migration.
-- **Turn your wifi off and run `dotnet test week-10/Lab.Checks`.** All five still pass. **Now run the desk.** That is the difference between what my checks prove and what they don't.
-- **Change one cart's title in the table** with a `New Query` (`UPDATE Carts SET Title = 'Nightjar (live)' WHERE Id = 1;`) and start a shift. The desk is reading somebody else's edit.
+- **Take `db.SaveChanges();` out of `Rotation.Save`.** Air the hour, quit, and look at `dbo.Carts`: **the plays still went up.** The switchboard saves first, and its `SaveChanges()` sends every change the desk's database is holding, carts included. Now run my checks. Check 4 is red: *"Three carts were saved and the table holds 0."* A cart that had never been saved would never reach the table. Put it back.
+- **Take `_songs.Clear();` out of `Load`**, run the desk, and press `t`: `6 carts loaded.` Then quit. ⚠️ **Six rows are now saved.** Put the `Clear()` back, then empty the table: in the SQL Server view, right-click your database → **New Query**, type `DELETE FROM Carts;` and run it.
+- **Take the `if (loaded.Count == 0)` block out of `Load`**, empty the table the same way, and run the desk:
+
+  ```
+  Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+  ```
+
+  That is the first night. `Load` threw away the three carts `Program.cs` had just added, and the hour reached for a cart that wasn't there. **Only a first-time user ever sees it.** Put the block back and run the desk: the carts are back, and in `dbo.Carts` their `Id`s don't start at 1 again. The database never reuses a number.
+- **Turn your wifi off and run `dotnet test week-10/Lab.Checks`.** All five pass. **Now run the desk.** That is the difference between what my checks prove and what they don't.
+- **Type `nightjar` at the `f` prompt**, with a small n. `No cart called "nightjar" in the rotation.` Now ask the database the same question: **New Query**, `SELECT Title FROM Carts WHERE Title = 'nightjar';`. [Hold that thought](#-done-early).
 
 ## ⭐ Done early?
 
-1. **A second fact of your own.** Your suite has one about plays surviving. Write one about the **first night** — a rotation holding three carts, loaded from a table nobody has saved to, still holding three. [The shape is in the notes.](../lecture-notes.md#testing-database-code-without-a-database)
-2. **Ask the table a question the desk cannot.** `New Query`, and `SELECT Title, PlaysTonight FROM Carts ORDER BY PlaysTonight DESC;`. You wrote that in C# last week as `TopPlayed`. **Next week you stop choosing between the two.**
-3. **Two shifts at once.** Open a second terminal and run `dotnet run --project week-10/Lab` in both. Air the hour in one, sign off, then sign off the other. **Look at the plays.** That is not a bug you can fix tonight — it is week 11's whole subject.
-4. **Read `Down()`.** Every migration has one. Work out what `dotnet ef database update` would have to do to get back to before.
-5. ⭐ **Find the case thing for yourself.** `SELECT * FROM Carts WHERE Title = 'nightjar';` — all lower case. Then ask your own `Rotation` for a cart by that name in C#. **They disagree, and [the demo's last beat is exactly this](../lecture-notes.md#case-and-what-the-database-does-not-care-about).**
+None of these has a check.
+
+1. ⭐ **The same question, two answers.** C# says no cart is called `nightjar`. Run `SELECT Title FROM Carts WHERE Title = 'nightjar';` in a New Query:
+
+   ```
+   Title
+   -----
+   Nightjar
+   ```
+
+   **The database found it.** `==` in C# compares every letter exactly, capitals included. This server's comparison ignores capitals. [The notes say why](../lecture-notes.md#the-same-name-twice), and the demo's last beat shows the same thing with a caller.
+2. **Ask the table something the desk can't.** New Query: `SELECT Title, PlaysTonight FROM Carts ORDER BY PlaysTonight DESC;` That is week 9's `OrderByDescending`, written in SQL.
+3. **Read `Down()`.** It is in the same migration file as `Up()`. Say what it would do to your database if it ran.
+4. **Change a row behind the desk's back.** New Query: `UPDATE Carts SET Title = 'Nightjar (live)' WHERE Id = 1;` Then run the desk and press `t`. The desk is reading what somebody else wrote. *(Change it back the same way.)*
 
 ## 🆘 Stuck?
 
 | What you see | What it means |
 |---|---|
+| `cp: … demo/week-10/…: No such file or directory` | Your instructor hasn't pushed that file yet, or your starters clone isn't pulled. Run `git -C ../dotnet-db-starters pull` and try again. |
 | `MSB1003: Specify which project` | You're at the top of your repo and didn't name the week. `dotnet test week-10/Lab.Checks`. |
-| `InvalidOperationException: The ConnectionString property has not been initialized.` | The secret read back as nothing. **`dotnet user-secrets list --project week-10/Lab` tells you which of the two causes it is** — [all three answers are in the notes](../lecture-notes.md#dotnet-user-secrets--the-four-commands). |
-| `Could not find the global property 'UserSecretsId'` | Setup step 5b never ran. |
-| `No secrets configured for this application.` | 5b ran, 5c didn't — or this is a lab PC that rebooted. [One command to restore.](../lecture-notes.md#where-secrets-actually-live-and-the-restore-drill) |
-| `Login failed for user` | Wrong login or password in the connection string. Run 5c again — `set` replaces. |
-| `A network-related or instance-specific error…` | Wrong `Server=`, or you're not on a network that reaches it. |
+| `warning NU1902` / `warning NU1903` on `System.Security.Cryptography.Pkcs` | The fixed package isn't in yet. Task 1b's second `dotnet add`. |
+| `dotnet ef` : command not found | Task 1a. If it's installed and still not found, close and reopen the terminal. |
+| `The Entity Framework tools version '10.0.12' is older than that of the runtime '10.0.13'` | Your `dotnet-ef` is older than the packages. `dotnet tool update --global dotnet-ef`. |
+| `Could not find the global property 'UserSecretsId'` | Task 1c's `init` never ran on this project. |
+| `No secrets configured for this application.` | `init` ran and `set` didn't — or this is a lab PC that rebooted. [Run the `set` again.](../lecture-notes.md#a-lab-pc-that-rebooted) |
+| `The ConnectionString property has not been initialized.` | The desk found no connection string. **`dotnet user-secrets list --project week-10/Lab` says which of the two rows above it is.** |
+| `An exception has been raised that is likely due to a transient failure` … `Cannot open database "DB_…" requested by the login` | The database isn't made yet. Task 3's `dotnet ef database update`. If you've run it, check the database name in your connection string is the one you made. |
+| `Login failed for user` | Wrong login or password in the connection string. Run Task 1c's `set` again; `set` replaces. |
+| `A network-related or instance-specific error…` | Wrong `Server=`, or you're on a network that can't reach the college's server. |
 | `The certificate chain was issued by an authority that is not trusted` | `TrustServerCertificate=True` is missing from the end of the connection string. |
-| `Cannot open database "DB_…" requested by the login` | The database isn't made yet. That's Task 3, step 3. |
-| `Invalid object name 'Carts'` | The database is there and the table isn't — you wrote the migration and never ran `dotnet ef database update --project week-10/Lab`. |
-| `Cannot insert explicit value for identity column` | `Save` is `Add`ing a cart that came out of the table. [It's an `Update`, and `Id` is how you tell.](../lecture-notes.md#save--add-update-or-remove) |
-| The table stays empty and nothing errors | **No `db.SaveChanges()`.** [`Add` only writes down what you intend.](../lecture-notes.md#save--add-update-or-remove) |
-| The rotation has **six** carts | `Load` has no `Clear()`. Loading is replacing. |
-| `ArgumentOutOfRangeException` on the very first run | [`Load` cleared the seeded carts and the table was empty.](../lecture-notes.md#load--and-the-first-night) |
-| `PLAYED` is always 0 after a restart | Either `Save` isn't saving or `PlaysTonight` is `[NotMapped]`. Look at the table in the SQL Server view — that says which. |
-| `dotnet ef` : *command not found* | Setup step 5a. |
-| `Unable to create a 'DbContext' of type` | `dotnet ef` couldn't build your context. It needs the **empty** constructor — check it's still there. |
-| `CS0246: 'NotMappedAttribute' could not be found` | `using System.ComponentModel.DataAnnotations.Schema;` at the top of `Song.cs`. |
-| `CS0246: 'DbSet<>' could not be found` | `using Microsoft.EntityFrameworkCore;` at the top of `DeskContext.cs` — it ships there, so something got deleted. |
+| Your password has a `$` in it and the connection string goes wrong | The shell is reading the `$`. Put the connection string in **single** quotes instead of double. |
+| `Invalid object name 'Carts'` | The database is there and the table isn't. You wrote the migration and never ran `dotnet ef database update`. |
+| `Unable to create a 'DbContext' of type 'DeskContext'` … `Cannot bind 'name' in 'Caller(string name)'` | You're on the starter's `Caller.cs`. Task 2 starts by copying your instructor's in. |
+| `Unable to create a 'DbContext'` … `The entity type 'Song' requires a primary key` | `Song` has no `Id`. Task 2's one line. |
+| `Unable to create a 'DbContext' of type 'DeskContext'` with nothing about a type | `dotnet ef` couldn't make your context. It needs the constructor that takes **nothing** — check it's still there. |
+| Check 3 red: *Your migration makes no Carts table* | You wrote the migration before `DeskContext` had `Carts` in it. `dotnet ef migrations add TheCartsMoveIn --project week-10/Lab`, then `database update`. |
+| `error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'` | Something still hands `Save` or `Load` a file name. The error's line number says where. |
+| `error CS1061` … `UseInMemoryDatabase` | `Lab.Tests` hasn't got the InMemory package. Task 4's `dotnet add`. |
+| `Cannot insert explicit value for identity column in table 'Carts'` | `Save` adds a cart that came out of the table. That's Task 5. |
+| `Cannot insert explicit value for identity column in table 'Callers'` | Your `Switchboard.cs` is the Task 4 one. Copy Task 5's in. |
+| `ArgumentException : An item with the same key has already been added` | The same mistake as the row above, in a test. `Add` where `Update` belongs. |
+| Check 4 red: *Three carts were saved and the table holds 0* | No `db.SaveChanges()` at the end of `Save`. |
+| The rotation has **six** carts | `Load` lost its `Clear()`. Fix it, then `DELETE FROM Carts;` — six rows got saved. |
+| `ArgumentOutOfRangeException` the first time you run the desk | `Load` cleared the carts and the table was empty. The `if (loaded.Count == 0)` block. |
+| The SQL Server view shows no databases, or no tables | Right-click your connection → **Refresh**. It doesn't refresh on its own. |
+| My checks pass and the desk can't connect | **That is exactly right.** My checks never touch the server. Only the desk tests your connection string. |
 | Red squiggles under `DbSet` or `[Fact]`, but `dotnet test` runs | **The editor, not your code.** Command Palette → **`Developer: Reload Window`**. ⚠️ `.NET: Restart Language Server` does **not** fix it. |
-| The SQL Server view shows no databases | Right-click your connection → **Refresh**. It caches. |
-| My checks pass and the desk still can't connect | **That is exactly right and worth understanding.** [My checks never touch your server.](../lecture-notes.md#testing-database-code-without-a-database) |
+| An error that isn't in this table | [The notes' troubleshooting list](../lecture-notes.md#-troubleshooting) has more of them. |
 
 > [!NOTE]
 > **Source Control view empty, or Sync has nowhere to go?** Your repo setup from week 1's homework isn't done — [its Part 2](../../week-01/homework.md#part-2--put-it-under-git-before-you-write-anything-graded) sets the repo up. **The buttons are only a second view of the commands you already know**, so the terminal does the same job whenever they misbehave:
 >
 > ```bash
 > git add .
-> git commit -m "week 10 lab: the carts go into the table"
+> git commit -m "week 10 lab: the rotation moves into the database"
 > ```
 
 **Prev:** [Week 9 Lab — The Night's Numbers](../../week-09/lab/) · **Next:** [Week 10 Homework — The Registry Moves In](../homework.md)

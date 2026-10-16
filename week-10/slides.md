@@ -26,192 +26,78 @@ style: |
 <!-- _paginate: false -->
 
 
-# Week 10 — The Log Leaves the Building
+# Week 10 — The Carts Move In
+
+**EF Core: keeping the data in a database**
+
+- a password that stays outside the repo
+- a class becomes a table, made on the college's server
+- save and load — and a test that needs no database
+- **your lab:** the rotation moves into a database of your own
 
 .NET Database Development · Week 10 of 16
 
 ---
 
-<!-- _footer: '🖥️ Demo §2 · a table is the line you already had' -->
+<!-- _footer: '🖥️ Demo §2 · the packages, and somewhere for a password' -->
 
-## A file, and a table
+## Where a password lives
 
+```bash
+dotnet user-secrets set "ConnectionStrings:Desk" "…" --project week-10/Lab
 ```
-SIGNOUT|14:20|Reyes|DIG OUT|14:45|out
-```
 
-| Kind | Time | Who | Reason | Expected | IsBack |
-|---|---|---|---|---|---|
-| SIGNOUT | 14:20 | Reyes | DIG OUT | 14:45 | 0 |
+A file in **your home folder**, outside every repo.
 
-**Same line. The pipes got names.**
+| User secrets are | User secrets are not |
+|---|---|
+| out of the repo | encrypted |
+| one command to put back | shared with anyone |
+| | on any other machine |
 
 ---
 
-<!-- _footer: '🖥️ Demo §2 · a table is the line you already had' -->
-
-## One table, three kinds of lines
-
-| Kind | Who | Reason | Celsius | Liters |
-|---|---|---|---|---|
-| SIGNOUT | Reyes | DIG OUT | — | — |
-| MET | Bhatt | — | -41.5 | — |
-| FUEL | — | — | — | 4300 |
-
-The file had this problem too, and hid it better.
-
-**Splitting them up is week 12.**
-
----
-
-<!-- _footer: '🖥️ Demo §2 · a table is the line you already had' -->
-
-## What a DbContext is
-
-```csharp
-public DbSet<LogRow> Log { get; set; }
-```
-
-**The tables this program knows about.** One property, one table — and the property's name is the table's name.
-
-Plus: how to reach them.
-
----
-
-<!-- _footer: '🖥️ Demo §3 · where a password is allowed to live' -->
-
-## Your connection string has your password in it
-
-```
-Server=…;Database=…;User Id=…;Password=…
-```
-
-It cannot go in the repo.
-It cannot be typed in every time the program starts.
-
-**Week 2 committed one on purpose. This is the answer I owed you.**
-
----
-
-<!-- _footer: '🖥️ Demo §3 · where a password is allowed to live' -->
-
-## What user secrets are not
-
-- **Not encrypted.** A plain file in your home directory
-- **Not shared.** Per machine, per project — and the lab PCs wipe
-- **Not deployment.** A real server gets its own answer
-
-What they *are*: **not in the repo.**
-
-That is the one problem you have.
-
----
-
-<!-- _footer: '🖥️ Demo §4 · the migration' -->
-
-## A migration is a class you did not write
-
-```csharp
-migrationBuilder.CreateTable(
-    name: "Log",
-    columns: table => new
-    {
-        Id = table.Column<int>(type: "int", …)
-            .Annotation("SqlServer:Identity", "1, 1"),
-        Who = table.Column<string>(type: "nvarchar(max)", …)
-    });
-```
-
-**Your class, with the column types filled in.** And it can undo itself.
-
----
-
-<!-- _footer: '🖥️ Demo §4 · the migration' -->
+<!-- _footer: '🖥️ Demo §3 · a class becomes a table' -->
 
 ## Two commands, one network
 
-```bash
-dotnet ef migrations add TheLogMovesIn
-```
-Compares your classes to last time. **Writes a file. Touches nothing.**
+| | Writes | Touches the server? |
+|---|---|---|
+| `dotnet ef migrations add` | a migration, in your project | **no** |
+| `dotnet ef database update` | the database and its tables | **yes** |
 
-```bash
-dotnet ef database update
-```
-**Connects.** Makes the database if there isn't one, then the table.
-
-When it goes wrong at home: you wrote it and never ran it.
+Run only the first, and the table never exists.
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · the log leaves the building' -->
+<!-- _footer: '🖥️ Demo §4 · the switchboard moves in' -->
 
-## A test that needs no database
+## A table that lives inside the test
 
 ```csharp
-new DbContextOptionsBuilder<StationContext>()
-    .UseInMemoryDatabase("haldane-" + Guid.NewGuid())
+new DeskContext()
 ```
 
-No server. No password. No network. Milliseconds.
+the desk → user secrets → **the college's server**
 
-**The rules live in a class, and the class does not know where the database is.** That is the only reason this works.
+```csharp
+new DeskContext(options)
+```
+
+a test → **a table inside the test run** — no server, no password
+
+Same `Save`, same `Load`.
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · the log leaves the building' -->
-
-## Round two
-
-Week 3 — you typed three records in and quit. Gone.
-
-Week 8 — a file. **It came back.**
-
-Tonight — a table. It came back, **and I read it from a query, with the program closed.**
-
-A file is still your file. This is not.
-
----
-
-<!-- _footer: '🖥️ Demo §6 · the same question, two answers' -->
-
-## The same question, two answers
-
-```
-b → reyes      Nobody outside by that name.
-```
-
-```sql
-WHERE Who = 'reyes'   →   SIGNOUT  Reyes  DIG OUT
-```
-
-**C# compares letters. This server does not care about case.**
-
-Nothing you wrote chose that. It came with the database.
-
----
-
-<!-- _footer: '🖥️ Demo §7 · hand off' -->
-
-## Lab: the carts leave the building
-
-The rotation — three carts and every play on them — stops being a file.
-
-1. A cart the database can keep
-2. A migration, and a database of your own
-3. `Save` — and `SaveChanges()`
-4. `Load` — and the first night
-
-**⏱️ 50 minutes · target tonight: 5 green.**
-
----
-
-<!-- _footer: '🖥️ Demo §8 · wrap' -->
+<!-- _footer: '🖥️ Demo §7 · wrap' -->
 
 ## Tonight, in one picture
 
-**A class became a table.** A migration made it.
+**EF Core: a class · a context · a migration · a table**
 
-**The password lives somewhere that is not the repo.**
-
-**The log is on a machine that is not yours** — and next week, everyone in this room is on the same one.
+- the password lives in **user secrets**
+- `migrations add` writes · `database update` **makes**
+- `Add` the new · `Update` the old · then **`SaveChanges()`**
+- an empty table is the **first night**
+- a test hands the context **a table of its own**

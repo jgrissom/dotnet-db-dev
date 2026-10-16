@@ -1,279 +1,165 @@
-# Week 10 Demo — The Log Leaves the Building 🧊
+# Week 10 Demo — The Carts Move In 📻
 
-**Haldane Station · duty console · day 275**
+**KDXR 88.1 · the overnight desk · the same station they work on**
 
-Tonight the watch log stops being a file on this laptop and becomes a table on a server five hundred kilometers away — and the last beat of the night is the station disagreeing with itself.
+Tonight the desk moves its night out of two files and into a database on the college's SQL Server. You move the **switchboard**, live, and the students do the same thing to the **rotation**. After each of your segments you push your finished files, and they copy them in to read and run while they work.
 
-> **The shape of the night:** last week's file, read one more time → a table that is the same line with names on it → where a password is allowed to live → the migration → 💥 the log survives a restart, and the row is visible from a machine that isn't mine → 💥 and the desk and the database answer the same question differently.
+> **The shape of the night:** packages and a password → a class becomes a table → the switchboard saves to the database and loads from it → the second night → the same name, twice. **Each demo segment is followed by the lab task that practices it.**
 
-**Total: ~140 minutes across the evening**, in the timing table's segments.
+**Total: ~93 minutes of demo, in seven short segments, and six lab blocks between them.** The lesson plan's timing table has the minutes.
 
 ---
 
 ## 0 · Before class
 
-- [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-10/demo/script.html) and confirm the top line says *day 275*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes, Copy buttons and the database box, nothing else
-- [ ] 💡 **The Database box at the top of the published sheet.** Type your database name into it once and **every mention on this page changes, including what the Copy buttons hand you.** It is saved on that device. Nothing tonight asks you to retype it
-- [ ] **[`dutyconsole.com`](https://dutyconsole.com) on the projector as they arrive.** Week 10's board is up. Say nothing about it
-- [ ] ⚠️ **Put week 9's folder back to its finished state — §1 copies out of it**
+> [!NOTE]
+> **Rehearsing on your class machine? Do it on a throwaway branch, so the class repo is exactly as it was afterwards.** Every command below runs from the VS Code terminal of the class repo, `dotnet-db-coursework`.
+>
+> **Before the walk:**
+>
+> ```bash
+> git checkout -b week-10-rehearsal
+> ```
+>
+> **After the walk** — back to `main`, and the rehearsal branch is gone with every commit you made on it:
+>
+> ```bash
+> git checkout main
+> ```
+>
+> ```bash
+> git branch -D week-10-rehearsal
+> ```
+>
+> Then **delete the `week-10` folder** from the Explorer. Switching to `main` removed the files you committed, but not `bin`, `obj`, or the `.json` files the desk wrote.
+>
+> **Then drop the demo database.** §3 makes it, and §4's first run needs its tables empty. In the SQL Server view, right-click your server → **New Query**, and run:
+>
+> ```sql
+> DROP DATABASE DB_KDXR_156101411_JSG;
+> ```
+>
+> **And empty `demo/week-10/` in the starters repo**, because your rehearsal pushes reached the real one students pull from:
+>
+> ```bash
+> git -C ../dotnet-db-starters rm -r --quiet demo/week-10
+> ```
+>
+> `did not match any files` means it is already empty — skip the next line.
+>
+> ```bash
+> git -C ../dotnet-db-starters commit -m "week 10 demo: reset for class" && git -C ../dotnet-db-starters push
+> ```
+>
+> The student side of a rehearsal needs nothing; that folder is only yours.
 
-  ```bash
-  cd ~/Repos/dotnet-db-dev-course/instructor/dotnet-db-coursework \
-    && cp ~/Repos/dotnet-db-dev-answer-keys/week-09/demo-starter/Haldane/*.cs week-09/Haldane/ \
-    && cp ~/Repos/dotnet-db-dev-answer-keys/week-09/demo-starter/Haldane.Tests/WatchTests.cs week-09/Haldane.Tests/
-  ```
-
-  - 💡 **The answer key is the source of truth, not your own repo** — and those files are **class-ready**, so nothing you copy in can put a spoiler on the projector
-- [ ] ⚠️ ⚠️ **NEW THIS WEEK, AND §1 CANNOT RUN WITHOUT IT: put this week's met book in place.** It is the same book as last week with one more week written in it — 51,309 lines, running to day 275. **The banner reads the day off its last line**, which is why nothing tonight types a date
-
-  ```bash
-  mkdir -p week-10 && cp ~/Repos/dotnet-db-dev-answer-keys/week-10/demo-starter/season.txt week-10/
-  ```
-
-- [ ] ⚠️ **Delete `week-10/Haldane` and `week-10/Haldane.Tests` if you've rehearsed** — `dotnet new` refuses to overwrite. ⚠️ **Not `season.txt`**, or §1 has no day
-
-  ```bash
-  rm -rf week-10/Haldane week-10/Haldane.Tests
-  ```
-
-- [ ] ⚠️ ⚠️ **AND DROP THE DATABASE IF YOU'VE REHEARSED.** §5's whole payoff is a row appearing in an empty table. A rehearsal leaves it full, and the beat lands on a board that already looks right. In the mssql extension: right-click the database → **Delete**, or run `DROP DATABASE DB_HALDANE_156101411_JSG;` against `master`
-  - 💡 **§4 makes it again** — `dotnet ef database update` creates the database as well as the table
-
-- [ ] ⚠️ ⚠️ **YOUR CONNECTION STRING HAS YOUR PASSWORD IN IT, AND THIS ROOM CAN READ THE PROJECTOR.** Put it in a file, once, outside every repo. §3 reads it from there and nothing sensitive is ever on screen
-
-  ```bash
-  echo 'Server=YOUR-SERVER;Database=DB_HALDANE_156101411_JSG;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True' > ~/haldane-connection.txt
-  ```
-
-  - ⚠️ **Check it afterwards** — `cat ~/haldane-connection.txt` — because a typo in here surfaces in §4 as a connection failure in front of the room
-  - 💡 **`TrustServerCertificate=True` is not optional decoration.** Without it a connection to a server whose certificate the machine does not recognize is refused outright
-- [ ] **Update the EF tool, once** — a stale one prints a version warning on every single command, all night
+- [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-10/demo/script.html) and confirm the top line says *the same station they work on*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
+- [ ] 💡 **Type your database name in the Database box at the top of the published page.** Every mention of it on the page changes, including what the Copy buttons hand you. It is saved on this device
+- [ ] ⚠️ **Your connection string goes in a file in your home folder, `~/kdxr-connection.txt`, and NOT on the projector.** Make it now, in a text editor, on your own screen. One line, with your real server, login and password: `Server=…;Database=DB_KDXR_156101411_JSG;User Id=…;Password=…;TrustServerCertificate=True`. §2 reads it from there, so the room never sees it
+- [ ] ⚠️ **A current `dotnet-ef`**, so no version warning prints on every command tonight:
 
   ```bash
   dotnet tool update --global dotnet-ef
   ```
 
-- [ ] ⚠️ **Install the mssql extension if this machine does not have it** — Extensions, `SQL Server (mssql)`, publisher Microsoft (`ms-mssql.mssql`). **Nothing before tonight has needed it**, so a fresh machine will not have it
-- [ ] ⚠️ **The mssql extension should already be connected, or at least know your server.** §4 uses it in front of the room, and adding a connection for the first time means a dialog, a password prompt and a trust prompt. **Do that now**
-- [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`, exactly where week 9 left it
-- [ ] ⚠️ **Run `dotnet run --project week-09/Haldane` once before class.** §1 opens by running it, so it has to build on the night
-- [ ] 💡 **The times in this sheet's output blocks are MINE.** Every line the desk stamps tonight is station time, UTC, so the sign-out in §5 will carry your clock rather than `16:33`. Nothing else in the blocks moves
-- [ ] **Lids down for the demo** — *"you'll write all of this yourself in the lab, on a station that is not this one"*
+- [ ] ⚠️ **The SQL Server view already knows your server.** Click the SQL Server icon in the activity bar → **Add Connection**, with your server, **SQL Login**, your login and password, and the database left blank. A first connection asks about the certificate; get that prompt over with now
+- [ ] ⚠️ **No `DB_KDXR_156101411_JSG` on the server.** If you rehearsed, the note above drops it. §3 makes it in front of the room
+- [ ] ⚠️ **A starters clone you can PUSH to, next to your demo repo.** Tonight you push to it three times. From the terminal of `dotnet-db-coursework`:
+
+  ```bash
+  git -C ../dotnet-db-starters pull
+  ```
+
+  ```bash
+  git -C ../dotnet-db-starters push
+  ```
+
+  `Everything up-to-date` is the answer you want. A sign-in prompt now is a sign-in prompt you won't get in front of the room. *No clone there yet?* `git clone https://github.com/jgrissom/dotnet-db-starters.git ../dotnet-db-starters`, then the two lines above
+- [ ] ⚠️ **`demo/week-10/` in the starters repo must be empty or missing.** It fills up tonight. If it already has files in it from rehearsing:
+
+  ```bash
+  git -C ../dotnet-db-starters rm -r --quiet demo/week-10
+  ```
+
+  `did not match any files` means it is already empty — skip the next line.
+
+  ```bash
+  git -C ../dotnet-db-starters commit -m "week 10 demo: reset for class" && git -C ../dotnet-db-starters push
+  ```
+
+- [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
+- [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click its line number in the left margin
+- [ ] ⚠️ **Delete `week-10/` from the demo repo if you've rehearsed.** Tonight you copy it in fresh, along with everybody else
+- [ ] **A browser tab on the lab README** (`week-10/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
+- [ ] **Lids down for the demo** — *"Tonight comes in pieces. Lids down while I work, lids up for each lab block in between."*
 
 ---
 
-## 1 · Where we finished last week
+## 1 · Where the night is kept
 
-- [ ] 🎯 **First, last week — running, before anything is made.** *"This is where we got to. The console keeps a log, the log survives the night, and there are five tests watching it."*
-
-  ```bash
-  dotnet run --project week-09/Haldane
-  ```
-
-- [ ] **Press `q` to close the desk**
-- [ ] **Now open the log itself.** In the Explorer, `week-09/watch-log.txt`
-- [ ] 📖 **Say what it is, and be precise about where it is** — *"That is everything this station knows about today. Six lines. It is a file, it is on this laptop, and it is in a folder called week nine."*
-- [ ] 🎯 **Then the promise, and name the weeks it was made in** — *"In week three I had you type three records in and quit, and they were gone. I told you then it got a file in week eight and a database in week ten. Week eight happened. This is week ten."*
-- [ ] ⚠️ **Close the file again.** It is opened once more in §2 and nothing else tonight needs it
-
-- [ ] **Branch first, and say it as you type it** — *"a branch for tonight, same as every week. Nothing goes straight to `main`, and that goes for your project too"*
-
-  ```bash
-  git checkout -b the-log-leaves-the-building
-  ```
-
-- [ ] **Now make this week's folder.** No commentary — they have watched this nine times
-
-  ```bash
-  dotnet new console -o week-10/Haldane
-  ```
-
-  ```bash
-  dotnet add week-10/Haldane package Spectre.Console --version 0.57.2
-  ```
-
-  ```bash
-  cp week-09/Haldane/*.cs week-10/Haldane/
-  ```
-
-- [ ] **And the suite comes too**
-
-  ```bash
-  dotnet new xunit -o week-10/Haldane.Tests
-  ```
-
-  ```bash
-  cp week-09/Haldane.Tests/WatchTests.cs week-09/Haldane.Tests/Haldane.Tests.csproj week-09/Haldane.Tests/Directory.Build.rsp week-10/Haldane.Tests/
-  ```
-
-  ```bash
-  rm week-10/Haldane.Tests/UnitTest1.cs
-  ```
-
-- [ ] ⚠️ **Now reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**
-
-  ```
-  Developer: Reload Window
-  ```
-
-- [ ] **One edit, and it is the only path in the program.** Open `week-10/Haldane/Program.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`string metBook`** — one hit. Make that line read
-
-  ```csharp
-  string metBook = "week-10/season.txt";
-  ```
-
-- [ ] **Run it**
-
-  ```bash
-  dotnet run --project week-10/Haldane
-  ```
-
-  ```
-  ========================================================
-    HALDANE STATION - DUTY CONSOLE
-    nearest neighbor: 512 km - winter crew - day 275
-  ========================================================
-  ```
-
-- [ ] 🎯 **Point at the day, because last week bought this and tonight is the first time it pays** — *"Two seventy-five. I did not type that. Last week I took the day out of the source code. It reads the last line of the met book instead. And since then, somebody has kept writing in the book — seven more days of weather, and the console worked the date out on its own."*
-- [ ] **Press `q`**
-
-- [ ] **Prove the suite came across**
-
-  ```bash
-  dotnet test week-10/Haldane.Tests
-  ```
-
-  ```
-  Total tests: 5
-       Passed: 5
-  ```
-
-- [ ] 🎯 **Say the number and ask them to hold it** — *"Five. Hold on to that, because one of the five is about to stop compiling, and it will be my fault and it will be correct."*
-
-- [ ] **And save the week before changing a line of it.** Silent — this is the commit the lab asks them for in its very first step
-
-  ```bash
-  git add . && git commit -m "week 10: the desk, carried forward"
-  ```
+- [ ] **Slide 1 is already up as the room settles.** It names tonight's theme. Read it to them in one go, then the two lines below
+- [ ] 📖 **Read the slide:** *"Tonight is EF Core, which is how a C# program keeps its data in a database. We'll keep a password somewhere outside the repo. We'll turn a class into a table, and make the table on the college's server. We'll save and load from it, with a test that needs no database at all. And in your lab, the rotation moves into a database of your own."*
+- [ ] 🎯 **Say what tonight is, plainly:** *"Right now the desk keeps the night in two files, on this laptop. One holds the callers and one holds the carts. Tonight both move into a database, on a server none of us owns."*
+- [ ] 📖 **Then the deal for the night:** *"I move the switchboard. You move the rotation. After each piece I push my files, and you copy them in."*
 
 ---
 
-## 2 · A table is the line you already had *(slides 2–4)*
+## Lab A · Setup, together — 10 minutes
 
-- [ ] 🎞️ **GO TO SLIDE 2** — *A file, and a table*
-- [ ] 📖 *"On the left is a line out of the watch log. On the right is the same line in a table. Nothing about what the station records is different. What changed is where it goes and who can reach it."*
-
-- [ ] **Four packages first, because nothing below compiles without them**
+- [ ] **Lids up. Put the lab README up in the browser, at *Setup*.** Do steps 1 to 4 on your own machine at the same time as the room, in your demo repo's terminal. You copy week 10 in exactly as they do
+- [ ] **Run the checks, and say the number:** *"One out of five. Check 1 is everything the desk already does."*
 
   ```bash
-  dotnet add week-10/Haldane package Microsoft.EntityFrameworkCore.SqlServer
+  dotnet test week-10/Lab.Checks
+  ```
+
+- [ ] **Commit the starter, the same commit the README asks of them**
+
+  ```bash
+  git add . && git commit -m "week 10: starter"
+  ```
+
+- [ ] ⚠️ **Stop at the README's stop note at the end of Setup.** Task 1 comes after §2
+
+---
+
+## 2 · The packages, and somewhere for a password *(slide 2)*
+
+- [ ] 📖 *"Before the desk can talk to a database, it needs two things. It needs the packages that do the talking. And it needs a password, kept somewhere that is not this repo."*
+
+- [ ] **Add the first package: the SQL Server part of EF Core**
+
+  ```bash
+  dotnet add week-10/Lab package Microsoft.EntityFrameworkCore.SqlServer --version 10.0.13
+  ```
+
+- [ ] 📖 *"EF Core is Entity Framework Core. It is how a C# program reads and writes a database without writing the database's own language by hand. This package is the part of it that speaks to SQL Server."*
+- [ ] **Build, and scroll to the bottom of the output**
+
+  ```bash
+  dotnet build week-10/Lab
+  ```
+
+  ```
+      4 Warning(s)
+      0 Error(s)
+  ```
+
+- [ ] 🎯 **Say the count, then ask, and wait:** *"Four warnings. I added one package and wrote no code. What are they?"*
+- [ ] **Scroll up and highlight one of the warning lines**
+
+  ```
+  warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+  ```
+
+- [ ] 📖 *"The four warnings are two warnings, each printed twice. The SQL Server package uses another package, for cryptography. The version it asks for has a known security problem. A fixed version exists, and I can add it myself. Then my version is the one the project uses."*
+
+  ```bash
+  dotnet add week-10/Lab package System.Security.Cryptography.Pkcs --version 10.0.13
   ```
 
   ```bash
-  dotnet add week-10/Haldane package Microsoft.EntityFrameworkCore.Design
-  ```
-
-  ```bash
-  dotnet add week-10/Haldane package Microsoft.Extensions.Configuration
-  ```
-
-  ```bash
-  dotnet add week-10/Haldane package Microsoft.Extensions.Configuration.UserSecrets
-  ```
-
-- [ ] 📖 **Name them in pairs rather than one at a time** — *"The first two are the database: one knows how to talk to SQL Server, and one is the tooling that writes migrations. The other two are configuration, and they are here for one reason — a console program does not get handed any configuration at all. It has to go and build it. That is the next segment."*
-- [ ] 💡 **Worth ten seconds, because week 3 sold it and this is the receipt** — *"Four packages, per project, restored rather than installed. Nothing on this machine changed outside this folder."*
-
-- [ ] **New file `week-10/Haldane/LogRow.cs`**
-
-  ```csharp
-  // One line of the watch log, as the database keeps it.
-  using System.ComponentModel.DataAnnotations.Schema;
-
-  public class LogRow
-  {
-      // The database numbers its own rows, and this is where it writes the
-      // number. Nothing at the station has one of these.
-      public int Id { get; set; }
-
-      // SIGNOUT, MET or FUEL — the word that used to come first on the line.
-      public string Kind { get; set; } = "";
-
-      public string Time { get; set; } = "";
-
-      // A crew member's name. Empty on a fuel check, which is nobody's.
-      public string Who { get; set; } = "";
-
-      public string Reason { get; set; } = "";
-      public string Expected { get; set; } = "";
-
-      // A temperature, to one decimal place, which is how the station has
-      // written them down since week 6.
-      [Column(TypeName = "decimal(4,1)")]
-      public double Celsius { get; set; }
-
-      public int Liters { get; set; }
-      public bool IsBack { get; set; }
-  }
-  ```
-
-- [ ] 📖 **Read it against the file line, field by field** — *"Kind, time, who, reason, expected, back or not. That is the sign-out line. Celsius is the met line. Liters is the fuel line. Every field that used to have a pipe in front of it now has a name."*
-- [ ] 🎯 **Then the one property that is not theirs, and say plainly what it is for** — *"`Id` is the only thing on here the station never asked for. The database gives every row a number so it can tell one row from another. Nobody at Haldane cares what it is."*
-- [ ] 💡 **The `decimal` line, one sentence — only if asked, it is not a lesson** — *"Left alone that column would be a float, and a float cannot hold minus thirty-nine point eight exactly. It comes back out as minus thirty-nine point seven nine nine nine nine nine nine nine nine nine nine nine nine seven."*
-
-- [ ] 🎞️ **GO TO SLIDE 3** — *One table, three kinds of lines*
-- [ ] 📖 **Say the honest thing about it, because they can see it** — *"One table is holding three different kinds of lines, so a sign-out row carries a temperature that means nothing and a fuel row carries two empty names. The file had exactly the same problem and hid it better. Splitting them up is week twelve."*
-
-- [ ] **New file `week-10/Haldane/StationContext.cs`**
-
-  ```csharp
-  // The station's database, as far as this program is concerned.
-  using Microsoft.EntityFrameworkCore;
-  using Microsoft.Extensions.Configuration;
-
-  public class StationContext : DbContext
-  {
-      // One table. The name of this property is the name of the table.
-      public DbSet<LogRow> Log { get; set; }
-
-      // The program uses this one, and so does `dotnet ef`.
-      public StationContext()
-      {
-      }
-
-      // The tests use this one. They hand in somewhere else to keep the rows.
-      public StationContext(DbContextOptions<StationContext> options)
-          : base(options)
-      {
-      }
-
-      protected override void OnConfiguring(DbContextOptionsBuilder options)
-      {
-          // Somebody has already said where the rows go. Do not argue with it.
-          if (options.IsConfigured)
-          {
-              return;
-          }
-
-          IConfiguration config = new ConfigurationBuilder()
-              .AddUserSecrets<StationContext>()
-              .Build();
-
-          options.UseSqlServer(config["ConnectionStrings:Haldane"]);
-      }
-  }
-  ```
-
-- [ ] 🎞️ **GO TO SLIDE 4** — *What a DbContext is*
-- [ ] 📖 **Talk the class through in three parts, in this order** — *"`DbSet<LogRow> Log` is the list of tables this program knows about. There is one, and the name of that property is the name of the table. The two constructors are how it gets told where the database is: the empty one means go and find out, and the other one means somebody is telling you. And `OnConfiguring` is the going and finding out."*
-- [ ] ⚠️ **Do not explain the second constructor yet.** It is §5's beat and it lands much harder there, when the test suite needs it
-- [ ] 💡 **If somebody asks what `IsConfigured` is for** — *"It means somebody already said where the rows go. You will see who, in about forty minutes."*
-
-- [ ] **Build it. Nothing to run yet**
-
-  ```bash
-  dotnet build week-10/Haldane
+  dotnet build week-10/Lab
   ```
 
   ```
@@ -281,452 +167,717 @@ Tonight the watch log stops being a file on this laptop and becomes a table on a
       0 Error(s)
   ```
 
-- [ ] 💡 **Worth pointing out, because it is about to matter** — *"That compiled, and there is no database anywhere. Nothing has connected to anything."*
-
----
-
-## ☕ Break
-
----
-
-## 3 · Where a password is allowed to live *(slides 5–6)*
-
-- [ ] 🎞️ **GO TO SLIDE 5** — *Your connection string has your password in it*
-- [ ] 🎯 **Collect week 2, by name and by pointing at the repo** — *"In week two I committed a password to this repo on purpose. Then we took it out. And I told you that taking it out of the file does not take it out of the history. I also told you the real answer was week ten's whole job. This is it."*
-- [ ] 💡 **Say the shape of the problem before the tool** — *"The program needs a connection string. A connection string has a server, a database, a login and a password in it. It cannot go in the repo, and it cannot be typed in every time the program starts."*
-
-- [ ] **Turn the secret store on**
+- [ ] 📖 *"Zero warnings."*
+- [ ] **Then the other three packages, without stopping between them**
 
   ```bash
-  dotnet user-secrets init --project week-10/Haldane
+  dotnet add week-10/Lab package Microsoft.EntityFrameworkCore.Design --version 10.0.13
   ```
-
-- [ ] **Open `week-10/Haldane/Haldane.csproj` and point at the line that just appeared**
-
-  ```xml
-  <UserSecretsId>...</UserSecretsId>
-  ```
-
-- [ ] 📖 **Say exactly what that is, because it is the whole mechanism** — *"That is not a secret. It is a folder name. It says: this project's secrets live in a folder called that, somewhere else on this machine."*
-- [ ] ⚠️ ⚠️ **AND THE THING THAT WILL COST THEM AN EVENING — say it now and say it flatly** — *"If you skip that command, nothing breaks and nothing complains. Your settings just read back as empty, quietly, and you find out much later when the program cannot connect."*
-
-- [ ] 🎯 **Now the connection string, and do not type it** — *"I am not going to type mine, because all of you can read that screen. It is in a file, and this reads it out of the file."*
 
   ```bash
-  dotnet user-secrets set "ConnectionStrings:Haldane" "$(cat ~/haldane-connection.txt)" --project week-10/Haldane
+  dotnet add week-10/Lab package Microsoft.Extensions.Configuration --version 10.0.13
   ```
-
-  ```
-  Successfully saved ConnectionStrings:Haldane to the secret store.
-  ```
-
-- [ ] 💡 **That aside IS the lesson, so let it land** — *"Everything I just did to keep it off this projector is the same reason it does not go in the repo. A repo is a room with more people in it."*
-
-- [ ] **Now show where it went — the folder, not the file**
 
   ```bash
-  ls ~/.microsoft/usersecrets/
+  dotnet add week-10/Lab package Microsoft.Extensions.Configuration.UserSecrets --version 10.0.13
   ```
 
-- [ ] 📖 **Point at the path** — *"Home directory. Not the repo, not the project, not anywhere git has ever looked. One folder per project, named after that id in the csproj."*
-- [ ] ⚠️ **Do not `cat` the file.** Your password is in it
-  - 💡 **Windows: `%APPDATA%\Microsoft\UserSecrets\`.** Say it out loud — some of the room is on Windows and the path is genuinely different
+- [ ] 📖 *"Design is the part of EF Core that the dotnet ef tool needs, to make the tables. The other two read a password from where I'm about to put it."*
 
-- [ ] **And the proof that matters**
+- [ ] 📖 *"To reach the database, the desk needs a connection string. It is one line of text: which server, which database, my login, and my password. My password does not go in this repo. A repo is something other people read."*
+- [ ] **Ask the project what secrets it has**
 
   ```bash
-  git status
+  dotnet user-secrets list --project week-10/Lab
   ```
 
-- [ ] 🎯 **Read the answer out** — *"The csproj changed, because it has that id in it now. The connection string is nowhere. There is nothing to accidentally commit, because there is nothing here to commit."*
-
-- [ ] 🎞️ **GO TO SLIDE 6** — *What user secrets are not*
-- [ ] ⚠️ **This slide is the honest half and it must not be skipped** — *"This is not encryption. It is a plain text file in your home directory, and anybody sitting at your machine can read it. What it solves is exactly one problem: it is not in the repo. That is the problem you have."*
-- [ ] 💡 **And the one about this room's machines** — *"The lab PCs wipe when they reboot. That folder goes with them. It is one command to put back, and the notes have it."*
-
----
-
-## 4 · The migration *(slides 7–8)*
-
-- [ ] 📖 **Set it up as a question they can answer** — *"There is a class, and there is a server. Nothing has made a table. Somebody has to write the SQL that creates it."*
-
-- [ ] **Write the migration**
-
-  ```bash
-  dotnet ef migrations add TheLogMovesIn --project week-10/Haldane
+  ```
+  Could not find the global property 'UserSecretsId' in MSBuild project
   ```
 
-- [ ] **Open the file it wrote** — `week-10/Haldane/Migrations/`, the one ending `_TheLogMovesIn.cs`
-- [ ] 🎞️ **GO TO SLIDE 7** — *A migration is a class you did not write*
-- [ ] 🎯 **Read the `Up` method against `LogRow.cs`, side by side** — *"That is my class. Every property, with the column type filled in. `string` became `nvarchar(max)`. `bool` became `bit`. `Id` became an int that the database fills in by itself. Nobody wrote any of this and nobody has to read it in anger."*
-- [ ] 💡 **Then the `Down` method, which is the half that explains the name** — *"And it can undo itself. That is why it is called a migration rather than a script: it knows both directions."*
-
-- [ ] ⚠️ **Now ask, and wait — this is the distinction the whole tool turns on** — *"Has anything happened to the server yet?"*
-- [ ] 🎯 **Then answer it plainly** — *"No. That command never connected to anything. It compared my classes to what it wrote last time and wrote a file. Making the instructions and carrying them out are two different commands, and only one of them needs a network."*
-
-- [ ] **Now carry them out**
+- [ ] 📖 *"This project has no secret store yet. User secrets keep values like a password in a file in my home folder, outside every repo on this laptop. Turning it on is one command."*
 
   ```bash
-  dotnet ef database update --project week-10/Haldane
+  dotnet user-secrets init --project week-10/Lab
   ```
 
-- [ ] 💡 **Say what it just did, both halves** — *"That one connected. It made the database, because there wasn't one, and then it made the table."*
-
-- [ ] 🎯 **And now look at it from somewhere that is not this program.** Activity bar → **SQL Server** (<kbd>⌘⌥D</kbd> / <kbd>Ctrl+Alt+D</kbd>) → your server under **Connections** → **Refresh** → Databases → **DB_HALDANE_156101411_JSG** → Tables
-- [ ] 📖 *"There it is. `Log`, and a column for every field on that class."*
-- [ ] **Right-click `dbo.Log` → **Select Top 1000**, and let it run**
-- [ ] 💥 **Read the result out and stop** — *"Nothing. The table exists and it is empty, and the program has never once written to it."*
-
-- [ ] 🎞️ **GO TO SLIDE 8** — *Two commands, one network*
-- [ ] 📖 *"`migrations add` writes instructions and needs nothing. `database update` carries them out and needs the server. When you get this wrong at home, it is almost always that you wrote the migration and never ran it."*
-
-- [ ] **Save it. Silent**
+- [ ] **Open `week-10/Lab/Lab.csproj` and highlight the `<UserSecretsId>` line**
+- [ ] 📖 *"The UserSecretsId is the name of a folder in my home folder. It is not a secret, and it gets committed. The secret goes in the folder it names."*
+- [ ] **Ask again**
 
   ```bash
-  git add . && git commit -m "week 10: a table, and the instructions that made it"
+  dotnet user-secrets list --project week-10/Lab
+  ```
+
+  ```
+  No secrets configured for this application.
+  ```
+
+- [ ] 📖 *"Now there is a store, and it is empty. Those two answers are worth remembering. When the desk can't find its database, list tells you which of the two is the problem."*
+- [ ] **Put the connection string in. Silent until the next line: it is read out of the file you made before class**
+
+  ```bash
+  dotnet user-secrets set "ConnectionStrings:Desk" "$(cat ~/kdxr-connection.txt)" --project week-10/Lab
+  ```
+
+  ```
+  Successfully saved ConnectionStrings:Desk to the secret store.
+  ```
+
+- [ ] 🎯 *"I didn't type my connection string, and I'm not going to run list now. Both would put my password on the projector. You'll type yours on your own screen, which is fine."*
+- [ ] ⚠️ **Do not run `dotnet user-secrets list` again, and do not open the secrets file.** Both print the password
+
+- [ ] 🎞️ **GO TO SLIDE 2** — *Where a password lives* · *"User secrets keep the password out of the repo, and that is the one problem they solve. The file is not encrypted. It is not shared with anyone. And it is only on this machine, so a lab PC that reboots loses it. Putting it back is the same set command."*
+
+- [ ] **Commit it in the demo repo.** Silent
+
+  ```bash
+  git add . && git commit -m "week 10: the packages, and somewhere for the password"
   ```
 
 ---
 
-## ☕ Break
+## Lab B · Task 1 — 15 minutes
+
+- [ ] **Lids up. The lab README, at *Task 1 in full*.**
+- [ ] 📖 *"Task 1 is what I just did, on your desk. The tool, the five packages, your own secret store, and your own connection string. Then connect to the server in the SQL Server view, to prove your login works. Your check count stays at one out of five. Stop at the stop note after the commit."*
+- [ ] 🎯 **Circulate at step 1d.** A login or network problem is far cheaper to fix now than at Task 3. The commonest are a wrong server name and a dismissed certificate prompt
+- [ ] 🎯 **And look for a connection string still saying `YOUR-…`.** `list` shows it
 
 ---
 
-## 5 · 💥 The log leaves the building *(slides 9–10)*
+## 3 · A class becomes a table *(slide 3)*
 
-- [ ] **Open `week-10/Haldane/Watch.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`// ── the book on disk`** — one hit
-- [ ] 📖 **Before selecting anything, say what is about to change and what is not** — *"Everything in this class above this line is a rule about the watch: who may go out, when a time may be amended, what the last reading was. None of it is going to change tonight. What changes is the two methods underneath, and all they ever did was put the book somewhere."*
-- [ ] ⚠️ **Select from that comment line down to and including the closing `}` of `Load`** — the last line before `    // Week 5's Find, one more time` — **and paste this over it**
+- [ ] 📖 *"The database needs to know what tables to make. EF Core works that out from a class, and the class is called the DbContext."*
+
+- [ ] **In the Explorer, right-click `week-10/Lab` → New File → `DeskContext.cs`, and paste this in**
 
   ```csharp
-      // ── the book, in the database ──────────────────────────────────────────
-      // The context is handed in and never made in here, for exactly the reason
-      // the path was handed in last week.
+  // The desk's database: which tables it keeps, and where to find them.
 
-      public void Save(StationContext db)
+  using Microsoft.EntityFrameworkCore;
+  using Microsoft.Extensions.Configuration;
+
+  public class DeskContext : DbContext
+  {
+      public DbSet<Caller> Callers { get; set; }
+
+      public DeskContext()
       {
-          db.Log.RemoveRange(db.Log);
+      }
 
-          foreach (ILogEntry entry in _entries)
+      public DeskContext(DbContextOptions<DeskContext> options)
+          : base(options)
+      {
+      }
+
+      protected override void OnConfiguring(DbContextOptionsBuilder options)
+      {
+          if (options.IsConfigured)
           {
-              if (entry is SignOut s)
-              {
-                  db.Log.Add(new LogRow
-                  {
-                      Kind = "SIGNOUT",
-                      Time = s.Time,
-                      Who = s.Who.Name,
-                      Reason = s.Reason,
-                      Expected = s.Expected,
-                      IsBack = s.IsBack
-                  });
-              }
-              else if (entry is Reading r)
-              {
-                  db.Log.Add(new LogRow
-                  {
-                      Kind = "MET",
-                      Time = r.Time,
-                      Who = r.TakenBy.Name,
-                      Celsius = r.Celsius
-                  });
-              }
-              else if (entry is FuelCheck f)
-              {
-                  db.Log.Add(new LogRow
-                  {
-                      Kind = "FUEL",
-                      Time = f.Time,
-                      Liters = f.Liters
-                  });
-              }
+              return;
           }
 
-          // Nothing above this line went anywhere.
+          IConfiguration config = new ConfigurationBuilder()
+              .AddUserSecrets<DeskContext>()
+              .Build();
+
+          options.UseSqlServer(config["ConnectionStrings:Desk"]);
+      }
+  }
+  ```
+
+- [ ] 📖 **Highlight `public DbSet<Caller> Callers`:** *"One DbSet is one table. This one holds callers, and the table will be called Callers, after the property."*
+- [ ] 📖 **Highlight the first constructor, the one that takes nothing:** *"The desk makes a DeskContext with this one. So does the dotnet ef tool."*
+- [ ] 📖 **Highlight the second constructor:** *"I'll need this one when the tests change. Hold on to it."* Don't explain it; §4 does
+- [ ] 📖 **Highlight the `ConfigurationBuilder` lines:** *"A console program reads no settings on its own. So it builds its configuration by hand, from one place: the secret store on this machine. Then it hands the connection string to UseSqlServer."*
+
+- [ ] 📖 *"A migration is the instructions for making the tables. The tool writes it for me, from this class. Let's ask it to."*
+
+  ```bash
+  dotnet ef migrations add TheCallersMoveIn --project week-10/Lab
+  ```
+
+  ```
+      Cannot bind 'name' in 'Caller(string name)'
+  ```
+
+- [ ] 📖 *"The tool can't make a table for callers yet. Let me read the line that matters: Cannot bind name. When EF Core reads a caller back out of the table, it builds a Caller with the Caller constructor, and it has to hand that constructor a name."*
+- [ ] **Open `week-10/Lab/Caller.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public string Name { get; }` — one hit.** Highlight that line
+- [ ] 📖 *"Name has only a get. A property with only a get is left out of the table, so there's no name to hand back. The database needs to be able to set it."*
+- [ ] **Select that one line and paste this over it**
+
+  ```csharp
+      public string Name { get; private set; }
+  ```
+
+- [ ] 📖 *"A private set. The database can fill the name in when it reads a caller back, and nothing outside this class can change it."*
+- [ ] **Ask again**
+
+  ```bash
+  dotnet ef migrations add TheCallersMoveIn --project week-10/Lab
+  ```
+
+  ```
+  Unable to create a 'DbContext' of type 'DeskContext'. The exception 'The entity type 'Caller' requires a primary key to be defined.
+  ```
+
+- [ ] 📖 *"The next message is about a primary key. A table needs one column that is different on every row. Two callers could both be called Dorothy, so the name won't do. EF Core looks for a property called Id."*
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public class Caller` — one hit. Click at the end of the `{` on the line under it, press Enter, and paste this**
+
+  ```csharp
+      // The database's own number for this caller's row.
+      public int Id { get; set; }
+
+  ```
+
+- [ ] 📖 *"I never set it. A caller that has never been saved has Id zero, and the database fills in the real number when it saves the row."*
+- [ ] **Ask again**
+
+  ```bash
+  dotnet ef migrations add TheCallersMoveIn --project week-10/Lab
+  ```
+
+  ```
+  Unable to create a 'DbContext' of type 'DeskContext'. The exception 'The entity type 'Song' requires a primary key to be defined.
+  ```
+
+- [ ] 💥 **Don't explain it yet. Ask, and wait:** *"My context only mentions callers. Why is it asking about Song?"*
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Song? Favorite` — one hit.** Highlight that line
+- [ ] 📖 *"A caller has a Favorite, and a favorite is a whole Song. So EF Core decided songs need a table too. Tonight a caller's favorite is not saved. I tell EF Core to leave it out with NotMapped."*
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `using System.Text.Json.Serialization;` — one hit, at the top of the file. Select that line and paste this over it**
+
+  ```csharp
+  using System.ComponentModel.DataAnnotations.Schema;
+  using System.Text.Json.Serialization;
+  ```
+
+- [ ] **Back to `public Song? Favorite`. Select the `[JsonInclude]` line directly above it and paste this over it**
+
+  ```csharp
+      [NotMapped]
+      [JsonInclude]
+  ```
+
+- [ ] **Ask one more time**
+
+  ```bash
+  dotnet ef migrations add TheCallersMoveIn --project week-10/Lab
+  ```
+
+  ```
+  Done. To undo this action, use 'ef migrations remove'
+  ```
+
+- [ ] 📖 *"The migration is written. Three changes to Caller: a private set on the name, an Id, and NotMapped on the favorite. Each one came from a message."*
+- [ ] **Open `week-10/Lab/Migrations/` and the file whose name ends `_TheCallersMoveIn.cs`. Highlight the `CreateTable` block in `Up()`**
+
+  ```
+                migrationBuilder.CreateTable(
+                    name: "Callers",
+                    columns: table => new
+                    {
+                        Id = table.Column<int>(type: "int", nullable: false)
+                            .Annotation("SqlServer:Identity", "1, 1"),
+                        Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                        CallsTonight = table.Column<int>(type: "int", nullable: false)
+                    },
+  ```
+
+- [ ] 📖 *"This is the Caller class as a table. Three columns: Id, Name and CallsTonight. Identity on the Id means the database numbers the rows itself."*
+- [ ] 🎯 **Ask, and wait for an answer:** *"Has anything happened on the server yet?"*
+- [ ] 📖 *"No. migrations add read my classes and wrote a file. It didn't connect to anything. The next command is the one that talks to the server."*
+
+- [ ] 🎞️ **GO TO SLIDE 3** — *Two commands, one network* · *"migrations add writes the instructions, into your project, and needs no network. database update carries them out, on the server. If you only run the first one, the table never exists."*
+
+  ```bash
+  dotnet ef database update --project week-10/Lab
+  ```
+
+  ```
+  Applying migration
+  Done.
+  ```
+
+- [ ] 📖 *"database update made the database, because I didn't have one, and then the Callers table."*
+- [ ] **In the SQL Server view, right-click your connection → Refresh. Open Databases → `DB_KDXR_156101411_JSG` → Tables, then right-click `dbo.Callers` → Select Top 1000**
+- [ ] 📖 *"The Callers table is on the college's server now. It has three columns and no rows. Nothing has written to it yet."*
+- [ ] **Run the desk: DJ name, then `c`, then `q`**
+
+  ```bash
+  dotnet run --project week-10/Lab
+  ```
+
+  ```
+  │ Dorothy │ 3     │ -         │
+  ```
+
+- [ ] 📖 *"The desk looks the same, and it should. The switchboard still saves to its file. Moving that is the next part."*
+
+- [ ] **Commit it in the demo repo.** Silent
+
+  ```bash
+  git add . && git commit -m "week 10: a caller the database can keep"
+  ```
+
+- [ ] **Push it to the starters repo — copy the file there, commit there, then push.** Silent; they watch
+
+  ```bash
+  mkdir -p ../dotnet-db-starters/demo/week-10 && cp week-10/Lab/Caller.cs ../dotnet-db-starters/demo/week-10/
+  ```
+
+  ```bash
+  git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: a caller the database can keep"
+  ```
+
+  ```bash
+  git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
+  ```
+
+- [ ] 📖 *"My Caller is in the starters repo now. You copy it in first, because your context has a callers table too."*
+
+---
+
+## Lab C · Tasks 2 and 3 — 25 minutes
+
+- [ ] **Lids up. The lab README, at *Task 2 in full*.** Its first step is pulling my file and copying it in
+- [ ] 📖 *"Task 2: copy my Caller in, give Song an Id, and write your DeskContext. Yours has two tables: my Callers, and your Carts. Task 3: the migration, then database update, then look at your tables. Stop at the stop note after Task 3's commit."*
+- [ ] 🎯 **Circulating:** *"Song requires a primary key"* means the `Id` line is missing. *"Cannot bind 'name'"* means they skipped copying `Caller.cs`
+- [ ] 🎯 **And ask anybody who has finished Task 3 to show you their tables in the SQL Server view.** Check 3 can't see `database update`; only the view can
+
+---
+
+## ☕ Break
+
+---
+
+## 4 · The switchboard moves in *(slide 4)*
+
+- [ ] 📖 **Before you change Save and Load, say what they do now:** *"Right now the switchboard's Save writes every caller into a file, and Load reads them back. I need Save to put the callers into the Callers table, and Load to read them out of it."*
+- [ ] **Open `week-10/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public void Save(string path)` — one hit. Select from that line down to and including the `}` directly under `_callers.AddRange(loaded);`, and paste this over it**
+
+  ```csharp
+      public void Save(DeskContext db)
+      {
+          foreach (Caller caller in _callers)
+          {
+              db.Callers.Add(caller);
+          }
+
           db.SaveChanges();
       }
 
-      public void Load(StationContext db, List<CrewMember> crew)
+      public void Load(DeskContext db)
       {
-          _entries.Clear();
+          List<Caller> loaded = db.Callers.OrderBy(caller => caller.Id).ToList();
 
-          foreach (LogRow row in db.Log.ToList())
+          if (loaded.Count == 0)
           {
-              if (row.Kind == "SIGNOUT")
-              {
-                  CrewMember? who = Lookup(crew, row.Who);
-
-                  if (who != null)
-                  {
-                      SignOut s = new SignOut(row.Time, who, row.Reason, row.Expected);
-
-                      if (row.IsBack)
-                      {
-                          s.Back();
-                      }
-
-                      Add(s);
-                  }
-              }
-              else if (row.Kind == "MET")
-              {
-                  CrewMember? who = Lookup(crew, row.Who);
-
-                  if (who != null)
-                  {
-                      Add(new Reading(row.Time, row.Celsius, who));
-                  }
-              }
-              else if (row.Kind == "FUEL")
-              {
-                  Add(new FuelCheck(row.Time, row.Liters));
-              }
+              return;
           }
+
+          _callers.Clear();
+
+          _callers.AddRange(loaded);
       }
-
   ```
 
-- [ ] 📖 **Say what the shape is, in one sentence each** — *"Save walks the log and turns every entry into a row. Load walks the rows and turns every one back into an entry. Same two jobs they have had since week eight."*
-- [ ] 🎯 **Then point at what is NOT there any more, because it is the best thing in the segment** — *"Look at what came out. Last week Save had to write a temperature into text, and it needed `InvariantCulture` to do it. A machine set to another language writes minus thirty-nine comma eight, and then it can never read it back. There is no `TryParse` in Load any more either. `Celsius` is a number in the table, and the database hands a number back. There is nothing to spell and nothing to parse."*
-- [ ] 💡 **And the one line that does the work** — *"`Add` and `RemoveRange` do not touch the database. They write down what is intended. `SaveChanges` is the line that goes, and it takes the lot in one trip."*
-
-- [ ] **Now `Program.cs`.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`string logFile`** — one hit. **Select that line and the three comment lines above it** — from `// Where the book lives.` down to and including the `string logFile` line — **and paste this over them**
-
-  ```csharp
-  // Where the book lives, and as of tonight that is not a sentence about this
-  // laptop at all.
-  StationContext db = new StationContext();
-  ```
-
-- [ ] **Next.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`if (File.Exists(logFile))`** — one hit. Make that line read
-
-  ```csharp
-  if (db.Log.Any())
-  ```
-
-- [ ] **And the line inside it.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`watch.Load(logFile, crew);`** — one hit. Make it read
-
-  ```csharp
-      watch.Load(db, crew);
-  ```
-
-- [ ] **And the save at the end.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for **`watch.Save(logFile);`** — one hit. Make it read
-
-  ```csharp
-  watch.Save(db);
-  ```
-
-- [ ] 💥 **Now run the tests — NOT the program. Predict nothing, just run it**
+- [ ] 📖 **Highlight `DeskContext db` in Save:** *"Save is handed the database now, instead of a file name."*
+- [ ] 📖 **Highlight `db.Callers.Add(caller);`:** *"Add marks each caller to go into the table."*
+- [ ] 📖 **Highlight `db.SaveChanges();`:** *"SaveChanges sends everything that was marked to the server, in one go. Without it, nothing reaches the table, and nothing tells you."*
+- [ ] 📖 **Highlight `db.Callers.OrderBy(caller => caller.Id).ToList()`:** *"Load reads the whole table into a list. A table has no order of its own, so OrderBy on the Id hands them back in the order they first went in."*
+- [ ] 📖 **Highlight `if (loaded.Count == 0)`:** *"The old Load returned early when there was no file. The table is always there now, but the first time, it's empty. An empty table means keep the callers the desk already has."*
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `using System.Text.Json;` — one hit, at the top of the file. Delete that line.** Nothing in this file reads JSON now
+- [ ] **Build**
 
   ```bash
-  dotnet test week-10/Haldane.Tests
+  dotnet build week-10/Lab
   ```
 
   ```
-  error CS1503: Argument 1: cannot convert from 'string' to 'StationContext'
-  error CS1503: Argument 1: cannot convert from 'string' to 'StationContext'
+  Program.cs(100,18): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+  Program.cs(170,18): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
   ```
 
-- [ ] 💥 **Let it sit, then say what it is** — *"Two errors, and they are both in the same test. I changed what Save and Load take, and the one test that calls them is now wrong about how to call them."*
-- [ ] 🎯 **Then ask the question the segment exists for, and wait** — *"That test hands Save a path to a scratch file. What do I hand it now?"*
-- [ ] ⚠️ **Let somebody say "the database" before you answer it.** The answer is the point: *"Not the station's database. A test that needs the college's server is a test I cannot run on a plane, and it is a test that fails when the network does."*
+- [ ] 📖 *"Two errors, both in Program.cs. Save and Load want a DeskContext now, and Program.cs still hands them a file name."*
+- [ ] **Open `week-10/Lab/Program.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `string switchboardFile = "week-10/switchboard.json";` — one hit. Select that line and paste this over it**
 
-- [ ] **One package on the test project**
+  ```csharp
+  DeskContext db = new DeskContext();
+  ```
+
+- [ ] 📖 *"That line makes the database, once, for the whole shift."*
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Load(switchboardFile);` — one hit. Make that line read**
+
+  ```csharp
+  switchboard.Load(db);
+  ```
+
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Save(switchboardFile);` — one hit. Make that line read**
+
+  ```csharp
+  switchboard.Save(db);
+  ```
 
   ```bash
-  dotnet add week-10/Haldane.Tests package Microsoft.EntityFrameworkCore.InMemory
+  dotnet build week-10/Lab
   ```
 
-- [ ] **Open `week-10/Haldane.Tests/WatchTests.cs`.** At the top, above `namespace Haldane.Tests;`, paste
+  ```
+      0 Error(s)
+  ```
+
+- [ ] **Now the tests**
+
+  ```bash
+  dotnet test week-10/Lab.Tests
+  ```
+
+  ```
+  SwitchboardTests.cs(21,20): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+  SwitchboardTests.cs(24,23): error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'
+  ```
+
+- [ ] 📖 *"Two more errors, both in one test. ACallerRemembersTheirCalls saves a switchboard to a scratch file and reads it back. Save doesn't take a file any more."*
+- [ ] 🎯 **Ask, and wait:** *"So should this test use the college's server?"*
+- [ ] 📖 *"Then it fails whenever the network does, and it needs my password. A test needs somewhere to keep rows that isn't a server. EF Core has one: a table that lives inside the test run. It's one more package, on the test project."*
+
+  ```bash
+  dotnet add week-10/Lab.Tests package Microsoft.EntityFrameworkCore.InMemory --version 10.0.13
+  ```
+
+- [ ] **Open `week-10/Lab.Tests/SwitchboardTests.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `namespace Lab.Tests;` — one hit. Select that line and paste this over it**
 
   ```csharp
   using Microsoft.EntityFrameworkCore;
 
+  namespace Lab.Tests;
   ```
 
-- [ ] **Then <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public void TheLogSurvivesARestart()`** — one hit. **Select from the line above it that reads `[Fact]` down to and including the closing `}` of that method** — the last line before `    // Week 8. The book is in time order` — **and paste this over it**
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `string path = Path.Combine(Path.GetTempPath(), "kdxr-demo-switchboard.json");` — one hit. Select from that line down to and including `File.Delete(path);`, and paste this over it**
 
   ```csharp
+          DbContextOptions<DeskContext> options = new DbContextOptionsBuilder<DeskContext>()
+              .UseInMemoryDatabase(Guid.NewGuid().ToString())
+              .Options;
+  ```
+
+- [ ] 📖 *"These three lines describe a table that lives inside the test, with a new name every time. No server, no password, no network."*
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `board.Save(path);` — one hit. Make that line read**
+
+  ```csharp
+          board.Save(new DeskContext(options));
+  ```
+
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `reopened.Load(path);` — one hit. Make that line read**
+
+  ```csharp
+          reopened.Load(new DeskContext(options));
+  ```
+
+- [ ] 📖 **Highlight `new DeskContext(options)`:** *"new DeskContext with options uses the second constructor, the one I said I'd need later. The test hands the context somewhere else to keep its rows."*
+- [ ] 🎞️ **GO TO SLIDE 4** — *A table that lives inside the test* · *"The desk makes a DeskContext with nothing, and it goes to the secret store and the server. A test makes one with options, and the rows stay inside the test run. Same Save, same Load, two places to keep the rows."*
+- [ ] **Run the suite**
+
+  ```bash
+  dotnet test week-10/Lab.Tests
+  ```
+
+  ```
+  Total tests: 7
+       Passed: 7
+  ```
+
+- [ ] 📖 *"Seven passed. The test saves Dorothy into one context and reads her back through another, so it would fail if Save or Load were wrong."*
+
+- [ ] 📖 *"One tidy-up. Nothing reads JSON now, so the JsonInclude attributes on Caller have nothing to do."*
+- [ ] **In `Caller.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int CallsTonight { get; private set; }` — one hit. Delete the `[JsonInclude]` line directly above it**
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Song? Favorite { get; private set; }` — one hit. Delete the `[JsonInclude]` line directly above it.** `[NotMapped]` stays
+- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `using System.Text.Json.Serialization;` — one hit. Delete that line**
+
+  ```bash
+  dotnet build week-10/Lab
+  ```
+
+  ```
+      0 Warning(s)
+      0 Error(s)
+  ```
+
+- [ ] **In the Explorer, delete `week-10/switchboard.json`.** It's from §3's run, and nothing reads it now
+- [ ] **Run the desk: DJ name, then `c`, then `q`**
+
+  ```bash
+  dotnet run --project week-10/Lab
+  ```
+
+  ```
+  │ Dorothy │ 3     │ -         │
+  ```
+
+- [ ] 📖 *"The usual three callers. The table was empty, so Load kept them. Then I quit, and Save put them in the table."*
+- [ ] **Look in `week-10/` in the Explorer**
+- [ ] 📖 *"No switchboard.json. The rotation.json is still here, because the rotation is your job tonight."*
+- [ ] **SQL Server view: right-click `dbo.Callers` → Select Top 1000**
+
+  | Id | Name | CallsTonight |
+  |---|---|---|
+  | 1 | Dorothy | 3 |
+  | 2 | Bex | 1 |
+  | 3 | Teodoro | 1 |
+
+- [ ] 🎯 *"Dorothy, Bex and Teodoro are in the table, with an Id each, filled in by the database. And I am not reading these rows out of my program. The desk is shut. That is a query against a server that I don't own."*
+
+- [ ] **Commit it in the demo repo.** Silent
+
+  ```bash
+  git add . && git commit -m "week 10: the switchboard moves into the database"
+  ```
+
+- [ ] **Push it to the starters repo.** Silent
+
+  ```bash
+  cp week-10/Lab/Switchboard.cs week-10/Lab/Caller.cs ../dotnet-db-starters/demo/week-10/ && cp week-10/Lab.Tests/SwitchboardTests.cs ../dotnet-db-starters/demo/week-10/
+  ```
+
+  ```bash
+  git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: the switchboard moves into the database"
+  ```
+
+  ```bash
+  git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
+  ```
+
+---
+
+## Lab D · Task 4 — 25 minutes
+
+- [ ] **Lids up. The lab README, at *Task 4 in full*.**
+- [ ] 📖 *"Task 4: copy my three files in. Your build breaks in two places, and they're the two lines I just fixed. Then Save and Load for the rotation, the same as mine. Then your two tests that used a file. Then run the desk twice. The second run crashes on the way out, and that is the next part of the demo. Stop at the stop note after the commit."*
+- [ ] 🎯 **Circulate hard — this is the lab's payoff.** Ask anybody who has run the desk to show you `dbo.Carts` in the SQL Server view, and the week folder with no `.json` file in it
+- [ ] 🎯 **A table that stays empty, with nothing complaining,** is a `Save` with no `db.SaveChanges()`. Check 4 says so
+
+---
+
+## ☕ Break
+
+---
+
+## 5 · The second night
+
+- [ ] 📖 *"The callers are in the table. Let's start the next shift and see if they come back."*
+- [ ] **Run the desk: DJ name, then `c`**
+
+  ```bash
+  dotnet run --project week-10/Lab
+  ```
+
+  ```
+  │ Dorothy │ 3     │ -         │
+  ```
+
+- [ ] 📖 *"Dorothy, Bex and Teodoro, out of the database, with their calls. There is no file."*
+- [ ] **Without quitting: `r`, caller `Dorothy`, song `1`. Then `c`**
+
+  ```
+  │ Dorothy │ 4     │ Nightjar  │
+  ```
+
+- [ ] 📖 *"Dorothy rang again, so she has four calls."*
+- [ ] **Press `q`**
+
+  ```
+  Cannot insert explicit value for identity column in table 'Callers' when IDENTITY_INSERT is set to OFF.
+  ```
+
+- [ ] 💥 **Let it sit. Then ask, and wait:** *"The desk crashed on the way out. Saving worked the first time. What's different about this shift?"*
+- [ ] 📖 *"The first time, every caller was new, with Id zero. This time every caller came out of the table, carrying the number of its row. Save tried to Add each one again. Adding a row that already has a number is the thing the database refused."*
+- [ ] **SQL Server view: Select Top 1000 on `dbo.Callers` again**
+
+  | Id | Name | CallsTonight |
+  |---|---|---|
+  | 1 | Dorothy | 3 |
+
+- [ ] 📖 *"Dorothy still has three. Her fourth call never arrived."*
+
+- [ ] 📖 *"Before I fix Save, I'll write down what it should do, as a test. A caller who comes out of the table and rings again is still one row, and the row has the new call on it."*
+- [ ] **In the Explorer, right-click `week-10/Lab.Tests` → New File → `SecondSaveTests.cs`, and paste this in**
+
+  ```csharp
+  // Your instructor's fact about the second night, written before the fix.
+
+  using Microsoft.EntityFrameworkCore;
+
+  namespace Lab.Tests;
+
+  public class SecondSaveTests
+  {
       [Fact]
-      public void TheLogSurvivesARestart()
+      public void ACallerWhoRingsAgainIsStillOneRow()
       {
-          // Somewhere of its own, named after this run, so two tests going at
-          // the same time can never see each other's rows.
-          DbContextOptions<StationContext> somewhereElse =
-              new DbContextOptionsBuilder<StationContext>()
-                  .UseInMemoryDatabase("haldane-" + Guid.NewGuid())
-                  .Options;
+          DbContextOptions<DeskContext> options = new DbContextOptionsBuilder<DeskContext>()
+              .UseInMemoryDatabase(Guid.NewGuid().ToString())
+              .Options;
 
-          List<CrewMember> crew = new List<CrewMember>();
-          CrewMember okonkwo = new CrewMember("Okonkwo");
-          crew.Add(okonkwo);
+          Switchboard board = new Switchboard();
+          board.Take("Dorothy");
+          board.Save(new DeskContext(options));
 
-          Watch watch = new Watch();
-          watch.SignOut(okonkwo, "MET RUN", "15:00");
+          DeskContext db = new DeskContext(options);
+          Switchboard nextNight = new Switchboard();
+          nextNight.Load(db);
+          nextNight.Take("Dorothy");
+          nextNight.Save(db);
 
-          using (StationContext db = new StationContext(somewhereElse))
-          {
-              watch.Save(db);
-          }
-
-          // A second watch, with nothing in it, and a second context.
-          Watch reopened = new Watch();
-
-          using (StationContext db = new StationContext(somewhereElse))
-          {
-              reopened.Load(db, crew);
-          }
+          Switchboard reopened = new Switchboard();
+          reopened.Load(new DeskContext(options));
 
           Assert.Equal(1, reopened.Count);
-          Assert.Equal("MET RUN", reopened.SignOuts()[0].Reason);
-
-          // And it is the man himself, not a second Okonkwo wearing his name.
-          Assert.Same(okonkwo, reopened.SignOuts()[0].Who);
+          Assert.Equal(2, reopened.Find("Dorothy")!.CallsTonight);
       }
+  }
   ```
 
-- [ ] 🎯 **Now the second constructor pays off, and this is §2's loose end being tied** — *"Two segments ago I wrote a constructor that takes options and I would not tell you what it was for. This is what it is for. The test is telling the context where to keep its rows, and where it says is a table that exists inside this test and nowhere else."*
-- [ ] 📖 **Then the `IsConfigured` line, which now explains itself** — *"And that is why `OnConfiguring` asks whether somebody already said. When the test has said, the connection string is never looked at."*
+- [ ] 📖 **Highlight the first `board.Save`:** *"The first night. Dorothy rings once, and she's saved."*
+- [ ] 📖 **Highlight the three `nextNight` lines:** *"The next night. One DeskContext for the whole night, the way the desk does it. Dorothy is loaded, rings again, and is saved."*
+- [ ] 📖 **Highlight the two asserts:** *"Then a third switchboard reads the table. It should hold one Dorothy, with two calls."*
+- [ ] 🎯 **Ask for the color, and wait.** *"Red or green?"*
 
   ```bash
-  dotnet test week-10/Haldane.Tests
+  dotnet test week-10/Lab.Tests
   ```
 
   ```
-  Total tests: 5
-       Passed: 5
+    Failed Lab.Tests.SecondSaveTests.ACallerWhoRingsAgainIsStillOneRow
+    Error Message:
+     System.ArgumentException : An item with the same key has already been added. Key: 1
   ```
 
-- [ ] 🎞️ **GO TO SLIDE 9** — *A test that needs no database*
-- [ ] 🎯 **Land it, one idea per sentence** — *"Five again. That suite just proved the log survives a restart. It did it with no server, no password and no network, in milliseconds. The rules live in a class, and the class does not know where the database is — that is the only reason this is possible."*
+- [ ] 📖 *"Red. The table in the test words it differently: an item with the same key. Key one is Dorothy's Id. It's the same mistake as the crash."*
 
-- [ ] **Now run the desk, and sign somebody out**
+- [ ] 📖 **Before you change Save, say what it does now:** *"Right now Save adds every caller. I need it to add only the callers with Id zero, and update the rest."*
+- [ ] **In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `db.Callers.Add(caller);` — one hit. Select that one line and paste this over it**
+
+  ```csharp
+              if (caller.Id == 0)
+              {
+                  db.Callers.Add(caller);
+              }
+              else
+              {
+                  db.Callers.Update(caller);
+              }
+  ```
+
+- [ ] 📖 **Highlight `caller.Id == 0`:** *"Id zero has never been saved, so Add puts in a new row."*
+- [ ] 📖 **Highlight `db.Callers.Update(caller);`:** *"Any other Id is a row the table already has. Update changes that row."*
 
   ```bash
-  dotnet run --project week-10/Haldane
+  dotnet test week-10/Lab.Tests
   ```
 
-- [ ] **Press `o`. Name `Nakamura`, reason `DIG OUT`, back by `16:20`**
-
   ```
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │ 1     │
-  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 1     │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 1     │
-  │ 16:33 │ Nakamura  │ DIG OUT │ 16:20    │ OUT    │ 1     │
-  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
-  4 people outside.
+  Total tests: 8
+       Passed: 8
   ```
 
-  - ⚠️ **His time will be yours, not `16:33`** — the desk stamps the station's clock
-- [ ] **Press `q`.** That is the watch handed over, so the book gets written up
-
-- [ ] 💥 **Run it again**
+- [ ] 📖 *"Eight passed. Now the desk."*
+- [ ] **Run the desk: DJ name, then `r`, caller `Dorothy`, song `1`, then `c`, then `q`**
 
   ```bash
-  dotnet run --project week-10/Haldane
+  dotnet run --project week-10/Lab
   ```
 
   ```
-  │ 09:05 │ Lindqvist │ FUEL    │ 10:30    │ OUT    │ 1     │
-  │ 14:20 │ Okonkwo   │ MET RUN │ 15:00    │ OUT    │ 1     │
-  │ 14:20 │ Reyes     │ DIG OUT │ 14:45    │ OUT    │ 1     │
-  │ 16:33 │ Nakamura  │ DIG OUT │ 16:20    │ OUT    │ 1     │
-  └───────┴───────────┴─────────┴──────────┴────────┴───────┘
-  4 people outside.
+  │ Dorothy │ 4     │ Nightjar  │
   ```
 
-- [ ] 🎯 **Collect it by name — week three, second time** — *"There he is. Week eight, that came out of a file. Look in `week-10` — there is no file. There is a project and a met book, and that is all."*
-- [ ] **Press `q`**
+- [ ] 📖 *"Four calls, and no crash on the way out."*
+- [ ] **SQL Server view: Select Top 1000 on `dbo.Callers`**
 
-- [ ] 🎯 **Now the half a file could never do.** Back to the **SQL Server** view, right-click `dbo.Log` → **Select Top 1000**
-- [ ] 💥 **Point at Nakamura's row and say where you are** — *"That is the sign-out I just typed. And I am not reading it out of my program — this is a query, against the server, and my program is closed."*
-- [ ] 🎞️ **GO TO SLIDE 10** — *Round two*
-- [ ] 🎯 **Make the claim exact, because it is the week's promise and the room has been waiting since week eight** — *"A file is still your file. It is on your laptop, in your folder, and nobody else can see it. This is on a machine none of us owns, and anybody with an account can read it. That is what changed tonight."*
-- [ ] 💡 **If somebody asks why the Id column starts at a number and not at 1** — *"Because Save empties the table and writes the whole book back every time the desk closes, which is exactly what the file did. The database numbers every row it has ever been handed. Next week we stop doing that."*
+  | Id | Name | CallsTonight |
+  |---|---|---|
+  | 1 | Dorothy | 4 |
 
-- [ ] **Save it. Silent**
+- [ ] 📖 *"Still one Dorothy, and her row has four calls."*
+
+- [ ] **Commit it in the demo repo.** Silent
 
   ```bash
-  git add . && git commit -m "week 10: the log moves into the database"
+  git add . && git commit -m "week 10: the second night"
+  ```
+
+- [ ] **Push it to the starters repo.** Silent
+
+  ```bash
+  cp week-10/Lab/Switchboard.cs ../dotnet-db-starters/demo/week-10/ && cp week-10/Lab.Tests/SecondSaveTests.cs ../dotnet-db-starters/demo/week-10/
+  ```
+
+  ```bash
+  git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: the second night"
+  ```
+
+  ```bash
+  git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
   ```
 
 ---
 
-## 6 · 💥 The same question, two answers *(slide 11)*
+## Lab E · Task 5 — 15 minutes
 
-- [ ] 📖 **Set the scene plainly, no build-up** — *"One more thing, and I only found it because I was tired and typed badly."*
+- [ ] **Lids up. The lab README, at *Task 5 in full*.**
+- [ ] 📖 *"Task 5: copy my two files in, and run the desk. It gets further than before, and then your rotation crashes, on Carts this time. Write your test first, see it red, then the if and else. Stop at the stop note after the commit."*
+- [ ] 🎯 **Circulating:** a student who writes the fix first and the test after has skipped the point. Ask *"what color was your test the first time you ran it?"*
+
+---
+
+## 6 · The same name, twice
+
+- [ ] **Run the desk: DJ name, then `r`, caller `dorothy`, all lower case, then press Enter at the song prompt (Enter picks the next song in the rotation, and the first request in a run gets Nightjar). Then `c`, then `q`**
 
   ```bash
-  dotnet run --project week-10/Haldane
+  dotnet run --project week-10/Lab
   ```
 
-- [ ] **Press `b`. At `Who's back:` type `reyes` — lower case, deliberately, and do not comment on it**
-
   ```
-    Who's back:   Nobody outside by that name.
+  │ Dorothy │ 4     │ -         │
+  │ dorothy │ 1     │ Nightjar  │
   ```
 
-- [ ] 💥 **Point at the board, which still has her on it** — *"Reyes is on that board. I can see her. The desk says there is nobody outside by that name."*
-- [ ] **Press `q`**
-
-- [ ] 🎯 **Now ask the same question somewhere else.** In the **SQL Server** view, **New Query**, and run it with <kbd>⇧⌘E</kbd> / <kbd>Ctrl⇧E</kbd>
+- [ ] 📖 *"Two callers. The desk asked Find for dorothy, with a small d. Find compares every letter exactly, so it didn't find Dorothy, and the desk made a new caller."*
+- [ ] **SQL Server view: right-click `DB_KDXR_156101411_JSG` → New Query. Run this**
 
   ```sql
-  SELECT Kind, Time, Who, Reason, Expected, IsBack
-  FROM Log
-  WHERE Who = 'reyes';
+  SELECT * FROM Callers WHERE Name = 'dorothy';
   ```
 
-  ```
-  Kind     Time   Who    Reason   Expected  IsBack
-  SIGNOUT  14:20  Reyes  DIG OUT  14:45     0
-  ```
+  | Id | Name | CallsTonight |
+  |---|---|---|
+  | 1 | Dorothy | 4 |
+  | 4 | dorothy | 1 |
 
-- [ ] 💥 **Stop here and let them look at it** — *"Same station. Same log. Same word, spelled the same way both times. My program says there is no such person and the database hands me her sign-out."*
-- [ ] 🎞️ **GO TO SLIDE 11** — *The same question, two answers*
-- [ ] 🎯 **Then the mechanism, and keep it to two sentences** — *"C# compares strings letter by letter, and a capital R is not a small r. This server does not care about case at all — that is a setting on the database, and almost every SQL Server you ever meet is set that way."*
-- [ ] ⚠️ **And the consequence, in station terms** — *"So there are now two things that can answer a question about who is on the ice, and tonight they disagreed. Somebody sitting at that desk believes Reyes never signed out. She is outside."*
-- [ ] 💡 **Then hand the rest to week twelve and stop** — *"Nothing I wrote tonight chose that. It came with the database. When we start writing the questions in C# and letting the database answer them, that is week twelve, and this is going to matter a great deal."*
-
-- [ ] **Save it, and this is the one that pushes**
-
-  ```bash
-  git add . && git commit -m "week 10: what the database does not care about"
-  ```
-
-  - 💡 Then **Sync** in the Source Control view — one push, four commits
+- [ ] 💥 **Let it sit. Then ask:** *"I asked the database for dorothy with a small d. How many rows came back?"*
+- [ ] 📖 *"Two. C# says these are two different callers. The database says both of them are dorothy. This server compares text without caring about capital letters, and C# cares about every one."*
+- [ ] 📖 *"Right now the desk asks its own list, in C#. When the desk starts asking the database instead, the answer to that question changes."*
 
 ---
 
-## 7 · Hand off *(slide 12)*
+## Lab F · Finish, then start the homework — 22 minutes
 
-- [ ] 🎞️ **GO TO SLIDE 12** — *Lab: the carts leave the building*
-- [ ] 📖 **Say what the lab is** — *"The same move, at the radio station. The rotation is three carts and what each one has played, and tonight it stops being a file."*
-- [ ] ⚠️ **Then the one warning worth giving out loud, because it is where the room will stall** — *"You will make a database tonight, on the college's server, with your own account. Do that early — it is step three, not step nine. If anything is going to go wrong with it, you want it going wrong while I am standing here."*
-- [ ] 💡 **And the thing that surprises people** — *"My checks do not touch the server at all. They will go green on a laptop with the wifi off. Running the desk is the only thing that tells you your connection string is right."*
-- [ ] **Slide 12 stays up for the lab**
-
----
-
-## Lab · 50 minutes
-
-- [ ] **Circulate.** The three places to stand:
-  - **Setup, step 3** — the first `dotnet ef database update` against the college's server. Everything that is going to go wrong tonight goes wrong here, and it goes wrong for a handful of people at once
-  - **Task 2**, the `DbSet` line — a context with no `DbSet` compiles perfectly and check 2's message is the only thing that says so
-  - **Task 4**, `Save` — the missing `SaveChanges()`. The check says *nothing arrived*, which is exactly right and reads like a bigger problem than it is
+- [ ] **Lids up. The lab README, wherever each person is.** Anyone not finished works on their next task
+- [ ] 📖 **For anyone who's finished:** *"If your lab is done, open this week's homework and start it now, while I'm here. It's tonight's lab again, on your own project, and the first part needs your login. Do Part 1 and Task 1 and push your branch before you leave."*
+- [ ] 💡 *Now try to break it* and *⭐ Done early?* stay on the lab page for anyone who wants them. The first item of *Done early* is the case question from §6, on the carts. Don't ask for either
+- [ ] ⚠️ **Stop at 3:38 on the timing table, wherever the room is.** Whatever is left finishes at home
 
 ---
 
-## 8 · Wrap *(slide 13)*
+## 7 · Wrap *(slide 5)*
 
-- [ ] 🎞️ **GO TO SLIDE 13** — *Tonight, in one picture*
-- [ ] 📖 *"A class became a table. A migration made it. The password lives somewhere that is not the repo. And the log is on a machine that is not yours."*
-- [ ] **Homework: the registry moves into a database** — say the checks-copy line, and that this week's `Project.Checks` holds **four** checks
-- [ ] ⚠️ **Say the one thing about grading that changed, because they will notice it in the rubric** — *"From this week I cannot run your program. It needs your database and your password, and I have neither, and that is correct. The points that used to be for it running are for it compiling. My checks still run your code, the same as always."*
-- [ ] ⚠️ **Say the due date normally** — *"Next class."*
-- [ ] **Project repo URL in Canvas, and only that one**
-- [ ] 💡 **And set up next week** — *"Tonight one person wrote to one table. Next week, everyone in this room is on the same one."*
-
----
-
-**Prev:** [Week 9 Demo — Thirty Lines Become One](../../week-09/demo/) · **Next:** Week 11 Demo *(coming)*
+- [ ] 🎞️ **GO TO SLIDE 5** — *Tonight, in one picture* · *"The password lives in user secrets, outside the repo. A DbContext says which tables there are. migrations add writes the instructions, and database update carries them out on the server. Save adds the new rows and updates the old ones, then SaveChanges sends it all. And a test hands the context a table of its own."*
+- [ ] **Homework: your project repo URL in Canvas, and only that one**
+- [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. Five tasks, in the same order. If you finished the lab, you have done every step once."*
+- [ ] ⚠️ **Say the branch line out loud** — *"Your homework goes on a branch, same as every week. Nothing goes straight to main."*
+- [ ] ⚠️ **Say the checks line out loud** — *"Part 1 removes last week's checks and copies this week's in. Run both commands. This week's first check is called WeeksFourToNineStillHold. If yours says FourToEight, you are running last week's."*
+- [ ] ⚠️ **Say the grading change, because they'll see it in the rubric** — *"From this week I can't run your program. It needs your connection string, and that is correctly not in your repo. So the two points for running it are two points for building it. My checks and your own tests still run your code."*
+- [ ] ⚠️ **And say what a removed record does now** — *"One thing the homework says plainly. Save puts records in and changes them. It doesn't take a removed record out of the table yet, so a record you remove comes back the next time you run."*
+- [ ] 📖 **The due date** — *"This homework is due before our next class."*

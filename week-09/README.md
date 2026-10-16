@@ -32,4 +32,4 @@ Students can also say what a word does **when nothing matches** — that `First`
 - ⚠️ **Delete `week-09/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
 - **VS Code open on the demo repo's top**, and a browser tab on the lab README
 
-**Prev:** [Week 8 — File I/O, and the Night Stops Being Gone](../week-08/) · **Next:** [Week 10 — EF Core I: The Log Leaves the Building](../week-10/)
+**Prev:** [Week 8 — File I/O, and the Night Stops Being Gone](../week-08/) · **Next:** [Week 10 — EF Core I: The Carts Move In](../week-10/)

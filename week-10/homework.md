@@ -2,17 +2,28 @@
 
 **20 points · due before next class**
 
-Your registry has held records since week 4, remembered them since week 8, and answered questions about them since week 9. All of it has been on your laptop.
+> [!NOTE]
+> **A normal week.** Set in one class and due before the next one.
 
-Tonight it moves onto the college's SQL Server — **a machine that is not yours**, which is the one thing a file was never going to fix.
+Your registry has held records since week 4, remembered them in a file since week 8, and answered questions about them since week 9. All of it has lived in a file on your laptop. This week it moves into a database of your own, on the college's SQL Server, with **EF Core**.
 
-**Four things happen, and only the first is new thinking:** your record gets shaped for a table, a context says where the table is, a migration makes it, and `Save`/`Load` take a database instead of a path.
+**This homework is the lab again, on your own project.** Same five tasks, same order. Where the lab said `Rotation`, `Song`, `Carts`, `DeskContext` and `_songs`, you use your `Registry`, your record type, a table of your records, `ProjectContext`, and the list inside your `Registry`. If you finished the lab, you have already done every step once.
+
+**Three things are dictated, the way every name my checks look for has been since week 4:**
+
+```csharp
+public class ProjectContext : DbContext
+public void Save(ProjectContext db)
+public void Load(ProjectContext db)
+```
+
+`ProjectContext` is a new class you write in Task 2, spelled exactly that way. `Save` and `Load` are the two you already have, taking a `ProjectContext` instead of a path.
 
 > [!TIP]
-> **Keep [`lecture-notes.md`](lecture-notes.md) open in a second tab.** Every requirement below links to the section that shows it done, and [the troubleshooting section](lecture-notes.md#-troubleshooting) names this week's actual errors — there are more of them than usual, because tonight is the first time your program depends on a machine that can say no.
+> **Keep the [lab](lab/README.md) open in a second tab.** Each task below is the lab task with the same number. Every task also has a **Stuck? Show me the shape** box, written with placeholder names like `YourRecord` — swap in your own names before it will build.
 
 > [!IMPORTANT]
-> **Tonight's lab is the worked example for all of it.** KDXR's rotation made exactly this move, with different nouns. If you were in class, you have already done this once.
+> **Do Task 1 first, and early.** It is the part that talks to the college's server, so a problem with your login or the network turns up while you still have the whole week.
 
 ---
 
@@ -58,10 +69,10 @@ cp -r ../dotnet-db-starters/project/week-10/Project.Checks .
 ⚠️ **Don't skip the `rm`.** Copying over the top of the old folder is not enough: on Windows the copied files keep their old dates, `dotnet` decides nothing has changed, and it runs **last week's** checks again without telling you.
 
 > [!NOTE]
-> **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched.
+> **This one replaces my code and never yours.** `Project.Checks` is the checks project — you never edit it, so there is nothing of yours in there to lose. Your `Project/` folder isn't touched. *(It assumes `dotnet-db-starters` is a sibling of this repo, the same clone the lab pulls from.)*
 
 > [!WARNING]
-> **Skip this and every number below is wrong.** This week's `Project.Checks` holds **four** checks, and check 1 is called `Check1_WeeksFourToNineStillHold`. If you see a different first name, you are running last week's — come back and run the `rm` and the `cp` above, both of them.
+> **Skip this and every number below is wrong.** This week's `Project.Checks` holds five checks, and the first is called `Check1_WeeksFourToNineStillHold`. If yours is called `Check1_WeeksFourToEightStillHold`, you are running **week 9's** — come back and run the `rm` and the `cp` above, both of them.
 
 **Prove it landed:**
 
@@ -69,126 +80,144 @@ cp -r ../dotnet-db-starters/project/week-10/Project.Checks .
 dotnet test Project.Checks
 ```
 
-**1 / 4.** The green one is check 1 — weeks 4 through 9, still holding. The other three are tonight's.
+**1 / 5.** The green one is check 1 — weeks 4 through 9, still holding. The other four are this week's.
+
+**Commit it** — the week as you started it, the same commit the lab's Setup made:
+
+```bash
+git add .
+git commit -m "week 10: this week's checks"
+```
 
 ---
 
-## Part 2 — The packages, the tool, and a database of your own
+## Part 2 — The tasks
 
-**This is the part that talks to the college's server.** Do it before you write a line, so a problem with your login or the network surfaces while you still have the whole evening.
+**Two suites this week, so two counts** — the same two the lab had:
 
-**1. Four packages, on `Project`:**
+- **Mine:** `dotnet test Project.Checks` — **1** through Task 1, then **2, 3, 4, 5**.
+- **Yours:** `dotnet test Project.Tests` — the suite you have been growing since week 7. It has **6 facts** in it now, and gains one at Task 5.
+
+| # | Check | Whose | What to do |
+|---|---|---|---|
+| 1 | `Check1_WeeksFourToNineStillHold` | mine | Already green. The packages, and somewhere for a password. **[Task 1 in full ↓](#task-1-in-full)** |
+| 2 | `Check2_TheRecordIsShapedForATable` | mine | An `Id`, and a `ProjectContext`. **[Task 2 in full ↓](#task-2-in-full)** |
+| 3 | `Check3_ThereIsAMigration` | mine | The migration, and the table. **[Task 3 in full ↓](#task-3-in-full)** |
+| 4 | `Check4_TheRegistrySurvivesARestart` | mine | `Save` and `Load` take the database. **[Task 4 in full ↓](#task-4-in-full)** |
+| 5 | `Check5_ASecondSaveChangesTheRow` | mine | A record already in the table gets changed, not added again. **[Task 5 in full ↓](#task-5-in-full)** |
+| 5 | `Week10_ASecondSaveChangesTheRow` | **yours** | Your own fact about it, written first. **[Task 5 in full ↓](#task-5-in-full)** |
+
+⚠️ **Your fact's name is dictated exactly as spelled**, the way `Week9_FindComesBackEmptyHanded` was — it is what the grader reads out of *your* test run. `public void`, takes nothing, `[Fact]` on top. **Everything inside the braces is yours.**
+
+### Task 1 in full
+
+**The packages, and somewhere for a password.**
+
+**Check:** `Check1_WeeksFourToNineStillHold` — *mine, already green*
+
+This is the lab's Task 1. **Nothing turns green.** It is the setup every later task stands on.
+
+**1a — the EF tool.** You may have it from the lab already; this command installs it or updates it:
 
 ```bash
-dotnet add Project package Microsoft.EntityFrameworkCore.SqlServer
+dotnet tool update --global dotnet-ef
+```
+
+**1b — five packages on `Project`.** The same five as the lab, in the same order:
+
+```bash
+dotnet add Project package Microsoft.EntityFrameworkCore.SqlServer --version 10.0.13
 ```
 
 ```bash
-dotnet add Project package Microsoft.EntityFrameworkCore.Design
+dotnet add Project package System.Security.Cryptography.Pkcs --version 10.0.13
 ```
 
 ```bash
-dotnet add Project package Microsoft.Extensions.Configuration
+dotnet add Project package Microsoft.EntityFrameworkCore.Design --version 10.0.13
 ```
 
 ```bash
-dotnet add Project package Microsoft.Extensions.Configuration.UserSecrets
+dotnet add Project package Microsoft.Extensions.Configuration --version 10.0.13
 ```
-
-The first two are the database — one talks to SQL Server, one is the tooling that writes migrations. [The other two are because a console app does not get configuration for free](lecture-notes.md#a-console-app-builds-its-own-configuration).
-
-**2. One on `Project.Tests`**, so your own suite can keep rows without a server:
 
 ```bash
-dotnet add Project.Tests package Microsoft.EntityFrameworkCore.InMemory
+dotnet add Project package Microsoft.Extensions.Configuration.UserSecrets --version 10.0.13
 ```
 
-**3. The EF tool** — once per machine, ever:
+The second one is the fixed version of a package the first one uses, and [the lab's Task 1b says why](lab/README.md#1b--five-packages-on-the-desk). **Build, and check the bottom says `0 Warning(s)`:**
 
 ```bash
-dotnet tool install --global dotnet-ef
+dotnet build Project
 ```
 
-> [!NOTE]
-> **`tool 'dotnet-ef' is already installed`?** Good. `dotnet tool update --global dotnet-ef` instead — a stale one prints a version warning on every command.
-
-**4. Turn on the secret store:**
+**1c — [your project's own secret store](lecture-notes.md#user-secrets--a-password-outside-the-repo).** Turn it on:
 
 ```bash
 dotnet user-secrets init --project Project
 ```
 
-> [!WARNING]
-> ⚠️ **Skip this and NOTHING COMPLAINS.** [`AddUserSecrets` on a project with no `UserSecretsId` does not throw — it reads back empty](lecture-notes.md#dotnet-user-secrets--the-four-commands), and you find out much later as `The ConnectionString property has not been initialized.` **If you hit that error tonight, this is the first thing to check.**
-
-**5. Your connection string.** Swap all four `YOUR-…` parts — the server is the one from class, the login and password are your college SQL account, and **the database name is yours**:
+**Then your connection string.** It is the lab's, with two changes: the key is `ConnectionStrings:Project`, and **the database is a different one**, named after your topic. Swap all four `YOUR-…` parts:
 
 ```bash
 dotnet user-secrets set "ConnectionStrings:Project" "Server=YOUR-SERVER;Database=DB_YOURTOPIC_156101411_YOURINITIALS;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True" --project Project
 ```
 
 > [!IMPORTANT]
-> **[The name has a shape and it is not optional](lecture-notes.md#naming-your-database): `DB_<APP>_<COURSE-NUMBER>_<INITIALS>`.** Lighthouses becomes `DB_LIGHTHOUSES_156101411_ABL`. **It must be a different database from the lab's** — `DB_KDXR_…` is the desk's, this one is your project's.
->
-> **`TrustServerCertificate=True` is not decoration.** Without it the connection is refused outright.
+> **[The name has a shape](lecture-notes.md#naming-your-database): `DB_<TOPIC>_156101411_<INITIALS>`.** Lighthouses becomes `DB_LIGHTHOUSES_156101411_ABL`. **It must not be the lab's database.** `DB_KDXR_…` is the desk's; this one is your project's.
+
+```bash
+dotnet user-secrets list --project Project
+```
+
+That should show your connection string, on your own screen. *(It shows the password too. Don't paste its output anywhere.)*
 
 > [!CAUTION]
-> **Your connection string has your password in it. It does not go in the repo, it does not go in a file inside your project folder, and it does not go in a comment.** That is the whole reason user secrets exist, and [it is the thing week 2 promised you an answer to](lecture-notes.md#where-secrets-actually-live-and-the-restore-drill). **Keep a copy somewhere that is not the repo** — you will need it again the first time a lab PC reboots.
+> **Your connection string has your password in it. It does not go in the repo, in a file inside your project folder, or in a comment.** Keep a copy somewhere that isn't the repo — you'll need it again the first time a lab PC reboots.
 
-**6. Commit what you have so far.** The csproj changed:
+**1d — the SQL Server view.** If you did the lab, it already knows your server. If you didn't: [the lab's Task 1d](lab/README.md#1d--prove-your-account-works) installs the extension and connects.
+
+**Mine:**
+
+```bash
+dotnet test Project.Checks
+```
+
+**1 / 5 — still.**
 
 ```bash
 git add .
-git commit -m "EF Core, and somewhere for the password to live"
+git commit -m "EF Core, and somewhere for the password"
 ```
 
 ---
 
-## Part 3 — The code
-
-**Two suites this week, so two counts:**
-
-- **Mine:** `dotnet test Project.Checks` — climbs **1 → 2 → 3 → 4**.
-- **Yours:** `dotnet test Project.Tests` — **6 facts** now, 7 by the end.
-
-| # | Check | Whose | What to do |
-|---|---|---|---|
-| 1 | `Check1_WeeksFourToNineStillHold` | mine | **Nothing to write.** Green before you start. |
-| 2 | `Check2_TheRecordIsShapedForATable` | mine | An `Id`, and a context. **[Task 2 in full ↓](#task-2-in-full)** |
-| 3 | `Check3_ThereIsAMigration` | mine | Make the table. **[Task 3 in full ↓](#task-3-in-full)** |
-| 4 | `Check4_TheRegistrySurvivesARestart` | mine | `Save` and `Load`. **[Task 4 in full ↓](#task-4-in-full)** |
-| 5 | `Week10_AnEmptyTableLeavesTheRegistryAlone` | **yours** | One fact, in your own suite. **[Task 5 in full ↓](#task-5-in-full)** |
-
-⚠️ **Row 5's name is dictated exactly as spelled**, the way `Week9_FindComesBackEmptyHanded` was — it is what the grader reads out of *your* test run. `public void`, takes nothing, `[Fact]` on top. **Everything inside the braces is yours.**
-
 ### Task 2 in full
 
-**An `Id`, and somewhere to put the table.**
+**An `Id`, and a `ProjectContext`.**
 
 **Check:** `Check2_TheRecordIsShapedForATable` — *mine*
 
-**1. Your record gets an `Id`.** At the top of your record class:
+This is the lab's Task 2.
+
+**1 — [An `Id` on your record](lecture-notes.md#a-class-becomes-a-table).** At the top of your record class, the same line as the lab's `Song`:
 
 ```csharp
-public int Id { get; set; }
+    public int Id { get; set; }
 ```
 
-[It is the database's own name for the row](lecture-notes.md#id-and-why-the-database-wants-one) — nothing in your topic has one, you never set it, and the database fills it in.
+**2 — A new file, `Project/ProjectContext.cs`.** It is [the lab's `DeskContext`](lecture-notes.md#the-dbcontext) with three swaps: the class is `ProjectContext`, there is one `DbSet` for your records, and the key it reads is `ConnectionStrings:Project`. **Name the `DbSet` after your records, in the plural.** That becomes the table's name.
 
-**2. Anything your record WORKS OUT rather than KEEPS gets `[NotMapped]`.** If you have a property like `Summary => $"{Name} ({Year})"` or a computed length, it is not a fact and it should not be a column:
+| In the lab | In yours |
+|---|---|
+| `DeskContext` | `ProjectContext` — dictated |
+| `DbSet<Song> Carts` (and `Callers`) | one `DbSet` of your records — written `DbSet<YourRecord> YourRecords` below |
+| `"ConnectionStrings:Desk"` | `"ConnectionStrings:Project"` |
 
-```csharp
-using System.ComponentModel.DataAnnotations.Schema;
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
 
-[NotMapped]
-public string Summary => $"{Name} ({Year})";
-```
-
-💡 **`Line()` from week 6 is a method, not a property, so it is already ignored.** This is only about **get-only properties**. [The test is one question.](lecture-notes.md#notmapped--the-things-a-class-works-out)
-
-💡 **And `[JsonInclude]` comes off** whatever you put it on in week 8. [EF Core sets private setters without being asked.](lecture-notes.md#notmapped--the-things-a-class-works-out)
-
-**3. A new file, `Project/ProjectContext.cs`.** ⚠️ **The class name is dictated — `ProjectContext`, spelled exactly that way.** It is the second fixed name in the whole contract after `Registry`, and for the same reason: my checks have to find it without knowing your topic. **Swap `YourRecord` for your own type and the DbSet name for something that reads like a table of them:**
+Swap `YourRecord` for your record type, and `YourRecords` for a name for the table, or it will not build.
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -223,15 +252,18 @@ public class ProjectContext : DbContext
 }
 ```
 
-⚠️ **Both constructors are required and neither is optional.** The empty one is what `dotnet ef` uses — delete it and Task 3 fails with *Unable to create a 'DbContext'*. The other one is [what lets anything test this without a database](lecture-notes.md#testing-database-code-without-a-database), including my checks. [The notes say what each line is doing.](lecture-notes.md#the-dbcontext)
-
-**Run mine:**
+</details>
 
 ```bash
 dotnet test Project.Checks
 ```
 
-**2 / 4.**
+**2 / 5 — checks 1 and 2.**
+
+> [!WARNING]
+> **Check 2 red with *EF Core could not work out a table for your record*?** It quotes EF Core's own message, and there are two you are likely to see. Both are the ones your instructor hit with `Caller` in the demo:
+> - **`Cannot bind 'name' in 'YourRecord(string name)'`** — the property that holds the name has only a `get`. Give it a `private set`: `public string Name { get; private set; }`.
+> - **`The entity type 'Something' requires a primary key`, naming a class your context never mentions** — one of your record's properties holds that class. Put `[NotMapped]` above it, with `using System.ComponentModel.DataAnnotations.Schema;` at the top of the file.
 
 ```bash
 git add .
@@ -242,44 +274,31 @@ git commit -m "A record the database can keep"
 
 ### Task 3 in full
 
-**Make the table.**
+**The migration, and the table.**
 
 **Check:** `Check3_ThereIsAMigration` — *mine*
 
-**1. Write the instructions:**
+This is the lab's Task 3, with `--project Project`.
 
 ```bash
 dotnet ef migrations add TheRegistryMovesIn --project Project
 ```
 
-This **connects to nothing.** It compares your classes to what it wrote last time and writes a file.
+**Read what it wrote.** Open `Project/Migrations/`, the file ending `_TheRegistryMovesIn.cs`, and find `Up()`. **Count the columns against your record class.** Every property your record keeps should be there, and nothing it works out.
 
-**2. Read what it wrote** — this is the point of the task, not a formality. Open `Project/Migrations/`, the file ending `_TheRegistryMovesIn.cs`, and find `Up()`.
-
-**That is your own record class with the column types filled in.** ⚠️ **Count the columns against your class.** Anything you marked `[NotMapped]` should not be there; anything the record actually keeps should be. [If something is missing or something extra turned up, that is Task 2 rather than this one.](lecture-notes.md#reading-the-up-method)
-
-**3. Now carry them out.** This is the command that talks to the server:
+**Then make the table** — [the command that talks to the server](lecture-notes.md#migrations--add-then-update):
 
 ```bash
 dotnet ef database update --project Project
 ```
 
-It **creates your database**, because you do not have one yet, and then it makes the table.
-
-> [!CAUTION]
-> **This is where an evening goes if your connection string is wrong**, and every error it can give you is [in the troubleshooting table](lecture-notes.md#-troubleshooting) with what it means. The four commonest: a wrong server, a wrong password, a missing `TrustServerCertificate=True`, and a skipped `user-secrets init`.
-
-**4. Look at it.** If you were not in the lab, install the extension first: Extensions (<kbd>⇧⌘X</kbd> / <kbd>Ctrl⇧X</kbd>) → **`SQL Server (mssql)`**, publisher **Microsoft**, id `ms-mssql.mssql`. **It is the only database tool this course uses.**
-
-Then VS Code's **SQL Server** view (<kbd>⌘⌥D</kbd> / <kbd>Ctrl+Alt+D</kbd>) → **Add Connection** if you have not already → your server → Databases → yours → Tables → right-click your table → **Select Top 1000**.
-
-**Empty, and that is right.** The table exists and your program has never written to it.
+**Look at it.** In the SQL Server view, right-click your connection → **Refresh** → Databases → yours → Tables → right-click your table → **Select Top 1000**. **Empty, and that is right.**
 
 ```bash
 dotnet test Project.Checks
 ```
 
-**3 / 4.**
+**3 / 5 — checks 1, 2 and 3.**
 
 ```bash
 git add .
@@ -290,99 +309,254 @@ git commit -m "The migration that made the table"
 
 ### Task 4 in full
 
-**`Save` and `Load` take a database.**
+**`Save` and `Load` take the database.**
 
 **Check:** `Check4_TheRegistrySurvivesARestart` — *mine*
 
-⚠️ **Their signatures are dictated, and the change is exactly the parameter:**
+This is the lab's Task 4.
+
+**1 — `Save` and `Load`, in `Project/Registry.cs`.** Replace your `Save(string path)` and `Load(string path)` with two that take a `ProjectContext`. The moves are [the lab's](lecture-notes.md#save--add-then-savechanges):
+
+- **`Save`**: `Add` each record to your `DbSet`, then **`db.SaveChanges()`** after the loop.
+- **`Load`**: read the table into a list, in the order the records first went in, with `OrderBy` on `Id` and `ToList()`. **If the list is empty, `return`** — [that's the first run](lecture-notes.md#load-and-the-first-night). Otherwise `Clear()` your list, then `AddRange`.
+- Delete `using System.Text.Json;` from the top of `Registry.cs`, and any `[JsonInclude]` on your record, with `using System.Text.Json.Serialization;`. Nothing reads a file now.
+
+| In the lab | In yours |
+|---|---|
+| `Song` | your record type — written `YourRecord` below |
+| `db.Carts` | your `DbSet` — written `db.YourRecords` below |
+| `_songs` | the list inside your `Registry` — written `_yourList` below |
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `YourRecord`, `YourRecords` and `_yourList` for your own names, or it will not build.
 
 ```csharp
-public void Save(ProjectContext db)
-public void Load(ProjectContext db)
+    public void Save(ProjectContext db)
+    {
+        foreach (YourRecord item in _yourList)
+        {
+            db.YourRecords.Add(item);
+        }
+
+        db.SaveChanges();
+    }
+
+    public void Load(ProjectContext db)
+    {
+        List<YourRecord> loaded = db.YourRecords.OrderBy(item => item.Id).ToList();
+
+        if (loaded.Count == 0)
+        {
+            return;
+        }
+
+        _yourList.Clear();
+
+        _yourList.AddRange(loaded);
+    }
 ```
 
-**1. `Save`.** [The notes work the whole method through](lecture-notes.md#save--add-update-or-remove), and the shape is:
+</details>
 
-- **Every record is one of three things, and its `Id` says which.** `Id == 0` has never been on file — it is new. Any other `Id` means the table already has that row, and the row changes. And a row the table has that your registry no longer holds comes off.
-- ⚠️ **Then one line sends the lot.** Without it nothing arrives and nothing complains — **it is the single most common failure this week.**
+**2 — `Program.cs`.** Build first, and read the errors:
 
-⚠️ **Week 8's version emptied the file and wrote it again. You cannot do that here** — [a record loaded out of row 3 is still carrying the number 3](lecture-notes.md#save--add-update-or-remove), and SQL Server will not let your program pick its own row numbers.
+```bash
+dotnet build Project
+```
 
-**2. `Load`.** Two things it has to get right, and **week 8 had both**:
+Every `CS1503: Argument 1: cannot convert from 'string' to 'ProjectContext'` is a line that still hands `Save` or `Load` a file name. **Do what the lab did:** the line that makes the file name becomes `ProjectContext db = new ProjectContext();`, and the two calls become `registry.Load(db);` and `registry.Save(db);`. If any other line printed the file name, `CS0103` names it. Change what it prints, or take it out.
 
-- **Loading is REPLACING.** `Program.cs` seeds records and *then* calls `Load`, so without a `Clear()` you end up holding twice as many.
-- ⚠️ ⚠️ **THE FIRST RUN.** Week 8 asked `File.Exists` first, because a program nobody has run has no file. **Your table is always there — the migration made it — but the first time it is EMPTY.** A `Load` that clears before it looks throws your seeded records away, and the next line of `Program.cs` reaches for one and finds nothing. [The notes say what to do about it.](lecture-notes.md#load--and-the-first-night)
+**3 — Your own suite.** It stops compiling, because `Week8_TheRegistrySurvivesARestart` hands `Save` and `Load` a path. Add the package the lab's tests needed:
 
-**3. `Program.cs`** — wherever it made a path and handed it over, it makes a context instead:
+```bash
+dotnet add Project.Tests package Microsoft.EntityFrameworkCore.InMemory --version 10.0.13
+```
+
+Then move that fact off the file, [the way the lab moved `ACartRemembersItsPlays`](lecture-notes.md#testing-without-a-database): `using Microsoft.EntityFrameworkCore;` at the top of the test file, the two `path` lines become the three below, and every `path` it hands over becomes `new ProjectContext(options)`.
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
 
 ```csharp
-ProjectContext db = new ProjectContext();
+        DbContextOptions<ProjectContext> options = new DbContextOptionsBuilder<ProjectContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
 ```
 
-and then `registry.Load(db);` near the top and `registry.Save(db);` near the end. ⚠️ **Anything else in `Program.cs` that printed the file name has to stop** — there isn't one any more.
+</details>
 
-**4. Your own suite will stop compiling**, and that is correct. `Week8_TheRegistrySurvivesARestart` hands `Save` a path. **Give it a table that lives inside the test instead** — [the notes have the shape](lecture-notes.md#testing-database-code-without-a-database), and it is the same move for both facts.
+```bash
+dotnet test Project.Tests
+```
 
-**Now run it. Twice.**
+**6 passed.**
+
+**4 — Run it twice.** If `registry.json` is at the top of your repo, delete it first — nothing reads it now.
 
 ```bash
 dotnet run --project Project
 ```
 
-Let it do whatever your program does, and let it finish.
+Let it finish. Then look at your table in the SQL Server view: **your records are there, with an `Id` each, and you are not reading them out of your program.**
 
 ```bash
 dotnet run --project Project
 ```
 
-**Your records are still there — out of a database, on a machine that is not yours.** Then look at the table in the SQL Server view: **that is your data, and you are not reading it out of your program.**
+**Your records come back out of the database.** And then, at the very end, it crashes:
+
+```
+Cannot insert explicit value for identity column in table
+```
+
+**That is Task 5.** Your records came out of the table carrying their `Id`, and `Save` tried to `Add` them a second time.
 
 ```bash
 dotnet test Project.Checks
 ```
 
-**4 / 4.**
+**4 / 5 — checks 1, 2, 3 and 4.**
 
 ```bash
 git add .
 git commit -m "The registry moves into the database"
 ```
 
+> [!NOTE]
+> **A record you take off with `Remove` comes back next run.** `Save` puts rows in and changes them. It doesn't take rows out of the table yet, and nothing this week grades it.
+
 ---
 
 ### Task 5 in full
 
-**One fact of your own, about the run that only happens once.**
+**A fact first, then a record already in the table gets changed, not added again.**
 
-**Check:** `Week10_AnEmptyTableLeavesTheRegistryAlone` — *yours*
+**Checks:** `Check5_ASecondSaveChangesTheRow` — *mine* · `Week10_ASecondSaveChangesTheRow` — *yours*
 
-Every fact in your suite so far describes something that happens every time. **This one describes something that happens once, ever, and then never again** — which is exactly why it is worth writing down. A first run is the state you cannot get back to by accident, and it is the state that crashes.
+This is the lab's Task 5.
 
-**In `Project.Tests`, add a `[Fact]` with that exact name.** What it has to show:
+#### First, the fact — before you touch `Save`
 
-- a registry **holding at least one record**
-- `Load`ed from a table **nobody has saved anything to**
-- and **the record is still there afterwards**
+**Write it in `Project.Tests`, beside `Week8_TheRegistrySurvivesARestart`.** The name is dictated: `Week10_ASecondSaveChangesTheRow`. The moves are the lab's `ACartAiredAgainIsStillOneRow`:
 
-[The in-memory shape is in the notes](lecture-notes.md#testing-database-code-without-a-database) — a fresh `Guid` in the database name, and the options constructor.
+- **Set the scene.** The three `options` lines. A `Registry` with one record from `NewItem("a name of yours")` in it, saved with `new ProjectContext(options)`.
+- **Do the thing: the next run.** One `ProjectContext db = new ProjectContext(options);`, used for both halves. A second registry, `nextRun`, loads from `db`. Find your record in it and **call your verb on it** — the method that moves the count your record keeps, like a lighthouse's `Visit()` moving `TimesVisited`. Then `nextRun.Save(db)`.
+- **Check the answer** in a third registry, `reopened`, loaded from a fresh `new ProjectContext(options)`: it holds 1 record, and the count your verb moves is 1. **Assert on `reopened`, never on the registry that saved.**
+
+| In the lab | In yours |
+|---|---|
+| `new Song("Nightjar", …)` | a record from `NewItem` — its type is written `YourRecord` below |
+| `nextNight.All()[0].Play()` | your verb, on the record `Find` hands back — written `YourVerb()` below |
+| `PlaysTonight` | the count your verb moves — written `YourCount` below |
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `YourRecord`, `YourVerb` and `YourCount` for your own names, and both names for a name of your own, or it will not build. If your verb takes an argument, give it one.
+
+```csharp
+    [Fact]
+    public void Week10_ASecondSaveChangesTheRow()
+    {
+        DbContextOptions<ProjectContext> options = new DbContextOptionsBuilder<ProjectContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+
+        Registry registry = new Registry();
+        registry.Add(registry.NewItem("a name of yours"));
+        registry.Save(new ProjectContext(options));
+
+        ProjectContext db = new ProjectContext(options);
+        Registry nextRun = new Registry();
+        nextRun.Load(db);
+        YourRecord item = nextRun.Find("a name of yours")!;
+        item.YourVerb();
+        nextRun.Save(db);
+
+        Registry reopened = new Registry();
+        reopened.Load(new ProjectContext(options));
+
+        Assert.Equal(1, reopened.Count);
+        Assert.Equal(1, reopened.Find("a name of yours")!.YourCount);
+    }
+```
+
+</details>
+
+**Run yours, and expect red:**
 
 ```bash
 dotnet test Project.Tests
 ```
 
-**7 passed.**
+```
+System.ArgumentException : An item with the same key has already been added. Key: 1
+```
 
-> [!TIP]
-> **Make it fail once.** Take the first-run guard out of `Load`, run your suite, and watch this fact go red. Put it back. [A test you have never seen fail is a test you are trusting rather than relying on.](../week-07/lecture-notes.md#make-it-fail-once)
+**Red, and it is the crash from Task 4.** The table inside the test words it differently.
+
+#### Now the fix
+
+**In `Save`, the one `Add` line becomes [an `if`/`else`](lecture-notes.md#the-second-save--add-or-update)**, the lab's: `Id` 0 is new, so `Add`. Anything else is a row the table already has, so `Update`.
+
+<details>
+<summary><b>Stuck? Show me the shape</b></summary>
+
+Swap `YourRecord`, `YourRecords` and `_yourList` for your own names, or it will not build.
+
+```csharp
+    public void Save(ProjectContext db)
+    {
+        foreach (YourRecord item in _yourList)
+        {
+            if (item.Id == 0)
+            {
+                db.YourRecords.Add(item);
+            }
+            else
+            {
+                db.YourRecords.Update(item);
+            }
+        }
+
+        db.SaveChanges();
+    }
+```
+
+</details>
+
+```bash
+dotnet test Project.Tests
+```
+
+**7 passed.** Then run your program twice more:
+
+```bash
+dotnet run --project Project
+```
+
+```bash
+dotnet run --project Project
+```
+
+**No crash, either time.** Look at the table: still one row per record, and the counts went up.
+
+```bash
+dotnet test Project.Checks
+```
+
+**5 / 5.**
 
 ```bash
 git add .
-git commit -m "A fact about the first run"
+git commit -m "A second save changes the row"
 ```
 
 ---
 
-## Part 4 — The pull request
+## Part 3 — The pull request
 
 ```bash
 git push -u origin the-registry-moves-in
@@ -390,7 +564,7 @@ git push -u origin the-registry-moves-in
 
 GitHub answers that push with a URL. Open it (or use the **Compare & pull request** banner), title it something that says what changed, and **read your own diff before you merge it**.
 
-⚠️ **Read it properly this week.** You have been handling a password all evening. **The diff is where you find out whether any of it got in** — if you see your connection string anywhere in those changes, stop and take it out before you merge.
+⚠️ **Read it properly this week.** You have been handling a password. **The diff is where you find out whether it got in.** If you see your connection string anywhere in those changes, stop, take it out, commit, and push again before you merge. *(The `UserSecretsId` line in your `.csproj` is fine. It's a folder name, not a secret.)*
 
 Then merge it with the plain **"Merge pull request"** button.
 
@@ -409,7 +583,7 @@ git pull
 
 ## Commit as you go
 
-Five moments worth saving, written into the parts above at the point where each thing starts working — the packages and the secret, the record and the context, the migration, the round trip, and your own fact. **The commits I count are the ones on this week's branch**, so committing straight to `main` costs you twice.
+Six moments worth saving, written into the parts above at the point where each thing starts working — the checks copied in, then one for each of the five tasks. **The commits I count are the ones on this week's branch**, so committing straight to `main` costs you twice.
 
 ---
 
@@ -424,20 +598,19 @@ Five moments worth saving, written into the parts above at the point where each 
 | Points | What |
 |---|---|
 | 2 | Weeks 4-9 still hold — Topic, no public fields, All() copies, Find and Remove behave, IListed kept by record and registry, Everything() intact, Add refuses a duplicate, and Names/Sorted/Matching still answer |
-| 2 | Your record has an Id the database can tell its rows apart by, and the property holding its name is stored |
+| 2 | Your record has an Id the database can tell its rows apart by, its name is stored, and ProjectContext has a table for it |
 | 2 | A migration exists in your project — you ran `dotnet ef migrations add` rather than making the table by hand |
-| 4 | Save and Load round-trip every record and everything on it — and an empty table leaves a seeded registry alone |
-| 2 | Your test: loading from a table nobody has saved to yet does not throw your records away — written by you, green in your own suite |
+| 2 | Save and Load round-trip every record and what it keeps — and an empty table leaves a seeded registry alone |
+| 2 | A record that came out of the table and is saved again changes its row instead of adding a second one |
+| 2 | Your test: a record loaded, changed and saved again is still one row, with the change on it — written by you, before the fix, green in your own suite |
 | 1 | Public project repo exists at the URL you submitted, and clones |
 | 2 | The project compiles from a clean clone — from this week it cannot be RUN anywhere but your own machine, because your connection string is not in the repo |
 | 1 | `bin/` and `obj/` tracked **nowhere** in the project repo — the `.gitignore` holding |
 | 2 | 3+ commits on **this week's branch** 👀 *(meaningful messages are a judgment call)* |
 | 2 | A merge commit on `main` — this week's branch → pull request → merge |
 
-> [!IMPORTANT]
-> ⚠️ **ONE THING IN THAT TABLE CHANGED THIS WEEK, AND IT IS NOT A SOFTENING.** Every week until now, two points were for *the program builds and runs*. **I cannot run your program any more.** Running it needs your connection string, which needs your password, which is — correctly — not in your repo. So those two points are for it **compiling** from a clean clone.
->
-> **Your code is still executed, heavily.** My four checks drive your registry, your record, your context and the round trip, and your own suite runs exactly as you wrote it. Nothing about that changed.
+> [!NOTE]
+> **Two points used to be for running your program. From this week they are for building it.** Your program needs your connection string to run, and your connection string is — correctly — not in your repo. So nobody can run your program from a clone, me included. **Your code is still run**: my five checks drive your registry, your record and your context, and your own suite runs exactly as you wrote it.
 
 > [!NOTE]
 > **The grader runs both suites**: `Project.Checks` replaced wholesale as always, and `Project.Tests` **exactly as you wrote it** — then reads your fact by name. It also lists every fact it found with an Assert count, so a fact with the right name and nothing inside it is not a shortcut; it's a conversation.
@@ -451,30 +624,33 @@ Five moments worth saving, written into the parts above at the point where each 
 
 | What you see | What it means |
 |---|---|
-| **Two or three checks listed**, not four | You're running an earlier week's. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) copies this week's in — this week lists four, starting `Check1_WeeksFourToNineStillHold`. |
-| `InvalidOperationException: The ConnectionString property has not been initialized.` | The config read back nothing. **`dotnet user-secrets list --project Project` tells you which of two causes it is** — [all three answers are in the notes](lecture-notes.md#dotnet-user-secrets--the-four-commands). |
-| `Could not find the global property 'UserSecretsId'` | [Part 2 step 4](#part-2--the-packages-the-tool-and-a-database-of-your-own) never ran. It is the silent one. |
-| `No secrets configured for this application.` | `init` ran, `set` didn't — or your machine was wiped. [One command.](lecture-notes.md#where-secrets-actually-live-and-the-restore-drill) |
-| `Login failed for user` | Wrong login or password. Run the `set` again — it replaces. |
-| `A network-related or instance-specific error…` | Wrong `Server=`, or you are not on a network that can reach it. |
-| `The certificate chain was issued by an authority that is not trusted` | `TrustServerCertificate=True` missing from the end of the connection string. |
-| `Cannot open database "DB_…" requested by the login` | The database isn't made. [Task 3, step 3.](#task-3-in-full) |
-| `Invalid object name '…'` | The database is there, the table isn't. You wrote the migration and never ran `database update`. |
-| `Unable to create a 'DbContext' of type 'ProjectContext'` | `dotnet ef` can't construct it. **The empty constructor** — check you didn't delete it when you added the options one. |
-| `There is no class called ProjectContext in your project` | The name is dictated, spelled exactly that way. [Task 2.](#task-2-in-full) |
-| `Registry has no Save that takes a ProjectContext` | The signature is dictated and **the types in the brackets are part of a method's identity in C#** — the old `Save(string)` does not count. |
-| `Cannot insert explicit value for identity column` | `Save` is `Add`ing a record that came out of the table. [It's an `Update`.](lecture-notes.md#save--add-update-or-remove) |
-| Nothing arrives in the table and nothing errors | **No `db.SaveChanges()`.** [`Add` only writes down what you intend.](lecture-notes.md#save--add-update-or-remove) |
-| Your seeded records vanish on the first run | [`Load` cleared before it looked.](lecture-notes.md#load--and-the-first-night) That is check 4's last assert, and your own fact. |
-| The registry holds twice as many records as it should | `_items.Clear()` is missing from `Load`. |
-| A count comes back 0 after a round trip | The property is `[NotMapped]`, or it's worked out rather than kept. **`[JsonInclude]` is not the answer any more.** |
-| `dotnet ef` : *command not found* | [Part 2 step 3.](#part-2--the-packages-the-tool-and-a-database-of-your-own) |
-| `CS0246: 'DbContext' could not be found` | `using Microsoft.EntityFrameworkCore;`, or the SqlServer package never got added. |
-| `CS0246: 'NotMappedAttribute' could not be found` | `using System.ComponentModel.DataAnnotations.Schema;` at the top of your record's file. |
-| Your own suite won't compile | Expected — it hands `Save` a path. [Give it a table instead.](lecture-notes.md#testing-database-code-without-a-database) |
-| Your fact name doesn't match the table | The grader reads it **exactly** — `Week10_AnEmptyTableLeavesTheRegistryAlone`, on a `public void` method taking nothing. |
-| My checks pass and your program can't connect | **Right, and worth understanding.** [My checks never touch your server.](lecture-notes.md#testing-database-code-without-a-database) Only running it tells you that. |
-| No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b the-registry-moves-in`, push that. |
+| The first check is called `Check1_WeeksFourToEightStillHold` | You're running **week 9's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) removes them and copies this week's in — run the `rm` and the `cp`, both. |
+| `CS0246: The type or namespace name 'YourRecord' could not be found` | You pasted a **Stuck?** shape without swapping the placeholder. `YourRecord` is your record type's name — the class `NewItem` hands back. |
+| `CS1061` naming `YourRecords`, `YourVerb` or `YourCount` | The same thing: a placeholder still in a shape. `YourRecords` is your `DbSet`'s name in `ProjectContext`; `YourVerb` and `YourCount` are your record's verb and the count it moves. |
+| `CS0103: The name '_yourList' does not exist in the current context` | `_yourList` is the name of the list field inside your `Registry`. Open `Registry.cs` and use the name you gave it. |
+| `warning NU1902` / `warning NU1903` on `System.Security.Cryptography.Pkcs` | The fixed package isn't in yet. Task 1b's second `dotnet add`. |
+| `The ConnectionString property has not been initialized.` | No connection string found. **`dotnet user-secrets list --project Project`** says why: *Could not find the global property 'UserSecretsId'* means `init` never ran; *No secrets configured* means `set` didn't, or the key isn't `ConnectionStrings:Project`. |
+| `An exception has been raised that is likely due to a transient failure` … `Cannot open database "DB_…"` | The database isn't made yet. Task 3's `dotnet ef database update`, or a database name in your connection string that doesn't match. |
+| `Login failed for user` | Wrong login or password. Run Task 1c's `set` again; `set` replaces. |
+| `The certificate chain was issued by an authority that is not trusted` | `TrustServerCertificate=True` is missing from the end of the connection string. |
+| Your password has a `$` in it and the connection string goes wrong | The shell is reading the `$`. Put the connection string in **single** quotes instead of double. |
+| `Invalid object name` naming your table | You wrote the migration and never ran `dotnet ef database update --project Project`. |
+| Check 2 red: *Cannot bind* | The property holding the name has only a `get`. [Task 2's warning](#task-2-in-full) has the fix. |
+| Check 2 red: *requires a primary key*, naming another class | One of your properties holds another class. `[NotMapped]` on it. [Task 2's warning](#task-2-in-full). |
+| Check 2 red: *has no Id* | Task 2's one line, at the top of your record class. |
+| `Unable to create a 'DbContext' of type 'ProjectContext'` | `dotnet ef` couldn't make your context. It needs the constructor that takes **nothing** — check it's still there — or it quotes one of the two check 2 messages above. |
+| `error CS1503: Argument 1: cannot convert from 'string' to 'ProjectContext'` | Something still hands `Save` or `Load` a file name. The line number says where. |
+| `error CS1061` … `UseInMemoryDatabase` | `Project.Tests` hasn't got the InMemory package. Task 4's `dotnet add`. |
+| `Cannot insert explicit value for identity column in table …` | `Save` adds records that came out of the table. Task 5. |
+| `ArgumentException : An item with the same key has already been added` | The same mistake, in your test. |
+| Check 4 red: *Three records were saved and 0 came back* | No `db.SaveChanges()` at the end of `Save`, or `Load` isn't reading your `DbSet`. |
+| Check 4 red: *loaded from an EMPTY table* | `Load` clears before it checks. The `if (loaded.Count == 0)` return goes first. |
+| Your records show up twice | `Load` lost its `Clear()`. Fix it, then empty the table: SQL Server view → right-click your database → **New Query** → `DELETE FROM YourTable;` with your table's name. |
+| A record you removed is back | Expected this week — [Task 4's note](#task-4-in-full). |
+| My checks pass and your program can't connect | **That is exactly right.** My checks never touch the server. Only running your program tests your connection string. |
+| Your fact's name doesn't match the table | The grader reads it **exactly** — `Week10_ASecondSaveChangesTheRow`, on a `public void` method taking nothing. The body is yours; the name isn't. |
 | `MSB1003: Specify which project` | You're in the wrong window. This homework runs from your **project** repo's window; the lab runs from the coursework one. |
+| No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b the-registry-moves-in`, push that. |
+| An error that isn't in this table | [The notes' troubleshooting list](lecture-notes.md#-troubleshooting) has more of them. |
 
-**Prev:** [Week 10 Lab — The Carts Leave the Building](lab/) · **Next:** Week 11 — everyone on the same table *(coming)*
+**Prev:** [Week 10 Lab — The Carts Move In](lab/README.md) · **Next:** Week 11 *(coming)*

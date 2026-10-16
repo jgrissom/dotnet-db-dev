@@ -1,111 +1,122 @@
 # Week 10 — Lesson Plan
 
-**Topic:** EF Core I — a class becomes a table, user secrets, migrations, and the log moving onto a server that isn't yours.
+**Topic:** EF Core I — a password outside the repo, a class becomes a table, the migration that makes it, and save and load against a database.
 **Session length:** 3h 45m
 
-> Everything the station knows has lived on one laptop since week 3. Students finish the memory→file→database arc tonight, meet the answer week 2 owed them about where a password lives, and watch the console and the database give different answers to the same question.
+> **The demo and the lab are both KDXR.** The instructor moves the switchboard into the database, live, and pushes each finished file to the starters repo. Students copy it in, then move the rotation the same way. Both live in one `DeskContext`, so the student's context is the instructor's with one more table.
 
 ## 🎯 The payoff moment — the demo's
 
-**§5, and it is the same beat as week 8 with the ground moved.** A sign-out typed at the desk, `q`, a fresh process — and Nakamura is still on the board. Then:
+**§5, the second night.** The callers come back out of the database with no file anywhere, Dorothy rings again, and the desk crashes on the way out: `Cannot insert explicit value for identity column in table 'Callers'`. The line to land:
 
-> *"There he is. Week eight, that came out of a file. Look in `week-10` — there is no file."*
+> *"The first time, every caller was new, with Id zero. This time every caller came out of the table, carrying the number of its row."*
 
-Then the mssql extension, `Select Top 1000`, and the same row with the program closed:
+Then the fact goes in **before** the fix, red with the in-memory table's own wording, and `Update` turns it green. The table in the SQL Server view shows one Dorothy with four calls.
 
-> *"I am not reading that out of my program. This is a query, against the server, and my program is shut. A file is still your file — it is on your laptop, in your folder, and nobody else can see it. This is on a machine none of us owns."*
-
-⚠️ **The database has to be EMPTY when §5 starts** or the beat lands on a board that already looks right. §0 drops it; §4 makes it again.
+⚠️ **Ask "what's different about this shift?" and wait.** The room has seen the first save work. The difference is the `Id`, and somebody should say it before you do.
 
 ## 🎯 The payoff moment — the lab's
 
-**Task 5, and it is the first time a student's own program reads out of a database.** Two shifts: air the hour, sign off, start a completely new shift, press `t` — and every cart says `1` play, carried over from a shift that has already ended.
+**Task 4, and the evidence is in two places at once.** They air the hour, quit, and look in `week-10/`: **no `.json` file at all**. Then `dbo.Carts` in the SQL Server view, with their three carts, one play each, and an `Id` the database filled in. They're reading their own data from a server, with the desk shut.
 
-⚠️ **The moment to make them look at is the folder, not the screen:** there is no `rotation.json` in `week-10/`, and there never will be again.
-
-⚠️ **The commonest wrong reflex to catch while circulating** is at **Task 4** — a `Save` with no `SaveChanges()`. The desk behaves perfectly, the table stays empty, and nothing anywhere complains.
+⚠️ **The earlier one to protect is Task 1d.** Connecting to the server in the SQL Server view is where a login or network problem shows up. It is at minute 10 of the first lab block on purpose, while you can still walk over.
 
 ## Learning objectives
 
 By the end of this session, students can:
 
-1. Shape an ordinary class for a table: an `Id` the database fills in, and `[NotMapped]` on the properties the class works out rather than keeps.
-2. Write a `DbContext` — a `DbSet` per table, and `OnConfiguring` to say where the database is.
-3. Explain why a console app has to build its own configuration, and wire `ConfigurationBuilder` + `AddUserSecrets` by hand.
-4. Use `dotnet user-secrets init` / `set` / `list`, say where the file actually lives, and restore it in one command after a machine is wiped.
-5. State what user secrets are **not** — not encrypted, not shared, not deployment — and what the one problem is that they solve.
-6. Tell `dotnet ef migrations add` from `dotnet ef database update`, and say which one touches the server.
-7. Read a generated `Up()` method and match it back to their own class.
-8. Write `Save` and `Load` against a context, including what `Id == 0` means and why `SaveChanges()` is not optional.
-9. Test code that uses a database **without a database**, and say why that is possible.
-10. Say why a search that fails in C# can succeed in SQL.
+1. Keep a connection string in user secrets, say where the file lives, and say what user secrets are **not**.
+2. Tell the two causes of `The ConnectionString property has not been initialized.` apart with `dotnet user-secrets list`.
+3. Shape a class for a table: an `Id`, a `private set` on anything the constructor needs, and `[NotMapped]` on a property that holds another class.
+4. Write a `DbContext` with a `DbSet` per table and two constructors, and say who uses each one.
+5. Tell `dotnet ef migrations add` from `dotnet ef database update`, and say which one touches the server.
+6. Write `Save` (`Add` / `Update` by `Id`, then `SaveChanges`) and `Load` (`OrderBy`, `ToList`, the empty-table return, `Clear`, `AddRange`) against a context.
+7. Test database code with a table that lives inside the test run, and say why a test should not need the server.
+8. Say why the same name can be one row to the database and two to C#.
 
 > [!NOTE]
-> **Objectives 4 and 6 are the two that bite**, and both are measurable. If the night runs short, protect §3's silent-failure warning and §4's *only one of these touches the server* — those two are most of the support load for the next three weeks.
+> **The packages include one students didn't ask for.** `Microsoft.EntityFrameworkCore.SqlServer` 10.0.13 brings in a `System.Security.Cryptography.Pkcs` with two security advisories published 2026-10-13, and every build prints them as `NU1902`/`NU1903`. Adding the fixed version directly clears them. **Re-check before class**: if a later SQL Server package has fixed it, §2's warnings won't appear and the fifth package is harmless.
 
 ## Materials
 
-- `slides.md` / `slides.html` — the deck
-- `lecture-notes.md` on your second screen
-- **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-10/demo/script.html))
-- **The instructor demo repo**, where week 9 left it — `week-01/` … `week-09/` in it, clean, `main` up to date
-- ⚠️ ⚠️ **`~/haldane-connection.txt`**, holding your real connection string. §3 reads it from there so your password never reaches the projector
-- ⚠️ ⚠️ **An empty demo database.** Drop it if you have rehearsed — §4 remakes it and §5's payoff needs it empty
-- ⚠️ **`week-10/season.txt` in place** — 51,309 lines to day 275; the banner reads the day off it
-- ⚠️ **The mssql extension already knowing your server** — §4 uses it live
-- **A current `dotnet-ef`** — `dotnet tool update --global dotnet-ef`
+- `slides.md` / `slides.html` — the deck, five slides
+- **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-10/demo/script.html)) — type your database name in the **Database** box at the top of the published page once
+- **The instructor demo repo**, `dotnet-db-coursework`, with **a starters clone you can push to next to it** — §0 tests a push
+- ⚠️ **`~/kdxr-connection.txt`, holding your real connection string.** §2 reads it, so your password never reaches the projector
+- ⚠️ **No `DB_KDXR_156101411_JSG` on the server.** §3 makes it in front of the room; drop it if you've rehearsed
+- ⚠️ **The SQL Server view already connected to your server**, and a current `dotnet-ef`
+- ⚠️ **`demo/week-10/` in the starters repo empty or missing** before class — it fills up during the night
+- **A browser tab on the lab README** (`week-10/lab/README.md` on GitHub) — it is the projector screen for Lab A–F
+
+## The chunked night, on one station
+
+Each demo segment is followed by the lab task that practices it. **The demo moves the switchboard while the lab moves the rotation** — same technique, sibling objects, one database.
+
+- **After §3, §4 and §5 you push your finished files to `demo/week-10/` in the starters repo.** Each lab task from Task 2 opens with the student pulling and copying them in. The files you push are only ones students never edit — `Caller.cs`, `Switchboard.cs`, `SwitchboardTests.cs`, `SecondSaveTests.cs` — so a copy can never overwrite their work.
+- ⚠️ **Your `DeskContext` is not pushed.** Students write their own in Task 2, with two tables. Yours has one, so it is their worked example and not their answer.
+- ⚠️ **Copying `Switchboard.cs` in at Task 4 breaks their build in two places**, and they are the two `Program.cs` lines you fixed in §4. The README says so and gives the three edits. **That is the moment to say "the error is the instruction".**
+- **Push only what you just ran.** Each push comes right after the segment's last run or green test.
+- **Every lab block ends at an "In class, stop here" note** in the README. Lab F absorbs what is left; anyone finished starts the homework, whose Task 1 needs their login.
 
 ## Timed agenda
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 15 min | **Where we finished last week** *(demo §1)*. Run week 9, open `watch-log.txt`, name the weeks the promise was made in. Branch, `week-10/Haldane`, the suite, one path edit. 🎯 **Day 275 arrives on its own — last week bought that and this is the first time it pays.** |
-| 0:15 | 30 min | **A table is the line you already had** *(slides 2–4, demo §2)*. Four packages. `LogRow` read against a line of the file. `StationContext`, and what a `DbSet` is. ⚠️ **Do not explain the second constructor — it is §5's beat.** |
-| 0:45 | 10 min | **☕ Break** |
-| 0:55 | 25 min | **Where a password is allowed to live** *(slides 5–6, demo §3)*. Week 2 collected by name. `init`, and the id in the csproj. 🎯 **The connection string is read out of a file so the room never sees it — and saying why IS the lesson.** Then the honest half: what secrets are not. |
-| 1:20 | 25 min | **The migration** *(slides 7–8, demo §4)*. `migrations add`, read `Up()` against `LogRow`. ⚠️ **Ask whether anything has happened to the server yet, and wait.** Then `database update`, and the empty table in the mssql extension. |
-| 1:45 | 10 min | **☕ Break** |
-| 1:55 | 25 min | 💥 **The log leaves the building** *(slides 9–10, demo §5)*. Two methods on `Watch`. The suite stops compiling — **two errors, one test** — and the fix is a table that lives in the test. Then sign somebody out, restart, and read the row from the server. 🎯 **Week 3's promise, paid a second time.** |
-| 2:20 | 15 min | 💥 **The same question, two answers** *(slide 11, demo §6)*. `reyes` at the desk is refused; `WHERE Who = 'reyes'` hands the row over. Mechanism in two sentences, then week 12. |
-| 2:35 | 5 min | **Lab launch** *(slide 12, demo §7)*. Make the database EARLY; my checks never touch the server. |
-| 2:40 | 50 min | **Lab: the carts leave the building**. **In-class target: 5 green.** Circulate at Setup 5d, Task 2's `DbSet`, and Task 4's `SaveChanges()`. |
-| 3:30 | 15 min | **Wrap-up** *(slide 13, demo §8)*. Project repo URL, the checks-copy line — **four checks this week** — ⚠️ **and say that the run-it points are build-it points now, and why.** |
+| 0:00 | 3 min | **Where the night is kept** *(slide 1, demo §1)*. Read the slide. Two files, on this laptop, become a database on a server none of us owns. |
+| 0:03 | 10 min | **Lab A: setup, together** *(the lab README in the browser)*. You copy week 10 in alongside the room. **1 / 5**, the starter commit. Stop there. |
+| 0:13 | 18 min | **The packages, and somewhere for a password** *(slide 2, demo §2)*. The SQL Server package, and four warnings nobody wrote. The fixed package clears them. Three more. `user-secrets list`, `init`, `list`, and `set` from the file — **nothing sensitive on screen, and saying why is the lesson.** |
+| 0:31 | 15 min | **Lab B: Task 1** — the tool, five packages, their own secret store, and a connection to the server in the SQL Server view. **Circulate at 1d.** |
+| 0:46 | 25 min | 💥 **A class becomes a table** *(slide 3, demo §3)*. `DeskContext` with `Callers`. `migrations add` refuses three times: `Cannot bind 'name'`, a missing key, and `Song` — through `Favorite`. Each message names its fix. Read `Up()`. *"Has anything happened on the server yet?"* Slide 3. `database update`, and the empty table. **Push #1.** |
+| 1:11 | 25 min | **Lab C: Tasks 2 and 3** — copy `Caller.cs`, `Song.Id`, their own `DeskContext` with two tables, then the migration, `database update`, and their tables in the SQL Server view. |
+| 1:36 | 10 min | **☕ Break** |
+| 1:46 | 22 min | 🎯 **The switchboard moves in** *(slide 4, demo §4)*. `Save` with `Add` and `SaveChanges`, `Load` with the empty-table return. Two errors in `Program.cs`, two in the suite. *"Should this test use the college's server?"* The in-memory table, and slide 4. Run once: no `switchboard.json`, and the rows in the SQL Server view with the desk shut. **Push #2.** |
+| 2:08 | 25 min | 🎯 **Lab D: Task 4** — the lab's payoff. Their `Save` and `Load`, their two facts off the file, then two runs: no `.json`, three rows, and a crash on the way out of the second. **Circulate hard.** |
+| 2:33 | 10 min | **☕ Break** |
+| 2:43 | 12 min | 💥 **The second night** *(demo §5)*. The callers come back, Dorothy rings, and the desk crashes on `'Callers'`. The fact first, red. `Update`, green. One Dorothy with four calls. **Push #3.** |
+| 2:55 | 15 min | **Lab E: Task 5** — copy your two files in, see their own crash on `'Carts'`, the fact, red, then `Update`. |
+| 3:10 | 6 min | 💥 **The same name, twice** *(demo §6)*. `dorothy` at the desk makes a second caller; `WHERE Name = 'dorothy'` hands back both rows. |
+| 3:16 | 22 min | **Lab F: finish, then start the homework.** Finished students do the homework's Part 1 and Task 1, which needs their login, and push their branch while you're there. |
+| 3:38 | 7 min | **Wrap-up** *(slide 5, demo §7)*. Project repo URL, **the homework is the lab again**, the branch line, the checks-copy line, the build-not-run grading change, removed records coming back, and the due date. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes.** If the night runs long, **§2 is the segment to shorten** — the four packages can be one line of narration instead of four. **Do not take it from §3** (the silent failure is next week's support load), **from §5** (the payoff), or from the lab.
+> **The table sums to exactly 225 minutes: 93 of demo in seven segments, 112 of lab in six blocks.** If the night runs long, take it from Lab F. **Do not take it from §3's three refusals, §5's crash, or Lab D** (the payoff). If the demo runs fast, the time goes to Lab C and Lab D.
 
 ## Instructor notes
 
-- ⚠️ ⚠️ **§3 PUTS YOUR PASSWORD ON A PROJECTOR IF YOU LET IT.** The sheet reads the connection string out of `~/haldane-connection.txt` with `$(cat …)` so it is never displayed. **Do not `cat` the secrets file, and do not run `dotnet user-secrets list` on screen** — both print it. `ls ~/.microsoft/usersecrets/` shows the folder and proves the point without showing anything.
-- 🎯 **That evasion is the lesson, so say it out loud rather than doing it quietly** — *"everything I just did to keep it off this projector is the same reason it does not go in the repo. A repo is a room with more people in it."*
-- ⚠️ ⚠️ **The silent failure is the single most valuable thirty seconds in the week.** `AddUserSecrets` on a project with no `UserSecretsId` **does not throw** — it reads back empty, and the symptom arrives much later as `The ConnectionString property has not been initialized.` **Measured, not assumed.** Say it flatly at §3 and it saves a dozen messages over the next three weeks.
-- 🎯 **§4's question is the one to actually wait for**: *"has anything happened to the server yet?"* The answer — no, `migrations add` connects to nothing — is what makes the two commands separable in their heads. **It is also the commonest thing they get wrong at home**, in exactly one direction: they write the migration and never run it.
-- 💡 **§1's day 275 is worth fifteen seconds and no more.** Last week took the day out of the source code; this week nobody typed one and it moved anyway. **Point, say it, move on.**
-- ⚠️ **§2: do not explain the `DbContextOptions` constructor when you paste it.** Say *"you will see who, in about forty minutes"* and leave it. It lands ten times harder in §5 when the test suite needs it, and that is the whole shape of the segment.
-- 💥 **§5's compile error is the beat, so run the tests and then stop talking.** Two `CS1503`s, both in one test. **Let somebody say "the database" before you answer** — the answer is that a test needing the college's server is a test that fails when the network does.
-- ⚠️ **§6 is not a trick and it must not be staged as one.** Type `reyes` without comment, let the refusal sit, then ask the database. The room finds it, not you. ⚠️ **Two sentences of mechanism and stop** — LINQ translating to SQL is week 12 and this beat is only the symptom.
-- 💡 **If anybody asks why the `Id` column doesn't start at 1** — `Save` empties the table and writes the whole book back every time the desk closes, exactly as the file did, and the database numbers every row it has ever been handed. **Week 11 stops doing that**, so it is a good place to leave it.
-- **The demo commits four times, silently** — the carry-forward, the migration, the move, and the case beat with the push.
-- **The branch is spoken, briefly** — five seconds, nothing new this week.
-- ⚠️ ⚠️ **Say the grading change at the wrap, because they will meet it in the rubric anyway.** From this week the run-it points are build-it points: their program cannot run on the grading machine, because it needs their connection string. **Frame it as a fact about databases, not as a concession** — and say that both suites still run their code.
-- ⚠️ **Say the due date normally.** Next class.
+- ⚠️ ⚠️ **§2 PUTS YOUR PASSWORD ON THE PROJECTOR IF YOU LET IT.** The sheet sets the secret with `"$(cat ~/kdxr-connection.txt)"`, so it is never typed or shown. **Do not run `dotnet user-secrets list` after the `set`, and do not open `secrets.json`** — both print it. *(`"$(cat …)"` is the same in zsh and in PowerShell, where `cat` is `Get-Content`. Measured on the Mac only.)*
+- 🎯 **That care is the lesson, so say it out loud rather than doing it quietly.** The line is in the sheet.
+- 💡 **§2's four warnings are worth the minute.** They are real, they are a security advisory, and the fix is the same `dotnet add` they already know. Read one out.
+- 💥 **§3's three refusals are the segment.** Run `migrations add` after every change, and read only the line that matters each time. **The third one, `Song`, is a question to the room**: the context never mentions songs.
+- ⚠️ **§3: don't explain the second `DeskContext` constructor when you paste it.** Say you'll need it later. It lands in §4, when the test needs it.
+- 🎯 **§3's question is the one to actually wait for**: *"has anything happened on the server yet?"* No — and the commonest homework mistake is writing the migration and never running `database update`.
+- 🎯 **§4's question is the second to wait for**: *"should this test use the college's server?"* Let somebody say the network, or the password.
+- 💥 **§5's crash is the demo's payoff. Let it sit.** Ask what's different about this shift. The answer is the `Id`.
+- ⚠️ **§5 depends on §4's run.** The table must hold the three callers from §4's run before §5 starts — and no other rows. If you rehearsed, drop the database in §0 and §3 remakes it.
+- 💡 **§6 is six minutes and two screens.** Say the C# rule and the database rule, and stop. It is a symptom, not a lesson on collations.
+- **The demo commits five times, silently** — the starter, alongside the room in Lab A, and then once at the end of §2, §3, §4 and §5. The pushes go to the starters repo; the commits stay in the demo repo.
+- ⚠️ **Say the grading change at the wrap.** From this week the run-it points are build-it points: their program needs their connection string, which is correctly not in their repo. **Frame it as a fact about databases**, and say both suites still run their code.
+- ⚠️ **And say what a removed record does.** `Save` adds and updates; it doesn't delete. A record removed at runtime comes back. The homework says so in a note, and nothing grades it.
+- **Lab C is where the context gets written** — watch for `Callers` spelled differently, which breaks your `Switchboard.cs` at Task 4, and for a migration made before `Carts` was added. Check 3's message names that one.
+- **Lab D is where nothing complains** — a `Save` with no `SaveChanges()` still seems to work on the desk, because your switchboard's `SaveChanges()` runs first and sends their carts too. Check 4 catches it.
 
 ## What could go wrong
 
 | If | Then |
 |---|---|
-| `dotnet ef` isn't found | The tool isn't installed on this machine. `dotnet tool install --global dotnet-ef`. |
-| Every `dotnet ef` command prints a version warning | The tool is older than the packages. `dotnet tool update --global dotnet-ef` — do it in §0, not on screen. |
-| `database update` fails with a login error | Your connection string. `cat ~/haldane-connection.txt` **on your own screen, not the projector**, and check the four fields. |
+| A push asks you to sign in, or is rejected | §0's test push should have caught it. Sign in and push again; the room starts the task meanwhile. If it is rejected as behind, the pull in the same step fixes it — run the step again. |
+| A student's copy says `No such file or directory` | Your push hasn't landed, or their starters clone isn't pulled. `git -C ../dotnet-db-starters pull` and copy again. |
+| §2 shows no warnings after the SQL Server package | A newer package fixed the advisory. Say so, and add the fifth package anyway — it is harmless. |
+| Every `dotnet ef` command prints a version warning | `dotnet tool update --global dotnet-ef` — in §0, not on screen. |
+| §3's first `migrations add` says `Done.` | Your `Caller.cs` is already shaped — a push file from rehearsal. Delete `week-10` and copy it in again. |
+| `database update` fails with a login error | Your connection string. Check `~/kdxr-connection.txt` **on your own screen**, not the projector. |
 | `database update` fails on the certificate | `TrustServerCertificate=True` is missing from the end of the string. |
-| §5's board already shows Nakamura before you sign him out | You rehearsed and did not drop the database. §0 says to; §4 remakes it in about two seconds. |
-| The `Id` column starts at 25 rather than 1 | **Correct, and it is rehearsal showing.** Every close rewrites the whole book, so the identity keeps climbing. There is a 💡 line for it if anybody asks. |
-| The suite compiles after §5's edits | You pasted the fixed test before running the broken one. The two `CS1503`s are the beat — **run the tests first**. |
-| `reyes` is NOT refused at the desk | Somebody marked her back in an earlier run, or you typed `Reyes`. The board still has to show her outside for §6 to work. |
-| The SQL query returns nothing for `reyes` | The database's collation is case-**sensitive**, which is not the usual default. **Check with `SELECT SERVERPROPERTY('Collation')`** — if it does not contain `_CI_`, the beat does not work on this server and should be dropped rather than fudged. |
-| A student's checks pass but their desk can't connect | **Exactly right, and worth saying to the room.** The checks never touch the server. Only running the desk tests the connection string. |
-| Several students fail at Setup 5d at once | That is why it is at minute 3 of the lab rather than minute 30. Work the connection string field by field; it is nearly always the server name or a dismissed certificate prompt. |
-| A student's `dotnet ef` says *Unable to create a 'DbContext'* | They deleted the empty constructor when they added the options one. Both are required. |
-| Somebody asks whether user secrets are encrypted | **No, and say so plainly.** It is a plain file in the home directory. The one problem it solves is that it is not in the repo. |
-| Somebody asks how this works on a real deployed server | Environment variables, or a secret manager the host provides. **Name it and move on** — nothing in this course deploys. |
-| Somebody asks why not just use a local database | Because the point of tonight is the machine that isn't yours, and next week the whole room is on one table. |
+| `database update` says `There is already an object named 'Callers'` | You rehearsed and didn't drop the database. Drop it (§0), then run `database update` again. |
+| §4's first run shows the callers with more calls than 3 / 1 / 1 | The table wasn't empty when §4 started. Drop the database and run `database update` again before class. |
+| §5's run doesn't crash | `Switchboard.Save` already has the `Update` branch — a push file from rehearsal. |
+| §6's query hands back one row | The database's collation is case-sensitive. **Check with `SELECT SERVERPROPERTY('Collation')`** — if it has no `_CI_` in it, drop the beat rather than fudge it. |
+| A student's checks pass and their desk can't connect | **Exactly right, and worth saying to the room.** The checks never touch the server. |
+| Several students fail Task 1d at once | That is why it is in the first lab block. Work the connection field by field; it is nearly always the server name or a dismissed certificate prompt. |
+| A student's `dotnet ef` says *Unable to create a 'DbContext'* with no reason | They deleted the constructor that takes nothing. Both constructors are required. |
+| Somebody asks whether user secrets are encrypted | **No, and say so plainly.** It is a plain file in the home folder. The one problem it solves is that it's not in the repo. |
+| Somebody asks how a deployed program gets its password | From the server's own settings. **Name it and move on** — nothing in this course deploys. |
+| Somebody asks why not a local database | Because tonight is about a machine that isn't yours. |

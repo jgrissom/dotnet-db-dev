@@ -1,113 +1,61 @@
-# Week 10 — EF Core I: The Log Leaves the Building
+# Week 10 — Lecture Notes
 
-Everything the station knows has been on one laptop since week 3. Tonight it moves onto a server, and the last thing that happens is the station disagreeing with itself.
+**These notes are further reading.** The [lab](lab/README.md) and the [homework](homework.md) each tell you what to write and give you the syntax. Come here when you want to know **why** a line is written the way it is.
 
----
+The examples are the lab's, on KDXR's `Rotation`, `Switchboard`, `Song` and `Caller`. Where a section is about the homework, the example is a registry of lighthouses.
 
-## The log leaves the building
-
-Week 3 ended with three records typed in and lost at the door. Week 8 gave the log a file and it came back. A file fixed exactly one thing — *the program forgetting* — and left the other one alone:
-
-> **A file is still your file.** It is on your laptop, in your folder. Nobody else can read it, nothing else can write to it, and if that machine goes in a drawer so does everything the station knows.
-
-Tonight the same six lines live on the college's SQL Server, and the last beat of the demo reads one of them back from a query with the program closed.
-
-**What actually changes is smaller than it sounds.** Two methods on `Watch` take a database instead of a path. Every rule about who may go out, when a time may be amended, what the last reading was — untouched, because none of it ever cared where the book was kept.
-
----
+**Entity Framework Core**, EF Core for short, is how a C# program keeps its data in a database without writing the database's own language, SQL, by hand. You describe the tables with classes. EF Core makes the tables, and turns objects into rows and rows back into objects.
 
 ## A class becomes a table
 
-EF Core's whole idea is that you already described your data, in C#, when you wrote the class. A table is that description with column types filled in.
+A table has columns, and EF Core makes one for each property the class **keeps**. This is `Song`, from `Lab/Song.cs`, as the database sees it:
 
-Here is the one week 10 adds to Haldane. It is a complete file — `week-10/Haldane/LogRow.cs`:
+| Property | A column? | Why |
+|---|---|---|
+| `Id` | yes, and the key | the database's own number for the row |
+| `Title`, `Artist`, `Seconds` | yes | facts the cart keeps, with a `get` and a `set` |
+| `PlaysTonight` | yes | it has a `private set`, and EF Core uses that the same way the class does |
+| `Length`, `Kind`, `Cue` | **no** | they have only a `get`. They are worked out from the others, so EF Core leaves them out without being told |
+
+**Every table needs one column that is different on every row.** EF Core looks for a property called `Id`:
 
 ```csharp
-using System.ComponentModel.DataAnnotations.Schema;
-
-public class LogRow
-{
     public int Id { get; set; }
-
-    public string Kind { get; set; } = "";
-    public string Time { get; set; } = "";
-    public string Who { get; set; } = "";
-    public string Reason { get; set; } = "";
-    public string Expected { get; set; } = "";
-
-    [Column(TypeName = "decimal(4,1)")]
-    public double Celsius { get; set; }
-
-    public int Liters { get; set; }
-    public bool IsBack { get; set; }
-}
 ```
 
-That is one line of the watch log — the same line the file has held since week 8 — with the pipes taken out and a name written over each field:
+That line goes at the top of the class, inside its braces. **Nothing in the program sets it.** A cart that has never been saved has `Id` 0, and `SaveChanges` fills in the number the database gave its row. The migration marks it `Identity`, which means the database numbers the rows itself, 1, 2, 3, and never reuses a number, even after a row is deleted.
 
-```
-SIGNOUT|14:20|Reyes|DIG OUT|14:45|out
-```
+**Two things stop EF Core making a table for a class, and the switchboard's `Caller` had both.**
 
-**A class EF Core keeps in a table is called an *entity*.** It is an ordinary class. There is no base class to inherit and no interface to satisfy.
+- **A constructor parameter EF Core can't fill in.** When EF Core reads a caller back, it builds one with `new Caller(name)`, and it fills `name` from the `Name` column. `Name` was `{ get; }`, so it had no column, and EF Core said `Cannot bind 'name' in 'Caller(string name)'`. **The fix is a `private set`:** `public string Name { get; private set; }`. The property gets a column, and nothing outside the class can change it.
+- **A property that holds another class.** `Caller.Favorite` is a whole `Song`. EF Core saw it and decided songs needed a table of their own, then said `The entity type 'Song' requires a primary key`. A favorite isn't saved this week, so `[NotMapped]` tells EF Core to leave the property out:
 
-### Id, and why the database wants one
+  ```csharp
+      [NotMapped]
+      public Song? Favorite { get; private set; }
+  ```
 
-One line, at the top of the class you just saw — and in the lab it goes at the top of `Song.cs`, in your project at the top of your own record:
-
-```csharp
-public int Id { get; set; }
-```
-
-A table needs one column that is different on every row, so it can say *that one*. It is called the **primary key**, and EF Core looks for a property called `Id` (or `<ClassName>Id`) and uses it without being asked.
-
-⚠️ **Nothing at the station has an Id.** A payphone does not have one. A sign-out does not have one. It is the database's own name for the row, and it is the one property this week asks you to add that your world would not recognize.
-
-**You never set it.** The migration marks the column `IDENTITY`, which means SQL Server fills it in. A record you have just made has `Id == 0`; a record that came out of the table has whatever number the database gave it — and [that difference is what `Save` runs on](#save--add-update-or-remove).
-
-### `[NotMapped]` — the things a class works out
-
-A table gets a column for **everything the class can tell you**, including the things it computes. That is usually wrong:
-
-```csharp
-// inside Song.cs, in the lab
-[NotMapped]
-public string Length => Broadcast.Clock(Seconds);
-```
-
-`Length` is not a fact about a cart. It is arithmetic on `Seconds`. Storing it would mean keeping the same fact in two places and letting them drift apart — a cart whose `Seconds` was corrected but whose `Length` column still says the old thing.
-
-**The test is one question: is this something the record KEEPS, or something it WORKS OUT?** Keeps → a column. Works out → `[NotMapped]`.
-
-It needs a using at the top of the file:
-
-```csharp
-using System.ComponentModel.DataAnnotations.Schema;
-```
-
-> 💡 **Week 8's `[JsonInclude]` comes OFF.** The JSON serializer would write a `private set` property out and then refuse to read it back, so week 8 had to say "yes, this one too". **EF Core sets private setters the same way your class does, from inside, and needs no telling.** Different tool, different rules — and one fewer attribute.
-
----
+  `[NotMapped]` needs `using System.ComponentModel.DataAnnotations.Schema;` at the top of the file.
 
 ## The DbContext
 
-One class, and it is two things at once: **the list of tables this program knows about**, and **the thing that knows how to reach them**.
-
-A complete file — `week-10/Haldane/StationContext.cs`:
+**A `DbContext` is the program's database, in one class.** It says which tables there are, and how to reach them. This is the lab's whole `Lab/DeskContext.cs`:
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-public class StationContext : DbContext
+public class DeskContext : DbContext
 {
-    public DbSet<LogRow> Log { get; set; }
+    public DbSet<Caller> Callers { get; set; }
 
-    public StationContext()
+    public DbSet<Song> Carts { get; set; }
+
+    public DeskContext()
     {
     }
 
-    public StationContext(DbContextOptions<StationContext> options)
+    public DeskContext(DbContextOptions<DeskContext> options)
         : base(options)
     {
     }
@@ -120,381 +68,274 @@ public class StationContext : DbContext
         }
 
         IConfiguration config = new ConfigurationBuilder()
-            .AddUserSecrets<StationContext>()
+            .AddUserSecrets<DeskContext>()
             .Build();
 
-        options.UseSqlServer(config["ConnectionStrings:Haldane"]);
+        options.UseSqlServer(config["ConnectionStrings:Desk"]);
     }
 }
 ```
 
-**`public DbSet<LogRow> Log { get; set; }`** is the line that turns a class into a table. One property per table, and **the name of the property is the name of the table** — this one makes a table called `Log`.
+- **One `DbSet` is one table**, and the property's name is the table's name. `db.Carts` is how the rest of the program reaches the carts.
+- **The constructor that takes nothing** is the one the desk uses: `DeskContext db = new DeskContext();`. So does `dotnet ef`, when it makes migrations. Take it away and `dotnet ef` says `Unable to create a 'DbContext'`.
+- **The constructor that takes `options`** lets somebody else say where the rows go. Tests use it to hand in [a table that lives inside the test run](#testing-without-a-database). `: base(options)` passes the options on to `DbContext`.
+- **`OnConfiguring`** runs when the context first needs a connection. If a test already handed in options, `IsConfigured` is true and it leaves them alone. Otherwise it reads the connection string and tells EF Core to use SQL Server.
+- **A console program reads no settings on its own.** A web project gets its configuration built for it. A console app builds it by hand: `new ConfigurationBuilder()`, one source, `.AddUserSecrets<DeskContext>()`, then `.Build()`. The `<DeskContext>` tells it which project's secret store to read.
 
-**The two constructors are not ceremony**, and the second one is the more interesting:
+⚠️ **Making a `DeskContext` connects to nothing.** The connection opens the first time something asks the database a question, which in the desk is `Load`.
 
-| Constructor | Used by | Means |
-|---|---|---|
-| `StationContext()` | your program, and `dotnet ef` | *go and find out where the database is* |
-| `StationContext(DbContextOptions<StationContext>)` | tests and checks | *I am telling you where to put the rows* |
+## User secrets — a password outside the repo
 
-`OnConfiguring` runs when a context is being set up. `if (options.IsConfigured) return;` means **somebody already said where the rows go — do not argue with it.** Without that line, a test that hands in a throwaway table would have its answer overwritten by the connection string. [That is what makes the whole week testable.](#testing-database-code-without-a-database)
+A **connection string** is one line saying which server, which database, and who you are:
 
-> ⚠️ **Making a context connects to nothing.** `new StationContext()` opens no connection, touches no network and cannot fail. The first *question* you ask it is what opens a connection — which is why a wrong connection string surfaces as an error somewhere that looks unrelated.
-
----
-
-## A console app builds its own configuration
-
-**An ASP.NET app gets configuration handed to it. A console app does not, and this is not hand-waving — there is no settings file and nothing has read one.** You build it yourself, from whatever sources you choose.
-
-This is the body of `OnConfiguring`, out of the complete `StationContext.cs` above:
-
-```csharp
-IConfiguration config = new ConfigurationBuilder()
-    .AddUserSecrets<StationContext>()
-    .Build();
-
-string? connection = config["ConnectionStrings:Haldane"];
+```
+Server=YOUR-SERVER;Database=DB_KDXR_156101411_ABL;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True
 ```
 
-Three things, in order:
+**It has your password in it, so it never goes in a repo.** A repo is read by other people, and anything pushed to one stays in its history. User secrets keep values like this in a file in your home folder, outside every repo you have.
 
-- **`new ConfigurationBuilder()`** — an empty pile of settings, with no sources in it.
-- **`.AddUserSecrets<StationContext>()`** — add one source: the secret store for *this project*. ⚠️ **The type in the angle brackets is how it finds the project** — it reads the assembly that type lives in, and looks up the `UserSecretsId` recorded there. Any type from your own project does.
-- **`.Build()`** — turn the pile into something you can read keys out of.
+**Four commands, all run from the top of your repo:**
 
-**`config["ConnectionStrings:Haldane"]` is the key**, and the colon means *nested*. A store holding
+| Command | What it does |
+|---|---|
+| `dotnet user-secrets init --project week-10/Lab` | Turns the store on. It writes a `<UserSecretsId>` into the `.csproj`. That id is a folder name, not a secret, and it is committed |
+| `dotnet user-secrets set "ConnectionStrings:Desk" "…" --project week-10/Lab` | Puts a value in. Running it again replaces it |
+| `dotnet user-secrets list --project week-10/Lab` | Shows what is in the store — **including the password**, so on your own screen only |
+| `dotnet user-secrets remove "ConnectionStrings:Desk" --project week-10/Lab` | Takes one value out |
 
-```json
-{ "ConnectionStrings:Haldane": "Server=…" }
-```
+**`list` is the first thing to run when the program can't find its database**, because it answers three different ways:
 
-and one holding
+| `list` says | What it means |
+|---|---|
+| `Could not find the global property 'UserSecretsId'` | `init` never ran on this project |
+| `No secrets configured for this application.` | `init` ran, and `set` didn't — or this is a lab PC that rebooted |
+| `ConnectionStrings:Desk = Server=…` | the store is fine. The problem is in the string itself, or on the server |
 
-```json
-{ "ConnectionStrings": { "Haldane": "Server=…" } }
-```
+⚠️ **The first two both show up later, when the program runs, as the same message:** `The ConnectionString property has not been initialized.` Nothing complains at startup. `list` is how you tell them apart.
 
-read back identically.
+The file itself is `secrets.json`, in a folder named by the `UserSecretsId`:
 
-It needs two packages:
+- **Mac and Linux:** `~/.microsoft/usersecrets/<UserSecretsId>/secrets.json`
+- **Windows:** `%APPDATA%\Microsoft\UserSecrets\<UserSecretsId>\secrets.json`
+
+### What user secrets are not
+
+- **Not encrypted.** It is a plain text file. Anybody who can open your home folder can read it.
+- **Not shared.** It is on this machine only. A classmate cloning your repo gets the `UserSecretsId` and no secret.
+- **Not for a deployed program.** A program running on a server gets its connection string from that server's own settings. Nothing in this course deploys.
+
+**The one problem user secrets solve is that the password is not in the repo.** That is the whole job.
+
+### A lab PC that rebooted
+
+Lab PCs wipe your home folder when they restart, and the secret store goes with it. **The `UserSecretsId` is still in your `.csproj`, so `init` is not needed again.** Putting it back is the one `set` command, run again with your connection string:
 
 ```bash
-dotnet add <project> package Microsoft.Extensions.Configuration
-dotnet add <project> package Microsoft.Extensions.Configuration.UserSecrets
+dotnet user-secrets set "ConnectionStrings:Desk" "Server=…;Database=…;User Id=…;Password=…;TrustServerCertificate=True" --project week-10/Lab
 ```
 
----
-
-## `dotnet user-secrets` — the four commands
-
-```bash
-dotnet user-secrets init
-dotnet user-secrets set "ConnectionStrings:Project" "Server=…;Database=…"
-dotnet user-secrets list
-dotnet user-secrets remove "ConnectionStrings:Project"
-```
-
-**`init` comes first and it is not optional.** It writes one line into your `.csproj`:
-
-```xml
-<UserSecretsId>7c7e0ab2-…</UserSecretsId>
-```
-
-⚠️ ⚠️ **That is not a secret. It is a folder name** — it says *this project's secrets live in a folder called that*. It is meant to be committed, and it is the only part of this that ever goes in the repo.
-
-⚠️ ⚠️ **SKIPPING `init` FAILS SILENTLY, AND IT IS THE WORST BUG IN THIS WEEK.** `AddUserSecrets<T>()` on a project with no `UserSecretsId` **does not throw**. It adds a source that holds nothing, `config["…"]` reads back `null`, and the first thing you hear about it is much later:
-
-```
-System.InvalidOperationException: The ConnectionString property has not been initialized.
-```
-
-**`dotnet user-secrets list` is the one-line discriminator**, and it answers three different ways:
-
-| What it says | What it means |
-|---|---|
-| `ConnectionStrings:Project = Server=…` | it is there |
-| `No secrets configured for this application.` | `init` ran, the store is empty — **you never `set` it, or the machine was wiped** |
-| `Could not find the global property 'UserSecretsId'…` | **`init` never ran** |
-
-### Where secrets actually live (and the restore drill)
-
-| | |
-|---|---|
-| **macOS / Linux** | `~/.microsoft/usersecrets/<UserSecretsId>/secrets.json` |
-| **Windows** | `%APPDATA%\Microsoft\UserSecrets\<UserSecretsId>\secrets.json` |
-
-Your home directory. **Not the repo, not the project, nowhere git has ever looked.** That is the whole of what user secrets do, and it is worth being exact about what they do *not*:
-
-- **Not encrypted.** It is a plain text file. Anybody sitting at your machine can read it.
-- **Not shared.** Per machine and per project. Your laptop's store and the lab PC's store are different files.
-- **Not deployment.** A real server gets its own answer, and you will meet it somewhere that is not this course.
-
-**What they are is *not in the repo*, which is the problem you actually have.**
-
-> ⚠️ **THE RESTORE DRILL — the lab PCs wipe on reboot, and they take the secret store with them.** It is one command, under a minute, and nothing else is lost:
->
-> ```bash
-> dotnet user-secrets set "ConnectionStrings:Project" "Server=…;Database=…;User Id=…;Password=…;TrustServerCertificate=True"
-> ```
->
-> **Keep the string somewhere that is not the repo** — a note on your phone, a text file in your home folder. ⚠️ **Not in the repo, and not in a file inside the project folder**, which is the trap: a `connection.txt` next to your code is exactly the thing this week exists to prevent, and `.gitignore` will not save you from `git add -f` or from a future you.
->
-> **`dotnet user-secrets init` does NOT need running again** — the id is in the csproj, which is committed. Only the value is gone.
-
-### The connection string, field by field
-
-```
-Server=THE-SERVER;Database=DB_KDXR_156101411_ABL;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True
-```
-
-| Field | What it is |
-|---|---|
-| `Server` | the machine. The one on the board in class |
-| `Database` | **yours**, and you choose the name — see below |
-| `User Id` / `Password` | your college SQL account |
-| `TrustServerCertificate=True` | ⚠️ **not optional decoration.** Connections are encrypted by default; without this, a server whose certificate your machine does not recognize is refused outright |
+For the homework it is `"ConnectionStrings:Project"` and `--project Project`. **Keep your connection string somewhere that isn't the repo and isn't that PC**, so the command is a paste, not a memory test.
 
 ### Naming your database
 
-**Every database in this course starts `DB_`:**
+**Every database in this course starts `DB_`:** `DB_<APP>_<COURSE-NUMBER>_<INITIALS>`.
 
-```
-DB_<APP>_<COURSE-NUMBER>_<INITIALS>
-```
+- The lab's: `DB_KDXR_156101411_ABL`
+- A homework about lighthouses: `DB_LIGHTHOUSES_156101411_ABL`
 
-so the lab's is `DB_KDXR_156101411_ABL` and your project's is `DB_<YOURTOPIC>_156101411_<YOURINITIALS>`.
+**The `DB_` is not decoration.** If you take another course on the same server and pick the same topic, your databases can't collide. The course number is written without hyphens, because SQL Server won't accept them in a name like this.
 
-⚠️ **The prefix is not decoration.** A student taking the web course as well can pick the same project topic in both, and without `DB_` the two collide — on a shared server, under one account, with no warning.
+**Two fields in the connection string trip people up:**
 
----
+- **`Database=`** is a database that doesn't exist yet the first time. `dotnet ef database update` makes it.
+- **`TrustServerCertificate=True`** is required. Without it the server refuses the connection, with *The certificate chain was issued by an authority that is not trusted*.
 
-## Migrations — `add`, and `update`
+## Migrations — `add`, then `update`
 
-Two commands. **Only one of them touches the server**, and confusing them is the commonest way this week goes wrong at home.
+**A migration is the instructions for making your tables, written as a C# class.** `dotnet ef` writes it for you, by reading your context and comparing it with what it wrote last time. Two commands, and **only the second one touches the server:**
 
-```bash
-dotnet ef migrations add TheRegistryMovesIn
-```
+| Command | What it does | Needs the server? |
+|---|---|---|
+| `dotnet ef migrations add TheDeskMovesIn --project week-10/Lab` | writes `Lab/Migrations/…_TheDeskMovesIn.cs` | **no** |
+| `dotnet ef database update --project week-10/Lab` | carries out every migration the database hasn't had, making the database first if it isn't there | **yes** |
 
-Compares your classes to what it wrote last time, and **writes a file**. It connects to nothing. It works on a plane, and it works with no connection string at all.
+**The commonest mistake is running the first and not the second.** The migration exists, so the checks are happy, and the program says `Invalid object name 'Carts'`: the database is there and the table isn't.
 
-```bash
-dotnet ef database update
-```
-
-**Connects.** Creates the database if there isn't one, then runs every migration that has not been run yet.
-
-Both need the tool, installed once per machine:
-
-```bash
-dotnet tool install --global dotnet-ef
-```
-
-and a package in the project, so the tool can see your classes:
-
-```bash
-dotnet add <project> package Microsoft.EntityFrameworkCore.Design
-```
-
-### Reading the `Up()` method
-
-`migrations add` writes a class into `Migrations/`. Open it — this is the point of the exercise, not a formality:
+**Read `Up()`.** It is your class with the column types filled in:
 
 ```csharp
-protected override void Up(MigrationBuilder migrationBuilder)
-{
-    migrationBuilder.CreateTable(
-        name: "Log",
-        columns: table => new
-        {
-            Id = table.Column<int>(type: "int", nullable: false)
-                .Annotation("SqlServer:Identity", "1, 1"),
-            Kind = table.Column<string>(type: "nvarchar(max)", nullable: false),
-            Celsius = table.Column<decimal>(type: "decimal(4,1)", nullable: false),
-            IsBack = table.Column<bool>(type: "bit", nullable: false)
-        },
-        constraints: table =>
-        {
-            table.PrimaryKey("PK_Log", x => x.Id);
-        });
-}
+            migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Artist = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Seconds = table.Column<int>(type: "int", nullable: false),
+                    PlaysTonight = table.Column<int>(type: "int", nullable: false)
+                },
 ```
 
-**That is your class with the column types filled in.** `string` became `nvarchar(max)`. `bool` became `bit`. `Id` became an int the database fills in itself.
+That is a fragment of `Up()`, from the lab's migration. **Count the columns against your class**: everything it keeps, nothing it works out. `Down()`, under it, undoes `Up()`. The database keeps a table of its own, `__EFMigrationsHistory`, listing which migrations it has had, which is how `update` knows what is left to do.
 
-There is a `Down()` underneath it that drops the table again. **That is why it is called a migration rather than a script: it knows both directions.**
+⚠️ **The `dotnet-ef` tool must be at least as new as the packages**, or every command prints a version warning first. `dotnet tool update --global dotnet-ef` installs it if it's missing and updates it if it's old.
 
----
+## `Save` — `Add`, then `SaveChanges`
 
-## `Save` — add, update, or remove
-
-Week 8's `Save` wrote the whole file from scratch every time. **You cannot do that to a table**, and the reason is `Id`:
-
-```
-Cannot insert explicit value for identity column in table 'Payphones'
-when IDENTITY_INSERT is set to OFF.
-```
-
-A record loaded out of row 3 is still carrying the number 3. Empty the table and put it back and you are asking SQL Server to let your program choose its own row numbers, which it will not.
-
-**So `Save` says which of three things each record is, and `Id` is how it tells:**
+This is the rotation's first `Save`, from Task 4. It goes in `Rotation.cs`, in place of `Save(string path)`:
 
 ```csharp
-// inside Registry.cs
-public void Save(ProjectContext db)
-{
-    // Off the books: anything the table holds that the registry does not.
-    foreach (Payphone onFile in db.Payphones.ToList())
+    public void Save(DeskContext db)
     {
-        if (!_items.Any(phone => phone.Id == onFile.Id))
+        foreach (Song song in _songs)
         {
-            db.Payphones.Remove(onFile);
+            db.Carts.Add(song);
         }
-    }
 
-    foreach (Payphone phone in _items)
-    {
-        if (phone.Id == 0)
-        {
-            db.Payphones.Add(phone);
-        }
-        else
-        {
-            db.Payphones.Update(phone);
-        }
+        db.SaveChanges();
     }
-
-    db.SaveChanges();
-}
 ```
 
-| | |
-|---|---|
-| `Id == 0` | never been on file. **`Add`** |
-| `Id != 0` | the table already has that row. **`Update`** |
-| on file, not in the registry | **`Remove`** |
+- **`db.Carts.Add(song)` doesn't touch the server.** It tells the context *this one is to be put in the table*. The context keeps a list of everything it has been told.
+- **`db.SaveChanges()` sends the whole list**, in one trip. Leave it out, and nothing arrives and nothing complains.
+- **The context is handed in, never made inside `Rotation`.** That is the same reason the file path was handed in: `Rotation` doesn't know where it is being saved. A test can hand it a different place.
 
-> ⚠️ ⚠️ **`Add`, `Update` and `Remove` DO NOTHING ON THEIR OWN.** They write down what is *intended*. **`SaveChanges()` is the line that goes to the server**, and it takes the lot in one trip — all of it or none of it. A `Save` with no `SaveChanges()` is the single most common failure this week, and the symptom is that nothing arrives and nothing complains.
+⚠️ **One context for the whole shift saves more than you asked it to.** The desk makes one `DeskContext` and hands it to both the switchboard and the rotation. **`SaveChanges()` sends every change that context is tracking**, carts included, whichever `Save` called it. So in the lab, a `Rotation.Save` with no `SaveChanges()` still seems to work, because the switchboard's runs first. Check 4 makes a fresh context, and catches it.
 
----
-
-## `Load` — and the first night
+## `Load`, and the first night
 
 ```csharp
-// inside Registry.cs
-public void Load(ProjectContext db)
-{
-    List<Payphone> loaded = db.Payphones.ToList();
-
-    if (loaded.Count == 0)
+    public void Load(DeskContext db)
     {
-        return;
-    }
+        List<Song> loaded = db.Carts.OrderBy(song => song.Id).ToList();
 
-    _items.Clear();
-    _items.AddRange(loaded);
-}
+        if (loaded.Count == 0)
+        {
+            return;
+        }
+
+        _songs.Clear();
+
+        _songs.AddRange(loaded);
+    }
 ```
 
-Two things it has to get right, and week 8 had both:
+That is the whole `Load`, in `Rotation.cs`.
 
-- **Loading is REPLACING.** `_items.Clear()` before the `AddRange`, or a `Program.cs` that seeds three records and then loads three ends up holding six.
-- ⚠️ ⚠️ **THE FIRST NIGHT, and this is the one that bites.** Week 8 asked `File.Exists` before reading, because a program nobody has run has no file. **A table is not like that — the migration made it, so it is always there. On the first run it is EMPTY**, which is the same situation wearing different clothes. A `Load` that clears before it looks throws your seeded records away, and the next line of `Program.cs` reaches for one and finds nothing.
+- **`db.Carts` is a question, not an answer.** `ToList()` is the moment it is sent to the server and the rows come back, the same way `ToList()` ran a query in week 9.
+- **A table keeps no order of its own.** Without `OrderBy`, the server may hand rows back in any order it likes. `OrderBy` on `Id` gives them back in the order they first went in.
+- ⚠️ **The first night.** The old `Load` asked `File.Exists` first, because a desk that had never signed off had no file. The table is always there, because the migration made it, but the first time it is **empty**. A `Load` that clears before it looks throws away the carts `Program.cs` just added, and the desk crashes building the hour with `ArgumentOutOfRangeException`. **Read the rows first, and return when there are none.**
+- **Loading is replacing.** `Clear()` before `AddRange`, or the loaded carts go in on top of the ones already there.
 
-**Read the rows into a list first, and return early when there are none of them.**
+## The second save — `Add` or `Update`
 
-> 💡 **`.ToList()` is week 9's, doing week 9's job.** `db.Payphones` is a question, not an answer; without `ToList()` every pass round a loop would go back to the server.
+**A cart that came out of the table is carrying the number of its row.** Its `Id` isn't 0 any more. Hand it to `Add` and the context tries to put a second row in with the same number, which the database refuses:
 
----
+```
+Cannot insert explicit value for identity column in table 'Carts' when IDENTITY_INSERT is set to OFF.
+```
 
-## Testing database code without a database
-
-The suite you have been growing since week 7 does not stop working this week, and it does not need a server.
-
-**EF Core can keep a table in memory** — one that lives inside the test run and disappears with it:
+**So `Save` asks each cart which it is.** This replaces the one `Add` line inside `Save`'s loop:
 
 ```csharp
-// inside your test file
-using Microsoft.EntityFrameworkCore;
-
-DbContextOptions<ProjectContext> somewhereElse =
-    new DbContextOptionsBuilder<ProjectContext>()
-        .UseInMemoryDatabase("mine-" + Guid.NewGuid())
-        .Options;
-
-using (ProjectContext db = new ProjectContext(somewhereElse))
-{
-    registry.Save(db);
-}
-
-// A second registry, and a second context — reading the same rows.
-Registry reopened = new Registry();
-
-using (ProjectContext db = new ProjectContext(somewhereElse))
-{
-    reopened.Load(db);
-}
-
-Assert.Equal(1, reopened.Count);
+            if (song.Id == 0)
+            {
+                db.Carts.Add(song);
+            }
+            else
+            {
+                db.Carts.Update(song);
+            }
 ```
 
-It needs one package, **on the test project, not on your program**:
+- **`Id` 0** has never been saved: `Add` puts in a new row.
+- **Any other `Id`** is a row the table already has: `Update` changes that row.
+
+⚠️ **This week's `Save` only puts rows in and changes them.** A record taken off with `Remove()` is still in the table, so it comes back the next time the program loads. Taking rows out is a different job, for a later week.
+
+## Testing without a database
+
+**A test that needs the college's server fails whenever the network does, and needs your password.** So the tests hand the context a table that lives inside the test run, with the in-memory provider:
 
 ```bash
-dotnet add Project.Tests package Microsoft.EntityFrameworkCore.InMemory
+dotnet add week-10/Lab.Tests package Microsoft.EntityFrameworkCore.InMemory --version 10.0.13
 ```
 
-- **`Guid.NewGuid()` in the name** so two tests running at once can never see each other's rows.
-- **The second constructor is what makes this possible** — the test tells the context where to put things, and `if (options.IsConfigured) return;` in `OnConfiguring` is what stops the connection string overruling it.
-- **Two contexts, not one.** Saving and loading through the same context proves nothing: it would hand you back the objects it is already holding.
+This is the lab's `ACartRemembersItsPlays`, whole, in `Lab.Tests/DeskTests.cs` with `using Microsoft.EntityFrameworkCore;` at the top of the file:
 
-> ⚠️ **This says NOTHING about whether your connection string is right.** These tests pass on a laptop with the wifi off. **Running your program is the only thing that tells you the real database works** — which is why every task this week ends with a run as well as a test.
+```csharp
+    [Fact]
+    public void ACartRemembersItsPlays()
+    {
+        DbContextOptions<DeskContext> options = new DbContextOptionsBuilder<DeskContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
 
----
+        Song nightjar = new Song("Nightjar", "The Lamplighters", 227);
+        nightjar.Play();
+        nightjar.Play();
 
-## Case, and what the database does not care about
+        Rotation rotation = new Rotation();
+        rotation.Add(nightjar);
+        rotation.Save(new DeskContext(options));
 
-Type a name in lower case at the desk and it is refused. Ask the database the same thing and it hands the row over:
+        Rotation reopened = new Rotation();
+        reopened.Load(new DeskContext(options));
+
+        Assert.Equal(1, reopened.Count);
+        Assert.Equal(2, reopened.All()[0].PlaysTonight);
+    }
+```
+
+- **`Guid.NewGuid().ToString()`** names the table something new every time, so no fact can see another fact's rows.
+- **`new DeskContext(options)`** is the second constructor. It's why the context has one.
+- **Save through one context and load through another.** Reading back through the same context can hand you the very same objects, which proves nothing about what reached the table. Assert on `reopened`, never on the rotation that saved.
+- ⚠️ **The table in a test words mistakes differently.** The second-save mistake on the server is *Cannot insert explicit value for identity column*. In a test it is `System.ArgumentException : An item with the same key has already been added. Key: 1`. The same key means the same `Id`, twice.
+
+**This is how my checks work too.** They never touch the server, which is why they pass with the wifi off and why they can't tell you whether your connection string is right. **Only running the program tests that.**
+
+## The same name, twice
 
 ```
-b → reyes             Nobody outside by that name.
+│ Dorothy │ 4     │ -         │
+│ dorothy │ 1     │ Nightjar  │
 ```
+
+The desk was asked for `dorothy`, with a small d. `Switchboard.Find` compares with `==`, and **`==` on strings compares every letter exactly, capitals included**. It found nobody, so the desk made a second caller. Then the database was asked:
+
 ```sql
-WHERE Who = 'reyes'   →   SIGNOUT  14:20  Reyes  DIG OUT  14:45
+SELECT * FROM Callers WHERE Name = 'dorothy';
 ```
 
-**C# compares strings letter by letter, and `R` is not `r`.** SQL Server compares them under a *collation*, and the usual default — `SQL_Latin1_General_CP1_CI_AS` — has `CI` in it for **case-insensitive**.
+**and it handed back both rows.** SQL Server compares text using the database's **collation**, a setting for how text is sorted and compared. The usual one, `SQL_Latin1_General_CP1_CI_AS`, has `CI` in it: case-insensitive. To this database, `Dorothy` and `dorothy` are the same name.
 
-⚠️ **Nothing you wrote chose this.** It came with the database, and almost every SQL Server you will ever meet is set that way. It matters now because there are suddenly two things that can answer a question about your data, and this week they answer differently.
+**Right now the desk asks its own list, in C#, so the C# rule wins.** A program that sends the question to the database instead gets the database's rule. Same question, same word, a different answer.
 
-**When your searches start running inside the database rather than in C#, this stops being a curiosity — that is week 12.**
-
----
-
-## 🆘 Troubleshooting
+## 🔧 Troubleshooting
 
 | What you see | What it means |
 |---|---|
-| `InvalidOperationException: The ConnectionString property has not been initialized.` | The config read back nothing. **Two causes, and `dotnet user-secrets list` tells them apart** — see [the four commands](#dotnet-user-secrets--the-four-commands). Either `init` never ran, or the store is empty. |
-| `Could not find the global property 'UserSecretsId'` | `dotnet user-secrets init` never ran in this project. |
-| `No secrets configured for this application.` | `init` ran; nothing was `set`. **On a lab PC this is the reboot** — [the restore drill](#where-secrets-actually-live-and-the-restore-drill) is one command. |
-| `SqlException: Cannot open database "DB_…" requested by the login` | The database does not exist. `dotnet ef database update` makes it — you probably ran `migrations add` and stopped. |
-| `SqlException: A network-related or instance-specific error…` | The server name is wrong, or you are not on a network that can reach it. Check `Server=` first. |
-| `SqlException: The certificate chain was issued by an authority that is not trusted` | `TrustServerCertificate=True` is missing from the connection string. |
-| `SqlException: Login failed for user` | Wrong `User Id` or `Password`. Retype the whole connection string with `dotnet user-secrets set` — it replaces. |
-| `SqlException: Invalid object name 'Payphones'` | The database is there and the table is not. `dotnet ef database update`. |
-| `Cannot insert explicit value for identity column` | `Save` is `Add`ing a record that came out of the table. [It is an `Update`, and `Id` is how you tell.](#save--add-update-or-remove) |
-| Nothing arrives in the table and nothing complains | **No `db.SaveChanges()`.** [`Add` only writes down what you intend.](#save--add-update-or-remove) |
-| Your seeded records vanish on the first run | [`Load` cleared before it looked, and the table was empty.](#load--and-the-first-night) |
-| The registry holds six records and you added three | `_items.Clear()` is missing from `Load`. Loading is replacing. |
-| A count that should be 1 comes back 0 after a round trip | The property is `[NotMapped]`, or it is worked out rather than kept. **`[JsonInclude]` is not the answer any more** — [EF Core sets private setters on its own](#notmapped--the-things-a-class-works-out). |
-| `dotnet ef` : *command not found* | `dotnet tool install --global dotnet-ef`. |
-| `The Entity Framework tools version … is older than that of the runtime` | Harmless, and one command to silence: `dotnet tool update --global dotnet-ef`. |
-| `Unable to create a 'DbContext' of type …` | `dotnet ef` could not construct your context. It needs the **empty** constructor — check you did not delete it when you added the other one. |
-| `CS0246: The type or namespace name 'DbContext' could not be found` | Missing `using Microsoft.EntityFrameworkCore;`, or the SqlServer package was never added. |
-| `CS0246: … 'NotMappedAttribute' could not be found` | `using System.ComponentModel.DataAnnotations.Schema;` at the top of the file. |
-| Your tests want a database | They should not. [Hand the context somewhere else.](#testing-database-code-without-a-database) |
-| A search finds nothing and you can see the record | Compare exactly what you typed with exactly what is stored — **and if it matched in SQL and not in C#, [that is tonight's last beat](#case-and-what-the-database-does-not-care-about).** |
+| `warning NU1902` / `NU1903` on `System.Security.Cryptography.Pkcs` | The SQL Server package uses a version with a known security problem. Add `System.Security.Cryptography.Pkcs --version 10.0.13` to the project yourself. |
+| `The Entity Framework tools version '…' is older than that of the runtime` | `dotnet tool update --global dotnet-ef`. |
+| `The ConnectionString property has not been initialized.` | No connection string was found. [`dotnet user-secrets list`](#user-secrets--a-password-outside-the-repo) says whether `init` or `set` is missing. |
+| `Cannot open database "DB_…" requested by the login` | The database doesn't exist yet — `dotnet ef database update` — or the name in the connection string is different from the one you made. It arrives wrapped in *An exception has been raised that is likely due to a transient failure*. |
+| `Login failed for user` | Wrong login or password. `set` again; `set` replaces. |
+| `A network-related or instance-specific error…` | Wrong `Server=`, or a network that can't reach the server. |
+| `The certificate chain was issued by an authority that is not trusted` | `TrustServerCertificate=True` is missing. |
+| `Invalid object name '…'` | The migration exists and was never carried out. `dotnet ef database update`. |
+| `There is already an object named '…' in the database` | A migration is trying to make a table the database already has — usually two first migrations for the same database. |
+| `Cannot bind 'name' in '…(string name)'` | A property the constructor needs has only a `get`. Give it a `private set`. |
+| `The entity type '…' requires a primary key` | That class needs `public int Id { get; set; }` — or, if your context never mentions it, a property holding it needs `[NotMapped]`. |
+| `Unable to create a 'DbContext' of type '…'` | `dotnet ef` couldn't make your context. Read the message after it; if there is none, the constructor that takes nothing is missing. |
+| `CS1503: cannot convert from 'string' to '…Context'` | Something still hands `Save` or `Load` a file name. |
+| `CS1061` … `UseInMemoryDatabase` | The test project hasn't got `Microsoft.EntityFrameworkCore.InMemory`. |
+| `Cannot insert explicit value for identity column` | `Add` on a record that came out of the table. [`Update` it.](#the-second-save--add-or-update) |
+| `ArgumentException: An item with the same key has already been added` | The same mistake, in a test. |
+| `ArgumentOutOfRangeException` on the very first run | [`Load` cleared, and the table was empty.](#load-and-the-first-night) |
+| Records show up twice | `Load` lost its `Clear()`. Fix it, then `DELETE FROM` the table — the extra rows were saved. |
+| A record you removed is back | [Expected this week.](#the-second-save--add-or-update) |
+| The SQL Server view shows nothing new | Right-click the connection → **Refresh**. It doesn't refresh on its own. |
+| Red squiggles under `DbSet`, and `dotnet build` is fine | The editor, not your code. Command Palette → **`Developer: Reload Window`**. |
 
-**Prev:** [Week 9 — LINQ, and Thirty Lines Become One](../week-09/lecture-notes.md) · **Next:** Week 11 *(coming)*
+**Prev:** [Week 9 — Lecture Notes](../week-09/lecture-notes.md) · **Next:** Week 11 *(coming)*
