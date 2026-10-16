@@ -514,6 +514,17 @@ dotnet run --project Project
 
 **Read the last two lists against each other.** *As they arrived* and *In order* hold the same records in two different orders.
 
+> [!TIP]
+> **Both lists the same?** Your records happen to have arrived in A-to-Z order already, so there is nothing to see yet. Add one more record whose name comes first in the alphabet. Put this line **directly above your `registry.Save(...)` line**, and change the name to one of your own:
+>
+> ```csharp
+> registry.Add(registry.NewItem("A name that starts with A"));
+> ```
+>
+> Run it again. The new record is **last** in *as they arrived* and **first** in *In order*. Running it a second time does no harm, because your `Add` refuses a name it already has.
+>
+> ⚠️ **Not above your `registry.Load(...)` line.** `Load` replaces everything in the registry with what is in the file, so a record added before it is gone.
+
 **Now check the file.** Open `registry.json`. The records are in the order they arrived, not in A-to-Z order. Asking for the records in order did not rewrite your file — the lab's Task 4, on your project.
 
 **Then mine:**
