@@ -35,7 +35,7 @@ By the end of this session, students can:
 8. Say why the same name can be one row to the database and two to C#.
 
 > [!NOTE]
-> **The packages include one students didn't ask for.** `Microsoft.EntityFrameworkCore.SqlServer` 10.0.13 brings in a `System.Security.Cryptography.Pkcs` with two security advisories published 2026-10-13, and every build prints them as `NU1902`/`NU1903`. Adding the fixed version directly clears them. **Re-check before class**: if a later SQL Server package has fixed it, §2's warnings won't appear and the fifth package is harmless.
+> **The packages include one students didn't ask for.** `Microsoft.EntityFrameworkCore.SqlServer` 10.0.13 asks for a `System.Security.Cryptography.Pkcs` with two security advisories published 2026-10-13. Adding the fixed version **first** means the vulnerable one is never used — measured: no warnings at either `dotnet add`, and the project resolves to 10.0.13. **Re-check each term**: NuGet checks the package graph against a live advisory list on every restore, so a new advisory can bring warnings back.
 
 ## Materials
 
@@ -64,7 +64,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 |------|----------|---------|
 | 0:00 | 3 min | **Where the night is kept** *(slide 1, demo §1)*. Read the slide. Two files, on this laptop, become a database on a server none of us owns. |
 | 0:03 | 10 min | **Lab A: setup, together** *(the lab README in the browser)*. You copy week 10 in alongside the room. **1 / 5**, the starter commit. Stop there. |
-| 0:13 | 18 min | **The packages, and somewhere for a password** *(slide 2, demo §2)*. The SQL Server package, and warnings nobody wrote. The fixed package clears them. Three more. `user-secrets list`, `init`, `list` run live; `set` shown, not run — **your password never goes on screen, and saying why is the lesson.** |
+| 0:13 | 18 min | **The packages, and somewhere for a password** *(slide 2, demo §2)*. Five packages, the fixed cryptography one first, so the vulnerable version is never used. `user-secrets list`, `init`, `list` run live; `set` shown, not run — **your password never goes on screen, and saying why is the lesson.** |
 | 0:31 | 15 min | **Lab B: Task 1** — the tool, five packages, their own secret store, and a connection to the server in the SQL Server view. **Set your own secret first, while the projector shows the README.** Then **circulate at 1d.** |
 | 0:46 | 25 min | 💥 **A class becomes a table** *(slide 3, demo §3)*. `DeskContext` with `Callers`. `migrations add` refuses three times: `Cannot bind 'name'`, a missing key, and `Song` — through `Favorite`. Each message names its fix. Read `Up()`. *"Has anything happened on the server yet?"* Slide 3. `database update`, and the empty table. **Push #1.** |
 | 1:11 | 25 min | **Lab C: Tasks 2 and 3** — copy `Caller.cs`, `Song.Id`, their own `DeskContext` with two tables, then the migration, `database update`, and their tables in the SQL Server view. |
@@ -85,7 +85,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 
 - ⚠️ ⚠️ **YOUR PASSWORD NEVER GOES ON THE PROJECTOR.** §2 runs `list`, `init` and `list` live — none of them shows a password — and shows `set` with the lab's `YOUR-…` placeholders without running it. **You run your real `set` at the start of Lab B**, while the projector shows the README. **Do not run `dotnet user-secrets list` on screen after that, and do not open `secrets.json`** — both print it.
 - 🎯 **That care is the lesson, so say it out loud rather than doing it quietly.** The line is in the sheet.
-- 💡 **§2's warnings are worth the minute.** The count isn't in the sheet on purpose: it comes from NuGet's live advisory list, so say what the screen says. They are real, they are a security advisory, and the fix is the same `dotnet add` they already know. Read one out.
+- 💡 **§2's first package is there because of a security advisory.** The SQL Server package asks for a vulnerable `System.Security.Cryptography.Pkcs`; adding the fixed version first means the old one is never used. One sentence, and move on.
 - 💥 **§3's three refusals are the segment.** Run `migrations add` after every change, and read only the line that matters each time. **The third one, `Song`, is a question to the room**: the context never mentions songs.
 - ⚠️ **§3: don't explain the second `DeskContext` constructor when you paste it.** Say you'll need it later. It lands in §4, when the test needs it.
 - 🎯 **§3's question is the one to actually wait for**: *"has anything happened on the server yet?"* No — and the commonest homework mistake is writing the migration and never running `database update`.
@@ -105,7 +105,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 |---|---|
 | A push asks you to sign in, or is rejected | §0's test push should have caught it. Sign in and push again; the room starts the task meanwhile. If it is rejected as behind, the pull in the same step fixes it — run the step again. |
 | A student's copy says `No such file or directory` | Your push hasn't landed, or their starters clone isn't pulled. `git -C ../dotnet-db-starters pull` and copy again. |
-| §2 shows no warnings after the SQL Server package | A newer package fixed the advisory. Say so, and add the fifth package anyway — it is harmless. |
+| A build in §2 shows `warning NU190…` anyway | A new advisory has landed since this week was built, on some other package. Read out the package it names; it is not something tonight broke. |
 | Every `dotnet ef` command prints a version warning | `dotnet tool update --global dotnet-ef` — in §0, not on screen. |
 | §3's first `migrations add` says `Done.` | Your `Caller.cs` is already shaped — a push file from rehearsal. Delete `week-10` and copy it in again. |
 | `database update` fails with a login error | Your connection string. Run the Lab B `set` again with the corrected string, **on your own screen**, not the projector. |
