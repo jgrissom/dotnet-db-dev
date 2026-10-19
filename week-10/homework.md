@@ -145,7 +145,7 @@ dotnet add Project package Microsoft.Extensions.Configuration --version 10.0.13
 dotnet add Project package Microsoft.Extensions.Configuration.UserSecrets --version 10.0.13
 ```
 
-The second one is the fixed version of a package the first one uses, and [the lab's Task 1b says why](lab/README.md#1b--five-packages-on-the-desk). **Build, and check the bottom says `0 Warning(s)`:**
+The second one is the fixed version of a package the first one uses, and [the lab's Task 1b says why](lab/README.md#1b--five-packages-on-the-desk). **Build, and check no warning names `System.Security.Cryptography.Pkcs`:**
 
 ```bash
 dotnet build Project

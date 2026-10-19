@@ -134,25 +134,16 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"EF Core is Entity Framework Core. It is how a C# program reads and writes a database without writing the database's own language by hand. This package is the part of it that speaks to SQL Server."*
-- [ ] **Build, and scroll to the bottom of the output**
+- [ ] **Build, and scroll to the bottom of the output.** It ends with a line counting the warnings, and `0 Error(s)`
 
   ```bash
   dotnet build week-10/Lab
   ```
 
-  ```
-      4 Warning(s)
-      0 Error(s)
-  ```
-
-- [ ] 🎯 **Say the count, then ask, and wait:** *"Four warnings. I added one package and wrote no code. What are they?"*
-- [ ] **Scroll up and highlight one of the warning lines**
-
-  ```
-  warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
-  ```
-
-- [ ] 📖 *"The four warnings are two warnings, each printed twice. The SQL Server package uses another package, for cryptography. The version it asks for has a known security problem. A fixed version exists, and I can add it myself. Then my version is the one the project uses."*
+- [ ] 🎯 **Say the number the warning count shows, then ask, and wait:** *"I added one package and wrote no code. What are those warnings?"*
+- [ ] **Scroll up and highlight one of the warning lines.** Each one starts `warning NU190` and names a package with a known vulnerability. Read the package name and the version out loud
+- [ ] 📖 *"Each warning is printed twice: once when the package went in, and once by the build. The SQL Server package uses another package, for cryptography. The version it asks for has a known security problem. A fixed version exists, and I can add it myself. Then my version is the one the project uses."*
+- [ ] ⚠️ **The warnings come from NuGet's live list of security advisories, checked every time packages are restored.** On 2026-10-15 they were two advisories against `System.Security.Cryptography.Pkcs` 9.0.11, which the next command fixes. **If the warnings name a different package, read that one out instead.** If there are none, say so, skip to the three packages below, and add the fifth one anyway; it does no harm
 
   ```bash
   dotnet add week-10/Lab package System.Security.Cryptography.Pkcs --version 10.0.13
@@ -162,12 +153,7 @@ Tonight the desk moves its night out of two files and into a database on the col
   dotnet build week-10/Lab
   ```
 
-  ```
-      0 Warning(s)
-      0 Error(s)
-  ```
-
-- [ ] 📖 *"Zero warnings."*
+- [ ] 📖 *"The cryptography warnings are gone."* If a warning is still there, it names a different package. Read it out the same way
 - [ ] **Then the other three packages, without stopping between them**
 
   ```bash

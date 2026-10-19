@@ -194,18 +194,9 @@ dotnet add week-10/Lab package Microsoft.EntityFrameworkCore.SqlServer --version
 dotnet build week-10/Lab
 ```
 
-```
-    4 Warning(s)
-    0 Error(s)
-```
+**The last lines count the warnings and the errors: some warnings, and no errors.** Scroll up and read one. Each starts `warning NU190` and names a package with a known security problem, and each is printed twice: once when the package went in, and once by the build.
 
-**Four warnings, and they are two warnings printed twice.** Scroll up and read one:
-
-```
-warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.11 has a known high severity vulnerability
-```
-
-The SQL Server package uses another package called `System.Security.Cryptography.Pkcs`, and the version it asks for has a known security problem. **A fixed version exists. You add it to the project yourself, and your version wins:**
+The one this course expects is `System.Security.Cryptography.Pkcs`. The SQL Server package uses it, and the version it asks for has a known security problem. **A fixed version exists. You add it to the project yourself, and your version wins:**
 
 ```bash
 dotnet add week-10/Lab package System.Security.Cryptography.Pkcs --version 10.0.13
@@ -215,10 +206,7 @@ dotnet add week-10/Lab package System.Security.Cryptography.Pkcs --version 10.0.
 dotnet build week-10/Lab
 ```
 
-```
-    0 Warning(s)
-    0 Error(s)
-```
+**The `Pkcs` warnings are gone.** *(The warnings come from a list of security advisories that NuGet checks every time it restores packages, so the list can change. If a warning is still there and it names a different package, show it to your instructor.)*
 
 **Then the other three.** The first is the part of EF Core that `dotnet-ef` needs to write migrations. The other two read the password from where you're about to keep it.
 
