@@ -25,7 +25,7 @@ The desk's night moves out of two files and into a database on the college's SQL
 
 ## 📋 Before class, don't forget
 
-- ⚠️ **Your connection string in `~/kdxr-connection.txt`** — §2 reads it, so your password never reaches the projector
+- ⚠️ **Your connection string ready to paste** — you set it at the start of Lab B, on your own screen, so your password never reaches the projector
 - ⚠️ **No `DB_KDXR_156101411_JSG` on the server** — drop it if you've rehearsed; §3 makes it
 - ⚠️ **The SQL Server view already connected to your server, and `dotnet tool update --global dotnet-ef`**
 - ⚠️ **A starters clone you can push to, next to your demo repo** — you push to it three times tonight. The cue sheet's §0 tests it

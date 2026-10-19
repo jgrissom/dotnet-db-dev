@@ -55,7 +55,7 @@ Tonight the desk moves its night out of two files and into a database on the col
 
 - [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-10/demo/script.html) and confirm the top line says *the same station they work on*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] 💡 **Type your database name in the Database box at the top of the published page.** Every mention of it on the page changes, including what the Copy buttons hand you. It is saved on this device
-- [ ] ⚠️ **Your connection string goes in a file in your home folder, `~/kdxr-connection.txt`, and NOT on the projector.** Make it now, in a text editor, on your own screen. One line, with your real server, login and password: `Server=…;Database=DB_KDXR_156101411_JSG;User Id=…;Password=…;TrustServerCertificate=True`. §2 reads it from there, so the room never sees it
+- [ ] ⚠️ **Your connection string ready to paste, on your own screen and not the projector.** One line, with your real server, login and password: `Server=…;Database=DB_KDXR_156101411_JSG;User Id=…;Password=…;TrustServerCertificate=True`. You set it at the start of Lab B, while the projector shows the lab README
 - [ ] ⚠️ **A current `dotnet-ef`**, so no version warning prints on every command tonight:
 
   ```bash
@@ -214,18 +214,14 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"Now there is a store, and it is empty. Those two answers are worth remembering. When the desk can't find its database, list tells you which of the two is the problem."*
-- [ ] **Put the connection string in. Silent until the next line: it is read out of the file you made before class**
+- [ ] **Don't run this one.** Show it on screen as the command students will run, and talk it through
 
-  ```bash
-  dotnet user-secrets set "ConnectionStrings:Desk" "$(cat ~/kdxr-connection.txt)" --project week-10/Lab
+  ```text
+  dotnet user-secrets set "ConnectionStrings:Desk" "Server=YOUR-SERVER;Database=DB_KDXR_156101411_YOURINITIALS;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True" --project week-10/Lab
   ```
 
-  ```
-  Successfully saved ConnectionStrings:Desk to the secret store.
-  ```
-
-- [ ] 🎯 *"I didn't type my connection string, and I'm not going to run list now. Both would put my password on the projector. You'll type yours on your own screen, which is fine."*
-- [ ] ⚠️ **Do not run `dotnet user-secrets list` again, and do not open the secrets file.** Both print the password
+- [ ] 📖 *"This is set. It puts the connection string in the store. The connection string is one line: which server, which database, your login, and your password."*
+- [ ] 🎯 *"I'm not running it here, because mine has my password in it and this screen is the projector. I'll set mine at the start of the lab, on my own screen, while you set yours."*
 
 - [ ] 🎞️ **GO TO SLIDE 2** — *Where a password lives* · *"User secrets keep the password out of the repo, and that is the one problem they solve. The file is not encrypted. It is not shared with anyone. And it is only on this machine, so a lab PC that reboots loses it. Putting it back is the same set command."*
 
@@ -240,7 +236,18 @@ Tonight the desk moves its night out of two files and into a database on the col
 ## Lab B · Task 1 — 15 minutes
 
 - [ ] **Lids up. The lab README, at *Task 1 in full*.**
-- [ ] 📖 *"Task 1 is what I just did, on your desk. The tool, the five packages, your own secret store, and your own connection string. Then connect to the server in the SQL Server view, to prove your login works. Your check count stays at one out of five. Stop at the stop note after the commit."*
+- [ ] 📖 *"Task 1 is what I just did, on your desk. The tool, the five packages, and your own secret store. Then your own connection string, which I'm setting on mine right now. Then connect to the server in the SQL Server view, to prove your login works. Your check count stays at one out of five. Stop at the stop note after the commit."*
+- [ ] ⚠️ **Set your own secret now, in your terminal, while the projector shows the README.** Paste your real connection string between the second pair of quotes. §3's `database update` is the first command that needs it
+
+  ```bash
+  dotnet user-secrets set "ConnectionStrings:Desk" "PASTE-YOUR-CONNECTION-STRING-HERE" --project week-10/Lab
+  ```
+
+  ```
+  Successfully saved ConnectionStrings:Desk to the secret store.
+  ```
+
+- [ ] ⚠️ **Do not run `dotnet user-secrets list` on the projector, now or later tonight, and do not open the secrets file.** Both print the password
 - [ ] 🎯 **Circulate at step 1d.** A login or network problem is far cheaper to fix now than at Task 3. The commonest are a wrong server name and a dismissed certificate prompt
 - [ ] 🎯 **And look for a connection string still saying `YOUR-…`.** `list` shows it
 

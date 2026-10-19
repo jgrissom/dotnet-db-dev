@@ -42,7 +42,7 @@ By the end of this session, students can:
 - `slides.md` / `slides.html` — the deck, five slides
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-10/demo/script.html)) — type your database name in the **Database** box at the top of the published page once
 - **The instructor demo repo**, `dotnet-db-coursework`, with **a starters clone you can push to next to it** — §0 tests a push
-- ⚠️ **`~/kdxr-connection.txt`, holding your real connection string.** §2 reads it, so your password never reaches the projector
+- ⚠️ **Your real connection string ready to paste** — you set it at the start of Lab B, on your own screen, while the projector shows the lab README
 - ⚠️ **No `DB_KDXR_156101411_JSG` on the server.** §3 makes it in front of the room; drop it if you've rehearsed
 - ⚠️ **The SQL Server view already connected to your server**, and a current `dotnet-ef`
 - ⚠️ **`demo/week-10/` in the starters repo empty or missing** before class — it fills up during the night
@@ -64,8 +64,8 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 |------|----------|---------|
 | 0:00 | 3 min | **Where the night is kept** *(slide 1, demo §1)*. Read the slide. Two files, on this laptop, become a database on a server none of us owns. |
 | 0:03 | 10 min | **Lab A: setup, together** *(the lab README in the browser)*. You copy week 10 in alongside the room. **1 / 5**, the starter commit. Stop there. |
-| 0:13 | 18 min | **The packages, and somewhere for a password** *(slide 2, demo §2)*. The SQL Server package, and four warnings nobody wrote. The fixed package clears them. Three more. `user-secrets list`, `init`, `list`, and `set` from the file — **nothing sensitive on screen, and saying why is the lesson.** |
-| 0:31 | 15 min | **Lab B: Task 1** — the tool, five packages, their own secret store, and a connection to the server in the SQL Server view. **Circulate at 1d.** |
+| 0:13 | 18 min | **The packages, and somewhere for a password** *(slide 2, demo §2)*. The SQL Server package, and four warnings nobody wrote. The fixed package clears them. Three more. `user-secrets list`, `init`, `list` run live; `set` shown, not run — **your password never goes on screen, and saying why is the lesson.** |
+| 0:31 | 15 min | **Lab B: Task 1** — the tool, five packages, their own secret store, and a connection to the server in the SQL Server view. **Set your own secret first, while the projector shows the README.** Then **circulate at 1d.** |
 | 0:46 | 25 min | 💥 **A class becomes a table** *(slide 3, demo §3)*. `DeskContext` with `Callers`. `migrations add` refuses three times: `Cannot bind 'name'`, a missing key, and `Song` — through `Favorite`. Each message names its fix. Read `Up()`. *"Has anything happened on the server yet?"* Slide 3. `database update`, and the empty table. **Push #1.** |
 | 1:11 | 25 min | **Lab C: Tasks 2 and 3** — copy `Caller.cs`, `Song.Id`, their own `DeskContext` with two tables, then the migration, `database update`, and their tables in the SQL Server view. |
 | 1:36 | 10 min | **☕ Break** |
@@ -83,7 +83,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 
 ## Instructor notes
 
-- ⚠️ ⚠️ **§2 PUTS YOUR PASSWORD ON THE PROJECTOR IF YOU LET IT.** The sheet sets the secret with `"$(cat ~/kdxr-connection.txt)"`, so it is never typed or shown. **Do not run `dotnet user-secrets list` after the `set`, and do not open `secrets.json`** — both print it. *(`"$(cat …)"` is the same in zsh and in PowerShell, where `cat` is `Get-Content`. Measured on the Mac only.)*
+- ⚠️ ⚠️ **YOUR PASSWORD NEVER GOES ON THE PROJECTOR.** §2 runs `list`, `init` and `list` live — none of them shows a password — and shows `set` with the lab's `YOUR-…` placeholders without running it. **You run your real `set` at the start of Lab B**, while the projector shows the README. **Do not run `dotnet user-secrets list` on screen after that, and do not open `secrets.json`** — both print it.
 - 🎯 **That care is the lesson, so say it out loud rather than doing it quietly.** The line is in the sheet.
 - 💡 **§2's four warnings are worth the minute.** They are real, they are a security advisory, and the fix is the same `dotnet add` they already know. Read one out.
 - 💥 **§3's three refusals are the segment.** Run `migrations add` after every change, and read only the line that matters each time. **The third one, `Song`, is a question to the room**: the context never mentions songs.
@@ -108,7 +108,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 | §2 shows no warnings after the SQL Server package | A newer package fixed the advisory. Say so, and add the fifth package anyway — it is harmless. |
 | Every `dotnet ef` command prints a version warning | `dotnet tool update --global dotnet-ef` — in §0, not on screen. |
 | §3's first `migrations add` says `Done.` | Your `Caller.cs` is already shaped — a push file from rehearsal. Delete `week-10` and copy it in again. |
-| `database update` fails with a login error | Your connection string. Check `~/kdxr-connection.txt` **on your own screen**, not the projector. |
+| `database update` fails with a login error | Your connection string. Run the Lab B `set` again with the corrected string, **on your own screen**, not the projector. |
 | `database update` fails on the certificate | `TrustServerCertificate=True` is missing from the end of the string. |
 | `database update` says `There is already an object named 'Callers'` | You rehearsed and didn't drop the database. Drop it (§0), then run `database update` again. |
 | §4's first run shows the callers with more calls than 3 / 1 / 1 | The table wasn't empty when §4 started. Drop the database and run `database update` again before class. |
