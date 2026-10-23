@@ -283,8 +283,14 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
   ```
+  Build started...
+  Build succeeded.
+  Unable to create a 'DbContext' of type 'DeskContext'. The exception 'No suitable constructor was found for the type 'Caller'. The following constructors had parameters that could not be bound to properties of the type: 
       Cannot bind 'name' in 'Caller(string name)'
+  Note that only mapped properties can be bound to constructor parameters. Navigations to related entities, including references to owned types, cannot be bound.' was thrown while attempting to create an instance. For the different patterns supported at design time, see https://go.microsoft.com/fwlink/?linkid=851728
   ```
+
+- [ ] **It's a long message. In the terminal, highlight the indented line in the middle of it: `Cannot bind 'name' in 'Caller(string name)'`**
 
 - [ ] 📖 *"The tool can't make a table for callers yet. Let me read the line that matters: Cannot bind name. When EF Core reads a caller back out of the table, it builds a Caller with the Caller constructor, and it has to hand that constructor a name."*
 - [ ] **Open `week-10/Lab/Caller.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public string Name { get; }` — one hit.** Highlight that line
@@ -303,8 +309,12 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
   ```
-  Unable to create a 'DbContext' of type 'DeskContext'. The exception 'The entity type 'Caller' requires a primary key to be defined.
+  Build started...
+  Build succeeded.
+  Unable to create a 'DbContext' of type 'DeskContext'. The exception 'The entity type 'Caller' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.' was thrown while attempting to create an instance. For the different patterns supported at design time, see https://go.microsoft.com/fwlink/?linkid=851728
   ```
+
+- [ ] **In the terminal, highlight `The entity type 'Caller' requires a primary key to be defined`**
 
 - [ ] 📖 *"The next message is about a primary key. A table needs one column that is different on every row. Two callers could both be called Dorothy, so the name won't do. EF Core looks for a property called Id."*
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public class Caller` — one hit. Click at the end of the `{` on the line under it, press Enter, and paste this**
@@ -323,8 +333,12 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
   ```
-  Unable to create a 'DbContext' of type 'DeskContext'. The exception 'The entity type 'Song' requires a primary key to be defined.
+  Build started...
+  Build succeeded.
+  Unable to create a 'DbContext' of type 'DeskContext'. The exception 'The entity type 'Song' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.' was thrown while attempting to create an instance. For the different patterns supported at design time, see https://go.microsoft.com/fwlink/?linkid=851728
   ```
+
+- [ ] **In the terminal, highlight `The entity type 'Song' requires a primary key to be defined`**
 
 - [ ] 💥 **Don't explain it yet. Ask, and wait:** *"My context only mentions callers. Why is it asking about Song?"*
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Song? Favorite` — one hit.** Highlight that line
@@ -350,6 +364,8 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
   ```
+  Build started...
+  Build succeeded.
   Done. To undo this action, use 'ef migrations remove'
   ```
 
