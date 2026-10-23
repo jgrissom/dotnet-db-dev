@@ -837,8 +837,7 @@ Tonight the desk moves its night out of two files and into a database on the col
   | 4 | dorothy | 1 |
 
 - [ ] 💥 **Let it sit. Then ask:** *"I asked the database for dorothy with a small d. How many rows came back?"*
-- [ ] 📖 *"Two. C# says these are two different callers. The database says both of them are dorothy. This server compares text without caring about capital letters, and C# cares about every one."*
-- [ ] 📖 *"Right now the desk asks its own list, in C#. When the desk starts asking the database instead, the answer to that question changes."*
+- [ ] 📖 *"Two. C# is case sensitive, so Dorothy and dorothy are two callers. SQL Server isn't, so to the database they're the same name."*
 
 ---
 
