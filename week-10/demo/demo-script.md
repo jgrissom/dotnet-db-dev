@@ -424,18 +424,10 @@ Tonight the desk moves its night out of two files and into a database on the col
   git add . && git commit -m "week 10: a caller the database can keep"
   ```
 
-- [ ] **Push it to the starters repo — copy the file there, commit there, then push.** Silent; they watch
+- [ ] **Push it to the starters repo — one block copies the file there, commits there, and pushes.** Silent; they watch. `main -> main` at the end means it reached GitHub
 
   ```bash
-  mkdir -p ../dotnet-db-starters/demo/week-10 && cp week-10/Lab/Caller.cs ../dotnet-db-starters/demo/week-10/
-  ```
-
-  ```bash
-  git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: a caller the database can keep"
-  ```
-
-  ```bash
-  git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
+  mkdir -p ../dotnet-db-starters/demo/week-10 && cp week-10/Lab/Caller.cs ../dotnet-db-starters/demo/week-10/ && git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: a caller the database can keep" && git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
   ```
 
 - [ ] 📖 *"My Caller is in the starters repo now. You copy it in first, because your context has a callers table too."*
@@ -638,18 +630,10 @@ Tonight the desk moves its night out of two files and into a database on the col
   git add . && git commit -m "week 10: the switchboard moves into the database"
   ```
 
-- [ ] **Push it to the starters repo.** Silent
+- [ ] **Push it to the starters repo — one block, as in §3.** Silent. `main -> main` at the end means it reached GitHub
 
   ```bash
-  cp week-10/Lab/Switchboard.cs week-10/Lab/Caller.cs ../dotnet-db-starters/demo/week-10/ && cp week-10/Lab.Tests/SwitchboardTests.cs ../dotnet-db-starters/demo/week-10/
-  ```
-
-  ```bash
-  git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: the switchboard moves into the database"
-  ```
-
-  ```bash
-  git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
+  cp week-10/Lab/Switchboard.cs week-10/Lab/Caller.cs ../dotnet-db-starters/demo/week-10/ && cp week-10/Lab.Tests/SwitchboardTests.cs ../dotnet-db-starters/demo/week-10/ && git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: the switchboard moves into the database" && git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
   ```
 
 ---
@@ -811,18 +795,10 @@ Tonight the desk moves its night out of two files and into a database on the col
   git add . && git commit -m "week 10: the second night"
   ```
 
-- [ ] **Push it to the starters repo.** Silent
+- [ ] **Push it to the starters repo — one block, as in §3.** Silent. `main -> main` at the end means it reached GitHub
 
   ```bash
-  cp week-10/Lab/Switchboard.cs ../dotnet-db-starters/demo/week-10/ && cp week-10/Lab.Tests/SecondSaveTests.cs ../dotnet-db-starters/demo/week-10/
-  ```
-
-  ```bash
-  git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: the second night"
-  ```
-
-  ```bash
-  git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
+  cp week-10/Lab/Switchboard.cs ../dotnet-db-starters/demo/week-10/ && cp week-10/Lab.Tests/SecondSaveTests.cs ../dotnet-db-starters/demo/week-10/ && git -C ../dotnet-db-starters add demo && git -C ../dotnet-db-starters commit -m "week 10 demo: the second night" && git -C ../dotnet-db-starters pull --rebase && git -C ../dotnet-db-starters push
   ```
 
 ---
