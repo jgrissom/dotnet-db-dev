@@ -385,8 +385,9 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"This is the Caller class as a table. Three columns: Id, Name and CallsTonight. Identity on the Id means the database numbers the rows itself."*
+- [ ] 📖 *"Let's check whether our database has been created, using the SQL Server extension."*
 - [ ] **In the SQL Server view, right-click your connection → Refresh, and open Databases.** There is no `DB_KDXR_156101411_JSG` in the list
-- [ ] 📖 *"There's no database on the server yet. migrations add read my classes and wrote a file. It didn't connect to anything. The next command is the one that talks to the server."*
+- [ ] 📖 *"It hasn't. migrations add read my classes and wrote a file. It didn't connect to anything. The next command is the one that talks to the server."*
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *Two commands, one network* · *"migrations add writes the instructions, into your project, and needs no network. database update carries them out, on the server. If you only run the first one, the table never exists."*
 - [ ] **Back to the terminal, and run the second one**
@@ -401,7 +402,9 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"database update made the database, because I didn't have one, and then the Callers table."*
-- [ ] **In the SQL Server view, right-click your connection → Refresh. Open Databases → `DB_KDXR_156101411_JSG` → Tables, then right-click `dbo.Callers` → Select Top 1000**
+- [ ] **In the SQL Server view, right-click your connection → Refresh, and open Databases**
+- [ ] 📖 *"Same check again. Now it's there."*
+- [ ] **Open `DB_KDXR_156101411_JSG` → Tables, then right-click `dbo.Callers` → Select Top 1000**
 - [ ] 📖 *"The Callers table is on the college's server now. It has three columns and no rows. Nothing has written to it yet."*
 - [ ] **Run the desk: DJ name, then `c`, then `q`**
 
