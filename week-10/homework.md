@@ -535,7 +535,7 @@ System.ArgumentException : An item with the same key has already been added. Key
 
 #### Now the fix
 
-**In `Save`, the one `Add` line becomes [an `if`/`else`](lecture-notes.md#the-second-save--add-or-update)**, the lab's: `Id` 0 is new, so `Add`. Anything else is a row the table already has, so `Update`.
+**Open `Project/Registry.cs`. In `Save`, the one `Add` line becomes [an `if`/`else`](lecture-notes.md#the-second-save--add-or-update)**, the lab's: `Id` 0 is new, so `Add`. Anything else is a row the table already has, so `Update`.
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
