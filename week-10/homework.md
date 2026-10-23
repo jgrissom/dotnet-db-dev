@@ -223,7 +223,7 @@ This is the lab's Task 2.
     public int Id { get; set; }
 ```
 
-**2 — A new file, `Project/ProjectContext.cs`.** Paste this in. It is [the lab's `DeskContext`](lecture-notes.md#the-dbcontext) with its name and its key changed to `Project`, and no table yet:
+**2 — A new file, `Project/ProjectContext.cs`.** Paste this in. It is [the lab's `DeskContext`](lecture-notes.md#the-dbcontext), with no table yet and two names changed: **`ProjectContext`**, which my checks look for, so keep it exactly; and the key **`ConnectionStrings:Project`**, the one you set in Task 1c.
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
