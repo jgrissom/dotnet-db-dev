@@ -127,7 +127,7 @@ week 10: starter
 | `Lab/Song.cs` | **Yours for one line**, in Task 2, and a tidy-up in Task 4 |
 | `Lab/DeskContext.cs` | **Yours, and it doesn't exist yet.** You make it in Task 2 |
 | `Lab/Rotation.cs` | **Yours.** `Save` and `Load` change in Tasks 4 and 5 |
-| `Lab/Program.cs` | Ships finished, and **four lines of it change in Task 4**: one makes the database, and two pairs hand it to `Load` and `Save` |
+| `Lab/Program.cs` | Ships finished, and **six lines of it change in Task 4**: one makes the `DeskContext`, one comes out, and two pairs hand the context to `Load` and `Save` |
 | `Lab.Tests/DeskTests.cs` | **Yours.** Two of its facts move in Task 4, and you write one more in Task 5 |
 | `Lab/Caller.cs`, `Lab/Switchboard.cs` | **Your instructor's.** You copy the finished files in at Tasks 2, 4 and 5, and read them as you work. You never edit them |
 | `Lab.Tests/SwitchboardTests.cs`, `Lab.Tests/SecondSaveTests.cs` | **Your instructor's facts**, copied in at Tasks 4 and 5 |
@@ -244,7 +244,7 @@ No secrets configured for this application.
 
 **The store exists, and it is empty.** Those two answers are worth remembering: they are the two different things that are wrong when the desk can't find its database.
 
-**Now put your connection string in it.** Swap all four `YOUR-…` parts before you run it. The server is on the board. The login and password are your college SQL account. **The database name is yours to choose**, in this shape, and it doesn't exist yet:
+**Now put your connection string in it.** Swap all four `YOUR-…` parts before you run it. Your instructor gives you the server name in class, and it is in Canvas too. The login and password are your college SQL account. **The database name is yours to choose**, in this shape, and it doesn't exist yet:
 
 ```bash
 dotnet user-secrets set "ConnectionStrings:Desk" "Server=YOUR-SERVER;Database=DB_KDXR_156101411_YOURINITIALS;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True" --project week-10/Lab
@@ -542,7 +542,7 @@ week-10/Lab/Program.cs(170,18): error CS1503: Argument 1: cannot convert from 's
 
 **Two errors, and both are the switchboard's.** Your instructor's `Save` and `Load` take a `DeskContext` now, and `Program.cs` still hands them a file name. **Make the same three edits your instructor just made, in `Lab/Program.cs`:**
 
-- Find `string switchboardFile = "week-10/switchboard.json";` and make that line read `DeskContext db = new DeskContext();`. **That is the database, made once for the whole shift.**
+- Find `string switchboardFile = "week-10/switchboard.json";` and make that line read `DeskContext db = new DeskContext();`. **That is the one `DeskContext` the whole shift uses.** Making it connects to nothing; `Load` is the first thing that asks the server a question.
 - Find `switchboard.Load(switchboardFile);` and make it read `switchboard.Load(db);`.
 - Find `switchboard.Save(switchboardFile);` and make it read `switchboard.Save(db);`.
 
@@ -603,7 +603,7 @@ week-10/Lab/Program.cs(172,15): error CS1503: Argument 1: cannot convert from 's
 
 **The same two errors, on the rotation's two lines.** In `Lab/Program.cs`:
 
-- Find `string rotationFile = "week-10/rotation.json";` and **delete that line**. The `db` two lines above it is for the rotation too.
+- Find `string rotationFile = "week-10/rotation.json";` and **delete that line**. The `db` directly above it is for the rotation too.
 - Find `rotation.Load(rotationFile);` and make it read `rotation.Load(db);`.
 - Find `rotation.Save(rotationFile);` and make it read `rotation.Save(db);`.
 
@@ -659,7 +659,7 @@ The three lines that replace the two `path` lines, in both facts:
 dotnet test week-10/Lab.Tests
 ```
 
-**7 passed.** `ACartRemembersItsPlays` saves a cart that aired twice into one context and reads it back through another, so it fails if `Save` or `Load` is wrong.
+**7 passed.** `ACartRemembersItsPlays` saves a cart that aired twice into one context and reads it back through another, so it goes red if `Save` forgets `SaveChanges()`. **It can't catch everything:** a `Load` that forgets `Clear()` still passes it. Only the desk shows that one, as six carts — the second item of [Now try to break it](#now-try-to-break-it).
 
 #### Now run the desk, twice
 
@@ -713,7 +713,7 @@ Unhandled exception. Microsoft.EntityFrameworkCore.DbUpdateException: An error o
 dotnet test week-10/Lab.Checks
 ```
 
-**4 / 5 — checks 1, 2, 3 and 4.** Check 5 is the crash you just saw.
+**4 / 5 — checks 1, 2, 3 and 4.** Check 5 is that same crash, waiting in your rotation.
 
 **Commit it:**
 

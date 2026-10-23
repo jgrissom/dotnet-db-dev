@@ -83,7 +83,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 
 ## Instructor notes
 
-- ⚠️ ⚠️ **YOUR PASSWORD NEVER GOES ON THE PROJECTOR.** §2 runs `list`, `init` and `list` live — none of them shows a password — and shows `set` with the lab's `YOUR-…` placeholders without running it. **You run your real `set` at the start of Lab B**, while the projector shows the README. **Do not run `dotnet user-secrets list` on screen after that, and do not open `secrets.json`** — both print it.
+- ⚠️ ⚠️ **YOUR PASSWORD NEVER GOES ON THE PROJECTOR.** §2 runs `list`, `init` and `list` live — none of them shows a password — and shows `set` with the lab's `YOUR-…` placeholders without running it. **You run your real `set` at the start of Lab B**, while the projector shows the README (frozen or blanked if your laptop mirrors it), **in a new terminal tab that you close straight after** — otherwise the command sits in the scrollback above §3, on the projector. **Do not run `dotnet user-secrets list` on screen after that, and do not open `secrets.json`** — both print it.
 - 🎯 **That care is the lesson, so say it out loud rather than doing it quietly.** The line is in the sheet.
 - 💡 **§2's first package is there because of a security advisory.** The SQL Server package asks for a vulnerable `System.Security.Cryptography.Pkcs`; adding the fixed version first means the old one is never used. One sentence, and move on.
 - 💥 **§3's three refusals are the segment.** Run `migrations add` after every change, and read only the line that matters each time. **The third one, `Song`, is a question to the room**: the context never mentions songs.
@@ -105,7 +105,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 |---|---|
 | A push asks you to sign in, or is rejected | §0's test push should have caught it. Sign in and push again; the room starts the task meanwhile. If it is rejected as behind, the pull in the same step fixes it — run the step again. |
 | A student's copy says `No such file or directory` | Your push hasn't landed, or their starters clone isn't pulled. `git -C ../dotnet-db-starters pull` and copy again. |
-| A build in §2 shows `warning NU190…` anyway | A new advisory has landed since this week was built, on some other package. Read out the package it names; it is not something tonight broke. |
+| A `dotnet add` in §2 shows `warning NU190…` anyway | A new advisory has landed since this week was built, on some other package. Read out the package it names; it is not something tonight broke. |
 | Every `dotnet ef` command prints a version warning | `dotnet tool update --global dotnet-ef` — in §0, not on screen. |
 | §3's first `migrations add` says `Done.` | Your `Caller.cs` is already shaped — a push file from rehearsal. Delete `week-10` and copy it in again. |
 | `database update` fails with a login error | Your connection string. Run the Lab B `set` again with the corrected string, **on your own screen**, not the projector. |

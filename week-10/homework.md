@@ -157,7 +157,7 @@ dotnet build Project
 dotnet user-secrets init --project Project
 ```
 
-**Then your connection string.** It is the lab's, with two changes: the key is `ConnectionStrings:Project`, and **the database is a different one**, named after your topic. Swap all four `YOUR-…` parts:
+**Then your connection string.** It is the lab's, with two changes: the key is `ConnectionStrings:Project`, and **the database is a different one**, named after your topic. Swap all four `YOUR-…` parts. The server name is the one from the lab; it is in Canvas too.
 
 ```bash
 dotnet user-secrets set "ConnectionStrings:Project" "Server=YOUR-SERVER;Database=DB_YOURTOPIC_156101411_YOURINITIALS;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True" --project Project
@@ -541,7 +541,7 @@ dotnet run --project Project
 dotnet run --project Project
 ```
 
-**No crash, either time.** Look at the table: still one row per record, and the counts went up.
+**No crash, either time.** Look at the table: still one row per record. If your `Program.cs` calls your verb, its count went up as well.
 
 ```bash
 dotnet test Project.Checks

@@ -55,7 +55,13 @@ Tonight the desk moves its night out of two files and into a database on the col
 
 - [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-10/demo/script.html) and confirm the top line says *the same station they work on*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] 💡 **Type your database name in the Database box at the top of the published page.** Every mention of it on the page changes, including what the Copy buttons hand you. It is saved on this device
-- [ ] ⚠️ **Your connection string ready to paste, on your own screen and not the projector.** One line, with your real server, login and password: `Server=…;Database=DB_KDXR_156101411_JSG;User Id=…;Password=…;TrustServerCertificate=True`. You set it at the start of Lab B, while the projector shows the lab README
+- [ ] ⚠️ **Your whole `set` command ready to paste, on your own screen and not the projector** — not just the connection string, so nothing gets edited at the prompt. You run it at the start of Lab B:
+
+  ```text
+  dotnet user-secrets set "ConnectionStrings:Desk" "Server=…;Database=DB_KDXR_156101411_JSG;User Id=…;Password=…;TrustServerCertificate=True" --project week-10/Lab
+  ```
+
+- [ ] ⚠️ **Know whether your laptop mirrors the projector or extends it.** If it mirrors, the terminal is on the wall the moment you switch to VS Code. Freeze or blank the projector for the minute you set your secret in Lab B
 - [ ] ⚠️ **A current `dotnet-ef`**, so no version warning prints on every command tonight:
 
   ```bash
@@ -193,7 +199,7 @@ Tonight the desk moves its night out of two files and into a database on the col
   dotnet user-secrets set "ConnectionStrings:Desk" "Server=YOUR-SERVER;Database=DB_KDXR_156101411_YOURINITIALS;User Id=YOUR-LOGIN;Password=YOUR-PASSWORD;TrustServerCertificate=True" --project week-10/Lab
   ```
 
-- [ ] 📖 *"This is set. It puts the connection string in the store. The connection string is one line: which server, which database, your login, and your password."*
+- [ ] 📖 *"This command is set. It puts the connection string in the store. The connection string is one line: which server, which database, your login, and your password."*
 - [ ] 🎯 *"I'm not running it here, because mine has my password in it and this screen is the projector. I'll set mine at the start of the lab, on my own screen, while you set yours."*
 
 - [ ] 🎞️ **GO TO SLIDE 2** — *Where a password lives* · *"User secrets keep the password out of the repo, and that is the one problem they solve. The file is not encrypted. It is not shared with anyone. And it is only on this machine, so a lab PC that reboots loses it. Putting it back is the same set command."*
@@ -210,16 +216,14 @@ Tonight the desk moves its night out of two files and into a database on the col
 
 - [ ] **Lids up. The lab README, at *Task 1 in full*.**
 - [ ] 📖 *"Task 1 is what I just did, on your desk. The tool, the five packages, and your own secret store. Then your own connection string, which I'm setting on mine right now. Then connect to the server in the SQL Server view, to prove your login works. Your check count stays at one out of five. Stop at the stop note after the commit."*
-- [ ] ⚠️ **Set your own secret now, in your terminal, while the projector shows the README.** Paste your real connection string between the second pair of quotes. §3's `database update` is the first command that needs it
-
-  ```bash
-  dotnet user-secrets set "ConnectionStrings:Desk" "PASTE-YOUR-CONNECTION-STRING-HERE" --project week-10/Lab
-  ```
+- [ ] ⚠️ **Set your own secret now, while the projector shows the README** — frozen or blanked if your laptop mirrors it. §3's `database update` is the first command that needs it
+- [ ] **Open a NEW terminal tab** (the **+** at the top right of the terminal panel), paste the whole `set` command you prepared in §0, and run it
 
   ```
   Successfully saved ConnectionStrings:Desk to the secret store.
   ```
 
+- [ ] ⚠️ **Close that tab with its trash-can icon.** Your password is in its scrollback, and §3 runs in front of the room. Back in the original terminal, **don't press the Up arrow tonight**: the shell remembers the command
 - [ ] ⚠️ **Do not run `dotnet user-secrets list` on the projector, now or later tonight, and do not open the secrets file.** Both print the password
 - [ ] 🎯 **Circulate at step 1d.** A login or network problem is far cheaper to fix now than at Task 3. The commonest are a wrong server name and a dismissed certificate prompt
 - [ ] 🎯 **And look for a connection string still saying `YOUR-…`.** `list` shows it
@@ -369,6 +373,7 @@ Tonight the desk moves its night out of two files and into a database on the col
 - [ ] 📖 *"No. migrations add read my classes and wrote a file. It didn't connect to anything. The next command is the one that talks to the server."*
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *Two commands, one network* · *"migrations add writes the instructions, into your project, and needs no network. database update carries them out, on the server. If you only run the first one, the table never exists."*
+- [ ] **Back to the terminal, and run the second one**
 
   ```bash
   dotnet ef database update --project week-10/Lab
@@ -486,7 +491,7 @@ Tonight the desk moves its night out of two files and into a database on the col
   DeskContext db = new DeskContext();
   ```
 
-- [ ] 📖 *"That line makes the database, once, for the whole shift."*
+- [ ] 📖 *"That line makes one DeskContext, and the whole shift uses it. It doesn't connect to anything yet. Load is the first thing that asks the server a question."*
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Load(switchboardFile);` — one hit. Make that line read**
 
   ```csharp
@@ -568,7 +573,7 @@ Tonight the desk moves its night out of two files and into a database on the col
        Passed: 7
   ```
 
-- [ ] 📖 *"Seven passed. The test saves Dorothy into one context and reads her back through another, so it would fail if Save or Load were wrong."*
+- [ ] 📖 *"Seven passed. The test saves Dorothy into one context and reads her back through another. So if Save forgot SaveChanges, this test would go red. It can't see everything, though. A Load that forgot to Clear would still pass it. Only the desk shows that one."*
 
 - [ ] 📖 *"One tidy-up. Nothing reads JSON now, so the JsonInclude attributes on Caller have nothing to do."*
 - [ ] **In `Caller.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int CallsTonight { get; private set; }` — one hit. Delete the `[JsonInclude]` line directly above it**
@@ -633,7 +638,7 @@ Tonight the desk moves its night out of two files and into a database on the col
 ## Lab D · Task 4 — 25 minutes
 
 - [ ] **Lids up. The lab README, at *Task 4 in full*.**
-- [ ] 📖 *"Task 4: copy my three files in. Your build breaks in two places, and they're the two lines I just fixed. Then Save and Load for the rotation, the same as mine. Then your two tests that used a file. Then run the desk twice. The second run crashes on the way out, and that is the next part of the demo. Stop at the stop note after the commit."*
+- [ ] 📖 *"Task 4: copy my three files in. Your build breaks in two places, the same two errors I just fixed. Then Save and Load for the rotation, the same as mine. Then your two tests that used a file. Then run the desk twice. The second run crashes on the way out, and that is the next part of the demo. Stop at the stop note after the commit."*
 - [ ] 🎯 **Circulate hard — this is the lab's payoff.** Ask anybody who has run the desk to show you `dbo.Carts` in the SQL Server view, and the week folder with no `.json` file in it
 - [ ] 🎯 **A table that stays empty, with nothing complaining,** is a `Save` with no `db.SaveChanges()`. Check 4 says so
 
@@ -853,7 +858,7 @@ Tonight the desk moves its night out of two files and into a database on the col
 
 ## 7 · Wrap *(slide 5)*
 
-- [ ] 🎞️ **GO TO SLIDE 5** — *Tonight, in one picture* · *"The password lives in user secrets, outside the repo. A DbContext says which tables there are. migrations add writes the instructions, and database update carries them out on the server. Save adds the new rows and updates the old ones, then SaveChanges sends it all. And a test hands the context a table of its own."*
+- [ ] 🎞️ **GO TO SLIDE 5** — *Tonight, in one picture* · *"The password lives in user secrets, outside the repo. A DbContext says which tables there are. migrations add writes the instructions, and database update carries them out on the server. Save adds the new rows and updates the old ones, then SaveChanges sends it all. An empty table is the first night, so Load leaves the desk's own data alone. And a test hands the context a table of its own."*
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
 - [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. Five tasks, in the same order. If you finished the lab, you have done every step once."*
 - [ ] ⚠️ **Say the branch line out loud** — *"Your homework goes on a branch, same as every week. Nothing goes straight to main."*

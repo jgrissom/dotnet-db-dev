@@ -143,7 +143,7 @@ For the homework it is `"ConnectionStrings:Project"` and `--project Project`. **
 - The lab's: `DB_KDXR_156101411_ABL`
 - A homework about lighthouses: `DB_LIGHTHOUSES_156101411_ABL`
 
-**The `DB_` is not decoration.** If you take another course on the same server and pick the same topic, your databases can't collide. The course number is written without hyphens, because SQL Server won't accept them in a name like this.
+**The `DB_` is not decoration.** If you take another course on the same server and pick the same topic, your databases can't collide.
 
 **Two fields in the connection string trip people up:**
 
