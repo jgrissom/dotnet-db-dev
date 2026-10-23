@@ -478,14 +478,14 @@ This is the lab's Task 5.
 **Write it in `Project.Tests/RegistryTests.cs`, under `Week8_TheRegistrySurvivesARestart`.** The name is dictated: `Week10_ASecondSaveChangesTheRow`. The moves are the lab's `ACartAiredAgainIsStillOneRow`:
 
 - **Set the scene.** The three `options` lines. A `Registry` with one record from `NewItem("a name of yours")` in it, saved with `new ProjectContext(options)`.
-- **Do the thing: the next run.** One `ProjectContext db = new ProjectContext(options);`, used for both halves. A second registry, `nextRun`, loads from `db`. Find your record in it and **call your verb on it** — the method that moves the count your record keeps, like a lighthouse's `Visit()` moving `TimesVisited`. Then `nextRun.Save(db)`.
+- **Do the thing: the next run.** One `ProjectContext db = new ProjectContext(options);`, used for both halves. A second registry, `nextRun`, loads from `db`. Find your record in it and **call your verb on it** — the method that moves the count your record keeps, like a lighthouse's `Visit(…)` moving `TimesVisited`. Then `nextRun.Save(db)`.
 - **Check the answer** in a third registry, `reopened`, loaded from a fresh `new ProjectContext(options)`: it holds 1 record, and the count your verb moves is 1. **Assert on `reopened`, never on the registry that saved.**
 
-| In the lab | In yours |
-|---|---|
-| `new Song("Nightjar", …)` | a record from `NewItem` — its type is written `YourRecord` below |
-| `nextNight.All()[0].Play()` | your verb, on the record `Find` hands back — written `YourVerb()` below |
-| `PlaysTonight` | the count your verb moves — written `YourCount` below |
+| In the lab | In yours | For a lighthouse registry |
+|---|---|---|
+| `new Song("Nightjar", …)` | a record from `NewItem` — its type is written `YourRecord` below | `Lighthouse` |
+| `nextNight.All()[0].Play()` | your verb, on the record `Find` hands back — written `YourVerb()` below | `item.Visit(new DateOnly(2026, 6, 1));` — its verb takes the day of the visit |
+| `PlaysTonight` | the count your verb moves — written `YourCount` below | `TimesVisited` |
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
