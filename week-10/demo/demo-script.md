@@ -757,8 +757,8 @@ Tonight the desk moves its night out of two files and into a database on the col
               }
   ```
 
-- [ ] 📖 **Highlight `caller.Id == 0`:** *"Id zero has never been saved, so Add puts in a new row."*
-- [ ] 📖 **Highlight `db.Callers.Update(caller);`:** *"Any other Id is a row the table already has. Update changes that row."*
+- [ ] 📖 **Highlight `caller.Id == 0`:** *"Id zero is a new caller. A new caller is added."*
+- [ ] 📖 **Highlight `db.Callers.Update(caller);`:** *"Any other Id is an existing caller. An existing caller is updated."*
 
   ```bash
   dotnet test week-10/Lab.Tests
