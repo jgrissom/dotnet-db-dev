@@ -895,7 +895,7 @@ dotnet run --project week-10/Lab
 │ Long Way Round │ The Ferrymen     │ 5:31   │ 3      │
 ```
 
-**Three plays each.** One from Task 4, one from the run that crashed, and one from this one. *(The crashed run still kept its play: the switchboard's `SaveChanges()` went first, and it sent everything the desk's database was holding, carts included. If you've pressed `a` a different number of times, your number is different. What matters is that it went up and nothing crashed.)*
+**The plays went up by one, and nothing crashed.** If you've followed every step, that's three plays each: one from Task 4, one from the run that crashed, and one from this one. *(The crashed run still kept its play: the switchboard's `SaveChanges()` went first, and it sent everything the desk's database was holding, carts included.)*
 
 **Then mine:**
 
