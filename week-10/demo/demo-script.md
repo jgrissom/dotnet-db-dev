@@ -437,7 +437,7 @@ Tonight the desk moves its night out of two files and into a database on the col
 ## Lab C · Tasks 2 and 3 — 25 minutes
 
 - [ ] **Lids up. The lab README, at *Task 2 in full*.** Its first step is pulling my file and copying it in
-- [ ] 📖 *"Task 2: copy my Caller in, give Song an Id, and write your DeskContext. Yours has two tables: my Callers, and your Carts. Task 3: the migration, then database update, then look at your tables. Stop at the stop note after Task 3's commit."*
+- [ ] 📖 *"Task 2: copy my Caller in, give Song an Id, and write your DeskContext. Yours has two tables: my Callers, and your Songs. Task 3: the migration, then database update, then look at your tables. Stop at the stop note after Task 3's commit."*
 - [ ] 🎯 **Circulating:** *"Song requires a primary key"* means the `Id` line is missing. *"Cannot bind 'name'"* means they skipped copying `Caller.cs`
 - [ ] 🎯 **And ask anybody who has finished Task 3 to show you their tables in the SQL Server view.** Check 3 can't see `database update`; only the view can
 
@@ -642,7 +642,7 @@ Tonight the desk moves its night out of two files and into a database on the col
 
 - [ ] **Lids up. The lab README, at *Task 4 in full*.**
 - [ ] 📖 *"Task 4: copy my three files in. Your build breaks in two places, the same two errors I just fixed. Then Save and Load for the rotation, the same as mine. Then your two tests that used a file. Then run the desk twice. The second run crashes on the way out, and that is the next part of the demo. Stop at the stop note after the commit."*
-- [ ] 🎯 **Circulate hard — this is the lab's payoff.** Ask anybody who has run the desk to show you `dbo.Carts` in the SQL Server view, and the week folder with no `.json` file in it
+- [ ] 🎯 **Circulate hard — this is the lab's payoff.** Ask anybody who has run the desk to show you `dbo.Songs` in the SQL Server view, and the week folder with no `.json` file in it
 - [ ] 🎯 **A table that stays empty, with nothing complaining,** is a `Save` with no `db.SaveChanges()`. Check 4 says so
 
 ---
@@ -806,7 +806,7 @@ Tonight the desk moves its night out of two files and into a database on the col
 ## Lab E · Task 5 — 15 minutes
 
 - [ ] **Lids up. The lab README, at *Task 5 in full*.**
-- [ ] 📖 *"Task 5: copy my two files in, and run the desk. It gets further than before, and then your rotation crashes, on Carts this time. Write your test first, see it red, then the if and else. Stop at the stop note after the commit."*
+- [ ] 📖 *"Task 5: copy my two files in, and run the desk. It gets further than before, and then your rotation crashes, on the Songs table this time. Write your test first, see it red, then the if and else. Stop at the stop note after the commit."*
 - [ ] 🎯 **Circulating:** a student who writes the fix first and the test after has skipped the point. Ask *"what color was your test the first time you ran it?"*
 
 ---

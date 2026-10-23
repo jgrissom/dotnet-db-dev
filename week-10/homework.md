@@ -7,7 +7,7 @@
 
 Your registry has held records since week 4, remembered them in a file since week 8, and answered questions about them since week 9. All of it has lived in a file on your laptop. This week it moves into a database of your own, on the college's SQL Server, with **EF Core**.
 
-**This homework is the lab again, on your own project.** Same five tasks, same order. Where the lab said `Rotation`, `Song`, `Carts`, `DeskContext` and `_songs`, you use your `Registry`, your record type, a table of your records, `ProjectContext`, and the list inside your `Registry`. If you finished the lab, you have already done every step once.
+**This homework is the lab again, on your own project.** Same five tasks, same order. Where the lab said `Rotation`, `Song`, `Songs`, `DeskContext` and `_songs`, you use your `Registry`, your record type, a table of your records, `ProjectContext`, and the list inside your `Registry`. If you finished the lab, you have already done every step once.
 
 **Three things are dictated, the way every name my checks look for has been since week 4:**
 
@@ -256,7 +256,7 @@ public class ProjectContext : DbContext
 }
 ```
 
-**Then add the one line that's yours: a `DbSet` of your records**, at the top of the class. **Name it after your records, in the plural.** The property's name becomes the table's name, the way the lab's `Carts` did.
+**Then add the one line that's yours: a `DbSet` of your records**, at the top of the class. **Name it after your records, in the plural.** The property's name becomes the table's name, the way the lab's `Songs` did.
 
 <details>
 <summary><b>Stuck? Show me the line</b></summary>
@@ -339,7 +339,7 @@ This is the lab's Task 4.
 | In the lab | In yours |
 |---|---|
 | `Song` | your record type — written `YourRecord` below |
-| `db.Carts` | your `DbSet` — written `db.YourRecords` below |
+| `db.Songs` | your `DbSet` — written `db.YourRecords` below |
 | `_songs` | the list inside your `Registry` — written `_yourList` below |
 
 <details>

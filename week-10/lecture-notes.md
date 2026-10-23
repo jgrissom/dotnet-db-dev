@@ -49,7 +49,7 @@ public class DeskContext : DbContext
 {
     public DbSet<Caller> Callers { get; set; }
 
-    public DbSet<Song> Carts { get; set; }
+    public DbSet<Song> Songs { get; set; }
 
     public DeskContext()
     {
@@ -76,7 +76,7 @@ public class DeskContext : DbContext
 }
 ```
 
-- **One `DbSet` is one table**, and the property's name is the table's name. `db.Carts` is how the rest of the program reaches the carts.
+- **One `DbSet` is one table**, and the property's name is the table's name. `db.Songs` is how the rest of the program reaches the carts.
 - **The constructor that takes nothing** is the one the desk uses: `DeskContext db = new DeskContext();`. So does `dotnet ef`, when it makes migrations. Take it away and `dotnet ef` says `Unable to create a 'DbContext'`.
 - **The constructor that takes `options`** lets somebody else say where the rows go. Tests use it to hand in [a table that lives inside the test run](#testing-without-a-database). `: base(options)` passes the options on to `DbContext`.
 - **`OnConfiguring`** runs when the context first needs a connection. If a test already handed in options, `IsConfigured` is true and it leaves them alone. Otherwise it reads the connection string and tells EF Core to use SQL Server.
@@ -159,13 +159,13 @@ For the homework it is `"ConnectionStrings:Project"` and `--project Project`. **
 | `dotnet ef migrations add TheDeskMovesIn --project week-10/Lab` | writes `Lab/Migrations/…_TheDeskMovesIn.cs` | **no** |
 | `dotnet ef database update --project week-10/Lab` | carries out every migration the database hasn't had, making the database first if it isn't there | **yes** |
 
-**The commonest mistake is running the first and not the second.** The migration exists, so the checks are happy, and the program says `Invalid object name 'Carts'`: the database is there and the table isn't.
+**The commonest mistake is running the first and not the second.** The migration exists, so the checks are happy, and the program says `Invalid object name 'Songs'`: the database is there and the table isn't.
 
 **Read `Up()`.** It is your class with the column types filled in:
 
 ```csharp
             migrationBuilder.CreateTable(
-                name: "Carts",
+                name: "Songs",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -190,14 +190,14 @@ This is the rotation's first `Save`, from Task 4. It goes in `Rotation.cs`, in p
     {
         foreach (Song song in _songs)
         {
-            db.Carts.Add(song);
+            db.Songs.Add(song);
         }
 
         db.SaveChanges();
     }
 ```
 
-- **`db.Carts.Add(song)` doesn't touch the server.** It tells the context *this one is to be put in the table*. The context keeps a list of everything it has been told.
+- **`db.Songs.Add(song)` doesn't touch the server.** It tells the context *this one is to be put in the table*. The context keeps a list of everything it has been told.
 - **`db.SaveChanges()` sends the whole list**, in one trip. Leave it out, and nothing arrives and nothing complains.
 - **The context is handed in, never made inside `Rotation`.** That is the same reason the file path was handed in: `Rotation` doesn't know where it is being saved. A test can hand it a different place.
 
@@ -208,7 +208,7 @@ This is the rotation's first `Save`, from Task 4. It goes in `Rotation.cs`, in p
 ```csharp
     public void Load(DeskContext db)
     {
-        List<Song> loaded = db.Carts.OrderBy(song => song.Id).ToList();
+        List<Song> loaded = db.Songs.OrderBy(song => song.Id).ToList();
 
         if (loaded.Count == 0)
         {
@@ -223,7 +223,7 @@ This is the rotation's first `Save`, from Task 4. It goes in `Rotation.cs`, in p
 
 That is the whole `Load`, in `Rotation.cs`.
 
-- **`db.Carts` is a question, not an answer.** `ToList()` is the moment it is sent to the server and the rows come back, the same way `ToList()` ran a query in week 9.
+- **`db.Songs` is a question, not an answer.** `ToList()` is the moment it is sent to the server and the rows come back, the same way `ToList()` ran a query in week 9.
 - **A table keeps no order of its own.** Without `OrderBy`, the server may hand rows back in any order it likes. `OrderBy` on `Id` gives them back in the order they first went in.
 - ⚠️ **The first night.** The old `Load` asked `File.Exists` first, because a desk that had never signed off had no file. The table is always there, because the migration made it, but the first time it is **empty**. A `Load` that clears before it looks throws away the carts `Program.cs` just added, and the desk crashes building the hour with `ArgumentOutOfRangeException`. **Read the rows first, and return when there are none.**
 - **Loading is replacing.** `Clear()` before `AddRange`, or the loaded carts go in on top of the ones already there.
@@ -233,7 +233,7 @@ That is the whole `Load`, in `Rotation.cs`.
 **A cart that came out of the table is carrying the number of its row.** Its `Id` isn't 0 any more. Hand it to `Add` and the context tries to put a second row in with the same number, which the database refuses:
 
 ```
-Cannot insert explicit value for identity column in table 'Carts' when IDENTITY_INSERT is set to OFF.
+Cannot insert explicit value for identity column in table 'Songs' when IDENTITY_INSERT is set to OFF.
 ```
 
 **So `Save` asks each cart which it is.** This replaces the one `Add` line inside `Save`'s loop:
@@ -241,11 +241,11 @@ Cannot insert explicit value for identity column in table 'Carts' when IDENTITY_
 ```csharp
             if (song.Id == 0)
             {
-                db.Carts.Add(song);
+                db.Songs.Add(song);
             }
             else
             {
-                db.Carts.Update(song);
+                db.Songs.Update(song);
             }
 ```
 

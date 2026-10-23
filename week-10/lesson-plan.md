@@ -17,7 +17,7 @@ Then the fact goes in **before** the fix, red with the in-memory table's own wor
 
 ## 🎯 The payoff moment — the lab's
 
-**Task 4, and the evidence is in two places at once.** They air the hour, quit, and look in `week-10/`: **no `.json` file at all**. Then `dbo.Carts` in the SQL Server view, with their three carts, one play each, and an `Id` the database filled in. They're reading their own data from a server, with the desk shut.
+**Task 4, and the evidence is in two places at once.** They air the hour, quit, and look in `week-10/`: **no `.json` file at all**. Then `dbo.Songs` in the SQL Server view, with their three carts, one play each, and an `Id` the database filled in. They're reading their own data from a server, with the desk shut.
 
 ⚠️ **The earlier one to protect is Task 1d.** Connecting to the server in the SQL Server view is where a login or network problem shows up. It is at minute 10 of the first lab block on purpose, while you can still walk over.
 
@@ -73,7 +73,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 | 2:08 | 25 min | 🎯 **Lab D: Task 4** — the lab's payoff. Their `Save` and `Load`, their two facts off the file, then two runs: no `.json`, three rows, and a crash on the way out of the second. **Circulate hard.** |
 | 2:33 | 10 min | **☕ Break** |
 | 2:43 | 12 min | 💥 **The second night** *(demo §5)*. The callers come back, Dorothy rings, and the desk crashes on `'Callers'`. The fact first, red. `Update`, green. One Dorothy with four calls. **Push #3.** |
-| 2:55 | 15 min | **Lab E: Task 5** — copy your two files in, see their own crash on `'Carts'`, the fact, red, then `Update`. |
+| 2:55 | 15 min | **Lab E: Task 5** — copy your two files in, see their own crash on `'Songs'`, the fact, red, then `Update`. |
 | 3:10 | 6 min | 💥 **The same name, twice** *(demo §6)*. `dorothy` at the desk makes a second caller; `WHERE Name = 'dorothy'` hands back both rows. |
 | 3:16 | 22 min | **Lab F: finish, then start the homework.** Finished students do the homework's Part 1 and Task 1, which needs their login, and push their branch while you're there. |
 | 3:38 | 7 min | **Wrap-up** *(slide 5, demo §7)*. Project repo URL, **the homework is the lab again**, the branch line, the checks-copy line, the build-not-run grading change, removed records coming back, and the due date. |
@@ -96,7 +96,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 - **The demo commits five times, silently** — the starter, alongside the room in Lab A, and then once at the end of §2, §3, §4 and §5. The pushes go to the starters repo; the commits stay in the demo repo.
 - ⚠️ **Say the grading change at the wrap.** From this week the run-it points are build-it points: their program needs their connection string, which is correctly not in their repo. **Frame it as a fact about databases**, and say both suites still run their code.
 - ⚠️ **And say what a removed record does.** `Save` adds and updates; it doesn't delete. A record removed at runtime comes back. The homework says so in a note, and nothing grades it.
-- **Lab C is where the context gets written** — watch for `Callers` spelled differently, which breaks your `Switchboard.cs` at Task 4, and for a migration made before `Carts` was added. Check 3's message names that one.
+- **Lab C is where the context gets written** — watch for `Callers` spelled differently, which breaks your `Switchboard.cs` at Task 4, and for a migration made before `Songs` was added. Check 3's message names that one.
 - **Lab D is where nothing complains** — a `Save` with no `SaveChanges()` still seems to work on the desk, because your switchboard's `SaveChanges()` runs first and sends their carts too. Check 4 catches it.
 
 ## What could go wrong

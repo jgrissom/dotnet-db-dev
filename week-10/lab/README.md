@@ -395,7 +395,7 @@ public class DeskContext : DbContext
 }
 ```
 
-**Then add the one line that's yours: a second `DbSet`, for your carts.** Put it under the `Callers` line, with a blank line between. `DbSet<Song>` holds songs, and **the property's name is the table's name**, so call it `Carts`.
+**Then add the one line that's yours: a second `DbSet`, for your songs.** Put it under the `Callers` line, with a blank line between. **The property's name is the table's name**, and the usual name is the class's, made plural: `DbSet<Song> Songs`.
 
 - **`Callers` is your instructor's,** and it has to stay spelled exactly that way: `Switchboard.cs` reaches the table by that name.
 - **The rest of the file says how to connect.** The two constructors are for the desk and for tests, and `OnConfiguring` reads your connection string out of the secret store. [The notes walk through each part](../lecture-notes.md#the-dbcontext).
@@ -404,7 +404,7 @@ public class DeskContext : DbContext
 <summary><b>Stuck? Show me the line</b></summary>
 
 ```csharp
-    public DbSet<Song> Carts { get; set; }
+    public DbSet<Song> Songs { get; set; }
 ```
 
 </details>
@@ -459,7 +459,7 @@ Build succeeded.
 Done. To undo this action, use 'ef migrations remove'
 ```
 
-**2 — Read it.** Open `week-10/Lab/Migrations/` and the file whose name ends `_TheDeskMovesIn.cs` (not the `.Designer.cs` one). Find `Up()`. **It makes two tables, `Callers` and `Carts`,** and under `Carts` is your `Song` class with the column types filled in:
+**2 — Read it.** Open `week-10/Lab/Migrations/` and the file whose name ends `_TheDeskMovesIn.cs` (not the `.Designer.cs` one). Find `Up()`. **It makes two tables, `Callers` and `Songs`,** and under `Songs` is your `Song` class with the column types filled in:
 
 ```csharp
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -485,7 +485,7 @@ dotnet ef database update --project week-10/Lab
 Build started...
 Build succeeded.
 Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
-Applying migration '20261016013042_TheDeskMovesIn'.
+Applying migration '20261023163353_TheDeskMovesIn'.
 Done.
 ```
 
@@ -496,10 +496,10 @@ The number on the front of yours is the date and time you wrote it. **It creates
 ```
 dbo.__EFMigrationsHistory
 dbo.Callers
-dbo.Carts
+dbo.Songs
 ```
 
-`__EFMigrationsHistory` is EF Core's own list of which migrations this database has had. Right-click **`dbo.Carts`** → **Select Top 1000**. **Empty.** The table exists, and nothing has written to it.
+`__EFMigrationsHistory` is EF Core's own list of which migrations this database has had. Right-click **`dbo.Songs`** → **Select Top 1000**. **Empty.** The table exists, and nothing has written to it.
 
 **Then mine:**
 
@@ -576,8 +576,8 @@ dotnet build week-10/Lab
 
 **Open `week-10/Lab/Rotation.cs` and find its `// TODO — Task 4` comment** — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 4:`, one hit. Replace `Save(string path)` and `Load(string path)` with two that take the database. **Select from `public void Save(string path)` down to and including the `}` that closes `Load`**, and write the two new ones there. Read your instructor's in `Switchboard.cs` first; yours are the same, with carts.
 
-- **`public void Save(DeskContext db)`**: for each song, **`db.Carts.Add(song)`** marks it to go into the table. After the loop, **`db.SaveChanges()`** sends everything to the server in one go. Without `SaveChanges()`, nothing arrives and nothing complains.
-- **`public void Load(DeskContext db)`**: read the table into a list with **`db.Carts.OrderBy(song => song.Id).ToList()`**. A table keeps no order of its own, so `OrderBy` on `Id` hands the carts back in the order they first went in.
+- **`public void Save(DeskContext db)`**: for each song, **`db.Songs.Add(song)`** marks it to go into the table. After the loop, **`db.SaveChanges()`** sends everything to the server in one go. Without `SaveChanges()`, nothing arrives and nothing complains.
+- **`public void Load(DeskContext db)`**: read the table into a list with **`db.Songs.OrderBy(song => song.Id).ToList()`**. A table keeps no order of its own, so `OrderBy` on `Id` hands the carts back in the order they first went in.
 - ⚠️ **Then the first night.** The old `Load` returned early when there was no file. The table is always there now, but the first time it is **empty**. So if the list has no carts in it, `return` before you touch anything. Otherwise `_songs.Clear()`, then `_songs.AddRange(loaded)`.
 - **Delete `using System.Text.Json;`** at the top of the file. Nothing in `Rotation.cs` uses it now.
 
@@ -589,7 +589,7 @@ dotnet build week-10/Lab
     {
         foreach (Song song in _songs)
         {
-            db.Carts.Add(song);
+            db.Songs.Add(song);
         }
 
         db.SaveChanges();
@@ -597,7 +597,7 @@ dotnet build week-10/Lab
 
     public void Load(DeskContext db)
     {
-        List<Song> loaded = db.Carts.OrderBy(song => song.Id).ToList();
+        List<Song> loaded = db.Songs.OrderBy(song => song.Id).ToList();
 
         if (loaded.Count == 0)
         {
@@ -695,7 +695,7 @@ dotnet run --project week-10/Lab
 KDXR - that's the shift. 3 on the switchboard, 6 in the hour.
 ```
 
-**Look in `week-10/`.** Three folders, `Lab`, `Lab.Checks` and `Lab.Tests`, and **no `.json` file at all**. Now the SQL Server view: right-click **`dbo.Carts`** → **Select Top 1000**:
+**Look in `week-10/`.** Three folders, `Lab`, `Lab.Checks` and `Lab.Tests`, and **no `.json` file at all**. Now the SQL Server view: right-click **`dbo.Songs`** → **Select Top 1000**:
 
 ```
 Id|Title|Artist|Seconds|PlaysTonight
@@ -783,10 +783,10 @@ dotnet run --project week-10/Lab
 ```
 
 ```
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Carts' when IDENTITY_INSERT is set to OFF.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Songs' when IDENTITY_INSERT is set to OFF.
 ```
 
-**It got further this time.** The switchboard saved, and then your rotation crashed, on table `Carts`. **Every cart came out of the table carrying its `Id`, and `Save` tried to `Add` each one a second time.**
+**It got further this time.** The switchboard saved, and then your rotation crashed, on table `Songs`. **Every cart came out of the table carrying its `Id`, and `Save` tried to `Add` each one a second time.**
 
 #### First, the fact — before you touch `Save`
 
@@ -844,10 +844,10 @@ dotnet test week-10/Lab.Tests
 
 #### Now the fix
 
-**In `Lab/Rotation.cs`, in `Save`.** Replace the one line `db.Carts.Add(song);` with an `if`/`else`:
+**In `Lab/Rotation.cs`, in `Save`.** Replace the one line `db.Songs.Add(song);` with an `if`/`else`:
 
-- **`if (song.Id == 0)`**: the cart has never been saved, so **`db.Carts.Add(song)`**.
-- **`else`**: the table already has its row, so **`db.Carts.Update(song)`** changes that row.
+- **`if (song.Id == 0)`**: the cart has never been saved, so **`db.Songs.Add(song)`**.
+- **`else`**: the table already has its row, so **`db.Songs.Update(song)`** changes that row.
 - `db.SaveChanges()` stays where it is, after the loop.
 
 <details>
@@ -856,11 +856,11 @@ dotnet test week-10/Lab.Tests
 ```csharp
             if (song.Id == 0)
             {
-                db.Carts.Add(song);
+                db.Songs.Add(song);
             }
             else
             {
-                db.Carts.Update(song);
+                db.Songs.Update(song);
             }
 ```
 
@@ -923,23 +923,23 @@ week 10 lab: a second save changes the rows
 dotnet run --project week-10/Lab
 ```
 
-- **Take `db.SaveChanges();` out of `Rotation.Save`.** Air the hour, quit, and look at `dbo.Carts`: **the plays still went up.** The switchboard saves first, and its `SaveChanges()` sends every change the desk's database is holding, carts included. Now run my checks. Check 4 is red: *"Three carts were saved and the table holds 0."* A cart that had never been saved would never reach the table. Put it back.
-- **Take `_songs.Clear();` out of `Load`**, run the desk, and press `t`: `6 carts loaded.` Then quit. ⚠️ **Six rows are now saved.** Put the `Clear()` back, then empty the table: in the SQL Server view, right-click your database → **New Query**, type `DELETE FROM Carts;` and run it.
+- **Take `db.SaveChanges();` out of `Rotation.Save`.** Air the hour, quit, and look at `dbo.Songs`: **the plays still went up.** The switchboard saves first, and its `SaveChanges()` sends every change the desk's database is holding, carts included. Now run my checks. Check 4 is red: *"Three carts were saved and the table holds 0."* A cart that had never been saved would never reach the table. Put it back.
+- **Take `_songs.Clear();` out of `Load`**, run the desk, and press `t`: `6 carts loaded.` Then quit. ⚠️ **Six rows are now saved.** Put the `Clear()` back, then empty the table: in the SQL Server view, right-click your database → **New Query**, type `DELETE FROM Songs;` and run it.
 - **Take the `if (loaded.Count == 0)` block out of `Load`**, empty the table the same way, and run the desk:
 
   ```
   Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
   ```
 
-  That is the first night. `Load` threw away the three carts `Program.cs` had just added, and the hour reached for a cart that wasn't there. **Only a first-time user ever sees it.** Put the block back and run the desk: the carts are back, and in `dbo.Carts` their `Id`s don't start at 1 again. The database never reuses a number.
+  That is the first night. `Load` threw away the three carts `Program.cs` had just added, and the hour reached for a cart that wasn't there. **Only a first-time user ever sees it.** Put the block back and run the desk: the carts are back, and in `dbo.Songs` their `Id`s don't start at 1 again. The database never reuses a number.
 - **Turn your wifi off and run `dotnet test week-10/Lab.Checks`.** All five pass. **Now run the desk.** That is the difference between what my checks prove and what they don't.
-- **Type `nightjar` at the `f` prompt**, with a small n. `No cart called "nightjar" in the rotation.` Now ask the database the same question: **New Query**, `SELECT Title FROM Carts WHERE Title = 'nightjar';`. [Hold that thought](#-done-early).
+- **Type `nightjar` at the `f` prompt**, with a small n. `No cart called "nightjar" in the rotation.` Now ask the database the same question: **New Query**, `SELECT Title FROM Songs WHERE Title = 'nightjar';`. [Hold that thought](#-done-early).
 
 ## ⭐ Done early?
 
 None of these has a check.
 
-1. ⭐ **The same question, two answers.** C# says no cart is called `nightjar`. Run `SELECT Title FROM Carts WHERE Title = 'nightjar';` in a New Query:
+1. ⭐ **The same question, two answers.** C# says no cart is called `nightjar`. Run `SELECT Title FROM Songs WHERE Title = 'nightjar';` in a New Query:
 
    ```
    Title
@@ -948,9 +948,9 @@ None of these has a check.
    ```
 
    **The database found it.** `==` in C# compares every letter exactly, capitals included. This server's comparison ignores capitals. [The notes say why](../lecture-notes.md#the-same-name-twice), and the demo's last beat shows the same thing with a caller.
-2. **Ask the table something the desk can't.** New Query: `SELECT Title, PlaysTonight FROM Carts ORDER BY PlaysTonight DESC;` That is week 9's `OrderByDescending`, written in SQL.
+2. **Ask the table something the desk can't.** New Query: `SELECT Title, PlaysTonight FROM Songs ORDER BY PlaysTonight DESC;` That is week 9's `OrderByDescending`, written in SQL.
 3. **Read `Down()`.** It is in the same migration file as `Up()`. Say what it would do to your database if it ran.
-4. **Change a row behind the desk's back.** New Query: `UPDATE Carts SET Title = 'Nightjar (live)' WHERE Id = 1;` Then run the desk and press `t`. The desk is reading what somebody else wrote. *(Change it back the same way.)*
+4. **Change a row behind the desk's back.** New Query: `UPDATE Songs SET Title = 'Nightjar (live)' WHERE Id = 1;` Then run the desk and press `t`. The desk is reading what somebody else wrote. *(Change it back the same way.)*
 
 ## 🆘 Stuck?
 
@@ -969,18 +969,18 @@ None of these has a check.
 | `A network-related or instance-specific error…` | Wrong `Server=`, or you're on a network that can't reach the college's server. |
 | `The certificate chain was issued by an authority that is not trusted` | `TrustServerCertificate=True` is missing from the end of the connection string. |
 | Your password has a `$` in it and the connection string goes wrong | The shell is reading the `$`. Put the connection string in **single** quotes instead of double. |
-| `Invalid object name 'Carts'` | The database is there and the table isn't. You wrote the migration and never ran `dotnet ef database update`. |
+| `Invalid object name 'Songs'` | The database is there and the table isn't. You wrote the migration and never ran `dotnet ef database update`. |
 | `Unable to create a 'DbContext' of type 'DeskContext'` … `Cannot bind 'name' in 'Caller(string name)'` | You're on the starter's `Caller.cs`. Task 2 starts by copying your instructor's in. |
 | `Unable to create a 'DbContext'` … `The entity type 'Song' requires a primary key` | `Song` has no `Id`. Task 2's one line. |
 | `Unable to create a 'DbContext' of type 'DeskContext'` with nothing about a type | `dotnet ef` couldn't make your context. It needs the constructor that takes **nothing** — check it's still there. |
-| Check 3 red: *Your migration makes no Carts table* | You wrote the migration before `DeskContext` had `Carts` in it. `dotnet ef migrations add TheCartsMoveIn --project week-10/Lab`, then `database update`. |
+| Check 3 red: *Your migration makes no Songs table* | You wrote the migration before `DeskContext` had `Songs` in it. `dotnet ef migrations add TheSongsMoveIn --project week-10/Lab`, then `database update`. |
 | `error CS1503: Argument 1: cannot convert from 'string' to 'DeskContext'` | Something still hands `Save` or `Load` a file name. The error's line number says where. |
 | `error CS1061` … `UseInMemoryDatabase` | `Lab.Tests` hasn't got the InMemory package. Task 4's `dotnet add`. |
-| `Cannot insert explicit value for identity column in table 'Carts'` | `Save` adds a cart that came out of the table. That's Task 5. |
+| `Cannot insert explicit value for identity column in table 'Songs'` | `Save` adds a cart that came out of the table. That's Task 5. |
 | `Cannot insert explicit value for identity column in table 'Callers'` | Your `Switchboard.cs` is the Task 4 one. Copy Task 5's in. |
 | `ArgumentException : An item with the same key has already been added` | The same mistake as the row above, in a test. `Add` where `Update` belongs. |
 | Check 4 red: *Three carts were saved and the table holds 0* | No `db.SaveChanges()` at the end of `Save`. |
-| The rotation has **six** carts | `Load` lost its `Clear()`. Fix it, then `DELETE FROM Carts;` — six rows got saved. |
+| The rotation has **six** carts | `Load` lost its `Clear()`. Fix it, then `DELETE FROM Songs;` — six rows got saved. |
 | `ArgumentOutOfRangeException` the first time you run the desk | `Load` cleared the carts and the table was empty. The `if (loaded.Count == 0)` block. |
 | The SQL Server view shows no databases, or no tables | Right-click your connection → **Refresh**. It doesn't refresh on its own. |
 | My checks pass and the desk can't connect | **That is exactly right.** My checks never touch the server. Only the desk tests your connection string. |
