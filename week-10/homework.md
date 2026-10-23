@@ -223,18 +223,7 @@ This is the lab's Task 2.
     public int Id { get; set; }
 ```
 
-**2 — A new file, `Project/ProjectContext.cs`.** It is [the lab's `DeskContext`](lecture-notes.md#the-dbcontext) with three swaps: the class is `ProjectContext`, there is one `DbSet` for your records, and the key it reads is `ConnectionStrings:Project`. **Name the `DbSet` after your records, in the plural.** That becomes the table's name.
-
-| In the lab | In yours |
-|---|---|
-| `DeskContext` | `ProjectContext` — dictated |
-| `DbSet<Song> Carts` (and `Callers`) | one `DbSet` of your records — written `DbSet<YourRecord> YourRecords` below |
-| `"ConnectionStrings:Desk"` | `"ConnectionStrings:Project"` |
-
-<details>
-<summary><b>Stuck? Show me the shape</b></summary>
-
-Swap `YourRecord` for your record type, and `YourRecords` for a name for the table, or it will not build.
+**2 — A new file, `Project/ProjectContext.cs`.** Paste this in. It is [the lab's `DeskContext`](lecture-notes.md#the-dbcontext) with its name and its key changed to `Project`, and no table yet:
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -242,8 +231,6 @@ using Microsoft.Extensions.Configuration;
 
 public class ProjectContext : DbContext
 {
-    public DbSet<YourRecord> YourRecords { get; set; }
-
     public ProjectContext()
     {
     }
@@ -267,6 +254,17 @@ public class ProjectContext : DbContext
         options.UseSqlServer(config["ConnectionStrings:Project"]);
     }
 }
+```
+
+**Then add the one line that's yours: a `DbSet` of your records**, at the top of the class. **Name it after your records, in the plural.** The property's name becomes the table's name, the way the lab's `Carts` did.
+
+<details>
+<summary><b>Stuck? Show me the line</b></summary>
+
+Swap `YourRecord` for your record type, and `YourRecords` for a name for the table, or it will not build.
+
+```csharp
+    public DbSet<YourRecord> YourRecords { get; set; }
 ```
 
 </details>

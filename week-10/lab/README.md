@@ -360,15 +360,7 @@ Open `week-10/Lab/Caller.cs` and find the three things your instructor just chan
 
 **A `DeskContext` is the desk's database in one class.** It says which tables the desk keeps, and where to find them. **Make a new file, `week-10/Lab/DeskContext.cs`.** Right-click `week-10/Lab` in the Explorer → **New File** → `DeskContext.cs`.
 
-Here is what goes in it:
-
-- **`public class DeskContext : DbContext`**, with `using Microsoft.EntityFrameworkCore;` and `using Microsoft.Extensions.Configuration;` at the top of the file.
-- **One `DbSet` per table:** `public DbSet<Caller> Callers { get; set; }` and `public DbSet<Song> Carts { get; set; }`. **The property's name is the table's name.** `Callers` is your instructor's switchboard, and it has to be spelled exactly that way, because `Switchboard.cs` reaches it by that name. `Carts` is yours.
-- **Two constructors.** One takes nothing: the desk and `dotnet ef` use that one. The other takes `DbContextOptions<DeskContext> options` and passes it on with `: base(options)`. Tests use that one, to hand in [a table that lives inside the test run](../lecture-notes.md#testing-without-a-database).
-- **`OnConfiguring`**, which reads your connection string out of the secret store. It is the same as your instructor's, word for word. A console program doesn't read settings on its own, so it builds its configuration by hand: `new ConfigurationBuilder().AddUserSecrets<DeskContext>().Build()`, then `options.UseSqlServer(config["ConnectionStrings:Desk"])`.
-
-<details>
-<summary><b>Stuck? Show me the shape</b></summary>
+**Paste this in.** It is the same as your instructor's `DeskContext`, with one table so far:
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -377,8 +369,6 @@ using Microsoft.Extensions.Configuration;
 public class DeskContext : DbContext
 {
     public DbSet<Caller> Callers { get; set; }
-
-    public DbSet<Song> Carts { get; set; }
 
     public DeskContext()
     {
@@ -403,6 +393,18 @@ public class DeskContext : DbContext
         options.UseSqlServer(config["ConnectionStrings:Desk"]);
     }
 }
+```
+
+**Then add the one line that's yours: a second `DbSet`, for your carts.** Put it under the `Callers` line, with a blank line between. `DbSet<Song>` holds songs, and **the property's name is the table's name**, so call it `Carts`.
+
+- **`Callers` is your instructor's,** and it has to stay spelled exactly that way: `Switchboard.cs` reaches the table by that name.
+- **The rest of the file says how to connect.** The two constructors are for the desk and for tests, and `OnConfiguring` reads your connection string out of the secret store. [The notes walk through each part](../lecture-notes.md#the-dbcontext).
+
+<details>
+<summary><b>Stuck? Show me the line</b></summary>
+
+```csharp
+    public DbSet<Song> Carts { get; set; }
 ```
 
 </details>
