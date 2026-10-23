@@ -724,9 +724,11 @@ Tonight the desk moves its night out of two files and into a database on the col
   }
   ```
 
-- [ ] 📖 **Highlight the first `board.Save`:** *"The first night. Dorothy rings once, and she's saved."*
-- [ ] 📖 **Highlight the three `nextNight` lines:** *"The next night. One DeskContext for the whole night, the way the desk does it. Dorothy is loaded, rings again, and is saved."*
-- [ ] 📖 **Highlight the two asserts:** *"Then a third switchboard reads the table. It should hold one Dorothy, with two calls."*
+- [ ] 📖 **Nothing to highlight yet:** *"This test acts out two nights at the desk, then checks what the table holds."*
+- [ ] 📖 **Highlight the first `board.Save`:** *"Night one. Dorothy rings once, and the switchboard is saved."*
+- [ ] 📖 **Highlight the three `nextNight` lines:** *"Night two. A new switchboard loads her back from the table, she rings again, and it's saved."*
+- [ ] 📖 **Highlight the two `reopened` lines:** *"reopened is a third switchboard, made fresh, loading from the table. It's the desk starting up the night after. It only knows what's in the table."*
+- [ ] 📖 **Highlight the two asserts:** *"Dorothy rang on both nights, but she's one caller, so the table should hold one row. And that row should have both her calls: two."*
 - [ ] 🎯 **Ask for the color, and wait.** *"Red or green?"*
 
   ```bash
