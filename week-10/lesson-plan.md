@@ -87,7 +87,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 - 🎯 **That care is the lesson, so say it out loud rather than doing it quietly.** The line is in the sheet.
 - 💡 **§2's first package is there because of a security advisory.** The SQL Server package asks for a vulnerable `System.Security.Cryptography.Pkcs`; adding the fixed version first means the old one is never used. **The room never sees that problem, so don't mention it** — the spoken line says only that SQL Server needs the package.
 - 💥 **§3's three refusals are the segment.** Run `migrations add` after every change, and read only the line that matters each time. **The third one, `Song`, is a question to the room**: the context never mentions songs.
-- ⚠️ **§3: don't explain the second `DeskContext` constructor when you paste it.** Say you'll need it later. It lands in §4, when the test needs it.
+- ⚠️ **§3: don't walk through `DeskContext` when you paste it.** One `DbSet` is one table, and the rest says how to connect. The two constructors land in §4, when the test needs the second one.
 - 🎯 **§3's question is the one to actually wait for**: *"has anything happened on the server yet?"* No — and the commonest homework mistake is writing the migration and never running `database update`.
 - 🎯 **§4's question is the second to wait for**: *"should this test use the college's server?"* Let somebody say the network, or the password.
 - 💥 **§5's crash is the demo's payoff. Let it sit.** Ask what's different about this shift. The answer is the `Id`.

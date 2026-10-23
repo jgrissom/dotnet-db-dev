@@ -274,11 +274,9 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 **Highlight `public DbSet<Caller> Callers`:** *"One DbSet is one table. This one holds callers, and the table will be called Callers, after the property."*
-- [ ] 📖 **Highlight the first constructor, the one that takes nothing:** *"The desk makes a DeskContext with this one. So does the dotnet ef tool."*
-- [ ] 📖 **Highlight the second constructor:** *"I'll need this one when the tests change. Hold on to it."* Don't explain it; §4 does
-- [ ] 📖 **Highlight the `ConfigurationBuilder` lines:** *"A console program reads no settings on its own. So it builds its configuration by hand, from one place: the secret store on this machine. Then it hands the connection string to UseSqlServer."*
+- [ ] 📖 **Nothing to highlight:** *"The rest of the class says how to connect, using the connection string in my secret store. We'll come back to it when the tests need it."*
 
-- [ ] 📖 *"A migration is the instructions for making the tables. The tool writes it for me, from this class. Let's ask it to."*
+- [ ] 📖 *"Now I ask the dotnet ef tool to read this class and write the instructions for making the table. Those instructions are called a migration."*
 
   ```bash
   dotnet ef migrations add TheCallersMoveIn --project week-10/Lab
@@ -562,7 +560,7 @@ Tonight the desk moves its night out of two files and into a database on the col
           reopened.Load(new DeskContext(options));
   ```
 
-- [ ] 📖 **Highlight `new DeskContext(options)`:** *"new DeskContext with options uses the second constructor, the one I said I'd need later. The test hands the context somewhere else to keep its rows."*
+- [ ] 📖 **Highlight `new DeskContext(options)`:** *"DeskContext has two constructors. The desk uses the one that takes nothing, and it connects to the server. This one takes options, so the test can hand the context somewhere else to keep its rows."*
 - [ ] 🎞️ **GO TO SLIDE 4** — *A table that lives inside the test* · *"The desk makes a DeskContext with nothing, and it goes to the secret store and the server. A test makes one with options, and the rows stay inside the test run. Same Save, same Load, two places to keep the rows."*
 - [ ] **Run the suite**
 
