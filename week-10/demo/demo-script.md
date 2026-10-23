@@ -162,6 +162,8 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"Design is the part of EF Core that the dotnet ef tool needs, to make the tables. The other two read a password from where I'm about to put it."*
+- [ ] **Open `week-10/Lab/Lab.csproj` and highlight the `<ItemGroup>`**
+- [ ] 📖 *"Every dotnet add wrote a line here, so this is where I check they all landed. Six packages. Five are the ones I just added, all version 10.0.13. Spectre was already here. They're in alphabetical order, not the order I typed them."*
 
 - [ ] 📖 *"To reach the database, the desk needs a connection string. It is one line of text: which server, which database, my login, and my password. My password does not go in this repo. A repo is something other people read."*
 - [ ] **Ask the project what secrets it has**

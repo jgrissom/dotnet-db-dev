@@ -210,6 +210,26 @@ dotnet add week-10/Lab package Microsoft.Extensions.Configuration.UserSecrets --
 
 📖 *Why the `--version`:* every package in the course is pinned, so your desk and my checks use the same EF Core.
 
+**Check they all landed.** Open `week-10/Lab/Lab.csproj`. Its `<ItemGroup>` should list **six** packages: the five you just added, each at `10.0.13`, and `Spectre.Console`, which was already there.
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.13">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.13" />
+    <PackageReference Include="Spectre.Console" Version="0.57.2" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
+```
+
+- **They're in alphabetical order**, not the order you typed them. `dotnet add` sorts them.
+- **`Design` has two extra lines inside it.** `dotnet add` writes those itself; leave them.
+- **A package missing?** Run its `dotnet add` again.
+
 #### 1c — somewhere for the password
 
 The desk needs a **connection string**: one line that says which server, which database, and who you are, **including your password**. A password does not go in your repo, ever. [User secrets](../lecture-notes.md#user-secrets--a-password-outside-the-repo) keep it in a file in your home folder instead, outside every repo you have.

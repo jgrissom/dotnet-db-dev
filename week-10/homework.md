@@ -145,7 +145,24 @@ dotnet add Project package Microsoft.Extensions.Configuration --version 10.0.13
 dotnet add Project package Microsoft.Extensions.Configuration.UserSecrets --version 10.0.13
 ```
 
-The first one is a package the SQL Server one needs, so it goes in first. **Build, and check the bottom says `0 Error(s)`:**
+The first one is a package the SQL Server one needs, so it goes in first.
+
+**Check they all landed.** Open `Project/Project.csproj`. A new `<ItemGroup>` lists the five, each at `10.0.13`. If your project already had packages, they're in the list too.
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.13">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.13" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
+```
+
+They're in alphabetical order, and `Design`'s two extra lines are written by `dotnet add` itself, as in the lab. A package missing? Run its `dotnet add` again. **Then build, and check the bottom says `0 Error(s)`:**
 
 ```bash
 dotnet build Project
