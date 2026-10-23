@@ -375,13 +375,30 @@ Swap `YourRecord`, `YourRecords` and `_yourList` for your own names, or it will 
 
 </details>
 
-**2 — `Program.cs`.** Build first, and read the errors:
+**2 — `Program.cs`.** It still hands `Save` and `Load` a file name. Build, and see where:
 
 ```bash
 dotnet build Project
 ```
 
-Every `CS1503: Argument 1: cannot convert from 'string' to 'ProjectContext'` is a line that still hands `Save` or `Load` a file name. **Do what the lab did:** the line that makes the file name becomes `ProjectContext db = new ProjectContext();`, and the two calls become `registry.Load(db);` and `registry.Save(db);`. If any other line printed the file name, `CS0103` names it. Change what it prints, or take it out.
+```
+Project/Program.cs(…): error CS1503: Argument 1: cannot convert from 'string' to 'ProjectContext'
+Project/Program.cs(…): error CS1503: Argument 1: cannot convert from 'string' to 'ProjectContext'
+```
+
+**Two errors, and both are expected.** They're the same two the lab's Task 4 had; the line numbers are yours. **Open `Project/Program.cs`** and make the three edits the lab made, on the lines week 8 gave you:
+
+- `string registryFile = "registry.json";` becomes `ProjectContext db = new ProjectContext();`.
+- `registry.Load(registryFile);` becomes `registry.Load(db);`.
+- `registry.Save(registryFile);` becomes `registry.Save(db);`.
+
+Save the file, and build again. One error is left:
+
+```
+Project/Program.cs(…): error CS0103: The name 'registryFile' does not exist in the current context
+```
+
+That's the line that printed the file name, `… saved to {registryFile}.` Make it say `saved to the database.` instead. **Build once more, and check the bottom says `0 Error(s)`.**
 
 **3 — Your own suite.** It stops compiling, because `Week8_TheRegistrySurvivesARestart` hands `Save` and `Load` a path. Add the package the lab's tests needed:
 
