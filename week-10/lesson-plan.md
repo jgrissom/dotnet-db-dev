@@ -69,7 +69,7 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 | 0:46 | 25 min | 💥 **A class becomes a table** *(slide 3, demo §3)*. `DeskContext` with `Callers`. `migrations add` refuses three times: `Cannot bind 'name'`, a missing key, and `Song` — through `Favorite`. Each message names its fix. Read `Up()`. The SQL Server view: no database yet. Slide 3. `database update`, and the empty table. **Push #1.** |
 | 1:11 | 25 min | **Lab C: Tasks 2 and 3** — copy `Caller.cs`, `Song.Id`, their own `DeskContext` with two tables, then the migration, `database update`, and their tables in the SQL Server view. |
 | 1:36 | 10 min | **☕ Break** |
-| 1:46 | 22 min | 🎯 **The switchboard moves in** *(slide 4, demo §4)*. `Save` with `Add` and `SaveChanges`, `Load` with the empty-table return. Two errors in `Program.cs`, two in the suite. *"Should this test use the college's server?"* The in-memory table, and slide 4. Run once: no `switchboard.json`, and the rows in the SQL Server view with the desk shut. **Push #2.** |
+| 1:46 | 22 min | 🎯 **The switchboard moves in** *(slide 4, demo §4)*. `Save` with `Add` and `SaveChanges`, `Load` with the empty-table return. Two errors in `Program.cs`, two in the suite. The in-memory table, and slide 4. Run once: no `switchboard.json`, and the rows in the SQL Server view with the desk shut. **Push #2.** |
 | 2:08 | 25 min | 🎯 **Lab D: Task 4** — the lab's payoff. Their `Save` and `Load`, their two facts off the file, then two runs: no `.json`, three rows, and a crash on the way out of the second. **Circulate hard.** |
 | 2:33 | 10 min | **☕ Break** |
 | 2:43 | 12 min | 💥 **The second night** *(demo §5)*. The callers come back, Dorothy rings, and the desk crashes on `'Callers'`. The fact first, red. `Update`, green. One Dorothy with four calls. **Push #3.** |
@@ -89,7 +89,6 @@ Each demo segment is followed by the lab task that practices it. **The demo move
 - 💥 **§3's three refusals are the segment.** Run `migrations add` after every change, and read only the line that matters each time. **The third one, `Song`, is a question to the room**: the context never mentions songs.
 - ⚠️ **§3: don't walk through `DeskContext` when you paste it.** One `DbSet` is one table, and the rest says how to connect. The two constructors land in §4, when the test needs the second one.
 - 🎯 **§3 shows the server empty after `migrations add`, then refreshes again after `database update`.** Let the empty list sit for a second — the commonest homework mistake is writing the migration and never running `database update`.
-- 🎯 **§4's question is the second to wait for**: *"should this test use the college's server?"* Let somebody say the network, or the password.
 - 💥 **§5's crash is the demo's payoff. Let it sit.** Ask what's different about this shift. The answer is the `Id`.
 - ⚠️ **§5 depends on §4's run.** The table must hold the three callers from §4's run before §5 starts — and no other rows. If you rehearsed, drop the database in §0 and §3 remakes it.
 - 💡 **§6 is six minutes and two screens.** Say the C# rule and the database rule, and stop. It is a symptom, not a lesson on collations.

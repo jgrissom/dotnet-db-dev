@@ -535,8 +535,7 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"Two more errors, both in one test. ACallerRemembersTheirCalls saves a switchboard to a scratch file and reads it back. Save doesn't take a file any more."*
-- [ ] 🎯 **Ask, and wait:** *"So should this test use the college's server?"*
-- [ ] 📖 *"Then it fails whenever the network does, and it needs my password. A test needs somewhere to keep rows that isn't a server. EF Core has one: a table that lives inside the test run. It's one more package, on the test project."*
+- [ ] 📖 *"This test shouldn't use the college's server. It would fail whenever the network does, and it would need my password. EF Core can keep the test's rows in a table that lives inside the test run. That's one more package, on the test project."*
 
   ```bash
   dotnet add week-10/Lab.Tests package Microsoft.EntityFrameworkCore.InMemory --version 10.0.13
