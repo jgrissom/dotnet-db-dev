@@ -348,7 +348,7 @@ Open `week-10/Lab/Caller.cs` and find the three things your instructor just chan
 
 #### The `Id`
 
-**In `Lab/Song.cs`, under the `TODO — Task 2` comment, add this line:**
+**Open `week-10/Lab/Song.cs`. Its `// TODO — Task 2` comment is near the top, inside the class** — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 2:` finds it, one hit. **Add this line under it:**
 
 ```csharp
     public int Id { get; set; }
@@ -572,7 +572,7 @@ dotnet build week-10/Lab
 
 #### `Save` and `Load`, for the rotation
 
-**In `Lab/Rotation.cs`, under the `TODO — Task 4` comment.** Replace `Save(string path)` and `Load(string path)` with two that take the database. **Select from `public void Save(string path)` down to and including the `}` that closes `Load`**, and write the two new ones there. Read your instructor's in `Switchboard.cs` first; yours are the same, with carts.
+**Open `week-10/Lab/Rotation.cs` and find its `// TODO — Task 4` comment** — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 4:`, one hit. Replace `Save(string path)` and `Load(string path)` with two that take the database. **Select from `public void Save(string path)` down to and including the `}` that closes `Load`**, and write the two new ones there. Read your instructor's in `Switchboard.cs` first; yours are the same, with carts.
 
 - **`public void Save(DeskContext db)`**: for each song, **`db.Carts.Add(song)`** marks it to go into the table. After the loop, **`db.SaveChanges()`** sends everything to the server in one go. Without `SaveChanges()`, nothing arrives and nothing complains.
 - **`public void Load(DeskContext db)`**: read the table into a list with **`db.Carts.OrderBy(song => song.Id).ToList()`**. A table keeps no order of its own, so `OrderBy` on `Id` hands the carts back in the order they first went in.
@@ -788,7 +788,7 @@ dotnet run --project week-10/Lab
 
 #### First, the fact — before you touch `Save`
 
-**Write it in `Lab.Tests/DeskTests.cs`, under the `TODO — Task 5` comment.** It is your instructor's `ACallerWhoRingsAgainIsStillOneRow`, with a cart. The same three moves as every fact:
+**Write it in `week-10/Lab.Tests/DeskTests.cs`, under its `// TODO — Task 5` comment** — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 5:`, one hit. It is your instructor's `ACallerWhoRingsAgainIsStillOneRow`, with a cart. The same three moves as every fact:
 
 - **Set the scene.** The three `options` lines from Task 4. A `Rotation` with one `Song` in it, saved with `rotation.Save(new DeskContext(options))`.
 - **Do the thing: the next night.** One `DeskContext db = new DeskContext(options);`, used for both halves the way the desk uses one for a whole shift. A second rotation, `nextNight`, loads from `db`, plays its cart once (`nextNight.All()[0].Play();`), and saves back to `db`.
