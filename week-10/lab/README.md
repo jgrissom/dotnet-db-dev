@@ -340,7 +340,7 @@ cp ../dotnet-db-starters/demo/week-10/Caller.cs week-10/Lab/
 
 Open `week-10/Lab/Caller.cs` and find the three things your instructor just changed so the database can keep a caller:
 
-- **`public int Id { get; set; }`** at the top. A table needs one column that is different on every row, and EF Core looks for a property called `Id`.
+- **`public int Id { get; set; }`** at the top. A table needs one column that is unique, and EF Core looks for a property called `Id`.
 - **`Name { get; private set; }`**. It was `{ get; }`. A property with only a `get` is left out of the table, and then the database has no name to hand back.
 - **`[NotMapped]` on `Favorite`**. A favorite is a whole `Song`, and without `[NotMapped]` EF Core tries to make a table of songs too.
 

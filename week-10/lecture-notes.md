@@ -17,7 +17,7 @@ A table has columns, and EF Core makes one for each property the class **keeps**
 | `PlaysTonight` | yes | it has a `private set`, and EF Core uses that the same way the class does |
 | `Length`, `Kind`, `Cue` | **no** | they have only a `get`. They are worked out from the others, so EF Core leaves them out without being told |
 
-**Every table needs one column that is different on every row.** EF Core looks for a property called `Id`:
+**Every table needs one column that is unique.** EF Core looks for a property called `Id`:
 
 ```csharp
     public int Id { get; set; }

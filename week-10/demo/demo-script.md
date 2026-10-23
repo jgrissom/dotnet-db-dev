@@ -316,7 +316,7 @@ Tonight the desk moves its night out of two files and into a database on the col
 
 - [ ] **In the terminal, highlight `The entity type 'Caller' requires a primary key to be defined`**
 
-- [ ] 📖 *"The next message is about a primary key. A table needs one column that is different on every row. Two callers could both be called Dorothy, so the name won't do. EF Core looks for a property called Id."*
+- [ ] 📖 *"The next message is about a primary key. A table needs one column that is unique. Two callers could both be called Dorothy, so the name won't do. EF Core looks for a property called Id."*
 - [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public class Caller` — one hit. Click at the end of the `{` on the line under it, press Enter, and paste this**
 
   ```csharp
