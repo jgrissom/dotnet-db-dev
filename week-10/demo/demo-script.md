@@ -385,8 +385,8 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"This is the Caller class as a table. Three columns: Id, Name and CallsTonight. Identity on the Id means the database numbers the rows itself."*
-- [ ] 🎯 **Ask, and wait for an answer:** *"Has anything happened on the server yet?"*
-- [ ] 📖 *"No. migrations add read my classes and wrote a file. It didn't connect to anything. The next command is the one that talks to the server."*
+- [ ] **In the SQL Server view, right-click your connection → Refresh, and open Databases.** There is no `DB_KDXR_156101411_JSG` in the list
+- [ ] 📖 *"There's no database on the server yet. migrations add read my classes and wrote a file. It didn't connect to anything. The next command is the one that talks to the server."*
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *Two commands, one network* · *"migrations add writes the instructions, into your project, and needs no network. database update carries them out, on the server. If you only run the first one, the table never exists."*
 - [ ] **Back to the terminal, and run the second one**
