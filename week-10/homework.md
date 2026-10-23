@@ -389,7 +389,7 @@ Every `CS1503: Argument 1: cannot convert from 'string' to 'ProjectContext'` is 
 dotnet add Project.Tests package Microsoft.EntityFrameworkCore.InMemory --version 10.0.13
 ```
 
-Then move that fact off the file, [the way the lab moved `ACartRemembersItsPlays`](lecture-notes.md#testing-without-a-database): `using Microsoft.EntityFrameworkCore;` at the top of the test file, the two `path` lines become the three below, and every `path` it hands over becomes `new ProjectContext(options)`.
+Then move that fact off the file. It's in **`Project.Tests/RegistryTests.cs`**, where week 8 put it. The moves are [the way the lab moved `ACartRemembersItsPlays`](lecture-notes.md#testing-without-a-database): `using Microsoft.EntityFrameworkCore;` at the top of that file, the two `path` lines become the three below, and every `path` it hands over becomes `new ProjectContext(options)`.
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
@@ -454,7 +454,7 @@ This is the lab's Task 5.
 
 #### First, the fact — before you touch `Save`
 
-**Write it in `Project.Tests`, beside `Week8_TheRegistrySurvivesARestart`.** The name is dictated: `Week10_ASecondSaveChangesTheRow`. The moves are the lab's `ACartAiredAgainIsStillOneRow`:
+**Write it in `Project.Tests/RegistryTests.cs`, under `Week8_TheRegistrySurvivesARestart`.** The name is dictated: `Week10_ASecondSaveChangesTheRow`. The moves are the lab's `ACartAiredAgainIsStillOneRow`:
 
 - **Set the scene.** The three `options` lines. A `Registry` with one record from `NewItem("a name of yours")` in it, saved with `new ProjectContext(options)`.
 - **Do the thing: the next run.** One `ProjectContext db = new ProjectContext(options);`, used for both halves. A second registry, `nextRun`, loads from `db`. Find your record in it and **call your verb on it** — the method that moves the count your record keeps, like a lighthouse's `Visit()` moving `TimesVisited`. Then `nextRun.Save(db)`.
