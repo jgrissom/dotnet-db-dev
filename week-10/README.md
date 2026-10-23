@@ -34,4 +34,4 @@ The desk's night moves out of two files and into a database on the college's SQL
 - ⚠️ **Delete `week-10/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
 - 💡 **Type your database name in the Database box at the top of the published cue sheet** — every mention on the page changes, including what the Copy buttons hand you
 
-**Prev:** [Week 9 — LINQ, and Thirty Lines Become One](../week-09/) · **Next:** Week 11 — EF Core II *(coming)*
+**Prev:** [Week 9 — LINQ, and Thirty Lines Become One](../week-09/) · **Next:** [Week 11 — EF Core II: A Cart Comes Off](../week-11/)

@@ -59,6 +59,18 @@ const DELIBERATE = {
     'csharp fences (lab) ⚠️eyes': "whole methods sit only in collapsed 'Stuck? Show me the shape' blocks and Done early; the visible fences are syntax fragments and Program.cs lines",
     'dotnet test (lab)':      "four tasks, not five, and only Task 4 writes a fact of the student's own",
   },
+  // Week 11 was built new on 2026-10-23: three lab tasks (a fresh database,
+  // Remove, Save takes a row out) against week 10's five, and a homework of two
+  // tasks, because the project's database carries on and needs no Task 1.
+  '11': {
+    'notes links (homework)': "two tasks, not five — one notes link per task, plus the troubleshooting appendix",
+    'notes links (lab)':      "three tasks, not five; every week-11 notes section is still linked from somewhere",
+    'links inside 🆘':        "the 🆘 rows name the fix directly; the one link is the troubleshooting appendix",
+    'commit messages (lab)':  "three tasks, not five: the starter commit and one per task",
+    'bold in-full links':     "three tasks, not five",
+    '**Check:** lines':       "three tasks, not five",
+    'dotnet test (lab)':      "three tasks, not five; every task still runs the desk before it runs a suite",
+  },
 }
 
 const read = f => { try { return fs.readFileSync(f, 'utf8') } catch { return null } }

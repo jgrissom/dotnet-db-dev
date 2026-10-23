@@ -338,4 +338,4 @@ SELECT * FROM Callers WHERE Name = 'dorothy';
 | The SQL Server view shows nothing new | Right-click the connection → **Refresh**. It doesn't refresh on its own. |
 | Red squiggles under `DbSet`, and `dotnet build` is fine | The editor, not your code. Command Palette → **`Developer: Reload Window`**. |
 
-**Prev:** [Week 9 — Lecture Notes](../week-09/lecture-notes.md) · **Next:** Week 11 *(coming)*
+**Prev:** [Week 9 — Lecture Notes](../week-09/lecture-notes.md) · **Next:** [Week 11 — Lecture Notes](../week-11/lecture-notes.md)

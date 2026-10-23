@@ -689,4 +689,4 @@ Six moments worth saving, written into the parts above at the point where each t
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b the-registry-moves-in`, push that. |
 | An error that isn't in this table | [The notes' troubleshooting list](lecture-notes.md#-troubleshooting) has more of them. |
 
-**Prev:** [Week 10 Lab — The Carts Move In](lab/README.md) · **Next:** Week 11 *(coming)*
+**Prev:** [Week 10 Lab — The Carts Move In](lab/README.md) · **Next:** [Week 11 Lab — A Cart Comes Off](../week-11/lab/)

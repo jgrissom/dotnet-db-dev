@@ -1,0 +1,45 @@
+{
+  "week": 11,
+  "total": 20,
+  "_comment": "One source of truth for week 11's rubric. The grader scores from this file, the homework's grading table is copied from it, and the Canvas rubric is generated from it. `suite` says which test run scores an item — 'checks' is `dotnet test Project.Checks` (canonical, replaced wholesale by the grader), 'tests' is `dotnet test Project.Tests` (the student's OWN suite, run as-is and never replaced). The dictated student fact carries the WEEK — Week11_ARemovedRecordStaysGone — and it is the lab's Task 3 fact on the student's own registry. Check 1 is the came-forward check, green before the student starts, and it now holds all of week 10 as well. Check 2 is the homework's Task 2. Homework Task 1 (see a removed record come back) changes no code and turns nothing green. The run-it item stays a BUILD-it item (W10.4): running needs the student's connection string, which is correctly not in the repo. The graded repo is the PROJECT repo (D1b).",
+  "checks": {
+    "Check1_WeeksFourToTenStillHold": {
+      "points": 4,
+      "suite": "checks",
+      "label": "Weeks 4-10 still hold — everything check 1 covered last week, plus last week's four: a record shaped for a table, a migration, Save and Load round-tripping, and a second save changing the row"
+    },
+    "Check2_ARemovedRecordStaysGone": {
+      "points": 4,
+      "suite": "checks",
+      "label": "A record removed on the next run is gone from the table, and the records that weren't removed keep their rows"
+    },
+    "Week11_ARemovedRecordStaysGone": {
+      "points": 4,
+      "suite": "tests",
+      "label": "Your test: a record loaded, removed and saved is gone the next time the registry loads — written by you, before the fix, green in your own suite"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programBuilds": {
+      "points": 2,
+      "label": "The project compiles from a clean clone — it cannot be RUN anywhere but your own machine, because your connection string is not in the repo"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked nowhere in the project repo — the .gitignore holding"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgment call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}
