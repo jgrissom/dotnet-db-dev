@@ -435,7 +435,7 @@ dotnet test week-10/Lab.Checks
 week 10 lab: a cart with an Id, and a DeskContext
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > **In class, DON'T stop here — carry straight on to Task 3.** The demo has already shown the migration, and Tasks 2 and 3 are one lab block.
 
 📖 *Further reading:* [a class becomes a table](../lecture-notes.md#a-class-becomes-a-table) · [the `DbContext`](../lecture-notes.md#the-dbcontext).
