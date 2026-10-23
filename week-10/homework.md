@@ -389,7 +389,11 @@ Every `CS1503: Argument 1: cannot convert from 'string' to 'ProjectContext'` is 
 dotnet add Project.Tests package Microsoft.EntityFrameworkCore.InMemory --version 10.0.13
 ```
 
-Then move that fact off the file. It's in **`Project.Tests/RegistryTests.cs`**, where week 8 put it. The moves are [the way the lab moved `ACartRemembersItsPlays`](lecture-notes.md#testing-without-a-database): `using Microsoft.EntityFrameworkCore;` at the top of that file, the two `path` lines become the three below, and every `path` it hands over becomes `new ProjectContext(options)`.
+Then move that fact off the file. It's in **`Project.Tests/RegistryTests.cs`**, where week 8 put it. The moves are [the way the lab moved `ACartRemembersItsPlays`](lecture-notes.md#testing-without-a-database):
+
+- **At the top of the file**, add `using Microsoft.EntityFrameworkCore;`.
+- **Inside `Week8_TheRegistrySurvivesARestart`**, the two lines that make a scratch file (`string path = …` and `File.Delete(path);`) **become the three lines below.**
+- **Wherever that fact hands over `path`**, hand over `new ProjectContext(options)` instead.
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
