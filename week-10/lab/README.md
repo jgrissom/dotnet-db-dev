@@ -182,13 +182,11 @@ dotnet tool update --global dotnet-ef
 
 #### 1b — five packages on the desk
 
-Each package is one `dotnet add`. **The first is a fixed version of a cryptography package:**
+Each package is one `dotnet add`. **The first is one the SQL Server package needs, so it goes in first:**
 
 ```bash
 dotnet add week-10/Lab package System.Security.Cryptography.Pkcs --version 10.0.13
 ```
-
-The SQL Server package, next, uses this package, and the version it asks for has a known security problem. **Adding the fixed version first means the old one is never used.**
 
 **Then the SQL Server part of EF Core:**
 
@@ -938,7 +936,7 @@ None of these has a check.
 |---|---|
 | `cp: … demo/week-10/…: No such file or directory` | Your instructor hasn't pushed that file yet, or your starters clone isn't pulled. Run `git -C ../dotnet-db-starters pull` and try again. |
 | `MSB1003: Specify which project` | You're at the top of your repo and didn't name the week. `dotnet test week-10/Lab.Checks`. |
-| `warning NU1902` / `warning NU1903` on `System.Security.Cryptography.Pkcs` | The fixed package isn't in. Task 1b's first `dotnet add`. |
+| `warning NU1902` / `warning NU1903` on `System.Security.Cryptography.Pkcs` | Task 1b's first package isn't in. Run its `dotnet add`, the `System.Security.Cryptography.Pkcs` one. |
 | `dotnet ef` : command not found | Task 1a. If it's installed and still not found, close and reopen the terminal. |
 | `The Entity Framework tools version '10.0.12' is older than that of the runtime '10.0.13'` | Your `dotnet-ef` is older than the packages. `dotnet tool update --global dotnet-ef`. |
 | `Could not find the global property 'UserSecretsId'` | Task 1c's `init` never ran on this project. |

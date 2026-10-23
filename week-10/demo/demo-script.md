@@ -133,13 +133,13 @@ Tonight the desk moves its night out of two files and into a database on the col
 
 - [ ] 📖 *"Before the desk can talk to a database, it needs two things. It needs the packages that do the talking. And it needs a password, kept somewhere that is not this repo."*
 
-- [ ] **Add the first package: a fixed version of a cryptography package**
+- [ ] **Add the first package: one the SQL Server package needs**
 
   ```bash
   dotnet add week-10/Lab package System.Security.Cryptography.Pkcs --version 10.0.13
   ```
 
-- [ ] 📖 *"The SQL Server package uses this package. The version it asks for has a known security problem. Adding the fixed version first means the old one is never used."*
+- [ ] 📖 *"The SQL Server package needs this one, so it goes in first."*
 - [ ] **Then the SQL Server part of EF Core**
 
   ```bash

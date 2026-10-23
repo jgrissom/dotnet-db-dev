@@ -145,7 +145,7 @@ dotnet add Project package Microsoft.Extensions.Configuration --version 10.0.13
 dotnet add Project package Microsoft.Extensions.Configuration.UserSecrets --version 10.0.13
 ```
 
-The first one is the fixed version of a package the SQL Server one uses, and [the lab's Task 1b says why](lab/README.md#1b--five-packages-on-the-desk). It goes first so the old version is never used. **Build, and check the bottom says `0 Error(s)`:**
+The first one is a package the SQL Server one needs, so it goes in first. **Build, and check the bottom says `0 Error(s)`:**
 
 ```bash
 dotnet build Project
@@ -628,7 +628,7 @@ Six moments worth saving, written into the parts above at the point where each t
 | `CS0246: The type or namespace name 'YourRecord' could not be found` | You pasted a **Stuck?** shape without swapping the placeholder. `YourRecord` is your record type's name — the class `NewItem` hands back. |
 | `CS1061` naming `YourRecords`, `YourVerb` or `YourCount` | The same thing: a placeholder still in a shape. `YourRecords` is your `DbSet`'s name in `ProjectContext`; `YourVerb` and `YourCount` are your record's verb and the count it moves. |
 | `CS0103: The name '_yourList' does not exist in the current context` | `_yourList` is the name of the list field inside your `Registry`. Open `Registry.cs` and use the name you gave it. |
-| `warning NU1902` / `warning NU1903` on `System.Security.Cryptography.Pkcs` | The fixed package isn't in. Task 1b's first `dotnet add`. |
+| `warning NU1902` / `warning NU1903` on `System.Security.Cryptography.Pkcs` | Task 1b's first package isn't in. Run its `dotnet add`, the `System.Security.Cryptography.Pkcs` one. |
 | `The ConnectionString property has not been initialized.` | No connection string found. **`dotnet user-secrets list --project Project`** says why: *Could not find the global property 'UserSecretsId'* means `init` never ran; *No secrets configured* means `set` didn't, or the key isn't `ConnectionStrings:Project`. |
 | `An exception has been raised that is likely due to a transient failure` … `Cannot open database "DB_…"` | The database isn't made yet. Task 3's `dotnet ef database update`, or a database name in your connection string that doesn't match. |
 | `Login failed for user` | Wrong login or password. Run Task 1c's `set` again; `set` replaces. |
