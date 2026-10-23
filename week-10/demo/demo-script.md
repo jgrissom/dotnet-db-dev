@@ -620,7 +620,7 @@ Tonight the desk moves its night out of two files and into a database on the col
   | 2 | Bex | 1 |
   | 3 | Teodoro | 1 |
 
-- [ ] 🎯 *"Dorothy, Bex and Teodoro are in the table, with an Id each, filled in by the database. And I am not reading these rows out of my program. The desk is shut. That is a query against a server that I don't own."*
+- [ ] 🎯 *"Dorothy, Bex and Teodoro are in the table, with an Id each, filled in by the database. The desk isn't running. These rows come straight from the database on the college's server."*
 
 - [ ] **Commit it in the demo repo.** Silent
 
