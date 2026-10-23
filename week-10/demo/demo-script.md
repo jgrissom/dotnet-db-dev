@@ -570,7 +570,7 @@ Tonight the desk moves its night out of two files and into a database on the col
           reopened.Load(new DeskContext(options));
   ```
 
-- [ ] 📖 **Highlight `new DeskContext(options)`:** *"DeskContext has two constructors. The desk uses the one that takes nothing, and it connects to the server. This one takes options, so the test can hand the context somewhere else to keep its rows."*
+- [ ] 📖 **Highlight `new DeskContext(options)`:** *"new DeskContext with options. Those are the three lines I just added: keep the rows in a table inside the test. The desk makes its DeskContext with nothing in the brackets, so it reads the connection string and goes to the server. Same class, two ways to make it."*
 - [ ] 🎞️ **GO TO SLIDE 4** — *A table that lives inside the test* · *"The desk makes a DeskContext with nothing, and it goes to the secret store and the server. A test makes one with options, and the rows stay inside the test run. Same Save, same Load, two places to keep the rows."*
 - [ ] **Run the suite**
 
