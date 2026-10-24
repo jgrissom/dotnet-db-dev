@@ -298,7 +298,7 @@ Open `week-11/Lab/Switchboard.cs` and find **`Remove`**. It asks `Find` for the 
 
 **The desk has a new key this week: `p` pulls a cart.** Pulling a cart takes it off the rotation, the list of carts the desk plays from. The `p` key asks for a title and hands it to `Rotation.Remove`. If that cart is in the rotation, it comes out and the desk says `Pulled:` and how many carts are left. If it isn't, the desk says `No cart called` and that title.
 
-**Now look at the rotation's.** Run the desk: DJ name, then `p`, type `Long Way Round`, then `q`.
+**Now try the rotation's `Remove`.** Run the desk: DJ name, then `p`, type `Long Way Round`, then `q`.
 
 ```bash
 dotnet run --project week-11/Lab
