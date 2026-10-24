@@ -214,7 +214,13 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
   ```
 
 - [ ] 📖 *"Teodoro is on the board, and the desk says he isn't."*
-- [ ] **Open `week-11/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `// Your instructor's, written live in class. The x key calls it.` — one hit.** Highlight it and the four lines under it
+- [ ] **Open `week-11/Lab/Switchboard.cs`, and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  // Your instructor's, written live in class. The x key calls it.
+  ```
+
+  Highlight it and the four lines under it
 - [ ] 📖 **Before you change Remove, say what it does now:** *"Right now Remove hands back false, whatever it's asked. That false is the 'Nobody called Teodoro' on the screen. I need it to find the caller, take them out of the list, and hand back true."*
 - [ ] **Select from that comment line down to and including the `}` directly under `return false;`, and paste this over it**
 
@@ -368,7 +374,13 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 - [ ] 📖 *"Red. The night after Bex came off, the table still held two callers. Teodoro came back on the desk the same way."*
 
 - [ ] 📖 **Before you change Save, say what it does now:** *"Right now Save goes through the list. New callers go in, and the rest are updated. Then SaveChanges sends it all. Before it sends, I need it to take out every row that no caller in the list has."*
-- [ ] **In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `db.SaveChanges();` — one hit. Select that one line and paste this over it**
+- [ ] **In `Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  db.SaveChanges();
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
           foreach (Caller row in db.Callers.ToList())
@@ -490,9 +502,21 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 - [ ] 💥 **Ask, and wait:** *"Dorothy had four calls a minute ago. How many calls does she have now?"*
 - [ ] 📖 *"Three. The fourth call only existed while the desk was running. The desk never got to q, so it never saved it."*
 - [ ] 📖 *"So I'll save at the moment something changes, not only at the end."*
-- [ ] **Open `week-11/Lab/Program.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Caller caller = switchboard.Take(who);` — one hit. Click at the end of that line, press Enter, and type** `switchboard.Save(db);`
+- [ ] **Open `week-11/Lab/Program.cs`, and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  Caller caller = switchboard.Take(who);
+  ```
+
+  **Click at the end of that line, press Enter, and type** `switchboard.Save(db);`
 - [ ] 📖 *"Every time a call comes in, the switchboard is saved right away."*
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `if (switchboard.Remove(name))` — one hit. Click at the end of the `{` on the line under it, press Enter, and type** `switchboard.Save(db);`
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  if (switchboard.Remove(name))
+  ```
+
+  **Click at the end of the `{` on the line under it, press Enter, and type** `switchboard.Save(db);`
 - [ ] 📖 *"And every time a caller comes off."*
 - [ ] **Run the desk: DJ name, then `r`, caller `Dorothy`, song `1`, then `c`. Then <kbd>Ctrl+C</kbd>**
 
