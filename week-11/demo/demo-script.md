@@ -373,8 +373,14 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 
 - [ ] 📖 *"Red. The night after Bex came off, the table still held two callers. Teodoro came back on the desk the same way."*
 
-- [ ] 📖 **Before you change Save, say what it does now:** *"Right now Save goes through the list. New callers go in, and the rest are updated. Then SaveChanges sends it all. Before it sends, I need it to take out every row that no caller in the list has."*
-- [ ] **In `Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+- [ ] **Open `week-11/Lab/Switchboard.cs` and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public void Save
+  ```
+
+- [ ] 📖 **Highlight the whole `Save` method, then say what it does now:** *"Right now Save goes through the list. New callers go in, and the rest are updated. Then SaveChanges sends it all. Before it sends, I need it to take out every row that no caller in the list has."*
+- [ ] **Still in `Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
 
   ```text
   db.SaveChanges();
