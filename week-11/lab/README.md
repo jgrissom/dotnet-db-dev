@@ -296,6 +296,8 @@ cp ../dotnet-db-starters/demo/week-11/Switchboard.cs week-11/Lab/
 
 Open `week-11/Lab/Switchboard.cs` and find **`Remove`**. It asks `Find` for the caller. No caller by that name, and it hands back `false`. Otherwise it takes that caller out of the list and hands back `true`.
 
+**The desk has a new key this week: `p` pulls a cart.** Pulling a cart takes it off the rotation, the list of carts the desk plays from. The `p` key asks for a title and hands it to `Rotation.Remove`. If that cart is in the rotation, it comes out and the desk says `Pulled:` and how many carts are left. If it isn't, the desk says `No cart called` and that title.
+
 **Now look at the rotation's.** Run the desk: DJ name, then `p`, type `Long Way Round`, then `q`.
 
 ```bash
