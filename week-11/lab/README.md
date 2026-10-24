@@ -6,7 +6,7 @@ It can put a row in and change a row. **It can't take one out.** Tonight a cart 
 
 Your job: pull a cart off the rotation, watch it come back the next night, write a test that says it shouldn't, and then make `Save` take its row out of the table. Your instructor does the same to the switchboard, a piece at a time, just before you do it to the rotation.
 
-**Time:** tonight's lab comes in short blocks, each one right after the part of the demo it practices. **Target tonight: all three checks green, a pulled cart that stays pulled, and one request of yours on the request line.**
+**Time:** tonight's lab comes in short blocks, each one right after the part of the demo it practices. **Target tonight: all three checks green, and a pulled cart that stays pulled.**
 
 > [!IMPORTANT]
 > **Task 1 starts the week with a fresh database.** It drops the one you made last week and makes it again, empty. That is on purpose: everybody's desk starts from the same three carts tonight.
@@ -67,7 +67,7 @@ The `.` on the end means **right here** — the top of your repo. Nothing to fin
 
 </details>
 
-It appears in your VS Code Explorer immediately — **four** projects this time:
+It appears in your VS Code Explorer immediately — three projects again, same as last week:
 
 ```
 dotnet-db-coursework/      ← your VS Code window, all semester
@@ -76,8 +76,7 @@ dotnet-db-coursework/      ← your VS Code window, all semester
 └─ week-11/                ← the folder you just copied in
    ├─ Lab/                 ← the desk — Rotation.cs has tonight's work in it
    ├─ Lab.Tests/           ← YOURS — nine facts ship written; you add one tonight
-   ├─ Lab.Checks/          ← my checks — read-only
-   └─ RequestLine/         ← your instructor's program, for the end of the night — you only run it
+   └─ Lab.Checks/          ← my checks — read-only
 ```
 
 **4. Reload the window.** Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) → **`Developer: Reload Window`**.
@@ -128,7 +127,6 @@ week 11: starter
 | `Lab/Program.cs` | Ships finished. **Nothing in it changes tonight.** The `p` key pulls a cart and the `x` key takes a caller off the switchboard |
 | `Lab/Switchboard.cs` | **Your instructor's.** You copy the finished file in at Tasks 2 and 3 and read it as you work. You never edit it |
 | `Lab.Tests/RemovedCallerTests.cs` | **Your instructor's fact**, copied in at Task 3 |
-| `RequestLine/` | **Your instructor's program.** You run it at the end of the night, and you never edit it |
 | `Lab.Checks/DeskChecks.cs` | My three. **Read-only, as always.** |
 
 > [!IMPORTANT]
@@ -541,31 +539,11 @@ week 11 lab: a pulled cart stays pulled
 **Two commits after the starter, three green checks, eleven facts, and a rotation whose table always matches its list.**
 
 > [!NOTE]
-> **In class, stop here.** The last part of the demo is the request line, and the whole room is in it. Finished early? Try [Now try to break it](#now-try-to-break-it), or help the person next to you. Working at home? The request line only works while your instructor has it open — read [the section below](#the-request-line--in-class-when-your-instructor-says) and move on to [the homework](../homework.md).
+> **In class, stop here.** One more short part of the demo comes next. Finished early? Try [Now try to break it](#now-try-to-break-it), or help the person next to you. Working at home? Carry straight on to [the homework](../homework.md).
 
 📖 *Further reading:* [`Save`'s third job](../lecture-notes.md#saves-third-job-rows-the-list-no-longer-holds) · [why the `Id`, and not the name](../lecture-notes.md#why-the-id-and-not-the-name) · [testing a removal](../lecture-notes.md#testing-a-removal).
 
 ---
-
-## The request line — in class, when your instructor says
-
-**One table, in your instructor's database, and everybody in the room writes to it.** It runs on the connection string you set in Task 1, so you connect as yourself, with your own login.
-
-```bash
-dotnet run --project week-11/RequestLine
-```
-
-- **`Your instructor's initials:`** — the ones your instructor gives you. They pick out your instructor's database, `DB_KDXR_156101411_` and the initials.
-- **`Your name, as the DJ should say it`** — whatever you'd like read out. Press **Enter** with nothing typed to see everybody else's requests; `q` hangs up.
-- **`What would you like to hear?`** — a song, or a dedication.
-
-**You can read the requests and add one. You can't change or delete anybody's, your own included,** and the database writes your login on every row you add. [The notes say how](../lecture-notes.md#the-request-line-one-table-many-logins).
-
-| What you see | What it means |
-|---|---|
-| `Nobody answered.` | The line isn't open yet, or the initials are wrong. |
-| `Your login failed.` | Your Task 1 connection string. The desk can't connect either. |
-| `No connection string.` | Task 1b. |
 
 ## Now try to break it
 

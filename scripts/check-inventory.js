@@ -70,6 +70,7 @@ const DELIBERATE = {
     'bold in-full links':     "three tasks, not five",
     '**Check:** lines':       "three tasks, not five",
     'dotnet test (lab)':      "three tasks, not five; every task still runs the desk before it runs a suite",
+    'dotnet run (lab)':       "three tasks, not five; every task runs the desk, and the request line's run left with it (dropped 2026-10-24)",
   },
 }
 

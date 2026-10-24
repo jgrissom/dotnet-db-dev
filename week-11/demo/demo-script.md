@@ -2,11 +2,11 @@
 
 **KDXR 88.1 · the overnight desk · the same station they work on**
 
-Tonight the desk learns to take a row out of its database. You take a **caller** off the switchboard, live, and the students do the same thing to a **cart** in the rotation. After two of your segments you push your finished files, and they copy them in to read and run while they work. At the end of the night the whole room writes to one table in your database.
+Tonight the desk learns to take a row out of its database. You take a **caller** off the switchboard, live, and the students do the same thing to a **cart** in the rotation. After two of your segments you push your finished files, and they copy them in to read and run while they work.
 
-> **The shape of the night:** a fresh database → a caller comes off, and comes back → out of the table too → saved as it happens → the request line. **Each demo segment is followed by the lab task that practices it.**
+> **The shape of the night:** a fresh database → a caller comes off, and comes back → out of the table too → saved as it happens. **Each demo segment is followed by the lab task that practices it.**
 
-**Total: ~98 minutes of demo, in seven short segments, and five lab blocks between them.** The lesson plan's timing table has the minutes.
+**Total: ~71 minutes of demo, in six short segments, and five lab blocks between them.** The lesson plan's timing table has the minutes.
 
 ---
 
@@ -33,7 +33,7 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 >
 > Then **delete the `week-11` folder** from the Explorer. Switching to `main` removed the files you committed, but not `bin` or `obj`.
 >
-> **Your database needs nothing.** §2 drops it and makes it again in front of the room, so a rehearsal leaves nothing behind that matters, the request line's table included.
+> **Your database needs nothing.** §2 drops it and makes it again in front of the room, so a rehearsal leaves nothing behind that matters.
 >
 > **Empty `demo/week-11/` in the starters repo**, because your rehearsal pushes reached the real one students pull from:
 >
@@ -92,7 +92,6 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 - [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click its line number in the left margin
 - [ ] ⚠️ **Delete `week-11/` from the demo repo if you've rehearsed.** Tonight you copy it in fresh, along with everybody else
 - [ ] **A browser tab on the lab README** (`week-11/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
-- [ ] ⚠️ **Know your initials as they appear in your database name.** In §6 every student types them to reach your database
 - [ ] **Lids down for the demo** — *"Tonight comes in pieces. Lids down while I work, lids up for each lab block in between."*
 
 ---
@@ -100,7 +99,7 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 ## 1 · What comes off
 
 - [ ] **Slide 1 is already up as the room settles.** It names tonight's theme. Read it to them in one go, then the two lines below
-- [ ] 📖 **Read the slide:** *"Tonight is EF Core again, and the part we haven't done: taking a row out of a table. We start the week with a fresh database. A caller comes off the switchboard, comes back the next night, and then stays off. We save as things happen, not only at the end. Then all of you write to one table in my database. And in your lab, a cart comes off the rotation and stays off."*
+- [ ] 📖 **Read the slide:** *"Tonight is EF Core again, and the part we haven't done: taking a row out of a table. We start the week with a fresh database. A caller comes off the switchboard, comes back the next night, and then stays off. We save as things happen, not only at the end. And in your lab, a cart comes off the rotation and stays off."*
 - [ ] 🎯 **Say what's missing, plainly:** *"Last week the desk learned to put rows in a table and change them. It still can't take a row out."*
 - [ ] 📖 **Then the deal for the night:** *"I take a caller off the switchboard. You pull a cart off the rotation. After each piece I push my file, and you copy it in."*
 
@@ -534,51 +533,7 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 
 ---
 
-## 6 · The request line *(slide 3)*
-
-- [ ] 📖 *"All night, each of you has had your own desk and your own database. Now all of you write to one table, in my database."*
-- [ ] **Open the line to the room**
-
-  ```bash
-  dotnet run --project week-11/RequestLine -- --open
-  ```
-
-  ```
-  The line is open on DB_KDXR_156101411_JSG. Every login on this server can read the requests and add one.
-  ```
-
-- [ ] 🎞️ **GO TO SLIDE 3** — *One table, every login* · *"Every login on the college's server can now do two things to one table in my database: read the requests, and add one. Nobody can change or delete a request, and nobody can touch my other tables. And the database writes down which login added each row."*
-- [ ] **Back to VS Code. Open a NEW terminal tab** (the **+** at the top right of the terminal panel), **and start the board in it**
-
-  ```bash
-  dotnet run --project week-11/RequestLine -- --board
-  ```
-
-  ```
-  0 requests on the line.
-  Asks again every three seconds. Ctrl+C to stop.
-  ```
-
-- [ ] **Make the terminal panel as big as it goes** (double-click its tab bar), so the board fills the projector
-- [ ] 📖 *"This is the board. It has no prompt. It asks the table for the requests every three seconds, and draws them."*
-- [ ] **Lids up.** 📖 *"In the lab README, the section after Task 3 is the request line. Run its one command. When it asks for my initials, they're…"* — **say your initials, and write them on the board.**
-- [ ] 🎯 **Wait. Let the board fill.** A row arrives every few seconds, from every machine in the room: the time it rang, the name the student gave, and what they asked for. The count under the table goes up with each one
-
-- [ ] 🎯 **Read two or three requests out, the way the DJ would.**
-- [ ] 🎯 **Somebody gets `Your login failed.`?** Their Task 1 connection string. The desk can't connect either. **`Nobody answered.`?** The initials
-- [ ] ⚠️ **If the network is having a bad night**, ring in yourself. Open a third terminal tab, run this, and give it your own initials and a request:
-
-  ```bash
-  dotnet run --project week-11/RequestLine
-  ```
-
-  Two programs on one laptop are still two programs writing to one table, and the board shows it
-- [ ] 📖 **When the board has filled:** *"Every program in this room just wrote to one table. None of you can change or delete anybody's request. And the database knows whose each one is."*
-- [ ] **Stop the board with <kbd>Ctrl+C</kbd>, close that tab, and shrink the terminal panel back**
-
----
-
-## Lab F · Finish, then start the homework — 35 minutes
+## Lab F · Finish, then start the homework — 62 minutes
 
 - [ ] **Lids up. The lab README, wherever each person is.** Anyone not finished works on their next task
 - [ ] 📖 **For anyone who's finished:** *"If your lab is done, open this week's homework and start it now, while I'm here. It's tonight's lab again, on your own project, and it's two tasks. Push your branch before you leave."*
@@ -587,20 +542,11 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 
 ---
 
-## 7 · Wrap *(slide 4)*
+## 6 · Wrap *(slide 3)*
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *Tonight, in one picture* · *"Remove takes a record out of the list. Save puts new rows in, updates the old ones, and takes out the rows the list doesn't hold. So the table matches the list. Saving when something changes means a crash loses nothing. And one table can take requests from every login in the room."*
+- [ ] 🎞️ **GO TO SLIDE 3** — *Tonight, in one picture* · *"Remove takes a record out of the list. Save puts new rows in, updates the old ones, and takes out the rows the list doesn't hold. So the table matches the list. Saving when something changes means a crash loses nothing."*
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
 - [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. It's two tasks: watch a removed record come back, then write the test and fix Save. Your database carries on from last week. You don't drop anything."*
 - [ ] ⚠️ **Say the branch line out loud** — *"Your homework goes on a branch, same as every week. Nothing goes straight to main."*
 - [ ] ⚠️ **Say the checks line out loud** — *"Part 1 removes last week's checks and copies this week's in. Run both commands. This week's first check is called WeeksFourToTenStillHold. If yours says FourToNine, you are running last week's."*
 - [ ] 📖 **The due date** — *"This homework is due before our next class."*
-- [ ] **Close the request line** — now, or after the room has left. Silent
-
-  ```bash
-  dotnet run --project week-11/RequestLine -- --close
-  ```
-
-  ```
-  The line is closed. The requests stay in the table; nobody but you can reach them now.
-  ```

@@ -33,7 +33,6 @@ style: |
 - a fresh database for the week
 - a record comes off — and comes back, until `Save` takes its row out
 - saving as things happen, not only at the end
-- one table that everybody in the room writes to
 - **your lab:** a cart comes off the rotation and stays off
 
 .NET Database Development · Week 11 of 16
@@ -56,23 +55,7 @@ The table holds **exactly what the list holds**.
 
 ---
 
-<!-- _footer: '🖥️ Demo §6 · the request line' -->
-
-## One table, every login
-
-| Every login can | Nobody but the owner can |
-|---|---|
-| read the requests | change a request |
-| add a request | delete a request |
-| | touch any other table |
-
-The rules live **in the database**, not in the program.
-
-Every row records **the login that added it**.
-
----
-
-<!-- _footer: '🖥️ Demo §7 · wrap' -->
+<!-- _footer: '🖥️ Demo §6 · wrap' -->
 
 ## Tonight, in one picture
 
@@ -82,4 +65,3 @@ Every row records **the login that added it**.
 - `Save`: **`Add`** the new · **`Update`** the old · **`Remove`** the rows nobody holds
 - then **`SaveChanges()`**
 - save **when something changes**, and an early stop loses nothing
-- one table, **every login in the room**

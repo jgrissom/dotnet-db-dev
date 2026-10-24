@@ -181,26 +181,6 @@ The fix is to save at the moment a change happens, not only at the end. In `Lab/
 
 ⚠️ **One context sends everything.** The desk makes one `DeskContext` for the whole shift, and `SaveChanges()` sends every change it's holding. So the switchboard's save also sends the rotation's changes.
 
-## The request line: one table, many logins
-
-At the end of the night the whole room writes to one table, in your instructor's database, with a program your instructor wrote: `RequestLine`. You run it; you don't edit it.
-
-**It connects as you.** It reads the connection string you set in Task 1, keeps your server, login and password, and swaps in your instructor's database name. So the database knows which login sent every row.
-
-**Your instructor's database lets every login on the server do exactly two things to that one table:**
-
-| Every login can | No login but the owner can |
-|---|---|
-| read the requests | change a request |
-| add a request | delete a request |
-| | touch any other table |
-
-Those rules live in the database, not in the program. A student who wrote their own program, or typed SQL in the SQL Server view, would get the same answer: `The DELETE permission was denied`.
-
-**Every row carries the login that added it.** A trigger in the database writes it onto each new row, whatever the program sends. So nobody can add a request under somebody else's name.
-
-The program **asks the table again** after every request you send, and when you press Enter. The projector runs the same program with `--board`, which asks every three seconds and has no prompt at all. Nobody is told a request arrived; the board just asks again.
-
 ---
 
 ## 🔧 Troubleshooting
@@ -214,7 +194,5 @@ The program **asks the table again** after every request you send, and when you 
 | Every cart has a new `Id` | `Save` empties the table and adds everything back. Take out only the rows the list doesn't hold. |
 | You pulled every cart and the next night they're all back | An empty table is the first night, so the desk starts from its three carts. That's `Load`'s first-night rule. |
 | The plays are gone after <kbd>Ctrl+C</kbd> | The desk saves at `q`. [Save as it happens](#saving-as-it-happens). |
-| `Nobody answered.` on the request line | The line isn't open, or the initials aren't your instructor's. |
-| `Your login failed.` on the request line | Your connection string. The desk can't connect either. |
 
 **Prev:** [Week 10 — Lecture Notes](../week-10/lecture-notes.md) · **Next:** Week 12 *(coming)*
