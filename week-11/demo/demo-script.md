@@ -480,11 +480,20 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 ## 5 · Saved as it happens
 
 - [ ] 📖 *"The desk saves when I press q. Let's see what happens to a shift that ends some other way."*
-- [ ] **Run the desk: DJ name, then `r`, caller `Dorothy`, song `1`, then `c`. Don't quit**
+- [ ] **Run the desk: DJ name, then `c`, then `r`, caller `Dorothy`, song `1`, then `c` again. Don't quit**
 
   ```bash
   dotnet run --project week-11/Lab
   ```
+
+  The first `c`:
+
+  ```
+  │ Dorothy │ 3     │ -         │
+  │ Bex     │ 1     │ -         │
+  ```
+
+  The second:
 
   ```
   │ Dorothy │ 4     │ Nightjar  │
@@ -492,7 +501,8 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
   2 on the switchboard.
   ```
 
-- [ ] 📖 *"Dorothy rang again. She has four calls."*
+- [ ] 📖 **At the first `c`:** *"Dorothy has three calls."*
+- [ ] 📖 **At the second:** *"She rang again. Now she has four."*
 - [ ] **Press <kbd>Ctrl+C</kbd>**
 - [ ] 📖 *"Ctrl+C stops a program on the spot. It's the same key on Mac and Windows. A crash, or a closed window, stops the desk the same way."*
 - [ ] **Run the desk: DJ name, then `c`, then `q`**
@@ -525,15 +535,26 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 
   **Click at the end of the `{` on the line under it, press Enter, and type** `switchboard.Save(db);`
 - [ ] 📖 *"And every time a caller comes off."*
-- [ ] **Run the desk: DJ name, then `r`, caller `Dorothy`, song `1`, then `c`. Then <kbd>Ctrl+C</kbd>**
+- [ ] **Run the desk: DJ name, then `c`, then `r`, caller `Dorothy`, song `1`, then `c` again. Then <kbd>Ctrl+C</kbd>**
 
   ```bash
   dotnet run --project week-11/Lab
   ```
 
+  The first `c`:
+
+  ```
+  │ Dorothy │ 3     │ -         │
+  ```
+
+  The second:
+
   ```
   │ Dorothy │ 4     │ Nightjar  │
   ```
+
+- [ ] 📖 **At the first `c`:** *"Three calls again. The last run lost her fourth."*
+- [ ] 📖 **At the second:** *"She rang, so she has four. This time the desk saved it the moment she rang."*
 
 - [ ] **Run it again: DJ name, then `c`, then `q`**
 
@@ -546,7 +567,7 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
   │ Bex     │ 1     │ -         │
   ```
 
-- [ ] 📖 *"Dorothy has four calls. The desk saved the moment she rang, so stopping it early lost nothing."*
+- [ ] 📖 *"Four. She started that run at three, rang once, and then I stopped the desk early. The fourth call is still here."*
 - [ ] **SQL Server view: Select Top 1000 on `dbo.Callers`**
 
   | Id | Name | CallsTonight |
