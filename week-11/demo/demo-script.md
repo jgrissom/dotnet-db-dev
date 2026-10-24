@@ -187,11 +187,7 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
   | 2 | Bex | 1 |
   | 3 | Teodoro | 1 |
 
-- [ ] **Commit it in the demo repo.** Silent
-
-  ```bash
-  git add . && git commit -m "week 11: a fresh database"
-  ```
+- [ ] 💡 **No commit here.** No file in the repo changed: the secret is in your home folder, and the drop and the update happened on the server
 
 ---
 

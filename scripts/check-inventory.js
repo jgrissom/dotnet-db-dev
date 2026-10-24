@@ -66,7 +66,7 @@ const DELIBERATE = {
     'notes links (homework)': "two tasks, not five — one notes link per task, plus the troubleshooting appendix",
     'notes links (lab)':      "three tasks, not five; every week-11 notes section is still linked from somewhere",
     'links inside 🆘':        "the 🆘 rows name the fix directly; the one link is the troubleshooting appendix",
-    'commit messages (lab)':  "three tasks, not five: the starter commit and one per task",
+    'commit messages (lab)':  "three tasks, not five, and Task 1 changes no file: the starter commit, then Tasks 2 and 3",
     'bold in-full links':     "three tasks, not five",
     '**Check:** lines':       "three tasks, not five",
     'dotnet test (lab)':      "three tasks, not five; every task still runs the desk before it runs a suite",

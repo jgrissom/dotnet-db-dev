@@ -205,7 +205,7 @@ dotnet user-secrets list --project week-11/Lab
 ```
 
 <details>
-<summary><b>No week 10 folder, or the first <code>list</code> said "No secrets configured"?</b> Type the whole connection string instead.</summary>
+<summary><b>No week 10 folder, or the first <code>list</code> said "No secrets configured" or "Could not find the global property 'UserSecretsId'"?</b> Type the whole connection string instead.</summary>
 
 That happens if you missed last week, or this is a lab PC that rebooted. Swap all four `YOUR-…` parts. The server name is in Canvas; the login and password are your college SQL account.
 
@@ -245,6 +245,9 @@ Done.
 
 **That makes the database and its two tables, empty, from the migration that ships in this week's `Lab/Migrations/`.** In the **SQL Server** view, right-click your connection → **Refresh** → Databases → yours → Tables: `dbo.Callers` and `dbo.Songs`.
 
+> [!NOTE]
+> **No SQL Server view, or no connection in it?** That was set up in week 10. [Week 10's Task 1d](../../week-10/lab/README.md#1d--prove-your-account-works) installs the extension and connects it, in about two minutes.
+
 📖 *Why drop it at all:* [a fresh database for the week](../lecture-notes.md#a-fresh-database-for-the-week).
 
 #### 1d — the first night
@@ -270,13 +273,7 @@ dotnet run --project week-11/Lab
 dotnet test week-11/Lab.Checks
 ```
 
-**1 / 3 — still.**
-
-**Commit it:**
-
-```
-week 11 lab: a fresh database
-```
+**1 / 3 — still.** **Nothing to commit:** no file in your repo changed. Your connection string went into your home folder, and the drop and the update happened on the server.
 
 > [!NOTE]
 > **In class, stop here.** Task 2 comes after the next part of the demo. Finished early? Help the person next to you with their connection string. Working at home? Carry straight on.
@@ -541,7 +538,7 @@ dotnet test week-11/Lab.Checks
 week 11 lab: a pulled cart stays pulled
 ```
 
-**Three commits after the starter, three green checks, eleven facts, and a rotation whose table always matches its list.**
+**Two commits after the starter, three green checks, eleven facts, and a rotation whose table always matches its list.**
 
 > [!NOTE]
 > **In class, stop here.** The last part of the demo is the request line, and the whole room is in it. Finished early? Try [Now try to break it](#now-try-to-break-it), or help the person next to you. Working at home? The request line only works while your instructor has it open — read [the section below](#the-request-line--in-class-when-your-instructor-says) and move on to [the homework](../homework.md).
