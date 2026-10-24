@@ -401,6 +401,7 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
   ```
 
 - [ ] 📖 *"The last line I pasted is the same SaveChanges that was already there. The new loop goes in front of it."*
+- [ ] 📖 **Why the loop goes in `Save`:** *"Save runs once, when the desk quits. Its job is to copy the list in memory to the table in the database. New callers and changed callers already go across here. Now a caller taken off the list goes across too."*
 - [ ] 📖 **Highlight `db.Callers.ToList()`:** *"This reads every row in the table into a list."*
 - [ ] 📖 **Highlight `_callers.Any(caller => caller.Id == row.Id)`:** *"Any asks a question: does any caller in my list have this row's Id?"*
 - [ ] 📖 **Highlight the `!` in front of it:** *"The exclamation mark turns it round. No caller in the list has this Id, so that caller was taken off."*
