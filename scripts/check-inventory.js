@@ -72,6 +72,13 @@ const DELIBERATE = {
     'dotnet test (lab)':      "three tasks, not five; every task still runs the desk before it runs a suite",
     'dotnet run (lab)':       "three tasks, not five; every task runs the desk, and the request line's run left with it (dropped 2026-10-24)",
   },
+  // Week 12 was built new on 2026-10-24: three lab tasks (a second table, Include,
+  // a question the database answers), each still running the desk before and after.
+  '12': {
+    'notes links (lab)':      "three tasks; one or more further-reading links per task, and every week-12 notes section is linked from somewhere",
+    'csharp fences (lab) ⚠️eyes': "five are collapsed 'Stuck? Show me the shape' blocks; the four visible ones are setup shown openly (two DbSet lines, the log line and its usings) and LastAired, which is screen code given whole",
+    'dotnet run (lab)':       "three tasks; Task 1 runs the desk once, Tasks 2 and 3 before and after, plus the break-it list",
+  },
 }
 
 const read = f => { try { return fs.readFileSync(f, 'utf8') } catch { return null } }

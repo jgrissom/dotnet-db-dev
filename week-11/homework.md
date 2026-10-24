@@ -359,4 +359,4 @@ Three moments worth saving, written into the parts above: the checks copied in, 
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b a-record-comes-off`, push that. |
 | An error that isn't in this table | [The notes' troubleshooting list](lecture-notes.md#-troubleshooting) has more of them. |
 
-**Prev:** [Week 11 Lab — A Cart Comes Off](lab/README.md) · **Next:** Week 12 *(coming)*
+**Prev:** [Week 11 Lab — A Cart Comes Off](lab/README.md) · **Next:** [Week 12 Lab — Every Cart Has a Log](../week-12/lab/README.md)

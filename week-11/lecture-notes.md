@@ -223,4 +223,4 @@ The fix is to save at the moment a change happens, not only at the end. In `Lab/
 | You pulled every cart and the next night they're all back | An empty table is the first night, so the desk starts from its three carts. That's `Load`'s first-night rule. |
 | The plays are gone after <kbd>Ctrl+C</kbd> | The desk saves at `q`. [Save as it happens](#saving-as-it-happens). |
 
-**Prev:** [Week 10 — Lecture Notes](../week-10/lecture-notes.md) · **Next:** Week 12 *(coming)*
+**Prev:** [Week 10 — Lecture Notes](../week-10/lecture-notes.md) · **Next:** [Week 12 — Lecture Notes](../week-12/lecture-notes.md)

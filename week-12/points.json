@@ -1,0 +1,55 @@
+{
+  "week": 12,
+  "total": 20,
+  "_comment": "One source of truth for week 12's rubric. The grader scores from this file, the homework's grading table is copied from it, and the Canvas rubric is generated from it. `suite` says which test run scores an item — 'checks' is `dotnet test Project.Checks` (canonical, replaced wholesale by the grader), 'tests' is `dotnet test Project.Tests` (the student's OWN suite, run as-is and never replaced). The dictated student fact carries the WEEK — Week12_DetailsComeBack — and it is the lab's Task 2 fact on the student's own registry. Check 1 is the came-forward check, green before the student starts, and it now holds all of week 11 as well. Checks 2–4 are the homework's Tasks 1–3. Week 12 adds two dictated members to Registry, by signature: NewDetail(string) and WithDetails(ProjectContext). The run-it item stays a BUILD-it item (W10.4): running needs the student's connection string, which is correctly not in the repo. The graded repo is the PROJECT repo (D1b).",
+  "checks": {
+    "Check1_WeeksFourToElevenStillHold": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Weeks 4-11 still hold — everything check 1 covered last week, plus last week's: a removed record stays gone"
+    },
+    "Check2_EachRecordHasManyDetails": {
+      "points": 3,
+      "suite": "checks",
+      "label": "A second table: NewDetail makes a detail, each record holds a list of them, and a migration makes the table"
+    },
+    "Check3_TheDetailsComeBack": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Each record comes back from the database with exactly its own details"
+    },
+    "Check4_TheDatabaseAnswers": {
+      "points": 3,
+      "suite": "checks",
+      "label": "WithDetails is answered by the database: the names of the records with at least one detail, in order"
+    },
+    "Week12_DetailsComeBack": {
+      "points": 2,
+      "suite": "tests",
+      "label": "Your test: a record saved with its details has them again the next time the registry loads — written by you, before the fix, green in your own suite"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programBuilds": {
+      "points": 2,
+      "label": "The project compiles from a clean clone — it cannot be RUN anywhere but your own machine, because your connection string is not in the repo"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked nowhere in the project repo — the .gitignore holding"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgment call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}

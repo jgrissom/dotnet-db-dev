@@ -33,4 +33,4 @@ The desk can put rows in its database and change them, and this week it takes on
 - ⚠️ **Delete `week-11/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
 - 💡 **Type your database name in the Database box at the top of the published cue sheet** — every mention on the page changes, including what the Copy buttons hand you
 
-**Prev:** [Week 10 — EF Core I: The Carts Move In](../week-10/) · **Next:** Week 12 — EF Core III *(coming)*
+**Prev:** [Week 10 — EF Core I: The Carts Move In](../week-10/) · **Next:** [Week 12 — EF Core III: One Caller, Many Requests](../week-12/)
