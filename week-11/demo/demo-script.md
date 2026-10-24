@@ -242,7 +242,6 @@ Tonight the desk learns to take a row out of its database. You take a **caller**
 - [ ] 📖 **Highlight `Caller? found = Find(name);`:** *"Find already hands back the caller with that name, or null when there isn't one."*
 - [ ] 📖 **Highlight the `if` and its `return false;`:** *"No caller by that name is an answer. Remove says false, and nothing crashes."*
 - [ ] 📖 **Highlight `_callers.Remove(found);`:** *"This Remove belongs to the list. It takes out that one caller. Then Remove says true."*
-- [ ] 📖 **Nothing to highlight:** *"This Remove only takes Teodoro out of the list. Nothing touches the table yet."*
 - [ ] **Run the desk: DJ name, then `x`, type `Teodoro`, then `c`, then `q`**
 
   ```bash
