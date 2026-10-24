@@ -293,7 +293,13 @@ Tonight the desk moves its night out of two files and into a database on the col
 - [ ] **It's a long message. In the terminal, highlight the indented line in the middle of it: `Cannot bind 'name' in 'Caller(string name)'`**
 
 - [ ] 📖 *"The tool can't make a table for callers yet. Let me read the line that matters: Cannot bind name. When EF Core reads a caller back out of the table, it builds a Caller with the Caller constructor, and it has to hand that constructor a name."*
-- [ ] **Open `week-10/Lab/Caller.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public string Name { get; }` — one hit.** Highlight that line
+- [ ] **Open `week-10/Lab/Caller.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public string Name { get; }
+  ```
+
+  Highlight that line
 - [ ] 📖 *"Name has only a get. A property with only a get is left out of the table, so there's no name to hand back. The database needs to be able to set it."*
 - [ ] **Select that one line and paste this over it**
 
@@ -317,7 +323,13 @@ Tonight the desk moves its night out of two files and into a database on the col
 - [ ] **In the terminal, highlight `The entity type 'Caller' requires a primary key to be defined`**
 
 - [ ] 📖 *"The next message is about a primary key. A table needs one column that is unique. Two callers could both be called Dorothy, so the name won't do. EF Core looks for a property called Id."*
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public class Caller` — one hit. Click at the end of the `{` on the line under it, press Enter, and paste this**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public class Caller
+  ```
+
+  **Click at the end of the `{` on the line under it, press Enter, and paste this**
 
   ```csharp
       // The database's own number for this caller's row.
@@ -341,9 +353,21 @@ Tonight the desk moves its night out of two files and into a database on the col
 - [ ] **In the terminal, highlight `The entity type 'Song' requires a primary key to be defined`**
 
 - [ ] 💥 **Don't explain it yet. Ask, and wait:** *"My context only mentions callers. Why is it asking about Song?"*
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Song? Favorite` — one hit.** Highlight that line
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public Song? Favorite
+  ```
+
+  Highlight that line
 - [ ] 📖 *"A caller has a Favorite, and a favorite is a whole Song. So EF Core decided songs need a table too. Tonight a caller's favorite is not saved. I tell EF Core to leave it out with NotMapped."*
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `using System.Text.Json.Serialization;` — one hit, at the top of the file. Select that line and paste this over it**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit, at the top of the file:**
+
+  ```text
+  using System.Text.Json.Serialization;
+  ```
+
+  **Select that line and paste this over it**
 
   ```csharp
   using System.ComponentModel.DataAnnotations.Schema;
@@ -450,7 +474,13 @@ Tonight the desk moves its night out of two files and into a database on the col
 ## 4 · The switchboard moves in *(slide 4)*
 
 - [ ] 📖 **Before you change Save and Load, say what they do now:** *"Right now the switchboard's Save writes every caller into a file, and Load reads them back. I need Save to put the callers into the Callers table, and Load to read them out of it."*
-- [ ] **Open `week-10/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public void Save(string path)` — one hit. Select from that line down to and including the `}` directly under `_callers.AddRange(loaded);`, and paste this over it**
+- [ ] **Open `week-10/Lab/Switchboard.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public void Save(string path)
+  ```
+
+  **Select from that line down to and including the `}` directly under `_callers.AddRange(loaded);`, and paste this over it**
 
   ```csharp
       public void Save(DeskContext db)
@@ -483,7 +513,13 @@ Tonight the desk moves its night out of two files and into a database on the col
 - [ ] 📖 **Highlight `db.SaveChanges();`:** *"SaveChanges sends everything that was marked to the server, in one go. Without it, nothing reaches the table, and nothing tells you."*
 - [ ] 📖 **Highlight `db.Callers.OrderBy(caller => caller.Id).ToList()`:** *"Load reads the whole table into a list. A table has no order of its own, so OrderBy on the Id hands them back in the order they first went in."*
 - [ ] 📖 **Highlight `if (loaded.Count == 0)`:** *"The old Load returned early when there was no file. The table is always there now, but the first time, it's empty. An empty table means keep the callers the desk already has."*
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `using System.Text.Json;` — one hit, at the top of the file. Delete that line.** Nothing in this file reads JSON now
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit, at the top of the file:**
+
+  ```text
+  using System.Text.Json;
+  ```
+
+  **Delete that line.** Nothing in this file reads JSON now
 - [ ] **Build**
 
   ```bash
@@ -496,20 +532,38 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"Two errors, both in Program.cs. Save and Load want a DeskContext now, and Program.cs still hands them a file name."*
-- [ ] **Open `week-10/Lab/Program.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `string switchboardFile = "week-10/switchboard.json";` — one hit. Select that line and paste this over it**
+- [ ] **Open `week-10/Lab/Program.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  string switchboardFile = "week-10/switchboard.json";
+  ```
+
+  **Select that line and paste this over it**
 
   ```csharp
   DeskContext db = new DeskContext();
   ```
 
 - [ ] 📖 *"That line makes one DeskContext, and the whole shift uses it. It doesn't connect to anything yet. Load is the first thing that asks the server a question."*
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Load(switchboardFile);` — one hit. Make that line read**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  switchboard.Load(switchboardFile);
+  ```
+
+  **Make that line read**
 
   ```csharp
   switchboard.Load(db);
   ```
 
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Save(switchboardFile);` — one hit. Make that line read**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  switchboard.Save(switchboardFile);
+  ```
+
+  **Make that line read**
 
   ```csharp
   switchboard.Save(db);
@@ -541,7 +595,13 @@ Tonight the desk moves its night out of two files and into a database on the col
   dotnet add week-10/Lab.Tests package Microsoft.EntityFrameworkCore.InMemory --version 10.0.13
   ```
 
-- [ ] **Open `week-10/Lab.Tests/SwitchboardTests.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `namespace Lab.Tests;` — one hit. Select that line and paste this over it**
+- [ ] **Open `week-10/Lab.Tests/SwitchboardTests.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  namespace Lab.Tests;
+  ```
+
+  **Select that line and paste this over it**
 
   ```csharp
   using Microsoft.EntityFrameworkCore;
@@ -549,7 +609,13 @@ Tonight the desk moves its night out of two files and into a database on the col
   namespace Lab.Tests;
   ```
 
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `string path = Path.Combine(Path.GetTempPath(), "kdxr-demo-switchboard.json");` — one hit. Select from that line down to and including `File.Delete(path);`, and paste this over it**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  string path = Path.Combine(Path.GetTempPath(), "kdxr-demo-switchboard.json");
+  ```
+
+  **Select from that line down to and including `File.Delete(path);`, and paste this over it**
 
   ```csharp
           DbContextOptions<DeskContext> options = new DbContextOptionsBuilder<DeskContext>()
@@ -558,13 +624,25 @@ Tonight the desk moves its night out of two files and into a database on the col
   ```
 
 - [ ] 📖 *"These three lines describe a table that lives inside the test, with a new name every time. No server, no password, no network."*
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `board.Save(path);` — one hit. Make that line read**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  board.Save(path);
+  ```
+
+  **Make that line read**
 
   ```csharp
           board.Save(new DeskContext(options));
   ```
 
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `reopened.Load(path);` — one hit. Make that line read**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  reopened.Load(path);
+  ```
+
+  **Make that line read**
 
   ```csharp
           reopened.Load(new DeskContext(options));
@@ -585,9 +663,27 @@ Tonight the desk moves its night out of two files and into a database on the col
 - [ ] 📖 *"Seven passed. The test saves Dorothy into one context and reads her back through another. So if Save forgot SaveChanges, this test would go red. It can't see everything, though. A Load that forgot to Clear would still pass it. Only the desk shows that one."*
 
 - [ ] 📖 *"One tidy-up. Nothing reads JSON now, so the JsonInclude attributes on Caller have nothing to do."*
-- [ ] **In `Caller.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int CallsTonight { get; private set; }` — one hit. Delete the `[JsonInclude]` line directly above it**
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Song? Favorite { get; private set; }` — one hit. Delete the `[JsonInclude]` line directly above it.** `[NotMapped]` stays
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `using System.Text.Json.Serialization;` — one hit. Delete that line**
+- [ ] **In `Caller.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public int CallsTonight { get; private set; }
+  ```
+
+  **Delete the `[JsonInclude]` line directly above it**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public Song? Favorite { get; private set; }
+  ```
+
+  **Delete the `[JsonInclude]` line directly above it.** `[NotMapped]` stays
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  using System.Text.Json.Serialization;
+  ```
+
+  **Delete that line**
 
   ```bash
   dotnet build week-10/Lab
@@ -744,7 +840,13 @@ Tonight the desk moves its night out of two files and into a database on the col
 - [ ] 📖 *"Red. The table in the test words it differently: an item with the same key. Key one is Dorothy's Id. It's the same mistake as the crash."*
 
 - [ ] 📖 **Before you change Save, say what it does now:** *"Right now Save adds every caller. I need it to add only the callers with Id zero, and update the rest."*
-- [ ] **In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `db.Callers.Add(caller);` — one hit. Select that one line and paste this over it**
+- [ ] **In `Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  db.Callers.Add(caller);
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
               if (caller.Id == 0)

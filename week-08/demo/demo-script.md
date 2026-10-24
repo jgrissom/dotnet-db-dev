@@ -163,10 +163,22 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 - [ ] 🎞️ **GO TO SLIDE 3** — *Where the file actually goes* · *"Before any code, the one thing you can't see on screen. A plain file name is worked out from the folder you were standing in when you started the program. `dotnet run` stands at the top of the repo. `dotnet test` stands inside the build folder. Same name, two different files. So nothing in this course types a file name inside a class. The path gets handed to the method."*
 
-- [ ] **Back to the editor. Open `week-08/Lab/Program.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `switchboard.Save` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
+- [ ] **Back to the editor. Open `week-08/Lab/Program.cs` and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  switchboard.Save
+  ```
+
+  Highlight that line by clicking its line number, and leave it highlighted
 - [ ] 📖 *"Tonight's starter added this line to Program.cs. It calls Save when the shift ends, and passes it the file name, switchboardFile. But Save is empty, so nothing gets written. You'll add the same kind of line for the rotation."*
 
-- [ ] **Open `week-08/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public void Save(string path)` — one hit. Select from that line down to and including the `}` directly under its `{`, and paste this over it**
+- [ ] **Open `week-08/Lab/Switchboard.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public void Save(string path)
+  ```
+
+  **Select from that line down to and including the `}` directly under its `{`, and paste this over it**
 
   ```csharp
       public void Save(string path)
@@ -235,7 +247,13 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 - [ ] 📖 *"Now that we have saved the data to disk when the program ends, we now need a way to read from that file when the program starts. Load reads the file and turns it back into callers."*
 
-- [ ] **In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public void Load(string path)` — one hit. Select from that line down to and including the `}` directly under its `{`, and paste this over it**
+- [ ] **In `Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public void Load(string path)
+  ```
+
+  **Select from that line down to and including the `}` directly under its `{`, and paste this over it**
 
   ```csharp
       public void Load(string path)
@@ -383,7 +401,13 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
 
 - [ ] 🎞️ **GO TO SLIDE 4** — *What a serializer won't read back* · *"This is the rule behind that zero, on one slide. A serializer writes every property it can read. It reads back only the ones it can write. A private setter is one it can't write."*
 
-- [ ] **Back to `Caller.cs`. First, the using the attribute needs. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public class Caller` — one hit. Select that one line and paste this over it**
+- [ ] **Back to `Caller.cs`. First, the using the attribute needs. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public class Caller
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
   using System.Text.Json.Serialization;
@@ -391,7 +415,13 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   public class Caller
   ```
 
-- [ ] **Now the attribute. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int CallsTonight` — one hit. Select that one line and paste this over it**
+- [ ] **Now the attribute. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public int CallsTonight
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
       [JsonInclude]
@@ -399,7 +429,13 @@ Tonight the desk's night survives the program that keeps it. From this week on, 
   ```
 
 - [ ] 📖 *"JsonInclude tells the serializer it may set CallsTonight when it reads the file. The setter stays private. Nothing else in the program can change it."*
-- [ ] **And the request, which has the same problem. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Song? Favorite` — one hit. Select that one line and paste this over it**
+- [ ] **And the request, which has the same problem. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public Song? Favorite
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
       [JsonInclude]

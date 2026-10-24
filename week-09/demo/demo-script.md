@@ -143,7 +143,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] **Press `q`**
 - [ ] 📖 *"Before I add anything, I'm going to change a method that already works. That method is Find, on the switchboard."*
 
-- [ ] **Open `week-09/Lab/Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public Caller? Find(string name)` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
+- [ ] **Open `week-09/Lab/Switchboard.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public Caller? Find(string name)
+  ```
+
+  Highlight that line by clicking its line number, and leave it highlighted
 - [ ] 📖 **Read the loop out, a line at a time:** *"Find walks the callers. If a caller's name matches the name it was handed, it hands that caller back. If it reaches the end without a match, it hands back null."*
 - [ ] 📖 *"This loop works. I'm going to replace it with one line. First I write down what Find does, as a test. Then I can tell whether my one line changed it."*
 
@@ -258,7 +264,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"Five passed again. The loop could never crash on a missing name. First can crash on one. FirstOrDefault is the word that matches what the loop did."*
 
-- [ ] **One more loop, in `Load`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `foreach (Caller caller in loaded)` — one hit. Select from that line down to and including the `}` directly under `_callers.Add(caller);`, and paste this over it**
+- [ ] **One more loop, in `Load`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  foreach (Caller caller in loaded)
+  ```
+
+  **Select from that line down to and including the `}` directly under `_callers.Add(caller);`, and paste this over it**
 
   ```csharp
           _callers.AddRange(loaded);
@@ -317,7 +329,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"Find answered with one caller. The next two questions answer with a number, and with several callers."*
 
-- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public int TotalSeconds` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
+- [ ] **Open `week-09/Lab/Hour.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public int TotalSeconds
+  ```
+
+  Highlight that line by clicking its line number, and leave it highlighted
 - [ ] 📖 **Read the loop out:** *"TotalSeconds starts a total at zero. It adds each item's seconds to the total. Then it hands the total back."*
 - [ ] **Select from `int total = 0;` down to and including `return total;`, and paste this over it**
 
@@ -353,7 +371,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 *"One out of five, the same as at the start. Check 1 builds a small hour of its own and expects it to add up to 257 seconds. Check 1 is still green."*
 
 - [ ] 📖 **Before you change TotalCalls, say what it does now:** *"Right now TotalCalls hands back zero, whatever is on the board. That zero is the zero calls on the screen. I need it to add up every caller's CallsTonight."*
-- [ ] **Now a question the desk could not answer. In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `get { return 0; }` — one hit. Select that one line and paste this over it**
+- [ ] **Now a question the desk could not answer. In `Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  get { return 0; }
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
           get { return _callers.Sum(caller => caller.CallsTonight); }
@@ -374,7 +398,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 *"Five calls from three people."*
 
 - [ ] 📖 **Before you change CalledMoreThan, say what it does now:** *"Right now CalledMoreThan hands back an empty list, so the screen shows a dash. I need it to hand back the callers who have rung more than the number I give it."*
-- [ ] **Next line of the screen. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<Caller> CalledMoreThan(int calls)` — one hit. Two lines under it is `return new List<Caller>();`. Select that one line and paste this over it**
+- [ ] **Next line of the screen. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public List<Caller> CalledMoreThan(int calls)
+  ```
+
+  **Two lines under it is `return new List<Caller>();`. Select that one line and paste this over it**
 
   ```csharp
           return _callers.Where(caller => caller.CallsTonight > calls).ToList();
@@ -471,10 +501,22 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 
 - [ ] 📖 *"The last part of the screen is the running order. The DJ wants to read what is coming up before the hour goes out. Nothing is listed under it yet."*
 
-- [ ] **Open `week-09/Lab/Hour.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<string> Run()` — one hit.** Highlight that line by clicking its line number, and leave it highlighted
+- [ ] **Open `week-09/Lab/Hour.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public List<string> Run()
+  ```
+
+  Highlight that line by clicking its line number, and leave it highlighted
 - [ ] 📖 *"Run already builds the lines the running order needs. Run makes one line of text for each item: the kind, a dash, then the cue."*
 - [ ] 📖 **Before you change RunningOrder, say what it does now:** *"Right now RunningOrder hands back an empty list, so nothing shows under the running order. I need it to hand back one line of text for each item in the hour, the same lines Run builds."*
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return new List<string>();` — one hit. Select that one line and paste this over it**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  return new List<string>();
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
           return Run();
@@ -501,7 +543,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] **Press `q`.** Then highlight `item.Play();` inside `Run`
 - [ ] 📖 *"Here is why the ad count dropped. Run does not only build the lines. It plays each item first. Calling Run puts the hour on air. We don't want to air the hour. We just want to see it."*
 
-- [ ] **<kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return Run();` — one hit. Select that one line and paste this over it**
+- [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  return Run();
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
           return _items.Select(item => $"{item.Kind} - {item.Cue}").ToList();
@@ -580,7 +628,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 **Highlight the `busiest two` and `the regular` lines on screen:** *"Two questions left on my half of the screen, and both show a dash. Who are the two busiest callers? And who is the regular?"*
 
 - [ ] 📖 **Before you change Busiest, say what it does now:** *"Right now Busiest hands back an empty list, so the screen shows a dash for the busiest two. I need it to hand back the n callers with the most calls, the most first."*
-- [ ] **In `Switchboard.cs`, <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `public List<Caller> Busiest(int n)` — one hit. Two lines under it is `return new List<Caller>();`. Select that one line and paste this over it**
+- [ ] **In `Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  public List<Caller> Busiest(int n)
+  ```
+
+  **Two lines under it is `return new List<Caller>();`. Select that one line and paste this over it**
 
   ```csharp
           _callers.Sort((a, b) => b.CallsTonight.CompareTo(a.CallsTonight));
@@ -630,7 +684,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 *"Quitting saved the board in the new order. Asking who was busiest rewrote the file."*
 - [ ] 📖 *"The switchboard keeps the callers in the order they first rang, and I want to keep that order. So I should not sort the list itself. I need another way to get the busiest callers that leaves the list alone."*
 
-- [ ] **Back to `Switchboard.cs`. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `_callers.Sort(` — one hit. Select from that line down to and including `return _callers.Take(n).ToList();`, and paste this over it**
+- [ ] **Back to `Switchboard.cs`. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  _callers.Sort(
+  ```
+
+  **Select from that line down to and including `return _callers.Take(n).ToList();`, and paste this over it**
 
   ```csharp
           return _callers.OrderByDescending(caller => caller.CallsTonight).Take(n).ToList();
@@ -674,7 +734,13 @@ Tonight the desk learns to answer questions. You work on the **switchboard** and
 - [ ] 📖 *"The file is in the order the callers rang. Task 4 is this, on your rotation, and my check looks for exactly this."*
 
 - [ ] 📖 **Before you change TheRegular, say what it does now:** *"Right now TheRegular hands back empty text, so the screen shows a dash for the regular. I need it to hand back the name of the caller with the most calls."*
-- [ ] **Last one. <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `return "";` — one hit. Select that one line and paste this over it**
+- [ ] **Last one. Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  return "";
+  ```
+
+  **Select that one line and paste this over it**
 
   ```csharp
           return _callers.MaxBy(caller => caller.CallsTonight)?.Name ?? "nobody yet";
