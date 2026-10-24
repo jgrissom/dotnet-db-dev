@@ -122,6 +122,34 @@ The `Id` is the database's own number for a row, and no two rows share one. A na
 
 ⚠️ **And watch the `!`.** Without it, `Save` takes out every row the list **does** hold. Run the desk, pull nothing, quit, and the table is empty.
 
+### In a bigger app: deleting at the moment of removal
+
+This week's `Save` makes the whole table match the list. It reads every row each time it runs, which costs nothing for a rotation of a dozen carts. For a table with a million rows, it would be the wrong design.
+
+Bigger apps usually take the row out at the same moment the record leaves the list. To do that, `Remove` needs the database, so it takes the context as a second parameter. This version would replace `Remove` inside `Rotation`:
+
+```csharp
+    public bool Remove(string title, DeskContext db)
+    {
+        Song? found = Find(title);
+
+        if (found == null)
+        {
+            return false;
+        }
+
+        _songs.Remove(found);
+        db.Songs.Remove(found);
+        db.SaveChanges();
+        return true;
+    }
+```
+
+- **`db.Songs.Remove(found)`** marks that one row to come out, and **`SaveChanges()`** sends it right away. Nothing reads the rest of the table.
+- **The cost is that `Remove` now needs a database.** A test of `Remove` has to build a context first, and every caller of `Remove` has to have one to hand over.
+
+This course keeps the database in `Load` and `Save` only. That's why `Find`, `Add` and `Remove` work, and are tested, as plain list code. Your project's `Registry.Remove(string name)` keeps that shape, because the checks call it with a name and nothing else.
+
 ## Testing a removal
 
 The fact acts out two nights and checks what a third one finds. Your instructor's, in `Lab.Tests/RemovedCallerTests.cs`, is a whole file:

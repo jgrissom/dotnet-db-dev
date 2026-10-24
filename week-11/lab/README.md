@@ -564,6 +564,7 @@ None of these has a check.
 1. ⭐ **Save as it happens.** Right now the rotation is only saved when you press `q`. Air the hour with `a`, then stop the desk with <kbd>Ctrl+C</kbd> (the same key on Mac and Windows) instead of `q`, and run it again: the plays are gone. [The notes show the two lines that fix it](../lecture-notes.md#saving-as-it-happens), in `Program.cs`. Add them, and try the same thing again.
 2. **Take a row out behind the desk's back.** In the SQL Server view, right-click your database → **New Query**, and run `DELETE FROM Songs WHERE Title = 'Slack Water';`. Then run the desk and press `t`: two carts. The desk reads whatever the table holds.
 3. **Use your instructor's `x`.** Take Teodoro off the switchboard, quit, and run the desk again. Your copy of `Switchboard.cs` has the same second loop as your `Rotation`, so Teodoro stays off.
+4. **Read how a bigger app would do it.** Your `Save` reads the whole table to find what's gone. [The notes show the other way](../lecture-notes.md#in-a-bigger-app-deleting-at-the-moment-of-removal): `Remove` takes the row out of the table itself, at the moment the cart is pulled. Don't change your `Rotation` to match; check 2 calls `Remove` with a title and nothing else.
 
 ## 🆘 Stuck?
 
