@@ -502,7 +502,7 @@ week 12 lab: the airings come back
 ```
 
 > [!NOTE]
-> **In class, stop here.** Task 3 comes after the next part of the demo. Finished early? Press `a` again and then `t`: every LAST ON AIR moves to now, and PLAYED says 2. Working at home? Carry straight on.
+> **In class, stop here.** Task 3 comes after the next part of the demo. Finished early? Press `a` again and then `t`: every LAST ON AIR moves to now, and every PLAYED goes up by one. Working at home? Carry straight on.
 
 📖 *Further reading:* [why the airings don't come back on their own](../lecture-notes.md#why-the-airings-dont-come-back-on-their-own).
 
@@ -600,7 +600,7 @@ ORDER BY [s].[Title]
   been on air          Long Way Round, Nightjar, Slack Water
 ```
 
-**Read it against your LINQ:** `Where` became `WHERE`, `Any` became `EXISTS`, `OrderBy` became `ORDER BY`, and `Select` became the one column it sends back. **The database did the asking**, and sent back three titles.
+**Read it against your LINQ:** `Where` became `WHERE`, `Any` became `EXISTS`, `OrderBy` became `ORDER BY`, and `Select` became the one column it sends back. **The database did the asking**, and sent back the title of every cart that has been on air — all three, if you aired the hour in Task 1.
 
 **Then mine:**
 

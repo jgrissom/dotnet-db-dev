@@ -279,7 +279,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
 - [ ] 📖 **Highlight the `CallerId = table.Column<int>` line:** *"The Requests table has a CallerId column."*
 - [ ] 📖 **Highlight the `table.ForeignKey(` block:** *"This is the foreign key. It says every CallerId must be the Id of a row in Callers. The database won't take a request from a caller who isn't there."*
 - [ ] 📖 **Highlight `onDelete: ReferentialAction.Cascade`:** *"Cascade means that when a caller's row comes out, their requests come out with it."*
-- [ ] 📖 *"There is nothing in here about Callers or Songs. Those tables are already in the database."*
+- [ ] 📖 *"Nothing in here makes Callers or Songs. Those tables are already in the database. The foreign key only points at Callers."*
 - [ ] **Update the database**
 
   ```bash
@@ -536,7 +536,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   using Microsoft.Extensions.Logging;
   ```
 
-- [ ] **Run the desk: DJ name, then `f`, type `Nightjar`, then `q`.** Stop at the hour table first
+- [ ] **Run the desk: DJ name, then `f`, type `Nightjar`, then `q`.** Pause right after the DJ name: the log prints these two commands above the hour table
 
   ```bash
   dotnet run --project week-12/Lab
@@ -587,7 +587,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
 - [ ] 📖 **Highlight the `Where` line:** *"Where keeps the callers who have any request with this title."*
 - [ ] 📖 **Highlight `OrderBy` and `Select`:** *"OrderBy puts them in order by name, and Select keeps just the name."*
 - [ ] 📖 **Highlight `ToList()`:** *"ToList is the moment the question is sent."*
-- [ ] **Run the desk: DJ name, then `f`, type `Nightjar`, then `n`, then `q`**
+- [ ] **Run the desk: DJ name, then `f`, type `Nightjar`, then `n`, then `q`.** `n` shows the night's numbers
 
   ```bash
   dotnet run --project week-12/Lab

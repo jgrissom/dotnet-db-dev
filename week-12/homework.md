@@ -26,7 +26,7 @@ public List<string> WithDetails(ProjectContext db)
 Everything you named before keeps its name. `YourDetail` is a placeholder; your detail class is called whatever your topic calls it.
 
 > [!TIP]
-> **Keep the [lab](lab/README.md) open in a second tab.** Every task below says which lab task it is. Each one has a **Stuck? Show me the shape** box, written with placeholder names like `YourRecord` — swap in your own names before it will build.
+> **Keep the [lab](lab/README.md) open in a second tab.** Every task below says which lab task it is. Each one has a **Stuck? Show me the shape** box, written with placeholder names like `YourRecord` — swap in your own names every time.
 
 ---
 
@@ -133,7 +133,7 @@ This is [the lab's Task 1](lab/README.md#task-1-in-full). First, finish your sen
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
 
-Swap `YourDetail` and `YourRecordId` for your own names, or it will not build.
+Swap `YourDetail` and `YourRecordId` for your own names. `YourRecordId` is your record's class name and `Id` — `LighthouseId` — and that name is how EF Core knows which table it points at.
 
 ```csharp
 public class YourDetail
@@ -379,7 +379,7 @@ using Microsoft.Extensions.Logging;
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
 
-Swap `YourRecords`, `YourDetails` and `Name` for your own names, or it will not build.
+Swap `YourRecords` and `YourDetails` for your own names, or it will not build. `Name` here is your **record's** name property — the one `NewItem` fills — so swap it too if yours is called something else.
 
 ```csharp
     public List<string> WithDetails(ProjectContext db)
