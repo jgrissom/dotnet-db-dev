@@ -25,6 +25,7 @@ Every table at the desk has stood alone, and this week one belongs to another. *
 
 ## 📋 Before class, don't forget
 
+- ⚠️ **Your secret set by the starter's fixed id, off the projector** — the command is in the cue sheet's §0
 - ⚠️ **Your demo database reset to the first night** — three commands with last week's project, in the cue sheet's §0
 - ⚠️ **The server name still posted in Canvas** — Task 1's box tells a student who missed last week that it is there
 - ⚠️ **The SQL Server view already connected to your server, and `dotnet tool update --global dotnet-ef`**

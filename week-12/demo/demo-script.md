@@ -51,7 +51,13 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
 
 - [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-12/demo/script.html) and confirm the top line says *the same station they work on*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] 💡 **Type your database name in the Database box at the top of the published page.** Every mention of it on the page changes, including what the Copy buttons hand you. It is saved on this device
-- [ ] **Your secret should already be set.** Week 11's §0 sets it by the starter's fixed id, and week 12's starter ships the same id. If the first command below says `The ConnectionString property has not been initialized`, that store is empty on this machine: run week 11's §0 `set` in a terminal tab nobody can see, close the tab, and carry on
+- [ ] ⚠️ **Set your secret now, before class, off the projector.** Week 12's starter uses the same fixed `UserSecretsId` as week 11, so if week 11's is still in place this changes nothing, and `set` simply replaces it. Prepare the whole command with your real connection string, run it in a terminal tab nobody can see, and close the tab:
+
+  ```text
+  dotnet user-secrets set "ConnectionStrings:Desk" "Server=…;Database=DB_KDXR_156101411_JSG;User Id=…;Password=…;TrustServerCertificate=True" --id 3a11a2aa-0cab-4805-8552-f1f5a5099f53
+  ```
+
+  `Successfully saved` is the answer you want. ⚠️ **Rehearsal and class share this one store, and the last `set` wins**, so make this the last one you run before class
 - [ ] ⚠️ **Reset your demo database to the first night**, so §2 starts from the three callers the room knows. Three commands, using **last week's** project, from the terminal of `dotnet-db-coursework`:
 
   ```bash

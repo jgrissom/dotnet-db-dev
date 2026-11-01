@@ -35,6 +35,7 @@ By the end of this session, students can:
 - `slides.md` / `slides.html` — the deck, four slides
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-12/demo/script.html)) — type your database name in the **Database** box at the top of the published page once
 - **The instructor demo repo**, `dotnet-db-coursework`, with **a starters clone you can push to next to it** — §0 tests a push
+- ⚠️ **Your secret set before class, by the starter's fixed id, off the projector** — §0 has the command
 - ⚠️ **Your demo database reset to the first night before class** — §0 has the three commands
 - ⚠️ **The SQL Server view already connected to your server**, and a current `dotnet-ef`
 - ⚠️ **`demo/week-12/` in the starters repo empty or missing** before class — it fills up during the night
@@ -71,7 +72,7 @@ Each demo segment is followed by the lab task that practices it. **The demo give
 
 ## Instructor notes
 
-- ⚠️ ⚠️ **YOUR PASSWORD NEVER GOES ON THE PROJECTOR.** Week 11's §0 sets the secret by the starter's fixed id, and week 12's starter ships the same id, so nothing in class sets it. **Do not run `dotnet user-secrets list` on screen, and do not open `secrets.json`.**
+- ⚠️ ⚠️ **YOUR PASSWORD NEVER GOES ON THE PROJECTOR.** §0 sets the secret before class by the starter's fixed id, so nothing on the projector shows it. **Do not run `dotnet user-secrets list` on screen, and do not open `secrets.json`.**
 - ⚠️ **§2's migration ADDS a table to a database that already has callers in it**, and their rows survive. That is the homework's path: students never drop their project database. The lab drops its database for a different reason — everybody starts Task 1 from the same three carts.
 - 💥 **§3's question is the first payoff of the night.** The request is in its table, and ASKED FOR says `-`. Ask why, and wait. The answer students should reach: `Load` reads the `Callers` table, and nothing tells it to read `Requests`.
 - 💥 **§4's `.ToList()` is typed, one word, and taken out again before the push.** If it goes out in push #3 nobody's answer changes, so nothing would catch it except the log.
@@ -86,7 +87,7 @@ Each demo segment is followed by the lab task that practices it. **The demo give
 | A push asks you to sign in, or is rejected | §0's test push should have caught it. Sign in and push again; the room starts the task meanwhile. If it is rejected as behind, the pull in the same step fixes it — run the step again. |
 | A student's copy says `No such file or directory` | Your push hasn't landed, or their starters clone isn't pulled. `git -C ../dotnet-db-starters pull` and copy again. |
 | `dotnet ef` says `Unable to retrieve project metadata` | The project has never been built. Lab A's `dotnet test` builds it; run that first. |
-| §0's `drop` says `The ConnectionString property has not been initialized` | The fixed id's secret store is empty on this machine. Run week 11's §0 `set`, off the projector, then the drop again. |
+| §0's `drop` says `The ConnectionString property has not been initialized` | The fixed id's secret store is empty on this machine. Run §0's `set`, off the projector, then the drop again. |
 | §2's `database update` says `There is already an object named 'Callers'` | Your database still has last week's history under another migration id. §0's reset fixes it — drop, update, run once — then `update` again. |
 | §2's first run shows ASKED FOR `Nightjar` after the restart | Your `Caller.cs` is a push file from rehearsal. Delete `week-12` and copy it in again. |
 | §3's test is green before the fix | The same: a rehearsal push file. |
