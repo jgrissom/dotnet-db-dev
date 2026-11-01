@@ -396,7 +396,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
 
 - [ ] **SQL Server view: Select Top 1000 on `dbo.Requests` again.** The same row is still there: `1 | 1 | Nightjar`
 - [ ] 💥 **Let it sit. Then ask, and wait:** *"Her request is in the table. Why does ASKED FOR say nothing?"*
-- [ ] 📖 *"When the program starts, we load the data from the database into memory. Load reads the Callers table. Nothing in Load mentions Requests, so the requests never come back. Every caller starts the night with an empty list."*
+- [ ] 📖 *"When the program starts, we load the data from the database into memory. Load reads the Callers table. We wrote Load before the Requests table existed, so nothing in it mentions Requests, and the requests never come back. Every caller starts the night with an empty list."*
 - [ ] 📖 *"Before I fix Load, I'll write down what it should do, as a test. A caller's request comes back the next night."*
 - [ ] **In the Explorer, right-click `week-12/Lab.Tests` → New File → `RequestTests.cs`, and paste this in**
 
