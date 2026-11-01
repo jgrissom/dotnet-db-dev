@@ -655,36 +655,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
 - [ ] 📖 **Highlight nothing; point at the screen:** *"Where became WHERE. Any became EXISTS. OrderBy became ORDER BY. Select became the one column it sends back, Name. And Nightjar went as a parameter, @title."*
 - [ ] 📖 *"The database looked through the Requests table, and sent back two names, in order. Bex, then Dorothy."*
 - [ ] 📖 **At the `n` screen:** *"No SQL between these lines. Every number on this screen comes from the lists the desk is holding. The last line, been on air, is your Task 3."*
-- [ ] 🎞️ **GO TO SLIDE 3** — *LINQ words, SQL words* · *"Each LINQ word has an SQL word. Everything before ToList goes to the database. Everything after ToList runs in the program."*
-- [ ] **Back to the editor. In `week-12/Lab/Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
-
-  ```text
-  return db.Callers
-  ```
-
-  **Click at the end of that line, right after `db.Callers`, and type** `.ToList()`. It goes above the `.Where` line, on the same line as `db.Callers`, and the `.ToList()` at the bottom stays where it is:
-
-  ```text
-  return db.Callers.ToList()
-      .Where(caller => caller.Requests.Any(request => request.Title == title))
-  ```
-- [ ] 📖 *"Now ToList comes first. The answer should be the same. Let's see what the log says."*
-- [ ] **Run the desk: DJ name, then `f`, type `Nightjar`, then `q`**
-
-  ```bash
-  dotnet run --project week-12/Lab
-  ```
-
-  ```
-  Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-  SELECT [c].[Id], [c].[CallsTonight], [c].[Name]
-  FROM [Callers] AS [c]
-    Asked for by: Bex, Dorothy
-  ```
-
-- [ ] 💥 **Let it sit. Then:** *"Same answer. Look at the log. No WHERE. Every caller came back, every column. Then my program did the asking."*
-- [ ] 📖 *"With three callers, that costs nothing. A table with a million callers would send a million rows, to answer a question about two of them."*
-- [ ] **Take `.ToList()` back out of that line.** It reads `return db.Callers` again
+- [ ] 🎞️ **GO TO SLIDE 3** — *LINQ words, SQL words* · *"Each LINQ word has an SQL word. ToList is what sends the question to the database. On f, the database did the asking, and the log shows it. On n, the program did the adding up, so the log shows nothing."*
 - [ ] **Commit it in the demo repo.** Silent
 
   ```bash

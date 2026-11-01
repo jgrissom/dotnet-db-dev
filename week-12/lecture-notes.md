@@ -156,7 +156,7 @@ ORDER BY [s].[Title]
 
 Everything **before** `ToList()` is the question. `ToList()` sends it. Everything **after** `ToList()` runs in your program, on whatever came back.
 
-Your instructor's `AskedFor` showed it by moving one word. Written the right way, the log shows a `WHERE EXISTS`. With `.ToList()` typed straight after `db.Callers`:
+Moving that one word shows it. Written the right way, `AskedFor`'s log shows a `WHERE EXISTS`. With `.ToList()` typed straight after `db.Callers`:
 
 ```csharp
         return db.Callers.ToList()

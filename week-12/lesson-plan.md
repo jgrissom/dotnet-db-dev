@@ -7,11 +7,11 @@
 
 ## 🎯 The payoff moment — the demo's
 
-**§4's break.** `AskedFor` is written, the log is on, and pressing `f` on Nightjar prints a `SELECT … WHERE EXISTS … ORDER BY` and then *Asked for by: Bex, Dorothy*. Then one word is typed — `.ToList()`, right after `db.Callers` — and the same key prints the same answer, while the log shows **every caller coming back, with no `WHERE` at all**. The line to land:
+**§4's first log.** `AskedFor` is written, the log is on, and pressing `f` on Nightjar prints a `SELECT … WHERE EXISTS … ORDER BY` and then *Asked for by: Bex, Dorothy*. **The LINQ they typed has come back as SQL, on their own screen.** Then `n` prints its numbers with no SQL at all, because those come from the lists the desk is holding. The line to land:
 
-> *"Same answer. Look at the log. Everything before ToList went to the database. Everything after it ran in my program."*
+> *"Where became WHERE. Any became EXISTS. OrderBy became ORDER BY."*
 
-⚠️ **Let the second log sit on screen before saying anything.** The room has just seen the first one. The difference is visible without help.
+⚠️ **Let the log sit on screen before saying anything.** It's the first SQL the room has seen, and it needs a moment.
 
 ## 🎯 The payoff moment — the lab's
 
@@ -61,21 +61,20 @@ Each demo segment is followed by the lab task that practices it. **The demo give
 | 0:58 | 10 min | **☕ Break** |
 | 1:08 | 18 min | 💥 **The requests don't come back** *(demo §3)*. ASKED FOR is empty, the row is in the table. **Ask why, and wait.** The fact first, red. The debugger shows Dorothy's `Requests` at `Count = 0`. `Include`, and the same stop shows `Count = 1`. Green. **Push #2.** |
 | 1:26 | 22 min | 🎯 **Lab C: Task 2** — copy two files, `LAST ON AIR -` first, the fact red, `Include`, green, and the times come back. |
-| 1:48 | 20 min | 🎯 **The database answers** *(slide 3, demo §4)*. The log on. `AskedFor` on `f`, and its SQL. `n` prints none. **The `.ToList()` break.** **Push #3.** |
+| 1:48 | 20 min | 🎯 **The database answers** *(slide 3, demo §4)*. The log on. `AskedFor` on `f`, and its SQL. `n` prints none. **Push #3.** |
 | 2:08 | 25 min | **Lab D: Task 3** — copy one file, the log on, `Aired` on `n`, and its SQL read off the screen. |
 | 2:33 | 10 min | **☕ Break** |
 | 2:43 | 55 min | **Lab F: finish, then start the homework.** Anyone not finished works on their next task; finished students start the homework, which is three tasks, and push their branch while you're there. |
 | 3:38 | 7 min | **Wrap-up** *(slide 4, demo §5)*. Project repo URL, **the homework is the lab again**, the branch line, the checks-copy line, and the due date. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes: 68 of demo in five segments, 137 of lab in five blocks, and two breaks.** If the night runs long, take it from Lab F. **Do not take it from §4's break or Lab C.**
+> **The table sums to exactly 225 minutes: 68 of demo in five segments, 137 of lab in five blocks, and two breaks.** If the night runs long, take it from Lab F. **Do not take it from §4's log or Lab C.**
 
 ## Instructor notes
 
 - ⚠️ ⚠️ **YOUR PASSWORD NEVER GOES ON THE PROJECTOR.** §0 sets the secret before class by the starter's fixed id, so nothing on the projector shows it. **Do not run `dotnet user-secrets list` on screen, and do not open `secrets.json`.**
 - ⚠️ **§2's migration ADDS a table to a database that already has callers in it**, and their rows survive. That is the homework's path: students never drop their project database. The lab drops its database for a different reason — everybody starts Task 1 from the same three carts.
 - 💥 **§3's question is the first payoff of the night.** The request is in its table, and ASKED FOR says `-`. Ask why, and wait. The answer students should reach: `Load` reads the `Callers` table, and nothing tells it to read `Requests`.
-- 💥 **§4's `.ToList()` is typed, one word, and taken out again before the push.** If it goes out in push #3 nobody's answer changes, so nothing would catch it except the log.
 - ⚠️ **From §4 the log prints at the start of every run (the two `Load`s) and at every save.** That is honest and it is the point; the expected-output blocks show only the part each beat is about. ⚠️ **Nothing runs `dotnet ef` after the log goes on.** With the log on, `database update` prints every command it sends, twice over in places.
 - **Lab B is where the migration goes wrong** — a student who skipped copying push #1 makes a migration with one table, and the desk crashes on a request with `Invalid object name 'Requests'`. The fix is a second migration.
 - **Lab C is where `Include` won't compile** — `CS1061 … does not contain a definition for 'Include'` is the missing `using Microsoft.EntityFrameworkCore;`.
