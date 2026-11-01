@@ -330,6 +330,7 @@ dotnet run --project week-12/Lab
 ```
 
 ```
+│ TITLE          │ ARTIST           │ LENGTH │ PLAYED │ LAST ON AIR │
 │ Nightjar       │ The Lamplighters │ 3:47   │ 1      │ 04:18       │
 │ Slack Water    │ Marguerite Vance │ 4:12   │ 1      │ 04:18       │
 │ Long Way Round │ The Ferrymen     │ 5:31   │ 1      │ 04:18       │
@@ -394,6 +395,7 @@ dotnet run --project week-12/Lab
 ```
 
 ```
+│ TITLE          │ ARTIST           │ LENGTH │ PLAYED │ LAST ON AIR │
 │ Nightjar       │ The Lamplighters │ 3:47   │ 1      │ -           │
 │ Slack Water    │ Marguerite Vance │ 4:12   │ 1      │ -           │
 │ Long Way Round │ The Ferrymen     │ 5:31   │ 1      │ -           │
@@ -479,6 +481,7 @@ dotnet run --project week-12/Lab
 ```
 
 ```
+│ TITLE          │ ARTIST           │ LENGTH │ PLAYED │ LAST ON AIR │
 │ Nightjar       │ The Lamplighters │ 3:47   │ 1      │ 04:18       │
 │ Slack Water    │ Marguerite Vance │ 4:12   │ 1      │ 04:18       │
 │ Long Way Round │ The Ferrymen     │ 5:31   │ 1      │ 04:18       │

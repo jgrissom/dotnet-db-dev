@@ -164,6 +164,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   ```
 
   ```
+  │ CALLER  │ CALLS │ ASKED FOR │
   │ Dorothy │ 4     │ Nightjar  │
   │ Bex     │ 1     │ -         │
   │ Teodoro │ 1     │ -         │
@@ -178,6 +179,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   ```
 
   ```
+  │ CALLER  │ CALLS │ ASKED FOR │
   │ Dorothy │ 4     │ -         │
   │ Bex     │ 1     │ -         │
   │ Teodoro │ 1     │ -         │
@@ -259,7 +261,8 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
 
 - [ ] 📖 **Highlight `public List<Request> Requests`:** *"A caller has many requests, so a caller holds a list of them."*
 - [ ] 📖 **Highlight `Requests.Add(new Request(song.Title, DateTime.Now));`:** *"Every time she asks for a song, a new request goes on her list, with the title and the time."*
-- [ ] 📖 **Highlight `Requests.MaxBy(request => request.At)`:** *"ASKED FOR shows the newest one. MaxBy picks the request with the latest time."*
+- [ ] 📖 **Highlight `public string LastAsked()`:** *"LastAsked is what fills the ASKED FOR column on the switchboard. It shows the caller's newest request."*
+- [ ] 📖 **Highlight `Requests.MaxBy(request => request.At)`:** *"MaxBy picks the request with the latest time."*
 - [ ] **Search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit — and delete it, and the blank line under it:**
 
   ```text
@@ -330,6 +333,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   ```
 
   ```
+  │ CALLER  │ CALLS │ ASKED FOR │
   │ Dorothy │ 5     │ Nightjar  │
   │ Bex     │ 1     │ -         │
   │ Teodoro │ 1     │ -         │
@@ -383,6 +387,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   ```
 
   ```
+  │ CALLER  │ CALLS │ ASKED FOR │
   │ Dorothy │ 5     │ -         │
   │ Bex     │ 1     │ -         │
   │ Teodoro │ 1     │ -         │
@@ -485,6 +490,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   The first `c`:
 
   ```
+  │ CALLER  │ CALLS │ ASKED FOR │
   │ Dorothy │ 5     │ Nightjar  │
   │ Bex     │ 1     │ -         │
   │ Teodoro │ 1     │ -         │
@@ -494,6 +500,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   The second:
 
   ```
+  │ CALLER  │ CALLS │ ASKED FOR │
   │ Dorothy │ 5     │ Nightjar  │
   │ Bex     │ 2     │ Nightjar  │
   │ Teodoro │ 1     │ -         │
