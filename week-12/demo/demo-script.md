@@ -300,7 +300,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
 - [ ] 📖 *"One new table, Requests."*
 - [ ] 📖 **Highlight the `CallerId = table.Column<int>` line:** *"The Requests table has a CallerId column."*
 - [ ] 📖 **Highlight the `table.ForeignKey(` block:** *"This is the foreign key. Every request must have a caller attached to it. We can't have a request without a caller."*
-- [ ] 📖 **Highlight `onDelete: ReferentialAction.Cascade`:** *"Cascade means that when a caller's row comes out, their requests come out with it."*
+- [ ] 📖 **Highlight `onDelete: ReferentialAction.Cascade`:** *"Cascade means that if we delete a caller, their requests are also deleted."*
 - [ ] 📖 *"Nothing in here makes Callers or Songs. Those tables are already in the database. The foreign key only points at Callers."*
 - [ ] **Update the database**
 
