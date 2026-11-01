@@ -130,6 +130,8 @@ This is [the lab's Task 1](lab/README.md#task-1-in-full). First, finish your sen
 
 **1. The detail class.** **Make `Project/YourDetail.cs`**, named after your class. It needs [an `Id`, your record's `Id`, and one string](lecture-notes.md#one-record-many-of-something), with a constructor that takes the string:
 
+⚠️ **The constructor's parameter must have the same name as the property it fills**, apart from the first letter's case. A property called `OpponentName` needs `Game(string opponentName)`. EF Core builds your details through this constructor, and it matches the two by name.
+
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
 
@@ -486,6 +488,7 @@ Five moments worth saving, written into the parts above: the checks copied in, t
 |---|---|
 | The first check is called `Check1_WeeksFourToTenStillHold` | You're running **week 11's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) removes them and copies this week's in — run the `rm` and the `cp`, both. |
 | `CS0246: The type or namespace name 'YourDetail' could not be found` | You pasted a shape without swapping the placeholder. `YourDetail` is your detail class's name. |
+| `No suitable constructor was found for the type` … `Cannot bind 'name'` | The parameter's name doesn't match the property. Rename the parameter to match: `OpponentName` needs `opponentName`. |
 | Check 2 red: *still called YourDetail* | You kept the placeholder name for your detail class. Rename it — the class, its file, `NewDetail`'s return type and the list — then `migrations add` again. |
 | `CS0246` naming `YourRecord` | The same: `YourRecord` is your record type — the class `NewItem` hands back. |
 | `CS1061` naming `YourDetails` or `YourRecords` | `YourDetails` is the list on your record; `YourRecords` is your record's `DbSet` in `ProjectContext`. |
