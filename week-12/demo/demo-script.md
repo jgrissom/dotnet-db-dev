@@ -299,7 +299,7 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
 - [ ] **Open the new file in `week-12/Lab/Migrations`, the one whose name ends `_ACallerHasManyRequests.cs`.** Highlight `name: "Requests",`
 - [ ] 📖 *"One new table, Requests."*
 - [ ] 📖 **Highlight the `CallerId = table.Column<int>` line:** *"The Requests table has a CallerId column."*
-- [ ] 📖 **Highlight the `table.ForeignKey(` block:** *"This is the foreign key. It says every CallerId must be the Id of a row in Callers. The database won't take a request from a caller who isn't there."*
+- [ ] 📖 **Highlight the `table.ForeignKey(` block:** *"This is the foreign key. A request's CallerId has to match the Id of a caller in the Callers table. The database won't take a request from a caller who isn't there."*
 - [ ] 📖 **Highlight `onDelete: ReferentialAction.Cascade`:** *"Cascade means that when a caller's row comes out, their requests come out with it."*
 - [ ] 📖 *"Nothing in here makes Callers or Songs. Those tables are already in the database. The foreign key only points at Callers."*
 - [ ] **Update the database**
