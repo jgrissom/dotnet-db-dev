@@ -374,9 +374,21 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Logging;
 ```
 
-**2. `WithDetails` on your `Registry`.** The names of the records that have at least one detail, in order by name — [a question the database answers](lecture-notes.md#linq-that-runs-as-sql), so it starts from your `DbSet`, never from your list:
+**2. Write `WithDetails`.** This is the lab's `Aired`, on your own names. It answers one question: *which of my records have at least one detail?*
 
-- **`db.YourRecords`**, then **`.Where(item => item.YourDetails.Any())`**, then **`.OrderBy(…)`** and **`.Select(…)`** on your name property, then **`.ToList()`**.
+In `Project/Registry.cs`, add a new public method directly under `Load`, with exactly this first line:
+
+```csharp
+public List<string> WithDetails(ProjectContext db)
+```
+
+The method is one `return` statement, made of these five pieces in this order. Swap in your own names:
+
+1. **`db.YourRecords`** — your `DbSet`, never your list, because [the database answers this question](lecture-notes.md#linq-that-runs-as-sql).
+2. **`.Where(item => item.YourDetails.Any())`** keeps the records with at least one detail.
+3. **`.OrderBy(item => item.Name)`** puts them in order by name.
+4. **`.Select(item => item.Name)`** keeps only the names.
+5. **`.ToList()`** sends the question.
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
