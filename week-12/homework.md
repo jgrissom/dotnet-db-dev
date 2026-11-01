@@ -256,7 +256,7 @@ dotnet run --project Project
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
 
-Swap `YourRecord` and `YourDetails` for your own names, and the three names for your own, or it will not build.
+Swap `YourRecord` and `YourDetails` for your own names, or it will not build. Then put your own text in the strings. ⚠️ **`NewItem` and `Find` must use the same string**, because `Find` looks up the record, not a detail. The two detail strings can be anything.
 
 ```csharp
     [Fact]
@@ -489,6 +489,7 @@ Five moments worth saving, written into the parts above: the checks copied in, t
 | The first check is called `Check1_WeeksFourToTenStillHold` | You're running **week 11's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) removes them and copies this week's in — run the `rm` and the `cp`, both. |
 | `CS0246: The type or namespace name 'YourDetail' could not be found` | You pasted a shape without swapping the placeholder. `YourDetail` is your detail class's name. |
 | `No suitable constructor was found for the type` … `Cannot bind 'name'` | The parameter's name doesn't match the property. Rename the parameter to match: `OpponentName` needs `opponentName`. |
+| `NullReferenceException` in `Week12_DetailsComeBack` | `Find` came back with nothing. The string in `Find` must be the one you gave `NewItem`, not a detail's. |
 | Check 2 red: *still called YourDetail* | You kept the placeholder name for your detail class. Rename it — the class, its file, `NewDetail`'s return type and the list — then `migrations add` again. |
 | `CS0246` naming `YourRecord` | The same: `YourRecord` is your record type — the class `NewItem` hands back. |
 | `CS1061` naming `YourDetails` or `YourRecords` | `YourDetails` is the list on your record; `YourRecords` is your record's `DbSet` in `ProjectContext`. |
