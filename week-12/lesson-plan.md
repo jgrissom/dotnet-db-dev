@@ -59,7 +59,7 @@ Each demo segment is followed by the lab task that practices it. **The demo give
 | 0:13 | 20 min | 💥 **A caller has many requests** *(slide 2, demo §2)*. Dorothy's request is gone after a restart. `Request.cs`, the list on `Caller`, one `DbSet`, a migration that adds one table, and the request's row with `CallerId 1` in it. **Push #1.** |
 | 0:33 | 25 min | **Lab B: Task 1** — copy two files, `Airing.cs`, the list on `Song`, two `DbSet`s, a migration that makes two tables, a fresh database, and three airings in the table. **Circulate at the migration.** |
 | 0:58 | 10 min | **☕ Break** |
-| 1:08 | 18 min | 💥 **The requests don't come back** *(demo §3)*. ASKED FOR is empty, the row is in the table. **Ask why, and wait.** The fact first, red. `Include`, green. **Push #2.** |
+| 1:08 | 18 min | 💥 **The requests don't come back** *(demo §3)*. ASKED FOR is empty, the row is in the table. **Ask why, and wait.** The fact first, red. The debugger shows Dorothy's `Requests` at `Count = 0`. `Include`, and the same stop shows `Count = 1`. Green. **Push #2.** |
 | 1:26 | 22 min | 🎯 **Lab C: Task 2** — copy two files, `LAST ON AIR -` first, the fact red, `Include`, green, and the times come back. |
 | 1:48 | 20 min | 🎯 **The database answers** *(slide 3, demo §4)*. The log on. `AskedFor` on `f`, and its SQL. `n` prints none. **The `.ToList()` break.** **Push #3.** |
 | 2:08 | 25 min | **Lab D: Task 3** — copy one file, the log on, `Aired` on `n`, and its SQL read off the screen. |
@@ -90,6 +90,7 @@ Each demo segment is followed by the lab task that practices it. **The demo give
 | §0's `drop` says `The ConnectionString property has not been initialized` | The fixed id's secret store is empty on this machine. Run §0's `set`, off the projector, then the drop again. |
 | §2's `database update` says `There is already an object named 'Callers'` | Your database still has last week's history under another migration id. §0's reset fixes it — drop, update, run once — then `update` again. |
 | §2's first run shows ASKED FOR `Nightjar` after the restart | Your `Caller.cs` is a push file from rehearsal. Delete `week-12` and copy it in again. |
+| `Debug Test` isn't above §3's test, or it doesn't stop on the red dot | Run `Developer: Reload Window`, then click it again. The red dot has to be on `if (loaded.Count == 0)`. |
 | §3's test is green before the fix | The same: a rehearsal push file. |
 | A student's desk says `Invalid object name 'Requests'` or `'Airings'` | Their migration doesn't make that table. `migrations add` again with a new name, then `database update`. |
 | Students get `Your login failed.` | Their connection string, set in week 11. `dotnet user-secrets set` again, on their own screen. |

@@ -445,7 +445,21 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   ```
 
 - [ ] 📖 *"Red. Her list came back empty, the same as on the desk."*
+- [ ] 📖 *"The desk only shows me a dash. I want to look at the list itself, right after Load reads it. I'll use the debugger."*
 - [ ] **Open `week-12/Lab/Switchboard.cs`, and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
+
+  ```text
+  if (loaded.Count == 0)
+  ```
+
+  **Click in the gutter beside that line.** One red dot. It stays there until the second look
+- [ ] **Go to the `RequestTests.cs` tab and click `Debug Test` above `ACallersRequestsComeBack`.** If you don't see it, run `Developer: Reload Window` from the Command Palette (<kbd>⇧⌘P</kbd> / <kbd>Ctrl⇧P</kbd>) and look again
+- [ ] 🎯 **It stops on the red dot, in `Load`, and that line has not run yet.** *"The program has stopped inside Load. The line above has already read the callers into a list called loaded."*
+- [ ] 🎯 **In the Run and Debug view, under Locals, expand `loaded`.** One entry. *"There's only one caller here. This is the test, so it has its own small database with just Dorothy in it."*
+- [ ] 🎯 **Expand `[0]`, then point at `Name`.** *"That's Dorothy. She came back from the table."*
+- [ ] 💥 **Point at `Requests`.** `Count = 0`. *"And here's her list of requests. Count is zero. The test saved one request for her, and this is what Load brought back."*
+- [ ] **Click `Stop` on the debug toolbar.** Leave the red dot where it is
+- [ ] **Back in `Switchboard.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
 
   ```text
   List<Caller> loaded = db.Callers
@@ -470,6 +484,13 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   ```csharp
   using Microsoft.EntityFrameworkCore;
   ```
+
+- [ ] 📖 *"Same test, same red dot. This time Load has the Include."*
+- [ ] **Go to the `RequestTests.cs` tab and click `Debug Test` above `ACallersRequestsComeBack` again.** It stops on the red dot
+- [ ] 🎯 **Under Locals, expand `loaded`, then `[0]`.** *"Same stop, and Dorothy again."*
+- [ ] 💥 **Point at `Requests`.** `Count = 1`. *"Now her list holds one request. Include brought it back with her."*
+- [ ] **Click `Stop`, then go to the `Switchboard.cs` tab and click the red dot to take it off**
+- [ ] 📖 *"Now the test can say the same thing."*
 
   ```bash
   dotnet test week-12/Lab.Tests
