@@ -199,7 +199,7 @@ That is why the desk's sentence says *everything up to the last save is safe.*
 
 And it has almost nothing to do, because **the desk saves the moment something changes.** A request made before <kbd>Ctrl+C</kbd> is already in the table. The only thing a crash loses is the change that crashed.
 
-**So the desk's answer to a crash is not a last-second save. It's saving as it goes, and stopping in a sentence.** `finally` is a good tool for letting go of something, such as closing a file, and later courses will use it for that.
+**So the desk's answer to a crash is not a last-second save. It's saving as it goes, and stopping in a sentence.** `finally` is a good tool for letting go of something, such as closing a file.
 
 ## Every crash so far
 

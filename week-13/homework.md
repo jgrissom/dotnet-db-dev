@@ -507,7 +507,7 @@ catch (?)
 using Microsoft.EntityFrameworkCore;
 ```
 
-**2. `CanConnect`.** In `Project/Program.cs`, directly under the line that makes your `ProjectContext`, before anything touches the database:
+**2. `CanConnect`.** In `Project/Program.cs`, directly under the line that makes your `ProjectContext`, before anything touches the database: **`if (!db.Database.CanConnect())`**, a sentence saying what's wrong, then **`return;`**
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>

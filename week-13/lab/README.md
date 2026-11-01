@@ -1,6 +1,6 @@
 # Week 13 Lab — The Delivery 📻
 
-It's 4 AM at **KDXR 88.1, "The Owl,"** and the music director has left a file of new carts on the desk. The desk can read it. It can also be handed the wrong name, a file that died halfway through saving, or a cart that is minus 198 seconds long. Each of those ends the shift in a wall of red text.
+It's 4 AM at **KDXR 88.1, "The Owl,"** and the music director has left a file of new carts on the desk. The desk can read it. It can also be handed the wrong name, a file that died halfway through saving, or a cart that is minus 198 seconds long. Each of those ends the shift in a wall of error text.
 
 Your job: run each failure and watch it crash, then pick the right answer for it. There are four: **ask again, say no, throw, or stop.** Your instructor does the same to the switchboard, a piece at a time, just before you do it to the rotation.
 
@@ -501,6 +501,8 @@ dotnet run --project week-13/Lab
 week-13/deliveries/bad-carts.json
 ```
 
+**The bad cart gets in, whatever else happens.** If you ran Task 2's good file, it's the only new one:
+
 ```
   Delivered: 1 new - 6 carts in the rotation.
 ```
@@ -594,7 +596,7 @@ dotnet test week-13/Lab.Tests
 dotnet test week-13/Lab.Tests
 ```
 
-**15 passed.** Now the desk, with the same file:
+**15 passed.** Now the desk, with the same file. **Run it: DJ name, then `i`, then this path.**
 
 ```bash
 dotnet run --project week-13/Lab
@@ -604,7 +606,7 @@ dotnet run --project week-13/Lab
 week-13/deliveries/bad-carts.json
 ```
 
-**DJ name, then `i`, then that path.** **The fact is green, and the desk crashed**, with `System.IO.InvalidDataException`. **That is correct.** `Import` did its job and threw. Nobody has caught it yet.
+**The fact is green, and the desk crashed**, with `System.IO.InvalidDataException`. **That is correct.** `Import` did its job and threw. Nobody has caught it yet.
 
 **Back in `week-13/Lab/RotationDesk.cs`, add a third `catch`, directly under the `}` that closes `catch (JsonException)`.** Writing a name after the exception's type gives you the exception itself, and **`problem.Message`** is the sentence `Import` wrote:
 
@@ -778,7 +780,7 @@ dotnet test week-13/Lab.Checks
 week 13 lab: the desk stops in a sentence
 ```
 
-**Four commits after the starter, five green checks, fifteen facts, and a desk that gives one of four answers instead of a wall of red text.**
+**Four commits after the starter, five green checks, fifteen facts, and a desk that gives one of four answers instead of a wall of error text.**
 
 > [!NOTE]
 > **In class, stop here.** Finished early? Try [Now try to break it](#now-try-to-break-it), or help the person next to you. Working at home? Carry straight on to [the homework](../homework.md).

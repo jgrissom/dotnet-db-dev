@@ -111,7 +111,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 
 - [ ] **Slide 1 is already up as the room settles.** It names tonight's theme. Read it to them in one go, then the two lines below
 - [ ] 📖 **Read the slide:** *"Tonight is exceptions: what a program does when something goes wrong. We'll break the desk four ways. The input lies, the file is missing or damaged, the file lies, and the row is gone. Each time we run it, watch it crash, and pick an answer. In your lab, you do the same to the carts."*
-- [ ] 🎯 **Ask for hands, and wait:** *"Who has had a program die on them with a wall of red text?"*
+- [ ] 🎯 **Ask for hands, and wait:** *"Who has had a program die on them with a wall of error text?"*
 - [ ] 📖 *"Tonight we decide what happens instead. There isn't one right answer. There are four, and most of the work is picking which."*
 
 ---
@@ -206,7 +206,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   ```
 
 - [ ] 📖 **Highlight `while (true)`:** *"This loop has no end of its own. The only ways out are the two return lines."*
-- [ ] 📖 **Highlight the `string.IsNullOrWhiteSpace(typed)` line:** *"The first way out is Enter. That's how a person gives up. It also covers the input ending, when ReadLine hands back null. Without this line the loop would never stop."*
+- [ ] 📖 **Highlight the `string.IsNullOrWhiteSpace(typed)` line:** *"The first way out is Enter. That's how a person gives up. It also covers the input ending, when ReadLine hands back null. Without this line, Enter couldn't get me out."*
 - [ ] 📖 **Highlight the `return;` inside `if (switchboard.Remove(name))`:** *"The second way out is a caller coming off."*
 - [ ] 📖 **Highlight the last `AnsiConsole.MarkupLine`:** *"If neither happened, we say no, and the loop goes around and asks again."*
 - [ ] **Run the desk: DJ name, then `x`, then `Bexx`, then `Bex`, then `c`, then `q`.** This time `x` keeps asking
@@ -257,7 +257,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   ```
 
 - [ ] 💥 **Let the wall of text sit.** The first line reads `Unhandled exception. System.IO.FileNotFoundException: Could not find file`
-- [ ] 📖 *"There's the wall of red text. One wrong letter, and the whole shift is gone."*
+- [ ] 📖 *"There's the wall of text. One wrong letter, and the whole shift is gone."*
 - [ ] 📖 *"A wrong file name is the same kind of mistake as Bexx. The person can fix it, so the right answer is ask again. But nobody said no this time. The method crashed."*
 - [ ] **Scroll up to `Unhandled exception`, and highlight `FileNotFoundException` on the screen.** *"This is the exception's name. Every crash has one, and the name is how we say which crash we're ready for."*
 - [ ] 📖 *"Second file, a damaged one. The day shift's computer died halfway through saving it."*
@@ -498,7 +498,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   ```
 
 - [ ] 📖 **Highlight the `throw new` line:** *"Throw makes an exception and sends it up. This method stops right here. The next lines never run, so nobody gets added."*
-- [ ] 📖 **Now the second run.**
+- [ ] **Run the tests again**
 
   ```bash
   dotnet test week-13/Lab.Tests
@@ -750,7 +750,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 - [ ] **Lids up. The lab README, at *Task 4 in full*.**
 - [ ] 📖 *"Task 4: two desks, the same as I just did. See it crash, then the catch around the shift, and CanConnect at the top. Nothing to copy from me this time. Stop at the stop note after the commit."*
 - [ ] 🎯 **Circulating:** `CS0246` on `DbUpdateException` is the missing `using Microsoft.EntityFrameworkCore;` at the top of `Program.cs`
-- [ ] 🎯 **Students on a lab machine can't easily turn the network off.** The README says a wrong server name in the secret does the same job, and how to put it back. It's fine to skip that step and read the block
+- [ ] 🎯 **Students on a lab machine can't easily turn the network off.** The README tells them to skip that run and read the block. The check doesn't need it
 
 ---
 
