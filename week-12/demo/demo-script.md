@@ -662,7 +662,12 @@ Tonight the desk gets its second kind of table. You give each **caller** a table
   return db.Callers
   ```
 
-  **Click at the end of that line and type** `.ToList()`
+  **Click at the end of that line, right after `db.Callers`, and type** `.ToList()`. It goes above the `.Where` line, on the same line as `db.Callers`, and the `.ToList()` at the bottom stays where it is:
+
+  ```text
+  return db.Callers.ToList()
+      .Where(caller => caller.Requests.Any(request => request.Title == title))
+  ```
 - [ ] 📖 *"Now ToList comes first. The answer should be the same. Let's see what the log says."*
 - [ ] **Run the desk: DJ name, then `f`, type `Nightjar`, then `q`**
 
