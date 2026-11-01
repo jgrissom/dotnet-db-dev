@@ -34,4 +34,4 @@ Every table at the desk has stood alone, and this week one belongs to another. *
 - ⚠️ **Delete `week-12/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
 - 💡 **Type your database name in the Database box at the top of the published cue sheet** — every mention on the page changes, including what the Copy buttons hand you
 
-**Prev:** [Week 11 — EF Core II: A Cart Comes Off](../week-11/) · **Next:** Week 13 *(coming)*
+**Prev:** [Week 11 — EF Core II: A Cart Comes Off](../week-11/) · **Next:** [Week 13 — Exceptions: Four Answers](../week-13/)

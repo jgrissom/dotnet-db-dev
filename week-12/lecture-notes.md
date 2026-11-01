@@ -220,4 +220,4 @@ using Microsoft.Extensions.Logging;
 | The log shows a `SELECT` with no `WHERE` | `ToList()` comes before the `Where`. [Move it to the end](#tolist-is-the-moment-the-question-is-sent). |
 | `database update` prints SQL, some of it twice | The log is on. [It's harmless](#the-log). |
 
-**Prev:** [Week 11 — Lecture Notes](../week-11/lecture-notes.md) · **Next:** Week 13 *(coming)*
+**Prev:** [Week 11 — Lecture Notes](../week-11/lecture-notes.md) · **Next:** [Week 13 — Lecture Notes](../week-13/lecture-notes.md)

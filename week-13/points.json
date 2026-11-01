@@ -1,0 +1,60 @@
+{
+  "week": 13,
+  "total": 20,
+  "_comment": "One source of truth for week 13's rubric. The grader scores from this file, the homework's grading table is copied from it, and the Canvas rubric is generated from it. `suite` says which test run scores an item — 'checks' is `dotnet test Project.Checks` (canonical, replaced wholesale by the grader), 'tests' is `dotnet test Project.Tests` (the student's OWN suite, run as-is and never replaced). The dictated student fact carries the WEEK — Week13_ABadFileAddsNothing — and it is the lab's Task 3 fact on the student's own registry. Check 1 is the came-forward check, green before the student starts, and it now holds all of week 12 as well. Checks 2–5 are the homework's Tasks 1–4. Week 13 adds, by signature, Registry.Import(string) returning int, and the static class RegistryDesk with Remove(Registry) and Import(Registry). Check 5 reads the project's source, because nothing can call the top of a program. The run-it item stays a BUILD-it item (W10.4). The graded repo is the PROJECT repo (D1b).",
+  "checks": {
+    "Check1_WeeksFourToTwelveStillHold": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Weeks 4-12 still hold — everything check 1 covered last week, plus last week's: each record has many details, they come back, and the database answers"
+    },
+    "Check2_AWrongNameAsksAgain": {
+      "points": 2,
+      "suite": "checks",
+      "label": "RegistryDesk.Remove asks again on a name nobody has, and Enter gives up"
+    },
+    "Check3_TheDeskCatchesABadFile": {
+      "points": 3,
+      "suite": "checks",
+      "label": "Registry.Import says how many were new; RegistryDesk.Import asks again on a wrong path and says no to a damaged file, with no crash"
+    },
+    "Check4_ABadFileAddsNothing": {
+      "points": 2,
+      "suite": "checks",
+      "label": "Registry.Import throws InvalidDataException on a blank name, and a bad file adds nothing"
+    },
+    "Check5_TheProgramStopsInASentence": {
+      "points": 1,
+      "suite": "checks",
+      "label": "The program asks CanConnect before it starts, and catches DbUpdateException around its save"
+    },
+    "Week13_ABadFileAddsNothing": {
+      "points": 2,
+      "suite": "tests",
+      "label": "Your test: a file with a blank name throws and adds nothing — written by you, before the fix, green in your own suite"
+    }
+  },
+  "repo": {
+    "repoReachable": {
+      "points": 1,
+      "label": "Public project repo exists at the URL you submitted, and clones"
+    },
+    "programBuilds": {
+      "points": 2,
+      "label": "The project compiles from a clean clone — it cannot be RUN anywhere but your own machine, because your connection string is not in the repo"
+    },
+    "gitignoreClean": {
+      "points": 1,
+      "label": "bin/ and obj/ tracked nowhere in the project repo — the .gitignore holding"
+    },
+    "commits": {
+      "points": 2,
+      "minimum": 3,
+      "label": "3+ commits on THIS week's branch 👀 (meaningful messages are a judgment call)"
+    },
+    "mergedPr": {
+      "points": 2,
+      "label": "A merge commit on main — this week's branch → pull request → merge"
+    }
+  }
+}

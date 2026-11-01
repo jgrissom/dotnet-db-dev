@@ -79,6 +79,10 @@ const DELIBERATE = {
     'csharp fences (lab) ⚠️eyes': "five are collapsed 'Stuck? Show me the shape' blocks; the four visible ones are setup shown openly (two DbSet lines, the log line and its usings) and LastAired, which is screen code given whole",
     'dotnet run (lab)':       "three tasks; Task 1 runs the desk once, Tasks 2 and 3 before and after, plus the break-it list",
   },
+  // Week 13 was built new on 2026-11-01: four lab tasks, one answer each.
+  '13': {
+    'csharp fences (lab) ⚠️eyes': "four are collapsed 'Stuck? Show me the shape' blocks; the visible six are syntax and setup shown openly, and Task 4's are the top-level lines the instructor just wrote, since Program.cs can't be pushed",
+  },
 }
 
 const read = f => { try { return fs.readFileSync(f, 'utf8') } catch { return null } }

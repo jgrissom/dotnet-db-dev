@@ -527,4 +527,4 @@ Five moments worth saving, written into the parts above: the checks copied in, t
 | No **Compare & pull request** banner on GitHub | You pushed to `main` instead of a branch. `git checkout -b a-second-table`, push that. |
 | An error that isn't in this table | [The notes' troubleshooting list](lecture-notes.md#-troubleshooting) has more of them. |
 
-**Prev:** [Week 12 Lab — Every Cart Has a Log](lab/README.md) · **Next:** Week 13 *(coming)*
+**Prev:** [Week 12 Lab — Every Cart Has a Log](lab/README.md) · **Next:** [Week 13 Homework — Four Answers of Your Own](../week-13/homework.md)
