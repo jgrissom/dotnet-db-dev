@@ -98,7 +98,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   git -C ../dotnet-db-starters commit -m "week 13 demo: reset for class" && git -C ../dotnet-db-starters push
   ```
 
-- [ ] ⚠️ **Know how you'll cut the network for §5.** The Wi-Fi switch on your laptop, or the cable if you're wired. Find it now. §5 turns it off for one run, and back on before anything else
+- [ ] ⚠️ **Know how you'll cut the network for §5.** The Wi-Fi switch on your laptop, or the cable if you're wired. Find it now. §5 turns it off for two runs, and back on before anything else
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
 - [ ] 💡 **What *Highlight* means in this sheet:** select the code you are talking about, so the back row can see which part you mean. A word: double-click it. A phrase: drag across it. A whole line: click its line number in the left margin
 - [ ] ⚠️ **Delete `week-13/` from the demo repo if you've rehearsed.** Tonight you copy it in fresh, along with everybody else
@@ -694,8 +694,8 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   dotnet run --project week-13/Lab
   ```
 
-- [ ] 💥 **Point at the first line.** It starts `Unhandled exception. System.InvalidOperationException:`, and the next line starts `---> Microsoft.Data.SqlClient.SqlException`
-- [ ] 📖 *"That's what the network going away looks like. A SqlException, wrapped inside another exception. Different failures come back wrapped in different ways, so I don't want to guess at names here. EF Core has a method that asks the question directly."*
+- [ ] 💥 **Point at the first lines.** Find `SqlException`. It may be on the first line, or on the next one, inside an `InvalidOperationException`
+- [ ] 📖 *"That's what the network going away looks like. Different failures come back under different names, and sometimes one exception is wrapped inside another. I don't want to guess at names here. EF Core has a method that asks the question directly."*
 - [ ] **In `week-13/Lab/Program.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
 
   ```text

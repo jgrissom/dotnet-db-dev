@@ -30,7 +30,7 @@ Every crash in this course has been a surprise, and this week they happen on pur
 - ⚠️ **The SQL Server view already connected to your server, and `dotnet tool update --global dotnet-ef`**
 - ⚠️ **A starters clone you can push to, next to your demo repo** — you push to it three times tonight. The cue sheet's §0 tests it
 - ⚠️ **`demo/week-13/` in the starters repo empty or missing** — it fills up during class
-- ⚠️ **A way to cut your network for one run in §5**
+- ⚠️ **A way to cut your network for two runs in §5**
 - ⚠️ **Delete `week-13/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
 - 💡 **Type your database name in the Database box at the top of the published cue sheet** — every mention on the page changes, including what the Copy buttons hand you
 

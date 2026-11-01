@@ -1,6 +1,6 @@
 # Week 13 Lab — The Delivery 📻
 
-It's 4 AM at **KDXR 88.1, "The Owl,"** and the music director has left a file of new carts on the desk. The desk can read it. It can also be handed the wrong name, a file that died halfway through saving, or a cart that is minus 198 seconds long. Each of those ends the shift in a wall of error text.
+It's 4 AM at **KDXR 88.1, "The Owl,"** and the music director has left a file of new carts on the desk. The desk can read it. It can also be handed the wrong name, a file that died halfway through saving, or a cart that is minus 198 seconds long. The first two end the shift in a wall of error text. The third gets in without a word.
 
 Your job: run each failure and watch it crash, then pick the right answer for it. There are four: **ask again, say no, throw, or stop.** Your instructor does the same to the switchboard, a piece at a time, just before you do it to the rotation.
 

@@ -35,7 +35,7 @@ By the end of this session, students can:
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-13/demo/script.html)) — type your database name in the **Database** box at the top of the published page once
 - **The instructor demo repo**, `dotnet-db-coursework`, with **a starters clone you can push to next to it** — §0 tests a push
 - ⚠️ **Your secret set before class, by the starter's fixed id, off the projector** — §0 has the command
-- ⚠️ **A way to cut your network for one run in §5** — the Wi-Fi switch, or the cable
+- ⚠️ **A way to cut your network for two runs in §5** — the Wi-Fi switch, or the cable
 - ⚠️ **The SQL Server view already connected to your server**, and a current `dotnet-ef`
 - ⚠️ **`demo/week-13/` in the starters repo empty or missing** before class — it fills up during the night
 - **A browser tab on the lab README** (`week-13/lab/README.md` on GitHub) — it is the projector screen for Lab A–F
@@ -77,7 +77,7 @@ Each demo segment is followed by the lab task that practices it. **The demo teac
 - ⚠️ **Lab A drops and remakes your database along with the room's.** Students' databases hold a migration id of their own from week 12, and this week's starter ships the key's, so `update` alone fails with *There is already an object named 'Airings'*. The demo's numbers all start from that fresh database.
 - ⚠️ **The starter has no `LogTo` line.** The lab runs `dotnet ef`, and a stack dump is tonight's subject, so nothing else prints SQL. Students' own projects keep theirs, and it prints the failed save above their sentence.
 - ⚠️ **§4's bad list leaves a row with a blank name in `Callers`.** The sheet deletes it with one query, because `x` can't reach a blank name: Enter means give up. Skip that and every later switchboard shows a blank row.
-- ⚠️ **In §5, wifi goes off for one run and back on for the next two.** The wait is about fifteen seconds each time. It is a real wait, and the room should sit through the first one. It touches no server.
+- ⚠️ **In §5, wifi goes off for two runs and back on for the third.** The two runs with it off wait about fifteen seconds each. It is a real wait, and the room should sit through the first one. It touches no server.
 - 💥 **§4's crash after green is the point, not a slip.** Say that the test is right and the desk is right, and that they are testing different classes.
 - **Lab C is where `catch` won't compile** — `CS0246` on `JsonException` is the missing `using System.Text.Json;`.
 - **Lab D is where the throw goes in the wrong loop.** Check 4's message says the good carts got in.

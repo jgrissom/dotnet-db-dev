@@ -132,7 +132,7 @@ A `catch` names the exceptions it's ready for, and anything else goes straight p
         }
 ```
 
-That loop goes in `Switchboard.Import`, above the loop that adds. Put the `throw` inside the adding loop and the good names ahead of the bad one are already in by the time it fires, and half a file has been read. **A bad file adds nothing.**
+That loop goes in `Switchboard.Import`, above the loop that adds. Put the `throw` inside the adding loop and the good names ahead of the bad one are already in by the time it fires, and half a file has been added. **A bad file adds nothing.**
 
 ## Stop
 
@@ -161,10 +161,10 @@ catch (DbUpdateException)
 | wrong password | `SqlException` |
 | nothing listening at that address | `SqlException` |
 | wrong database name | `InvalidOperationException`, holding a `SqlException` |
-| wifi off, or a server name that doesn't exist | `InvalidOperationException`, holding a `SqlException` |
+| a server name that can't be found, which is what wifi off can look like | `InvalidOperationException`, holding a `SqlException` |
 | no connection string | `InvalidOperationException` |
 
-⚠️ **So `catch (SqlException)` alone misses wifi-off.** `CanConnect` asks the question directly and hands back `true` or `false` for all five. It goes at the top of `Lab/Program.cs`, right after the `DeskContext` is made:
+⚠️ **So `catch (SqlException)` alone can miss it.** `CanConnect` asks the question directly and hands back `true` or `false` for all five. It goes at the top of `Lab/Program.cs`, right after the `DeskContext` is made:
 
 ```csharp
 // No database, no shift. Nothing the desk does works without it.
