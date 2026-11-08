@@ -647,7 +647,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 
   ```csharp
   // A row the desk is holding can go from its table while the desk is open.
-  // Nothing can be saved after that, so the desk stops, in a sentence.
+  // Nothing can be saved after that, so the desk stops and says what happened.
   try
   {
   ```
@@ -759,7 +759,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 - [ ] **Commit it in the demo repo.** Silent
 
   ```bash
-  git add . && git commit -m "week 13: the desk stops in a sentence"
+  git add . && git commit -m "week 13: the desk stops and says what happened"
   ```
 
 - [ ] 💡 **No push this time.** `Program.cs` is theirs in Task 4, so they write the same lines themselves
@@ -792,7 +792,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 
 - [ ] 🎞️ **GO TO SLIDE 5** — *Tonight, in one picture* · *"Ask again, when the person can fix it. Say no, when the answer is simply no. Throw, when a method can't do its job. Stop, when the program can't carry on. The thinking class throws, and the class that talks to people catches."*
 - [ ] **Homework: your project repo URL in Canvas, and only that one**
-- [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. Your registry reads a file of names, and your program asks again, refuses a bad file, and stops in a sentence. Four tasks. Your database carries on. You don't drop anything."*
+- [ ] 📖 **Say what the homework is** — *"The homework is tonight's lab again, on your own project. Your registry reads a file of names, and your program asks again, refuses a bad file, and stops with a plain message when it can't carry on. Four tasks. Your database carries on. You don't drop anything."*
 - [ ] ⚠️ **Say the last-homework line out loud** — *"This is the last homework of the semester. Nothing is collected in the next two weeks. Week sixteen you present."*
 - [ ] ⚠️ **Say the branch line out loud** — *"Your homework goes on a branch, same as every week. Nothing goes straight to main."*
 - [ ] ⚠️ **Say the checks line out loud** — *"Part 1 removes last week's checks and copies this week's in. Run both commands. This week's first check is called WeeksFourToTwelveStillHold. If yours says FourToEleven, you are running last week's."*

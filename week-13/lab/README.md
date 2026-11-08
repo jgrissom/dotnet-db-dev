@@ -697,7 +697,7 @@ The first line after the `ON AIR` lines names it: **`Microsoft.EntityFrameworkCo
 
 ```csharp
 // A row the desk is holding can go from its table while the desk is open.
-// Nothing can be saved after that, so the desk stops, in a sentence.
+// Nothing can be saved after that, so the desk stops and says what happened.
 try
 {
 ```
