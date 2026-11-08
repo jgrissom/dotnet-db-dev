@@ -130,7 +130,8 @@ This is [the lab's Task 1](lab/README.md#task-1-in-full).
 **1. Make `Project/RegistryDesk.cs`.** A `public static class RegistryDesk` holding one method, `public static void Remove(Registry registry)`, which does this, in this order:
 
 - **`while (true)`** around all of it.
-- **Your prompt,** with `Enter` in the wording, then **`string? typed = Console.ReadLine();`**
+- **The prompt:** a `Console.Write` that asks which record to take off, and says Enter skips. If your program already asks this (week 11's homework), move that line in and keep your wording. If not, something like `Console.Write("Take one off the books (Enter to skip): ");`
+- **`string? typed = Console.ReadLine();`**
 - **`if (string.IsNullOrWhiteSpace(typed))`, then `return;`** — Enter gives up, and so does the input ending.
 - **`if (registry.Remove(typed.Trim()))`**: say it came off, then **`return;`**
 - **After that `if`, say there's nothing by that name.** No `else` and no `return`, so the loop asks again.
@@ -249,7 +250,9 @@ Make **`damaged.json`** with this in it, exactly, cut off in the middle:
 
 **3. A second method in `RegistryDesk`.** In `Project/RegistryDesk.cs`, under `Remove`: `public static void Import(Registry registry)`, which does this, in this order:
 
-- **`while (true)`**, your prompt, `string? typed`, and **Enter gives up**, the same as `Remove`.
+- **`while (true)`** around all of it, the same as `Remove`.
+- **The prompt:** a `Console.Write` that asks for a file name and says Enter skips, something like `Console.Write("File to import (Enter to skip): ");`
+- **`string? typed = Console.ReadLine();`**, and **Enter gives up**, the same as `Remove`.
 - **`string path = typed.Trim();`**
 - **`try { … }`** holding **`int added = registry.Import(path);`**, a line saying how many were new, and **`return;`**
 - **`catch (IOException)`** under it. It says there's no file there, and nothing else, so the loop asks again.
