@@ -353,7 +353,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 - [ ] 📖 **At the wrong name:** *"It said there's no file, and asked again. The desk is still alive."*
 - [ ] 📖 **At the damaged file:** *"It said no, and we're back at the menu."*
 - [ ] 📖 *"And now the right file. It has three names in it, and Dorothy is one of them."*
-- [ ] **Run the desk: DJ name, then `l`, then this file name, then `c`, then `q`**
+- [ ] **Run the desk: DJ name, then `l`, then this file name. Stop there, at the menu**
 
   ```bash
   dotnet run --project week-13/Lab
@@ -367,6 +367,9 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
     Day list: 2 new - 4 on the switchboard.
   ```
 
+- [ ] 📖 **In the terminal, highlight `2 new`:** *"Three names in the file, two new. Dorothy was already here, so she was left out, and the count says so. That's a quiet no."*
+- [ ] **Press `c` to show the switchboard, then `q`**
+
   ```
   │ CALLER        │ CALLS │ ASKED FOR │
   │ Dorothy       │ 3     │ -         │
@@ -376,7 +379,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   4 on the switchboard.
   ```
 
-- [ ] 📖 **In the terminal, highlight `2 new`:** *"Three names in the file, two new. Dorothy was already here, so she was left out, and the count says so. That's a quiet no."*
+- [ ] 📖 *"Ray and Pham's Bakery are on the switchboard now, and Dorothy is still there once."*
 - [ ] 🎞️ **GO TO SLIDE 3** — *Throw there, catch here* · *"Two kinds of classes. Switchboard does the thinking and never prints a word. So when it can't do its job, all it can do is throw. SwitchboardDesk talks to the person, so that's where the catch goes. A check can call Switchboard with no keyboard and no screen."*
 - [ ] **Commit it in the demo repo.** Silent
 
