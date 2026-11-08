@@ -271,7 +271,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   week-13/deliveries/damaged-list.json
   ```
 
-- [ ] 💥 **Point at the first line.** It reads `Unhandled exception. System.Text.Json.JsonException:`
+- [ ] 💥 **In the terminal, scroll up to `Unhandled exception` and highlight that line.** It reads `Unhandled exception. System.Text.Json.JsonException:`
 - [ ] 📖 *"A different exception name. This file is there, but it isn't finished. Typing its name again won't fix it, so asking again is the wrong answer. The right answer is to say why the file cannot be parsed - not crash the program."*
 - [ ] **Open `week-13/Lab/SwitchboardDesk.cs`, and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
 
@@ -376,7 +376,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   4 on the switchboard.
   ```
 
-- [ ] 📖 **Highlight nothing; point at `2 new`:** *"Three names in the file, two new. Dorothy was already here, so she was left out, and the count says so. That's a quiet no."*
+- [ ] 📖 **In the terminal, highlight `2 new`:** *"Three names in the file, two new. Dorothy was already here, so she was left out, and the count says so. That's a quiet no."*
 - [ ] 🎞️ **GO TO SLIDE 3** — *Throw there, catch here* · *"Two kinds of classes. Switchboard does the thinking and never prints a word. So when it can't do its job, all it can do is throw. SwitchboardDesk talks to the person, so that's where the catch goes. A check can call Switchboard with no keyboard and no screen."*
 - [ ] **Commit it in the demo repo.** Silent
 
@@ -428,7 +428,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   5 on the switchboard.
   ```
 
-- [ ] 💥 **Point at the blank row, and wait.** *"No crash, and no complaint. There's a caller with no name on my switchboard, and it's already in the database."*
+- [ ] 💥 **In the terminal, highlight the blank row in the table, and wait.** *"No crash, and no complaint. There's a caller with no name on my switchboard, and it's already in the database."*
 - [ ] **SQL Server view: right-click `dbo.Callers` → Select Top 1000.** The last row has an empty `Name`
 - [ ] 📖 *"Nobody typed this, so there's nobody to ask. And Import can't print anything, because Import does the thinking. So when a file lies, Import throws."*
 - [ ] **Take that row out. SQL Server view: right-click your database → New Query, paste this, and run it**
@@ -520,7 +520,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   week-13/deliveries/bad-list.json
   ```
 
-- [ ] 💥 **Point at the first line.** It reads `Unhandled exception. System.IO.InvalidDataException: The list has a blank name on it.`
+- [ ] 💥 **In the terminal, scroll up to `Unhandled exception` and highlight that line.** It reads `Unhandled exception. System.IO.InvalidDataException: The list has a blank name on it.`
 - [ ] 📖 *"The test is green, and the desk crashed. That's correct. Import did its job and threw. Nobody caught it yet. Green here only means Import throws."*
 - [ ] **Open `week-13/Lab/SwitchboardDesk.cs`, and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
 
@@ -611,7 +611,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
     ON AIR  SONG - Long Way Round - The Ferrymen
   ```
 
-- [ ] 💥 **Point at the first line under it.** It reads `Unhandled exception. Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes.`
+- [ ] 💥 **In the terminal, scroll up to `Unhandled exception` and highlight that line.** It reads `Unhandled exception. Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes.`
 - [ ] 📖 *"Every cart went out on air, the desk tried to save an airing for a cart with no row, and the database refused. Every airing must have a cart attached to it."*
 - [ ] 📖 *"Asking again won't help, and neither will saying no and carrying on. Every save from here will fail the same way. This is the fourth answer. Stop, in a sentence."*
 - [ ] 📖 *"Nothing is lost that was saved. SaveChanges sends everything or nothing, and the desk has been saving after every change."*
@@ -694,7 +694,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   dotnet run --project week-13/Lab
   ```
 
-- [ ] 💥 **Point at the first lines.** Find `SqlException`. It may be on the first line, or on the next one, inside an `InvalidOperationException`
+- [ ] 💥 **In the terminal, scroll up to `Unhandled exception` and highlight `SqlException`.** It may be on that line, or on the next one, inside an `InvalidOperationException`
 - [ ] 📖 *"That's what the network going away looks like. Different failures come back under different names, and sometimes one exception is wrapped inside another. I don't want to guess at names here. EF Core has a method that asks the question directly."*
 - [ ] **In `week-13/Lab/Program.cs`, search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
 
