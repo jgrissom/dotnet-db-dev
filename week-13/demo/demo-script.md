@@ -367,7 +367,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
     Day list: 2 new - 4 on the switchboard.
   ```
 
-- [ ] 📖 **In the terminal, highlight `2 new`:** *"Three names in the file, two new. Dorothy was already here, so she was left out, and the count says so. That's a quiet no."*
+- [ ] 📖 **In the terminal, highlight `2 new`:** *"Three names in the file: Ray, Pham's Bakery and Dorothy. Two are new, Ray and Pham's Bakery. Dorothy was already here, so she was left out, and the count says so. That's a quiet no."*
 - [ ] **Press `c` to show the switchboard, then `q`**
 
   ```
