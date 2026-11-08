@@ -710,7 +710,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 - [ ] 📖 *"The same kind of failure, and now the person gets two sentences and knows what to do."*
 - [ ] 📖 *"One more way to stop. Every desk needs its database. So what happens when the database isn't there?"*
 - [ ] ⚠️ **Turn your Wi-Fi off now, or pull the cable.**
-- [ ] **Run the desk.** It waits about fifteen seconds, then crashes, before it asks for a DJ
+- [ ] **Run the desk: DJ name.** It asks for the DJ name first, then waits about fifteen seconds and crashes
 
   ```bash
   dotnet run --project week-13/Lab
@@ -724,7 +724,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   // TODO — Task 4: the desk should say so
   ```
 
-- [ ] 📖 **Before you change it, say what happens there now:** *"This is where the desk sets up its connection to the database, before anything else happens. Right now it never checks that the database is there, so with no network the first thing I see is that crash. I want it to check first. If it can't reach the database, it should say so in a sentence and stop."*
+- [ ] 📖 **Before you change it, say what happens there now:** *"This is where the desk sets up its connection to the database, before anything else happens. Right now it never checks that the database is there, so with no network it asks for my name, then crashes when it tries to load the carts. I want it to check first, before it asks me anything. If it can't reach the database, it should say so in a sentence and stop."*
 - [ ] **Select that one comment line and paste this over it**
 
   ```csharp
@@ -738,7 +738,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   ```
 
 - [ ] 📖 **Highlight `db.Database.CanConnect()`:** *"CanConnect tries the database and hands back true or false. No exception to catch. It's a say-no answer, and the program uses it to stop."*
-- [ ] **Run the desk.** Same wait, about fifteen seconds
+- [ ] **Run the desk.** This time it doesn't ask for a DJ name. Same wait, about fifteen seconds, then the sentence
 
   ```bash
   dotnet run --project week-13/Lab
