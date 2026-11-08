@@ -379,7 +379,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   4 on the switchboard.
   ```
 
-- [ ] 📖 *"Ray and Pham's Bakery are on the switchboard now, and Dorothy is still there once."*
+- [ ] 📖 *"Dorothy and Teodoro were already on the switchboard. Ray and Pham's Bakery are the two new ones from the file. Dorothy is still there only once. Bex is gone because I took Bex off at the start of the night."*
 - [ ] 🎞️ **GO TO SLIDE 3** — *Throw there, catch here* · *"Two kinds of classes. Switchboard does the thinking and never prints a word. So when it can't do its job, all it can do is throw. SwitchboardDesk talks to the person, so that's where the catch goes. A check can call Switchboard with no keyboard and no screen."*
 - [ ] **Commit it in the demo repo.** Silent
 
