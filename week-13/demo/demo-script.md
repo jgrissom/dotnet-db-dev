@@ -258,7 +258,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 
 - [ ] 💥 **Let the wall of text sit.** The first line reads `Unhandled exception. System.IO.FileNotFoundException: Could not find file`
 - [ ] 📖 *"There's the wall of text. One wrong letter, and the whole shift is gone."*
-- [ ] 📖 *"A wrong file name is the same kind of mistake as Bexx with 2 x's. The person can fix it, so the right answer is ask again. But nobody said no this time. The method crashed."*
+- [ ] 📖 *"A wrong file name is the same kind of mistake as Bexx with 2 x's. The person can fix it, so the right answer is ask again. But that's not what happened, instead the method crashed."*
 - [ ] **Scroll up to `Unhandled exception`, and highlight `FileNotFoundException` on the screen.** *"This is the exception's name. Every crash has one, and the name is how we say which crash we're ready for."*
 - [ ] 📖 *"Second file, a damaged one. The day shift's computer died halfway through saving it."*
 - [ ] **Run the desk: DJ name, then `l`, then this file name**
