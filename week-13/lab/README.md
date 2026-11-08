@@ -513,11 +513,25 @@ week-13/deliveries/bad-carts.json
 
 **No crash, and a cart with no length is on your rotation.** `Song.Seconds` refused the number quietly, so the cart came in at `0:00`. Quiet was right for a person at a prompt. A file has nobody to tell.
 
-**Take it back out. Run the desk: DJ name, then `p`, then `Dead Air`, then `q`.**
+**Take it back out. Run the desk: DJ name, then `p`, then `Dead Air`, then `t`, then `q`.**
 
 ```bash
 dotnet run --project week-13/Lab
 ```
+
+```
+  Pulled: Dead Air - 5 carts left in the rotation.
+```
+
+```
+│ Nightjar       │ The Lamplighters │ 3:47   │ 0      │ -           │
+│ Slack Water    │ Marguerite Vance │ 4:12   │ 0      │ -           │
+│ Long Way Round │ The Ferrymen     │ 5:31   │ 0      │ -           │
+│ Harbor Lights  │ The Ferrymen     │ 4:04   │ 0      │ -           │
+│ Night Freight  │ Marguerite Vance │ 3:18   │ 0      │ -           │
+```
+
+**Dead Air is gone from the rotation, and from its table.**
 
 #### First, the fact — before you touch `Import`
 
