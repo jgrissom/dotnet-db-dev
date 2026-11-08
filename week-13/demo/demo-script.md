@@ -279,7 +279,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   Console.Write("  Day list file: ");
   ```
 
-- [ ] 📖 **Before you change it, say what it does now:** *"Right now this method asks once and calls Import, and whatever goes wrong in Import goes straight through here and kills the program. I need it to catch those two names, and do something different for each."*
+- [ ] 📖 **Before you change it, say what it does now:** *"This method asks for the name of a file, reads the list of callers in it, and adds the new ones to the switchboard. Right now, if anything goes wrong while it reads the file, the whole program stops. I want it to handle the two problems we just saw. A wrong file name should let me type it again. A damaged file should tell me it's damaged, and take me back to the menu."*
 - [ ] **Select from that line down to and including the line ending `on the switchboard.[/]");`, and paste this over it**
 
   ```csharp
