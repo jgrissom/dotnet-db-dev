@@ -352,7 +352,13 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 
 - [ ] 📖 **At the wrong name:** *"It said there's no file, and asked again. The desk is still alive."*
 - [ ] 📖 **At the damaged file:** *"It said no, and we're back at the menu."*
-- [ ] 📖 *"And now the right file. It has three names in it, and Dorothy is one of them."*
+- [ ] **In the Explorer, open `week-13/deliveries/day-list.json`, and highlight the three names**
+
+  ```text
+  [ "Ray", "Pham's Bakery", "Dorothy" ]
+  ```
+
+- [ ] 📖 *"Now the right file. It has three names in it: Ray, Pham's Bakery and Dorothy. Dorothy is already on the switchboard."*
 - [ ] **Run the desk: DJ name, then `l`, then this file name. Stop there, at the menu**
 
   ```bash
@@ -367,7 +373,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
     Day list: 2 new - 4 on the switchboard.
   ```
 
-- [ ] 📖 **In the terminal, highlight `2 new`:** *"Three names in the file: Ray, Pham's Bakery and Dorothy. Two are new, Ray and Pham's Bakery. Dorothy was already here, so she was left out, and the count says so. That's a quiet no. Four on the switchboard means Dorothy and Teodoro from before, plus the two new ones. Teodoro isn't in the file."*
+- [ ] 📖 **In the terminal, highlight `2 new`:** *"Three names in the file, and two new: Ray and Pham's Bakery. Dorothy was already here, so she was left out, and the count says so. That's a quiet no."*
 - [ ] **Press `c` to show the switchboard, then `q`**
 
   ```
