@@ -416,6 +416,12 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
 
 ## 4 · The file lies
 
+- [ ] **In the Explorer, open `week-13/deliveries/bad-list.json`, and highlight the empty quotes at the end**
+
+  ```text
+  [ "Ray", "Pham's Bakery", "" ]
+  ```
+
 - [ ] 📖 *"A file that's missing is easy to spot. A damaged one is too. This one reads perfectly. It just isn't true: the last name on the list is blank."*
 - [ ] **Run the desk: DJ name, then `l`, then this file name, then `c`, then `q`**
 
