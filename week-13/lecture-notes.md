@@ -182,7 +182,7 @@ The exception's own message mentions `EnableRetryOnFailure`, EF Core's setting f
 
 ## What a save does when it fails
 
-`SaveChanges` is **all or nothing.** The changes it sends go in one transaction, so if one row fails, none of them stay. When the first desk tried to save an airing for a cart with no row, every other airing in that same save was thrown away too, and every cart's `PlaysTonight` stayed where it was.
+`SaveChanges` is **all or nothing.** The changes it sends go in one transaction, so if one row fails, none of them stay. When the first desk tried to save an airing for a cart that was deleted, every other airing in that same save was thrown away too, and every cart's `PlaysTonight` stayed where it was.
 
 That is why the desk's sentence says *everything up to the last save is safe.*
 

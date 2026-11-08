@@ -633,7 +633,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   ```
 
 - [ ] 💥 **In the terminal, scroll up to `Unhandled exception` and highlight that line.** It reads `Unhandled exception. Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes.`
-- [ ] 📖 *"Every cart went out on air, the desk tried to save an airing for a cart with no row, and the database refused. Every airing must have a cart attached to it."*
+- [ ] 📖 *"Every cart went out on air, the desk tried to save an airing for a cart that was deleted, and the database refused. Every airing must have a cart attached to it."*
 - [ ] 📖 *"Asking again won't help, and neither will saying no and carrying on. Every save from here will fail the same way. This is the fourth answer. Stop, in a sentence."*
 - [ ] 📖 *"Nothing is lost that was saved. SaveChanges sends everything or nothing, and the desk has been saving after every change."*
 - [ ] **Open `week-13/Lab/Program.cs`, and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**

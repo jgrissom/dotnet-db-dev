@@ -685,7 +685,7 @@ dotnet run --no-build --project week-13/Lab
 
 **Click back to the first terminal and press `a`.** `a` puts the hour on air, and the rotation saves right after.
 
-The first line after the `ON AIR` lines names it: **`Microsoft.EntityFrameworkCore.DbUpdateException`**. The first desk was still holding Slack Water in its list, so it tried to save an airing for a cart with no row. **Every airing must have a cart attached to it.** Asking again won't help, and every save from here would fail the same way, so **this answer is stop.**
+The first line after the `ON AIR` lines names it: **`Microsoft.EntityFrameworkCore.DbUpdateException`**. The first desk was still holding Slack Water in its list, so it tried to save an airing for a cart that was deleted. **Every airing must have a cart attached to it.** Asking again won't help, and every save from here would fail the same way, so **this answer is stop.**
 
 **Open `week-13/Lab/Program.cs`. There are two `// TODO — Task 4` comments.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for this one, one hit:
 
