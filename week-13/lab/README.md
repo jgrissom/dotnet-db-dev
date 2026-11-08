@@ -572,7 +572,7 @@ dotnet test week-13/Lab.Tests
 **In `week-13/Lab/Rotation.cs`, `Import` is the last method.** <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 3:`, one hit, finds the comment above it; delete that comment. Under the `List<Song> delivered` line, with a blank line above it, add **a `foreach` that only checks**:
 
 - **`if (song.Seconds < 1)`**, a cart with no length.
-- **`throw new InvalidDataException($"\"{song.Title}\" has no length.");`** — `throw` makes an exception and sends it up. The method stops right there.
+- **`throw new InvalidDataException($"\"{song.Title}\" has no length.");`** — `throw` stops `Import` right there, and hands the problem back to the code that called it: your `TakeDelivery` in `RotationDesk`.
 
 ⚠️ **It has to be its own loop, above the one that adds.** Put the `throw` inside the adding loop and the good carts ahead of the bad one are already in by the time it fires, and my check says so.
 

@@ -97,7 +97,7 @@ A `catch` names the exceptions it's ready for, and anything else goes straight p
 
 ## Throw
 
-`throw` makes an exception and sends it up. The method stops at that line, and the exception travels to whichever caller has a matching `catch`. This goes in `Switchboard.Import`:
+`throw` stops the method at that line and hands the problem back to the code that called it. If that code has no matching `catch`, it goes back to whatever called *that*, and so on. If nothing catches it, the program crashes. This goes in `Switchboard.Import`:
 
 ```csharp
                 throw new InvalidDataException("The list has a blank name on it.");

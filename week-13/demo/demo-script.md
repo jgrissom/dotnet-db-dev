@@ -518,7 +518,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
           }
   ```
 
-- [ ] 📖 **Highlight the `throw new` line:** *"Throw makes an exception and sends it up. This method stops right here. The next lines never run, so nobody gets added."*
+- [ ] 📖 **Highlight the `throw new` line:** *"Throw stops Import right here, and hands the problem back to the code that called it. On the desk, that's TakeDayList in SwitchboardDesk. The next lines never run, so nobody gets added."*
 - [ ] **Run the tests again**
 
   ```bash
