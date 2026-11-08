@@ -272,7 +272,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   ```
 
 - [ ] 💥 **Point at the first line.** It reads `Unhandled exception. System.Text.Json.JsonException:`
-- [ ] 📖 *"A different exception name. This file is there, but it isn't finished. Typing its name again won't fix it, so asking again is the wrong answer. This one is say no."*
+- [ ] 📖 *"A different exception name. This file is there, but it isn't finished. Typing its name again won't fix it, so asking again is the wrong answer. The right answer is to say why the file cannot be parsed - not crash the program."*
 - [ ] **Open `week-13/Lab/SwitchboardDesk.cs`, and search for this line with <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> — one hit:**
 
   ```text
