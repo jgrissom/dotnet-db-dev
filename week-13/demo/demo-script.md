@@ -483,7 +483,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   List<string> names = JsonSerializer
   ```
 
-- [ ] 📖 **Highlight the whole line, then the `foreach` under it, and say what it does now:** *"Right now Import reads the names and adds each one as it comes to it. I need it to look at every name first. If I throw halfway through adding, the good names ahead of the bad one are already in."*
+- [ ] 📖 **Highlight the whole line, then the `foreach` under it, and say what it does now:** *"Import reads the day list and adds each new name to the switchboard. Right now it adds each name as it comes to it, even a blank one. I want it to look at every name first, and refuse the whole file if one is blank. If it stopped halfway through adding, the good names ahead of the blank one would already be in."*
 - [ ] **Click at the end of that `List<string> names` line, press Enter twice, and paste this**
 
   ```csharp
@@ -621,7 +621,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   // TODO — Task 4: if a row is gone
   ```
 
-- [ ] 📖 **Before you change it, say what it does now:** *"Right now nothing catches this, so it goes all the way out of the program. I need a catch around the whole shift, because any key can save."*
+- [ ] 📖 **Before you change it, say what it does now:** *"This is where the whole shift runs. It takes one key after another until I press q, and most keys save something. Right now, if a save fails because a row is gone, the whole program stops with that wall of text. I want the desk to stop with two sentences instead: what happened, and what to do next."*
 - [ ] **Select that one comment line and paste this over it**
 
   ```csharp
@@ -702,7 +702,7 @@ Tonight the desk stops crashing. You work on the **callers**, live, and the stud
   // TODO — Task 4: the desk should say so
   ```
 
-- [ ] 📖 **Before you change it, say what happens there now:** *"Right now the program makes its context here, and the first thing that touches the database is Load, further down. I need to ask first."*
+- [ ] 📖 **Before you change it, say what happens there now:** *"This is where the desk sets up its connection to the database, before anything else happens. Right now it never checks that the database is there, so with no network the first thing I see is that crash. I want it to check first. If it can't reach the database, it should say so in a sentence and stop."*
 - [ ] **Select that one comment line and paste this over it**
 
   ```csharp
