@@ -359,7 +359,7 @@ This is [the lab's Task 3](lab/README.md#task-3-in-full). In your file, a lie is
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
 
-The name in the file is yours, and any name will do. Replace the `?` with `0`.
+The name in the file is yours, and any name will do: it doesn't have to be one on file. The test makes its own empty registry and its own small file, and never touches your database. Replace the `?` with `0`.
 
 ```csharp
     [Fact]
