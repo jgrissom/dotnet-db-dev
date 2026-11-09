@@ -93,6 +93,12 @@ dotnet test Project.Checks
 
 **1 / 5.** The green one is check 1 — weeks 4 through 12 still holding. The other four are this week's.
 
+**Turn last week's log off.** It prints every command your program sends to the database, and this week that buries the messages you're writing. In `Project/ProjectContext.cs`, delete this one line. Nothing is graded on it:
+
+```text
+options.LogTo(Console.WriteLine, LogLevel.Information, DbContextLoggerOptions.None);
+```
+
 **Commit it** — the week as you started it, the same commit the lab's Setup made:
 
 ```bash
@@ -533,9 +539,6 @@ if (?)
 ```bash
 dotnet run --project Project
 ```
-
-> [!NOTE]
-> **The log you turned on last week prints the failed save above your sentence.** That's the log doing its job. Your sentence is still the last thing the program says.
 
 ```bash
 dotnet test Project.Checks
