@@ -236,7 +236,7 @@ using System.Text.Json;
 
 Your `Add` refuses a name already on file, quietly, so `Count - before` is how many were new.
 
-**2. Two files to read in, at the top of your project repo.** Make **`delivery.json`** with this in it, using two names of your own that aren't on file yet:
+**2. Two files to read in, at the top of your project repo**: beside the `Project` and `Project.Checks` folders, **not inside `Project`**. Your program runs from the top of the repo, so that's where it looks for a file you name. Make **`delivery.json`** with this in it, using two names of your own that aren't on file yet:
 
 ```json
 [ "A new name of yours", "Another new name of yours" ]
@@ -431,7 +431,7 @@ dotnet test Project.Tests
             }
 ```
 
-**Make `blank.json` at the top of your project repo, with a good new name and a blank one in it**, then run your program and type `blank.json` at the prompt:
+**Make `blank.json` at the top of your project repo, beside `delivery.json`, with a good new name and a blank one in it**, then run your program and type `blank.json` at the prompt:
 
 ```json
 [ "One more name of yours", "" ]
@@ -620,6 +620,7 @@ Six moments worth saving, written into the parts above: the checks copied in, as
 |---|---|
 | The first check is called `Check1_WeeksFourToElevenStillHold` | You're running **week 12's** checks. [Part 1](#part-1--catch-up-branch-and-bring-in-this-weeks-checks) removes them and copies this week's in — run the `rm` and the `cp`, both. |
 | `CS1525`, `CS1003`, `CS1031` or `CS0839` near a `?` | A `?` from a shape is still there: `if (?)` gives `CS1525: Invalid expression term '?'`, `catch (?)` gives `CS1031: Type expected`, and `Assert.Equal(?, …)` gives `CS0839: Argument missing`. The line above each shape says what goes in its place. |
+| `No file at "delivery.json"` when the file is there | It's inside the `Project` folder. Move it to the top of your project repo, beside `Project` and `Project.Checks`. |
 | `CS0246` … `'JsonException'` | `using System.Text.Json;` is missing from the top of `RegistryDesk.cs`. |
 | `CS0103: The name 'JsonSerializer' does not exist` | `using System.Text.Json;` is missing from the top of `Registry.cs`. |
 | `CS0246` … `'DbUpdateException'` | `using Microsoft.EntityFrameworkCore;` is missing from the top of `Program.cs`. |
