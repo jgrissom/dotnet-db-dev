@@ -4,7 +4,7 @@ It's 4 AM at **KDXR 88.1, "The Owl,"** and the music director wants two new thin
 
 Your job: add both as new columns, in a table that already has rows, **and keep every one of them.** A new column means a new property in the class and a migration that adds it to the table. The migration decides what the carts already there get.
 
-**Time:** tonight's lab comes in short blocks, each one right after the part of the demo it practices. **Target tonight: all three checks green, and the same number of carts at the end as at the start.**
+**Time:** tonight's lab comes in short blocks, each one right after the part of the demo it practices. **Target tonight: all three checks green, and every cart you start with still there at the end.**
 
 > [!IMPORTANT]
 > **Tonight nothing is dropped.** Your lab database carries on from last week, with whatever is in it. The point of the night is that every row survives.
@@ -141,10 +141,10 @@ dotnet run --project week-14/Lab
 3 carts loaded.
 ```
 
-**Count the carts on your screen.** A fresh database shows the three above. If last week's delivery got in, you'll see more. **Whatever your number is, it's the number that has to still be there at the end of the night.**
+**Count the carts on your screen.** A fresh database shows the three above. If last week's delivery got in, you'll see more. **Whatever your number is, every one of those carts has to still be there at the end of the night.**
 
 > [!IMPORTANT]
-> **Your homework lives in your project repo, in its own window** — [`homework.md`](../homework.md) picks up there, and this lab is the worked example for it: tonight the carts get two columns, and the project work gives your own records the same two.
+> **The project work lives in your project repo, in its own window** — [`homework.md`](../homework.md) picks up there, and this lab is the worked example for it: tonight the carts get two columns, and the project work gives your own records the same two.
 
 **Commit that before you change anything** — it's the week exactly as you were handed it, and it makes every later commit obviously *your* work. Source Control view: stage (**+**), paste, **✓ Commit**, **Sync**.
 

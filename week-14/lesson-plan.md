@@ -13,7 +13,7 @@
 
 ## 🎯 The payoff moment — the lab's
 
-**Task 2's red fact, with the same `0` students just read in their migration.** Students read `defaultValue: 0` in their own migration and *don't* run it. Their fact makes the migration and reads its plan: `Expected: 3` / `Actual: 0`. They change one character in a file EF Core wrote, the fact goes green, and only then does the database change. **Then they count their carts, and the number is the one they wrote down in Setup.**
+**Task 2's red fact, with the same `0` students just read in their migration.** Students read `defaultValue: 0` in their own migration and *don't* run it. Their fact makes the migration and reads its plan: `Expected: 3` / `Actual: 0`. They change one character in a file EF Core wrote, the fact goes green, and only then does the database change. **Then they count their carts: every cart from Setup is still there, plus the two they had delivered in Task 1.**
 
 ⚠️ **The earlier one to protect is Task 1's crash.** `Invalid column name 'Added'` is what a class with no migration looks like, and it's the reason the next three commands exist. Let them hit it.
 

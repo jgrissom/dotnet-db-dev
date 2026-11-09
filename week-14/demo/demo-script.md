@@ -172,7 +172,7 @@ Tonight the tables get new columns, and nothing that's already in them is lost. 
   3 on the switchboard.
   ```
 
-- [ ] 📖 **In the terminal, highlight `3 on the switchboard.`:** *"Three callers on my switchboard: Dorothy, Bex and Teodoro. Count your own carts. Whatever your number is, it has to be the same at the end of the night."*
+- [ ] 📖 **In the terminal, highlight `3 on the switchboard.`:** *"Three callers on my switchboard: Dorothy, Bex and Teodoro. Count your own carts. Whatever your number is, every one of those carts has to still be there at the end of the night."*
 - [ ] **Press `q`.** Silent
 - [ ] **Commit the starter, the same commit the README asks of them**
 
