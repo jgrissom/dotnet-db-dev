@@ -323,7 +323,7 @@ RegistryDesk.Import(registry);
 dotnet run --project Project
 ```
 
-**The wrong path asks again, and `damaged.json` says no and moves on.** No crash. **Then run it once more and type `delivery.json`:** it says `2 new`, and your two new records are in the listing the next time you run it. Run it again with the same file and it says `0 new`, because your `Add` refused them.
+**The wrong path asks again, and `damaged.json` says no and moves on.** No crash. **Then run it once more: Enter at the first prompt, then `delivery.json` at the file prompt.** it says `2 new`, and your two new records are in the listing the next time you run it. Run it again with the same file and it says `0 new`, because your `Add` refused them.
 
 ```bash
 dotnet test Project.Checks
@@ -437,7 +437,7 @@ dotnet test Project.Tests
             }
 ```
 
-**Make `blank.json` at the top of your project repo, beside `delivery.json`, with a good new name and a blank one in it**, then run your program and type `blank.json` at the prompt:
+**Make `blank.json` at the top of your project repo, beside `delivery.json`, with a good new name and a blank one in it**, then run your program. Press Enter at the first prompt, the one that takes a record off, then type `blank.json` at the file prompt:
 
 ```json
 [ "One more name of yours", "" ]
