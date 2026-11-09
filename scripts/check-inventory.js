@@ -82,6 +82,16 @@ const DELIBERATE = {
   // Week 13 was built new on 2026-11-01: four lab tasks, one answer each.
   '13': {
     'csharp fences (lab) ⚠️eyes': "four are collapsed 'Stuck? Show me the shape' blocks; the visible six are syntax and setup shown openly, and Task 4's are the top-level lines the instructor just wrote, since Program.cs can't be pushed",
+  },  // Week 14 was built new on 2026-11-08: two lab tasks (a column nobody knows,
+  // a column everybody knows), because the second half of the night is the
+  // students' own projects. Nothing is collected.
+  '14': {
+    'notes links (lab)':      "two tasks, not four; every week-14 notes section is linked from the lab or the project work",
+    'commit messages (lab)':  "two tasks, not four: the starter commit, then one per task",
+    'bold in-full links':     "two tasks, not four",
+    '**Check:** lines':       "two tasks, not four",
+    'dotnet run (lab)':       "two tasks, not four; each runs the desk before its migration, after it, and once more with new rows",
+    'dotnet test (lab)':      "two tasks, not four; the checks after each task, and the suite red then green in Task 2",
   },
 }
 

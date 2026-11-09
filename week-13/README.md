@@ -34,4 +34,4 @@ Every crash in this course has been a surprise, and this week they happen on pur
 - ⚠️ **Delete `week-13/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
 - 💡 **Type your database name in the Database box at the top of the published cue sheet** — every mention on the page changes, including what the Copy buttons hand you
 
-**Prev:** [Week 12 — EF Core III: One Caller, Many Requests](../week-12/) · **Next:** Week 14 *(coming)*
+**Prev:** [Week 12 — EF Core III: One Caller, Many Requests](../week-12/) · **Next:** [Week 14 — The Old Carts](../week-14/)

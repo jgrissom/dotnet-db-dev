@@ -231,4 +231,4 @@ Most of the crashes you've had were fixed by **asking first**. The ones this wee
 | `Assert.Equal` fails after `Assert.Throws` passed | It threw, but it had already added something. Check first, in a loop of its own |
 | A `catch` that never runs | The name doesn't match what's thrown. Read the name off the `Unhandled exception` line |
 
-**Prev:** [Week 12 — EF Core III](../week-12/lecture-notes.md) · **Next:** Week 14 *(coming)*
+**Prev:** [Week 12 — EF Core III](../week-12/lecture-notes.md) · **Next:** [Week 14 — The Old Carts](../week-14/lecture-notes.md)
