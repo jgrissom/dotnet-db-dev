@@ -534,7 +534,13 @@ if (?)
 
 </details>
 
-**Turn your wifi off and run your program.** It waits about fifteen seconds, then prints your sentence. **Turn your wifi back on**, and run it once more.
+**Turn your wifi off and run your program.** It waits about fifteen seconds, then prints your sentence.
+
+```bash
+dotnet run --project Project
+```
+
+⚠️ **Turn your wifi back on now**, before you go on. The checks don't need it, but your push in Part 3 does. Run your program once more to prove it's back:
 
 ```bash
 dotnet run --project Project
