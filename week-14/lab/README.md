@@ -210,7 +210,7 @@ Every task tells you exactly what to write and the syntax you need. **Putting it
 
 **Check:** `Check2_ACartHasAnAddedDate`
 
-**Open `week-14/Lab/Song.cs`. Its `// TODO — Task 1` comment sits under `Seconds`** — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 1:` finds it, one hit. Replace the comment's two lines with the property:
+**1. Two members on the cart.** Open `week-14/Lab/Song.cs`. Its `// TODO — Task 1` comment sits under `Seconds` — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 1:` finds it, one hit. Replace the comment's two lines with the property:
 
 ```csharp
     public DateTime? Added { get; private set; }
@@ -219,14 +219,6 @@ Every task tells you exactly what to write and the syntax you need. **Putting it
 **The `?` lets it hold nothing.** That is the true answer for every cart already in your table: nobody wrote it down.
 
 **Then, under it, a method of your own: `public string AddedOn()`**, the same shape as `LastAired()` further down the file. If `Added == null`, `return "-";`, and otherwise **`return Added.Value.ToString("yyyy-MM-dd");`**
-
-**Then, in the constructor at the bottom, one line under `Seconds = seconds;`:**
-
-```csharp
-        Added = DateTime.Now;
-```
-
-Every cart made from tonight on gets a date the moment it is made. The old ones never pass through here again, because they come out of the table.
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>
@@ -249,7 +241,15 @@ In place of the `// TODO — Task 1` comment:
 
 </details>
 
-**Now the carts screen.** Open `week-14/Lab/Program.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 1:`, one hit, and delete that one comment line. Two edits under it, both shown here because they are the same for any column:
+**2. Stamp it in the constructor.** Still in `Song.cs`, in the constructor at the bottom, one line under `Seconds = seconds;`:
+
+```csharp
+        Added = DateTime.Now;
+```
+
+Every cart made from tonight on gets a date the moment it is made. The old ones never pass through here again, because they come out of the table. **Skip this line and the new carts you deliver below show a dash too.**
+
+**3. Now the carts screen.** Open `week-14/Lab/Program.cs` and <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 1:`, one hit, and delete that one comment line. Two edits under it, both shown here because they are the same for any column:
 
 - **The column.** Search for this line, one hit, select it, and paste the two lines below over it. ⚠️ The `;` moves down to the new last line:
 
