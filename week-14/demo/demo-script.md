@@ -636,7 +636,7 @@ Tonight the tables get new columns, and nothing that's already in them is lost. 
 
 ## Lab D · Your own project — 45 minutes
 
-- [ ] **Lids up. The project work in the browser, at *Part 1*.** Everyone switches to their project repo's window
+- [ ] **Lids up. The project work in the browser: *Part 1*, then both tasks in *Part 2*.** Everyone switches to their project repo's window. *Part 3* waits for Lab E
 - [ ] 📖 *"Now your own project. Nothing tonight is graded, and nothing goes in Canvas. It's the same two columns, on your own records. And this is the database with your real records in it, so you're doing it here, with me in the room."*
 - [ ] 📖 *"Before anything else, count your rows. Part 1 says how. That's the number you check after each migration."*
 - [ ] 🎯 **Circulating: ask each person to show you their migration's `Up` before they run `update`.** That is the one moment this block exists for
@@ -659,7 +659,7 @@ Tonight the tables get new columns, and nothing that's already in them is lost. 
 
 ## Lab E · The week 16 runway — 53 minutes
 
-- [ ] **Lids up. The project work, at *Part 3*.**
+- [ ] **Lids up. The project work: *Part 3*, then the pull request in *Part 4*.** Anyone still on Part 2 finishes that first
 - [ ] 🎯 **Circulating:** a clean clone that won't build is the best thing to find tonight. Usually it's a file that was never committed
 - [ ] 🎯 **Anyone behind on an earlier week:** a check that's still red is worth fixing now. Week sixteen runs the whole program
 - [ ] ⚠️ **Stop at 3:40 on the timing table, wherever the room is.** Whatever is left finishes at home
