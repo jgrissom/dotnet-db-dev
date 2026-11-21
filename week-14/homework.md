@@ -424,4 +424,4 @@ git pull
 | `MSB1003: Specify which project` | You're in the wrong window. This page runs from your **project** repo's window; the lab runs from the coursework one. |
 | An error that isn't in this table | [The notes' troubleshooting list](lecture-notes.md#-troubleshooting) has more of them. |
 
-**Prev:** [Week 14 Lab — The Old Carts](lab/README.md) · **Next:** Week 15 *(coming)*
+**Prev:** [Week 14 Lab — The Old Carts](lab/README.md) · **Next:** [Week 15 — The Running Order](../week-15/)

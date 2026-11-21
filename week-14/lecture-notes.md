@@ -242,4 +242,4 @@ Week 16 you present your project for 40 points: four parts, 10 points each.
 | `Sequence contains no matching element` | `Single(...)` found nothing. The column name in the test doesn't match the migration. |
 | A file changed after `migrations remove`: `…ModelSnapshot.cs` | `(string)null` added to each `ToTable`. Same meaning. Commit it. |
 
-**Prev:** [Week 13 — Exceptions](../week-13/lecture-notes.md) · **Next:** Week 15 *(coming)*
+**Prev:** [Week 13 — Exceptions](../week-13/lecture-notes.md) · **Next:** [Week 15 notes](../week-15/lecture-notes.md)

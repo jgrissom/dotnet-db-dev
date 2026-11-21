@@ -32,4 +32,4 @@ Students have records in their own databases now, and this week they change the 
 - ⚠️ **Delete `week-14/` from the demo repo if you've rehearsed** — you copy it in fresh, with the room
 - 💡 **Type your database name in the Database box at the top of the published cue sheet** — every mention on the page changes, including what the Copy buttons hand you
 
-**Prev:** [Week 13 — Exceptions: Four Answers](../week-13/) · **Next:** Week 15 *(coming)*
+**Prev:** [Week 13 — Exceptions: Four Answers](../week-13/) · **Next:** [Week 15 — The Running Order](../week-15/)

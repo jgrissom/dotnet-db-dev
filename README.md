@@ -36,7 +36,7 @@ You meet the problem in **week 3** — add three records, quit, run it again, th
 | 12 | EF Core III: a second related table, navigation properties, LINQ that runs *as SQL* | The query executes inside the database, not inside your program — and the log proves it | [`week-⁠12/`](week-12/) | ✅&nbsp;Ready |
 | 13 | Exceptions and defensive code — the file is missing, the row is gone, the input lies | Every crash you've had since week 1, reproduced on purpose and handled | [`week-⁠13/`](week-13/) | ✅&nbsp;Ready |
 | 14 | Schema evolution: additive migrations against live data. Polish and catch-up | Add a column to a table that already has rows, and keep every one of them | [`week-⁠14/`](week-14/) | ✅&nbsp;Ready |
-| 15 | ⚡ **Flex week** — team git: branch, pull request, code review, merge conflict. In class, on a throwaway repo, **ungraded**. *In a 15-week semester, this is the week that gets dropped* | Two people, one file, one conflict — resolved in front of everybody | `week-⁠15/` | 🚧&nbsp;Planned |
+| 15 | ⚡ **Flex week** — team git on a plain text file: when two changes merge by themselves, conflicts finished by hand, a rejected push, pull requests from forks, and a review. In class, on a practice repo of your own and one shared repo, **ungraded**. *In a 15-week semester, this is the week that gets dropped* | Every pull request in the room lands in one file, and the two that changed the same line get resolved in front of everybody | [`week-⁠15/`](week-15/) | ✅&nbsp;Ready |
 | 16 | Final project presentations *(individual)* | Somebody's project is playable | `week-⁠16/` | 🚧&nbsp;Planned |
 
 > [!IMPORTANT]

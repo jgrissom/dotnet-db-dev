@@ -93,6 +93,15 @@ const DELIBERATE = {
     'dotnet run (lab)':       "two tasks, not four; each runs the desk before its migration, after it, and once more with new rows",
     'dotnet test (lab)':      "two tasks, not four; the checks after each task, and the suite red then green in Task 2",
   },
+  // Week 15 is the flex week: team git on a plain text file. No C#, no checks, no homework, and
+  // nothing collected. Its evidence is the file and `git log --graph --oneline`.
+  '15': {
+    'notes links (homework)': "no homework.md: nothing is collected, and the lab README carries the whole solo path",
+    'commit messages (lab)':  "the lab's commits are the running order's own (\"teodoro's request\"), in a practice repo, not `week 15 lab:`",
+    '**Check:** lines':       "no checks: there is no C#; the evidence is the file and git log --graph",
+    'dotnet run (lab)':       "no C# to run",
+    'dotnet test (lab)':      "no C#, so no checks to test",
+  },
 }
 
 const read = f => { try { return fs.readFileSync(f, 'utf8') } catch { return null } }
