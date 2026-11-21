@@ -146,7 +146,7 @@ git fetch origin pull/2/head:closer-two
 git merge --no-edit closer-two
 ```
 
-GitHub keeps every pull request's commits at `pull/<number>/head`, even when they come from someone's fork. That's why the second way works on a pull request from a fork: the person merging can't push to the fork, but they can fetch its commits by the number.
+GitHub keeps every pull request's commits at `pull/<number>/head`, even when they come from someone's fork. That's why the second way works on a pull request from a fork too: the person merging fetches its commits by the number, wherever they came from.
 
 ## Reviewing your own pull request
 

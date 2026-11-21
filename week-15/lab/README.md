@@ -280,7 +280,7 @@ To https://github.com/YOUR-NAME/running-order.git
 > [!NOTE]
 > **Did an editor open, with a message about a merge?** You merged without `--no-edit`. The editor is asking for the merge's message, and git waits until it closes. In VS Code, close the tab. In a terminal editor (a screen full of `~` lines), type `:q` and press <kbd>Enter</kbd>. ([More on the merge message](../lecture-notes.md#the-merge-message-and---no-edit).)
 
-> **In class, stop here.** Task 2 comes after the next part of the demo. Finished early? Try it with your own lines: a branch that changes line 2, another that changes line 4, and merge both. Working at home? Carry straight on.
+> **In class, stop here.** Task 2 comes after the next part of the demo. Finished early? Open your repo on GitHub and click **Commits**: the two requests and the merge are there. Don't merge anything else into `main` yet: Task 2 needs the file exactly as it is now. Working at home? Carry straight on.
 
 ### Task 2 in full
 
@@ -452,7 +452,7 @@ git push
 > [!NOTE]
 > **Want to stop and start the merge again?** Before you commit, `git merge --abort` puts the file back the way it was before `git merge --no-edit pham`.
 
-> **In class, stop here.** Task 3 comes after the break and the next part of the demo. Finished early? Read *Which changes git can put together* again, then predict: would line 2 against line 4 conflict? Try it on two new branches. Working at home? Carry straight on.
+> **In class, stop here.** Task 3 comes after the break and the next part of the demo. Finished early? Read *Which changes git can put together* again, and predict: would changes to line 2 and line 4 conflict? Keep the prediction; [*Now try to break it*](#now-try-to-break-it) tests it after Task 4. Working at home? Carry straight on.
 
 ### Task 3 in full
 
@@ -562,7 +562,7 @@ git log --graph --oneline
 
 `Update running-order.txt` is the commit you made on GitHub. That's GitHub's message when you don't write one.
 
-> **In class, stop here.** Next is the shared running order, with the whole room: [*In class: the shared running order*](#in-class-the-shared-running-order). Finished early? Try the first item in [*Now try to break it*](#now-try-to-break-it). Working at home? Skip that section and go straight to [Task 4](#task-4-in-full).
+> **In class, stop here.** Next is the shared running order, with the whole room: [*In class: the shared running order*](#in-class-the-shared-running-order). Finished early? On GitHub, click **Commits** on your repo and find `Update running-order.txt`, the commit you made in the browser. Working at home? Skip that section and go straight to [Task 4](#task-4-in-full).
 
 ## In class: the shared running order
 
@@ -734,7 +734,9 @@ Working alone? Do all three, and give it out loud to your screen.
 
 ## Now try to break it
 
-- Make two branches that change **line 3 and line 5**, and predict before you merge: is one unchanged line between them enough?
+Do these after Task 4. Each one changes `main`, and the tasks need the file exactly as each one leaves it.
+
+- Make two branches that change **line 2 and line 4**, and predict before you merge: is one unchanged line between them enough? Then try **line 3 and line 4**.
 - Start a merge that conflicts, then `git merge --abort`. Run `git status`: the conflict is gone, and so is the merge.
 - Finish a conflict with **Accept Both Changes**, look at the file, and count the songs. Then undo it with <kbd>⌘Z</kbd> / <kbd>Ctrl+Z</kbd> and do it by hand.
 

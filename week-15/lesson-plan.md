@@ -44,7 +44,7 @@ By the end of this session, students can:
 The first two hours are chunked like weeks 8 to 14: each demo segment is followed by the lab task that practices it. **The instructor shows each case on their own `running-order` with one pair of callers; students do it on theirs with a different pair and different lines**, so the lab is the same move rather than a copy.
 
 - **Lab E is the shared running order.** Students fork `kdxr-tonight` and open a pull request from their fork; the instructor merges on the projector, reviews one line of one pull request, and finishes the one conflict. **Task 4 in the lab is the same session in a student's own repo**, for anyone working alone.
-- **Lab F is practice for week 16**, on their own projects, with the three steps on slide 6.
+- **Lab F is practice for week 16**, on the students' own projects, with the three steps on slide 6.
 - **Every lab block ends at an "In class, stop here" note** in the README.
 
 ## Timed agenda
@@ -72,7 +72,7 @@ The first two hours are chunked like weeks 8 to 14: each demo segment is followe
 
 ## Instructor notes
 
-- ⚠️ **Every merge in the sheet is `git merge --no-edit`, and every pull is `git pull --no-rebase`.** Without `--no-edit`, a merge run in a terminal opens an editor for its message and waits. Without `--no-rebase`, `git pull` on diverged branches refuses on any machine with no pull setting, and most have none.
+- ⚠️ **Every merge in the sheet is `git merge --no-edit`, and every pull is `git pull --no-rebase`.** Without `--no-edit`, a merge run in a terminal opens an editor for its message and waits. Without `--no-rebase`, `git pull` on diverged branches refuses on any machine with no pull setting, and a stock Mac has none.
 - ⚠️ **§3's *Accept Both Changes* is on purpose, and it is undone right away** with <kbd>⌘Z</kbd> / <kbd>Ctrl+Z</kbd>. Look at the ten songs before you undo.
 - ⚠️ **Lab E: leave the second slot-20 pull request until last.** Merge the first one as soon as it arrives. If two other students pick the same slot by mistake, that's a second conflict, and it's the same fix.
 - **Lab E's review beat needs one student to answer from their fork.** Pick someone whose pull request arrived early, so the answer has time to arrive.
@@ -90,4 +90,4 @@ The first two hours are chunked like weeks 8 to 14: each demo segment is followe
 | Someone commits a file with `<<<<<<<` still in it | Git doesn't check. Delete the markers, save, `git add`, commit again |
 | A shared pull request changes a station ID line, or several slots | Comment on it, ask for a fixing commit, or close it and ask for a new one. Merging it can make the next ones conflict |
 | GitHub or the network is slow | Anyone who can't fork does Task 3 again or Task 4. Show the conflict on your own `running-order`: two branches, line 1 on both. Branches, merges and conflicts need no network; only clone, push and pull do |
-| Fewer than two volunteers for slot 20 | Make the second slot-20 change yourself: in `kdxr-tonight` on GitHub, the pencil on `running-order.txt`, change slot 20, **Create a new branch for this commit and start a pull request**, **Propose changes**. Open it after the volunteer's is merged |
+| Fewer than two volunteers for slot 20 | Make the second slot-20 change yourself: in `kdxr-tonight` on GitHub, the pencil on `running-order.txt`, change slot 20, **Create a new branch for this commit and start a pull request**, **Propose changes**, **Create pull request**. Merge the volunteer's first and yours last |
