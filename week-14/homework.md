@@ -347,6 +347,8 @@ That runs `EveryRecordGetsStars` backward: the `Stars` column comes off, and eve
 
 📖 *Further reading:* [a column everybody knows](lecture-notes.md#a-column-everybody-knows) · [a test that reads a migration](lecture-notes.md#a-test-that-reads-a-migration) · [taking a migration back](lecture-notes.md#taking-a-migration-back).
 
+> **In class, stop here.** Part 3 comes after the next part of the demo. Finished early? In the **SQL Server** view, right-click your table → **Select Top 1000**: your old records say `NULL` in `Added` and `3` in `Stars`. Working at home? Carry straight on.
+
 ---
 
 ## Part 3 — The week 16 runway
