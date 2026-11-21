@@ -254,7 +254,7 @@ Tonight the tables get new columns, and nothing that's already in them is lost. 
               $"[{Dim}]{caller.FirstCall()}[/]");
   ```
 
-- [ ] 📖 *"The class has a new property, and the table doesn't have a column for it yet. A migration adds it."*
+- [ ] 📖 *"The Caller class has a new property, but the Callers table in the database doesn't have a column for it yet. A migration adds that column."*
 - [ ] **Write the migration**
 
   ```bash
