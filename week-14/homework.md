@@ -395,7 +395,11 @@ explorer ..
 
 **Then move `clean-check` to the Trash (Mac) or the Recycle Bin (Windows).** Leave your project folder alone; it's the one beside it.
 
-**3. Three notes in your `README.md`.** Open it in your project, and add three headings with a line or two under each:
+**3. Three notes in a `README.md`.** You probably don't have one yet: week 4 made your repo empty, and nothing since has added one. **It goes at the top of your project repo**, beside `Project` and `.gitignore`, not inside `Project`. GitHub shows it on your repo's front page.
+
+**Make it in VS Code's Explorer:** right-click the empty space below your folders → **New File** → type `README.md` → Enter. *(Already have one at the top? Open that instead.)*
+
+Paste these three headings, then write a line or two under each:
 
 ```markdown
 ## What it does
