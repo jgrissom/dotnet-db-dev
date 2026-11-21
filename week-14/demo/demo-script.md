@@ -132,8 +132,7 @@ Tonight the tables get new columns, and nothing that's already in them is lost. 
 
 - [ ] **Slide 1 is already up as the room settles.** It names tonight's theme. Read it to them in one go, then the two lines below
 - [ ] 📖 **Read the slide:** *"Tonight is about changing a table that already has rows in it. We'll add two columns to the switchboard and keep every caller. You'll add two to the carts and keep every cart. Then we take a migration back, before it ever runs. The second half of the night is yours, on your own project."*
-- [ ] 🎯 **Ask for hands, and wait:** *"Who has records in their project's database right now that they typed in themselves?"*
-- [ ] 📖 *"Those are the rows we're keeping tonight. Adding a column is easy. Keeping every row while you do it is the part that needs care."*
+- [ ] 📖 *"Every table we change tonight already has rows in it, and so does the one in your project. Adding a column is easy. Keeping every row while you do it is the part that needs care."*
 
 ---
 
