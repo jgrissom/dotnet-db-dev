@@ -1,6 +1,6 @@
 # Week 14 Project Work — Two Columns of Your Own 🗄️
 
-**Not graded · nothing to submit · done in class, with your instructor in the room**
+**Not graded this week · nothing to submit · it's the project you present in week 16**
 
 > [!NOTE]
 > **Nothing this week is graded, and nothing goes in Canvas.** Week 13's homework was the last one. This is still worth an hour: it's work on the same project you present in week 16, and it's the one change this semester that touches the records already in your database.

@@ -11,7 +11,7 @@ Students have records in their own databases now, and this week they change the 
 | Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck (GFM, one slide per `##`) — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-14/) (arrow keys, `F` for fullscreen) |
 | In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *The old carts* — two new columns on the switchboard in six short segments; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-14/demo/script.html) |
 | In&nbsp;class,&nbsp;between&nbsp;demo&nbsp;segments | 🧪&nbsp;[lab/⁠](lab/) | *The old carts* — 3 checks, 1/3 out of the box, and every cart still there at the end (answer key in the private repo) |
-| In&nbsp;class,&nbsp;second&nbsp;half | 📤&nbsp;[homework.md](homework.md) | *Project work* — the lab again, on your own project, then getting ready for week 16. **Not graded, nothing to submit** |
+| In&nbsp;class,&nbsp;second&nbsp;half | 📤&nbsp;[homework.md](homework.md) | *Project work* — the lab again, on your own project, then getting ready for week 16. **Not graded this week, nothing to submit** — it's the project they present in week 16 |
 
 ## What students walk out with
 
