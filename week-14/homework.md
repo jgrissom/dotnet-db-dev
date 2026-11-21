@@ -118,8 +118,13 @@ This is [the lab's Task 1](lab/README.md#task-1-in-full).
 
 **1. Two members on your record.** Open your record's class — the file in `Project/` named after your topic, the class `NewItem` makes. Directly under its last property, add:
 
-- **`public DateTime? Added { get; private set; }`** — the `?` because nobody wrote down when your existing records went on file.
-- **`public string AddedOn()`**: if `Added == null`, `return "-";`, and otherwise `return Added.Value.ToString("yyyy-MM-dd");`
+```csharp
+    public DateTime? Added { get; private set; }
+```
+
+**The `?` is there because nobody wrote down when your existing records went on file.**
+
+**Then, under it, `public string AddedOn()`**: if `Added == null`, `return "-";`, and otherwise `return Added.Value.ToString("yyyy-MM-dd");`
 
 <details>
 <summary><b>Stuck? Show me the shape</b></summary>

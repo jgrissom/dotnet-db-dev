@@ -210,10 +210,15 @@ Every task tells you exactly what to write and the syntax you need. **Putting it
 
 **Check:** `Check2_ACartHasAnAddedDate`
 
-**Open `week-14/Lab/Song.cs`. Its `// TODO — Task 1` comment sits under `Seconds`** — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 1:` finds it, one hit. Replace the comment's two lines with these two members:
+**Open `week-14/Lab/Song.cs`. Its `// TODO — Task 1` comment sits under `Seconds`** — <kbd>⌘F</kbd> / <kbd>Ctrl+F</kbd> for `Task 1:` finds it, one hit. Replace the comment's two lines with the property:
 
-- **`public DateTime? Added { get; private set; }`** — the `?` lets it hold nothing. That is the true answer for every cart already in your table: nobody wrote it down.
-- **`public string AddedOn()`**, the same shape as `LastAired()` further down the file: if `Added == null`, `return "-";`, and otherwise **`return Added.Value.ToString("yyyy-MM-dd");`**
+```csharp
+    public DateTime? Added { get; private set; }
+```
+
+**The `?` lets it hold nothing.** That is the true answer for every cart already in your table: nobody wrote it down.
+
+**Then, under it, a method of your own: `public string AddedOn()`**, the same shape as `LastAired()` further down the file. If `Added == null`, `return "-";`, and otherwise **`return Added.Value.ToString("yyyy-MM-dd");`**
 
 **Then, in the constructor at the bottom, one line under `Seconds = seconds;`:**
 
