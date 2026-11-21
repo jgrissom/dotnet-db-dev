@@ -214,9 +214,9 @@ using Lab.Migrations;
 
 ### The week 16 runway
 
-Week 16 you present your project for 40 points, in four tens:
+Week 16 you present your project for 40 points: four parts, 10 points each.
 
-| Ten points | What it asks |
+| 10 points | What it asks |
 |---|---|
 | **It runs** | from start to finish, from what's in your repo |
 | **You show it** | what it does, by running it |

@@ -72,9 +72,11 @@ Your class's `= 3` is not in it.
 
 <!-- _footer: '🖥️ Demo §5 · the week 16 runway' -->
 
-## Week sixteen: four tens
+## Week sixteen: the presentation
 
-| Ten points | |
+**40 points: four parts, 10 points each**
+
+| 10 points | |
 |---|---|
 | **It runs** | start to finish, from what's in your repo |
 | **You show it** | what it does |

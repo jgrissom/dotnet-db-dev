@@ -62,7 +62,7 @@ The first half is chunked like weeks 8 to 13: each demo segment is followed by t
 | 1:43 | 7 min | **The warning, and taking it back** *(slide 3, demo §4)*. `[MaxLength(40)]`, the loss-of-data line, `migrations remove`. |
 | 1:50 | 45 min | 🎯 **Lab D: your own project** *(the project work)*. Count the rows, the two columns, read every migration, count again. |
 | 2:35 | 10 min | **☕ Break** |
-| 2:45 | 2 min | **The week 16 runway** *(slide 4, demo §5)*. Four tens; tonight is the first and the third. |
+| 2:45 | 2 min | **The week 16 runway** *(slide 4, demo §5)*. Four parts, 10 points each; tonight is for *it runs* and *one decision*. |
 | 2:47 | 53 min | **Lab E: the runway** — push, a clean clone, three notes in the README, anything red from earlier weeks. |
 | 3:40 | 5 min | **Wrap-up** *(slide 5, demo §6)*. Nothing graded, the branch line, week 16. |
 

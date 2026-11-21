@@ -353,7 +353,7 @@ That runs `EveryRecordGetsStars` backward: the `Stars` column comes off, and eve
 
 ## Part 3 — The week 16 runway
 
-Week 16 you present this project, for **40 points, in four tens** ([the notes have the table](lecture-notes.md#the-week-16-runway)): **it runs** from start to finish · **you show** what it does · **you explain one decision** you made, and why · **you say what's next.** Tonight is for the first and the third.
+Week 16 you present this project, for **40 points: four parts, 10 points each** ([the notes have the table](lecture-notes.md#the-week-16-runway)): **it runs** from start to finish · **you show** what it does · **you explain one decision** you made, and why · **you say what's next.** Tonight is for two of them: making sure it runs, and writing down your decision.
 
 **1. Push your branch**, so GitHub has tonight's work:
 

@@ -651,7 +651,7 @@ Tonight the tables get new columns, and nothing that's already in them is lost. 
 
 ## 5 · The week 16 runway *(slide 4)*
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *Week sixteen: four tens* · *"Week sixteen you present your project, for forty points, in four tens. It runs from start to finish. You show what it does. You explain one decision you made, and why. And you say what you'd do next. The next hour is for the first and the third."*
+- [ ] 🎞️ **GO TO SLIDE 4** — *Week sixteen: the presentation* · *"Week sixteen you present your project, for forty points. That's four parts, ten points each. It runs from start to finish. You show what it does. You explain one decision you made, and why. And you say what you'd do next. The next hour is for two of those: making sure it runs, and writing down your decision."*
 - [ ] 📖 *"First, a clean clone. You clone your own project into a new folder and run it from there, exactly as it is on GitHub. If it runs there, it runs in week sixteen."*
 - [ ] 📖 *"Then three short notes in your README. What it does, one decision and why, and what's next. That's half of your presentation written down tonight."*
 
