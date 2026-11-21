@@ -214,7 +214,7 @@ Tonight the tables get new columns, and nothing that's already in them is lost. 
   ```
 
 - [ ] 📖 **Highlight the `?` in `DateTime?`:** *"The question mark means this can hold nothing at all. That's the true answer for the three callers I already have."*
-- [ ] 📖 **Highlight `return "-";`:** *"And when there's nothing, the screen shows a dash."*
+- [ ] 📖 **Highlight `return "-";`:** *"And when the FirstCalled date/time is null, we return a dash."*
 - [ ] **Search for this line in the same file, one hit — it's in the constructor:**
 
   ```text
