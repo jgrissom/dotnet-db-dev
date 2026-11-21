@@ -4,7 +4,7 @@
 
 Tonight the tables get new columns, and nothing that's already in them is lost. You work on the **callers**, live, and the students work on the **carts**. Each new column is a property in the class, then a migration, then a run that shows the rows are all still there. Then the room spends the second half of the night on their own projects.
 
-> **The shape of the night:** a column nobody knows → a column everybody knows → the warning, and taking a migration back → their own project → the week 16 runway. **Each of the first two demo segments is followed by the lab task that practices it.**
+> **The shape of the night:** a column nobody knows → a column everybody knows → the warning, and taking a migration back → their own project → getting ready for week 16. **Each of the first two demo segments is followed by the lab task that practices it.**
 
 **Total: ~53 minutes of demo, in six short segments, then two lab blocks and two project blocks.** The lesson plan's timing table has the minutes.
 
@@ -649,18 +649,17 @@ Tonight the tables get new columns, and nothing that's already in them is lost. 
 
 ---
 
-## 5 · The week 16 runway *(slide 4)*
+## 5 · Getting ready for week 16 *(slide 4)*
 
-- [ ] 🎞️ **GO TO SLIDE 4** — *Week sixteen: the presentation* · *"Week sixteen you present your project, for forty points. That's four parts, ten points each. It runs from start to finish. You show what it does. You explain one decision you made, and why. And you say what you'd do next. The next hour is for two of those: making sure it runs, and writing down your decision."*
-- [ ] 📖 *"First, a clean clone. You clone your own project into a new folder and run it from there, exactly as it is on GitHub. If it runs there, it runs in week sixteen."*
-- [ ] 📖 *"Then three short notes in a README file at the top of your repo. Most of you don't have one yet, and the project work shows you how to make it. What it does, one decision and why, and what's next. That's half of your presentation written down tonight."*
+- [ ] 🎞️ **GO TO SLIDE 4** — *Week sixteen: the presentation* · *"Week sixteen you present your project, for forty points. That's four parts, ten points each. It runs from start to finish. You show what it does. You explain one decision you made, and why. And you say what you'd do next. The next hour is for writing down what you'll say, and fixing anything still red."*
+- [ ] 📖 *"Three short notes in a README file at the top of your repo. Most of you don't have one yet, and the project work shows you how to make it. What it does, one decision and why, and what's next. That's half of your presentation written down tonight."*
 
 ---
 
-## Lab E · The week 16 runway — 53 minutes
+## Lab E · Getting ready for week 16 — 53 minutes
 
 - [ ] **Lids up. The project work: *Part 3*, then the pull request in *Part 4*.** Anyone still on Part 2 finishes that first
-- [ ] 🎯 **Circulating:** a clean clone that won't build is the best thing to find tonight. Usually it's a file that was never committed
+- [ ] 🎯 **Circulating: ask to read someone's *one decision, and why*.** It's the part of week 16 nobody else can write for them
 - [ ] 🎯 **Anyone behind on an earlier week:** a check that's still red is worth fixing now. Week sixteen runs the whole program
 - [ ] ⚠️ **Stop at 3:40 on the timing table, wherever the room is.** Whatever is left finishes at home
 

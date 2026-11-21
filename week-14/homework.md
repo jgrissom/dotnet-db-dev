@@ -351,9 +351,9 @@ That runs `EveryRecordGetsStars` backward: the `Stars` column comes off, and eve
 
 ---
 
-## Part 3 — The week 16 runway
+## Part 3 — Getting ready for week 16
 
-Week 16 you present this project, for **40 points: four parts, 10 points each** ([the notes have the table](lecture-notes.md#the-week-16-runway)): **it runs** from start to finish · **you show** what it does · **you explain one decision** you made, and why · **you say what's next.** Tonight is for two of them: making sure it runs, and writing down your decision.
+Week 16 you present this project, for **40 points: four parts, 10 points each** ([the notes have the table](lecture-notes.md#getting-ready-for-week-16)): **it runs** from start to finish · **you show** what it does · **you explain one decision** you made, and why · **you say what's next.** Tonight you write down what your project does, one decision and why, and what's next, and you fix anything still red.
 
 **1. Push your branch**, so GitHub has tonight's work:
 
@@ -361,41 +361,7 @@ Week 16 you present this project, for **40 points: four parts, 10 points each** 
 git push -u origin two-columns
 ```
 
-**2. A clean clone.** Your laptop has files GitHub may not. A clean clone has exactly what's in your repo, which is what has to run in week 16. Ask git for your repo's URL:
-
-```bash
-git remote get-url origin
-```
-
-Then clone tonight's branch next to your project, with **your** URL in place of `YOUR-URL`:
-
-```bash
-git clone -b two-columns YOUR-URL ../clean-check
-```
-
-**And run it from there.** Press Enter at every prompt.
-
-```bash
-dotnet run --project ../clean-check/Project
-```
-
-**If it builds and runs, your project runs from GitHub.** It uses the same connection string as your own copy, because the `UserSecretsId` in the `.csproj` came with it. **If it doesn't build**, read the first error: usually a file you never committed. Commit it in your own copy, push, and clone again.
-
-When you're done, **delete the `clean-check` folder.** It's a copy, and nothing of yours is in it. **You won't see it in VS Code's Explorer**, because it sits next to your project folder, not inside it. From the VS Code terminal, open the folder that holds both — in Finder on a Mac:
-
-```bash
-open ..
-```
-
-Or in File Explorer on Windows:
-
-```powershell
-explorer ..
-```
-
-**Then move `clean-check` to the Trash (Mac) or the Recycle Bin (Windows).** Leave your project folder alone; it's the one beside it.
-
-**3. Three notes in a `README.md`.** You probably don't have one yet: week 4 made your repo empty, and nothing since has added one. **It goes at the top of your project repo**, beside `Project` and `.gitignore`, not inside `Project`. GitHub shows it on your repo's front page.
+**2. Three notes in a `README.md`.** You probably don't have one yet: week 4 made your repo empty, and nothing since has added one. **It goes at the top of your project repo**, beside `Project` and `.gitignore`, not inside `Project`. GitHub shows it on your repo's front page.
 
 **Make it in VS Code's Explorer:** right-click the empty space below your folders → **New File** → type `README.md` → Enter. *(Already have one at the top? Open that instead.)*
 
@@ -420,7 +386,7 @@ git commit -m "Notes for the presentation"
 git push
 ```
 
-**4. Anything red from an earlier week?** Fix it now, while your instructor is in the room. Nothing is graded again, but week 16 runs the whole program.
+**3. Anything red from an earlier week?** Fix it now, while your instructor is in the room. Nothing is graded again, but week 16 runs the whole program.
 
 ---
 
@@ -455,8 +421,6 @@ git pull
 | Every old record says `0 stars` | You ran `database update` before you fixed the migration. [Task 2's last box](#task-2-in-full) takes it back. |
 | `Project/Migrations/ProjectContextModelSnapshot.cs` shows as changed after `migrations remove` | `remove` rewrites that file, and writes `ToTable("…", (string)null)` where it said `ToTable("…")`. They mean the same thing. Commit it. |
 | A check in `Project.Checks` went red tonight | Something you changed broke last week's work. The message names it. |
-| `fatal: destination path '../clean-check' already exists and is not an empty directory.` | You cloned before. Open the folder that holds it with `open ..` (Mac) or `explorer ..` (Windows), delete `clean-check`, and clone again. |
-| The clean clone says `Login failed` or can't connect | The clone uses your own connection string, so that's your project's connection, not the clone. Does `dotnet run --project Project` work? |
 | `MSB1003: Specify which project` | You're in the wrong window. This page runs from your **project** repo's window; the lab runs from the coursework one. |
 | An error that isn't in this table | [The notes' troubleshooting list](lecture-notes.md#-troubleshooting) has more of them. |
 

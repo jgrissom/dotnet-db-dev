@@ -212,20 +212,18 @@ using Lab.Migrations;
 
 ⚠️ **And renaming a class can unhook a link without a word.** Rename `Song` to `Cart` and leave `Airing.SongId` alone, and EF Core no longer sees `SongId` as the link to a cart: the migration drops that foreign key and adds a new, empty `CartId`. No warning prints. Every airing would come loose from its cart. **Read the migration.**
 
-### The week 16 runway
+### Getting ready for week 16
 
 Week 16 you present your project for 40 points: four parts, 10 points each.
 
 | 10 points | What it asks |
 |---|---|
-| **It runs** | from start to finish, from what's in your repo |
+| **It runs** | from start to finish |
 | **You show it** | what it does, by running it |
 | **You explain one decision** | something you chose, and why |
 | **You say what's next** | what you'd add or change, given another week |
 
-**A clean clone** is the honest test of the first one: clone your own repo into a new folder and run it from there. It holds exactly what GitHub holds, so a file you never committed shows up as a build error tonight instead of in front of the room. It still finds your connection string, because the `UserSecretsId` in your `.csproj` came with it.
-
-**Your README** is where the other three start. Three headings — *what it does*, *one decision, and why*, *what's next* — and a line or two under each.
+**Your README** is where you start on them. Three headings — *what it does*, *one decision, and why*, *what's next* — and a line or two under each.
 
 ## 🆘 Troubleshooting
 

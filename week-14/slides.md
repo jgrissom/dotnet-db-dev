@@ -32,7 +32,7 @@ style: |
 
 - two new columns on the switchboard, and every caller kept
 - read the migration before you run it, and take one back
-- then your own project, and the week 16 runway
+- then your own project, and getting ready for week 16
 - **your lab:** the same two columns, on the carts
 
 .NET Database Development · Week 14 of 16
@@ -70,7 +70,7 @@ Your class's `= 3` is not in it.
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · the week 16 runway' -->
+<!-- _footer: '🖥️ Demo §5 · getting ready for week 16' -->
 
 ## Week sixteen: the presentation
 
@@ -78,12 +78,12 @@ Your class's `= 3` is not in it.
 
 | 10 points | |
 |---|---|
-| **It runs** | start to finish, from what's in your repo |
+| **It runs** | start to finish |
 | **You show it** | what it does |
 | **You explain one decision** | what you chose, and why |
 | **You say what's next** | given another week |
 
-**Tonight:** a clean clone, and three notes in your README
+**Tonight:** three notes in a README, and anything still red
 
 ---
 

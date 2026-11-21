@@ -1,6 +1,6 @@
 # Week 14 — Lesson Plan
 
-**Topic:** Schema changes against live data. Adding a column to a table that already has rows: a nullable column when nobody knows the old rows' value, and a migration that says the value when everybody does. Reading a migration before running it, and taking one back. Then the room's own projects, and the runway to week 16.
+**Topic:** Schema changes against live data. Adding a column to a table that already has rows: a nullable column when nobody knows the old rows' value, and a migration that says the value when everybody does. Reading a migration before running it, and taking one back. Then the room's own projects, and getting ready for week 16.
 **Session length:** 3h 45m
 
 > **The demo and the lab are both KDXR.** The instructor gives the switchboard two new columns, live. Students give the carts the same two. **Nothing is copied in this week:** a class or a migration from another project would change the student's next migration, so the instructor's files go to the starters repo to be read on GitHub. **Nothing is graded this week, and nothing is collected.**
@@ -27,7 +27,7 @@ By the end of this session, students can:
 4. Pin a migration's default with a test that reads `UpOperations`.
 5. Take a migration back: `migrations remove` before it has run, `database update` with an earlier name after.
 6. Recognize *may result in the loss of data* as a reason to stop and read.
-7. Run their own project from a clean clone.
+7. Write down what their project does, one decision and why, and what's next.
 
 ## Materials
 
@@ -46,7 +46,7 @@ The first half is chunked like weeks 8 to 13: each demo segment is followed by t
 
 - **After §2 and §3 you push to `demo/week-14/` in the starters repo, for reading only.** `Caller.cs`, the migration, and in §3 the test. **Nobody copies them in.** The lab README says why and links the folder.
 - **Every lab block ends at an "In class, stop here" note** in the README.
-- **Lab D is the project work's Tasks 1 and 2, done in class**, because it changes a database that holds the student's real records. **Lab E is the week 16 runway**: a clean clone, three notes in the README, and anything still red from earlier weeks.
+- **Lab D is the project work's Tasks 1 and 2, done in class**, because it changes a database that holds the student's real records. **Lab E is getting ready for week 16**: three notes in a README, and anything still red from earlier weeks.
 
 ## Timed agenda
 
@@ -62,8 +62,8 @@ The first half is chunked like weeks 8 to 13: each demo segment is followed by t
 | 1:43 | 7 min | **The warning, and taking it back** *(slide 3, demo §4)*. `[MaxLength(40)]`, the loss-of-data line, `migrations remove`. |
 | 1:50 | 45 min | 🎯 **Lab D: your own project** *(the project work)*. Count the rows, the two columns, read every migration, count again. |
 | 2:35 | 10 min | **☕ Break** |
-| 2:45 | 2 min | **The week 16 runway** *(slide 4, demo §5)*. Four parts, 10 points each; tonight is for *it runs* and *one decision*. |
-| 2:47 | 53 min | **Lab E: the runway** — push, a clean clone, three notes in the README, anything red from earlier weeks. |
+| 2:45 | 2 min | **Getting ready for week 16** *(slide 4, demo §5)*. Four parts, 10 points each; tonight is the README notes and anything red. |
+| 2:47 | 53 min | **Lab E: getting ready for week 16** — push, three notes in a README, anything red from earlier weeks. |
 | 3:40 | 5 min | **Wrap-up** *(slide 5, demo §6)*. Nothing graded, the branch line, week 16. |
 
 > [!NOTE]
@@ -92,5 +92,4 @@ The first half is chunked like weeks 8 to 13: each demo segment is followed by t
 | A student's `update` says `There is already an object named 'Airings'` | They missed last week's Setup. Setup step 6's box: drop, update, once. |
 | `migrations remove` says `The ConnectionString property has not been initialized` | `remove` checks the database. Their secret isn't set for this id: Setup step 6's box. |
 | A student's own migration has `DropColumn` or `AlterColumn` in it | Stop them before `update`. `dotnet ef migrations remove --project Project`, then look at what changed in the class. |
-| The clean clone won't build | A file was never committed. That's the most useful thing tonight can find. |
 | The network drops | Lab A to Lab C need the server only for `update` and the desk. The checks and the tests need no network. |
