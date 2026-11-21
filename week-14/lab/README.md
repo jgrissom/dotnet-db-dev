@@ -13,7 +13,7 @@ Your job: add both as new columns, in a table that already has rows, **and keep 
 > **Missed a week?** You're not behind. Every file ships finished except the ones the tasks name. If you missed week 11, 12 or 13, Setup step 6 has a box for you.
 
 > [!NOTE]
-> **Tonight your instructor works on the same desk.** You watch the **switchboard** get two new columns, then you do the same to the **carts**. **Nothing to copy in this week.** A class or a migration copied from another project would change your next migration, so your instructor's files are on GitHub to read: [`demo/week-14` in the starters repo](https://github.com/jgrissom/dotnet-db-starters/tree/main/demo/week-14). They appear there during class.
+> **Tonight your instructor works on the same desk.** You watch the **switchboard** get two new columns, then you do the same to the **carts**. **Nothing to copy in this week.** A class or a migration copied from another project would change your next migration, so your instructor's files are on GitHub to read: open [`demo` in the starters repo](https://github.com/jgrissom/dotnet-db-starters/tree/main/demo), then `week-14`. That folder appears during class, with the first push.
 
 ## Setup
 
@@ -587,7 +587,7 @@ None of these has a check.
 
 1. ⭐ **Give an old cart a date by hand.** SQL Server view → New Query: `UPDATE Songs SET Added = '2026-09-01' WHERE Title = 'Nightjar'`. Run the desk and press `t`.
 2. **List your migrations:** `dotnet ef migrations list --project week-14/Lab`. Make one, run the list again, and look for `(Pending)` on the end: that's a migration nobody has run yet.
-3. **Read the switchboard's migrations on GitHub**, in [`demo/week-14`](https://github.com/jgrissom/dotnet-db-starters/tree/main/demo/week-14). Find the `defaultValue` your instructor changed.
+3. **Read the switchboard's migrations on GitHub**, in the starters repo: open [`demo`](https://github.com/jgrissom/dotnet-db-starters/tree/main/demo), then `week-14`. Find the `defaultValue` your instructor changed.
 
 ## 🆘 Stuck?
 
