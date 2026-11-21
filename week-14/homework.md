@@ -381,7 +381,19 @@ dotnet run --project ../clean-check/Project
 
 **If it builds and runs, your project runs from GitHub.** It uses the same connection string as your own copy, because the `UserSecretsId` in the `.csproj` came with it. **If it doesn't build**, read the first error: usually a file you never committed. Commit it in your own copy, push, and clone again.
 
-When you're done, **delete the `clean-check` folder in your file manager.** It sits next to your project folder, not inside it. It's a copy, and nothing of yours is in it.
+When you're done, **delete the `clean-check` folder.** It's a copy, and nothing of yours is in it. **You won't see it in VS Code's Explorer**, because it sits next to your project folder, not inside it. From the VS Code terminal, open the folder that holds both — in Finder on a Mac:
+
+```bash
+open ..
+```
+
+Or in File Explorer on Windows:
+
+```powershell
+explorer ..
+```
+
+**Then move `clean-check` to the Trash (Mac) or the Recycle Bin (Windows).** Leave your project folder alone; it's the one beside it.
 
 **3. Three notes in your `README.md`.** Open it in your project, and add three headings with a line or two under each:
 
@@ -439,7 +451,7 @@ git pull
 | Every old record says `0 stars` | You ran `database update` before you fixed the migration. [Task 2's last box](#task-2-in-full) takes it back. |
 | `Project/Migrations/ProjectContextModelSnapshot.cs` shows as changed after `migrations remove` | `remove` rewrites that file, and writes `ToTable("…", (string)null)` where it said `ToTable("…")`. They mean the same thing. Commit it. |
 | A check in `Project.Checks` went red tonight | Something you changed broke last week's work. The message names it. |
-| `fatal: destination path '../clean-check' already exists and is not an empty directory.` | You cloned before. Delete that folder in your file manager, and clone again. |
+| `fatal: destination path '../clean-check' already exists and is not an empty directory.` | You cloned before. Open the folder that holds it with `open ..` (Mac) or `explorer ..` (Windows), delete `clean-check`, and clone again. |
 | The clean clone says `Login failed` or can't connect | The clone uses your own connection string, so that's your project's connection, not the clone. Does `dotnet run --project Project` work? |
 | `MSB1003: Specify which project` | You're in the wrong window. This page runs from your **project** repo's window; the lab runs from the coursework one. |
 | An error that isn't in this table | [The notes' troubleshooting list](lecture-notes.md#-troubleshooting) has more of them. |
