@@ -381,7 +381,7 @@ dotnet run --project ../clean-check/Project
 
 **If it builds and runs, your project runs from GitHub.** It uses the same connection string as your own copy, because the `UserSecretsId` in the `.csproj` came with it. **If it doesn't build**, read the first error: usually a file you never committed. Commit it in your own copy, push, and clone again.
 
-When you're done, **delete the `clean-check` folder in your file manager.** It's a copy, and nothing of yours is in it.
+When you're done, **delete the `clean-check` folder in your file manager.** It sits next to your project folder, not inside it. It's a copy, and nothing of yours is in it.
 
 **3. Three notes in your `README.md`.** Open it in your project, and add three headings with a line or two under each:
 
