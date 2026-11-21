@@ -334,26 +334,32 @@ dotnet run --project week-14/Lab
 
 **Every cart that was already in your table shows a dash in ADDED.** **Count them:** the same number as Setup step 7. The column is new, and every row is still there.
 
-**Now a new cart. Run the desk: DJ name, then `i`, then this path, then `t`, then `q`.** `i` takes a delivery of carts. **Two new carts come in, with tonight's date.** On a fresh database that makes five:
+**Now a new cart.** `i` takes a delivery of carts, and two new carts come in with tonight's date. **Run the desk:**
 
 ```bash
 dotnet run --project week-14/Lab
 ```
 
+**Type a DJ name, then `i`.** At `Delivery file (Enter to give up):`, paste this path:
+
 ```text
 week-14/deliveries/late-carts.json
 ```
 
+**The desk answers.** On a fresh database that makes five:
+
 ```
   Delivered: 2 new - 5 carts in the rotation.
 ```
+
+**Now `t` for the carts.** The two new ones are at the bottom:
 
 ```
 │ Lantern Hours  │ The Lamplighters │ 3:34   │ 0      │ -           │ 2026-11-24 │
 │ Low Tide Waltz │ Marguerite Vance │ 4:23   │ 0      │ -           │ 2026-11-24 │
 ```
 
-**Every old cart still has its dash.** Your count is your Setup number plus two. *(Ran this delivery already? Then it says `0 new`, because `Import` leaves out a title the rotation already has.)*
+**Every old cart still has its dash.** Your count is your Setup number plus two. *(Ran this delivery already? Then it says `0 new`, because `Import` leaves out a title the rotation already has.)* **Then `q`.**
 
 **Then my checks:**
 
