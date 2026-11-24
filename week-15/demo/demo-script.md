@@ -5,6 +5,8 @@
 Tonight there is no C#. The running order is a plain text file, one song per line, and two people change it at once. You show three cases on your own practice repo, and the students do each one on theirs: changes with a line between them merge by themselves, changes on lines next to each other conflict, and a change on GitHub fights a change on your laptop. Then the whole room sends pull requests to one shared file, and you finish its conflict on the projector. The second half of the night is practice for week 16.
 
 > **The shape of the night:** lines apart → lines next to each other → GitHub against your laptop → the shared running order → practice for week 16. **Each demo segment is followed by the lab block that practices it.**
+>
+> **Two repos tonight, both yours:** your own practice repo **`running-order`** (`jgrissom/running-order`, made with the room in Lab A) for §2 to §4, and the shared **`kdxr-tonight`** (`jgrissom/kdxr-tonight`, made in §0) for §5 and Lab E. Each has its own VS Code window. Your demo repo, `dotnet-db-coursework`, is only where Lab A's clone starts.
 
 **Total: ~53 minutes of demo, in seven short segments.** The lesson plan's timing table has the minutes.
 
@@ -120,6 +122,8 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ## 2 · Lines apart
 
+- [ ] 📂 **Repo: your own `running-order`, in its VS Code window.** The one you made with the room in Lab A, not a student's and not `kdxr-tonight`. §2 to §4 all happen here
+- [ ] 📖 *"I'm working in my own running-order repo, the one I made with you in setup. Yours has the same eight songs."*
 - [ ] 📖 **Open `running-order.txt` and highlight line 2 and line 4:** *"Two callers ring in at once. Dorothy wants line 2 changed, and Ray wants line 4. Each of them makes a change, and somebody has to get both changes into one running order. I'll play both of them, with a branch each."*
 - [ ] **Dorothy's branch:**
 
@@ -226,6 +230,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ## 3 · Lines next to each other *(slides 2–3)*
 
+- [ ] 📂 **Repo: still your own `running-order`, in its VS Code window**, on `main`
 - [ ] 📖 **Highlight lines 7 and 8:** *"Two more requests. Pham's Bakery wants line 7, and the nurse on the 2 AM break wants line 8. Same as before, a branch each."*
 - [ ] **Pham's branch.** Silent from here to the merge: it's the same moves as §2
 
@@ -359,8 +364,9 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ## 4 · GitHub against your laptop *(slide 4)*
 
+- [ ] 📂 **Repo: still your own `running-order`** — its VS Code window for the laptop side, and its GitHub page, `jgrissom/running-order`, for the browser side. Not `kdxr-tonight`
 - [ ] 📖 *"Now the other person isn't a branch on my laptop. The music director edits the running order on GitHub, from the office, and I edit the same line here without pulling first."*
-- [ ] **In the browser, on your `running-order` repo: `running-order.txt` → pencil.** Change **line 3** to this, then **Commit changes…** → leave **Commit directly to the `main` branch** → **Commit changes**:
+- [ ] **In the browser, on `jgrissom/running-order`: `running-order.txt` → pencil.** Change **line 3** to this, then **Commit changes…** → leave **Commit directly to the `main` branch** → **Commit changes**:
 
   ```text
   Long Way Round - The Ferrymen (radio edit)
@@ -440,6 +446,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ## 5 · The shared running order *(slide 5)*
 
+- [ ] 📂 **Repo: now the shared `kdxr-tonight`** — its GitHub page, `jgrissom/kdxr-tonight`. You're done with `running-order` for the night
 - [ ] **Show `jgrissom/kdxr-tonight` in the browser, and open `running-order.txt`**
 - [ ] 📖 **Highlight `01  (open)` and the `-- station ID --` line under it:** *"This is my repo, and it's public. Twenty slots, and every slot has a station ID line under it that nobody changes. That unchanged line is why any two of your slots can merge."*
 - [ ] 🎞️ **GO TO SLIDE 5** — *The shared running order* · *"You can't push to my repo, so you fork it. A fork is a copy that belongs to you. You change your slot on a branch of your fork, and a pull request asks me to take it. I merge every one of them up here, on the projector."*
@@ -459,7 +466,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 - [ ] 📖 **When the author's commit shows up under your comment:** *"That's a review. I asked about a line, and the answer is a commit on the same branch. That commit is part of the pull request now."* Then merge it
 - [ ] 💥 **Last: open the second slot-20 pull request.** GitHub says it has conflicts and won't merge it
 - [ ] 🎯 **Ask, and wait:** *"Every other pull request merged. Why not this one?"* (Both volunteers changed slot 20, and the first one is already in.)
-- [ ] **Finish it on the projector, in the `kdxr-tonight` window.** Bring your clone up to date with every merge:
+- [ ] **Finish it on the projector: switch to the `kdxr-tonight` VS Code window** (opened in §0), not `running-order`. Bring your clone up to date with every merge:
 
   ```bash
   git pull --no-rebase
