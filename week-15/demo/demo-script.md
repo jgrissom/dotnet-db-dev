@@ -70,7 +70,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   ```
 
   Every slot has an unchanged line under it. That's what lets any two students' slots merge with each other
-- [ ] ⚠️ **A clone of `kdxr-tonight` beside your demo repo, open in a VS Code window of its own.** You finish the room's conflict in it tonight. From the terminal of `dotnet-db-coursework`, step out:
+- [ ] ⚠️ **A clone of `kdxr-tonight` beside your demo repo.** You finish the room's conflict in it in Lab E, and nothing before that uses it. From the terminal of `dotnet-db-coursework`, step out:
 
   ```bash
   cd ..
@@ -86,7 +86,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git pull --no-rebase
   ```
 
-  Then **File → New Window → File → Open Folder… → `kdxr-tonight`**, and leave that window in the background
+  No window needed for it until Lab E
 - [ ] ⚠️ **No `running-order` repo on your GitHub, and no `running-order` folder beside your demo repo.** You make both with the room in Lab A
 - [ ] **Signed in to GitHub in the browser you project**, so making a repo and merging pull requests needs no sign-in in front of the room
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
@@ -466,7 +466,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 - [ ] 📖 **When the author's commit shows up under your comment:** *"That's a review. I asked about a line, and the answer is a commit on the same branch. That commit is part of the pull request now."* Then merge it
 - [ ] 💥 **Last: open the second slot-20 pull request.** GitHub says it has conflicts and won't merge it
 - [ ] 🎯 **Ask, and wait:** *"Every other pull request merged. Why not this one?"* (Both volunteers changed slot 20, and the first one is already in.)
-- [ ] **Finish it on the projector: switch to the `kdxr-tonight` VS Code window** (opened in §0), not `running-order`. Bring your clone up to date with every merge:
+- [ ] **Finish it on the projector: open `kdxr-tonight` in a VS Code window of its own** — **File → New Window**, then **File → Open Folder…** → `kdxr-tonight`, the clone from §0. Not `running-order`. Open its terminal with `` Ctrl+` `` and bring your clone up to date with every merge:
 
   ```bash
   git pull --no-rebase

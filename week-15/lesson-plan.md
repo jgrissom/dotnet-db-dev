@@ -35,7 +35,7 @@ By the end of this session, students can:
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-15/demo/script.html))
 - **The instructor demo repo**, `dotnet-db-coursework` — only as the place the terminal starts. Nothing is copied into it tonight
 - ⚠️ **`jgrissom/kdxr-tonight`, public, with twenty open slots** — §0 has the file
-- ⚠️ **A clone of `kdxr-tonight` beside the demo repo, open in a VS Code window of its own**
+- ⚠️ **A clone of `kdxr-tonight` beside the demo repo** — opened in a window of its own only in Lab E
 - **Signed in to GitHub in the projected browser**
 - **Browser tabs on the lab README** (`week-15/lab/README.md` on GitHub) **and on `kdxr-tonight`'s Pull requests tab**
 

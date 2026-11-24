@@ -24,7 +24,7 @@ Team git, on a plain text file. **There is no C# this week, nothing is graded, a
 ## 📋 Before class, don't forget
 
 - ⚠️ **`jgrissom/kdxr-tonight` exists, is public, and has twenty open slots** — the cue sheet's §0 has the file to paste
-- ⚠️ **Your own clone of `kdxr-tonight` beside your demo repo, in a VS Code window of its own** — you finish the room's conflict in it
+- ⚠️ **Your own clone of `kdxr-tonight` beside your demo repo** — you open it in Lab E to finish the room's conflict
 - ⚠️ **No `running-order` repo on your GitHub, and no `running-order` folder beside your demo repo** — you make both with the room
 - ⚠️ **Signed in to GitHub in the browser you project**
 - 💡 **Browser tabs on the lab README and on `kdxr-tonight`'s Pull requests tab**
