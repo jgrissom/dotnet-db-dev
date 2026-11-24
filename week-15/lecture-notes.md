@@ -103,6 +103,27 @@ hint: Waiting for your editor to close the file...
 
 Nothing in this course sets which editor that is, so on many machines it's a terminal editor, a screen of `~` lines that `:q` and <kbd>Enter</kbd> closes. **`git merge --no-edit <branch>` uses git's own message** (`Merge branch 'nurse'`) and opens nothing. A merge that conflicts doesn't ask until you commit, and `git commit -m` gives it the message.
 
+## Checking what you're about to push
+
+After a merge, the file has other people's changes in it as well as yours, and nothing in the file marks which lines are new. **`git diff origin/main`** shows them. `origin/main` is your laptop's record of `main` on GitHub, as of your last push or pull, so the command compares the file you're about to push with the file GitHub has:
+
+```
+@@ -1,7 +1,7 @@
+ Nightjar - The Lamplighters
+-Slack Water - Marguerite Vance
++Evening in Velvet - The Hollis Strings
+ Long Way Round - The Ferrymen
+```
+
+- A line starting with **`-`** (red in the terminal) is the line as GitHub has it.
+- A line starting with **`+`** (green) is the line as you have it.
+- A line starting with a space didn't change. Git shows up to three of those on each side of a change, not the whole file.
+- The `@@ -1,7 +1,7 @@` line says where you are: seven lines starting at line 1, in both versions.
+
+An empty answer means your `main` and GitHub's are the same: there is nothing to push. **More `+` lines than `-` lines after a conflict usually means you kept both sides**, and a song that should have gone is still there.
+
+VS Code's **Source Control** view shows the same red and green, but only for changes you haven't committed yet. After a merge everything is committed, so the view is empty, and `git diff origin/main` is the way to look.
+
 ## Pull is fetch, then merge
 
 `git pull` is two commands: **fetch** GitHub's new commits, then **merge** them into the branch you're on. When only GitHub has new commits, the merge is a fast-forward and nothing can go wrong. When you **both** have new commits, the branches have *diverged*, and plain `git pull` may refuse:

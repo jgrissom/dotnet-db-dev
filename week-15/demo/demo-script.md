@@ -221,6 +221,31 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 - [ ] 📖 **In the terminal, highlight `Merge branch 'ray'`:** *"This time git did make a new commit, the merge commit. Merge branch ray is the message no-edit wrote for it."*
 - [ ] 📖 **In the terminal, drag from `Merge branch 'ray'` down to the `|/` under it:** *"Read it from the bottom. After the running order, the history splits in two, one line for each branch. The merge joins them again."*
+- [ ] 📖 **Before you push:** *"Before I push, I want to see exactly what I'm sending. GitHub still has the running order I started with. git diff origin main compares my main with GitHub's copy, line by line."*
+
+  ```bash
+  git diff origin/main
+  ```
+
+  ```
+  diff --git a/running-order.txt b/running-order.txt
+  index ec5bfbd..0d60004 100644
+  --- a/running-order.txt
+  +++ b/running-order.txt
+  @@ -1,7 +1,7 @@
+   Nightjar - The Lamplighters
+  -Slack Water - Marguerite Vance
+  +Evening in Velvet - The Hollis Strings
+   Long Way Round - The Ferrymen
+  -Lantern Hours - The Lamplighters
+  +Interstate Blue - The Ferrymen
+   Low Tide Waltz - Marguerite Vance
+   Night Ferry - The Ferrymen
+   Quiet Road - The Hollis Strings
+  ```
+
+- [ ] 📖 **In the terminal, highlight the two red lines:** *"Red is a line as GitHub has it. These two are the songs I took out, Slack Water and Lantern Hours."*
+- [ ] 📖 **Highlight the two green lines:** *"Green is a line as I have it. Dorothy's song and Ray's song. Both changes are in main, and nothing else changed. I don't have to remember what the file said before. The diff remembers for me."*
 - [ ] **Push it.** Silent
 
   ```bash
@@ -350,6 +375,28 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   ```
 
 - [ ] 📖 **Highlight `pham and the nurse, both`:** *"The merge commit is the one I made by hand, with my message on it."*
+- [ ] 📖 **Before you push:** *"Same check as last time, before I push. GitHub has Dorothy's and Ray's songs now, because I pushed them. So the only lines that should be different are 7 and 8."*
+
+  ```bash
+  git diff origin/main
+  ```
+
+  ```
+  diff --git a/running-order.txt b/running-order.txt
+  index 0d60004..cfbe9c9 100644
+  --- a/running-order.txt
+  +++ b/running-order.txt
+  @@ -4,5 +4,5 @@ Long Way Round - The Ferrymen
+   Interstate Blue - The Ferrymen
+   Low Tide Waltz - Marguerite Vance
+   Night Ferry - The Ferrymen
+  -Quiet Road - The Hollis Strings
+  -Last Call - The Lamplighters
+  +Morning Bread - The Ovenbirds
+  +Still Awake - The St. Agnes Choir
+  ```
+
+- [ ] 📖 **In the terminal, highlight the two red lines and the two green lines:** *"Two songs out, Quiet Road and Last Call. Two songs in, Pham's and the nurse's. That's the conflict finished the way I wanted, and nothing else changed. If I had kept Accept Both, the file would have ten songs, and the diff would show more green lines than red ones."*
 - [ ] **Push it.** Silent
 
   ```bash

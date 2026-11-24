@@ -267,7 +267,31 @@ git log --graph --oneline
 
 Read it from the bottom up. The two lines split after `tonight's running order` (one per branch) and join again at the merge.
 
-**5. Push it:**
+**5. Check what you're about to push.** GitHub still has the file you pushed in Setup. [`git diff origin/main`](../lecture-notes.md#checking-what-youre-about-to-push) compares your `main` with GitHub's copy, line by line, so you don't have to remember what the file said before:
+
+```bash
+git diff origin/main
+```
+
+```
+diff --git a/running-order.txt b/running-order.txt
+index ec5bfbd..ce97fc1 100644
+--- a/running-order.txt
++++ b/running-order.txt
+@@ -1,6 +1,6 @@
+-Nightjar - The Lamplighters
++Nightjar - The Lamplighters (for Junie)
+ Slack Water - Marguerite Vance
+-Long Way Round - The Ferrymen
++Quiet Ward - The Hollis Strings
+ Lantern Hours - The Lamplighters
+ Low Tide Waltz - Marguerite Vance
+ Night Ferry - The Ferrymen
+```
+
+A red line, starting with `-`, is the line as GitHub has it. A green line, starting with `+`, is the line as you have it. Two lines changed, line 1 and line 3, and line 2 between them didn't. Both requests are in.
+
+**6. Push it:**
 
 ```bash
 git push
@@ -445,7 +469,32 @@ git log --graph --oneline
 
 The merge commit is the one you just made, with your message on it.
 
-**8. Push it:**
+**8. Check what you're about to push.** GitHub has the file as Task 1 left it, so only Bex's line and Pham's line should be different:
+
+```bash
+git diff origin/main
+```
+
+```
+diff --git a/running-order.txt b/running-order.txt
+index ce97fc1..fdb3232 100644
+--- a/running-order.txt
++++ b/running-order.txt
+@@ -2,7 +2,7 @@ Nightjar - The Lamplighters (for Junie)
+ Slack Water - Marguerite Vance
+ Quiet Ward - The Hollis Strings
+ Lantern Hours - The Lamplighters
+-Low Tide Waltz - Marguerite Vance
+-Night Ferry - The Ferrymen
++Harbor Lights - Marguerite Vance
++Two Hundred Rolls - The Ovenbirds
+ Quiet Road - The Hollis Strings
+ Last Call - The Lamplighters
+```
+
+Two songs out and two songs in, and nothing else. If you see more green lines than red ones, a song you meant to delete is still in the file: delete it, save, then `git add` the file and commit again before you push.
+
+**9. Push it:**
 
 ```bash
 git push
