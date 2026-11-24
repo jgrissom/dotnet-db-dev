@@ -124,7 +124,8 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 - [ ] 📂 **Repo: your own `running-order`, in its VS Code window.** The one you made with the room in Lab A, not a student's and not `kdxr-tonight`. §2 to §4 all happen here
 - [ ] 📖 *"I'm working in my own running-order repo, the one I made with you in setup. Yours has the same eight songs."*
-- [ ] 📖 **Open `running-order.txt` and highlight line 2 and line 4:** *"Two callers ring in at once. Dorothy wants line 2 changed, and Ray wants line 4. Each of them makes a change, and somebody has to get both changes into one running order. I'll play both of them, with a branch each."*
+- [ ] 📖 **Open `running-order.txt` and highlight line 2** (click its line number): *"Two callers ring in at once. Dorothy wants line 2 changed."*
+- [ ] 📖 **Highlight line 4:** *"Ray wants line 4. Each of them makes a change, and somebody has to get both changes into one running order. I'll play both of them, with a branch each."*
 - [ ] **Dorothy's branch:**
 
   ```bash
@@ -195,7 +196,9 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   Merge made by the 'ort' strategy.
   ```
 
-- [ ] 📖 **Highlight lines 2 and 4 in the file:** *"Both changes are in. This time main had changed, because Dorothy's line was on it. Git compared both changes with the file they started from. Line 3 sits between them, and nobody touched it, so git put both in by itself."*
+- [ ] 📖 **Highlight line 2 in the file:** *"Dorothy's change is in."*
+- [ ] 📖 **Highlight line 4:** *"And Ray's. This time main had changed, because Dorothy's line was on it. Git compared both changes with the file they started from."*
+- [ ] 📖 **Highlight line 3:** *"Line 3 sits between them, and nobody touched it, so git put both in by itself."*
 - [ ] **Show the history**
 
   ```bash
@@ -212,7 +215,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   * 91d23a6 Initial commit
   ```
 
-- [ ] 📖 **In the terminal, highlight the two lines that split and join:** *"Read it from the bottom. After the running order, the history splits in two, one line for each branch. The merge joins them again."*
+- [ ] 📖 **In the terminal, drag from `Merge branch 'ray'` down to the `|/` under it:** *"Read it from the bottom. After the running order, the history splits in two, one line for each branch. The merge joins them again."*
 - [ ] **Push it.** Silent
 
   ```bash
@@ -231,7 +234,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 ## 3 · Lines next to each other *(slides 2–3)*
 
 - [ ] 📂 **Repo: still your own `running-order`, in its VS Code window**, on `main`
-- [ ] 📖 **Highlight lines 7 and 8:** *"Two more requests. Pham's Bakery wants line 7, and the nurse on the 2 AM break wants line 8. Same as before, a branch each."*
+- [ ] 📖 **Highlight lines 7 and 8** (click line number 7 and drag down to 8): *"Two more requests. Pham's Bakery wants line 7, and the nurse on the 2 AM break wants line 8. Same as before, a branch each."*
 - [ ] **Pham's branch.** Silent from here to the merge: it's the same moves as §2
 
   ```bash
@@ -309,8 +312,8 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 - [ ] 📖 **Highlight `<<<<<<< HEAD` down to `=======`:** *"Git left both versions in the file. This top part is main, the branch I'm on. HEAD always means where I'm standing. Its two lines are Pham's new line 7, and line 8 as it was."*
 - [ ] 📖 **Highlight `=======` down to `>>>>>>> nurse`:** *"This bottom part is the nurse's branch, coming in. It's line 7 as it was, and her new line 8. Each side shows both lines of that piece, the one it changed and the one it didn't."*
-- [ ] 📖 **Highlight the four buttons above the conflict:** *"VS Code offers four buttons here. Accept Both Changes sounds right, because I want both requests. Watch what it does."*
-- [ ] **Click *Accept Both Changes*.** Then highlight `Last Call` and `Quiet Road`
+- [ ] 📖 **Move the mouse slowly along the four buttons above the conflict** (they can't be highlighted; they aren't text): *"VS Code offers four buttons here. Accept Both Changes sounds right, because I want both requests. Watch what it does."*
+- [ ] **Click *Accept Both Changes*.** Then highlight `Last Call - The Lamplighters` and `Quiet Road - The Hollis Strings`: they're now next to each other, so one drag covers both
 - [ ] 📖 *"Ten songs instead of eight. Last Call and Quiet Road are back, and those are the two songs Pham and the nurse asked to replace. Accept Both kept the old lines as well as the new ones."*
 - [ ] **Undo it: <kbd>⌘Z</kbd> / <kbd>Ctrl+Z</kbd>.** The markers come back
 - [ ] 📖 **Before you edit:** *"This is the running order. I want Pham's song on line 7 and the nurse's on line 8, and nothing else changed. So I'll do it by hand. I delete the three marker lines, and I keep the lines I want."*
@@ -396,7 +399,8 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   hint: have locally.
   ```
 
-- [ ] 📖 **In the terminal, highlight `rejected` and `the remote contains work that you do not have locally`:** *"Rejected. GitHub has a commit I don't have, the radio edit. If my push went through, it would throw that commit away, so git won't send it."*
+- [ ] 📖 **In the terminal, highlight `rejected`:** *"Rejected."*
+- [ ] 📖 **Highlight from `the remote contains work` to `have locally`** (it runs onto the next line, so drag across both): *"GitHub has a commit I don't have, the radio edit. If my push went through, it would throw that commit away, so git won't send it."*
 - [ ] 📖 *"The hint says pull. I'm telling pull to merge, with no-rebase. Without that, pull can stop and ask whether to merge or rebase."*
 
   ```bash
@@ -448,7 +452,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 - [ ] 📂 **Repo: now the shared `kdxr-tonight`** — its GitHub page, `jgrissom/kdxr-tonight`. You're done with `running-order` for the night
 - [ ] **Show `jgrissom/kdxr-tonight` in the browser, and open `running-order.txt`**
-- [ ] 📖 **Highlight `01  (open)` and the `-- station ID --` line under it:** *"This is my repo, and it's public. Twenty slots, and every slot has a station ID line under it that nobody changes. That unchanged line is why any two of your slots can merge."*
+- [ ] 📖 **Highlight `01  (open)` and the `-- station ID --` line under it** (one drag; they're next to each other): *"This is my repo, and it's public. Twenty slots, and every slot has a station ID line under it that nobody changes. That unchanged line is why any two of your slots can merge."*
 - [ ] 🎞️ **GO TO SLIDE 5** — *The shared running order* · *"You can't push to my repo, so you fork it. A fork is a copy that belongs to you. You change your slot on a branch of your fork, and a pull request asks me to take it. I merge every one of them up here, on the projector."*
 - [ ] **Give out the slots.** Count off around the room, from 01. Say each number to its person
 - [ ] 🎯 **Ask for two volunteers, and give them both slot 20:** *"You two both write the last song of the night."* Say nothing about why
