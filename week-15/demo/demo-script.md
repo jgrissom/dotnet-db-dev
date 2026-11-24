@@ -145,7 +145,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git commit -m "dorothy's request"
   ```
 
-- [ ] **Back to `main`**
+- [ ] **Back to `main` - Pay attention to line 2!**
 
   ```bash
   git checkout main
