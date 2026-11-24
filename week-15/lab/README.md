@@ -47,7 +47,7 @@ Cloning into 'running-order'...
 
 `running-order` now sits next to `dotnet-db-coursework`, in the same folder as `dotnet-db-starters`.
 
-**3. Open it in a window of its own.** In VS Code: **File → New Window**, then in the new window **File → Open Folder…**, go to the folder that holds `dotnet-db-coursework`, choose **`running-order`** and click **Open**. One window per repo, the same as your project. Open this window's terminal with `` Ctrl+` ``: it opens standing in `running-order`, and **every command from here on runs in this terminal.**
+**3. Open it in a window of its own.** In VS Code: **File → New Window**, then in the new window **File → Open Folder…**, go to the folder that holds `dotnet-db-coursework`, choose **`running-order`** and click **Open**. One window per repo, the same as your project. Open this window's terminal with `` Ctrl+` ``: it opens standing in `running-order`, and **every command from here on runs in this terminal.** You can close the `dotnet-db-coursework` window now: nothing else tonight uses it.
 
 **4. Make the file.** In VS Code's Explorer (the file list on the left of this window), click the **New File** icon next to `RUNNING-ORDER`, type `running-order.txt`, and press <kbd>Enter</kbd>. Paste these eight lines into it, then save with <kbd>⌘S</kbd> / <kbd>Ctrl+S</kbd>:
 

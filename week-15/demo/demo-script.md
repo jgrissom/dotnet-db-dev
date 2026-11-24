@@ -114,7 +114,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git log --oneline
   ```
 
-- [ ] ⚠️ **Every command from here on runs in the `running-order` window's terminal.** Say so once: *"From now on, everything happens in the new window."*
+- [ ] ⚠️ **Every command from here on runs in the `running-order` window's terminal.** Say so once: *"From now on, everything happens in the new window. You can close the coursework window. Nothing else tonight uses it."*
 
 ---
 
