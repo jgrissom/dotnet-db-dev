@@ -184,7 +184,8 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   Fast-forward
   ```
 
-- [ ] 📖 **In the terminal, highlight `Fast-forward`:** *"Main hadn't changed since Dorothy's branch started, so git just moved main up to her commit. No-edit tells git to write the merge's message itself."*
+- [ ] 📖 **In the terminal, highlight `Fast-forward`:** *"Main hadn't changed since Dorothy's branch started, so git just moved main up to her commit. Main now has Dorothy's change, and nothing else. No-edit tells git to write the merge's message itself."*
+- [ ] 📖 **Highlight line 2 in the file:** *"Here's the change to main. Line 2 is Evening in Velvet now, Dorothy's song. Line 4 is still Lantern Hours, because Ray's branch isn't merged yet."*
 - [ ] **Now Ray's**
 
   ```bash
