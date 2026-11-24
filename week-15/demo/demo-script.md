@@ -169,11 +169,14 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git commit -m "ray's request"
   ```
 
-- [ ] **Back to `main`, and merge Dorothy's branch.**
+- [ ] **Back to `main`**
 
   ```bash
   git checkout main
   ```
+
+- [ ] 📖 **Before you merge, say what `--no-edit` is for:** *"A merge that makes a new commit needs a message for it. Without no-edit, git opens an editor and waits for me to type one. No-edit tells git to write the message itself."*
+- [ ] **Merge Dorothy's branch**
 
   ```bash
   git merge --no-edit dorothy
@@ -184,7 +187,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   Fast-forward
   ```
 
-- [ ] 📖 **In the terminal, highlight `Fast-forward`:** *"Main hadn't changed since Dorothy's branch started, so git just moved main up to her commit. Main now has Dorothy's change, and nothing else. No-edit tells git to write the merge's message itself."*
+- [ ] 📖 **In the terminal, highlight `Fast-forward`:** *"Main hadn't changed since Dorothy's branch started, so git just moved main up to her commit. Main now has Dorothy's change, and nothing else. No new commit this time, so there was no message to write."*
 - [ ] 📖 **Highlight line 2 in the file:** *"Here's the change to main. Line 2 is Evening in Velvet now, Dorothy's song. Line 4 is still Lantern Hours, because Ray's branch isn't merged yet."*
 - [ ] **Now Ray's**
 
@@ -216,6 +219,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   * 91d23a6 Initial commit
   ```
 
+- [ ] 📖 **In the terminal, highlight `Merge branch 'ray'`:** *"This time git did make a new commit, the merge commit. Merge branch ray is the message no-edit wrote for it."*
 - [ ] 📖 **In the terminal, drag from `Merge branch 'ray'` down to the `|/` under it:** *"Read it from the bottom. After the running order, the history splits in two, one line for each branch. The merge joins them again."*
 - [ ] **Push it.** Silent
 
