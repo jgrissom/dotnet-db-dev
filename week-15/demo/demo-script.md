@@ -91,7 +91,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 - [ ] **Signed in to GitHub in the browser you project**, so making a repo and merging pull requests needs no sign-in in front of the room
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
 - [ ] 💡 **What *Highlight* means in this sheet:** select what you are talking about, so the back row can see which part you mean. A word: double-click it. A whole line: click its line number in the left margin. **In the terminal**, drag across the words
-- [ ] 💡 **How to change a line tonight:** click at the end of the line, press <kbd>⇧⌘←</kbd> / <kbd>Shift+Home</kbd> to select back to its start, and paste the new line over it. Clicking the line number would select the line break too, and the paste would join two lines
+- [ ] 💡 **How to replace a line tonight:** click at the end of the line, press <kbd>⇧⌘←</kbd> / <kbd>Shift+Home</kbd> to select back to its start, and paste the new line over it. Clicking the line number would select the line break too, and the paste would join two lines
 - [ ] **A browser tab on the lab README** (`week-15/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
 - [ ] **A second browser tab on `jgrissom/kdxr-tonight`'s Pull requests tab**, for Lab E
 - [ ] **Lids down for the demo** — *"Tonight comes in pieces. Lids down while I work, lids up for each lab block in between."*
@@ -132,7 +132,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git checkout -b dorothy
   ```
 
-- [ ] **Change line 2 to this**, and save:
+- [ ] **Replace line 2, `Slack Water - Marguerite Vance`, with this**, and save:
 
   ```text
   Evening in Velvet - The Hollis Strings
@@ -158,7 +158,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git checkout -b ray
   ```
 
-- [ ] **Change line 4 to this**, and save:
+- [ ] **Replace line 4, `Lantern Hours - The Lamplighters`, with this**, and save:
 
   ```text
   Interstate Blue - The Ferrymen
@@ -241,7 +241,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git checkout -b pham
   ```
 
-- [ ] **Change line 7 to this**, save, commit, and go back to `main`:
+- [ ] **Replace line 7, `Quiet Road - The Hollis Strings`, with this**, save, commit, and go back to `main`:
 
   ```text
   Morning Bread - The Ovenbirds
@@ -262,7 +262,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git checkout -b nurse
   ```
 
-- [ ] **Change line 8 to this**, save, commit, and go back to `main`:
+- [ ] **Replace line 8, `Last Call - The Lamplighters`, with this**, save, commit, and go back to `main`:
 
   ```text
   Still Awake - The St. Agnes Choir
@@ -369,13 +369,13 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 - [ ] 📂 **Repo: still your own `running-order`** — its VS Code window for the laptop side, and its GitHub page, `jgrissom/running-order`, for the browser side. Not `kdxr-tonight`
 - [ ] 📖 *"Now the other person isn't a branch on my laptop. The music director edits the running order on GitHub, from the office, and I edit the same line here without pulling first."*
-- [ ] **In the browser, on `jgrissom/running-order`: `running-order.txt` → pencil.** Change **line 3** to this, then **Commit changes…** → leave **Commit directly to the `main` branch** → **Commit changes**:
+- [ ] **In the browser, on `jgrissom/running-order`: `running-order.txt` → pencil.** Replace **line 3**, `Long Way Round - The Ferrymen`, with this, then **Commit changes…** → leave **Commit directly to the `main` branch** → **Commit changes**:
 
   ```text
   Long Way Round - The Ferrymen (radio edit)
   ```
 
-- [ ] **Back to VS Code, on `main`. Change line 3 to Dorothy's second request**, save, and commit:
+- [ ] **Back to VS Code, on `main`. Replace line 3, `Long Way Round - The Ferrymen`, with Dorothy's second request**, save, and commit:
 
   ```text
   Dorothy's Waltz - The Hollis Strings

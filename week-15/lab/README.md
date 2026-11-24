@@ -166,9 +166,9 @@ There are no checks tonight. **The evidence is the file and `git log --graph --o
 git checkout -b teodoro
 ```
 
-**How to change a line, every time tonight:** copy the new line, click at the **end** of the line you're changing, press <kbd>⇧⌘←</kbd> / <kbd>Shift+Home</kbd> to select back to its start, and paste. Don't click the line number to select it: that selects the line break too, and the paste joins two songs into one line. **The file always has eight songs**, so after each change, check that line 8 is still the last song.
+**How to replace a line, every time tonight:** copy the new line, click at the **end** of the line you're changing, press <kbd>⇧⌘←</kbd> / <kbd>Shift+Home</kbd> to select back to its start, and paste. Don't click the line number to select it: that selects the line break too, and the paste joins two songs into one line. **The file always has eight songs**, so after each change, check that line 8 is still the last song.
 
-Change **line 1** to this, and save:
+Replace **line 1**, `Nightjar - The Lamplighters`, with this, and save:
 
 ```text
 Nightjar - The Lamplighters (for Junie)
@@ -193,7 +193,7 @@ Look at line 1: it's `Nightjar - The Lamplighters` again. Teodoro's change is on
 git checkout -b nurse
 ```
 
-Change **line 3** to this, and save:
+Replace **line 3**, `Long Way Round - The Ferrymen`, with this, and save:
 
 ```text
 Quiet Ward - The Hollis Strings
@@ -294,7 +294,7 @@ To https://github.com/YOUR-NAME/running-order.git
 git checkout -b bex
 ```
 
-Change **line 5** to this, and save:
+Replace **line 5**, `Low Tide Waltz - Marguerite Vance`, with this, and save:
 
 ```text
 Harbor Lights - Marguerite Vance
@@ -315,7 +315,7 @@ git checkout main
 git checkout -b pham
 ```
 
-Change **line 6** to this, and save:
+Replace **line 6**, `Night Ferry - The Ferrymen`, with this, and save:
 
 ```text
 Two Hundred Rolls - The Ovenbirds
@@ -464,7 +464,7 @@ git push
 **1. The edit on GitHub.** In your browser, on your `running-order` repo:
 
 - click `running-order.txt`, then the **pencil** (*Edit this file*)
-- change **line 8** to this:
+- replace **line 8**, `Last Call - The Lamplighters`, with this:
 
 ```text
 Last Call - The Lamplighters (radio edit)
@@ -474,7 +474,7 @@ Last Call - The Lamplighters (radio edit)
 
 GitHub's `main` now has a commit your laptop doesn't.
 
-**2. The edit on your laptop.** Back in VS Code, on `main`. Change **line 8** to Ray's request instead, and save:
+**2. The edit on your laptop.** Back in VS Code, on `main`. Replace **line 8**, `Last Call - The Lamplighters`, with Ray's request instead, and save:
 
 ```text
 Mile 240 - The Ferrymen
@@ -605,7 +605,7 @@ You can't push to your instructor's repo, so you **fork** it: GitHub makes a cop
 git checkout -b loud
 ```
 
-Change **line 2** to this, and save:
+Replace **line 2**, `Slack Water - Marguerite Vance`, with this, and save:
 
 ```text
 Ovens On - The Ovenbirds
@@ -641,7 +641,7 @@ git checkout main
 git checkout -b quiet
 ```
 
-Change **line 2** to this, and save:
+Replace **line 2**, `Slack Water - Marguerite Vance`, with this, and save:
 
 ```text
 Slack Water - Marguerite Vance (acoustic)
