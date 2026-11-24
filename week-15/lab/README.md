@@ -101,6 +101,7 @@ ba3db3e tonight's running order
 
 **Your seven-character codes are different.** Every commit gets its own; the messages and the shape are what to look at.
 
+> [!NOTE]
 > **In class, stop here.** Task 1 comes after the next part of the demo. Finished early? Open your repo on GitHub and click `running-order.txt`: the eight songs are there. Working at home? Carry straight on.
 
 ## Where tonight's work happens
@@ -280,6 +281,7 @@ To https://github.com/YOUR-NAME/running-order.git
 > [!NOTE]
 > **Did an editor open, with a message about a merge?** You merged without `--no-edit`. The editor is asking for the merge's message, and git waits until it closes. In VS Code, close the tab. In a terminal editor (a screen full of `~` lines), type `:q` and press <kbd>Enter</kbd>. ([More on the merge message](../lecture-notes.md#the-merge-message-and---no-edit).)
 
+> [!NOTE]
 > **In class, stop here.** Task 2 comes after the next part of the demo. Finished early? Open your repo on GitHub and click **Commits**: the two requests and the merge are there. Don't merge anything else into `main` yet: Task 2 needs the file exactly as it is now. Working at home? Carry straight on.
 
 ### Task 2 in full
@@ -452,6 +454,7 @@ git push
 > [!NOTE]
 > **Want to stop and start the merge again?** Before you commit, `git merge --abort` puts the file back the way it was before `git merge --no-edit pham`.
 
+> [!NOTE]
 > **In class, stop here.** Task 3 comes after the break and the next part of the demo. Finished early? Read *Which changes git can put together* again, and predict: would changes to line 2 and line 4 conflict? Keep the prediction; [*Now try to break it*](#now-try-to-break-it) tests it after Task 4. Working at home? Carry straight on.
 
 ### Task 3 in full
@@ -562,6 +565,7 @@ git log --graph --oneline
 
 `Update running-order.txt` is the commit you made on GitHub. That's GitHub's message when you don't write one.
 
+> [!NOTE]
 > **In class, stop here.** Next is the shared running order, with the whole room: [*In class: the shared running order*](#in-class-the-shared-running-order). Finished early? On GitHub, click **Commits** on your repo and find `Update running-order.txt`, the commit you made in the browser. Working at home? Skip that section and go straight to [Task 4](#task-4-in-full).
 
 ## In class: the shared running order
@@ -588,6 +592,7 @@ You can't push to your instructor's repo, so you **fork** it: GitHub makes a cop
 
 **6. Get everyone's songs into your fork.** After the merges, on your fork's page, click **Sync fork**, then **Update branch**. Open `running-order.txt`: the whole room's running order.
 
+> [!NOTE]
 > **In class, stop here.** After the break, the rest of the night is practice for week 16: [*In class: practice for week 16*](#in-class-practice-for-week-16). Finished early? Start [Task 4](#task-4-in-full) in your own repo, which is the same session on your own. Working at home? Task 4 is next.
 
 ### Task 4 in full
