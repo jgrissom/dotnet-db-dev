@@ -2,7 +2,7 @@
 
 **KDXR 88.1 · the overnight desk · one file, two people, and the room**
 
-Tonight there is no C#. The running order is a plain text file, one song per line, and two people change it at once. You show three cases on your own practice repo, and the students do each one on theirs: changes with a line between them merge by themselves, changes on lines next to each other conflict, and a change on GitHub fights a change on your laptop. Then the whole room sends pull requests to one shared file, and you finish its conflict on the projector. The second half of the night is practice for week 16.
+Tonight there is no C#. The running order is a plain text file, one song per line, and two people at the desk change it at once: the DJ and the producer, each taking calls on a phone line of their own. Callers ask for songs; the desk decides where they go. You show three cases on your own practice repo, and the students do each one on theirs: changes with a line between them merge by themselves, changes on lines next to each other conflict, and a change on GitHub fights a change on your laptop. Then the whole room sends pull requests to one shared file, and you finish its conflict on the projector. The second half of the night is practice for week 16.
 
 > **The shape of the night:** lines apart → lines next to each other → GitHub against your laptop → the shared running order → practice for week 16. **Each demo segment is followed by the lab block that practices it.**
 >
@@ -124,8 +124,8 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 - [ ] 📂 **Repo: your own `running-order`, in its VS Code window.** The one you made with the room in Lab A, not a student's and not `kdxr-tonight`. §2 to §4 all happen here
 - [ ] 📖 *"I'm working in my own running-order repo, the one I made with you in setup. Yours has the same eight songs."*
-- [ ] 📖 **Open `running-order.txt` and highlight line 2** (click its line number): *"Two callers ring in at once. Dorothy wants line 2 changed."*
-- [ ] 📖 **Highlight line 4:** *"Ray wants line 4. Each of them makes a change, and somebody has to get both changes into one running order. I'll play both of them, with a branch each."*
+- [ ] 📖 **Open `running-order.txt` and highlight line 2** (click its line number): *"Two calls come in at once, on the desk's two phone lines. I take Dorothy's. She wants a standard, so I put it on line 2, in place of Slack Water."*
+- [ ] 📖 **Highlight line 4:** *"The producer takes Ray's call on the other line, and puts his song on line 4. That's two people changing one file at the same time. Somebody has to get both changes into one running order. I'll play both of us, with a branch each."*
 - [ ] **Dorothy's branch:**
 
   ```bash
@@ -234,7 +234,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 ## 3 · Lines next to each other *(slides 2–3)*
 
 - [ ] 📂 **Repo: still your own `running-order`, in its VS Code window**, on `main`
-- [ ] 📖 **Highlight lines 7 and 8** (click line number 7 and drag down to 8): *"Two more requests. Pham's Bakery wants line 7, and the nurse on the 2 AM break wants line 8. Same as before, a branch each."*
+- [ ] 📖 **Highlight lines 7 and 8** (click line number 7 and drag down to 8): *"Two more calls. Pham's Bakery wants something loud, and it goes on line 7. The nurse on her 2 AM break wants something quiet, and it goes on line 8. Same as before, a branch each."*
 - [ ] **Pham's branch.** Silent from here to the merge: it's the same moves as §2
 
   ```bash
@@ -314,7 +314,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 - [ ] 📖 **Highlight `=======` down to `>>>>>>> nurse`:** *"This bottom part is the nurse's branch, coming in. It's line 7 as it was, and her new line 8. Each side shows both lines of that piece, the one it changed and the one it didn't."*
 - [ ] 📖 **Move the mouse slowly along the four buttons above the conflict** (they can't be highlighted; they aren't text): *"VS Code offers four buttons here. Accept Both Changes sounds right, because I want both requests. Watch what it does."*
 - [ ] **Click *Accept Both Changes*.** Then highlight `Last Call - The Lamplighters` and `Quiet Road - The Hollis Strings`: they're now next to each other, so one drag covers both
-- [ ] 📖 *"Ten songs instead of eight. Last Call and Quiet Road are back, and those are the two songs Pham and the nurse asked to replace. Accept Both kept the old lines as well as the new ones."*
+- [ ] 📖 *"Ten songs instead of eight. Last Call and Quiet Road are back, and those are the two songs we took out to make room for Pham's and the nurse's requests. Accept Both kept the old lines as well as the new ones."*
 - [ ] **Undo it: <kbd>⌘Z</kbd> / <kbd>Ctrl+Z</kbd>.** The markers come back
 - [ ] 📖 **Before you edit:** *"This is the running order. I want Pham's song on line 7 and the nurse's on line 8, and nothing else changed. So I'll do it by hand. I delete the three marker lines, and I keep the lines I want."*
 - [ ] **Delete the three marker lines, `Last Call - The Lamplighters`, and `Quiet Road - The Hollis Strings`.** Save. The last two lines are:

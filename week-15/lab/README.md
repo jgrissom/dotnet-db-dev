@@ -1,6 +1,6 @@
 # Week 15 Lab — The Running Order 📻
 
-It's 3 AM at **KDXR 88.1, "The Owl,"** and the night's songs live in one plain text file, `running-order.txt`, **one song per line**. Callers ring in, and each request changes a line. Tonight two people change that file at the same time, over and over, and you find out when git can put their two changes together by itself, when it can't, and how you finish the job by hand.
+It's 3 AM at **KDXR 88.1, "The Owl,"** and the night's songs live in one plain text file, `running-order.txt`, **one song per line**. Callers phone in requests, and two people at the desk take the calls, the DJ and the producer, on two phone lines. Each one fits a request in by replacing a song. The callers never see the file. Tonight you play both people at the desk, and the two of them change that file at the same time, over and over, and you find out when git can put their two changes together by itself, when it can't, and how you finish the job by hand.
 
 There is no C# tonight. The file is plain text on purpose: git compares files **line by line**, and a file with one song per line lets you see exactly what it is comparing. ([Why one song per line](../lecture-notes.md#why-one-song-per-line).)
 
@@ -158,7 +158,7 @@ There are no checks tonight. **The evidence is the file and `git log --graph --o
 
 ### Task 1 in full
 
-**Two requests, on lines 1 and 3. Line 2 sits between them, and nobody touches it.** Teodoro wants line 1 dedicated to Junie, and the nurse on the 2 AM break at St. Agnes wants line 3 changed.
+**Two requests, on lines 1 and 3. Line 2 sits between them, and nobody touches it.** Teodoro calls to dedicate a song to Junie, so line 1 gets his dedication. On the other phone line, the nurse on the 2 AM break at St. Agnes asks for something quiet, and it goes on line 3.
 
 **1. Teodoro's request, on a branch of its own:**
 
@@ -286,7 +286,7 @@ To https://github.com/YOUR-NAME/running-order.git
 
 ### Task 2 in full
 
-**Two requests, on lines 5 and 6. They are next to each other.** Bex wants line 5 (she only ever asks for Marguerite Vance), and Pham's Bakery wants line 6 loud.
+**Two requests, on lines 5 and 6. They are next to each other.** Bex calls (she only ever asks for Marguerite Vance), and her request goes on line 5. On the other line, Pham's Bakery wants something loud, and it goes on line 6.
 
 **1. Bex's request:**
 
@@ -421,7 +421,7 @@ Two Hundred Rolls - The Ovenbirds
 Quiet Road - The Hollis Strings
 ```
 
-Ten songs instead of eight. `Low Tide Waltz` is back, and Bex asked for it to be replaced. `Night Ferry` is back, and Pham asked for it to be replaced.
+Ten songs instead of eight. `Low Tide Waltz` is back, and it was taken out to make room for Bex's request. `Night Ferry` is back, and it was taken out for Pham's.
 
 **7. Commit the finished file.** `git add` tells git the conflict is finished, and the commit completes the merge:
 
@@ -599,7 +599,7 @@ You can't push to your instructor's repo, so you **fork** it: GitHub makes a cop
 
 **Two pull requests on the same line, in your own repo, and a review before you merge.** This is the shared running order on your own: two branches change line 2, one pull request merges, and the other conflicts.
 
-**1. The first branch. Pham's Bakery wants line 2 loud:**
+**1. The first branch. The producer gives line 2 to Pham's Bakery, who want something loud:**
 
 ```bash
 git checkout -b loud
@@ -631,7 +631,7 @@ To https://github.com/YOUR-NAME/running-order.git
 branch 'loud' set up to track 'origin/loud'.
 ```
 
-**2. The second branch, from `main`. The ward wants line 2 quiet:**
+**2. The second branch, from `main`. Meanwhile the DJ gives the same line to the ward, who want something quiet:**
 
 ```bash
 git checkout main
