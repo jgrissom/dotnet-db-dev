@@ -309,6 +309,8 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   Merge made by the 'ort' strategy.
   ```
 
+- [ ] 📖 **In the terminal, highlight `Merge made`:** *"Dorothy's merge said fast-forward, and git made no new commit. This time git made a merge commit, because main had changed since Ray's branch started. It had Dorothy's change on it."*
+- [ ] 💡 **If anyone asks about `'ort'`:** it's the name of the method git uses to put two branches together. It's the default, and nobody ever chooses it
 - [ ] 📖 **After the merge:** *"Same check again. What does main have now that GitHub doesn't?"*
 
   ```bash
@@ -333,7 +335,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   ```
 
 - [ ] 📖 **In the terminal, highlight the two red lines:** *"Two songs out now, Slack Water and Lantern Hours."*
-- [ ] 📖 **Highlight the two green lines:** *"And two songs in, Dorothy's and Ray's. This time main had changed, because Dorothy's line was on it. Git compared both changes with the file they started from."*
+- [ ] 📖 **Highlight the two green lines:** *"And two songs in, Dorothy's and Ray's. Git compared both changes with the file they started from."*
 - [ ] 📖 **Highlight `Long Way Round - The Ferrymen`, between them:** *"Line 3 sits between the two changes, and nobody touched it, so git put both in by itself. I don't have to remember what the file said before. The diff remembers for me."*
 - [ ] **Show the history**
 
