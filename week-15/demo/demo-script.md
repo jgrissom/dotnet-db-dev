@@ -124,7 +124,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 - [ ] 📂 **Repo: your own `running-order`, in its VS Code window.** The one you made with the room in Lab A, not a student's and not `kdxr-tonight`. §2 to §4 all happen here
 - [ ] 📖 *"I'm working in my own running-order repo, the one I made with you in setup. Yours has the same eight songs."*
-- [ ] 📖 **Open `running-order.txt` and highlight line 2** (click its line number): *"Two calls come in at once, on the desk's two phone lines. I take Dorothy's. She wants a standard, so I put it on line 2, in place of Slack Water."*
+- [ ] 📖 **Open `running-order.txt` and highlight line 2** (click its line number): *"Two calls come in at once, on the desk's two phone lines. I take Dorothy's. She requests a standard, so I will put it on line 2, in place of Slack Water."*
 - [ ] 📖 **Highlight line 4:** *"The producer takes Ray's call on the other line, and puts his song on line 4. That's two people changing one file at the same time. Somebody has to get both changes into one running order. I'll play both of us, with a branch each."*
 - [ ] **Dorothy's branch:**
 
