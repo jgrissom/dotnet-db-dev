@@ -138,6 +138,28 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   Evening in Velvet - The Hollis Strings
   ```
 
+- [ ] 📖 **Before you commit:** *"Before I commit, I want to see exactly what I changed. git diff compares the file with my last commit, line by line."*
+
+  ```bash
+  git diff
+  ```
+
+  ```
+  diff --git a/running-order.txt b/running-order.txt
+  index ec5bfbd..e7f39fa 100644
+  --- a/running-order.txt
+  +++ b/running-order.txt
+  @@ -1,5 +1,5 @@
+   Nightjar - The Lamplighters
+  -Slack Water - Marguerite Vance
+  +Evening in Velvet - The Hollis Strings
+   Long Way Round - The Ferrymen
+   Lantern Hours - The Lamplighters
+   Low Tide Waltz - Marguerite Vance
+  ```
+
+- [ ] 📖 **In the terminal, highlight the red line:** *"Red is a line as it was in my last commit. That's Slack Water, the song I took out."*
+- [ ] 📖 **Highlight the green line:** *"Green is a line as it is now. That's Dorothy's song. The lines with no color didn't change. Git shows a few of them around the change so I can see where it is."*
 - [ ] **Commit it.** Silent
 
   ```bash
@@ -145,6 +167,29 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git commit -m "dorothy's request"
   ```
 
+- [ ] 📖 **After the commit:** *"Now the change is saved in a commit. git show shows the commit I just made, and the change inside it."*
+
+  ```bash
+  git show --oneline
+  ```
+
+  ```
+  7b6c35e dorothy's request
+  diff --git a/running-order.txt b/running-order.txt
+  index ec5bfbd..e7f39fa 100644
+  --- a/running-order.txt
+  +++ b/running-order.txt
+  @@ -1,5 +1,5 @@
+   Nightjar - The Lamplighters
+  -Slack Water - Marguerite Vance
+  +Evening in Velvet - The Hollis Strings
+   Long Way Round - The Ferrymen
+   Lantern Hours - The Lamplighters
+   Low Tide Waltz - Marguerite Vance
+  ```
+
+- [ ] 📖 **In the terminal, highlight `dorothy's request`:** *"That's my commit message."*
+- [ ] 📖 **Highlight the red and green lines:** *"And that's the same change git diff showed me. git diff shows changes I haven't committed yet. Once a change is committed, git show is how I see it."*
 - [ ] **Back to `main` - Pay attention to line 2!**
 
   ```bash
@@ -164,9 +209,52 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   Interstate Blue - The Ferrymen
   ```
 
+- [ ] **The same three steps as Dorothy's: look at the change, commit it, look at the commit.** Silent. Let the red and green sit on screen for a second each time
+
+  ```bash
+  git diff
+  ```
+
+  ```
+  diff --git a/running-order.txt b/running-order.txt
+  index ec5bfbd..e4f1f24 100644
+  --- a/running-order.txt
+  +++ b/running-order.txt
+  @@ -1,7 +1,7 @@
+   Nightjar - The Lamplighters
+   Slack Water - Marguerite Vance
+   Long Way Round - The Ferrymen
+  -Lantern Hours - The Lamplighters
+  +Interstate Blue - The Ferrymen
+   Low Tide Waltz - Marguerite Vance
+   Night Ferry - The Ferrymen
+   Quiet Road - The Hollis Strings
+  ```
+
   ```bash
   git add running-order.txt
   git commit -m "ray's request"
+  ```
+
+  ```bash
+  git show --oneline
+  ```
+
+  ```
+  0ccc7fa ray's request
+  diff --git a/running-order.txt b/running-order.txt
+  index ec5bfbd..e4f1f24 100644
+  --- a/running-order.txt
+  +++ b/running-order.txt
+  @@ -1,7 +1,7 @@
+   Nightjar - The Lamplighters
+   Slack Water - Marguerite Vance
+   Long Way Round - The Ferrymen
+  -Lantern Hours - The Lamplighters
+  +Interstate Blue - The Ferrymen
+   Low Tide Waltz - Marguerite Vance
+   Night Ferry - The Ferrymen
+   Quiet Road - The Hollis Strings
   ```
 
 - [ ] **Back to `main`**
@@ -188,7 +276,28 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   ```
 
 - [ ] 📖 **In the terminal, highlight `Fast-forward`:** *"Main hadn't changed since Dorothy's branch started, so git just moved main up to her commit. Main now has Dorothy's change, and nothing else. No new commit this time, so there was no message to write."*
-- [ ] 📖 **Highlight line 2 in the file:** *"Here's the change to main. Line 2 is Evening in Velvet now, Dorothy's song. Line 4 is still Lantern Hours, because Ray's branch isn't merged yet."*
+- [ ] 📖 **Before the next merge:** *"Here's what main has now that GitHub doesn't. GitHub still has the running order I started with, and git diff origin main compares my main with GitHub's copy."*
+
+  ```bash
+  git diff origin/main
+  ```
+
+  ```
+  diff --git a/running-order.txt b/running-order.txt
+  index ec5bfbd..e7f39fa 100644
+  --- a/running-order.txt
+  +++ b/running-order.txt
+  @@ -1,5 +1,5 @@
+   Nightjar - The Lamplighters
+  -Slack Water - Marguerite Vance
+  +Evening in Velvet - The Hollis Strings
+   Long Way Round - The Ferrymen
+   Lantern Hours - The Lamplighters
+   Low Tide Waltz - Marguerite Vance
+  ```
+
+- [ ] 📖 **In the terminal, highlight the red and green lines:** *"One change so far, Dorothy's song on line 2."*
+- [ ] 📖 **Highlight `Lantern Hours - The Lamplighters`:** *"Line 4 is still Lantern Hours, with no color. Ray's branch isn't merged yet."*
 - [ ] **Now Ray's**
 
   ```bash
@@ -200,28 +309,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   Merge made by the 'ort' strategy.
   ```
 
-- [ ] 📖 **Highlight line 2 in the file:** *"Dorothy's change is in."*
-- [ ] 📖 **Highlight line 4:** *"And Ray's. This time main had changed, because Dorothy's line was on it. Git compared both changes with the file they started from."*
-- [ ] 📖 **Highlight line 3:** *"Line 3 sits between them, and nobody touched it, so git put both in by itself."*
-- [ ] **Show the history**
-
-  ```bash
-  git log --graph --oneline
-  ```
-
-  ```
-  *   d8ab0c1 Merge branch 'ray'
-  |\  
-  | * 0ccc7fa ray's request
-  * | 7b6c35e dorothy's request
-  |/  
-  * fed63db tonight's running order
-  * 91d23a6 Initial commit
-  ```
-
-- [ ] 📖 **In the terminal, highlight `Merge branch 'ray'`:** *"This time git did make a new commit, the merge commit. Merge branch ray is the message no-edit wrote for it."*
-- [ ] 📖 **In the terminal, drag from `Merge branch 'ray'` down to the `|/` under it:** *"Read it from the bottom. After the running order, the history splits in two, one line for each branch. The merge joins them again."*
-- [ ] 📖 **Before you push:** *"Before I push, I want to see exactly what I'm sending. GitHub still has the running order I started with. git diff origin main compares my main with GitHub's copy, line by line."*
+- [ ] 📖 **After the merge:** *"Same check again. What does main have now that GitHub doesn't?"*
 
   ```bash
   git diff origin/main
@@ -244,8 +332,27 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
    Quiet Road - The Hollis Strings
   ```
 
-- [ ] 📖 **In the terminal, highlight the two red lines:** *"Red is a line as GitHub has it. These two are the songs I took out, Slack Water and Lantern Hours."*
-- [ ] 📖 **Highlight the two green lines:** *"Green is a line as I have it. Dorothy's song and Ray's song. Both changes are in main, and nothing else changed. I don't have to remember what the file said before. The diff remembers for me."*
+- [ ] 📖 **In the terminal, highlight the two red lines:** *"Two songs out now, Slack Water and Lantern Hours."*
+- [ ] 📖 **Highlight the two green lines:** *"And two songs in, Dorothy's and Ray's. This time main had changed, because Dorothy's line was on it. Git compared both changes with the file they started from."*
+- [ ] 📖 **Highlight `Long Way Round - The Ferrymen`, between them:** *"Line 3 sits between the two changes, and nobody touched it, so git put both in by itself. I don't have to remember what the file said before. The diff remembers for me."*
+- [ ] **Show the history**
+
+  ```bash
+  git log --graph --oneline
+  ```
+
+  ```
+  *   d8ab0c1 Merge branch 'ray'
+  |\  
+  | * 0ccc7fa ray's request
+  * | 7b6c35e dorothy's request
+  |/  
+  * fed63db tonight's running order
+  * 91d23a6 Initial commit
+  ```
+
+- [ ] 📖 **In the terminal, highlight `Merge branch 'ray'`:** *"This time git did make a new commit, the merge commit. Merge branch ray is the message no-edit wrote for it."*
+- [ ] 📖 **In the terminal, drag from `Merge branch 'ray'` down to the `|/` under it:** *"Read it from the bottom. After the running order, the history splits in two, one line for each branch. The merge joins them again."*
 - [ ] **Push it.** Silent
 
   ```bash
