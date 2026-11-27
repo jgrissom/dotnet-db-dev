@@ -103,6 +103,21 @@ hint: Waiting for your editor to close the file...
 
 Nothing in this course sets which editor that is, so on many machines it's a terminal editor, a screen of `~` lines that `:q` and <kbd>Enter</kbd> closes. **`git merge --no-edit <branch>` uses git's own message** (`Merge branch 'nurse'`) and opens nothing. A merge that conflicts doesn't ask until you commit, and `git commit -m` gives it the message.
 
+## Seeing a change before and after you commit
+
+**`git diff`** compares your files with your last commit, so it shows what you've changed and haven't committed yet:
+
+```
+@@ -1,4 +1,4 @@
+-Nightjar - The Lamplighters
++Nightjar - The Lamplighters (for Junie)
+ Slack Water - Marguerite Vance
+```
+
+The red `-` line is the line as your last commit has it, and the green `+` line is the line as your file has it now. Run it before every commit: it is the last look at what you're about to save. One line replaced is one `-` and one `+`. **If you see more, an edit went somewhere you didn't mean it to**, such as a paste that joined two lines into one.
+
+After the commit, `git diff` shows nothing, because nothing is left uncommitted. **`git show --oneline`** shows the commit you just made: its code and message on one line, then the change inside it. Without `--oneline` it also prints the author and the date.
+
 ## Checking what you're about to push
 
 After a merge, the file has other people's changes in it as well as yours, and nothing in the file marks which lines are new. **`git diff origin/main`** shows them. `origin/main` is your laptop's record of `main` on GitHub, as of your last push or pull, so the command compares the file you're about to push with the file GitHub has:

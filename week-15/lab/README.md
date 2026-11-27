@@ -174,12 +174,55 @@ Replace **line 1**, `Nightjar - The Lamplighters`, with this, and save:
 Nightjar - The Lamplighters (for Junie)
 ```
 
+Before you commit, look at what you changed. [`git diff`](../lecture-notes.md#seeing-a-change-before-and-after-you-commit) compares the file with your last commit, line by line:
+
+```bash
+git diff
+```
+
+```
+diff --git a/running-order.txt b/running-order.txt
+index ec5bfbd..72733ba 100644
+--- a/running-order.txt
++++ b/running-order.txt
+@@ -1,4 +1,4 @@
+-Nightjar - The Lamplighters
++Nightjar - The Lamplighters (for Junie)
+ Slack Water - Marguerite Vance
+ Long Way Round - The Ferrymen
+ Lantern Hours - The Lamplighters
+```
+
+The red line, starting with `-`, is line 1 as it was in your last commit. The green line, starting with `+`, is line 1 as it is now. The lines with no color didn't change: git shows a few of them so you can see where the change is. **One red line and one green line is one line replaced.** If you see more, a paste joined or split a line: fix the file before you commit.
+
 Commit it:
 
 ```bash
 git add running-order.txt
 git commit -m "teodoro's request"
 ```
+
+Now look at the commit you just made. `git show` shows a commit and the change inside it:
+
+```bash
+git show --oneline
+```
+
+```
+2fdbeef teodoro's request
+diff --git a/running-order.txt b/running-order.txt
+index ec5bfbd..72733ba 100644
+--- a/running-order.txt
++++ b/running-order.txt
+@@ -1,4 +1,4 @@
+-Nightjar - The Lamplighters
++Nightjar - The Lamplighters (for Junie)
+ Slack Water - Marguerite Vance
+ Long Way Round - The Ferrymen
+ Lantern Hours - The Lamplighters
+```
+
+Your commit's code and message, then the same change. `git diff` shows changes you haven't committed yet. Once a change is committed, `git show` is how you see it. (Your code is different from `2fdbeef`.)
 
 **2. Back to `main`, and the nurse's request on a second branch.** Going back first means the second branch starts from the same file the first one did, the way two people would:
 
@@ -199,9 +242,52 @@ Replace **line 3**, `Long Way Round - The Ferrymen`, with this, and save:
 Quiet Ward - The Hollis Strings
 ```
 
+The same three steps as Teodoro's: look at the change, commit it, look at the commit.
+
+```bash
+git diff
+```
+
+```
+diff --git a/running-order.txt b/running-order.txt
+index ec5bfbd..5646ee8 100644
+--- a/running-order.txt
++++ b/running-order.txt
+@@ -1,6 +1,6 @@
+ Nightjar - The Lamplighters
+ Slack Water - Marguerite Vance
+-Long Way Round - The Ferrymen
++Quiet Ward - The Hollis Strings
+ Lantern Hours - The Lamplighters
+ Low Tide Waltz - Marguerite Vance
+ Night Ferry - The Ferrymen
+```
+
+Line 1 has no color here, because this branch started from `main`, before Teodoro's change.
+
 ```bash
 git add running-order.txt
 git commit -m "the 2 AM break"
+```
+
+```bash
+git show --oneline
+```
+
+```
+50222f8 the 2 AM break
+diff --git a/running-order.txt b/running-order.txt
+index ec5bfbd..5646ee8 100644
+--- a/running-order.txt
++++ b/running-order.txt
+@@ -1,6 +1,6 @@
+ Nightjar - The Lamplighters
+ Slack Water - Marguerite Vance
+-Long Way Round - The Ferrymen
++Quiet Ward - The Hollis Strings
+ Lantern Hours - The Lamplighters
+ Low Tide Waltz - Marguerite Vance
+ Night Ferry - The Ferrymen
 ```
 
 **3. Merge both into `main`.** Back to `main` first:
@@ -223,7 +309,26 @@ Fast-forward
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
-*Fast-forward* means `main` hadn't changed since the branch started, so git just moved `main` up to it. Now the nurse's branch:
+*Fast-forward* means `main` hadn't changed since the branch started, so git just moved `main` up to it. Compare `main` with GitHub's copy, which is still the file you pushed in Setup:
+
+```bash
+git diff origin/main
+```
+
+```
+diff --git a/running-order.txt b/running-order.txt
+index ec5bfbd..72733ba 100644
+--- a/running-order.txt
++++ b/running-order.txt
+@@ -1,4 +1,4 @@
+-Nightjar - The Lamplighters
++Nightjar - The Lamplighters (for Junie)
+ Slack Water - Marguerite Vance
+ Long Way Round - The Ferrymen
+ Lantern Hours - The Lamplighters
+```
+
+One change so far, Teodoro's. Line 3 is still `Long Way Round`, with no color: the nurse's branch isn't merged yet. Now the nurse's branch:
 
 ```bash
 git merge --no-edit nurse
@@ -267,7 +372,7 @@ git log --graph --oneline
 
 Read it from the bottom up. The two lines split after `tonight's running order` (one per branch) and join again at the merge.
 
-**5. Check what you're about to push.** GitHub still has the file you pushed in Setup. [`git diff origin/main`](../lecture-notes.md#checking-what-youre-about-to-push) compares your `main` with GitHub's copy, line by line, so you don't have to remember what the file said before:
+**5. Check what you're about to push.** The same [`git diff origin/main`](../lecture-notes.md#checking-what-youre-about-to-push) as after Teodoro's merge. GitHub still has the file you pushed in Setup, so this shows everything you're about to send:
 
 ```bash
 git diff origin/main
