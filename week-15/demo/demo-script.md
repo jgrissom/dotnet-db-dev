@@ -619,7 +619,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 - [ ] **Show `jgrissom/kdxr-tonight` in the browser, and open `running-order.txt`**
 - [ ] 📖 **Highlight `01  (open)` and the `-- station ID --` line under it** (one drag; they're next to each other): *"This is my repo, and it's public. Twenty slots, and every slot has a station ID line under it that nobody changes. That unchanged line is why any two of your slots can merge."*
 - [ ] 🎞️ **GO TO SLIDE 5** — *The shared running order* · *"You can't push to my repo, so you fork it. A fork is a copy that belongs to you. You change your slot on a branch of your fork, and a pull request asks me to take it. I merge every one of them up here, on the projector."*
-- [ ] **Give out the slots.** Count off around the room, from 01. Say each number to its person
+- [ ] **Give out the slots.** Count off around the room, from 01. Say each number to its person. **In a small room, give each person two or three slots**, so there are enough pull requests to merge in order
 - [ ] 🎯 **Ask for two volunteers, and give them both slot 20:** *"You two both write the last song of the night."* Say nothing about why
 - [ ] 📖 *"Everyone else: change your own slot and nothing else. Keep the number and the two spaces."*
 

@@ -730,7 +730,7 @@ git log --graph --oneline
 
 ## In class: the shared running order
 
-Your instructor's public repo, [`jgrissom/kdxr-tonight`](https://github.com/jgrissom/kdxr-tonight), holds one `running-order.txt` with twenty numbered slots. **Your instructor gives you a slot number.** Each slot is a line of its own, with an unchanged `-- station ID --` line under it, so every slot can be merged with every other one.
+Your instructor's public repo, [`jgrissom/kdxr-tonight`](https://github.com/jgrissom/kdxr-tonight), holds one `running-order.txt` with twenty numbered slots. **Your instructor gives you a slot number, or a few in a small class. Make one pull request per slot.** Each slot is a line of its own, with an unchanged `-- station ID --` line under it, so every slot can be merged with every other one.
 
 You can't push to your instructor's repo, so you **fork** it: GitHub makes a copy of it that belongs to you. Your change goes on a branch of your fork, and a pull request asks your instructor to take it. ([Forks](../lecture-notes.md#forks).)
 
@@ -747,6 +747,8 @@ You can't push to your instructor's repo, so you **fork** it: GitHub makes a cop
 **3. Commit it to a new branch.** Click **Commit changes…**, choose **Create a new branch for this commit and start a pull request**, name the branch `slot-07` (your number), and click **Propose changes**.
 
 **4. Open the pull request.** Check the line at the top: **base repository: `jgrissom/kdxr-tonight`**, **base: `main`**, and on the right your fork and `slot-07`. Click **Create pull request**.
+
+**More than one slot?** Do steps 2 to 4 again for each one, with a branch named for that slot. Start each one from `main`: on your fork's page, the branch menu above the file list should say `main` before you click `running-order.txt`.
 
 **5. Watch the projector.** Your instructor merges the pull requests in the order they arrive. Most of them are *behind* by the time they're merged, because others went in first, and they merge anyway: the slots have unchanged lines between them. **The two that both changed slot 20 don't.**
 
