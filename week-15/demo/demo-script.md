@@ -575,7 +575,8 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   CONFLICT (content): Merge conflict in running-order.txt
   ```
 
-- [ ] 📖 **Show the file, and highlight the long code after `>>>>>>>`:** *"Pull fetched GitHub's commit, then merged it, and the merge stopped. Same line on both sides this time. The long code is the commit from GitHub."*
+- [ ] 📖 **Show the file:** *"Pull got the radio edit from GitHub and tried to put it together with my change. We both changed line 3, so git can't keep both. It's a conflict, and I have to decide."*
+- [ ] 📖 **Highlight the long code after `>>>>>>>`:** *"This long code names the commit that came from GitHub, the radio edit."*
 
   ```
   <<<<<<< HEAD
