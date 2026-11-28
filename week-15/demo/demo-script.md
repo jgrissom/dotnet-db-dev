@@ -2,13 +2,13 @@
 
 **KDXR 88.1 · the overnight desk · one file, two people**
 
-Tonight there is no C#. The running order is a plain text file, one song per line, and two people at the desk change it at once: the DJ and the producer, each taking calls on a phone line of their own. Callers ask for songs; the desk decides where they go. You show three cases on your own practice repo, and the students do each one on theirs: changes with a line between them merge by themselves, changes on lines next to each other conflict, and a change on GitHub fights a change on your laptop. The second half of the night is practice for week 16.
+Tonight there is no C#. The running order is a plain text file, one song per line, and two people at the desk change it at once: the DJ and the producer, each taking calls on a phone line of their own. Callers ask for songs; the desk decides where they go. You show four cases on your own practice repo, and the students do each one on theirs: changes with a line between them merge by themselves, changes on lines next to each other conflict, a change on GitHub fights a change on your laptop, and a pull request that conflicts. The last part of the night is practice for week 16.
 
-> **The shape of the night:** lines apart → lines next to each other → GitHub against your laptop → practice for week 16. **Each demo segment is followed by the lab block that practices it.**
+> **The shape of the night:** lines apart → lines next to each other → GitHub against your laptop → a pull request that conflicts → practice for week 16. **Each demo segment is followed by the lab block that practices it.**
 >
 > **One repo tonight, yours:** your own practice repo **`running-order`** (`jgrissom/running-order`, made with the room in Lab A) for §2 to §4, in a VS Code window of its own. Your demo repo, `dotnet-db-coursework`, is only where Lab A's clone starts.
 
-**Total: ~45 minutes of demo, in six short segments.** The lesson plan's timing table has the minutes.
+**Total: ~52 minutes of demo, in seven short segments.** The lesson plan's timing table has the minutes.
 
 ---
 
@@ -545,18 +545,129 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ---
 
-## 5 · Practice for week 16 *(slide 5)*
+## 5 · A pull request that conflicts *(slide 5)*
 
-- [ ] 🎞️ **GO TO SLIDE 5** — *Practice for week 16* · *"Week sixteen you present your project, in four parts. It runs from start to finish, you show what it does, you explain one decision and why, and you say what's next. The rest of tonight is for practicing exactly that, out loud."*
-- [ ] 📖 *"Three steps, on the slide. Run it the way you'll show it. Give it out loud to the person next to you, who times you and asks one question. Then fix the one thing you noticed."*
+- [ ] 📂 **Repo: still your own `running-order`** — its VS Code window, and its GitHub page, `jgrissom/running-order`
+- [ ] 📖 *"You've merged a pull request every week since week four. Tonight, one that won't merge. Two calls want the same line: Bex wants Marguerite Vance on line 5, and Teodoro wants line 5 for his dedication to Junie. Each one gets a branch, and each branch gets a pull request."*
+- [ ] **Bex's branch.** Silent to the push: same moves as every week
+
+  ```bash
+  git checkout -b bex
+  ```
+
+- [ ] **Replace line 5, `Low Tide Waltz - Marguerite Vance`, with this**, save, commit, and push the branch:
+
+  ```text
+  Tidewater - Marguerite Vance
+  ```
+
+  ```bash
+  git add running-order.txt
+  git commit -m "bex's request"
+  ```
+
+  ```bash
+  git push -u origin bex
+  ```
+
+- [ ] **Back to `main`, and Teodoro's branch**
+
+  ```bash
+  git checkout main
+  ```
+
+  ```bash
+  git checkout -b teodoro
+  ```
+
+- [ ] **Replace line 5, `Low Tide Waltz - Marguerite Vance`, with this**, save, commit, and push:
+
+  ```text
+  Low Tide Waltz - Marguerite Vance (for Junie)
+  ```
+
+  ```bash
+  git add running-order.txt
+  git commit -m "teodoro's dedication"
+  ```
+
+  ```bash
+  git push -u origin teodoro
+  ```
+
+- [ ] **On GitHub, open both pull requests:** **Pull requests → New pull request**, **base: `main`**, **compare: `bex`**, **Create pull request** twice. Then the same for **`teodoro`**
+- [ ] 📖 **Show the two pull requests:** *"Both say they can merge. Each branch, on its own, changes one line of the file it started from."*
+- [ ] **Merge Bex's:** **Merge pull request → Confirm merge**
+- [ ] 💥 **Open Teodoro's pull request again**
+- [ ] 📖 **Highlight GitHub's message that it has conflicts:** *"A minute ago it could merge. Now main has Bex's song on line 5, and Teodoro's branch changes line 5 too. GitHub won't merge it until the branch is fixed."*
+- [ ] 📖 **Before you fix it, review it:** *"I can't approve my own pull request on GitHub. So a review of my own is a comment on a line, and I answer it with a commit."*
+- [ ] **Files changed → hover over line 5 → the blue + → write this → Add single comment:**
+
+  ```text
+  Bex just got this line. Does Junie's song keep it?
+  ```
+
+- [ ] 📖 **Back to VS Code, still on `teodoro`:** *"To fix the branch, I bring main into it. That's the same conflict as before, on my laptop, and I finish it by hand."*
+
+  ```bash
+  git pull --no-rebase origin main
+  ```
+
+  ```
+  CONFLICT (content): Merge conflict in running-order.txt
+  Automatic merge failed; fix conflicts and then commit the result.
+  ```
+
+- [ ] **Show `running-order.txt`** as git leaves it
+
+  ```
+  Interstate Blue - The Ferrymen
+  <<<<<<< HEAD
+  Low Tide Waltz - Marguerite Vance (for Junie)
+  =======
+  Tidewater - Marguerite Vance
+  >>>>>>> a844f4920baa657db4023675252364b39aced4fb
+  Night Ferry - The Ferrymen
+  ```
+
+- [ ] 📖 **Highlight `<<<<<<< HEAD` down to `=======`:** *"HEAD is Teodoro's branch this time, because that's where I'm standing. The part coming in is main, with Bex's song."*
+- [ ] 📖 **Before you edit:** *"Teodoro calls every week, same song, same name. Junie's song keeps line 5. I delete the three marker lines and Bex's song."*
+- [ ] **Delete the three marker lines and `Tidewater - Marguerite Vance`.** Save. Line 5 is:
+
+  ```text
+  Low Tide Waltz - Marguerite Vance (for Junie)
+  ```
+
+  ```bash
+  git add running-order.txt
+  git commit -m "junie keeps line 5"
+  ```
+
+  ```bash
+  git push
+  ```
+
+- [ ] 📖 **Refresh Teodoro's pull request:** *"No conflict now. My commit is on the branch, so it's part of the pull request, right under my comment. That's the answer to the review."*
+- [ ] **Reply under your comment** — *"Junie keeps it."* — then **Merge pull request → Confirm merge**
+- [ ] **Bring `main` up to date.** Silent
+
+  ```bash
+  git checkout main
+  ```
+
+  ```bash
+  git pull --no-rebase
+  ```
+
+- [ ] 🎞️ **GO TO SLIDE 5** — *A pull request that conflicts* · *"A pull request that's behind still merges, if nothing touched its lines. One that changed the same line won't. You fix it on its branch: pull main into it, finish the conflict by hand, commit, and push. And a review of your own is a comment, answered with a commit."*
 
 ---
 
-## Lab E · Practice for week 16 — 50 minutes
+## Lab E · Task 4 — 25 minutes
 
-- [ ] **Lids up. The lab README, *In class: practice for week 16*.** Everyone switches to their project repo's window
-- [ ] 🎯 **Circulating: sit in on a pair, and ask the question yourself.** *"What's one thing you decided, and why?"* is the part of week 16 nobody else can write for them
-- [ ] 🎯 **Anything that crashes in step 1** gets fixed before step 2. Week sixteen runs the whole program
+- [ ] **Lids up. The lab README, *Task 4 in full*.** Theirs is line 2, in their own `running-order`
+- [ ] 🎯 **Circulating: a pull request still says it conflicts after the push.** Usually the push went to the wrong branch, or never happened. `git status` on their branch says which
+- [ ] 🎯 **Someone tries to approve their own pull request and GitHub won't let them.** That's expected: the review is the comment and the commit
 
 ---
 
@@ -564,15 +675,24 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ---
 
-## Lab E, continued — 53 minutes
+## 6 · Practice for week 16 *(slide 6)*
 
-- [ ] **Same three steps.** Anyone who has done all three gives it out loud a second time, to a different partner, or works through Task 4 in their practice repo
+- [ ] 🎞️ **GO TO SLIDE 6** — *Practice for week 16* · *"Week sixteen you present your project, in four parts. It runs from start to finish, you show what it does, you explain one decision and why, and you say what's next. The rest of tonight is for practicing exactly that, out loud."*
+- [ ] 📖 *"Three steps, on the slide. Run it the way you'll show it. Give it out loud to the person next to you, who times you and asks one question. Then fix the one thing you noticed."*
+
+---
+
+## Lab F · Practice for week 16 — 71 minutes
+
+- [ ] **Lids up. The lab README, *In class: practice for week 16*.** Everyone switches to their project repo's window
+- [ ] 🎯 **Circulating: sit in on a pair, and ask the question yourself.** *"What's one thing you decided, and why?"* is the part of week 16 nobody else can write for them
+- [ ] 🎯 **Anything that crashes in step 1** gets fixed before step 2. Week sixteen runs the whole program
 - [ ] ⚠️ **Stop at the wrap on the timing table, wherever the room is**
 
 ---
 
-## 6 · Wrap *(slide 6)*
+## 7 · Wrap *(slide 7)*
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *Tonight, in one picture* · *"An unchanged line between two changes, and git merges both. Lines next to each other, or the same line, and you finish it by hand. Delete the three marker lines and keep what you want. A rejected push means pull with no-rebase first."*
-- [ ] 📖 **Say what's left** — *"Nothing tonight is graded. If you didn't get to Task 4, it's two pull requests on one line in your own repo, and you can do it at home. Week sixteen you present."*
+- [ ] 🎞️ **GO TO SLIDE 7** — *Tonight, in one picture* · *"An unchanged line between two changes, and git merges both. Lines next to each other, or the same line, and you finish it by hand. Delete the three marker lines and keep what you want. A rejected push means pull with no-rebase first."*
+- [ ] 📖 **Say what's left** — *"Nothing tonight is graded. If you didn't finish Task 4, you can finish it at home. Week sixteen you present."*
 - [ ] ⚠️ **Say the branch line out loud** — *"Anything you fix in your project tonight goes on a branch, same as every week, and you merge it with the plain merge button. Nothing goes straight to main."*

@@ -89,7 +89,18 @@ the lines on the branch coming in
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · practice for week 16' -->
+<!-- _footer: '🖥️ Demo §5 · a pull request that conflicts' -->
+
+## A pull request that conflicts
+
+- **Behind, on other lines:** it still merges
+- **The same line, or the one next to it:** GitHub won't merge it
+- **Fix it on its branch:** `git pull --no-rebase origin main`, finish it by hand, commit, push
+- **A review of your own:** a comment on a line, answered with a commit
+
+---
+
+<!-- _footer: '🖥️ Demo §6 · practice for week 16' -->
 
 ## Practice for week 16
 
@@ -101,7 +112,7 @@ the lines on the branch coming in
 
 ---
 
-<!-- _footer: '🖥️ Demo §6 · wrap' -->
+<!-- _footer: '🖥️ Demo §7 · wrap' -->
 
 ## Tonight, in one picture
 

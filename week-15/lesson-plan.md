@@ -1,6 +1,6 @@
 # Week 15 — Lesson Plan
 
-**Topic:** Team git on a plain text file. When git merges two changes by itself (an unchanged line between them) and when it stops (lines next to each other, or the same line). Finishing a conflict by hand. A rejected push and `git pull --no-rebase`. Then practice for the week 16 presentation; pull requests, one that conflicts, and a review are Task 4, in each student's own repo.
+**Topic:** Team git on a plain text file. When git merges two changes by itself (an unchanged line between them) and when it stops (lines next to each other, or the same line). Finishing a conflict by hand. A rejected push and `git pull --no-rebase`. A pull request that conflicts, and a review of your own. Then practice for the week 16 presentation.
 **Session length:** 3h 45m
 
 > **There is no C# tonight, and nothing is graded or collected.** The file is KDXR's `running-order.txt`, one song per line. The instructor works on a practice repo of their own, `running-order`, made with the room in Lab A; students make theirs the same way, **beside** their coursework repo. **The starters repo ships nothing this week.** **This is the droppable week: week 16 must not depend on anything here.**
@@ -25,12 +25,12 @@ By the end of this session, students can:
 2. Read a conflict: which part is `HEAD`, which part is coming in, and what each part holds.
 3. Finish a conflict by hand, and say why "keep both" is usually wrong when both sides changed something.
 4. Recover from a rejected push with `git pull --no-rebase`, a hand-finished conflict, and a second push.
-5. Fix a pull request that conflicts, by merging `main` into its branch *(Task 4, in their own repo)*.
-6. Review a pull request of their own with comments, and answer each comment with a commit *(Task 4)*.
+5. Fix a pull request that conflicts, by merging `main` into its branch.
+6. Review a pull request of their own with comments, and answer each comment with a commit.
 
 ## Materials
 
-- `slides.md` / `slides.html` — the deck, six slides
+- `slides.md` / `slides.html` — the deck, seven slides
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-15/demo/script.html))
 - **The instructor demo repo**, `dotnet-db-coursework` — only as the place the terminal starts. Nothing is copied into it tonight
 - **Signed in to GitHub in the projected browser**
@@ -40,9 +40,9 @@ By the end of this session, students can:
 
 The first two hours are chunked like weeks 8 to 14: each demo segment is followed by the lab task that practices it. **The instructor shows each case on their own `running-order` with one pair of callers; students do it on theirs with a different pair and different lines**, so the lab is the same move rather than a copy.
 
-- **Lab E is practice for week 16**, on the students' own projects, with the three steps on slide 5. The second break falls in the middle of it.
-- **Task 4 (pull requests, one that conflicts, and a review) has no demo segment and no lab block.** It's written to be done alone, at home or by anyone who finishes the practice early.
-- **A shared repo the whole room sent pull requests to was cut on 2026-11-27**: the student side (forks) could not be rehearsed alone, and in a small class it was mostly the special cases. Its time went to the practice.
+- **§5 and Lab E are a pull request that conflicts**: the instructor on line 5 (Bex and Teodoro), students on line 2 in Task 4. Each one includes a review of their own: a comment on a line, answered with a commit.
+- **Lab F is practice for week 16**, on the students' own projects, with the three steps on slide 6.
+- **A shared repo the whole room sent pull requests to was cut on 2026-11-27**: the student side (forks) could not be rehearsed alone, and in a small class it was mostly the special cases. Task 4 moved into class in its place, with §5 in front of it.
 - **Every lab block ends at an "In class, stop here" note** in the README.
 
 ## Timed agenda
@@ -58,14 +58,15 @@ The first two hours are chunked like weeks 8 to 14: each demo segment is followe
 | 1:09 | 10 min | **☕ Break** |
 | 1:19 | 10 min | **GitHub against your laptop** *(slide 4, demo §4)*. Line 3 on GitHub and on the laptop, a rejected push, `git pull --no-rebase`, by hand, push. |
 | 1:29 | 15 min | **Lab D: Task 3** — line 8. |
-| 1:44 | 3 min | **Practice for week 16** *(slide 5, demo §5)*. |
-| 1:47 | 50 min | **Lab E: practice for week 16** — run it, give it out loud to a partner, fix the one thing. |
-| 2:37 | 10 min | **☕ Break** |
-| 2:47 | 53 min | **Lab E, continued** — the same three steps; a second run-through with a different partner, or Task 4. |
-| 3:40 | 5 min | **Wrap-up** *(slide 6, demo §6)*. Nothing graded, Task 4 for home, the branch line, week 16. |
+| 1:44 | 7 min | **A pull request that conflicts** *(slide 5, demo §5)*. Bex and Teodoro on line 5: one merges, one conflicts; a review comment; fixed on the branch with `git pull --no-rebase origin main`; merged. |
+| 1:51 | 25 min | **Lab E: Task 4** — two pull requests on line 2, and a review. |
+| 2:16 | 10 min | **☕ Break** |
+| 2:26 | 3 min | **Practice for week 16** *(slide 6, demo §6)*. |
+| 2:29 | 71 min | **Lab F: practice for week 16** — run it, give it out loud to a partner, fix the one thing. |
+| 3:40 | 5 min | **Wrap-up** *(slide 7, demo §7)*. Nothing graded, finish Task 4 at home if it isn't done, the branch line, week 16. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes: 45 of demo in six segments, 57 of lab in four blocks, 103 of practice for week 16, and two breaks.** If the night runs long, take it from the practice.
+> **The table sums to exactly 225 minutes: 52 of demo in seven segments, 82 of lab in five blocks, 71 of practice for week 16, and two breaks.** If the night runs long, take it from the practice.
 
 ## Instructor notes
 

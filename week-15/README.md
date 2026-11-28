@@ -1,6 +1,6 @@
 # Week 15 — The Running Order
 
-Team git, on a plain text file. **There is no C# this week, nothing is graded, and nothing is collected.** In a short term, this is the week that gets dropped: nothing later depends on it. The instructor shows three cases on a practice repo of their own, and students do each one on theirs: two changes with an unchanged line between them merge by themselves, two changes on lines next to each other conflict, and a change made on GitHub fights a change made on the laptop. The second half of the night is practice for the week 16 presentation. Pull requests, one that conflicts, and a review are in the lab's Task 4, for students to do on their own.
+Team git, on a plain text file. **There is no C# this week, nothing is graded, and nothing is collected.** In a short term, this is the week that gets dropped: nothing later depends on it. The instructor shows four cases on a practice repo of their own, and students do each one on theirs: two changes with an unchanged line between them merge by themselves, two changes on lines next to each other conflict, a change made on GitHub fights a change made on the laptop, and a pull request conflicts and gets fixed on its branch, with a review of your own. The last part of the night is practice for the week 16 presentation.
 
 ## Use in this order
 
@@ -9,7 +9,7 @@ Team git, on a plain text file. **There is no C# this week, nothing is graded, a
 | Prep | 🗓️&nbsp;[lesson-⁠plan.md](lesson-plan.md) | Timed 3h45 agenda + instructor notes |
 | Prep&nbsp;/⁠&nbsp;in-⁠class&nbsp;script | 📖&nbsp;[lecture-⁠notes.md](lecture-notes.md) | Further reading: which changes git can put together, why lines next to each other conflict, reading the markers, finishing by hand, pull is fetch then merge, a pull request that conflicts, reviewing your own, forks, **troubleshooting appendix** |
 | Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck (GFM, one slide per `##`) — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-15/) (arrow keys, `F` for fullscreen) |
-| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *The running order* — one file, two people, in six short segments; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-15/demo/script.html) |
+| In&nbsp;class,&nbsp;live-⁠coding | 🎨&nbsp;[demo/⁠](demo/) | *The running order* — one file, two people, in seven short segments; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-15/demo/script.html) |
 | In&nbsp;class,&nbsp;between&nbsp;demo&nbsp;segments | 🧪&nbsp;[lab/⁠](lab/) | *The running order* — four tasks in a practice repo of your own, and practice for week 16. **Works alone, start to finish.** Not graded |
 
 ## What students walk out with

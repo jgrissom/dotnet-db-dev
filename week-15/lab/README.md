@@ -12,8 +12,6 @@ There is no C# tonight. The file is plain text on purpose: git compares files **
 > [!NOTE]
 > **Shaky on the git basics?** Your instructor's [Git Tutorial](https://github.com/jgrissom/GitTutorial) walks through the commands, branches, pushing, cloning and pulling on one small text file. Tonight starts where it stops.
 
-> [!NOTE]
-
 ## Setup
 
 Five steps. Tonight's practice repo is a **new repo of its own**, and it sits **beside** your coursework repo, never inside it. A repo made inside another repo is a repo inside a repo, and git gets confused about which one a command is for.
@@ -725,7 +723,7 @@ git log --graph --oneline
 `the radio edit` is the commit you made on GitHub, with the message you typed there.
 
 > [!NOTE]
-> **In class, stop here.** Next is practice for week 16: [*In class: practice for week 16*](#in-class-practice-for-week-16). Finished early? On GitHub, click **Commits** on your repo and find `the radio edit`, the commit you made in the browser. Working at home? Go straight to [Task 4](#task-4-in-full).
+> **In class, stop here.** Task 4 comes after the next part of the demo. Finished early? On GitHub, click **Commits** on your repo and find `the radio edit`, the commit you made in the browser. Working at home? Carry straight on.
 
 ### Task 4 in full
 
@@ -858,6 +856,9 @@ Fast-forward
 ```
 
 Line 2 of your file is now `Slack Water - Marguerite Vance (acoustic)`, and both pull requests show **Merged** on GitHub.
+
+> [!NOTE]
+> **In class, stop here.** After the break, the rest of the night is practice for week 16: [*In class: practice for week 16*](#in-class-practice-for-week-16). Finished early? Try the first item in [*Now try to break it*](#now-try-to-break-it). Working at home? The practice is next, on your own project.
 
 ## In class: practice for week 16
 
