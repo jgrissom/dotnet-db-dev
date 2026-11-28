@@ -62,7 +62,7 @@ The first two hours are chunked like weeks 8 to 14: each demo segment is followe
 | 1:51 | 25 min | **Lab E: Task 4** — two pull requests on line 2, and a review. |
 | 2:16 | 10 min | **☕ Break** |
 | 2:26 | 3 min | **Practice for week 16** *(slide 6, demo §6)*. |
-| 2:29 | 71 min | **Lab F: practice for week 16** — run it, give it out loud to a partner, fix the one thing. |
+| 2:29 | 71 min | **Lab F: practice for week 16** — on their own: run it, plan what to say for each of the four parts, fix what they found. |
 | 3:40 | 5 min | **Wrap-up** *(slide 7, demo §7)*. Nothing graded, finish Task 4 at home if it isn't done, the branch line, week 16. |
 
 > [!NOTE]

@@ -107,8 +107,8 @@ the lines on the branch coming in
 **Four parts:** it runs · you show it · one decision, and why · what's next
 
 1. **Run it** start to finish, the way you'll show it
-2. **Give it out loud** to the person next to you. They time it and ask one question. Swap
-3. **Fix the one thing you noticed**, on a branch, and push it
+2. **Plan what you'll say:** a line or two for each part, on your own
+3. **Fix what you found**, on a branch, and push it
 
 ---
 

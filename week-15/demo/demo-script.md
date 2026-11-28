@@ -677,15 +677,15 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ## 6 · Practice for week 16 *(slide 6)*
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *Practice for week 16* · *"Week sixteen you present your project, in four parts. It runs from start to finish, you show what it does, you explain one decision and why, and you say what's next. The rest of tonight is for practicing exactly that, out loud."*
-- [ ] 📖 *"Three steps, on the slide. Run it the way you'll show it. Give it out loud to the person next to you, who times you and asks one question. Then fix the one thing you noticed."*
+- [ ] 🎞️ **GO TO SLIDE 6** — *Practice for week 16* · *"Week sixteen you present your project, in four parts. It runs from start to finish, you show what it does, you explain one decision and why, and you say what's next. The rest of tonight is for getting ready for it, each of you on your own."*
+- [ ] 📖 *"Three steps, on the slide, and each of you works on your own. Run it the way you'll show it. Write a line or two for each of the four parts, so you know what you'll say. Then fix what you found, on a branch."*
 
 ---
 
 ## Lab F · Practice for week 16 — 71 minutes
 
 - [ ] **Lids up. The lab README, *In class: practice for week 16*.** Everyone switches to their project repo's window
-- [ ] 🎯 **Circulating: sit in on a pair, and ask the question yourself.** *"What's one thing you decided, and why?"* is the part of week 16 nobody else can write for them
+- [ ] 🎯 **Circulating: help with whatever step 1 turned up.** Don't ask anyone to run through their presentation: week 16 is where you see it
 - [ ] 🎯 **Anything that crashes in step 1** gets fixed before step 2. Week sixteen runs the whole program
 - [ ] ⚠️ **Stop at the wrap on the timing table, wherever the room is**
 

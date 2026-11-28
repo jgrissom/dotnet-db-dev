@@ -865,10 +865,8 @@ Line 2 of your file is now `Slack Water - Marguerite Vance (acoustic)`, and both
 The rest of the night is for your semester project. Week 16 you present it, in four parts: **it runs** from start to finish, **you show** what it does, **you explain one decision** you made and why, and **you say what's next**. Switch to your project repo's VS Code window.
 
 1. **Run it start to finish, the way you'll show it.** Write down anything that goes wrong, and fix it first.
-2. **Give the whole thing out loud, to the person next to you.** All four parts. They time it, and ask you one question at the end. Then swap.
-3. **Fix the one thing you noticed**, and push it. Your project goes on a branch and merges with a pull request, the same as every week.
-
-Working alone? Do all three, and give it out loud to your screen.
+2. **Plan what you'll say, on your own.** For each of the four parts, write a line or two in a notes file of your own, outside your project repo. Pick the one decision you'll explain, and write down why you made it.
+3. **Fix what you found**, and push it. Your project goes on a branch and merges with a pull request, the same as every week.
 
 ## Now try to break it
 
