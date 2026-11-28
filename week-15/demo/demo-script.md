@@ -694,5 +694,5 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 ## 7 · Wrap *(slide 7)*
 
 - [ ] 🎞️ **GO TO SLIDE 7** — *Tonight, in one picture* · *"An unchanged line between two changes, and git merges both. Lines next to each other, or the same line, and you finish it by hand. Delete the three marker lines and keep what you want. A rejected push means pull with no-rebase first."*
-- [ ] 📖 **Say what's left** — *"Nothing tonight is graded. If you didn't finish Task 4, you can finish it at home. Week sixteen you present."*
+- [ ] 📖 **Say what's left** — *"Nothing tonight is graded. If you didn't finish Task 4, you can finish it at home. Week sixteen you present. Bring your laptop, charged, and run your program on it once before class. The list is at the end of tonight's lab."*
 - [ ] ⚠️ **Say the branch line out loud** — *"Anything you fix in your project tonight goes on a branch, same as every week, and you merge it with the plain merge button. Nothing goes straight to main."*

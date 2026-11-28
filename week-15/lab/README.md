@@ -868,6 +868,12 @@ The rest of the night is for your semester project. Week 16 you present it, in f
 2. **Plan what you'll say, on your own.** For each of the four parts, write a line or two in a notes file of your own, outside your project repo. Pick the one decision you'll explain, and write down why you made it.
 3. **Fix what you found**, and push it. Your project goes on a branch and merges with a pull request, the same as every week.
 
+### Bring to week 16
+
+- **Your laptop, charged, with your project on it.** You present from your own machine, on the projector, for about ten minutes.
+- **Your project's `README.md`, with its three notes** — *what it does*, *one decision, and why*, *what's next*. You wrote them in week 14.
+- **Run your program once before class, on that laptop.** Your connection string is in your user secrets, on that machine only. Presenting from a lab PC instead? Clone your project and set your connection string again before class: [A lab PC that rebooted](../../week-10/lecture-notes.md#a-lab-pc-that-rebooted).
+
 ## Now try to break it
 
 Do these after Task 4. Each one changes `main`, and the tasks need the file exactly as each one leaves it.

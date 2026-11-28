@@ -12,7 +12,7 @@ The last night of the course. **Each student presents their semester project, li
 
 ## What to bring
 
-- **Your laptop, charged, with your project on it.** You present from your own machine, on the projector.
+- **Your laptop, charged, with your project on it.** You present from your own machine, on the projector, for about ten minutes.
 - **Your project's `README.md`, with its three notes** — *what it does*, *one decision, and why*, *what's next*. You wrote them in week 14.
 - **Run your program once before class, on that laptop.** Your connection string is in your user secrets, on that machine only. Presenting from a lab PC instead? Clone your project and set your connection string again before class: [A lab PC that rebooted](../week-10/lecture-notes.md#a-lab-pc-that-rebooted).
 
