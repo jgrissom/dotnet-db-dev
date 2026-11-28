@@ -1,21 +1,21 @@
 # Week 15 — Lesson Plan
 
-**Topic:** Team git on a plain text file. When git merges two changes by itself (an unchanged line between them) and when it stops (lines next to each other, or the same line). Finishing a conflict by hand. A rejected push and `git pull --no-rebase`. Pull requests from forks, one that conflicts, and a review. Then practice for the week 16 presentation.
+**Topic:** Team git on a plain text file. When git merges two changes by itself (an unchanged line between them) and when it stops (lines next to each other, or the same line). Finishing a conflict by hand. A rejected push and `git pull --no-rebase`. Then practice for the week 16 presentation; pull requests, one that conflicts, and a review are Task 4, in each student's own repo.
 **Session length:** 3h 45m
 
-> **There is no C# tonight, and nothing is graded or collected.** The file is KDXR's `running-order.txt`, one song per line. The instructor works on a practice repo of their own, `running-order`, made with the room in Lab A; students make theirs the same way, **beside** their coursework repo. **The starters repo ships nothing this week.** In class the room also works on one shared public repo, `jgrissom/kdxr-tonight`, by forks. **This is the droppable week: week 16 must not depend on anything here.**
+> **There is no C# tonight, and nothing is graded or collected.** The file is KDXR's `running-order.txt`, one song per line. The instructor works on a practice repo of their own, `running-order`, made with the room in Lab A; students make theirs the same way, **beside** their coursework repo. **The starters repo ships nothing this week.** **This is the droppable week: week 16 must not depend on anything here.**
 
 ## 🎯 The payoff moment — the demo's
 
-**Lab E's last pull request.** Every pull request in the room has merged, most of them *behind* and every one clean, because every slot has an unchanged station ID line under it. Then the second slot-20 pull request won't merge. The room says why (both volunteers changed slot 20). The instructor fetches it by its number, finishes the conflict on the projector with the room voting on the last song of the night, pushes, refreshes, and GitHub says **Merged** without its merge button ever being pressed. The line to land:
+**§3's prediction, and what *Accept Both* does.** The room has just watched lines 2 and 4 merge by themselves. Lines 7 and 8 are different lines too, so most of the room predicts git will merge the nurse's branch by itself, and it stops. Then *Accept Both Changes*, the button that sounds right, turns eight songs into ten. The line to land:
 
-> *"Its commits are in main now, so GitHub counts it as merged."*
+> *"So different lines is not enough. There has to be an unchanged line between them."*
 
 ## 🎯 The payoff moment — the lab's
 
 **Task 2's conflict on two different lines.** Students have just watched lines 1 and 3 merge by themselves in Task 1. Lines 5 and 6 are different lines too, and git stops. Then the file shows each side holding **both** lines of the region, and "keep both" turns eight songs into ten. **That is the moment the rule stops being "different lines merge" and becomes "an unchanged line between them".**
 
-⚠️ **The one to protect is §3's prediction.** Ask *"will git merge the nurse's branch by itself?"* and wait for answers before running the merge. Most of the room will say yes, because §2 just did.
+⚠️ **Protect §3's prediction in both.** Ask *"will git merge the nurse's branch by itself?"* and wait for answers before running the merge. Most of the room will say yes, because §2 just did.
 
 ## Learning objectives
 
@@ -25,26 +25,24 @@ By the end of this session, students can:
 2. Read a conflict: which part is `HEAD`, which part is coming in, and what each part holds.
 3. Finish a conflict by hand, and say why "keep both" is usually wrong when both sides changed something.
 4. Recover from a rejected push with `git pull --no-rebase`, a hand-finished conflict, and a second push.
-5. Fork a repo, change it on a branch, and open a pull request into the original.
-6. Fix a pull request that conflicts, by merging `main` into its branch.
-7. Review a pull request of their own with comments, and answer each comment with a commit.
+5. Fix a pull request that conflicts, by merging `main` into its branch *(Task 4, in their own repo)*.
+6. Review a pull request of their own with comments, and answer each comment with a commit *(Task 4)*.
 
 ## Materials
 
-- `slides.md` / `slides.html` — the deck, seven slides
+- `slides.md` / `slides.html` — the deck, six slides
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-15/demo/script.html))
 - **The instructor demo repo**, `dotnet-db-coursework` — only as the place the terminal starts. Nothing is copied into it tonight
-- ⚠️ **`jgrissom/kdxr-tonight`, public, with twenty open slots** — §0 has the file
-- ⚠️ **A clone of `kdxr-tonight` beside the demo repo** — opened in a window of its own only in Lab E
 - **Signed in to GitHub in the projected browser**
-- **Browser tabs on the lab README** (`week-15/lab/README.md` on GitHub) **and on `kdxr-tonight`'s Pull requests tab**
+- **A browser tab on the lab README** (`week-15/lab/README.md` on GitHub)
 
-## The night: chunked, then the shared repo, then practice
+## The night: chunked, then practice
 
 The first two hours are chunked like weeks 8 to 14: each demo segment is followed by the lab task that practices it. **The instructor shows each case on their own `running-order` with one pair of callers; students do it on theirs with a different pair and different lines**, so the lab is the same move rather than a copy.
 
-- **Lab E is the shared running order.** Students fork `kdxr-tonight` and open a pull request from their fork; the instructor merges on the projector, reviews one line of one pull request, and finishes the one conflict. **Task 4 in the lab is the same session in a student's own repo**, for anyone working alone.
-- **Lab F is practice for week 16**, on the students' own projects, with the three steps on slide 6.
+- **Lab E is practice for week 16**, on the students' own projects, with the three steps on slide 5. The second break falls in the middle of it.
+- **Task 4 (pull requests, one that conflicts, and a review) has no demo segment and no lab block.** It's written to be done alone, at home or by anyone who finishes the practice early.
+- **A shared repo the whole room sent pull requests to was cut on 2026-11-27**: the student side (forks) could not be rehearsed alone, and in a small class it was mostly the special cases. Its time went to the practice.
 - **Every lab block ends at an "In class, stop here" note** in the README.
 
 ## Timed agenda
@@ -60,23 +58,19 @@ The first two hours are chunked like weeks 8 to 14: each demo segment is followe
 | 1:09 | 10 min | **☕ Break** |
 | 1:19 | 10 min | **GitHub against your laptop** *(slide 4, demo §4)*. Line 3 on GitHub and on the laptop, a rejected push, `git pull --no-rebase`, by hand, push. |
 | 1:29 | 15 min | **Lab D: Task 3** — line 8. |
-| 1:44 | 8 min | **The shared running order** *(slide 5, demo §5)*. `kdxr-tonight`, forks, slots counted off, two volunteers on slot 20. |
-| 1:52 | 30 min | 🎯 **Lab E: the shared running order.** Forks and pull requests; every merge on the projector; one review; the slot-20 conflict finished in front of everybody. |
-| 2:22 | 10 min | **☕ Break** |
-| 2:32 | 3 min | **Practice for week 16** *(slide 6, demo §6)*. |
-| 2:35 | 65 min | **Lab F: practice for week 16** — run it, give it out loud to a partner, fix the one thing. |
-| 3:40 | 5 min | **Wrap-up** *(slide 7, demo §7)*. Nothing graded, Task 4 for home, the branch line, week 16. |
+| 1:44 | 3 min | **Practice for week 16** *(slide 5, demo §5)*. |
+| 1:47 | 50 min | **Lab E: practice for week 16** — run it, give it out loud to a partner, fix the one thing. |
+| 2:37 | 10 min | **☕ Break** |
+| 2:47 | 53 min | **Lab E, continued** — the same three steps; a second run-through with a different partner, or Task 4. |
+| 3:40 | 5 min | **Wrap-up** *(slide 6, demo §6)*. Nothing graded, Task 4 for home, the branch line, week 16. |
 
 > [!NOTE]
-> **The table sums to exactly 225 minutes: 53 of demo in seven segments, 87 of lab in five blocks (Lab E with the instructor merging on the projector), 65 of practice, and two breaks.** If the night runs long, take it from Lab F. **Do not take it from Lab E**: it's the one thing a student can't do alone at home.
+> **The table sums to exactly 225 minutes: 45 of demo in six segments, 57 of lab in four blocks, 103 of practice for week 16, and two breaks.** If the night runs long, take it from the practice.
 
 ## Instructor notes
 
 - ⚠️ **Every merge in the sheet is `git merge --no-edit`, and every pull is `git pull --no-rebase`.** Without `--no-edit`, a merge run in a terminal opens an editor for its message and waits. Without `--no-rebase`, `git pull` on diverged branches refuses on any machine with no pull setting, and a stock Mac has none.
 - ⚠️ **§3's *Accept Both Changes* is on purpose, and it is undone right away** with <kbd>⌘Z</kbd> / <kbd>Ctrl+Z</kbd>. Look at the ten songs before you undo.
-- ⚠️ **Lab E: leave the second slot-20 pull request until last.** Merge the first one as soon as it arrives. If two other students pick the same slot by mistake, that's a second conflict, and it's the same fix.
-- **Lab E's review beat needs one student to answer from their fork.** Pick someone whose pull request arrived early, so the answer has time to arrive.
-- **The instructor's local fix for the slot-20 conflict works because GitHub keeps every pull request's commits at `pull/<number>/head`.** The number in the sheet is an example; read yours off the pull request.
 - **The students' practice repos are theirs to keep or delete.** Nothing is submitted.
 - **There is no debugger tonight, and no checks.** The evidence is the file and `git log --graph --oneline`.
 
@@ -88,6 +82,4 @@ The first two hours are chunked like weeks 8 to 14: each demo segment is followe
 | An editor full of `~` lines opens after a merge | A merge without `--no-edit`. `:q` and <kbd>Enter</kbd> |
 | `fatal: Need to specify how to reconcile divergent branches.` | Plain `git pull`. `git pull --no-rebase` |
 | Someone commits a file with `<<<<<<<` still in it | Git doesn't check. Delete the markers, save, `git add`, commit again |
-| A shared pull request changes a station ID line, or several slots | Comment on it, ask for a fixing commit, or close it and ask for a new one. Merging it can make the next ones conflict |
-| GitHub or the network is slow | Anyone who can't fork does Task 3 again or Task 4. Show the conflict on your own `running-order`: two branches, line 1 on both. Branches, merges and conflicts need no network; only clone, push and pull do |
-| Fewer than two volunteers for slot 20 | Make the second slot-20 change yourself: in `kdxr-tonight` on GitHub, the pencil on `running-order.txt`, change slot 20, **Create a new branch for this commit and start a pull request**, **Propose changes**, **Create pull request**. Merge the volunteer's first and yours last |
+| GitHub or the network is slow | Branches, merges and conflicts need no network; only clone, push and pull do. Tasks 1 and 2 can finish without it, and the pushes can wait |

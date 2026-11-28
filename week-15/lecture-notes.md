@@ -172,15 +172,7 @@ There are two ways to fix one, and both are the conflict you already know how to
 git pull --no-rebase origin main
 ```
 
-**The person merging** fetches the pull request's commits by its number, merges them into `main` locally, finishes the conflict, and pushes `main`. GitHub sees the pull request's commits in `main` and marks it **Merged** by itself:
-
-```bash
-git fetch origin pull/2/head:closer-two
-```
-
-```bash
-git merge --no-edit closer-two
-```
+**The person merging** fetches the pull request's commits by its number, merges them into `main` locally, finishes the conflict, and pushes `main`. GitHub sees the pull request's commits in `main` and marks it **Merged** by itself. For pull request #2, `git fetch origin pull/2/head:pr-2` copies its commits into a branch called `pr-2`, and `git merge --no-edit pr-2` merges that branch into `main`.
 
 GitHub keeps every pull request's commits at `pull/<number>/head`, even when they come from someone's fork. That's why the second way works on a pull request from a fork too: the person merging fetches its commits by the number, wherever they came from.
 

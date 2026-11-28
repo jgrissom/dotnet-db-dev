@@ -13,7 +13,6 @@ There is no C# tonight. The file is plain text on purpose: git compares files **
 > **Shaky on the git basics?** Your instructor's [Git Tutorial](https://github.com/jgrissom/GitTutorial) walks through the commands, branches, pushing, cloning and pulling on one small text file. Tonight starts where it stops.
 
 > [!NOTE]
-> **In class, the whole room also works on one shared running order**, in [*In class: the shared running order*](#in-class-the-shared-running-order). Working alone? [Task 4](#task-4-in-full) does the same thing in your own repo.
 
 ## Setup
 
@@ -726,40 +725,11 @@ git log --graph --oneline
 `the radio edit` is the commit you made on GitHub, with the message you typed there.
 
 > [!NOTE]
-> **In class, stop here.** Next is the shared running order, with the whole room: [*In class: the shared running order*](#in-class-the-shared-running-order). Finished early? On GitHub, click **Commits** on your repo and find `the radio edit`, the commit you made in the browser. Working at home? Skip that section and go straight to [Task 4](#task-4-in-full).
-
-## In class: the shared running order
-
-Your instructor's public repo, [`jgrissom/kdxr-tonight`](https://github.com/jgrissom/kdxr-tonight), holds one `running-order.txt` with twenty numbered slots. **Your instructor gives you a slot number, or a few in a small class. Make one pull request per slot.** Each slot is a line of its own, with an unchanged `-- station ID --` line under it, so every slot can be merged with every other one.
-
-You can't push to your instructor's repo, so you **fork** it: GitHub makes a copy of it that belongs to you. Your change goes on a branch of your fork, and a pull request asks your instructor to take it. ([Forks](../lecture-notes.md#forks).)
-
-<!-- UNVERIFIED (needs a second GitHub account): steps 1–4 and 6 are the student side of a fork, written from GitHub's current pages but not walked from a non-owner account. -->
-
-**1. Fork it.** Open [`jgrissom/kdxr-tonight`](https://github.com/jgrissom/kdxr-tonight), click **Fork** (top right), then **Create fork**. You land on `YOUR-NAME/kdxr-tonight`.
-
-**2. Change your slot, on GitHub.** On your fork, click `running-order.txt`, then the **pencil**. Find your slot's line, for example `07  (open)`, and replace `(open)` with a song. Keep the number and the two spaces. **Change nothing else**, and leave every `-- station ID --` line alone:
-
-```text
-07  Interstate Blue - The Ferrymen
-```
-
-**3. Commit it to a new branch.** Click **Commit changes…**, choose **Create a new branch for this commit and start a pull request**, name the branch `slot-07` (your number), and click **Propose changes**.
-
-**4. Open the pull request.** Check the line at the top: **base repository: `jgrissom/kdxr-tonight`**, **base: `main`**, and on the right your fork and `slot-07`. Click **Create pull request**.
-
-**More than one slot?** Do steps 2 to 4 again for each one, with a branch named for that slot. Start each one from `main`: on your fork's page, the branch menu above the file list should say `main` before you click `running-order.txt`.
-
-**5. Watch the projector.** Your instructor merges the pull requests in the order they arrive. Most of them are *behind* by the time they're merged, because others went in first, and they merge anyway: the slots have unchanged lines between them. **The two that both changed slot 20 don't.**
-
-**6. Get everyone's songs into your fork.** After the merges, on your fork's page, click **Sync fork**, then **Update branch**. Open `running-order.txt`: the whole room's running order.
-
-> [!NOTE]
-> **In class, stop here.** After the break, the rest of the night is practice for week 16: [*In class: practice for week 16*](#in-class-practice-for-week-16). Finished early? Start [Task 4](#task-4-in-full) in your own repo, which is the same session on your own. Working at home? Task 4 is next.
+> **In class, stop here.** Next is practice for week 16: [*In class: practice for week 16*](#in-class-practice-for-week-16). Finished early? On GitHub, click **Commits** on your repo and find `the radio edit`, the commit you made in the browser. Working at home? Go straight to [Task 4](#task-4-in-full).
 
 ### Task 4 in full
 
-**Two pull requests on the same line, in your own repo, and a review before you merge.** This is the shared running order on your own: two branches change line 2, one pull request merges, and the other conflicts.
+**Two pull requests on the same line, in your own repo, and a review before you merge.** Two branches change line 2, one pull request merges, and the other conflicts.
 
 **1. The first branch. The producer gives line 2 to Pham's Bakery, who want something loud:**
 
@@ -912,6 +882,7 @@ Do these after Task 4. Each one changes `main`, and the tasks need the file exac
 - **Read the conflict in VS Code's Source Control view.** Start a conflicting merge and open the Source Control view: the file is listed under **Merge Changes**, and clicking it opens the same markers.
 - **Make the same conflict twice, from opposite sides.** Merge `bex` into `pham` instead of `pham` into `main`. Which side is `HEAD` now?
 - **Read the [notes on why lines next to each other conflict](../lecture-notes.md#why-lines-next-to-each-other-conflict).**
+- **Read about [forks](../lecture-notes.md#forks)**: how you send a pull request to a repo you can't push to.
 
 ## 🆘 Stuck?
 

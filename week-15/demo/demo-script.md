@@ -1,14 +1,14 @@
 # Week 15 Demo — The Running Order 📻
 
-**KDXR 88.1 · the overnight desk · one file, two people, and the room**
+**KDXR 88.1 · the overnight desk · one file, two people**
 
-Tonight there is no C#. The running order is a plain text file, one song per line, and two people at the desk change it at once: the DJ and the producer, each taking calls on a phone line of their own. Callers ask for songs; the desk decides where they go. You show three cases on your own practice repo, and the students do each one on theirs: changes with a line between them merge by themselves, changes on lines next to each other conflict, and a change on GitHub fights a change on your laptop. Then the whole room sends pull requests to one shared file, and you finish its conflict on the projector. The second half of the night is practice for week 16.
+Tonight there is no C#. The running order is a plain text file, one song per line, and two people at the desk change it at once: the DJ and the producer, each taking calls on a phone line of their own. Callers ask for songs; the desk decides where they go. You show three cases on your own practice repo, and the students do each one on theirs: changes with a line between them merge by themselves, changes on lines next to each other conflict, and a change on GitHub fights a change on your laptop. The second half of the night is practice for week 16.
 
-> **The shape of the night:** lines apart → lines next to each other → GitHub against your laptop → the shared running order → practice for week 16. **Each demo segment is followed by the lab block that practices it.**
+> **The shape of the night:** lines apart → lines next to each other → GitHub against your laptop → practice for week 16. **Each demo segment is followed by the lab block that practices it.**
 >
-> **Two repos tonight, both yours:** your own practice repo **`running-order`** (`jgrissom/running-order`, made with the room in Lab A) for §2 to §4, and the shared **`kdxr-tonight`** (`jgrissom/kdxr-tonight`, made in §0) for §5 and Lab E. Each has its own VS Code window. Your demo repo, `dotnet-db-coursework`, is only where Lab A's clone starts.
+> **One repo tonight, yours:** your own practice repo **`running-order`** (`jgrissom/running-order`, made with the room in Lab A) for §2 to §4, in a VS Code window of its own. Your demo repo, `dotnet-db-coursework`, is only where Lab A's clone starts.
 
-**Total: ~53 minutes of demo, in seven short segments.** The lesson plan's timing table has the minutes.
+**Total: ~45 minutes of demo, in six short segments.** The lesson plan's timing table has the minutes.
 
 ---
 
@@ -18,82 +18,14 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 > **Rehearsing?** Afterwards, put everything back so class starts clean:
 >
 > - **Delete your rehearsal `running-order` repo on GitHub:** its page → **Settings** → at the bottom, **Delete this repository**. Then delete the `running-order` folder beside your demo repo
-> - **Put `kdxr-tonight` back to twenty open slots:** on GitHub, open `running-order.txt`, click the pencil, select everything, paste the block from the step below over it, and **Commit changes** to `main`. Close any rehearsal pull requests on its **Pull requests** tab
-> - **Then pull your local clone of it** — the step below says how
 
-- [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-15/demo/script.html) and confirm the top line says *one file, two people, and the room*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
-- [ ] ⚠️ **The shared repo `jgrissom/kdxr-tonight` exists, is public, and has twenty open slots.** If it doesn't exist yet: on GitHub, **+** → **New repository**, name `kdxr-tonight`, **Public**, tick **Add a README file**, **Create repository**. Then **Add file → Create new file**, name it `running-order.txt`, paste this, and **Commit changes** to `main`:
-
-  ```text
-  KDXR 88.1 - The Owl - the overnight running order
-
-  01  (open)
-      -- station ID --
-  02  (open)
-      -- station ID --
-  03  (open)
-      -- station ID --
-  04  (open)
-      -- station ID --
-  05  (open)
-      -- station ID --
-  06  (open)
-      -- station ID --
-  07  (open)
-      -- station ID --
-  08  (open)
-      -- station ID --
-  09  (open)
-      -- station ID --
-  10  (open)
-      -- station ID --
-  11  (open)
-      -- station ID --
-  12  (open)
-      -- station ID --
-  13  (open)
-      -- station ID --
-  14  (open)
-      -- station ID --
-  15  (open)
-      -- station ID --
-  16  (open)
-      -- station ID --
-  17  (open)
-      -- station ID --
-  18  (open)
-      -- station ID --
-  19  (open)
-      -- station ID --
-  20  (open)
-      -- sign-off --
-  ```
-
-  Every slot has an unchanged line under it. That's what lets any two students' slots merge with each other
-- [ ] ⚠️ **A clone of `kdxr-tonight` beside your demo repo.** You finish the room's conflict in it in Lab E, and nothing before that uses it. From the terminal of `dotnet-db-coursework`, step out:
-
-  ```bash
-  cd ..
-  ```
-
-  ```bash
-  git clone https://github.com/jgrissom/kdxr-tonight.git
-  ```
-
-  Already cloned it? From its own terminal, bring it up to date instead:
-
-  ```bash
-  git pull --no-rebase
-  ```
-
-  No window needed for it until Lab E
+- [ ] **Check the published sheet is current.** Open [the hosted cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-15/demo/script.html) and confirm the top line says *one file, two people*. If it doesn't, the Pages deploy is behind — **the markdown is the truth**; you lose checkboxes and Copy buttons, nothing else
 - [ ] ⚠️ **No `running-order` repo on your GitHub, and no `running-order` folder beside your demo repo.** You make both with the room in Lab A
-- [ ] **Signed in to GitHub in the browser you project**, so making a repo and merging pull requests needs no sign-in in front of the room
+- [ ] **Signed in to GitHub in the browser you project**, so making a repo and editing a file on GitHub needs no sign-in in front of the room
 - [ ] **VS Code open on the demo repo's top** — `dotnet-db-coursework`
 - [ ] 💡 **What *Highlight* means in this sheet:** select what you are talking about, so the back row can see which part you mean. A word: double-click it. A whole line: click its line number in the left margin. **In the terminal**, drag across the words
 - [ ] 💡 **How to replace a line tonight:** click at the end of the line, press <kbd>⇧⌘←</kbd> / <kbd>Shift+Home</kbd> to select back to its start, and paste the new line over it. Clicking the line number would select the line break too, and the paste would join two lines
 - [ ] **A browser tab on the lab README** (`week-15/lab/README.md` on GitHub). It is the projector screen for every lab block tonight
-- [ ] **A second browser tab on `jgrissom/kdxr-tonight`'s Pull requests tab**, for Lab E
 - [ ] **Lids down for the demo** — *"Tonight comes in pieces. Lids down while I work, lids up for each lab block in between."*
 
 ---
@@ -101,7 +33,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 ## 1 · One file, two people
 
 - [ ] **Slide 1 is already up as the room settles.** It names tonight's theme. Read it to them in one go, then the line below
-- [ ] 📖 **Read the slide:** *"Tonight is about two people changing the same file. Git puts their two changes together by itself most of the time. Tonight we find out when it can't, and how you finish the job by hand. Then the whole room sends changes to one file of mine, and the second half of the night is practice for week sixteen."*
+- [ ] 📖 **Read the slide:** *"Tonight is about two people changing the same file. Git puts their two changes together by itself most of the time. Tonight we find out when it can't, and how you finish the job by hand. Then the second half of the night is practice for week sixteen."*
 - [ ] 📖 *"There's no C# tonight. The file is KDXR's running order, one song per line, and it's plain text so you can see exactly what git compares."*
 
 ---
@@ -122,7 +54,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ## 2 · Lines apart
 
-- [ ] 📂 **Repo: your own `running-order`, in its VS Code window.** The one you made with the room in Lab A, not a student's and not `kdxr-tonight`. §2 to §4 all happen here
+- [ ] 📂 **Repo: your own `running-order`, in its VS Code window.** The one you made with the room in Lab A, not a student's. §2 to §4 all happen here
 - [ ] 📖 *"I'm working in my own running-order repo, the one I made with you in setup. Yours has the same eight songs."*
 - [ ] 📖 **Open `running-order.txt` and highlight line 2** (click its line number): *"Two calls come in at once, on the desk's two phone lines. I take Dorothy's. She requests a standard, so I will put it on line 2, in place of Slack Water."*
 - [ ] 📖 **Highlight line 4:** *"The producer takes Ray's call on the other line, and decides to put Ray's requested song on line 4. That's two people changing one file at the same time. Somebody has to get both changes into one running order. I'll play both of us, with a branch each."*
@@ -528,7 +460,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ## 4 · GitHub against your laptop *(slide 4)*
 
-- [ ] 📂 **Repo: still your own `running-order`** — its VS Code window for the laptop side, and its GitHub page, `jgrissom/running-order`, for the browser side. Not `kdxr-tonight`
+- [ ] 📂 **Repo: still your own `running-order`** — its VS Code window for the laptop side, and its GitHub page, `jgrissom/running-order`, for the browser side
 - [ ] 📖 *"Now the other person isn't a branch on my laptop. The music director edits the running order on GitHub, from the office, and I edit the same line here without pulling first."*
 - [ ] **In the browser, on `jgrissom/running-order`: `running-order.txt` → pencil.** Replace **line 3**, `Long Way Round - The Ferrymen`, with this, then **Commit changes…** → leave **Commit directly to the `main` branch** → **Commit changes**:
 
@@ -613,81 +545,18 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ---
 
-## 5 · The shared running order *(slide 5)*
+## 5 · Practice for week 16 *(slide 5)*
 
-- [ ] 📂 **Repo: now the shared `kdxr-tonight`** — its GitHub page, `jgrissom/kdxr-tonight`. You're done with `running-order` for the night
-- [ ] **Show `jgrissom/kdxr-tonight` in the browser, and open `running-order.txt`**
-- [ ] 📖 **Highlight `01  (open)` and the `-- station ID --` line under it** (one drag; they're next to each other): *"This is my repo, and it's public. Twenty slots, and every slot has a station ID line under it that nobody changes. That unchanged line is why any two of your slots can merge."*
-- [ ] 🎞️ **GO TO SLIDE 5** — *The shared running order* · *"You can't push to my repo, so you fork it. A fork is a copy that belongs to you. You change your slot on a branch of your fork, and a pull request asks me to take it. I merge every one of them up here, on the projector."*
-- [ ] **Give out the slots.** Count off around the room, from 01. Say each number to its person. **In a small room, give each person two or three slots**, so there are enough pull requests to merge in order
-- [ ] 🎯 **Ask for two volunteers, and give them both slot 20:** *"You two both write the last song of the night."* Say nothing about why
-- [ ] 📖 *"Everyone else: change your own slot and nothing else. Keep the number and the two spaces."*
+- [ ] 🎞️ **GO TO SLIDE 5** — *Practice for week 16* · *"Week sixteen you present your project, in four parts. It runs from start to finish, you show what it does, you explain one decision and why, and you say what's next. The rest of tonight is for practicing exactly that, out loud."*
+- [ ] 📖 *"Three steps, on the slide. Run it the way you'll show it. Give it out loud to the person next to you, who times you and asks one question. Then fix the one thing you noticed."*
 
 ---
 
-## Lab E · The shared running order — 30 minutes
+## Lab E · Practice for week 16 — 50 minutes
 
-- [ ] ⏳ **Not yet walked from a second GitHub account:** the student side of this block (the fork, the pencil on a fork, the pull request from it, an author's answering commit, *Sync fork*). If a button's name differs on the night, say what you see
-- [ ] **Lids up. The lab README, *In class: the shared running order*.** Then switch the projector to the **Pull requests** tab of `kdxr-tonight`, and refresh as they arrive
-- [ ] ⚠️ **Merge the first slot-20 pull request as soon as it arrives. Leave the second slot-20 one until last.** Merge every other one in the order it arrived: **Merge pull request → Confirm merge**
-- [ ] 📖 **After three or four merges, open one that arrived early:** *"Other pull requests went in after this one was opened, so it's behind. It still merges. Its slot has unchanged lines around it."*
-- [ ] **A review, on one pull request before you merge it:** **Files changed** → hover over its line → blue **+** → write *"Is this the radio edit?"* → **Add single comment**. Ask its author to answer with a commit: on their fork, their branch, the pencil, change the line, **Commit directly to** their branch
-- [ ] 📖 **When the author's commit shows up under your comment:** *"That's a review. I asked about a line, and the answer is a commit on the same branch. That commit is part of the pull request now."* Then merge it
-- [ ] 💥 **Last: open the second slot-20 pull request.** GitHub says it has conflicts and won't merge it
-- [ ] 🎯 **Ask, and wait:** *"Every other pull request merged. Why not this one?"* (Both volunteers changed slot 20, and the first one is already in.)
-- [ ] **Finish it on the projector: open `kdxr-tonight` in a VS Code window of its own** — **File → New Window**, then **File → Open Folder…** → `kdxr-tonight`, the clone from §0. Not `running-order`. Open its terminal with `` Ctrl+` `` and bring your clone up to date with every merge:
-
-  ```bash
-  git pull --no-rebase
-  ```
-
-- [ ] **Fetch the pull request's commits by its number.** It's the number after `#` on its page. The command below uses `2`, so **change it to yours** before you run it:
-
-  ```bash
-  git fetch origin pull/2/head:closer-two
-  ```
-
-  ```
-   * [new ref]         refs/pull/2/head -> closer-two
-  ```
-
-- [ ] 📖 *"Every pull request's commits live on GitHub under its number, even when they come from somebody's fork. I've just copied them into a branch of mine called closer-two."*
-- [ ] **Merge it into `main`**. If you changed the number, the branch name is still `closer-two`
-
-  ```bash
-  git merge --no-edit closer-two
-  ```
-
-  ```
-  CONFLICT (content): Merge conflict in running-order.txt
-  ```
-
-- [ ] **Show the bottom of `running-order.txt`.** Your two songs are whatever the volunteers wrote:
-
-  ```
-  <<<<<<< HEAD
-  20  Last Call - The Lamplighters (for Junie)
-  =======
-  20  Goodnight, Dorothy - The Hollis Strings
-  >>>>>>> closer-two
-      -- sign-off --
-  ```
-
-- [ ] 🎯 **Ask the room:** *"One slot, one song. Keep both would give the night two last songs. Which one closes the night?"* Take the vote
-- [ ] **Delete the three marker lines and the song that lost.** Save, commit and push
-
-  ```bash
-  git add running-order.txt
-  git commit -m "the room picked the last song"
-  ```
-
-  ```bash
-  git push
-  ```
-
-- [ ] 📖 **Refresh the pull request in the browser:** *"It says merged, and I never pressed its merge button. Its commits are in main now, so GitHub counts it as merged."*
-- [ ] 📖 *"Now everybody: on your fork, Sync fork, then Update branch. Open the file, and that's the whole room's running order."*
-- [ ] ⚠️ **If GitHub or the network is slow:** whoever can't fork does Task 3 again, or Task 4 in their own repo. Show the conflict the same way on your own `running-order`: two branches, line 1 on both, merged into `main`
+- [ ] **Lids up. The lab README, *In class: practice for week 16*.** Everyone switches to their project repo's window
+- [ ] 🎯 **Circulating: sit in on a pair, and ask the question yourself.** *"What's one thing you decided, and why?"* is the part of week 16 nobody else can write for them
+- [ ] 🎯 **Anything that crashes in step 1** gets fixed before step 2. Week sixteen runs the whole program
 
 ---
 
@@ -695,24 +564,15 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 
 ---
 
-## 6 · Practice for week 16 *(slide 6)*
+## Lab E, continued — 53 minutes
 
-- [ ] 🎞️ **GO TO SLIDE 6** — *Practice for week 16* · *"Week sixteen you present your project, in four parts. It runs from start to finish, you show what it does, you explain one decision and why, and you say what's next. The rest of tonight is for practicing exactly that, out loud."*
-- [ ] 📖 *"Three steps, on the slide. Run it the way you'll show it. Give it out loud to the person next to you, who times you and asks one question. Then fix the one thing you noticed."*
-
----
-
-## Lab F · Practice for week 16 — 65 minutes
-
-- [ ] **Lids up. The lab README, *In class: practice for week 16*.** Everyone switches to their project repo's window
-- [ ] 🎯 **Circulating: sit in on a pair, and ask the question yourself.** *"What's one thing you decided, and why?"* is the part of week 16 nobody else can write for them
-- [ ] 🎯 **Anything that crashes in step 1** gets fixed before step 2. Week sixteen runs the whole program
+- [ ] **Same three steps.** Anyone who has done all three gives it out loud a second time, to a different partner, or works through Task 4 in their practice repo
 - [ ] ⚠️ **Stop at the wrap on the timing table, wherever the room is**
 
 ---
 
-## 7 · Wrap *(slide 7)*
+## 6 · Wrap *(slide 6)*
 
-- [ ] 🎞️ **GO TO SLIDE 7** — *Tonight, in one picture* · *"An unchanged line between two changes, and git merges both. Lines next to each other, or the same line, and you finish it by hand. Delete the three marker lines and keep what you want. A rejected push means pull with no-rebase first."*
-- [ ] 📖 **Say what's left** — *"Nothing tonight is graded. If you didn't get to Task 4, it's the shared running order in your own repo, and you can do it at home. Week sixteen you present."*
+- [ ] 🎞️ **GO TO SLIDE 6** — *Tonight, in one picture* · *"An unchanged line between two changes, and git merges both. Lines next to each other, or the same line, and you finish it by hand. Delete the three marker lines and keep what you want. A rejected push means pull with no-rebase first."*
+- [ ] 📖 **Say what's left** — *"Nothing tonight is graded. If you didn't get to Task 4, it's two pull requests on one line in your own repo, and you can do it at home. Week sixteen you present."*
 - [ ] ⚠️ **Say the branch line out loud** — *"Anything you fix in your project tonight goes on a branch, same as every week, and you merge it with the plain merge button. Nothing goes straight to main."*

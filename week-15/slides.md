@@ -33,7 +33,7 @@ style: |
 
 - when git puts two changes together by itself, and when it stops
 - finishing a conflict by hand
-- the whole room sends pull requests to one file
+- when GitHub has a commit your laptop doesn't
 - **your lab:** the same cases, in a practice repo of your own
 
 .NET Database Development · Week 15 of 16
@@ -89,20 +89,7 @@ the lines on the branch coming in
 
 ---
 
-<!-- _footer: '🖥️ Demo §5 · the shared running order' -->
-
-## The shared running order
-
-**github.com/jgrissom/kdxr-tonight**
-
-1. **Fork** it: a copy that belongs to you
-2. On your fork, change **your slot's line**, and nothing else
-3. **Commit changes…** → a new branch named for your slot, like `slot-07`
-4. **Create pull request**, into `jgrissom/kdxr-tonight`
-
----
-
-<!-- _footer: '🖥️ Demo §6 · practice for week 16' -->
+<!-- _footer: '🖥️ Demo §5 · practice for week 16' -->
 
 ## Practice for week 16
 
@@ -114,7 +101,7 @@ the lines on the branch coming in
 
 ---
 
-<!-- _footer: '🖥️ Demo §7 · wrap' -->
+<!-- _footer: '🖥️ Demo §6 · wrap' -->
 
 ## Tonight, in one picture
 
