@@ -624,7 +624,13 @@ git push
 Last Call - The Lamplighters (radio edit)
 ```
 
-- click **Commit changes…**, leave **Commit directly to the `main` branch** chosen, and click **Commit changes**
+- click **Commit changes…**. In the **Commit message** box, select what's there and replace it with this:
+
+```text
+the radio edit
+```
+
+- leave **Commit directly to the `main` branch** chosen, and click **Commit changes**
 
 GitHub's `main` now has a commit your laptop doesn't.
 
@@ -712,15 +718,15 @@ git log --graph --oneline
 ```
 *   f968122 ray keeps the last slot
 |\  
-| * 4299b32 Update running-order.txt
+| * 4299b32 the radio edit
 * | 035f021 ray's request
 |/  
 ```
 
-`Update running-order.txt` is the commit you made on GitHub. That's GitHub's message when you don't write one.
+`the radio edit` is the commit you made on GitHub, with the message you typed there.
 
 > [!NOTE]
-> **In class, stop here.** Next is the shared running order, with the whole room: [*In class: the shared running order*](#in-class-the-shared-running-order). Finished early? On GitHub, click **Commits** on your repo and find `Update running-order.txt`, the commit you made in the browser. Working at home? Skip that section and go straight to [Task 4](#task-4-in-full).
+> **In class, stop here.** Next is the shared running order, with the whole room: [*In class: the shared running order*](#in-class-the-shared-running-order). Finished early? On GitHub, click **Commits** on your repo and find `the radio edit`, the commit you made in the browser. Working at home? Skip that section and go straight to [Task 4](#task-4-in-full).
 
 ## In class: the shared running order
 
