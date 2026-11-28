@@ -595,7 +595,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
   git push -u origin teodoro
   ```
 
-- [ ] **On GitHub, open both pull requests:** **Pull requests → New pull request**, **base: `main`**, **compare: `bex`**, **Create pull request** twice. Then the same for **`teodoro`**
+- [ ] **On GitHub, open both pull requests, and merge neither yet:** **Pull requests → New pull request**, **base: `main`**, **compare: `bex`**, then **Create pull request** (it opens the form) and **Create pull request** again (it opens the pull request). Then the same for **`teodoro`**
 - [ ] 📖 **Show the two pull requests:** *"Both say they can merge. Each branch, on its own, changes one line of the file it started from."*
 - [ ] **Merge Bex's:** **Merge pull request → Confirm merge**
 - [ ] 💥 **Open Teodoro's pull request again**
