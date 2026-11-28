@@ -37,7 +37,7 @@ You meet the problem in **week 3** — add three records, quit, run it again, th
 | 13 | Exceptions and defensive code — the file is missing, the row is gone, the input lies | Every crash you've had since week 1, reproduced on purpose and handled | [`week-⁠13/`](week-13/) | ✅&nbsp;Ready |
 | 14 | Schema evolution: additive migrations against live data. Polish and catch-up | Add a column to a table that already has rows, and keep every one of them | [`week-⁠14/`](week-14/) | ✅&nbsp;Ready |
 | 15 | ⚡ **Flex week** — team git on a plain text file: when two changes merge by themselves, conflicts finished by hand, a rejected push, and a pull request that conflicts. In class, on a practice repo of your own, **ungraded**. *In a 15-week semester, this is the week that gets dropped* | Two changes on two different lines, and git stops anyway, then *Accept Both* turns eight songs into ten | [`week-⁠15/`](week-15/) | ✅&nbsp;Ready |
-| 16 | Final project presentations *(individual)* | Somebody's project is playable | `week-⁠16/` | 🚧&nbsp;Planned |
+| 16 | Final project presentations *(individual)* — each student runs their semester project live, shows it, explains one decision, and says what's next. **40 points.** *The last class of the term* | Each project, running live on its owner's laptop, from the topic they picked in week 4 to its own database | [`week-⁠16/`](week-16/) | ✅&nbsp;Ready |
 
 > [!IMPORTANT]
 > **The semester project starts in week 4**, on a topic *you* choose, and every week after that extends *that same program*: it grows behavior (5), interfaces (6), tests (7), a save file (8), queries (9), a database (10), full CRUD (11), a second related table (12), and defenses (13). Week 16 presents it.

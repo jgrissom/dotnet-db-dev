@@ -27,4 +27,4 @@ Team git, on a plain text file. **There is no C# this week, nothing is graded, a
 - ⚠️ **Signed in to GitHub in the browser you project**
 - 💡 **A browser tab on the lab README**
 
-**Prev:** [Week 14 — The Old Carts](../week-14/) · **Next:** Week 16 *(coming)*
+**Prev:** [Week 14 — The Old Carts](../week-14/) · **Next:** [Week 16 — Presentations](../week-16/)

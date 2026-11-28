@@ -102,6 +102,13 @@ const DELIBERATE = {
     'dotnet run (lab)':       "no C# to run",
     'dotnet test (lab)':      "no C#, so no checks to test",
   },
+  // Week 16 is the presentations: no lab, no notes, no homework, no checks. Built 2026-11-28.
+  '16': {
+    'notes links (lab)':      "no lab: the night is the presentations",
+    'links inside 🆘':        "no lab and no notes, so no 🆘 section",
+    'CLI fallback (lab)':     "no lab, so nothing to commit and nothing to fall back from",
+    'bold in-full links':     "no lab, so no tasks",
+  },
 }
 
 const read = f => { try { return fs.readFileSync(f, 'utf8') } catch { return null } }
