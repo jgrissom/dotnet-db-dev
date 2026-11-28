@@ -792,7 +792,7 @@ git push -u origin quiet
 
 **5. Look at `quiet`'s pull request again.** It conflicts now. `main` has Pham's line 2, and `quiet` changes the same line from the file before it. GitHub can't merge it, and won't until the branch is fixed. ([A pull request that conflicts](../lecture-notes.md#a-pull-request-that-conflicts).)
 
-**6. Review it before you fix it.** GitHub doesn't let you approve your own pull request, so a review of your own is comments, and you answer each one with a commit ([the notes say more](../lecture-notes.md#reviewing-your-own-pull-request)). On `quiet`'s pull request, click **Files changed**, hover over line 2, click the blue **+**, write:
+**6. Review it before you fix it.** GitHub doesn't let you approve your own pull request, so a review of your own is comments, and you answer each one with a commit ([the notes say more](../lecture-notes.md#reviewing-your-own-pull-request)). On `quiet`'s pull request, click **Files changed**. Line 2 shows twice: red is the old line, and green is yours. Hover over the green line 2, `Slack Water - Marguerite Vance (acoustic)`, click the blue **+**, write:
 
 ```text
 Loud just went in on this line. Which one plays at 2 AM?

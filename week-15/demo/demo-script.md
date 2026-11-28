@@ -601,7 +601,7 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
 - [ ] 💥 **Open Teodoro's pull request again**
 - [ ] 📖 **Highlight GitHub's message that it has conflicts:** *"A minute ago it could merge. Now main has Bex's song on line 5, and Teodoro's branch changes line 5 too. GitHub won't merge it until the branch is fixed."*
 - [ ] 📖 **Before you fix it, review it:** *"I can't approve my own pull request on GitHub. So a review of my own is a comment on a line, and I answer it with a commit."*
-- [ ] **Files changed → hover over line 5 → the blue + → write this → Add single comment:**
+- [ ] **Files changed → hover over the green line 5, `Low Tide Waltz - Marguerite Vance (for Junie)` (not the red one above it) → the blue + → write this → Add single comment:**
 
   ```text
   Bex just got this line. Does Junie's song keep it?
