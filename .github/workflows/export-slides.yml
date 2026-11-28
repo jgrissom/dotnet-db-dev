@@ -154,17 +154,24 @@ jobs:
             echo '<title>.NET Database Dev — Slide Decks</title>'
             echo '<style>body{font-family:system-ui,sans-serif;max-width:40rem;margin:3rem auto;padding:0 1rem;background:#1c2733;color:#e6edf3}a{color:#79c0ff;text-decoration:none;font-size:1.2rem}li{margin:.6rem 0}h1{font-size:1.5rem}</style>'
             echo '</head><body><h1>.NET Database Development — Slide Decks</h1><ul>'
-            for f in week-*/slides.md; do
-              wk="${f%/slides.md}"
+            # A week may have a deck, a cue sheet, or both: week 16 (presentations) has no deck,
+            # and its cue sheet must still publish.
+            for wk in week-*; do
+              [ -f "$wk/slides.md" ] || [ -f "$wk/demo/demo-script.md" ] || continue
               mkdir -p "_site/$wk"
-              cp "${f%.md}.html" "_site/$wk/index.html"
-              extra=""
+              name="${wk/week-0/Week }"
+              if [ -f "$wk/slides.md" ]; then
+                cp "$wk/slides.html" "_site/$wk/index.html"
+                item="<a href=\"$wk/\">$name</a>"
+              else
+                item="$name"
+              fi
               if [ -f "$wk/demo/demo-script.md" ]; then
                 mkdir -p "_site/$wk/demo"
                 checklist "$wk/demo/demo-script.md" "_site/$wk/demo/script.html" "$wk-step" "$wk demo script"
-                extra="$extra · <a href=\"$wk/demo/script.html\">script</a>"
+                item="$item · <a href=\"$wk/demo/script.html\">script</a>"
               fi
-              echo "<li><a href=\"$wk/\">${wk/week-0/Week }</a>$extra</li>"
+              echo "<li>$item</li>"
             done
             echo '</ul><p>Navigate decks with arrow keys · F for fullscreen</p></body></html>'
           } > _site/index.html

@@ -15,7 +15,6 @@
 
 ## Materials
 
-- `slides.md` / `slides.html` — the deck, three slides. **Slide 2 stays up between presenters**: the four parts
 - **Demo cue sheet:** [`demo/demo-script.md`](demo/demo-script.md) ([clickable version](https://jgrissom.github.io/dotnet-db-dev/week-16/demo/script.html))
 - **The grading sheet**, below, printed
 - **A cable or adapter** that connects a laptop to the projector
@@ -25,9 +24,9 @@
 
 | Time | Duration | Segment |
 |------|----------|---------|
-| 0:00 | 5 min | **Opening** *(slide 1, demo §1)*. How the night runs, and the order. |
-| 0:05 | 210 min | **Presentations** *(slide 2, demo §2)*. About ten minutes each, changeover included. |
-| 3:35 | 10 min | **Close** *(slide 3, demo §3)*. Then everyone goes home. |
+| 0:00 | 5 min | **Opening** *(demo §1)*. How the night runs, and the order. |
+| 0:05 | 210 min | **Presentations** *(demo §2)*. About ten minutes each, changeover included. |
+| 3:35 | 10 min | **Close** *(demo §3)*. Then everyone goes home. |
 
 > [!NOTE]
 > **The table sums to 225 minutes, and the presentations row is the most a full room could use**: ten minutes each fills it at about twenty students. **A smaller room finishes early, goes straight to the close, and leaves.** The close happens whenever the last presentation ends, not at 3:35.

@@ -7,7 +7,6 @@ The last night of the course. **Each student presents their semester project, li
 | When | Document | What it is |
 |------|----------|------------|
 | Prep | 🗓️&nbsp;[lesson-⁠plan.md](lesson-plan.md) | The night's running order, and a grading sheet to print |
-| Projected&nbsp;in&nbsp;class | 🎞️&nbsp;[slides.md](slides.md) | The deck, three slides — [**present it live**](https://jgrissom.github.io/dotnet-db-dev/week-16/) (arrow keys, `F` for fullscreen) |
 | In&nbsp;class | 🎨&nbsp;[demo/⁠](demo/) | *Presentations* — the cue sheet for the night; [clickable cue sheet](https://jgrissom.github.io/dotnet-db-dev/week-16/demo/script.html) |
 
 ## What to bring
