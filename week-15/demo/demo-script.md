@@ -557,11 +557,14 @@ Tonight there is no C#. The running order is a plain text file, one song per lin
    ! [rejected]        main -> main (fetch first)
   error: failed to push some refs to 'https://github.com/jgrissom/running-order.git'
   hint: Updates were rejected because the remote contains work that you do not
-  hint: have locally.
+  hint: have locally. This is usually caused by another repository pushing to
+  hint: the same ref. If you want to integrate the remote changes, use
+  hint: 'git pull' before pushing again.
+  hint: See the 'Note about fast-forwards' in 'git push --help' for details.
   ```
 
 - [ ] 📖 **In the terminal, highlight `rejected`:** *"Rejected."*
-- [ ] 📖 **Highlight from `the remote contains work` to `have locally`** (it runs onto the next line, so drag across both): *"GitHub has a commit I don't have, the radio edit. If my push went through, it would throw that commit away, so git won't send it."*
+- [ ] 📖 **Highlight the first `hint:` line, and drag on down to `have locally.` at the start of the second.** The sentence is split across those two lines: *"GitHub has a commit I don't have, the radio edit. If my push went through, it would throw that commit away, so git won't send it."*
 - [ ] 📖 *"The hint says pull. I'm telling pull to merge, with no-rebase. Without that, pull can stop and ask whether to merge or rebase."*
 
   ```bash
